@@ -8,6 +8,13 @@ from pathlib import Path
 
 import yaml
 
+from generate_learning import (
+    calculate_learning_priorities,
+    generate_core_knowledge_view,
+    generate_learning_relations,
+    generate_learning_roadmap_view,
+)
+
 from generate_views import (
     generate_bridge_relations,
     generate_bridge_views,
@@ -48,12 +55,15 @@ def main() -> int:
     thinking_data = load_yaml("08-data/thinking-models.yaml")
     universal_data = load_yaml("08-data/universal-models.yaml")
     problem_data = load_yaml("08-data/problem-templates.yaml")
+    priority_data = load_yaml("08-data/learning-priorities.generated.yaml")
+    roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
     relation_data = load_yaml("08-data/relationships.yaml")
     hierarchy_data = load_yaml("08-data/hierarchy-relationships.generated.yaml")
     bridge_relation_data = load_yaml("08-data/bridge-relationships.generated.yaml")
     core_relation_data = load_yaml("08-data/core-relationships.generated.yaml")
     model_relation_data = load_yaml("08-data/model-relationships.generated.yaml")
     problem_relation_data = load_yaml("08-data/problem-relationships.generated.yaml")
+    learning_relation_data = load_yaml("08-data/learning-relationships.generated.yaml")
     errors: list[str] = []
 
     subdomains = subdomain_data["subdomains"]
@@ -62,6 +72,8 @@ def main() -> int:
     thinking_models = thinking_data["thinking_models"]
     universal_models = universal_data["universal_models"]
     problem_templates = problem_data["problem_templates"]
+    learning_path = roadmap_data["learning_path"]
+    learning_units = roadmap_data["learning_units"]
     scope_nodes = [
         domain_data["root"],
         *domain_data["superdomains"],
@@ -75,6 +87,8 @@ def main() -> int:
         *thinking_models,
         *universal_models,
         *problem_templates,
+        learning_path,
+        *learning_units,
     ]
     node_ids = [node["id"] for node in nodes]
     node_id_set = set(node_ids)
@@ -710,6 +724,231 @@ def main() -> int:
     if not required_pressure_tests <= {problem["id"] for problem in problem_templates}:
         errors.append("missing company, technology, or social-policy pressure test")
 
+    expected_priority_data = calculate_learning_priorities(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    if priority_data != expected_priority_data:
+        errors.append("learning-priorities.generated.yaml is stale; run generate_views.py")
+    priority_entries = priority_data["entries"]
+    expected_asset_ids = {
+        *core_ids,
+        *{model["id"] for model in thinking_models},
+        *{model["id"] for model in universal_models},
+    }
+    ranked_asset_ids = [entry["node_id"] for entry in priority_entries]
+    if len(priority_entries) != 320:
+        errors.append(f"learning ranking must contain 320 assets, got {len(priority_entries)}")
+    if set(ranked_asset_ids) != expected_asset_ids:
+        errors.append("learning ranking candidates do not exactly match core and model assets")
+    if len(ranked_asset_ids) != len(set(ranked_asset_ids)):
+        errors.append("learning ranking contains duplicate assets")
+    if [entry["rank"] for entry in priority_entries] != list(range(1, 321)):
+        errors.append("learning ranks must be contiguous from 1 through 320")
+    expected_type_counts = {
+        50: {"core-node": 28, "thinking-model": 14, "universal-model": 8},
+        100: {"core-node": 60, "thinking-model": 25, "universal-model": 15},
+        300: {"core-node": 237, "thinking-model": 41, "universal-model": 22},
+    }
+    for limit, expected_counts_for_tier in expected_type_counts.items():
+        actual_counts_for_tier = {
+            asset_type: sum(
+                entry["asset_type"] == asset_type for entry in priority_entries[:limit]
+            )
+            for asset_type in expected_counts_for_tier
+        }
+        if actual_counts_for_tier != expected_counts_for_tier:
+            errors.append(
+                f"Top {limit} asset allocation mismatch: {actual_counts_for_tier}"
+            )
+    top50_core_domains = {
+        code
+        for entry in priority_entries[:50]
+        if entry["asset_type"] == "core-node"
+        for code in entry["domains"]
+    }
+    if top50_core_domains != expected_codes:
+        errors.append(
+            f"Top 50 core assets must cover all H2 domains; missing "
+            f"{sorted(expected_codes - top50_core_domains)}"
+        )
+    for entry in priority_entries:
+        component_total = round(sum(entry["score_components"].values()), 2)
+        if component_total != entry["raw_score"]:
+            errors.append(f"{entry['code']}: learning score components do not sum")
+        expected_tier = (
+            "Top50"
+            if entry["rank"] <= 50
+            else "Top100"
+            if entry["rank"] <= 100
+            else "Top300"
+            if entry["rank"] <= 300
+            else "outside-top300"
+        )
+        if entry["tier"] != expected_tier:
+            errors.append(f"{entry['code']}: incorrect learning tier")
+        if not entry["selection_reasons"]:
+            errors.append(f"{entry['code']}: ranking needs selection reasons")
+        if entry["rank"] <= 300 and not entry["selection_basis"]:
+            errors.append(f"{entry['code']}: selected tier needs a selection basis")
+
+    required_learning_path = required_node | set(
+        schema["required_learning_path_fields"]
+    )
+    required_learning_unit = required_node | set(
+        schema["required_learning_unit_fields"]
+    )
+    missing_path_fields = required_learning_path - learning_path.keys()
+    if missing_path_fields:
+        errors.append(
+            f"{learning_path.get('id')}: missing learning path fields "
+            f"{sorted(missing_path_fields)}"
+        )
+    if learning_path.get("primary_type") != "learning-path":
+        errors.append("LP01 primary_type must be learning-path")
+    if learning_path.get("code") != "LP01":
+        errors.append("the individual learning path must use code LP01")
+    for locale in ("zh", "en"):
+        if locale in learning_path.get("labels", {}):
+            key = (
+                locale,
+                normalize_identity_text(learning_path["labels"][locale]),
+            )
+            if key in seen_model_labels:
+                errors.append(
+                    f"duplicate normalized {locale} learning label: "
+                    f"{seen_model_labels[key]} and LP01"
+                )
+            seen_model_labels[key] = "LP01"
+    path_definition_key = normalize_identity_text(learning_path.get("definition", ""))
+    if path_definition_key in seen_model_definitions:
+        errors.append("duplicate normalized learning path definition")
+    seen_model_definitions[path_definition_key] = "LP01"
+
+    learning_unit_ids = {unit["id"] for unit in learning_units}
+    expected_unit_codes = {
+        f"LU{number:02d}" for number in range(1, len(learning_units) + 1)
+    }
+    if len(learning_units) != 8:
+        errors.append(f"learning roadmap must contain eight units, got {len(learning_units)}")
+    if {unit["code"] for unit in learning_units} != expected_unit_codes:
+        errors.append("learning unit codes must be contiguous from LU01")
+    ordered_units = sorted(learning_units, key=lambda item: item["sequence"])
+    if [unit["sequence"] for unit in ordered_units] != list(range(1, 9)):
+        errors.append("learning unit sequences must be contiguous from 1 through 8")
+    if learning_path.get("stage_units") != [unit["id"] for unit in ordered_units]:
+        errors.append("LP01 stage_units must match learning unit sequence")
+    if {cycle.get("tier") for cycle in learning_path.get("tier_cycles", [])} != {
+        "Top50",
+        "Top100",
+        "Top300",
+    }:
+        errors.append("LP01 tier cycles must describe Top50, Top100, and Top300")
+    branch_ids: set[str] = set()
+    problem_codes = {problem["code"] for problem in problem_templates}
+    for branch in learning_path.get("branch_routes", []):
+        if branch.get("id") in branch_ids:
+            errors.append(f"duplicate learning branch ID {branch.get('id')}")
+        branch_ids.add(branch.get("id"))
+        invalid_focus_domains = set(branch.get("focus_domains", [])) - expected_codes
+        invalid_anchor_problems = set(branch.get("anchor_problems", [])) - problem_codes
+        if invalid_focus_domains:
+            errors.append(
+                f"learning branch {branch.get('id')}: invalid domains "
+                f"{sorted(invalid_focus_domains)}"
+            )
+        if invalid_anchor_problems:
+            errors.append(
+                f"learning branch {branch.get('id')}: invalid problems "
+                f"{sorted(invalid_anchor_problems)}"
+            )
+    if len(branch_ids) < 4:
+        errors.append("LP01 needs at least four Top100/300 branch routes")
+
+    top50_ids = {entry["node_id"] for entry in priority_entries[:50]}
+    focused_assets: set[str] = set()
+    problem_ids = {problem["id"] for problem in problem_templates}
+    learning_prereq_graph: dict[str, list[str]] = {
+        unit_id: [] for unit_id in learning_unit_ids
+    }
+    unit_by_id = {unit["id"]: unit for unit in learning_units}
+    for unit in learning_units:
+        missing = required_learning_unit - unit.keys()
+        if missing:
+            errors.append(f"{unit.get('id')}: missing learning fields {sorted(missing)}")
+            continue
+        if unit["primary_type"] != "learning-unit":
+            errors.append(f"{unit['code']}: primary_type must be learning-unit")
+        if set(unit["labels"]) != {"zh", "en"}:
+            errors.append(f"{unit['code']}: labels must contain exactly zh and en")
+        for locale in ("zh", "en"):
+            if locale not in unit["labels"]:
+                continue
+            key = (locale, normalize_identity_text(unit["labels"][locale]))
+            if key in seen_model_labels:
+                errors.append(
+                    f"duplicate normalized {locale} learning label: "
+                    f"{seen_model_labels[key]} and {unit['code']}"
+                )
+            seen_model_labels[key] = unit["code"]
+        definition_key = normalize_identity_text(unit["definition"])
+        if definition_key in seen_model_definitions:
+            errors.append(
+                f"duplicate normalized learning definition: "
+                f"{seen_model_definitions[definition_key]} and {unit['code']}"
+            )
+        seen_model_definitions[definition_key] = unit["code"]
+        unknown_unit_prerequisites = set(unit["prerequisites"]) - learning_unit_ids
+        if unknown_unit_prerequisites:
+            errors.append(
+                f"{unit['code']}: unknown learning prerequisites "
+                f"{sorted(unknown_unit_prerequisites)}"
+            )
+        for prerequisite_id in unit["prerequisites"]:
+            if prerequisite_id in unit_by_id:
+                if unit_by_id[prerequisite_id]["sequence"] >= unit["sequence"]:
+                    errors.append(f"{unit['code']}: prerequisite must be earlier")
+                learning_prereq_graph[prerequisite_id].append(unit["id"])
+        unknown_focus = set(unit["focus_assets"]) - expected_asset_ids
+        if unknown_focus:
+            errors.append(f"{unit['code']}: unknown focus assets {sorted(unknown_focus)}")
+        if len(set(unit["focus_assets"])) < 5:
+            errors.append(f"{unit['code']}: expected at least five focus assets")
+        focused_assets.update(unit["focus_assets"])
+        unknown_practice = set(unit["practice_problems"]) - problem_ids
+        if unknown_practice:
+            errors.append(
+                f"{unit['code']}: unknown practice problems {sorted(unknown_practice)}"
+            )
+        if len(set(unit["practice_problems"])) < 3:
+            errors.append(f"{unit['code']}: expected at least three practice problems")
+        for field in ("learning_outcomes", "exercises", "exit_evidence"):
+            if len(unit[field]) < 3:
+                errors.append(f"{unit['code']}: {field} must contain three items")
+        if not unit["estimated_hours"] or not unit["boundary_notes"]:
+            errors.append(f"{unit['code']}: missing effort or boundary")
+    if focused_assets != top50_ids:
+        errors.append(
+            "learning units must collectively focus exactly the Top 50 assets; "
+            f"missing {sorted(top50_ids - focused_assets)}, "
+            f"extra {sorted(focused_assets - top50_ids)}"
+        )
+
+    learning_state: dict[str, int] = {}
+
+    def visit_learning_unit(unit_id: str) -> None:
+        if learning_state.get(unit_id) == 1:
+            errors.append(f"learning prerequisite cycle through {unit_id}")
+            return
+        if learning_state.get(unit_id) == 2:
+            return
+        learning_state[unit_id] = 1
+        for successor_id in learning_prereq_graph[unit_id]:
+            visit_learning_unit(successor_id)
+        learning_state[unit_id] = 2
+
+    for unit_id in learning_unit_ids:
+        visit_learning_unit(unit_id)
+
     prereq_state: dict[str, int] = {}
 
     def visit_prerequisite(node_id: str) -> None:
@@ -780,6 +1019,7 @@ def main() -> int:
         *core_relation_data["relationships"],
         *model_relation_data["relationships"],
         *problem_relation_data["relationships"],
+        *learning_relation_data["relationships"],
     ]
     for relation in all_relations:
         relation_ids.append(relation["id"])
@@ -906,6 +1146,21 @@ def main() -> int:
     )
     if problem_relation_data != expected_problem_relations:
         errors.append("problem-relationships.generated.yaml is stale; run generate_views.py")
+    core_knowledge_path = ROOT / "06-learning/core-knowledge.generated.md"
+    expected_core_knowledge = generate_core_knowledge_view(expected_priority_data)
+    if core_knowledge_path.read_text(encoding="utf-8") != expected_core_knowledge:
+        errors.append("core-knowledge.generated.md is stale; run generate_views.py")
+    roadmap_path = ROOT / "06-learning/learning-roadmap.generated.md"
+    expected_roadmap = generate_learning_roadmap_view(
+        roadmap_data, expected_priority_data, problem_data
+    )
+    if roadmap_path.read_text(encoding="utf-8") != expected_roadmap:
+        errors.append("learning-roadmap.generated.md is stale; run generate_views.py")
+    expected_learning_relations = generate_learning_relations(
+        roadmap_data, expected_priority_data, problem_data
+    )
+    if learning_relation_data != expected_learning_relations:
+        errors.append("learning-relationships.generated.yaml is stale; run generate_views.py")
 
     if errors:
         print("VALIDATION FAILED")
@@ -920,6 +1175,7 @@ def main() -> int:
         f"{len(thinking_models)} thinking models, "
         f"{len(universal_models)} universal models, "
         f"{len(problem_templates)} problem templates, "
+        f"{len(learning_units)} learning units, "
         f"{len(all_relations)} relations, "
         f"20 H2 domains, {len(subdomains)} H3 subdomains, "
         f"{crosswalk_rows} external crosswalk rows, generated views current, "

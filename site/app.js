@@ -8,6 +8,7 @@ const state = {
   activeSkeleton: "D03",
   activeModelLayer: "thinking",
   activeProblemFamily: "all",
+  activeLearningTier: 50,
   networkNodes: [],
   hoveredDomain: null,
 };
@@ -20,6 +21,7 @@ const copy = {
     navSkeletons: "核心骨架",
     navModels: "思维模型",
     navProblems: "问题映射",
+    navLearning: "学习路线",
     navMethod: "如何使用",
     eyebrow: "一张描述人类如何认识世界的开放图谱",
     heroLine1: "知识不是一棵静止的树，",
@@ -49,6 +51,11 @@ const copy = {
     problemsEyebrow: "Problem → Knowledge",
     problemsTitle: "从现实问题生成知识调用栈",
     problemsIntro: "20 个问题原型把目标、系统边界、领域骨架、两层模型、证据门槛和升级条件连接成可复查工作流。",
+    learningEyebrow: "Top 50 → 100 → 300",
+    learningTitle: "把有限时间投入高杠杆知识",
+    learningIntro: "320 项候选按问题覆盖、前置杠杆、跨域广度、风险与日常价值评分，再以领域和模型配额保证认知多样性。",
+    roadmapEyebrow: "八阶段螺旋路线",
+    roadmapTitle: "用作品和迁移证据完成八阶段共同底座",
     methodEyebrow: "从知道到行动",
     methodTitle: "怎样使用这张知识图谱",
     methodLead: "不从“我该学哪门课”开始，而从“我面对什么问题、需要做到什么”开始。模型帮助你定位对象、补齐前置、组合证据并检查边界。",
@@ -79,6 +86,7 @@ const copy = {
     relationUnit: "条关系",
     modelUnit: "个跨学科模型",
     problemUnit: "个问题原型",
+    learningAssetUnit: "项学习候选",
     coreQuestion: "核心问题",
     boundary: "边界与限制",
     subdomains: "H3 子领域",
@@ -101,6 +109,7 @@ const copy = {
     detailThinking: "思维模型",
     detailUniversal: "通用世界模型",
     detailProblem: "问题—知识模板",
+    detailLearning: "学习路线单元",
     coreIdea: "核心思想",
     sourceDomains: "来源领域",
     mechanismAnchors: "机制锚点",
@@ -124,6 +133,16 @@ const copy = {
     outputs: "最终输出",
     escalationConditions: "升级条件",
     examplePrompts: "示例问题",
+    focusAssets: "重点知识",
+    practiceProblems: "练习问题",
+    learningOutcomes: "学习成果",
+    exercises: "练习",
+    exitEvidence: "验收证据",
+    estimatedHours: "预计投入",
+    coreAsset: "领域骨架",
+    thinkingAsset: "思维模型",
+    universalAsset: "通用模型",
+    rankingMethod: "组合规则",
   },
   en: {
     brandTagline: "A map of how humanity knows",
@@ -132,6 +151,7 @@ const copy = {
     navSkeletons: "Core skeletons",
     navModels: "Thinking models",
     navProblems: "Problem maps",
+    navLearning: "Learning path",
     navMethod: "How to use",
     eyebrow: "An open graph of how humanity understands the world",
     heroLine1: "Knowledge is not a static tree,",
@@ -161,6 +181,11 @@ const copy = {
     problemsEyebrow: "Problem → Knowledge",
     problemsTitle: "Generate a knowledge stack from a real problem",
     problemsIntro: "Twenty archetypes connect goals and scope to domain skeletons, both model layers, evidence gates, escalation conditions and an auditable workflow.",
+    learningEyebrow: "Top 50 → 100 → 300",
+    learningTitle: "Invest limited time in high-leverage knowledge",
+    learningIntro: "The 320 candidates are scored for problem coverage, prerequisite leverage, cross-domain reach, risk and everyday value, then balanced with domain and model quotas.",
+    roadmapEyebrow: "Eight-stage spiral",
+    roadmapTitle: "Build the common foundation through artifacts and transfer evidence",
     methodEyebrow: "From knowing to acting",
     methodTitle: "How to use this knowledge graph",
     methodLead: "Start not with “which course should I take?” but with “what problem am I facing and what must I achieve?” The model helps locate objects, restore prerequisites, combine evidence and test boundaries.",
@@ -191,6 +216,7 @@ const copy = {
     relationUnit: "relations",
     modelUnit: "cross-domain models",
     problemUnit: "problem templates",
+    learningAssetUnit: "learning candidates",
     coreQuestion: "Core questions",
     boundary: "Boundaries and limits",
     subdomains: "H3 subdomains",
@@ -213,6 +239,7 @@ const copy = {
     detailThinking: "Thinking model",
     detailUniversal: "Universal model",
     detailProblem: "Problem–knowledge template",
+    detailLearning: "Learning roadmap unit",
     coreIdea: "Core idea",
     sourceDomains: "Source domains",
     mechanismAnchors: "Mechanism anchors",
@@ -236,6 +263,16 @@ const copy = {
     outputs: "Final outputs",
     escalationConditions: "Escalation conditions",
     examplePrompts: "Example prompts",
+    focusAssets: "Focus assets",
+    practiceProblems: "Practice problems",
+    learningOutcomes: "Learning outcomes",
+    exercises: "Exercises",
+    exitEvidence: "Exit evidence",
+    estimatedHours: "Estimated effort",
+    coreAsset: "Domain skeletons",
+    thinkingAsset: "Thinking models",
+    universalAsset: "Universal models",
+    rankingMethod: "Portfolio rule",
   },
 };
 
@@ -275,6 +312,8 @@ function indexes() {
     thinkingById: new Map(model.thinkingModels.map((item) => [item.id, item])),
     universalById: new Map(model.universalModels.map((item) => [item.id, item])),
     problemById: new Map(model.problemTemplates.map((item) => [item.id, item])),
+    learningById: new Map(model.learningUnits.map((item) => [item.id, item])),
+    priorityById: new Map(model.learningPriorities.map((item) => [item.node_id, item])),
     modelById: new Map([...model.thinkingModels, ...model.universalModels].map((item) => [item.id, item])),
   };
 }
@@ -321,6 +360,7 @@ function renderHero() {
     [counts.coreNodes, t("coreUnit")],
     [counts.thinkingModels + counts.universalModels, t("modelUnit")],
     [counts.problemTemplates, t("problemUnit")],
+    [counts.learningCandidates, t("learningAssetUnit")],
     [counts.relations, t("relationUnit")],
   ];
   $("#stat-ribbon").innerHTML = stats
@@ -543,6 +583,75 @@ function renderProblems() {
   bindOpenButtons($("#problem-grid"));
 }
 
+function learningAssetKind(assetType) {
+  return {
+    "core-node": "core",
+    "thinking-model": "thinking",
+    "universal-model": "universal",
+  }[assetType];
+}
+
+function learningAssetTypeLabel(assetType) {
+  return {
+    "core-node": t("coreAsset"),
+    "thinking-model": t("thinkingAsset"),
+    "universal-model": t("universalAsset"),
+  }[assetType] || assetType;
+}
+
+function renderLearning() {
+  const tiers = [50, 100, 300];
+  const tabs = $("#learning-tier-tabs");
+  tabs.innerHTML = tiers
+    .map(
+      (tier) => `<button type="button" role="tab" class="learning-tier-tab" data-learning-tier="${tier}" aria-selected="${state.activeLearningTier === tier}"><span>Top ${tier}</span><strong>${tier}</strong></button>`,
+    )
+    .join("");
+  $$('[data-learning-tier]', tabs).forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeLearningTier = Number(button.dataset.learningTier);
+      renderLearning();
+    });
+  });
+
+  const entries = state.model.learningPriorities
+    .filter((entry) => entry.rank <= state.activeLearningTier)
+    .sort((a, b) => a.rank - b.rank);
+  const typeCounts = entries.reduce((result, entry) => {
+    result[entry.asset_type] = (result[entry.asset_type] || 0) + 1;
+    return result;
+  }, {});
+  $("#learning-tier-summary").innerHTML = ["core-node", "thinking-model", "universal-model"]
+    .map((assetType) => `<div><strong>${typeCounts[assetType] || 0}</strong><span>${escapeHTML(learningAssetTypeLabel(assetType))}</span></div>`)
+    .join("");
+
+  $("#learning-ranking").innerHTML = entries
+    .map((entry) => {
+      const kind = learningAssetKind(entry.asset_type);
+      return `<button type="button" class="learning-rank-row" data-open-kind="${kind}" data-open-id="${escapeHTML(entry.node_id)}">
+        <span class="learning-rank">${entry.rank}</span>
+        <span class="learning-rank-label"><small>${escapeHTML(entry.code)} · ${escapeHTML(learningAssetTypeLabel(entry.asset_type))}</small><strong>${escapeHTML(label(entry))}</strong></span>
+        <span class="learning-score">${Number(entry.raw_score).toFixed(1)}</span>
+      </button>`;
+    })
+    .join("");
+  bindOpenButtons($("#learning-ranking"));
+
+  $("#roadmap-grid").innerHTML = state.model.learningUnits
+    .slice()
+    .sort((a, b) => a.sequence - b.sequence)
+    .map(
+      (unit) => `<button type="button" class="roadmap-card" data-open-kind="learning" data-open-id="${escapeHTML(unit.id)}">
+        <span class="roadmap-card-top"><span>${escapeHTML(unit.code)}</span><span>${escapeHTML(unit.estimated_hours)} h</span></span>
+        <strong>${escapeHTML(label(unit))}</strong>
+        <p>${escapeHTML(definition(unit))}</p>
+        <span class="roadmap-card-meta"><span>${unit.focus_assets.length} ${escapeHTML(t("learningAssetUnit"))}</span><span>${unit.practice_problems.length} ${escapeHTML(t("problemUnit"))}</span></span>
+      </button>`,
+    )
+    .join("");
+  bindOpenButtons($("#roadmap-grid"));
+}
+
 function bindOpenButtons(context = document) {
   $$('[data-open-kind]', context).forEach((button) => {
     button.addEventListener("click", () => openDetail(button.dataset.openKind, button.dataset.openId));
@@ -751,6 +860,34 @@ function openDetail(kind, id, updateHash = true) {
     html += detailBlock(t("escalationConditions"), questionList(node.escalation_conditions), "escalation-block");
     html += detailBlock(t("examplePrompts"), questionList(node.example_prompts));
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "learning") {
+    node = idx.learningById.get(id);
+    if (!node) return;
+    color = "#5579a7";
+    kicker = `${t("detailLearning")} · ${node.code}`;
+    const prereqs = node.prerequisites.map((item) => idx.learningById.get(item)).filter(Boolean);
+    const focusAssets = node.focus_assets.map((item) => idx.priorityById.get(item)).filter(Boolean);
+    const practiceProblems = node.practice_problems.map((item) => idx.problemById.get(item)).filter(Boolean);
+    html = detailHeader(node);
+    html += detailBlock(t("estimatedHours"), tagCloud([`${node.estimated_hours} h`, `${node.focus_assets.length} ${t("learningAssetUnit")}`]));
+    html += detailBlock(
+      t("prerequisites"),
+      prereqs.length
+        ? `<div class="detail-list">${prereqs.map((item) => `<button type="button" data-open-kind="learning" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(item.estimated_hours)} h</small></button>`).join("")}</div>`
+        : `<p>${escapeHTML(t("noPrerequisite"))}</p>`,
+    );
+    html += detailBlock(
+      t("focusAssets"),
+      `<div class="detail-list">${focusAssets.map((item) => `<button type="button" data-open-kind="${learningAssetKind(item.asset_type)}" data-open-id="${escapeHTML(item.node_id)}"><strong>#${item.rank} · ${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(learningAssetTypeLabel(item.asset_type))} · ${Number(item.raw_score).toFixed(1)}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(
+      t("practiceProblems"),
+      `<div class="detail-list">${practiceProblems.map((item) => `<button type="button" data-open-kind="problem" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(problemFamilyLabel(item.problem_family))}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("learningOutcomes"), questionList(node.learning_outcomes));
+    html += detailBlock(t("exercises"), questionList(node.exercises));
+    html += detailBlock(t("exitEvidence"), questionList(node.exit_evidence));
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   }
 
   $("#detail-kicker").textContent = kicker;
@@ -792,6 +929,7 @@ function buildSearchIndex() {
     ...state.model.thinkingModels.map((item) => ({ kind: "thinking", item, type: t("detailThinking") })),
     ...state.model.universalModels.map((item) => ({ kind: "universal", item, type: t("detailUniversal") })),
     ...state.model.problemTemplates.map((item) => ({ kind: "problem", item, type: t("detailProblem") })),
+    ...state.model.learningUnits.map((item) => ({ kind: "learning", item, type: t("detailLearning") })),
   ].map((entry) => ({
     ...entry,
     haystack: [
@@ -823,6 +961,9 @@ function buildSearchIndex() {
       ...(entry.item.outputs || []),
       ...(entry.item.escalation_conditions || []),
       ...(entry.item.example_prompts || []),
+      ...(entry.item.learning_outcomes || []),
+      ...(entry.item.exercises || []),
+      ...(entry.item.exit_evidence || []),
     ]
       .join(" ")
       .toLocaleLowerCase(),
@@ -1026,6 +1167,7 @@ function renderAllDynamic() {
   renderSkeletons();
   renderModels();
   renderProblems();
+  renderLearning();
   drawNetwork();
 }
 

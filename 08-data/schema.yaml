@@ -245,6 +245,26 @@ required_problem_template_fields:
   - example_prompts
   - learning_priority
 
+required_learning_path_fields:
+  - code
+  - stage_units
+  - tier_cycles
+  - branch_routes
+  - route_rules
+  - boundary_notes
+
+required_learning_unit_fields:
+  - code
+  - sequence
+  - prerequisites
+  - focus_assets
+  - practice_problems
+  - learning_outcomes
+  - exercises
+  - exit_evidence
+  - estimated_hours
+  - boundary_notes
+
 required_relation_fields:
   - id
   - source

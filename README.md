@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；以及 v0.5.0 的 20 个 Problem → Knowledge 问题原型。当前总图谱包含 2,786 条关系。
+当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；以及 v0.6.0 的 320 项个人核心知识排名与八单元学习路线。当前总图谱包含 2,895 条关系。
 
 ## 一眼看懂整个模型
 
@@ -106,6 +106,20 @@ flowchart LR
 
 详见[多维坐标系](01-knowledge-map/multidimensional-coordinate-system.md)。
 
+## 普通人最应该学习什么？
+
+没有脱离目标与语境的唯一课程表，但存在一个值得优先建立的共同底座：知道模型有边界；能用概率、证据和测量表达未知；能看见机会成本、激励、反馈、约束与二阶效应；能学习、沟通并理解历史与制度；能在健康、安全和专业责任边界内行动。
+
+项目把 257 个领域骨架、41 个 Thinking Models 和 22 个 Universal Models 组成 320 项可审计候选，并提供三个嵌套入口：
+
+- **Top 50：共同底座。** 28 个领域骨架覆盖全部 20 个 H2，配合 14 个思维模型和 8 个通用模型；目标是形成安全、证据、决策、系统、学习与意义的基本操作能力。
+- **Top 100：通识广度。** 每个 H2 至少两个骨架入口，加入更多领域机制与模型；适合在共同底座后按薄弱领域扩展。
+- **Top 300：长期网络。** 围绕现实项目分批学习，不按名次机械背诵；每轮都回连前置、问题模板与已有作品。
+
+八阶段路线依次组织为：定位与安全 → 概率与证据 → 决策与激励 → 系统与韧性 → 学习与互动 → 社会与意义 → 设计与健康安全 → 跨域综合。每个阶段都用练习、作品和迁移证据验收，而不是用阅读数量代替掌握。
+
+完整排名、得分组成和入选理由见[个人核心知识 Top 50 / 100 / 300](06-learning/core-knowledge.generated.md)；前置、分支和阶段作品见[个人核心知识螺旋学习路线](06-learning/learning-roadmap.generated.md)。这份排序是有限时间下的覆盖组合，不是学术、文化、职业或个人价值等级；权重、问题模板和个人语境变化时应重新生成或调整路线。
+
 ## 怎样用它学习
 
 1. 从[一级知识地图](01-knowledge-map/level-1-domains.md)建立全局定位感。
@@ -160,7 +174,9 @@ human-knowledge-model/
 │  ├─ cross-disciplinary-model-design.md
 │  ├─ phase-4-audit.md
 │  ├─ problem-mapping-design.md
-│  └─ phase-5-audit.md
+│  ├─ phase-5-audit.md
+│  ├─ learning-priority-design.md
+│  └─ phase-6-audit.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -177,6 +193,9 @@ human-knowledge-model/
 │  └─ universal-models.generated.md
 ├─ 05-problem-mapping/
 │  └─ problem-templates.generated.md
+├─ 06-learning/
+│  ├─ core-knowledge.generated.md
+│  └─ learning-roadmap.generated.md
 ├─ 08-data/
 │  ├─ schema.yaml
 │  ├─ domains.yaml
@@ -186,12 +205,15 @@ human-knowledge-model/
 │  ├─ thinking-models.yaml
 │  ├─ universal-models.yaml
 │  ├─ problem-templates.yaml
+│  ├─ learning-roadmap.yaml
+│  ├─ learning-priorities.generated.yaml
 │  ├─ relationships.yaml
 │  ├─ hierarchy-relationships.generated.yaml
 │  ├─ bridge-relationships.generated.yaml
 │  ├─ core-relationships.generated.yaml
 │  ├─ model-relationships.generated.yaml
 │  ├─ problem-relationships.generated.yaml
+│  ├─ learning-relationships.generated.yaml
 │  └─ crosswalks.yaml
 ├─ site/
 │  ├─ index.html
@@ -200,6 +222,7 @@ human-knowledge-model/
 │  └─ og.png
 └─ scripts/
    ├─ build_site.py
+   ├─ generate_learning.py
    ├─ generate_views.py
    ├─ validate.py
    └─ validate_site.py
@@ -224,7 +247,7 @@ python scripts/validate_site.py
 | 3. 领域骨架 | **已完成 v0.3.0** | 20 个领域共 257 个节点、1,271 条骨架关系；H3 全覆盖、前置无环、冻结审计 |
 | 4. 跨学科模型 | **已完成 v0.4.0** | 41 个 Thinking Models、22 个 Universal Models、530 条模型关系；全域覆盖、边界与反例审计 |
 | 5. 问题映射 | **已完成 v0.5.0** | 20 个问题原型、463 条调用关系；全域/全模型覆盖、证据门槛、工作流与升级边界 |
-| 6. 学习体系 | 待展开 | 核心知识、优先级、前置关系、路线 |
+| 6. 学习体系 | **已完成 v0.6.0** | 320 项候选与 Top 50/100/300；8 个学习单元、3 个层级循环、4 条分支路线、109 条学习关系 |
 | 7. 求解框架 | 待展开 | 多维思考与通用问题求解框架 |
 | 8. 全局审计 | 待展开 | 遗漏、重复、错层、断边与重构报告 |
 
@@ -236,4 +259,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系）

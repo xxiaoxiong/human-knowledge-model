@@ -1,0 +1,161 @@
+schema_version: 0.1.0
+model_version: 0.6.0
+description: 从 Top 50 共同底座进入 Top 100 广度与 Top 300 长期通识的可验证学习路线。
+
+learning_path:
+  id: hkm:learning-path:individual-core-knowledge
+  code: LP01
+  primary_type: learning-path
+  labels: {zh: 个人核心知识螺旋学习路线, en: "Spiral Roadmap for Individual Core Knowledge"}
+  definition: 以八个可验证学习单元建立 Top 50 共同底座，再通过问题项目扩展 Top 100 和 Top 300，并以作品、决策日志和迁移任务而非阅读量验收。
+  stage_units: [hkm:learning-unit:orientation-risk-agency, hkm:learning-unit:probability-evidence-measurement, hkm:learning-unit:decision-resources-incentives, hkm:learning-unit:systems-dynamics-resilience, hkm:learning-unit:learning-language-interaction, hkm:learning-unit:society-history-meaning, hkm:learning-unit:design-health-safety, hkm:learning-unit:integration-capstone]
+  tier_cycles:
+    - {tier: Top50, objective: 建立共同认知与行动底座, selection_rule: 依次完成 LU01–LU08 并让全部 Top 50 至少在一个作品中出现, cadence: 9–15 个月, evidence: 八份阶段作品和一份综合问题档案}
+    - {tier: Top100, objective: 每个 H2 至少建立两个骨架入口并扩大模型组合, selection_rule: 按薄弱领域选择排名 51–100 的新增项并嵌入三个跨域项目, cadence: 6–12 个月, evidence: 三个跨 H1 项目和知识依赖图}
+    - {tier: Top300, objective: 形成可持续的长期通识网络, selection_rule: 每轮围绕一个现实问题学习排名 101–300 的 10–20 项并回连已有知识, cadence: 多年滚动, evidence: 项目组合引用记录反证和年度重排说明}
+  branch_routes:
+    - {id: quantitative-systems, labels: {zh: 数量与系统, en: "Quantitative and Systems"}, focus_domains: [D02, D03, D04, D05, D10, D12], anchor_problems: [PT01, PT03, PT05, PT16]}
+    - {id: human-society, labels: {zh: 人与制度, en: "Human and Institutional"}, focus_domains: [D01, D06, D07, D08, D09, D11, D19], anchor_problems: [PT02, PT08, PT09, PT14, PT19]}
+    - {id: technology-design, labels: {zh: 技术与创造, en: "Technology and Creation"}, focus_domains: [D12, D13, D15, D18], anchor_problems: [PT06, PT11, PT13, PT20]}
+    - {id: health-life, labels: {zh: 健康、安全与生活, en: "Health Safety and Life"}, focus_domains: [D14, D16, D17, D20], anchor_problems: [PT10, PT15, PT17, PT18]}
+  route_rules: [每周至少一次检索练习和一次现实观察, 每个阶段写出反例边界和升级条件, 先修不足时回退而不是压缩基础, 高风险实践只在合格监督下进行, 每季度根据目标和证据重排后续项目]
+  boundary_notes: 时间范围是一般成人自学估计，不是统一学制；语言、障碍、已有专业、照护责任和文化语境会改变节奏与作品形式。
+  status: active
+  version: 0.6.0
+
+learning_units:
+  - id: hkm:learning-unit:orientation-risk-agency
+    code: LU01
+    primary_type: learning-unit
+    labels: {zh: 定位、模型边界与行动安全, en: "Orientation Model Limits and Safe Agency"}
+    definition: 建立知识地图、证成、模型边界、风险分级、自我管理和深度不确定性下的安全行动习惯。
+    sequence: 1
+    prerequisites: []
+    focus_assets: [hkm:framework:knowledge-justification-truth, hkm:framework:everyday-risk-triage-escalation, hkm:skill:time-attention-habits-self-management, hkm:thinking-model:map-territory-model-limits, hkm:thinking-model:perspectival-reflexive-interpretation, hkm:universal-model:risk-uncertainty-optionality]
+    practice_problems: [hkm:problem-template:measure-current-state, hkm:problem-template:decide-under-uncertainty, hkm:problem-template:personal-life-career-plan]
+    learning_outcomes: [区分事实模型价值和行动, 为日常问题写出边界与升级阈值, 建立可持续注意和复盘节奏]
+    exercises: [为一个争议绘制地图与领土差异, 编写个人风险分级和求助清单, 连续两周记录注意与决策日志]
+    exit_evidence: [一页知识定位图, 一份带反例的模型边界说明, 可执行的个人安全与复盘协议]
+    estimated_hours: 35–55
+    boundary_notes: 自我管理不能替代心理或医疗支持；出现危机信号时优先使用专业和紧急资源。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:probability-evidence-measurement
+    code: LU02
+    primary_type: learning-unit
+    labels: {zh: 概率、证据与测量, en: "Probability Evidence and Measurement"}
+    definition: 学会用分布、基准率、贝叶斯更新、测量链和评价设计表达未知并检验主张。
+    sequence: 2
+    prerequisites: [hkm:learning-unit:orientation-risk-agency]
+    focus_assets: [hkm:framework:probability-stochastic-processes, hkm:method:assessment-measurement-evaluation, hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:base-rates-reference-classes, hkm:universal-model:measurement-observation-inference, hkm:method:clinical-reasoning-diagnosis-evidence]
+    practice_problems: [hkm:problem-template:measure-current-state, hkm:problem-template:explain-diagnose-causes, hkm:problem-template:forecast-early-warning, hkm:problem-template:evaluate-intervention-impact]
+    learning_outcomes: [以区间和概率表达判断, 识别采样测量与选择偏差, 用新证据更新而不是维护立场]
+    exercises: [为十个可验证事件做概率预测并评分, 审计一个公共指标的数据生成过程, 比较两种证据对竞争假设的更新力度]
+    exit_evidence: [校准预测日志, 测量误差与偏差审计, 一份含基准率和后验更新的证据备忘录]
+    estimated_hours: 60–90
+    boundary_notes: 会计算不等于识别有效；统计结果必须保留研究设计、测量和领域机制前提。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:decision-resources-incentives
+    code: LU03
+    primary_type: learning-unit
+    labels: {zh: 决策、资源与激励, en: "Decision Resources and Incentives"}
+    definition: 把判断、稀缺、机会成本、策略反应、情景、可逆性与权衡前沿组合为可追踪的决策过程。
+    sequence: 3
+    prerequisites: [hkm:learning-unit:orientation-risk-agency, hkm:learning-unit:probability-evidence-measurement]
+    focus_assets: [hkm:framework:reasoning-judgment-decision, hkm:concept:scarcity-opportunity-cost-tradeoffs, hkm:framework:incentives-strategy-mechanism-design, hkm:thinking-model:opportunity-cost, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions, hkm:thinking-model:tradeoff-frontier, hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:agency-incentives-governance]
+    practice_problems: [hkm:problem-template:decide-under-uncertainty, hkm:problem-template:allocate-scarce-resources, hkm:problem-template:assess-company-investment]
+    learning_outcomes: [生成包含不行动的真实选项, 分离硬约束和价值权重, 预测规则对多主体行为的影响]
+    exercises: [重做一个过去决定的当时信息决策表, 为共享资源画可行前沿, 设计一个会被策略响应的规则并做失败预演]
+    exit_evidence: [完整决策日志, 资源配置权衡图, 激励机制的二阶效应分析]
+    estimated_hours: 55–85
+    boundary_notes: 决策框架不替代价值选择、受托责任或法律权限；结果不佳也不自动证明过程错误。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:systems-dynamics-resilience
+    code: LU04
+    primary_type: learning-unit
+    labels: {zh: 系统、动力学与韧性, en: "Systems Dynamics and Resilience"}
+    definition: 用守恒、反馈、约束、非线性、优化和恢复理解跨尺度系统，并避免局部优化与单点预测。
+    sequence: 4
+    prerequisites: [hkm:learning-unit:probability-evidence-measurement]
+    focus_assets: [hkm:law-principle:conservation-laws-balances, hkm:framework:tectonics-landforms-geohazards, hkm:framework:biochemical-information-metabolism, hkm:thinking-model:systems-thinking, hkm:thinking-model:second-order-effects, hkm:universal-model:feedback-regulation-control, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:optimization-search-learning, hkm:universal-model:resilience-redundancy-recovery]
+    practice_problems: [hkm:problem-template:explain-diagnose-causes, hkm:problem-template:forecast-early-warning, hkm:problem-template:manage-risk-crisis-recovery, hkm:problem-template:sustainability-transition]
+    learning_outcomes: [明确存量流量反馈延迟和边界, 识别瓶颈阈值与级联失效, 设计缓冲冗余监测和恢复]
+    exercises: [画一个家庭组织或生态系统的反馈图, 对一次失败做共同原因和级联分析, 为关键流程设计多层防线和恢复演练]
+    exit_evidence: [带量纲的系统图, 情景与敏感性分析, 韧性控制和监测方案]
+    estimated_hours: 65–100
+    boundary_notes: 跨域相似结构不证明机制相同；每次迁移都要重新核对变量尺度和领域证据。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:learning-language-interaction
+    code: LU05
+    primary_type: learning-unit
+    labels: {zh: 学习、语言与人机互动, en: "Learning Language and Human Interaction"}
+    definition: 理解学习记忆、动机、语言意义、交互设计和实验迭代，形成能迁移的学习与沟通实践。
+    sequence: 5
+    prerequisites: [hkm:learning-unit:orientation-risk-agency, hkm:learning-unit:probability-evidence-measurement]
+    focus_assets: [hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:linguistic-structure-grammar-meaning, hkm:framework:human-computer-interaction-ux, hkm:framework:learning-sciences-cognition-motivation, hkm:thinking-model:experiment-iteration-learning]
+    practice_problems: [hkm:problem-template:design-system-service, hkm:problem-template:learn-teach-skill, hkm:problem-template:create-innovate-express]
+    learning_outcomes: [区分熟悉感与可迁移掌握, 设计检索练习和及时反馈, 用真实受众测试语言与界面]
+    exercises: [把一个知识主题改造成间隔检索计划, 对一段说明做语义与受众测试, 迭代一个低保真交互原型]
+    exit_evidence: [迁移测评结果, 可理解性测试记录, 三轮原型与修订说明]
+    estimated_hours: 45–70
+    boundary_notes: 个体差异、障碍、语言和文化会改变学习与交互；平均规律不能成为排除性统一流程。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:society-history-meaning
+    code: LU06
+    primary_type: learning-unit
+    labels: {zh: 社会、历史、制度与意义, en: "Society History Institutions and Meaning"}
+    definition: 以社会推断、史料批判、政策执行、审美和比较宗教理解群体制度与意义世界，并检查集体行动。
+    sequence: 6
+    prerequisites: [hkm:learning-unit:orientation-risk-agency, hkm:learning-unit:learning-language-interaction]
+    focus_assets: [hkm:framework:social-theory-mixed-method-inference, hkm:method:historical-reasoning-source-criticism, hkm:framework:policy-cycle-public-administration-implementation, hkm:framework:aesthetics-art-theory-experience, hkm:method:comparative-religion-reflexive-study, hkm:thinking-model:cooperation-collective-action]
+    practice_problems: [hkm:problem-template:govern-policy-regulation, hkm:problem-template:negotiate-coordinate-conflict, hkm:problem-template:assess-social-policy-impact, hkm:problem-template:interpret-history-culture-meaning]
+    learning_outcomes: [比较材料来源和多重解释, 区分政策意图执行和分配结果, 在传统内部理解与公共批判间保持边界]
+    exercises: [为一项制度画正式规则与非正式实践, 对历史争议建立来源矩阵, 比较同一作品或仪式的多种语境解释]
+    exit_evidence: [混合证据社会分析, 来源可追踪历史论证, 含权利与分配影响的制度备忘录]
+    estimated_hours: 70–110
+    boundary_notes: 解释不意味着所有观点证据相等；涉及活态共同体时应尊重知识权利和参与式解释。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:design-health-safety
+    code: LU07
+    primary_type: learning-unit
+    labels: {zh: 设计、健康、安全与供应系统, en: "Design Health Safety and Supply Systems"}
+    definition: 把需求、工程约束、可靠性、卫生导航、食品供应、灾害治理和失败预演组织为负责任的干预实践。
+    sequence: 7
+    prerequisites: [hkm:learning-unit:probability-evidence-measurement, hkm:learning-unit:decision-resources-incentives, hkm:learning-unit:systems-dynamics-resilience]
+    focus_assets: [hkm:framework:needs-requirements-stakeholders, hkm:framework:engineering-constraints-trade-space, hkm:framework:reliability-failure-risk, hkm:framework:food-systems-supply-chains-rural-development, hkm:framework:risk-safety-science-governance, hkm:framework:disaster-emergency-management, hkm:skill:personal-health-self-care-navigation, hkm:thinking-model:inversion-prevention]
+    practice_problems: [hkm:problem-template:design-system-service, hkm:problem-template:assess-new-technology-success, hkm:problem-template:manage-risk-crisis-recovery, hkm:problem-template:make-health-medical-decision]
+    learning_outcomes: [把利益相关者需求追踪到验证, 识别供应与可靠性共同原因失效, 设置健康安全升级和专业责任边界]
+    exercises: [为低风险服务写需求和非目标, 对供应链做瓶颈与中断演练, 制作不含自诊的健康共同决策问题表]
+    exit_evidence: [需求到测试追踪表, 风险控制与恢复矩阵, 专业升级和责任接口说明]
+    estimated_hours: 70–105
+    boundary_notes: 本单元不授予医疗或工程资格；高风险实验、诊疗和安全认证必须在合格专业监督下进行。
+    status: active
+    version: 0.6.0
+
+  - id: hkm:learning-unit:integration-capstone
+    code: LU08
+    primary_type: learning-unit
+    labels: {zh: 跨域综合与认知操作系统, en: "Cross-domain Capstone and Cognitive Operating System"}
+    definition: 围绕一个真实重要问题整合边界、证据、系统、主体、价值、方案、行动与更新，并审计自身遗漏和误用。
+    sequence: 8
+    prerequisites: [hkm:learning-unit:decision-resources-incentives, hkm:learning-unit:systems-dynamics-resilience, hkm:learning-unit:learning-language-interaction, hkm:learning-unit:society-history-meaning, hkm:learning-unit:design-health-safety]
+    focus_assets: [hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:systems-thinking, hkm:thinking-model:experiment-iteration-learning, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:agency-incentives-governance, hkm:universal-model:measurement-observation-inference]
+    practice_problems: [hkm:problem-template:organizational-strategy-change, hkm:problem-template:assess-new-technology-success, hkm:problem-template:assess-social-policy-impact, hkm:problem-template:sustainability-transition]
+    learning_outcomes: [从现实情境选择或组合问题原型, 构建可追踪知识调用和证据链, 以行动反馈更新模型并明确升级边界]
+    exercises: [完成一个跨至少三个 H1 的真实项目, 邀请不同立场者做红队审查, 对 Top 50 排名和个人路线提出有证据的修订]
+    exit_evidence: [完整问题档案与知识图, 竞争解释和决策日志, 行动监测结果, 遗漏重复边界和后续路线审计]
+    estimated_hours: 80–140
+    boundary_notes: 综合能力不等于可以越过专业资格；真正的认知操作系统包含知道何时停止自行判断并协作升级。
+    status: active
+    version: 0.6.0

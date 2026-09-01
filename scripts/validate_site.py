@@ -39,6 +39,7 @@ def main() -> int:
         "skeletons",
         "models",
         "problems",
+        "learning",
         "method",
         "knowledge-network",
         "detail-dialog",
@@ -63,6 +64,8 @@ def main() -> int:
         "thinkingModels": len(payload["thinkingModels"]),
         "universalModels": len(payload["universalModels"]),
         "problemTemplates": len(payload["problemTemplates"]),
+        "learningCandidates": len(payload["learningPriorities"]),
+        "learningUnits": len(payload["learningUnits"]),
     }
     for key, expected in expected_counts.items():
         if counts.get(key) != expected:
@@ -75,34 +78,32 @@ def main() -> int:
         errors.append("site payload is missing the cross-disciplinary model layers")
     if counts["problemTemplates"] != 20:
         errors.append("site payload must expose all twenty problem templates")
+    if counts["learningCandidates"] != 320:
+        errors.append("site payload must expose all 320 ranked learning candidates")
+    if counts["learningUnits"] != 8:
+        errors.append("site payload must expose all eight learning roadmap units")
+    ranks = [entry["rank"] for entry in payload["learningPriorities"]]
+    if sorted(ranks) != list(range(1, 321)):
+        errors.append("site payload learning ranks must be unique and contiguous from 1 to 320")
 
+    node_collections = (
+        payload["superdomains"],
+        payload["domains"],
+        payload["subdomains"],
+        payload["bridges"],
+        payload["coreNodes"],
+        payload["thinkingModels"],
+        payload["universalModels"],
+        payload["problemTemplates"],
+        payload["learningUnits"],
+        [payload["learningPath"]],
+    )
     ids = {
         node["id"]
-        for collection in (
-            payload["superdomains"],
-            payload["domains"],
-            payload["subdomains"],
-            payload["bridges"],
-            payload["coreNodes"],
-            payload["thinkingModels"],
-            payload["universalModels"],
-            payload["problemTemplates"],
-        )
+        for collection in node_collections
         for node in collection
     }
-    expected_total = sum(
-        len(collection)
-        for collection in (
-            payload["superdomains"],
-            payload["domains"],
-            payload["subdomains"],
-            payload["bridges"],
-            payload["coreNodes"],
-            payload["thinkingModels"],
-            payload["universalModels"],
-            payload["problemTemplates"],
-        )
-    )
+    expected_total = sum(len(collection) for collection in node_collections)
     if len(ids) != expected_total:
         errors.append("site payload contains duplicate node IDs")
 
@@ -118,6 +119,8 @@ def main() -> int:
         f"{counts['thinkingModels']} thinking models, "
         f"{counts['universalModels']} universal models, "
         f"{counts['problemTemplates']} problem templates, "
+        f"{counts['learningCandidates']} learning candidates, "
+        f"{counts['learningUnits']} learning units, "
         "project-relative assets and required interaction surfaces present"
     )
     return 0

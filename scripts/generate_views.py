@@ -7,6 +7,13 @@ from pathlib import Path
 
 import yaml
 
+from generate_learning import (
+    calculate_learning_priorities,
+    generate_core_knowledge_view,
+    generate_learning_relations,
+    generate_learning_roadmap_view,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -927,6 +934,7 @@ def main() -> None:
     thinking_data = load_yaml("08-data/thinking-models.yaml")
     universal_data = load_yaml("08-data/universal-models.yaml")
     problem_data = load_yaml("08-data/problem-templates.yaml")
+    roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
     map_text = generate_map(domain_data, subdomain_data)
     (ROOT / "01-knowledge-map/level-2-3-map.generated.md").write_text(
         map_text, encoding="utf-8", newline="\n"
@@ -1015,6 +1023,43 @@ def main() -> None:
     (ROOT / "08-data/problem-relationships.generated.yaml").write_text(
         problem_yaml, encoding="utf-8", newline="\n"
     )
+    learning_priorities = calculate_learning_priorities(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    learning_yaml = yaml.safe_dump(
+        learning_priorities,
+        allow_unicode=True,
+        sort_keys=False,
+        width=120,
+    )
+    (ROOT / "08-data/learning-priorities.generated.yaml").write_text(
+        learning_yaml, encoding="utf-8", newline="\n"
+    )
+    learning_path = ROOT / "06-learning/core-knowledge.generated.md"
+    learning_path.parent.mkdir(parents=True, exist_ok=True)
+    learning_path.write_text(
+        generate_core_knowledge_view(learning_priorities),
+        encoding="utf-8",
+        newline="\n",
+    )
+    roadmap_path = ROOT / "06-learning/learning-roadmap.generated.md"
+    roadmap_path.write_text(
+        generate_learning_roadmap_view(roadmap_data, learning_priorities, problem_data),
+        encoding="utf-8",
+        newline="\n",
+    )
+    learning_relations = generate_learning_relations(
+        roadmap_data, learning_priorities, problem_data
+    )
+    learning_relation_yaml = yaml.safe_dump(
+        learning_relations,
+        allow_unicode=True,
+        sort_keys=False,
+        width=120,
+    )
+    (ROOT / "08-data/learning-relationships.generated.yaml").write_text(
+        learning_relation_yaml, encoding="utf-8", newline="\n"
+    )
     print(
         f"Generated H1-H3 map, {len(hierarchy['relationships'])} hierarchy relations, "
         f"{sum(len(s['categories']) for s in crosswalk_data['systems'])} crosswalk rows, "
@@ -1026,7 +1071,10 @@ def main() -> None:
         f"{len(universal_data['universal_models'])} universal models, and "
         f"{len(model_relations['relationships'])} cross-model relations; "
         f"{len(problem_data['problem_templates'])} problem templates and "
-        f"{len(problem_relations['relationships'])} problem-call relations."
+        f"{len(problem_relations['relationships'])} problem-call relations; "
+        f"{len(learning_priorities['entries'])} learning candidates ranked; "
+        f"{len(roadmap_data['learning_units'])} learning units and "
+        f"{len(learning_relations['relationships'])} learning relations."
     )
 
 

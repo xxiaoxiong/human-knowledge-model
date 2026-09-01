@@ -167,6 +167,50 @@ def compact_problem_template(node: dict) -> dict:
     }
 
 
+def compact_learning_path(node: dict) -> dict:
+    return {
+        key: node[key]
+        for key in (
+            "id",
+            "code",
+            "primary_type",
+            "labels",
+            "definition",
+            "stage_units",
+            "tier_cycles",
+            "branch_routes",
+            "route_rules",
+            "boundary_notes",
+            "status",
+            "version",
+        )
+    }
+
+
+def compact_learning_unit(node: dict) -> dict:
+    return {
+        key: node[key]
+        for key in (
+            "id",
+            "code",
+            "primary_type",
+            "labels",
+            "definition",
+            "sequence",
+            "prerequisites",
+            "focus_assets",
+            "practice_problems",
+            "learning_outcomes",
+            "exercises",
+            "exit_evidence",
+            "estimated_hours",
+            "boundary_notes",
+            "status",
+            "version",
+        )
+    }
+
+
 def build_payload() -> dict:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
@@ -175,6 +219,8 @@ def build_payload() -> dict:
     thinking_data = load_yaml("08-data/thinking-models.yaml")
     universal_data = load_yaml("08-data/universal-models.yaml")
     problem_data = load_yaml("08-data/problem-templates.yaml")
+    priority_data = load_yaml("08-data/learning-priorities.generated.yaml")
+    roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
     relation_files = [
         "08-data/relationships.yaml",
         "08-data/hierarchy-relationships.generated.yaml",
@@ -182,6 +228,7 @@ def build_payload() -> dict:
         "08-data/core-relationships.generated.yaml",
         "08-data/model-relationships.generated.yaml",
         "08-data/problem-relationships.generated.yaml",
+        "08-data/learning-relationships.generated.yaml",
     ]
     relations = [
         relation
@@ -202,6 +249,11 @@ def build_payload() -> dict:
     problem_templates = [
         compact_problem_template(node) for node in problem_data["problem_templates"]
     ]
+    learning_path = compact_learning_path(roadmap_data["learning_path"])
+    learning_units = [
+        compact_learning_unit(node) for node in roadmap_data["learning_units"]
+    ]
+    learning_priorities = priority_data["entries"]
     domain_ids = {domain["id"] for domain in domains}
     domain_relations = [
         relation
@@ -211,7 +263,7 @@ def build_payload() -> dict:
     return {
         "meta": {
             "id": "human-knowledge-model",
-            "version": problem_data["model_version"],
+            "version": roadmap_data["model_version"],
             "generatedFrom": [
                 "08-data/domains.yaml",
                 "08-data/subdomains.yaml",
@@ -220,6 +272,8 @@ def build_payload() -> dict:
                 "08-data/thinking-models.yaml",
                 "08-data/universal-models.yaml",
                 "08-data/problem-templates.yaml",
+                "08-data/learning-priorities.generated.yaml",
+                "08-data/learning-roadmap.yaml",
             ],
             "counts": {
                 "superdomains": len(superdomains),
@@ -230,6 +284,8 @@ def build_payload() -> dict:
                 "thinkingModels": len(thinking_models),
                 "universalModels": len(universal_models),
                 "problemTemplates": len(problem_templates),
+                "learningCandidates": len(learning_priorities),
+                "learningUnits": len(learning_units),
                 "relations": len(relations),
             },
         },
@@ -242,6 +298,9 @@ def build_payload() -> dict:
         "thinkingModels": thinking_models,
         "universalModels": universal_models,
         "problemTemplates": problem_templates,
+        "learningPriorities": learning_priorities,
+        "learningPath": learning_path,
+        "learningUnits": learning_units,
         "domainRelations": domain_relations,
     }
 
@@ -271,6 +330,8 @@ def main() -> None:
         f"{payload['meta']['counts']['thinkingModels']} thinking models, "
         f"{payload['meta']['counts']['universalModels']} universal models, "
         f"{payload['meta']['counts']['problemTemplates']} problem templates, "
+        f"{payload['meta']['counts']['learningCandidates']} learning candidates, "
+        f"{payload['meta']['counts']['learningUnits']} learning units, "
         f"{payload['meta']['counts']['relations']} relations"
     )
 

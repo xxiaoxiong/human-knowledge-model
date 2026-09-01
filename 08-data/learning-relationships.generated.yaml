@@ -1,0 +1,879 @@
+schema_version: 0.1.0
+model_version: 0.6.0
+generated_from:
+- 08-data/learning-roadmap.yaml
+- 08-data/learning-priorities.generated.yaml
+- 08-data/problem-templates.yaml
+relationships:
+- id: hkm:relation:lu01-member-lp01
+  source: hkm:learning-unit:orientation-risk-agency
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-k01-01
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:framework:knowledge-justification-truth
+  scope: 学习单元聚焦排名 48 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-k20-01
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 学习单元聚焦排名 11 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-k20-16
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 学习单元聚焦排名 40 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-tm29
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 学习单元聚焦排名 20 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-tm40
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 学习单元聚焦排名 16 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-uses-um17
+  source: hkm:learning-unit:orientation-risk-agency
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 学习单元聚焦排名 1 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-practice-pt01
+  source: hkm:learning-unit:orientation-risk-agency
+  type: applies-to
+  target: hkm:problem-template:measure-current-state
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-practice-pt04
+  source: hkm:learning-unit:orientation-risk-agency
+  type: applies-to
+  target: hkm:problem-template:decide-under-uncertainty
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-practice-pt18
+  source: hkm:learning-unit:orientation-risk-agency
+  type: applies-to
+  target: hkm:problem-template:personal-life-career-plan
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-member-lp01
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-prerequisite-lu02
+  source: hkm:learning-unit:orientation-risk-agency
+  type: prerequisite-of
+  target: hkm:learning-unit:probability-evidence-measurement
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-k02-07
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:framework:probability-stochastic-processes
+  scope: 学习单元聚焦排名 31 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-k16-03
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:method:assessment-measurement-evaluation
+  scope: 学习单元聚焦排名 30 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-tm03
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 学习单元聚焦排名 6 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-tm04
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 学习单元聚焦排名 13 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-tm30
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 学习单元聚焦排名 8 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-um21
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 学习单元聚焦排名 5 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-uses-k14-02
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: uses
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 学习单元聚焦排名 19 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-practice-pt01
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: applies-to
+  target: hkm:problem-template:measure-current-state
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-practice-pt02
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: applies-to
+  target: hkm:problem-template:explain-diagnose-causes
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-practice-pt03
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: applies-to
+  target: hkm:problem-template:forecast-early-warning
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-practice-pt07
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: applies-to
+  target: hkm:problem-template:evaluate-intervention-impact
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-member-lp01
+  source: hkm:learning-unit:decision-resources-incentives
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-prerequisite-lu03
+  source: hkm:learning-unit:orientation-risk-agency
+  type: prerequisite-of
+  target: hkm:learning-unit:decision-resources-incentives
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-prerequisite-lu03
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: prerequisite-of
+  target: hkm:learning-unit:decision-resources-incentives
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-k06-05
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 学习单元聚焦排名 22 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-k10-01
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:concept:scarcity-opportunity-cost-tradeoffs
+  scope: 学习单元聚焦排名 36 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-k10-03
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 学习单元聚焦排名 37 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-tm09
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: 学习单元聚焦排名 25 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-tm35
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 学习单元聚焦排名 4 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-tm36
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 学习单元聚焦排名 10 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-tm37
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 学习单元聚焦排名 15 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-um08
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 学习单元聚焦排名 7 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-uses-um22
+  source: hkm:learning-unit:decision-resources-incentives
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 学习单元聚焦排名 3 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-practice-pt04
+  source: hkm:learning-unit:decision-resources-incentives
+  type: applies-to
+  target: hkm:problem-template:decide-under-uncertainty
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-practice-pt05
+  source: hkm:learning-unit:decision-resources-incentives
+  type: applies-to
+  target: hkm:problem-template:allocate-scarce-resources
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-practice-pt12
+  source: hkm:learning-unit:decision-resources-incentives
+  type: applies-to
+  target: hkm:problem-template:assess-company-investment
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-member-lp01
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-prerequisite-lu04
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: prerequisite-of
+  target: hkm:learning-unit:systems-dynamics-resilience
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-k03-02
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:law-principle:conservation-laws-balances
+  scope: 学习单元聚焦排名 41 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-k04-02
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:framework:tectonics-landforms-geohazards
+  scope: 学习单元聚焦排名 27 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-k05-02
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 学习单元聚焦排名 49 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-tm05
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 学习单元聚焦排名 18 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-tm07
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: 学习单元聚焦排名 24 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-um02
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 学习单元聚焦排名 2 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-um07
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 学习单元聚焦排名 14 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-um18
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 学习单元聚焦排名 12 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-uses-um20
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: 学习单元聚焦排名 9 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-practice-pt02
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: applies-to
+  target: hkm:problem-template:explain-diagnose-causes
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-practice-pt03
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: applies-to
+  target: hkm:problem-template:forecast-early-warning
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-practice-pt10
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: applies-to
+  target: hkm:problem-template:manage-risk-crisis-recovery
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-practice-pt16
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: applies-to
+  target: hkm:problem-template:sustainability-transition
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-member-lp01
+  source: hkm:learning-unit:learning-language-interaction
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-prerequisite-lu05
+  source: hkm:learning-unit:orientation-risk-agency
+  type: prerequisite-of
+  target: hkm:learning-unit:learning-language-interaction
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-prerequisite-lu05
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: prerequisite-of
+  target: hkm:learning-unit:learning-language-interaction
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-uses-k06-04
+  source: hkm:learning-unit:learning-language-interaction
+  type: uses
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 学习单元聚焦排名 34 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-uses-k11-01
+  source: hkm:learning-unit:learning-language-interaction
+  type: uses
+  target: hkm:framework:linguistic-structure-grammar-meaning
+  scope: 学习单元聚焦排名 50 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-uses-k12-08
+  source: hkm:learning-unit:learning-language-interaction
+  type: uses
+  target: hkm:framework:human-computer-interaction-ux
+  scope: 学习单元聚焦排名 43 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-uses-k16-01
+  source: hkm:learning-unit:learning-language-interaction
+  type: uses
+  target: hkm:framework:learning-sciences-cognition-motivation
+  scope: 学习单元聚焦排名 33 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-uses-tm34
+  source: hkm:learning-unit:learning-language-interaction
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 学习单元聚焦排名 17 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-practice-pt06
+  source: hkm:learning-unit:learning-language-interaction
+  type: applies-to
+  target: hkm:problem-template:design-system-service
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-practice-pt17
+  source: hkm:learning-unit:learning-language-interaction
+  type: applies-to
+  target: hkm:problem-template:learn-teach-skill
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-practice-pt20
+  source: hkm:learning-unit:learning-language-interaction
+  type: applies-to
+  target: hkm:problem-template:create-innovate-express
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-member-lp01
+  source: hkm:learning-unit:society-history-meaning
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu01-prerequisite-lu06
+  source: hkm:learning-unit:orientation-risk-agency
+  type: prerequisite-of
+  target: hkm:learning-unit:society-history-meaning
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-prerequisite-lu06
+  source: hkm:learning-unit:learning-language-interaction
+  type: prerequisite-of
+  target: hkm:learning-unit:society-history-meaning
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-k07-01
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:framework:social-theory-mixed-method-inference
+  scope: 学习单元聚焦排名 46 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-k08-01
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:method:historical-reasoning-source-criticism
+  scope: 学习单元聚焦排名 44 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-k09-04
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 学习单元聚焦排名 35 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-k18-01
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:framework:aesthetics-art-theory-experience
+  scope: 学习单元聚焦排名 42 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-k19-01
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:method:comparative-religion-reflexive-study
+  scope: 学习单元聚焦排名 45 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-uses-tm33
+  source: hkm:learning-unit:society-history-meaning
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 学习单元聚焦排名 23 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-practice-pt08
+  source: hkm:learning-unit:society-history-meaning
+  type: applies-to
+  target: hkm:problem-template:govern-policy-regulation
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-practice-pt09
+  source: hkm:learning-unit:society-history-meaning
+  type: applies-to
+  target: hkm:problem-template:negotiate-coordinate-conflict
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-practice-pt14
+  source: hkm:learning-unit:society-history-meaning
+  type: applies-to
+  target: hkm:problem-template:assess-social-policy-impact
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-practice-pt19
+  source: hkm:learning-unit:society-history-meaning
+  type: applies-to
+  target: hkm:problem-template:interpret-history-culture-meaning
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-member-lp01
+  source: hkm:learning-unit:design-health-safety
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu02-prerequisite-lu07
+  source: hkm:learning-unit:probability-evidence-measurement
+  type: prerequisite-of
+  target: hkm:learning-unit:design-health-safety
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-prerequisite-lu07
+  source: hkm:learning-unit:decision-resources-incentives
+  type: prerequisite-of
+  target: hkm:learning-unit:design-health-safety
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-prerequisite-lu07
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: prerequisite-of
+  target: hkm:learning-unit:design-health-safety
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k13-01
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:needs-requirements-stakeholders
+  scope: 学习单元聚焦排名 28 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k13-02
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 学习单元聚焦排名 29 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k13-08
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:reliability-failure-risk
+  scope: 学习单元聚焦排名 32 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k15-11
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:food-systems-supply-chains-rural-development
+  scope: 学习单元聚焦排名 47 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k17-01
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:risk-safety-science-governance
+  scope: 学习单元聚焦排名 26 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k17-07
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:framework:disaster-emergency-management
+  scope: 学习单元聚焦排名 38 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-k20-02
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:skill:personal-health-self-care-navigation
+  scope: 学习单元聚焦排名 39 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-uses-tm23
+  source: hkm:learning-unit:design-health-safety
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: 学习单元聚焦排名 21 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-practice-pt06
+  source: hkm:learning-unit:design-health-safety
+  type: applies-to
+  target: hkm:problem-template:design-system-service
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-practice-pt13
+  source: hkm:learning-unit:design-health-safety
+  type: applies-to
+  target: hkm:problem-template:assess-new-technology-success
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-practice-pt10
+  source: hkm:learning-unit:design-health-safety
+  type: applies-to
+  target: hkm:problem-template:manage-risk-crisis-recovery
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-practice-pt15
+  source: hkm:learning-unit:design-health-safety
+  type: applies-to
+  target: hkm:problem-template:make-health-medical-decision
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-member-lp01
+  source: hkm:learning-unit:integration-capstone
+  type: member-of
+  target: hkm:learning-path:individual-core-knowledge
+  scope: 学习单元属于个人核心知识螺旋路线
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu03-prerequisite-lu08
+  source: hkm:learning-unit:decision-resources-incentives
+  type: prerequisite-of
+  target: hkm:learning-unit:integration-capstone
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu04-prerequisite-lu08
+  source: hkm:learning-unit:systems-dynamics-resilience
+  type: prerequisite-of
+  target: hkm:learning-unit:integration-capstone
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu05-prerequisite-lu08
+  source: hkm:learning-unit:learning-language-interaction
+  type: prerequisite-of
+  target: hkm:learning-unit:integration-capstone
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu06-prerequisite-lu08
+  source: hkm:learning-unit:society-history-meaning
+  type: prerequisite-of
+  target: hkm:learning-unit:integration-capstone
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu07-prerequisite-lu08
+  source: hkm:learning-unit:design-health-safety
+  type: prerequisite-of
+  target: hkm:learning-unit:integration-capstone
+  scope: 完成前置单元的退出证据后再进入后续单元
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-tm35
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 学习单元聚焦排名 4 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-tm05
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 学习单元聚焦排名 18 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-tm34
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 学习单元聚焦排名 17 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-um17
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 学习单元聚焦排名 1 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-um22
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 学习单元聚焦排名 3 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-uses-um21
+  source: hkm:learning-unit:integration-capstone
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 学习单元聚焦排名 5 的知识资产
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-practice-pt11
+  source: hkm:learning-unit:integration-capstone
+  type: applies-to
+  target: hkm:problem-template:organizational-strategy-change
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-practice-pt13
+  source: hkm:learning-unit:integration-capstone
+  type: applies-to
+  target: hkm:problem-template:assess-new-technology-success
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-practice-pt14
+  source: hkm:learning-unit:integration-capstone
+  type: applies-to
+  target: hkm:problem-template:assess-social-policy-impact
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
+- id: hkm:relation:lu08-practice-pt16
+  source: hkm:learning-unit:integration-capstone
+  type: applies-to
+  target: hkm:problem-template:sustainability-transition
+  scope: 用问题原型组织练习和退出作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-6
