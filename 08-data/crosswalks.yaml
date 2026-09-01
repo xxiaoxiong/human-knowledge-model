@@ -1,0 +1,144 @@
+schema_version: 0.1.0
+model_version: 0.2.0
+description: 外部分类到 HKM H2 的有损映射。targets 表示导航或知识调用，不表示概念等价。
+
+mapping_semantics:
+  close-field: 外部类别与一个 HKM 领域核心范围近似，但边界不完全相同。
+  composite-field: 外部类别把多个 HKM 领域合并在一起。
+  navigation-to-knowledge: 馆藏或内容导航类别到可能知识入口的映射。
+  curriculum-to-knowledge: 教育项目类别到其主要知识与实践领域的映射。
+  activity-to-knowledge: 经济活动需要调用的知识领域，不表示该活动是一种知识。
+  occupation-to-knowledge: 职业组需要的知识与技能领域，不表示职业等于领域。
+
+systems:
+  - id: isced-f-2013
+    title: UNESCO ISCED Fields of Education and Training 2013
+    purpose: 教育项目和资格的国际统计分类
+    source: https://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf
+    mapping_level: broad-field
+    categories:
+      - {code: '00', title: Generic programmes and qualifications, mapping: curriculum-to-knowledge, targets: [D02, D11, D16, D20], note: 通识和个人能力项目按实际内容分流，不建立“通用知识”杂项域。}
+      - {code: '01', title: Education, mapping: close-field, targets: [D16]}
+      - {code: '02', title: Arts and humanities, mapping: composite-field, targets: [D01, D08, D11, D18, D19]}
+      - {code: '03', title: Social sciences, journalism and information, mapping: composite-field, targets: [D06, D07, D10, D11]}
+      - {code: '04', title: Business, administration and law, mapping: composite-field, targets: [D09, D10]}
+      - {code: '05', title: Natural sciences, mathematics and statistics, mapping: composite-field, targets: [D02, D03, D04, D05]}
+      - {code: '06', title: Information and Communication Technologies, mapping: close-field, targets: [D12]}
+      - {code: '07', title: Engineering, manufacturing and construction, mapping: composite-field, targets: [D13]}
+      - {code: '08', title: Agriculture, forestry, fisheries and veterinary, mapping: close-field, targets: [D15]}
+      - {code: '09', title: Health and welfare, mapping: composite-field, targets: [D07, D14, D20], note: Welfare 不等同医学，需连社会服务与照护实践。}
+      - {code: '10', title: Services, mapping: composite-field, targets: [D10, D13, D17, D20], note: 体育、家政、旅游、安保和运输按实际对象与技能分流。}
+
+  - id: oecd-ford-2015
+    title: OECD Fields of Research and Development 2015
+    purpose: 研发活动统计
+    source: https://www.oecd.org/content/dam/oecd/en/publications/reports/2015/10/frascati-manual-2015_g1g57dcb/9789264239012-en.pdf
+    mapping_level: broad-field
+    categories:
+      - {code: '1', title: Natural sciences, mapping: composite-field, targets: [D02, D03, D04, D05, D12]}
+      - {code: '2', title: Engineering and technology, mapping: close-field, targets: [D13], note: FORD 将计算的一部分放在自然科学，医学/环境/生物技术又与其他域桥接。}
+      - {code: '3', title: Medical and health sciences, mapping: close-field, targets: [D14]}
+      - {code: '4', title: Agricultural and veterinary sciences, mapping: close-field, targets: [D15]}
+      - {code: '5', title: Social sciences, mapping: composite-field, targets: [D06, D07, D09, D10, D11, D16]}
+      - {code: '6', title: Humanities and the arts, mapping: composite-field, targets: [D01, D08, D11, D18, D19]}
+
+  - id: ddc
+    title: Dewey Decimal Classification
+    purpose: 图书馆馆藏按学科排架和浏览
+    source: https://www.oclc.org/content/dam/oclc/dewey/versions/print/intro.pdf
+    mapping_level: main-class
+    categories:
+      - {code: '000', title: Computer science, information and general works, mapping: composite-field, targets: [D01, D11, D12]}
+      - {code: '100', title: Philosophy and psychology, mapping: composite-field, targets: [D01, D06]}
+      - {code: '200', title: Religion, mapping: close-field, targets: [D19]}
+      - {code: '300', title: Social sciences, mapping: composite-field, targets: [D07, D09, D10, D11, D16]}
+      - {code: '400', title: Language, mapping: close-field, targets: [D11]}
+      - {code: '500', title: Science, mapping: composite-field, targets: [D02, D03, D04, D05]}
+      - {code: '600', title: Technology, mapping: composite-field, targets: [D12, D13, D14, D15]}
+      - {code: '700', title: Arts and recreation, mapping: composite-field, targets: [D18, D20]}
+      - {code: '800', title: Literature, mapping: close-field, targets: [D18]}
+      - {code: '900', title: History and geography, mapping: composite-field, targets: [D04, D07, D08]}
+
+  - id: lcc
+    title: Library of Congress Classification
+    purpose: 大型学术馆藏分类与定位
+    source: https://www.loc.gov/catdir/cpso/lcco/lccowp.html
+    mapping_level: main-class
+    categories:
+      - {code: A, title: General Works, mapping: navigation-to-knowledge, targets: [D01, D11], note: 按作品体裁和综合性导航，不对应独立知识域。}
+      - {code: B, title: Philosophy, Psychology, Religion, mapping: composite-field, targets: [D01, D06, D19]}
+      - {code: C, title: Auxiliary Sciences of History, mapping: close-field, targets: [D08, D11]}
+      - {code: D, title: History General and Europe, mapping: close-field, targets: [D08]}
+      - {code: E, title: History America, mapping: close-field, targets: [D08], note: 地域独立主类反映馆藏历史，不在 HKM 顶层复制。}
+      - {code: F, title: History America, mapping: close-field, targets: [D08], note: 地域独立主类反映馆藏历史，不在 HKM 顶层复制。}
+      - {code: G, title: Geography, Anthropology, Recreation, mapping: composite-field, targets: [D04, D07, D20]}
+      - {code: H, title: Social Sciences, mapping: composite-field, targets: [D07, D10]}
+      - {code: J, title: Political Science, mapping: close-field, targets: [D09]}
+      - {code: K, title: Law, mapping: close-field, targets: [D09]}
+      - {code: L, title: Education, mapping: close-field, targets: [D16]}
+      - {code: M, title: Music and Books on Music, mapping: close-field, targets: [D18]}
+      - {code: N, title: Fine Arts, mapping: close-field, targets: [D18]}
+      - {code: P, title: Language and Literature, mapping: composite-field, targets: [D11, D18]}
+      - {code: Q, title: Science, mapping: composite-field, targets: [D02, D03, D04, D05, D12]}
+      - {code: R, title: Medicine, mapping: close-field, targets: [D14]}
+      - {code: S, title: Agriculture, mapping: close-field, targets: [D15]}
+      - {code: T, title: Technology, mapping: composite-field, targets: [D12, D13]}
+      - {code: U, title: Military Science, mapping: close-field, targets: [D17]}
+      - {code: V, title: Naval Science, mapping: close-field, targets: [D17], note: HKM 将其作为安全与工程的专业子范围而非 H2。}
+      - {code: Z, title: Bibliography, Library Science, Information Resources, mapping: composite-field, targets: [D01, D11, D12]}
+
+  - id: isic-rev5
+    title: UN International Standard Industrial Classification Revision 5
+    purpose: 生产活动和经济统计分类
+    source: https://unstats.un.org/unsd/classifications/Econ/isic/4
+    mapping_level: section
+    categories:
+      - {code: A, title: Agriculture forestry and fishing, mapping: activity-to-knowledge, targets: [D04, D05, D10, D13, D15]}
+      - {code: B, title: Mining and quarrying, mapping: activity-to-knowledge, targets: [D03, D04, D09, D10, D13, D17]}
+      - {code: C, title: Manufacturing, mapping: activity-to-knowledge, targets: [D03, D10, D12, D13, D17]}
+      - {code: D, title: Electricity gas steam and air conditioning supply, mapping: activity-to-knowledge, targets: [D03, D04, D09, D10, D13, D17]}
+      - {code: E, title: Water supply sewerage waste management and remediation, mapping: activity-to-knowledge, targets: [D04, D09, D10, D13, D14, D17]}
+      - {code: F, title: Construction, mapping: activity-to-knowledge, targets: [D09, D10, D13, D17, D20]}
+      - {code: G, title: Wholesale and retail trade, mapping: activity-to-knowledge, targets: [D09, D10, D11, D12, D20]}
+      - {code: H, title: Transportation and storage, mapping: activity-to-knowledge, targets: [D09, D10, D12, D13, D17]}
+      - {code: I, title: Accommodation and food service activities, mapping: activity-to-knowledge, targets: [D10, D14, D15, D20]}
+      - {code: J, title: Publishing broadcasting and content production and distribution, mapping: activity-to-knowledge, targets: [D09, D10, D11, D12, D18]}
+      - {code: K, title: Telecommunications computer programming consulting computing infrastructure and other information services, mapping: activity-to-knowledge, targets: [D09, D10, D11, D12, D13, D17]}
+      - {code: L, title: Financial and insurance activities, mapping: activity-to-knowledge, targets: [D02, D09, D10, D12, D17]}
+      - {code: M, title: Real estate activities, mapping: activity-to-knowledge, targets: [D07, D09, D10, D13]}
+      - {code: N, title: Professional scientific and technical activities, mapping: activity-to-knowledge, targets: [D01, D02, D03, D04, D05, D09, D10, D12, D13, D14, D15, D16]}
+      - {code: O, title: Administrative and support service activities, mapping: activity-to-knowledge, targets: [D09, D10, D11, D12, D17, D20]}
+      - {code: P, title: Public administration and defence compulsory social security, mapping: activity-to-knowledge, targets: [D07, D09, D10, D17]}
+      - {code: Q, title: Education, mapping: activity-to-knowledge, targets: [D07, D09, D10, D12, D16]}
+      - {code: R, title: Human health and social work activities, mapping: activity-to-knowledge, targets: [D06, D07, D09, D10, D14, D16, D20]}
+      - {code: S, title: Arts sports and recreation, mapping: activity-to-knowledge, targets: [D07, D10, D14, D18, D20]}
+      - {code: T, title: Other service activities, mapping: activity-to-knowledge, targets: [D10, D13, D14, D17, D20]}
+      - {code: U, title: Activities of households as employers and for own use, mapping: activity-to-knowledge, targets: [D07, D10, D14, D15, D20], note: 家务照护与自给生产是知识实践，不因不在正式学科而消失。}
+      - {code: V, title: Activities of extraterritorial organizations and bodies, mapping: activity-to-knowledge, targets: [D07, D09, D10, D11, D17]}
+
+  - id: isco-08
+    title: ILO International Standard Classification of Occupations 2008
+    purpose: 按技能水平和专门化对工作与职业分组
+    source: https://isco.ilo.org/en/isco-08/
+    mapping_level: major-group
+    categories:
+      - {code: '0', title: Armed Forces Occupations, mapping: occupation-to-knowledge, targets: [D09, D13, D14, D17, D20]}
+      - {code: '1', title: Managers, mapping: occupation-to-knowledge, targets: [D07, D09, D10, D11, D16, D17]}
+      - {code: '2', title: Professionals, mapping: occupation-to-knowledge, targets: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19]}
+      - {code: '3', title: Technicians and Associate Professionals, mapping: occupation-to-knowledge, targets: [D10, D11, D12, D13, D14, D15, D16, D17, D20]}
+      - {code: '4', title: Clerical Support Workers, mapping: occupation-to-knowledge, targets: [D09, D10, D11, D12, D20]}
+      - {code: '5', title: Service and Sales Workers, mapping: occupation-to-knowledge, targets: [D06, D10, D11, D14, D17, D20]}
+      - {code: '6', title: Skilled Agricultural Forestry and Fishery Workers, mapping: occupation-to-knowledge, targets: [D04, D05, D13, D15, D17, D20]}
+      - {code: '7', title: Craft and Related Trades Workers, mapping: occupation-to-knowledge, targets: [D03, D10, D13, D17, D18, D20]}
+      - {code: '8', title: Plant and Machine Operators and Assemblers, mapping: occupation-to-knowledge, targets: [D10, D12, D13, D17, D20]}
+      - {code: '9', title: Elementary Occupations, mapping: occupation-to-knowledge, targets: [D07, D10, D13, D14, D15, D17, D20], note: 低技能等级不表示工作没有知识、风险或尊严。}
+
+architecture_only_sources:
+  - id: mediawiki-categories
+    title: MediaWiki Categories
+    source: https://www.mediawiki.org/wiki/Help:Categories
+    lesson: 类别结构实际常为多父图；HKM 借鉴多重归属，但增加严格关系语义。
+  - id: skos
+    title: W3C Simple Knowledge Organization System
+    source: https://www.w3.org/TR/skos-reference/
+    lesson: 借鉴概念方案、标签、broader/narrower/related 与映射；HKM 另扩展证据、因果、实现和学习关系。

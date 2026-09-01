@@ -1,0 +1,2778 @@
+schema_version: 0.1.0
+model_version: 0.2.0
+description: 经 Phase 2b 覆盖、边界、桥接和实践审计冻结的 H3 子领域集。
+
+defaults: &subdomain_defaults
+  primary_type: subdomain
+  level: H3
+  status: active
+  version: 0.2.0
+
+subdomains:
+  # D01 元知识、哲学与探究
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:epistemology-knowledge
+    code: D01.01
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 认识论与知识, en: Epistemology and Knowledge}
+    definition: 研究知识、证成、怀疑、可靠性、理解与认识不公。
+    core_questions: [什么使信念成为有理由的知识]
+    scope_includes: [knowledge, justification, skepticism, testimony, epistemic-injustice]
+    boundary_notes: 具体证据标准由对象领域细化；心理信念机制归 D06。
+    bridge_domains: [D06, D07, D11, D16]
+    epistemic_modes: [formal, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:metaphysics-ontology
+    code: D01.02
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 形而上学与本体论, en: Metaphysics and Ontology}
+    definition: 研究存在、同一性、因果、可能性、时间与实体类别的基本结构。
+    core_questions: [世界最一般的存在结构和类别是什么]
+    scope_includes: [existence, identity, causation, modality, time, categories]
+    boundary_notes: 经验对象是否存在仍需相应科学和历史证据。
+    bridge_domains: [D02, D03, D05, D06, D12, D19]
+    epistemic_modes: [formal, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:argumentation-critical-inquiry
+    code: D01.03
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 论证、批判性思维与探究, en: Argumentation, Critical Thinking and Inquiry}
+    definition: 研究非形式论证、解释竞争、谬误、对话规范与理性探究实践。
+    core_questions: [怎样比较理由并避免在论证中误导自己和他人]
+    scope_includes: [argumentation, fallacies, dialogue, critical-thinking, abductive-reasoning]
+    boundary_notes: 形式有效性归 D02；传播操纵的媒介机制连接 D11。
+    bridge_domains: [D02, D06, D11, D16]
+    epistemic_modes: [formal, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ethics-moral-philosophy
+    code: D01.04
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 伦理学与道德哲学, en: Ethics and Moral Philosophy}
+    definition: 研究行动、品格、责任、权利、伤害、公正与道德判断。
+    core_questions: [在价值冲突和不确定性下什么行动是可辩护的]
+    scope_includes: [normative-ethics, metaethics, applied-ethics, responsibility, justice]
+    boundary_notes: 具体职业伦理与制度规则保留应用领域主归属。
+    bridge_domains: [D06, D07, D09, D12, D14, D17, D19]
+    epistemic_modes: [normative, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:value-aesthetics-life-philosophy
+    code: D01.05
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 价值论、审美与生活哲学, en: Value Theory, Aesthetics and Philosophy of Life}
+    definition: 研究价值、福祉、意义、审美经验与何为值得追求的生活。
+    core_questions: [什么使事物有价值且怎样比较不可通约的价值]
+    scope_includes: [value, wellbeing, meaning, aesthetics, philosophy-of-life]
+    boundary_notes: 作品创作与艺术史归 D18；宗教性意义实践归 D19。
+    bridge_domains: [D14, D18, D19, D20]
+    epistemic_modes: [normative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:philosophy-science-technology-methodology
+    code: D01.06
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 科学技术哲学与方法论, en: Philosophy of Science, Technology and Methodology}
+    definition: 研究科学解释、理论变化、测量、模型、证据、技术与方法边界。
+    core_questions: [模型和证据在什么条件下支持解释与可靠干预]
+    scope_includes: [scientific-explanation, theory-change, measurement, models, technology-philosophy]
+    boundary_notes: 具体研究方法归相应对象领域和方法节点。
+    bridge_domains: [D02, D03, D07, D12, D13, D14]
+    epistemic_modes: [formal, historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:philosophy-mind-language
+    code: D01.07
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 心灵与语言哲学, en: Philosophy of Mind and Language}
+    definition: 研究意识、意向性、心身关系、意义、指称与理解的概念基础。
+    core_questions: [心智状态与语言意义怎样可能并如何相互关联]
+    scope_includes: [consciousness, intentionality, mind-body, meaning, reference]
+    boundary_notes: 心理和神经机制归 D06；语言结构和使用归 D11。
+    bridge_domains: [D06, D11, D12]
+    epistemic_modes: [formal, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:social-political-legal-philosophy
+    code: D01.08
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 社会、政治与法律哲学, en: Social, Political and Legal Philosophy}
+    definition: 研究自由、平等、权力、合法性、权利、法律义务与社会正义。
+    core_questions: [共同生活的规则和权力怎样获得正当性]
+    scope_includes: [freedom, equality, legitimacy, rights, legal-obligation, justice]
+    boundary_notes: 制度运行和法解释归 D09；社会结构经验研究归 D07。
+    bridge_domains: [D07, D09, D10, D17]
+    epistemic_modes: [normative, interpretive, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:comparative-philosophy-knowledge-traditions
+    code: D01.09
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 比较哲学与知识传统, en: Comparative Philosophy and Knowledge Traditions}
+    definition: 比较不同文明、地方与原住民传统中的存在论、认识论、伦理和实践智慧。
+    core_questions: [怎样在不抹平语境和权力差异的前提下比较知识传统]
+    scope_includes: [comparative-philosophy, indigenous-knowledge, local-knowledge, traditions, decolonial-epistemology]
+    boundary_notes: 传统不是同质整体；具体历史、宗教和实践分别连接 D08/D19/D20。
+    bridge_domains: [D07, D08, D15, D19, D20]
+    epistemic_modes: [comparative, historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:metascience-research-integrity
+    code: D01.10
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 元科学与研究诚信, en: Metascience and Research Integrity}
+    definition: 经验研究知识生产、复现、发表、同行评议、激励、偏差与诚信制度。
+    core_questions: [知识生产制度怎样提高或削弱研究可靠性]
+    scope_includes: [reproducibility, peer-review, publication-bias, research-ethics, science-of-science]
+    boundary_notes: 不是对具体领域结论的替代审查，而是研究其生产与纠错机制。
+    bridge_domains: [D02, D07, D09, D10, D11, D16]
+    epistemic_modes: [empirical, causal, historical, normative, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:knowledge-organization-ontology
+    code: D01.11
+    parent: hkm:domain:metaknowledge-philosophy-inquiry
+    labels: {zh: 知识组织、本体与分类, en: Knowledge Organization, Ontology and Classification}
+    definition: 研究概念、术语、分类、本体、知识图谱及其语义和社会后果。
+    core_questions: [怎样组织知识而不把导航便利误当成世界的唯一结构]
+    scope_includes: [taxonomy, ontology-engineering, terminology, knowledge-graphs, classification]
+    boundary_notes: 图书档案实践连接 D11；计算实现连接 D12。
+    bridge_domains: [D11, D12, D16]
+    epistemic_modes: [formal, interpretive, design]
+
+  # D02 数学、统计与形式系统
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:foundations-sets-types-categories
+    code: D02.01
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 数学基础、集合、类型与范畴, en: Mathematical Foundations, Sets, Types and Categories}
+    definition: 研究数学对象、基础体系以及结构和映射的一般语言。
+    core_questions: [数学对象和结构可以由哪些基础体系一致表达]
+    scope_includes: [set-theory, type-theory, category-theory, foundations]
+    boundary_notes: 计算系统中的类型实现归 D12。
+    bridge_domains: [D01, D12]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:mathematical-logic-proof
+    code: D02.02
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 数理逻辑、证明与模型, en: Mathematical Logic, Proof and Model Theory}
+    definition: 研究形式语言、可证明性、模型、可判定性和逻辑系统。
+    core_questions: [哪些陈述可在给定形式系统中证明或决定]
+    scope_includes: [proof-theory, model-theory, computability, modal-logic, formal-semantics]
+    boundary_notes: 日常论证和谬误归 D01；程序验证连接 D12。
+    bridge_domains: [D01, D11, D12]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:number-theory-arithmetic
+    code: D02.03
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 数论与算术结构, en: Number Theory and Arithmetic Structures}
+    definition: 研究整数、素数、丢番图关系和数的代数与解析结构。
+    core_questions: [整数及其关系具有哪些深层结构]
+    scope_includes: [integers, primes, diophantine-equations, analytic-number-theory]
+    boundary_notes: 密码系统的工程部署归 D12。
+    bridge_domains: [D12]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:algebra-discrete-structures
+    code: D02.04
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 代数与离散结构, en: Algebra and Discrete Structures}
+    definition: 研究群、环、域、线性结构、组合对象、图与离散关系。
+    core_questions: [运算和离散关系的不变量与结构是什么]
+    scope_includes: [algebra, linear-algebra, combinatorics, graph-theory, discrete-mathematics]
+    boundary_notes: 现实网络的机制归对象领域，形式结构保留本域。
+    bridge_domains: [D03, D05, D07, D12]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:geometry-topology
+    code: D02.05
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 几何与拓扑, en: Geometry and Topology}
+    definition: 研究空间、形状、度量、连续性、连通性和不变量。
+    core_questions: [空间结构在变换下保留哪些性质]
+    scope_includes: [geometry, topology, manifolds, metric-spaces, spatial-structure]
+    boundary_notes: 物理时空解释归 D03；空间测绘应用连接 D04。
+    bridge_domains: [D03, D04, D12, D13]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:analysis-calculus-equations
+    code: D02.06
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 分析、微积分与方程, en: Analysis, Calculus and Equations}
+    definition: 研究极限、连续、变化、函数、微分积分和方程的解。
+    core_questions: [连续变化怎样表示且方程何时有稳定解]
+    scope_includes: [real-analysis, complex-analysis, calculus, differential-equations, functional-analysis]
+    boundary_notes: 特定方程的物理或工程解释归对象领域。
+    bridge_domains: [D03, D04, D05, D13]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:probability-stochastic-processes
+    code: D02.07
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 概率与随机过程, en: Probability and Stochastic Processes}
+    definition: 研究随机性、不确定事件、依赖结构和随时间演化的随机系统。
+    core_questions: [怎样一致表示随机性和不确定事件的组合]
+    scope_includes: [probability, stochastic-processes, martingales, random-fields]
+    boundary_notes: 主观认识不确定性与决策解释还需 D01/D06/D10。
+    bridge_domains: [D03, D05, D10, D12, D14, D17]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:statistics-inference-measurement
+    code: D02.08
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 统计推断、数据与测量, en: Statistical Inference, Data and Measurement}
+    definition: 研究抽样、估计、检验、贝叶斯更新、测量误差与数据生成过程。
+    core_questions: [有限且有偏的数据能支持多强的总体结论]
+    scope_includes: [sampling, estimation, hypothesis-testing, bayesian-inference, measurement-error]
+    boundary_notes: 变量意义和数据质量由对象领域共同定义；数据工程归 D12。
+    bridge_domains: [D01, D06, D07, D10, D12, D14]
+    epistemic_modes: [formal, empirical, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:optimization-operations-game-theory
+    code: D02.09
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 优化、运筹与博弈的形式理论, en: Optimization, Operations Research and Formal Game Theory}
+    definition: 研究目标、约束、资源分配、策略互动和可计算求解。
+    core_questions: [在约束和多主体互动下哪些方案可行且相对更优]
+    scope_includes: [optimization, operations-research, decision-theory, game-theory, mechanism-design]
+    boundary_notes: 目标与偏好不是纯数学给定；社会应用连接 D09/D10/D17。
+    bridge_domains: [D09, D10, D12, D13, D17]
+    epistemic_modes: [formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:dynamical-systems-control
+    code: D02.10
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 动力系统、控制与复杂性数学, en: Dynamical Systems, Control and Mathematical Complexity}
+    definition: 研究状态演化、稳定性、反馈、非线性、分岔、混沌与控制。
+    core_questions: [系统随时间如何变化且何种反馈能改变其行为]
+    scope_includes: [dynamical-systems, control-theory, nonlinear-systems, chaos, bifurcation]
+    boundary_notes: 复杂系统的领域机制和价值目标保留对象领域。
+    bridge_domains: [D03, D04, D05, D10, D12, D13]
+    epistemic_modes: [formal, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:information-coding-cryptography
+    code: D02.11
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 信息、编码与密码的形式理论, en: Formal Information, Coding and Cryptography}
+    definition: 研究信息量、编码极限、压缩、传输可靠性和密码安全的数学结构。
+    core_questions: [信息怎样度量编码并在噪声或对抗下可靠保护]
+    scope_includes: [information-theory, coding-theory, compression, cryptography]
+    boundary_notes: 语义信息不等同香农信息；系统实现归 D12/D13。
+    bridge_domains: [D03, D05, D11, D12, D17]
+    epistemic_modes: [formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:numerical-computational-mathematics
+    code: D02.12
+    parent: hkm:domain:mathematics-statistics-formal-systems
+    labels: {zh: 数值与计算数学, en: Numerical and Computational Mathematics}
+    definition: 研究连续和离散数学问题的近似算法、误差、稳定性和计算代价。
+    core_questions: [不可解析求解的问题怎样可靠近似并控制误差]
+    scope_includes: [numerical-analysis, scientific-computing, approximation, numerical-linear-algebra]
+    boundary_notes: 通用软件系统归 D12；领域仿真的模型假设归对象领域。
+    bridge_domains: [D03, D04, D12, D13]
+    epistemic_modes: [formal, design]
+
+  # D03 物质、能量与宇宙
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:measurement-physical-science
+    code: D03.01
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 物理量、测量与实验基础, en: Physical Quantities, Measurement and Experimental Foundations}
+    definition: 研究单位、标准、仪器、误差和物理实验的可复核基础。
+    core_questions: [怎样把物理概念转化为可比较且可追溯的测量]
+    scope_includes: [metrology, units, instrumentation, uncertainty, experimental-design]
+    boundary_notes: 通用统计误差归 D02；具体仪器工程连接 D13。
+    bridge_domains: [D01, D02, D13]
+    epistemic_modes: [empirical, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:classical-mechanics-fields-waves
+    code: D03.02
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 经典力学、场与波, en: Classical Mechanics, Fields and Waves}
+    definition: 研究宏观运动、力、连续介质、振动、波和经典场。
+    core_questions: [宏观物体和连续介质怎样在相互作用下运动]
+    scope_includes: [mechanics, fluid-dynamics, elasticity, waves, classical-fields]
+    boundary_notes: 工程结构与流体设计归 D13。
+    bridge_domains: [D04, D13]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:electromagnetism-optics
+    code: D03.03
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 电磁学与光学, en: Electromagnetism and Optics}
+    definition: 研究电荷、电磁场、辐射、光及其与物质相互作用。
+    core_questions: [电磁相互作用怎样传播并改变物质和信息载体]
+    scope_includes: [electromagnetism, optics, photonics-foundations, radiation]
+    boundary_notes: 通信、电子和光子器件设计归 D12/D13。
+    bridge_domains: [D12, D13]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:thermodynamics-statistical-physics
+    code: D03.04
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 热力学与统计物理, en: Thermodynamics and Statistical Physics}
+    definition: 研究能量、热、功、熵、平衡、涨落和微观—宏观联系。
+    core_questions: [大量微观自由度怎样产生宏观规律和不可逆性]
+    scope_includes: [thermodynamics, statistical-mechanics, entropy, phase-transitions, nonequilibrium]
+    boundary_notes: 信息熵与语义、生命或社会秩序的类比必须逐一说明。
+    bridge_domains: [D02, D05, D12, D13]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:quantum-atomic-molecular-physics
+    code: D03.05
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 量子、原子与分子物理, en: Quantum, Atomic and Molecular Physics}
+    definition: 研究微观量子状态、测量、原子分子结构及光物质相互作用。
+    core_questions: [微观物质和辐射为何呈现量子行为]
+    scope_includes: [quantum-mechanics, atomic-physics, molecular-physics, quantum-measurement]
+    boundary_notes: 量子技术实现归 D13；化学反应结构连接化学 H3。
+    bridge_domains: [D02, D12, D13]
+    epistemic_modes: [empirical, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:particle-nuclear-physics
+    code: D03.06
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 粒子与核物理, en: Particle and Nuclear Physics}
+    definition: 研究基本粒子、基本相互作用、原子核结构与核反应。
+    core_questions: [物质的最基本组成和相互作用是什么]
+    scope_includes: [particle-physics, quantum-field-theory, nuclear-structure, nuclear-reactions]
+    boundary_notes: 核能源和辐射防护的工程与治理连接 D13/D17。
+    bridge_domains: [D04, D13, D17]
+    epistemic_modes: [empirical, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:relativity-gravitation-cosmology
+    code: D03.07
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 相对论、引力与宇宙学, en: Relativity, Gravitation and Cosmology}
+    definition: 研究时空、引力、宇宙大尺度结构、起源与演化。
+    core_questions: [时空和宇宙整体如何演化]
+    scope_includes: [relativity, gravitation, cosmology, early-universe, large-scale-structure]
+    boundary_notes: 天体观测和具体对象连接天文学 H3。
+    bridge_domains: [D02, D04]
+    epistemic_modes: [empirical, formal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:condensed-matter-material-properties
+    code: D03.08
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 凝聚态与材料基础性质, en: Condensed Matter and Fundamental Material Properties}
+    definition: 研究固体、液体、软物质、集体现象和材料微结构—性质关系。
+    core_questions: [大量相互作用粒子怎样产生材料的集体性质]
+    scope_includes: [condensed-matter, solid-state, soft-matter, superconductivity, material-properties]
+    boundary_notes: 材料选择、制造和服役设计归 D13 材料工程。
+    bridge_domains: [D05, D13]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:physical-theoretical-chemistry
+    code: D03.09
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 物理与理论化学, en: Physical and Theoretical Chemistry}
+    definition: 研究化学系统的能量、动力学、量子结构、表面与统计规律。
+    core_questions: [分子结构与能量怎样决定化学过程的速率和平衡]
+    scope_includes: [chemical-thermodynamics, kinetics, quantum-chemistry, spectroscopy, surfaces]
+    boundary_notes: 工艺放大归 D13；生物分子机制连接 D05。
+    bridge_domains: [D05, D13]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:inorganic-materials-chemistry
+    code: D03.10
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 无机与材料化学, en: Inorganic and Materials Chemistry}
+    definition: 研究元素、配位、固体、催化和无机材料的组成、结构与反应。
+    core_questions: [元素组合和结构怎样产生无机物质的性质与反应性]
+    scope_includes: [inorganic-chemistry, coordination, solid-state-chemistry, catalysis, materials-chemistry]
+    boundary_notes: 材料器件和制造归 D13；地球矿物系统连接 D04。
+    bridge_domains: [D04, D13]
+    epistemic_modes: [empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:organic-biological-chemistry
+    code: D03.11
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 有机与生物化学基础, en: Organic and Biological Chemistry Foundations}
+    definition: 研究碳化合物、官能团、反应机制、合成和生物分子化学。
+    core_questions: [分子结构怎样决定有机反应和生物化学功能]
+    scope_includes: [organic-chemistry, reaction-mechanisms, synthesis, biomolecules, medicinal-chemistry-foundations]
+    boundary_notes: 细胞代谢归 D05；药物治疗与临床应用归 D14。
+    bridge_domains: [D05, D14, D15]
+    epistemic_modes: [empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:analytical-chemical-measurement
+    code: D03.12
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 分析化学与化学测量, en: Analytical Chemistry and Chemical Measurement}
+    definition: 研究物质成分、结构、浓度与分布的采样、分离、检测和定量。
+    core_questions: [怎样可靠识别和定量复杂样品中的化学成分]
+    scope_includes: [sampling, separation, spectroscopy, chromatography, chemical-sensors]
+    boundary_notes: 具体环境、临床和食品检测保留应用域主归属。
+    bridge_domains: [D04, D05, D14, D15]
+    epistemic_modes: [empirical, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:astronomy-astrophysics
+    code: D03.13
+    parent: hkm:domain:matter-energy-universe
+    labels: {zh: 天文学与天体物理, en: Astronomy and Astrophysics}
+    definition: 研究恒星、行星、星系、致密天体和宇宙现象的观测与物理机制。
+    core_questions: [天体怎样形成演化并通过观测被认识]
+    scope_includes: [stars, planets, galaxies, compact-objects, observational-astronomy]
+    boundary_notes: 行星地质和空间环境连接 D04；宇宙整体归宇宙学。
+    bridge_domains: [D04, D12, D13]
+    epistemic_modes: [empirical, formal, historical]
+
+  # D04 地球、空间与环境
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:geology-earth-materials-geophysics
+    code: D04.01
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 地质、地球物质与地球物理, en: Geology, Earth Materials and Geophysics}
+    definition: 研究地球内部、岩石矿物、地球物理场和深部过程。
+    core_questions: [地球内部和物质组成怎样被观测并随时间变化]
+    scope_includes: [geology, mineralogy, petrology, geophysics, geochemistry]
+    boundary_notes: 普遍材料性质归 D03；资源开采工程归 D13。
+    bridge_domains: [D03, D13]
+    epistemic_modes: [empirical, historical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:tectonics-geomorphology-hazards
+    code: D04.02
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 构造、地貌与地质灾害, en: Tectonics, Geomorphology and Geohazards}
+    definition: 研究板块、地表形态、侵蚀沉积、地震火山与地质风险。
+    core_questions: [内外动力怎样塑造地表并产生灾害]
+    scope_includes: [tectonics, geomorphology, earthquakes, volcanoes, mass-movements]
+    boundary_notes: 灾害响应归 D17；防灾工程归 D13。
+    bridge_domains: [D13, D17]
+    epistemic_modes: [empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:earth-history-paleoclimate
+    code: D04.03
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 地球历史与古气候, en: Earth History and Paleoclimate}
+    definition: 利用地质与生物记录重建地球环境、气候和生命共同演化。
+    core_questions: [过去的地球系统状态如何重建且为何转变]
+    scope_includes: [stratigraphy, geochronology, paleoclimate, paleoenvironment, mass-extinctions]
+    boundary_notes: 生命谱系主归 D05；人类历史尺度连接 D08。
+    bridge_domains: [D05, D08]
+    epistemic_modes: [empirical, historical, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:atmosphere-weather-climate
+    code: D04.04
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 大气、天气与气候, en: Atmosphere, Weather and Climate}
+    definition: 研究大气组成、环流、天气过程、气候变率与长期变化。
+    core_questions: [大气系统怎样演化且天气气候可预测到什么程度]
+    scope_includes: [atmosphere, meteorology, climate-dynamics, climate-change, air-quality]
+    boundary_notes: 气候政策归 D09；能源转型归 D10/D13。
+    bridge_domains: [D03, D05, D09, D10, D13, D17]
+    epistemic_modes: [empirical, formal, causal, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ocean-coastal-systems
+    code: D04.05
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 海洋与海岸系统, en: Ocean and Coastal Systems}
+    definition: 研究海洋环流、化学、海底、海岸过程及其与气候和生命的耦合。
+    core_questions: [海洋怎样调节地球系统并塑造海岸和生态]
+    scope_includes: [physical-oceanography, chemical-oceanography, marine-geology, coastal-processes]
+    boundary_notes: 海洋生态归 D05；渔业生产归 D15。
+    bridge_domains: [D05, D13, D15, D17]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:hydrology-cryosphere-water
+    code: D04.06
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 水文、冰冻圈与水系统, en: Hydrology, Cryosphere and Water Systems}
+    definition: 研究水循环、河湖地下水、冰雪、洪旱与水资源状态。
+    core_questions: [水在地球系统中怎样储存流动并形成风险与资源]
+    scope_includes: [hydrology, groundwater, rivers, lakes, glaciers, droughts-floods]
+    boundary_notes: 水工程归 D13；水治理归 D09/D10。
+    bridge_domains: [D09, D10, D13, D15, D17]
+    epistemic_modes: [empirical, formal, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:soil-critical-zone
+    code: D04.07
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 土壤与地球关键带, en: Soil and the Earth Critical Zone}
+    definition: 研究岩石、土壤、水、空气、生物交界层的形成、功能和退化。
+    core_questions: [地表关键带怎样支持生态生产并受扰动]
+    scope_includes: [soil-science, weathering, biogeochemistry, erosion, land-degradation]
+    boundary_notes: 作物土壤管理归 D15；修复工程归 D13。
+    bridge_domains: [D05, D13, D15]
+    epistemic_modes: [empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:environmental-science-pollution
+    code: D04.08
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 环境科学、污染与修复, en: Environmental Science, Pollution and Remediation}
+    definition: 研究污染物来源、迁移、暴露、生态影响、监测和环境修复。
+    core_questions: [人类排放怎样穿过环境系统并造成何种风险]
+    scope_includes: [pollution, exposure-pathways, environmental-monitoring, ecotoxicology, remediation]
+    boundary_notes: 人体毒理和健康后果归 D14；治理和技术分别连接 D09/D13。
+    bridge_domains: [D05, D09, D13, D14, D17]
+    epistemic_modes: [empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:geospatial-earth-observation
+    code: D04.09
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 地理空间、测绘与地球观测, en: Geospatial Science, Surveying and Earth Observation}
+    definition: 研究位置、尺度、地图、遥感、测绘和空间数据推断。
+    core_questions: [怎样测量表示并分析跨尺度的空间格局]
+    scope_includes: [gis, cartography, geodesy, remote-sensing, spatial-analysis]
+    boundary_notes: 人文空间解释归 D07；计算基础设施归 D12。
+    bridge_domains: [D07, D12, D13]
+    epistemic_modes: [empirical, formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:planetary-space-environment
+    code: D04.10
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 行星与空间环境, en: Planetary and Space Environment}
+    definition: 研究行星表面内部、大气、磁层、太阳—行星相互作用和空间天气。
+    core_questions: [行星环境如何形成演化并影响探测与生命可能性]
+    scope_includes: [planetary-science, space-weather, magnetospheres, planetary-geology]
+    boundary_notes: 天体物理归 D03；航天系统工程归 D13。
+    bridge_domains: [D03, D05, D13, D17]
+    epistemic_modes: [empirical, historical, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:human-environment-sustainability
+    code: D04.11
+    parent: hkm:domain:earth-space-environment
+    labels: {zh: 人地系统与可持续性, en: Human–Environment Systems and Sustainability}
+    definition: 综合研究社会—生态耦合、资源使用、行星边界、适应与转型。
+    core_questions: [人类发展怎样在环境边界内维持公平与韧性]
+    scope_includes: [social-ecological-systems, sustainability, resources, adaptation, planetary-boundaries]
+    boundary_notes: 是桥接范围；政策、经济和工程主张须回连 D09/D10/D13。
+    bridge_domains: [D05, D07, D09, D10, D13, D15, D17]
+    epistemic_modes: [causal, comparative, normative, design, synthetic]
+
+  # D05 生命与进化
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:origin-life-astrobiology
+    code: D05.01
+    parent: hkm:domain:life-evolution
+    labels: {zh: 生命起源与天体生物学, en: Origins of Life and Astrobiology}
+    definition: 研究生命前化学、早期生命、宜居条件和地外生命可能性。
+    core_questions: [非生命化学怎样形成可复制可演化系统]
+    scope_includes: [prebiotic-chemistry, origin-of-life, early-life, habitability, astrobiology]
+    boundary_notes: 宇宙和行星物理归 D03/D04；未知生命不应以地球样本过度外推。
+    bridge_domains: [D03, D04]
+    epistemic_modes: [empirical, historical, comparative, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:biochemistry-molecular-biology
+    code: D05.02
+    parent: hkm:domain:life-evolution
+    labels: {zh: 生物化学与分子生物学, en: Biochemistry and Molecular Biology}
+    definition: 研究生物分子、代谢、基因表达、调控和分子相互作用。
+    core_questions: [分子网络怎样实现生命功能和信息传递]
+    scope_includes: [proteins, nucleic-acids, metabolism, gene-expression, molecular-interactions]
+    boundary_notes: 有机化学基础归 D03；药物和疾病应用归 D14。
+    bridge_domains: [D03, D12, D14, D15]
+    epistemic_modes: [empirical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:cell-biology
+    code: D05.03
+    parent: hkm:domain:life-evolution
+    labels: {zh: 细胞生物学, en: Cell Biology}
+    definition: 研究细胞结构、膜、运输、能量、信号、分裂和死亡。
+    core_questions: [细胞怎样维持边界协调功能并复制]
+    scope_includes: [cell-structure, membranes, signaling, cell-cycle, cell-death]
+    boundary_notes: 组织器官层归生理/发育；临床异常连接 D14。
+    bridge_domains: [D03, D14]
+    epistemic_modes: [empirical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:genetics-genomics-heredity
+    code: D05.04
+    parent: hkm:domain:life-evolution
+    labels: {zh: 遗传、基因组与遗传性, en: Genetics, Genomics and Heredity}
+    definition: 研究遗传变异、传递、基因组组织、基因—环境关系和群体遗传。
+    core_questions: [变异怎样产生传递并影响性状]
+    scope_includes: [inheritance, variation, genomics, gene-environment, population-genetics]
+    boundary_notes: 人类遗传医疗归 D14；育种应用归 D15。
+    bridge_domains: [D12, D14, D15]
+    epistemic_modes: [empirical, formal, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:developmental-biology
+    code: D05.05
+    parent: hkm:domain:life-evolution
+    labels: {zh: 发育与再生生物学, en: Developmental and Regenerative Biology}
+    definition: 研究从受精到成体的模式形成、分化、生长、衰老与再生。
+    core_questions: [一个细胞怎样在时空调控下形成复杂生物体]
+    scope_includes: [embryology, differentiation, morphogenesis, growth, regeneration]
+    boundary_notes: 人类临床再生治疗归 D14；生命周期心理发展归 D06。
+    bridge_domains: [D06, D14]
+    epistemic_modes: [empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:comparative-physiology-anatomy
+    code: D05.06
+    parent: hkm:domain:life-evolution
+    labels: {zh: 比较解剖与生理, en: Comparative Anatomy and Physiology}
+    definition: 研究生物体结构、功能、稳态和不同谱系的生理适应。
+    core_questions: [多细胞生物怎样协调器官系统维持生命]
+    scope_includes: [anatomy, physiology, homeostasis, organ-systems, comparative-biology]
+    boundary_notes: 人体临床生理归 D14；行为机制连接 D06。
+    bridge_domains: [D06, D14, D15]
+    epistemic_modes: [empirical, causal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:microbiology-virology
+    code: D05.07
+    parent: hkm:domain:life-evolution
+    labels: {zh: 微生物学与病毒学, en: Microbiology and Virology}
+    definition: 研究细菌、古菌、真菌、原生生物、病毒及微生物群落。
+    core_questions: [微生物与病毒怎样复制相互作用并改变宿主和环境]
+    scope_includes: [bacteria, archaea, fungi, protists, viruses, microbiomes]
+    boundary_notes: 感染临床归 D14；发酵生产归 D15/D13。
+    bridge_domains: [D04, D14, D15]
+    epistemic_modes: [empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:evolutionary-biology
+    code: D05.08
+    parent: hkm:domain:life-evolution
+    labels: {zh: 进化生物学, en: Evolutionary Biology}
+    definition: 研究变异、遗传、选择、漂变、适应、物种形成与共同祖先。
+    core_questions: [种群和谱系为何随世代改变并形成适应与多样性]
+    scope_includes: [natural-selection, genetic-drift, adaptation, speciation, phylogeny]
+    boundary_notes: 进化类比到文化、组织和算法时必须说明复制与选择机制。
+    bridge_domains: [D06, D07, D10, D12]
+    epistemic_modes: [empirical, formal, historical, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:systematics-biodiversity-paleobiology
+    code: D05.09
+    parent: hkm:domain:life-evolution
+    labels: {zh: 系统分类、生物多样性与古生物, en: Systematics, Biodiversity and Paleobiology}
+    definition: 研究生物分类、谱系关系、多样性分布和生命历史记录。
+    core_questions: [生命多样性怎样分类重建并随地质时间变化]
+    scope_includes: [taxonomy, systematics, biodiversity, phylogenetics, paleobiology]
+    boundary_notes: 地层与古环境归 D04；分类哲学连接 D01。
+    bridge_domains: [D01, D04]
+    epistemic_modes: [empirical, historical, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ecology-ecosystems
+    code: D05.10
+    parent: hkm:domain:life-evolution
+    labels: {zh: 生态学与生态系统, en: Ecology and Ecosystems}
+    definition: 研究个体、种群、群落、食物网、物质循环与环境相互作用。
+    core_questions: [生物与环境相互作用怎样塑造数量多样性和生态功能]
+    scope_includes: [population-ecology, community-ecology, ecosystems, food-webs, biogeochemistry]
+    boundary_notes: 环境治理和生产系统分别连接 D09/D15。
+    bridge_domains: [D04, D09, D15, D17]
+    epistemic_modes: [empirical, formal, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:behavioral-biology-animal-cognition
+    code: D05.11
+    parent: hkm:domain:life-evolution
+    labels: {zh: 行为生物学与动物认知, en: Behavioral Biology and Animal Cognition}
+    definition: 研究动物行为、神经生态、学习、沟通和行为的进化功能。
+    core_questions: [行为怎样由机制发育生态与进化共同塑造]
+    scope_includes: [ethology, animal-cognition, behavioral-ecology, communication, neuroethology]
+    boundary_notes: 人类心理与社会行为主归 D06/D07。
+    bridge_domains: [D06, D07]
+    epistemic_modes: [empirical, causal, comparative, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:systems-synthetic-biology
+    code: D05.12
+    parent: hkm:domain:life-evolution
+    labels: {zh: 系统与合成生物学, en: Systems and Synthetic Biology}
+    definition: 以网络和工程视角研究生命系统，并设计新的生物功能。
+    core_questions: [怎样从多层生物网络解释并安全重构生命功能]
+    scope_includes: [systems-biology, biological-networks, synthetic-biology, bio-design]
+    boundary_notes: 是解释与干预桥；制造放大、伦理和治理分别连接 D13/D01/D09。
+    bridge_domains: [D01, D02, D12, D13, D14, D15, D17]
+    epistemic_modes: [empirical, formal, causal, design, synthetic]
+
+  # D06 心智、脑与行为
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:nervous-systems-neuroscience
+    code: D06.01
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 神经系统与神经科学, en: Nervous Systems and Neuroscience}
+    definition: 研究神经细胞、回路、脑区、身体调节和神经系统的多尺度组织。
+    core_questions: [神经系统怎样编码协调并改变感知行动和内稳态]
+    scope_includes: [cellular-neuroscience, circuits, systems-neuroscience, neurophysiology, neuroanatomy]
+    boundary_notes: 一般细胞机制归 D05；神经疾病诊疗归 D14。
+    bridge_domains: [D05, D12, D14]
+    epistemic_modes: [empirical, causal, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:perception-sensation
+    code: D06.02
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 感觉与知觉, en: Sensation and Perception}
+    definition: 研究感觉转导、注意、知觉组织、多感官整合和环境表征。
+    core_questions: [有限且有噪声的感觉输入怎样形成可行动的知觉]
+    scope_includes: [vision, hearing, touch, attention, multisensory-integration]
+    boundary_notes: 传感器工程归 D13；艺术知觉应用连接 D18。
+    bridge_domains: [D05, D12, D13, D18]
+    epistemic_modes: [empirical, causal, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:action-motor-embodied-cognition
+    code: D06.03
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 行动、运动控制与具身认知, en: Action, Motor Control and Embodied Cognition}
+    definition: 研究运动规划、身体反馈、技能形成以及行动与认知的相互构成。
+    core_questions: [身体和环境怎样参与行动选择与认知]
+    scope_includes: [motor-control, sensorimotor-learning, embodied-cognition, affordances, skill-acquisition]
+    boundary_notes: 运动训练与身体技能实践归 D20；康复归 D14。
+    bridge_domains: [D13, D14, D20]
+    epistemic_modes: [empirical, causal, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:learning-memory
+    code: D06.04
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 学习与记忆机制, en: Learning and Memory Mechanisms}
+    definition: 研究条件作用、表征更新、记忆编码巩固提取和遗忘。
+    core_questions: [经验怎样产生持久又可更新的行为和记忆变化]
+    scope_includes: [conditioning, memory-systems, consolidation, retrieval, forgetting]
+    boundary_notes: 教育干预归 D16；机器学习归 D12。
+    bridge_domains: [D05, D12, D16, D20]
+    epistemic_modes: [empirical, causal, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:reasoning-judgment-decision
+    code: D06.05
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 推理、判断与决策行为, en: Reasoning, Judgment and Decision Behavior}
+    definition: 研究概念形成、问题解决、启发式、偏差、风险判断和选择行为。
+    core_questions: [人怎样在有限信息时间和能力下形成判断与选择]
+    scope_includes: [reasoning, problem-solving, heuristics, biases, decision-behavior]
+    boundary_notes: 规范决策理论归 D02/D01；市场应用连接 D10。
+    bridge_domains: [D01, D02, D10, D12, D17, D20]
+    epistemic_modes: [empirical, causal, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:emotion-motivation-affect
+    code: D06.06
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 情绪、动机与情感, en: Emotion, Motivation and Affect}
+    definition: 研究情绪生成调节、奖赏、目标、需要、压力和情感体验。
+    core_questions: [情绪与动机怎样组织注意学习行动和社会互动]
+    scope_includes: [emotion, motivation, reward, stress, affect-regulation]
+    boundary_notes: 精神障碍治疗归 D14；组织激励连接 D10。
+    bridge_domains: [D07, D10, D14, D18, D20]
+    epistemic_modes: [empirical, causal, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:consciousness-self-agency
+    code: D06.07
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 意识、自我与能动性, en: Consciousness, Self and Agency}
+    definition: 研究主观体验、自我模型、意志、元认知和主体感。
+    core_questions: [主观体验和主体感怎样产生并可被研究]
+    scope_includes: [consciousness, self, agency, metacognition, subjective-experience]
+    boundary_notes: 概念和形而上问题连接 D01；宗教体验连接 D19。
+    bridge_domains: [D01, D12, D19]
+    epistemic_modes: [empirical, interpretive, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:development-lifespan
+    code: D06.08
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 心理发展与生命历程, en: Psychological Development and the Lifespan}
+    definition: 研究从婴幼儿到老年的认知、情绪、社会性和身份发展。
+    core_questions: [个体能力和人格怎样在成熟经验与文化中发展]
+    scope_includes: [infancy, childhood, adolescence, adulthood, aging, developmental-context]
+    boundary_notes: 生物发育归 D05；教育环境归 D16；生命历程制度归 D07。
+    bridge_domains: [D05, D07, D14, D16]
+    epistemic_modes: [empirical, causal, historical, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:personality-individual-differences
+    code: D06.09
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 人格、能力与个体差异, en: Personality, Abilities and Individual Differences}
+    definition: 研究相对稳定的特质、能力、气质及其测量、发展和情境表达。
+    core_questions: [个体差异有多稳定且怎样可靠测量和解释]
+    scope_includes: [personality, intelligence, abilities, temperament, psychometrics]
+    boundary_notes: 测量结果不可脱离文化与用途；选拔应用连接 D10/D16。
+    bridge_domains: [D02, D07, D10, D16]
+    epistemic_modes: [empirical, formal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:social-cultural-psychology
+    code: D06.10
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 社会与文化心理, en: Social and Cultural Psychology}
+    definition: 研究他人、群体、文化、身份、规范和情境对个体心理与行为的影响。
+    core_questions: [社会情境与文化怎样塑造个体认识情感和行动]
+    scope_includes: [social-cognition, attitudes, identity, norms, cultural-psychology]
+    boundary_notes: 群体网络和制度结构主归 D07。
+    bridge_domains: [D07, D09, D10, D11]
+    epistemic_modes: [empirical, causal, comparative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:language-cognition
+    code: D06.11
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 语言认知与习得, en: Language Cognition and Acquisition}
+    definition: 研究语言加工、习得、阅读、双语和语言与思维的关系。
+    core_questions: [人怎样获得理解产生语言且语言如何影响认知]
+    scope_includes: [psycholinguistics, language-acquisition, reading, bilingualism, language-thought]
+    boundary_notes: 语言结构、社会使用和传播主归 D11。
+    bridge_domains: [D11, D12, D16]
+    epistemic_modes: [empirical, causal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:behavior-change-self-regulation
+    code: D06.12
+    parent: hkm:domain:mind-brain-behavior
+    labels: {zh: 行为改变与自我调节, en: Behavior Change and Self-Regulation}
+    definition: 研究目标设定、习惯、意志控制、反馈和行为干预的一般机制。
+    core_questions: [怎样在真实环境中形成并维持有目标的行为改变]
+    scope_includes: [habits, self-control, goal-setting, behavior-intervention, feedback]
+    boundary_notes: 临床治疗归 D14；教育和生活实践分别归 D16/D20。
+    bridge_domains: [D10, D14, D16, D20]
+    epistemic_modes: [empirical, causal, design, embodied]
+
+  # D07 社会、人类与群体
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:social-theory-methods
+    code: D07.01
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 社会理论与社会研究方法, en: Social Theory and Social Research Methods}
+    definition: 研究行动、结构、文化、机制、比较和多方法社会解释。
+    core_questions: [个体行动与社会结构怎样相互构成且可被研究]
+    scope_includes: [social-theory, mechanisms, surveys, qualitative-methods, mixed-methods]
+    boundary_notes: 通用统计归 D02；元方法论连接 D01。
+    bridge_domains: [D01, D02, D08]
+    epistemic_modes: [empirical, causal, historical, interpretive, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:social-cultural-anthropology
+    code: D07.02
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 社会与文化人类学, en: Social and Cultural Anthropology}
+    definition: 通过田野、比较与参与研究生活方式、亲属、交换、信仰和地方知识。
+    core_questions: [不同人群怎样在具体环境中组织有意义的生活]
+    scope_includes: [ethnography, culture, kinship, exchange, local-knowledge]
+    boundary_notes: 物质遗存的考古研究归 D08；生物人类学连接 D05。
+    bridge_domains: [D05, D08, D15, D19, D20]
+    epistemic_modes: [empirical, interpretive, comparative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:demography-population
+    code: D07.03
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 人口学与人口过程, en: Demography and Population Processes}
+    definition: 研究生育、死亡、迁移、年龄结构、家庭形成和人口变化。
+    core_questions: [人口规模结构和流动怎样变化并影响社会]
+    scope_includes: [fertility, mortality, migration, aging, population-projections]
+    boundary_notes: 健康死亡机制归 D14；政策响应连接 D09。
+    bridge_domains: [D09, D10, D14, D16]
+    epistemic_modes: [empirical, formal, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:family-kinship-life-course
+    code: D07.04
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 家庭、亲属与生命历程, en: Family, Kinship and the Life Course}
+    definition: 研究亲属制度、家庭关系、照护、代际转移和制度化生命历程。
+    core_questions: [家庭和代际关系怎样分配照护资源与身份]
+    scope_includes: [family, kinship, caregiving, generations, life-course]
+    boundary_notes: 个体心理发展归 D06；家庭实践与照护技能连接 D20。
+    bridge_domains: [D06, D10, D14, D20]
+    epistemic_modes: [empirical, historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:groups-networks-collective-behavior
+    code: D07.05
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 群体、社会网络与集体行为, en: Groups, Social Networks and Collective Behavior}
+    definition: 研究群体动力、关系网络、合作、扩散、运动、极化与集体行动。
+    core_questions: [关系结构怎样放大或抑制信息行为和集体结果]
+    scope_includes: [groups, social-networks, diffusion, social-movements, collective-action]
+    boundary_notes: 网络形式理论归 D02；平台算法归 D12。
+    bridge_domains: [D02, D06, D09, D11, D12]
+    epistemic_modes: [empirical, formal, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:culture-identity-norms
+    code: D07.06
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 文化、身份与社会规范, en: Culture, Identity and Social Norms}
+    definition: 研究共享意义、分类、身份边界、规范、仪式和文化变化。
+    core_questions: [意义和规范怎样被共享争议并塑造行动]
+    scope_includes: [culture, identity, norms, ritual, symbolic-boundaries]
+    boundary_notes: 具体宗教传统归 D19；符号传播机制归 D11。
+    bridge_domains: [D06, D11, D18, D19]
+    epistemic_modes: [empirical, historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:inequality-stratification
+    code: D07.07
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 不平等、分层与社会流动, en: Inequality, Stratification and Social Mobility}
+    definition: 研究阶层、性别、族群、残障等差异如何与资源、机会和权力结合。
+    core_questions: [不平等怎样产生复制或被改变]
+    scope_includes: [class, gender, race-ethnicity, disability, mobility, intersectionality]
+    boundary_notes: 分配政策归 D09/D10；健康差异连接 D14。
+    bridge_domains: [D09, D10, D14, D16]
+    epistemic_modes: [empirical, causal, historical, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:organizations-institutions-sociology
+    code: D07.08
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 组织与制度的社会学, en: Sociology of Organizations and Institutions}
+    definition: 研究正式组织、职业、惯例、合法性、制度场域和组织网络。
+    core_questions: [组织怎样获得协调能力并受制度环境塑造]
+    scope_includes: [organizations, professions, institutional-fields, legitimacy, bureaucracy]
+    boundary_notes: 企业经营与管理实践主归 D10；公共行政归 D09。
+    bridge_domains: [D09, D10, D16]
+    epistemic_modes: [empirical, historical, causal, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:human-geography-urban-rural
+    code: D07.09
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 人文地理、城市与乡村, en: Human Geography, Urban and Rural Studies}
+    definition: 研究空间、地方、城市化、区域、住房、流动和城乡关系。
+    core_questions: [空间安排和地方差异怎样塑造社会生活与机会]
+    scope_includes: [human-geography, cities, rural-studies, housing, regional-development]
+    boundary_notes: 自然地理与地球观测归 D04；建成环境工程归 D13。
+    bridge_domains: [D04, D08, D09, D10, D13, D20]
+    epistemic_modes: [empirical, historical, comparative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:migration-globalization
+    code: D07.10
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 迁移、跨国联系与全球化, en: Migration, Transnationalism and Globalization}
+    definition: 研究人口跨境流动、侨民、全球网络、文化交换和不均衡联系。
+    core_questions: [跨地域流动怎样改变身份家庭劳动与制度]
+    scope_includes: [migration, diaspora, transnationalism, globalization, borders]
+    boundary_notes: 国际法和边境治理归 D09；贸易金融连接 D10。
+    bridge_domains: [D08, D09, D10, D11]
+    epistemic_modes: [empirical, historical, comparative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:community-welfare-social-policy
+    code: D07.11
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 社区、福利与社会政策, en: Community, Welfare and Social Policy}
+    definition: 研究社区能力、社会服务、福利制度、贫困干预和照护基础设施。
+    core_questions: [社会怎样组织支持以降低脆弱性并扩大真实能力]
+    scope_includes: [community, welfare, social-services, poverty, care-infrastructure]
+    boundary_notes: 政策制定归 D09；个体照护技能归 D14/D20。
+    bridge_domains: [D09, D10, D14, D16, D20]
+    epistemic_modes: [empirical, causal, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:science-technology-society
+    code: D07.12
+    parent: hkm:domain:society-human-groups
+    labels: {zh: 科学、技术与社会, en: Science, Technology and Society}
+    definition: 研究知识、技术、专家、公众、权力、基础设施和社会秩序的共同形成。
+    core_questions: [科学技术怎样由社会组织并反过来重塑社会]
+    scope_includes: [science-studies, technology-studies, expertise, publics, infrastructure-society]
+    boundary_notes: 技术原理和设计归 D12/D13；科学方法论连接 D01。
+    bridge_domains: [D01, D08, D09, D10, D11, D12, D13]
+    epistemic_modes: [empirical, historical, interpretive, normative]
+
+  # D08 历史、考古与文明
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:historiography-sources-methods
+    code: D08.01
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 史学理论、史料与历史方法, en: Historiography, Sources and Historical Methods}
+    definition: 研究史料批判、档案、口述史、时序、叙事、比较和历史解释。
+    core_questions: [怎样从不完整且有立场的遗存重建和解释过去]
+    scope_includes: [historiography, source-criticism, archives, oral-history, periodization]
+    boundary_notes: 档案管理技术归 D11；因果统计方法连接 D02。
+    bridge_domains: [D01, D02, D11]
+    epistemic_modes: [historical, interpretive, comparative, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:archaeology-material-past
+    code: D08.02
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 考古学与物质过去, en: Archaeology and the Material Past}
+    definition: 通过遗址、器物、环境和身体遗存研究无文字或文字社会的过去。
+    core_questions: [物质遗存怎样支持对过去生活和社会的推断]
+    scope_includes: [archaeological-theory, excavation, artifacts, bioarchaeology, landscape-archaeology]
+    boundary_notes: 地质定年连接 D04；当代物质文化研究连接 D07。
+    bridge_domains: [D04, D05, D07, D13]
+    epistemic_modes: [empirical, historical, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:prehistory-ancient-worlds
+    code: D08.03
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 史前与古代世界, en: Prehistory and Ancient Worlds}
+    definition: 研究早期人类、农业与城市起源、古代国家、帝国和跨区域联系。
+    core_questions: [复杂社会和早期文明怎样形成变化并留下证据]
+    scope_includes: [prehistory, ancient-history, early-states, empires, early-trade]
+    boundary_notes: 不用单一路径把不同文明排序；区域史保留其自身时序。
+    bridge_domains: [D07, D09, D10, D15, D19]
+    epistemic_modes: [historical, comparative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:medieval-early-modern-worlds
+    code: D08.04
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 中古与早期近代世界, en: Medieval and Early Modern Worlds}
+    definition: 比较研究不同地区在帝国、宗教、贸易、知识和国家形成中的中古与早期近代过程。
+    core_questions: [跨区域制度与交流怎样塑造前现代世界]
+    scope_includes: [medieval, early-modern, empires, religions, trade-networks]
+    boundary_notes: 时段标签依地区而异，不作为全球同步阶段。
+    bridge_domains: [D07, D09, D10, D11, D19]
+    epistemic_modes: [historical, comparative, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:modern-contemporary-history
+    code: D08.05
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 近现代与当代史, en: Modern and Contemporary History}
+    definition: 研究工业化、殖民与去殖民、民族国家、战争、全球秩序和当代转型。
+    core_questions: [现代制度技术与全球权力怎样形成今天的世界]
+    scope_includes: [industrialization, colonialism, decolonization, nation-states, world-wars, contemporary-change]
+    boundary_notes: “现代性”存在多条路径和争议，不以单一区域经验作模板。
+    bridge_domains: [D07, D09, D10, D13, D17]
+    epistemic_modes: [historical, comparative, interpretive, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:global-connected-history
+    code: D08.06
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 全球史、海洋史与关联史, en: Global, Maritime and Connected History}
+    definition: 研究跨区域流动、海洋联系、贸易、疾病、迁移、帝国和全球相互依赖。
+    core_questions: [跨地域联系怎样共同改变彼此而非单向扩散]
+    scope_includes: [global-history, connected-history, maritime-history, circulation, entanglement]
+    boundary_notes: 全球尺度不能抹去地方经验和不对称权力。
+    bridge_domains: [D04, D07, D09, D10, D15]
+    epistemic_modes: [historical, comparative, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:regional-local-histories
+    code: D08.07
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 区域、国家与地方史, en: Regional, National and Local Histories}
+    definition: 在地方语言、资料和时序中研究区域、国家、城市、乡村与社区过去。
+    core_questions: [怎样在地方语境中解释变化并与更大过程连接]
+    scope_includes: [regional-history, national-history, local-history, urban-history, rural-history]
+    boundary_notes: 区域不是天然封闭单位；边界和命名需历史化。
+    bridge_domains: [D07, D09, D11, D20]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:social-cultural-intellectual-history
+    code: D08.08
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 社会、文化与思想史, en: Social, Cultural and Intellectual History}
+    definition: 研究普通生活、身份、观念、知识、情感、阅读与文化实践的历史。
+    core_questions: [观念与日常社会实践怎样随时间形成和改变]
+    scope_includes: [social-history, cultural-history, intellectual-history, history-of-emotions, everyday-life-history]
+    boundary_notes: 当代社会机制归 D07；哲学文本论证归 D01。
+    bridge_domains: [D01, D07, D11, D18, D19, D20]
+    epistemic_modes: [historical, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:political-legal-diplomatic-history
+    code: D08.09
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 政治、法律与外交史, en: Political, Legal and Diplomatic History}
+    definition: 研究国家、权力、法律制度、战争和平、外交和政治运动的历史过程。
+    core_questions: [权力制度和国际秩序怎样在冲突协商中演化]
+    scope_includes: [state-formation, legal-history, diplomacy, political-movements, war-peace-history]
+    boundary_notes: 现行制度分析归 D09；战略实践归 D17。
+    bridge_domains: [D09, D17]
+    epistemic_modes: [historical, causal, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:economic-labor-business-history
+    code: D08.10
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 经济、劳动与商业史, en: Economic, Labor and Business History}
+    definition: 研究生产、贸易、金融、企业、劳动制度、消费和经济生活的长期变化。
+    core_questions: [经济组织和生活条件怎样在制度技术与冲突中变化]
+    scope_includes: [economic-history, labor-history, business-history, finance-history, consumption-history]
+    boundary_notes: 形式经济模型和当前经营实践归 D10。
+    bridge_domains: [D07, D10, D13, D15]
+    epistemic_modes: [historical, empirical, causal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:science-technology-medicine-environment-history
+    code: D08.11
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 科学、技术、医学与环境史, en: History of Science, Technology, Medicine and Environment}
+    definition: 研究知识、技术、疾病、医疗、环境利用和专家制度的历史形成。
+    core_questions: [知识技术与环境关系怎样共同改变社会和身体]
+    scope_includes: [history-of-science, technology-history, medical-history, environmental-history]
+    boundary_notes: 对象原理归 D03/D05/D13/D14；本域解释历史路径。
+    bridge_domains: [D01, D04, D05, D13, D14]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:memory-heritage-public-history
+    code: D08.12
+    parent: hkm:domain:history-archaeology-civilization
+    labels: {zh: 记忆、遗产与公共历史, en: Memory, Heritage and Public History}
+    definition: 研究社会如何保存、展示、争议和使用过去，包括博物馆、遗产与纪念。
+    core_questions: [谁以何种方式保存和讲述过去且产生什么公共后果]
+    scope_includes: [collective-memory, heritage, museums, monuments, public-history]
+    boundary_notes: 保存技术连接 D11/D13；公共权利和争议连接 D09。
+    bridge_domains: [D07, D09, D11, D13, D18, D19]
+    epistemic_modes: [historical, interpretive, normative, design]
+
+  # D09 政治、治理与法律
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:political-theory-ideologies
+    code: D09.01
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 政治理论与政治思想, en: Political Theory and Ideologies}
+    definition: 研究国家、自由、平等、民主、权力、意识形态和政治正当性。
+    core_questions: [何种政治秩序可被正当化且权力怎样受约束]
+    scope_includes: [political-theory, democracy, liberty, equality, ideology, legitimacy]
+    boundary_notes: 规范基础连接 D01；思想历史归 D08。
+    bridge_domains: [D01, D08]
+    epistemic_modes: [normative, historical, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:comparative-politics-regimes
+    code: D09.02
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 比较政治与政体, en: Comparative Politics and Regimes}
+    definition: 比较国家形成、政体、民主化、威权、政党、国家能力和政治变迁。
+    core_questions: [制度差异为何产生不同的权力分配和治理结果]
+    scope_includes: [regimes, democratization, authoritarianism, parties, state-capacity]
+    boundary_notes: 比较单位和指标需避免地区中心主义。
+    bridge_domains: [D07, D08, D10, D17]
+    epistemic_modes: [empirical, historical, causal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:political-behavior-elections-opinion
+    code: D09.03
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 政治行为、选举与公共意见, en: Political Behavior, Elections and Public Opinion}
+    definition: 研究政治认知、参与、投票、动员、舆论、代表和信息环境。
+    core_questions: [公民怎样形成政治判断并参与集体选择]
+    scope_includes: [voting, participation, public-opinion, mobilization, representation]
+    boundary_notes: 心理机制和媒体系统分别连接 D06/D11。
+    bridge_domains: [D06, D07, D11, D12]
+    epistemic_modes: [empirical, causal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:public-policy-administration
+    code: D09.04
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 公共政策与公共行政, en: Public Policy and Administration}
+    definition: 研究公共问题界定、政策设计、预算、执行、评估和行政组织。
+    core_questions: [公共目标怎样转化为可执行可评估且负责任的政策]
+    scope_includes: [policy-analysis, implementation, administration, budgeting, policy-evaluation]
+    boundary_notes: 具体政策需要对象领域证据；组织管理连接 D10。
+    bridge_domains: [D02, D07, D10, D14, D16, D17]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:jurisprudence-legal-reasoning
+    code: D09.05
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 法理学、法律体系与法律推理, en: Jurisprudence, Legal Systems and Legal Reasoning}
+    definition: 研究法律性质、效力、规则体系、解释、先例、证据和法律论证。
+    core_questions: [法律规则怎样获得效力并在具体案件中被解释]
+    scope_includes: [jurisprudence, legal-systems, interpretation, precedent, legal-reasoning]
+    boundary_notes: 伦理正当性连接 D01；法律史归 D08。
+    bridge_domains: [D01, D08, D11]
+    epistemic_modes: [formal, interpretive, historical, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:constitutional-administrative-public-law
+    code: D09.06
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 宪法、行政法与公法, en: Constitutional, Administrative and Public Law}
+    definition: 研究国家权力结构、基本权利、行政行为、司法审查和公共责任。
+    core_questions: [公共权力怎样被授权分立监督并保障权利]
+    scope_includes: [constitutional-law, administrative-law, public-law, judicial-review, state-liability]
+    boundary_notes: 实际政体行为需 D09.02/D09.04 经验研究。
+    bridge_domains: [D07, D08, D17]
+    epistemic_modes: [formal, interpretive, normative, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:private-commercial-labor-law
+    code: D09.07
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 私法、商法与劳动法, en: Private, Commercial and Labor Law}
+    definition: 研究人格财产、合同、侵权、公司、交易、劳动关系和救济。
+    core_questions: [私人关系和经济活动怎样由权利义务与救济结构化]
+    scope_includes: [civil-law, contracts, torts, property, corporate-law, labor-law]
+    boundary_notes: 商业实践和劳动市场归 D10；社会不平等连接 D07。
+    bridge_domains: [D07, D10, D13, D20]
+    epistemic_modes: [formal, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:criminal-law-justice
+    code: D09.08
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 刑法、司法与矫正, en: Criminal Law, Justice and Corrections}
+    definition: 研究犯罪定义、责任、程序、证据、刑罚、矫正和司法制度。
+    core_questions: [社会怎样在保障权利的同时认定责任并回应伤害]
+    scope_includes: [criminal-law, criminal-procedure, evidence-law, sentencing, corrections]
+    boundary_notes: 犯罪社会机制归 D07；警务安全实践连接 D17。
+    bridge_domains: [D01, D06, D07, D17]
+    epistemic_modes: [formal, empirical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:international-relations-law
+    code: D09.09
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 国际关系与国际法, en: International Relations and International Law}
+    definition: 研究国家与非国家主体、国际制度、外交、合作、冲突和国际规则。
+    core_questions: [缺乏单一世界政府时国际秩序怎样形成和执行]
+    scope_includes: [international-relations, international-law, organizations, diplomacy, global-order]
+    boundary_notes: 军事战略与和平实践连接 D17；全球经济连接 D10。
+    bridge_domains: [D08, D10, D17]
+    epistemic_modes: [empirical, historical, formal, normative, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:governance-regulation-institutions
+    code: D09.10
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 治理、监管与制度设计, en: Governance, Regulation and Institutional Design}
+    definition: 研究多中心治理、监管工具、合规、标准、问责和制度设计。
+    core_questions: [怎样设计规则和反馈使多主体系统产生可接受结果]
+    scope_includes: [governance, regulation, compliance, accountability, institutional-design]
+    boundary_notes: 具体产业、技术和组织机制需连接 D10/D12/D13。
+    bridge_domains: [D02, D07, D10, D12, D13, D14, D17]
+    epistemic_modes: [empirical, causal, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:rights-citizenship-social-justice
+    code: D09.11
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 权利、公民身份与社会正义, en: Rights, Citizenship and Social Justice}
+    definition: 研究人权、公民权、少数群体权利、平等、反歧视和权利实现机制。
+    core_questions: [抽象权利怎样在差异和不平等条件下获得实际保障]
+    scope_includes: [human-rights, citizenship, equality-law, minority-rights, access-to-justice]
+    boundary_notes: 社会分层经验归 D07；规范理论连接 D01。
+    bridge_domains: [D01, D07, D14, D16, D20]
+    epistemic_modes: [normative, empirical, historical, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:local-global-multilevel-governance
+    code: D09.12
+    parent: hkm:domain:politics-governance-law
+    labels: {zh: 地方、全球与多层治理, en: Local, Global and Multilevel Governance}
+    definition: 研究城市、区域、国家、跨国和全球层级之间的权责与协调。
+    core_questions: [跨尺度公共问题应由哪些层级以何种方式协调]
+    scope_includes: [local-government, federalism, regional-governance, global-governance, subsidiarity]
+    boundary_notes: 空间与城市社会连接 D07/D13；全球问题需对象域证据。
+    bridge_domains: [D04, D07, D10, D13, D17]
+    epistemic_modes: [empirical, comparative, normative, design]
+
+  # D10 经济、金融与组织
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:microeconomics-markets
+    code: D10.01
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 微观经济学与市场, en: Microeconomics and Markets}
+    definition: 研究偏好、生产、成本、价格、市场结构、福利和资源配置。
+    core_questions: [个体和企业互动怎样形成价格数量与福利结果]
+    scope_includes: [consumer-theory, production, prices, market-structure, welfare]
+    boundary_notes: 心理决策机制连接 D06；制度和法律连接 D09。
+    bridge_domains: [D02, D06, D09]
+    epistemic_modes: [formal, empirical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:macroeconomics-money-cycles
+    code: D10.02
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 宏观经济、货币与周期, en: Macroeconomics, Money and Cycles}
+    definition: 研究总产出、就业、通胀、货币、信贷、财政、增长与商业周期。
+    core_questions: [总量经济为何波动增长且政策怎样影响稳定与分配]
+    scope_includes: [growth, unemployment, inflation, money, credit, fiscal-policy, cycles]
+    boundary_notes: 历史路径连接 D08；公共政策合法性归 D09。
+    bridge_domains: [D02, D08, D09, D17]
+    epistemic_modes: [formal, empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:econometrics-causal-policy-evaluation
+    code: D10.03
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 计量经济、因果与政策评估, en: Econometrics, Causality and Policy Evaluation}
+    definition: 用统计、实验、准实验和结构模型研究经济关系与政策效果。
+    core_questions: [观察数据和干预怎样识别经济因果与政策影响]
+    scope_includes: [econometrics, causal-inference, experiments, panel-data, program-evaluation]
+    boundary_notes: 通用统计归 D02；政策目标和执行归 D09。
+    bridge_domains: [D02, D09, D14, D16]
+    epistemic_modes: [empirical, formal, causal, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:behavioral-experimental-economics
+    code: D10.04
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 行为与实验经济学, en: Behavioral and Experimental Economics}
+    definition: 研究有限理性、社会偏好、启发式、实验制度和真实选择行为。
+    core_questions: [实际行为怎样偏离或修正规范经济模型]
+    scope_includes: [behavioral-economics, experiments, bounded-rationality, social-preferences, nudges]
+    boundary_notes: 一般认知机制归 D06；助推伦理和政策归 D01/D09。
+    bridge_domains: [D01, D06, D09]
+    epistemic_modes: [empirical, causal, formal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:public-labor-development-environment-economics
+    code: D10.05
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 公共、劳动、发展与环境经济, en: Public, Labor, Development and Environmental Economics}
+    definition: 研究税收公共品、劳动、人力资本、贫困、发展、外部性和环境资源。
+    core_questions: [市场与政策怎样影响机会分配发展和环境后果]
+    scope_includes: [public-economics, labor, development, inequality, environment, resources]
+    boundary_notes: 为保持 H3 可导航暂合并，若骨架过密将在 Phase 3 拆分。
+    bridge_domains: [D04, D07, D09, D14, D16]
+    epistemic_modes: [empirical, formal, causal, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:international-trade-economic-geography
+    code: D10.06
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 国际贸易与经济地理, en: International Trade and Economic Geography}
+    definition: 研究贸易、资本流动、汇率、生产区位、集聚和全球价值链。
+    core_questions: [跨地域交换和集聚怎样产生收益依赖与不平等]
+    scope_includes: [trade, exchange-rates, capital-flows, economic-geography, global-value-chains]
+    boundary_notes: 人文空间与迁移连接 D07；国际规则归 D09。
+    bridge_domains: [D07, D08, D09, D13]
+    epistemic_modes: [formal, empirical, causal, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:industrial-information-digital-economics
+    code: D10.07
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 产业、信息与数字经济, en: Industrial, Information and Digital Economics}
+    definition: 研究竞争、市场势力、信息不对称、平台、网络效应和创新扩散。
+    core_questions: [信息与技术结构怎样改变竞争协调和市场权力]
+    scope_includes: [industrial-organization, information-economics, platforms, network-effects, innovation]
+    boundary_notes: 计算技术原理归 D12；监管归 D09。
+    bridge_domains: [D09, D12, D13]
+    epistemic_modes: [formal, empirical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:finance-investment-risk
+    code: D10.08
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 金融、投资与风险, en: Finance, Investment and Risk}
+    definition: 研究跨期资源配置、资产定价、融资、组合、市场微观结构和金融风险。
+    core_questions: [资金怎样跨时间和状态配置且风险如何定价管理]
+    scope_includes: [corporate-finance, asset-pricing, investments, portfolio, financial-risk]
+    boundary_notes: 个人财务实践归 D20；金融法律监管归 D09。
+    bridge_domains: [D02, D06, D09, D12, D17, D20]
+    epistemic_modes: [formal, empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:accounting-audit-control
+    code: D10.09
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 会计、审计与管理控制, en: Accounting, Auditing and Management Control}
+    definition: 研究经济活动的确认计量报告、鉴证、内部控制和责任追踪。
+    core_questions: [怎样形成可信可比较且支持问责的组织经济信息]
+    scope_includes: [financial-accounting, management-accounting, audit, internal-control, reporting]
+    boundary_notes: 法定规则连接 D09；数据系统实现连接 D12。
+    bridge_domains: [D09, D12, D17]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:strategy-competition-entrepreneurship
+    code: D10.10
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 战略、竞争与创业, en: Strategy, Competition and Entrepreneurship}
+    definition: 研究企业定位、能力、竞争互动、商业模式、创业与创新战略。
+    core_questions: [组织怎样在不确定竞争环境中形成并更新可持续能力]
+    scope_includes: [strategy, competitive-advantage, business-models, entrepreneurship, innovation-management]
+    boundary_notes: 不能只由成功案例归纳；技术可行性和制度分别连接 D13/D09。
+    bridge_domains: [D06, D07, D09, D12, D13]
+    epistemic_modes: [empirical, historical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:organization-behavior-human-resources
+    code: D10.11
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 组织行为、人力与领导, en: Organizational Behavior, Human Resources and Leadership}
+    definition: 研究团队、领导、权力、文化、激励、人才、工作设计和组织变革。
+    core_questions: [组织怎样协调人的能力动机关系和权力]
+    scope_includes: [organizational-behavior, leadership, hr, teams, culture, change]
+    boundary_notes: 一般心理与社会机制归 D06/D07；职业学习连接 D16。
+    bridge_domains: [D06, D07, D16, D20]
+    epistemic_modes: [empirical, causal, interpretive, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:operations-supply-chains-quality
+    code: D10.12
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 运营、供应链与质量管理, en: Operations, Supply Chains and Quality Management}
+    definition: 研究流程、容量、库存、排程、物流、采购、质量和供应网络韧性。
+    core_questions: [怎样在需求不确定和资源约束下可靠交付价值]
+    scope_includes: [operations, supply-chain, logistics, inventory, quality, procurement]
+    boundary_notes: 运筹形式归 D02；制造与物流技术归 D13。
+    bridge_domains: [D02, D13, D15, D17]
+    epistemic_modes: [formal, empirical, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:marketing-consumer-service
+    code: D10.13
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 市场营销、消费者与服务, en: Marketing, Consumer and Service Systems}
+    definition: 研究需求、价值主张、定价、渠道、品牌、消费者行为和服务交付。
+    core_questions: [组织怎样识别需求并以不操纵和可持续的方式创造交换价值]
+    scope_includes: [marketing, consumer-behavior, pricing, channels, branding, services]
+    boundary_notes: 心理机制归 D06；传播媒介归 D11；消费者权利归 D09。
+    bridge_domains: [D06, D09, D11, D13]
+    epistemic_modes: [empirical, causal, design, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:organization-design-governance
+    code: D10.14
+    parent: hkm:domain:economy-finance-organizations
+    labels: {zh: 组织设计、公司治理与决策, en: Organization Design, Corporate Governance and Decision Systems}
+    definition: 研究组织边界、权责、协调机制、董事会、激励、信息流和决策架构。
+    core_questions: [怎样设计组织权责和信息使其可协调可问责且能适应]
+    scope_includes: [organization-design, corporate-governance, incentives, decision-rights, coordination]
+    boundary_notes: 公司法归 D09；社会制度理论连接 D07。
+    bridge_domains: [D02, D07, D09, D12]
+    epistemic_modes: [empirical, causal, normative, design]
+
+  # D11 语言、传播与媒体
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:linguistic-structure-grammar
+    code: D11.01
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 语言结构与语法, en: Linguistic Structure and Grammar}
+    definition: 研究语音、音系、词法、句法、语义和语言形式的组合规律。
+    core_questions: [有限语言单位怎样组合成可理解的无限表达]
+    scope_includes: [phonetics, phonology, morphology, syntax, semantics]
+    boundary_notes: 心理加工与习得使用 D06.11；形式语言连接 D02/D12。
+    bridge_domains: [D02, D06, D12]
+    epistemic_modes: [empirical, formal, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:language-diversity-change-documentation
+    code: D11.02
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 语言多样性、演变与记录, en: Language Diversity, Change and Documentation}
+    definition: 研究语言类型、谱系、接触、历史变化、濒危语言和语言记录。
+    core_questions: [语言怎样分化接触变化并被负责任地记录]
+    scope_includes: [typology, historical-linguistics, language-contact, documentation, revitalization]
+    boundary_notes: 语言共同体和权力连接 D07/D09；地方知识需共同治理资料。
+    bridge_domains: [D07, D08, D09, D19]
+    epistemic_modes: [empirical, historical, comparative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:pragmatics-sociolinguistics-conversation
+    code: D11.03
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 语用、社会语言与会话, en: Pragmatics, Sociolinguistics and Conversation}
+    definition: 研究语境、言语行为、会话、变体、身份、礼貌与语言政策。
+    core_questions: [说话者怎样在社会语境中协商意义关系和行动]
+    scope_includes: [pragmatics, sociolinguistics, conversation, discourse, language-policy]
+    boundary_notes: 群体身份和制度权力主归 D07/D09。
+    bridge_domains: [D06, D07, D09, D20]
+    epistemic_modes: [empirical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:semiotics-rhetoric-discourse
+    code: D11.04
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 符号学、修辞与话语, en: Semiotics, Rhetoric and Discourse}
+    definition: 研究符号系统、说服、叙事框架、话语秩序和意义生产。
+    core_questions: [符号和修辞怎样组织经验并影响判断和权力]
+    scope_includes: [semiotics, rhetoric, narrative, framing, discourse-analysis]
+    boundary_notes: 论证规范归 D01；文学创作与批评归 D18。
+    bridge_domains: [D01, D07, D09, D18, D19]
+    epistemic_modes: [historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:interpersonal-organizational-communication
+    code: D11.05
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 人际、群体与组织传播, en: Interpersonal, Group and Organizational Communication}
+    definition: 研究关系沟通、冲突、协作、组织信息流、会议与跨文化交流。
+    core_questions: [沟通怎样建立协调信任冲突与共同理解]
+    scope_includes: [interpersonal, group-communication, organizational-communication, intercultural, conflict]
+    boundary_notes: 心理与组织机制连接 D06/D10；具体生活技能归 D20。
+    bridge_domains: [D06, D07, D10, D20]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:journalism-public-information
+    code: D11.06
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 新闻、事实核查与公共信息, en: Journalism, Verification and Public Information}
+    definition: 研究采访、核实、编辑、新闻判断、信息伦理和公共问责。
+    core_questions: [怎样在时间压力和利益冲突下生产可信公共信息]
+    scope_includes: [reporting, verification, editing, news-values, journalism-ethics]
+    boundary_notes: 不把新闻报道自动当学术证据；媒体制度连接 D09/D10。
+    bridge_domains: [D01, D09, D10, D12]
+    epistemic_modes: [empirical, interpretive, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:media-platform-public-sphere
+    code: D11.07
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 媒体、平台与公共领域, en: Media, Platforms and the Public Sphere}
+    definition: 研究大众与数字媒体、平台分发、注意力、舆论、参与和媒介权力。
+    core_questions: [媒介和平台架构怎样塑造可见性注意力和公共讨论]
+    scope_includes: [mass-media, digital-media, platforms, public-sphere, attention]
+    boundary_notes: 推荐算法实现归 D12；平台市场与监管连接 D10/D09。
+    bridge_domains: [D07, D09, D10, D12, D17]
+    epistemic_modes: [empirical, causal, historical, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:translation-interpreting-multilingualism
+    code: D11.08
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 翻译、口译与多语实践, en: Translation, Interpreting and Multilingual Practice}
+    definition: 研究跨语言意义转换、口笔译实践、本地化和多语沟通。
+    core_questions: [意义怎样跨语言文化和媒介转换且保留必要差异]
+    scope_includes: [translation, interpreting, localization, multilingualism, terminology]
+    boundary_notes: 机器翻译归 D12；语言习得使用 D06.11。
+    bridge_domains: [D06, D12, D18, D19, D20]
+    epistemic_modes: [interpretive, comparative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:library-archive-information-organization
+    code: D11.09
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 图书馆、档案与信息组织, en: Library, Archive and Information Organization}
+    definition: 研究文献选择、描述、分类、保存、检索、访问和档案责任。
+    core_questions: [怎样长期组织保存并公平提供可追溯的信息资源]
+    scope_includes: [library-science, archival-science, metadata, cataloging, preservation, retrieval-practice]
+    boundary_notes: 本体语义连接 D01.11；计算检索系统归 D12。
+    bridge_domains: [D01, D08, D12, D16]
+    epistemic_modes: [empirical, interpretive, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:visual-scientific-risk-communication
+    code: D11.10
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 视觉、科学与风险传播, en: Visual, Science and Risk Communication}
+    definition: 研究图表、信息设计、科学解释、不确定性和风险的公众沟通。
+    core_questions: [怎样准确可理解地传达复杂证据和不确定性]
+    scope_includes: [visual-communication, data-communication, science-communication, risk-communication]
+    boundary_notes: 数据分析归 D02/D12；视觉艺术归 D18；安全决策归 D17。
+    bridge_domains: [D02, D12, D14, D17, D18]
+    epistemic_modes: [empirical, design, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:communication-ethics-governance
+    code: D11.11
+    parent: hkm:domain:language-communication-media
+    labels: {zh: 传播伦理、信息权利与治理, en: Communication Ethics, Information Rights and Governance}
+    definition: 研究表达自由、隐私、信息获取、虚假信息、审查和媒介责任。
+    core_questions: [怎样在表达安全隐私真相和权力之间建立可辩护规则]
+    scope_includes: [free-expression, privacy, access-to-information, misinformation, media-ethics]
+    boundary_notes: 正式法律归 D09；网络系统与安全归 D12/D17。
+    bridge_domains: [D01, D09, D12, D17]
+    epistemic_modes: [empirical, normative, interpretive]
+
+  # D12 计算、信息与人工智能
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:algorithms-computability-complexity
+    code: D12.01
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 算法、可计算性与复杂度, en: Algorithms, Computability and Complexity}
+    definition: 研究计算问题、算法设计、正确性、资源复杂度和不可计算边界。
+    core_questions: [哪些问题能以多大资源被可靠计算]
+    scope_includes: [algorithms, computability, complexity, randomized-algorithms, approximation]
+    boundary_notes: 纯形式定理主归 D02；系统实现和性能保留本域。
+    bridge_domains: [D02]
+    epistemic_modes: [formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:computer-architecture-hardware
+    code: D12.02
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 计算机体系结构与硬件系统, en: Computer Architecture and Hardware Systems}
+    definition: 研究处理器、存储、加速器、输入输出、嵌入式和硬件—软件协同。
+    core_questions: [物理设备怎样高效可靠地实现计算抽象]
+    scope_includes: [processors, memory, accelerators, embedded-systems, hardware-software]
+    boundary_notes: 半导体材料和制造归 D03/D13。
+    bridge_domains: [D03, D13]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:operating-distributed-cloud-systems
+    code: D12.03
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 操作、分布式与云系统, en: Operating, Distributed and Cloud Systems}
+    definition: 研究资源管理、并发、一致性、容错、虚拟化和大规模计算服务。
+    core_questions: [多个不可靠组件怎样协作提供可靠可扩展服务]
+    scope_includes: [operating-systems, distributed-systems, cloud, concurrency, fault-tolerance]
+    boundary_notes: 组织运营和供应商治理连接 D10/D09。
+    bridge_domains: [D10, D13, D17]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:networks-internet-communications
+    code: D12.04
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 计算机网络、互联网与通信系统, en: Computer Networks, Internet and Communication Systems}
+    definition: 研究协议、路由、无线、互联网架构、性能、可靠性和网络服务。
+    core_questions: [信息怎样在异构网络中可扩展可靠地传输]
+    scope_includes: [networking, internet, wireless, protocols, routing, performance]
+    boundary_notes: 信号与通信硬件归 D13；媒体社会影响归 D11。
+    bridge_domains: [D11, D13, D17]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:data-databases-information-retrieval
+    code: D12.05
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 数据、数据库与信息检索, en: Data, Databases and Information Retrieval}
+    definition: 研究数据建模、存储、查询、事务、检索、排序、知识图谱和数据质量。
+    core_questions: [怎样组织数据使其一致可查询可追溯并支持发现]
+    scope_includes: [databases, data-models, query, information-retrieval, knowledge-graphs]
+    boundary_notes: 语义分类连接 D01.11/D11.09；统计推断归 D02。
+    bridge_domains: [D01, D02, D11]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:software-engineering-programming-languages
+    code: D12.06
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 软件工程与编程语言, en: Software Engineering and Programming Languages}
+    definition: 研究程序表达、类型、编译、测试、架构、维护、协作和软件生命周期。
+    core_questions: [怎样构建可理解正确安全可演化的软件系统]
+    scope_includes: [programming-languages, compilers, testing, software-architecture, maintenance]
+    boundary_notes: 组织流程连接 D10；形式验证连接 D02。
+    bridge_domains: [D02, D10, D13, D17]
+    epistemic_modes: [formal, empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:cybersecurity-privacy
+    code: D12.07
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 网络安全、隐私与可信计算, en: Cybersecurity, Privacy and Trustworthy Computing}
+    definition: 研究威胁、密码应用、访问控制、漏洞、安全工程、隐私和可信执行。
+    core_questions: [系统怎样在对抗者和故障存在时保护资产与权利]
+    scope_includes: [security, privacy, cryptography-applications, vulnerabilities, secure-systems]
+    boundary_notes: 战略与治理主归 D17/D09；形式密码归 D02.11。
+    bridge_domains: [D02, D09, D11, D13, D17]
+    epistemic_modes: [formal, empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:human-computer-interaction
+    code: D12.08
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 人机交互与用户体验, en: Human–Computer Interaction and User Experience}
+    definition: 研究交互、可用性、无障碍、体验、协作系统和以人为中心设计。
+    core_questions: [计算系统怎样适配人的能力目标情境与权利]
+    scope_includes: [interaction, usability, accessibility, user-research, collaborative-systems]
+    boundary_notes: 人因心理归 D06；产品设计连接 D13/D18。
+    bridge_domains: [D06, D11, D13, D18, D20]
+    epistemic_modes: [empirical, design, interpretive]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:graphics-visualization-multimedia
+    code: D12.09
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 图形、可视化与多媒体计算, en: Graphics, Visualization and Multimedia Computing}
+    definition: 研究图像生成、渲染、视觉计算、可视分析、音视频和沉浸媒体。
+    core_questions: [怎样计算表示并交互呈现视觉听觉和空间信息]
+    scope_includes: [graphics, visualization, computer-vision-foundations, multimedia, xr]
+    boundary_notes: 视觉传播和艺术分别连接 D11/D18。
+    bridge_domains: [D06, D11, D13, D18]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ai-knowledge-reasoning-planning
+    code: D12.10
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 人工智能、知识、推理与规划, en: AI, Knowledge, Reasoning and Planning}
+    definition: 研究机器表征、搜索、推理、规划、多主体和符号智能。
+    core_questions: [机器怎样表征世界并在约束下推理与行动]
+    scope_includes: [knowledge-representation, search, reasoning, planning, multi-agent-systems]
+    boundary_notes: 人类推理归 D06；认识论和伦理连接 D01。
+    bridge_domains: [D01, D02, D06, D09, D17]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:machine-learning-data-science
+    code: D12.11
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 机器学习与数据科学, en: Machine Learning and Data Science}
+    definition: 研究从数据学习表征、预测、生成、决策和评估的算法与系统。
+    core_questions: [模型怎样从有限数据泛化且何时可靠失效或产生伤害]
+    scope_includes: [machine-learning, deep-learning, generative-models, evaluation, data-science]
+    boundary_notes: 统计理论归 D02；领域有效性需对象域证据。
+    bridge_domains: [D02, D06, D10, D14, D17]
+    epistemic_modes: [formal, empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:robotics-autonomous-systems
+    code: D12.12
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: 机器人与自主系统, en: Robotics and Autonomous Systems}
+    definition: 研究感知、定位、运动、控制、规划和人机协作的具身计算系统。
+    core_questions: [自主系统怎样在不确定物理环境中安全感知决策行动]
+    scope_includes: [robotics, perception, localization, motion-planning, autonomy]
+    boundary_notes: 机械与控制硬件归 D13；安全治理连接 D17/D09。
+    bridge_domains: [D06, D13, D17]
+    epistemic_modes: [formal, empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ai-safety-governance-society
+    code: D12.13
+    parent: hkm:domain:computing-information-ai
+    labels: {zh: AI 安全、治理与社会影响, en: AI Safety, Governance and Societal Impact}
+    definition: 研究 AI 的鲁棒性、对齐、可解释、评估、滥用、责任、劳动和社会后果。
+    core_questions: [怎样识别并治理智能系统跨生命周期的能力风险与权力影响]
+    scope_includes: [ai-safety, alignment, interpretability, evaluation, governance, societal-impact]
+    boundary_notes: 是桥接范围；伦理、法律、组织和安全结论分别回连 D01/D09/D10/D17。
+    bridge_domains: [D01, D06, D07, D09, D10, D11, D17]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+
+  # D13 工程、技术与设计
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:engineering-science-systems
+    code: D13.01
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 工程科学、需求与系统工程, en: Engineering Science, Requirements and Systems Engineering}
+    definition: 研究需求、功能、架构、接口、权衡、验证和复杂工程系统生命周期。
+    core_questions: [怎样把多主体需求和约束转化为可验证的系统架构]
+    scope_includes: [requirements, systems-engineering, architecture, verification, lifecycle]
+    boundary_notes: 领域具体实现由各工程 H3 承担；组织治理连接 D10。
+    bridge_domains: [D02, D10, D12, D17]
+    epistemic_modes: [formal, empirical, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:mechanical-mechatronics-engineering
+    code: D13.02
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 机械与机电工程, en: Mechanical and Mechatronics Engineering}
+    definition: 设计分析机器、机构、热流体系统、机电一体化和运动装备。
+    core_questions: [怎样可靠转换力运动热与能量以实现机械功能]
+    scope_includes: [mechanics-design, machines, thermofluids, mechatronics, manufacturing-equipment]
+    boundary_notes: 基础力学归 D03；机器人智能连接 D12。
+    bridge_domains: [D03, D12]
+    epistemic_modes: [empirical, formal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:electrical-electronic-engineering
+    code: D13.03
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 电气、电子与通信工程, en: Electrical, Electronic and Communication Engineering}
+    definition: 设计电路、电子器件、信号、通信、控制、电机和电力电子系统。
+    core_questions: [怎样可靠地产生转换传输和处理电磁能量与信号]
+    scope_includes: [circuits, electronics, signals, communications, control-hardware, power-electronics]
+    boundary_notes: 物理原理归 D03；网络协议和软件归 D12。
+    bridge_domains: [D03, D12]
+    epistemic_modes: [formal, empirical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:civil-structural-construction
+    code: D13.04
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 土木、结构与建造工程, en: Civil, Structural and Construction Engineering}
+    definition: 设计建造维护建筑、桥梁、地下、岩土、水利和大型土木系统。
+    core_questions: [怎样使建成结构在荷载环境和时间中安全耐久]
+    scope_includes: [structural, geotechnical, construction, hydraulic-engineering, surveying]
+    boundary_notes: 城市社会与建筑艺术连接 D07/D18；自然风险连接 D04。
+    bridge_domains: [D04, D07, D17, D18]
+    epistemic_modes: [empirical, formal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:chemical-process-engineering
+    code: D13.05
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 化学与过程工程, en: Chemical and Process Engineering}
+    definition: 设计反应、分离、传递、过程控制、放大和连续生产系统。
+    core_questions: [怎样把化学现象放大为安全高效可控的生产过程]
+    scope_includes: [reaction-engineering, separation, transport, process-control, scale-up]
+    boundary_notes: 化学机制归 D03；生物过程连接 D05/D15。
+    bridge_domains: [D03, D05, D15, D17]
+    epistemic_modes: [empirical, formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:materials-engineering
+    code: D13.06
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 材料工程, en: Materials Engineering}
+    definition: 设计材料组成、加工、微结构、性能、选择、失效和服役寿命。
+    core_questions: [怎样通过加工与结构控制获得所需材料性能并避免失效]
+    scope_includes: [material-selection, processing, microstructure, performance, degradation]
+    boundary_notes: 材料基础性质归 D03.08/D03.10；制造连接 D13.07。
+    bridge_domains: [D03, D17]
+    epistemic_modes: [empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:industrial-manufacturing-engineering
+    code: D13.07
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 工业与制造工程, en: Industrial and Manufacturing Engineering}
+    definition: 设计制造工艺、生产系统、自动化、计量、质量和人机协作。
+    core_questions: [怎样稳定可追溯地把设计转化为可规模生产的产品]
+    scope_includes: [manufacturing, automation, production-systems, metrology, quality-engineering]
+    boundary_notes: 运营和供应链归 D10.12；控制软件连接 D12。
+    bridge_domains: [D10, D12, D17]
+    epistemic_modes: [empirical, formal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:energy-power-engineering
+    code: D13.08
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 能源与电力工程, en: Energy and Power Engineering}
+    definition: 设计能源获取、转换、储存、输配、热系统和低碳能源网络。
+    core_questions: [怎样可靠经济地提供能源并控制全生命周期影响]
+    scope_includes: [power-systems, energy-conversion, storage, grids, thermal-systems]
+    boundary_notes: 能源物理归 D03；市场政策和环境影响连接 D10/D09/D04。
+    bridge_domains: [D03, D04, D09, D10, D17]
+    epistemic_modes: [empirical, formal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:transport-mobility-logistics-engineering
+    code: D13.09
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 交通、移动与物流工程, en: Transport, Mobility and Logistics Engineering}
+    definition: 设计道路、轨道、航空、航运、车辆、交通控制和物流基础设施。
+    core_questions: [怎样安全高效公平地移动人和物]
+    scope_includes: [transport, vehicles, traffic, aviation, maritime, logistics-infrastructure]
+    boundary_notes: 运营网络归 D10；城市空间与出行行为连接 D07/D20。
+    bridge_domains: [D07, D10, D12, D17, D20]
+    epistemic_modes: [empirical, formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:environmental-engineering
+    code: D13.10
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 环境与资源工程, en: Environmental and Resource Engineering}
+    definition: 设计供水、污水、废物、污染控制、修复和资源循环系统。
+    core_questions: [怎样降低人造系统对环境和健康的负荷并循环资源]
+    scope_includes: [water-treatment, wastewater, waste, pollution-control, remediation, circularity]
+    boundary_notes: 环境过程归 D04；治理与行为分别连接 D09/D20。
+    bridge_domains: [D04, D09, D14, D15]
+    epistemic_modes: [empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:bio-biomedical-engineering
+    code: D13.11
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 生物与生物医学工程, en: Biological and Biomedical Engineering}
+    definition: 设计生物过程、医疗器械、诊断、组织工程和生物技术平台。
+    core_questions: [怎样安全地把生命机制转化为可控工程和医疗功能]
+    scope_includes: [bioprocess, medical-devices, diagnostics, tissue-engineering, biotechnology]
+    boundary_notes: 基础生命归 D05；临床有效性与照护归 D14。
+    bridge_domains: [D05, D12, D14, D15, D17]
+    epistemic_modes: [empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:architecture-built-environment
+    code: D13.12
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 建筑、规划与建成环境, en: Architecture, Planning and the Built Environment}
+    definition: 综合空间、功能、结构、环境、文化和治理设计建筑、社区与城市环境。
+    core_questions: [建成空间怎样同时支持安全功能体验公平与生态目标]
+    scope_includes: [architecture, urban-planning, landscape, building-science, built-environment]
+    boundary_notes: 艺术表达连接 D18；城市社会和治理连接 D07/D09。
+    bridge_domains: [D04, D07, D09, D18, D20]
+    epistemic_modes: [empirical, interpretive, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:product-service-interaction-design
+    code: D13.13
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 产品、服务与交互设计, en: Product, Service and Interaction Design}
+    definition: 从需求、使用情境和系统影响出发设计产品、服务、界面和体验。
+    core_questions: [怎样把人的真实需求转化为有用可用包容且负责任的方案]
+    scope_includes: [product-design, service-design, interaction-design, user-research, prototyping]
+    boundary_notes: HCI 计算实现归 D12.08；审美创作连接 D18。
+    bridge_domains: [D06, D10, D12, D18, D20]
+    epistemic_modes: [empirical, interpretive, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:reliability-maintenance-safety-engineering
+    code: D13.14
+    parent: hkm:domain:engineering-technology-design
+    labels: {zh: 可靠性、维护与安全工程, en: Reliability, Maintenance and Safety Engineering}
+    definition: 研究失效、寿命、冗余、人因、检修、资产管理和安全保证。
+    core_questions: [系统会怎样失效且如何在全生命周期预防发现和恢复]
+    scope_includes: [reliability, failure-analysis, maintenance, human-factors, safety-assurance]
+    boundary_notes: 广义风险治理和应急归 D17；维护实践连接 D20。
+    bridge_domains: [D10, D12, D17, D20]
+    epistemic_modes: [empirical, causal, design, embodied]
+
+  # D14 健康、医学与福祉
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:biomedical-foundations-pathobiology
+    code: D14.01
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 生物医学基础与病理机制, en: Biomedical Foundations and Pathobiology}
+    definition: 研究人体结构功能、免疫、病理、遗传和疾病机制的医学关联。
+    core_questions: [正常生物功能怎样失调并形成疾病过程]
+    scope_includes: [human-anatomy, physiology, pathology, immunology, medical-genetics]
+    boundary_notes: 一般生命规律归 D05；本域聚焦人体疾病解释。
+    bridge_domains: [D03, D05]
+    epistemic_modes: [empirical, causal]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:clinical-reasoning-diagnostics
+    code: D14.02
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 临床推理、诊断与循证决策, en: Clinical Reasoning, Diagnostics and Evidence-Based Decisions}
+    definition: 研究病史体检、检查、鉴别诊断、预后和个体化证据应用。
+    core_questions: [怎样在不确定和时间压力下安全诊断并选择照护]
+    scope_includes: [clinical-reasoning, diagnosis, prognosis, testing, evidence-based-medicine]
+    boundary_notes: 统计理论归 D02；工具研发连接 D13/D12。
+    bridge_domains: [D02, D06, D12, D13]
+    epistemic_modes: [empirical, causal, synthetic, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:internal-medical-specialties
+    code: D14.03
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 内科与器官系统医学, en: Internal and Organ-System Medicine}
+    definition: 研究成人常见和复杂疾病的预防、诊断、药物与综合管理。
+    core_questions: [多系统疾病怎样被持续评估治疗并协调长期照护]
+    scope_includes: [internal-medicine, cardiology, respiratory, gastroenterology, endocrinology, nephrology]
+    boundary_notes: 具体专科后续可在 H4 展开；不以器官切分取代整体照护。
+    bridge_domains: [D05, D12, D20]
+    epistemic_modes: [empirical, causal, embodied, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:surgery-perioperative-procedural-care
+    code: D14.04
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 外科、围术期与操作治疗, en: Surgery, Perioperative and Procedural Care}
+    definition: 研究手术、麻醉、介入、围术期风险、无菌和操作性治疗技能。
+    core_questions: [何时以何种操作干预能让收益超过即时和长期风险]
+    scope_includes: [surgery, anesthesia, intervention, perioperative, sterile-practice]
+    boundary_notes: 器械工程归 D13；操作能力需要具身训练和团队系统。
+    bridge_domains: [D06, D13, D17]
+    epistemic_modes: [empirical, causal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:reproductive-maternal-child-health
+    code: D14.05
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 生殖、孕产与儿童健康, en: Reproductive, Maternal and Child Health}
+    definition: 研究生殖、孕产、围产、新生儿、儿童与青少年健康和照护。
+    core_questions: [怎样在生命早期和家庭情境中保护健康发展与自主权]
+    scope_includes: [reproductive-health, obstetrics, maternal-health, pediatrics, adolescent-health]
+    boundary_notes: 心理发展归 D06；权利政策连接 D09。
+    bridge_domains: [D06, D07, D09, D16]
+    epistemic_modes: [empirical, causal, normative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:mental-health-psychiatry-clinical-psychology
+    code: D14.06
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 精神健康、精神医学与临床心理, en: Mental Health, Psychiatry and Clinical Psychology}
+    definition: 研究心理痛苦与精神障碍的评估、机制、治疗、康复和社会情境。
+    core_questions: [怎样在尊重主体与文化的前提下减轻心理痛苦和功能损害]
+    scope_includes: [mental-health, psychiatry, clinical-psychology, psychotherapy, recovery]
+    boundary_notes: 一般心理机制归 D06；社会决定因素连接 D07。
+    bridge_domains: [D06, D07, D09, D20]
+    epistemic_modes: [empirical, causal, interpretive, embodied, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:public-health-epidemiology-prevention
+    code: D14.07
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 公共卫生、流行病学与预防, en: Public Health, Epidemiology and Prevention}
+    definition: 研究人群疾病分布、风险、监测、预防、健康促进和突发卫生事件。
+    core_questions: [哪些可改变因素决定人群健康且怎样公平预防]
+    scope_includes: [epidemiology, surveillance, prevention, health-promotion, outbreak-control]
+    boundary_notes: 是跨域桥；统计、社会、治理和安全分别连接 D02/D07/D09/D17。
+    bridge_domains: [D02, D07, D09, D10, D15, D17]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:nursing-care-practice
+    code: D14.08
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 护理、照护与临床实践, en: Nursing, Care and Clinical Practice}
+    definition: 研究持续观察、基础照护、症状管理、患者教育、团队协调和照护关系。
+    core_questions: [怎样以可靠技术和关系性判断持续支持患者及家庭]
+    scope_includes: [nursing, caregiving, symptom-management, patient-education, care-coordination]
+    boundary_notes: 照护不仅是医学附属；家庭照护能力连接 D07/D20。
+    bridge_domains: [D06, D07, D16, D20]
+    epistemic_modes: [empirical, interpretive, normative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:pharmacology-pharmacy-therapeutics
+    code: D14.09
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 药理、药学与治疗学, en: Pharmacology, Pharmacy and Therapeutics}
+    definition: 研究药物作用、剂量、相互作用、开发、使用、监测和安全管理。
+    core_questions: [药物对谁在何种剂量条件下有效且风险可接受]
+    scope_includes: [pharmacology, pharmacy, pharmacokinetics, therapeutics, drug-safety]
+    boundary_notes: 化学合成归 D03；生产工程与监管连接 D13/D09。
+    bridge_domains: [D03, D05, D09, D13]
+    epistemic_modes: [empirical, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:rehabilitation-disability-assistive-care
+    code: D14.10
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 康复、残障与辅助照护, en: Rehabilitation, Disability and Assistive Care}
+    definition: 研究功能、活动、参与、康复训练、辅助技术和无障碍环境。
+    core_questions: [怎样在身体环境和社会共同作用下扩大真实生活能力]
+    scope_includes: [rehabilitation, disability, physical-therapy, occupational-therapy, assistive-technology]
+    boundary_notes: 不把残障仅建模为个体缺陷；权利和环境连接 D09/D13。
+    bridge_domains: [D06, D09, D13, D20]
+    epistemic_modes: [empirical, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:nutrition-lifestyle-sleep
+    code: D14.11
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 营养、生活方式与睡眠健康, en: Nutrition, Lifestyle and Sleep Health}
+    definition: 研究饮食、运动、睡眠、物质使用和日常行为与健康的关系。
+    core_questions: [哪些可持续生活实践对不同个体和人群改善健康]
+    scope_includes: [nutrition, exercise-health, sleep, lifestyle, substance-use]
+    boundary_notes: 食品生产归 D15；个人执行与身体技能归 D20。
+    bridge_domains: [D06, D15, D20]
+    epistemic_modes: [empirical, causal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:health-systems-policy-economics
+    code: D14.12
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 健康系统、政策与卫生经济, en: Health Systems, Policy and Economics}
+    definition: 研究服务组织、融资、支付、人力、质量、可及、公平和卫生治理。
+    core_questions: [怎样组织有限资源提供公平有效且可持续的健康服务]
+    scope_includes: [health-systems, financing, access, quality, workforce, health-economics]
+    boundary_notes: 通用制度和经济理论归 D09/D10；临床有效性仍需本域证据。
+    bridge_domains: [D07, D09, D10, D16]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:health-informatics-digital-health
+    code: D14.13
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 健康信息学与数字健康, en: Health Informatics and Digital Health}
+    definition: 研究临床数据、电子记录、决策支持、远程医疗、医疗 AI 与数字工具评估。
+    core_questions: [数字系统怎样改善而非破坏临床工作隐私公平和安全]
+    scope_includes: [health-data, electronic-records, clinical-decision-support, telehealth, medical-ai]
+    boundary_notes: 计算实现归 D12；器械归 D13；治理连接 D09/D17。
+    bridge_domains: [D09, D12, D13, D17]
+    epistemic_modes: [empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:occupational-environmental-emergency-health
+    code: D14.14
+    parent: hkm:domain:health-medicine-wellbeing
+    labels: {zh: 职业、环境与急救健康, en: Occupational, Environmental and Emergency Health}
+    definition: 研究工作和环境暴露、职业伤害、毒理、急救、急诊和灾难医疗。
+    core_questions: [怎样识别暴露和急性威胁并及时预防处置和恢复]
+    scope_includes: [occupational-health, environmental-health, toxicology, emergency-medicine, first-aid]
+    boundary_notes: 环境迁移归 D04；安全治理和应急系统归 D17。
+    bridge_domains: [D04, D09, D13, D17, D20]
+    epistemic_modes: [empirical, causal, design, embodied]
+
+  # D15 农业、食物与生物生产
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:crop-science-agronomy
+    code: D15.01
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 作物科学与农艺, en: Crop Science and Agronomy}
+    definition: 研究作物生长、栽培、轮作、营养、水分、病虫草和产量品质。
+    core_questions: [怎样在变动环境中稳定生产高质量作物并保护资源]
+    scope_includes: [crops, agronomy, cultivation, crop-protection, yield-quality]
+    boundary_notes: 植物基础生物学归 D05；机械与灌溉连接 D13。
+    bridge_domains: [D04, D05, D13]
+    epistemic_modes: [empirical, causal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:soil-agroecology-land-management
+    code: D15.02
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 农业土壤、农业生态与土地管理, en: Agricultural Soils, Agroecology and Land Management}
+    definition: 研究土壤肥力、农田生态、景观、生物多样性和可持续土地管理。
+    core_questions: [生产系统怎样维持土壤生态功能和长期产能]
+    scope_includes: [soil-fertility, agroecology, land-management, biodiversity, regenerative-practice]
+    boundary_notes: 地球土壤过程归 D04；生态理论归 D05。
+    bridge_domains: [D04, D05, D09]
+    epistemic_modes: [empirical, causal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:horticulture-specialty-crops
+    code: D15.03
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 园艺与特色作物, en: Horticulture and Specialty Crops}
+    definition: 研究果蔬、花卉、药用和园艺作物的繁育、栽培、保护和采后。
+    core_questions: [高价值和多样化作物怎样获得稳定品质与适应性]
+    scope_includes: [fruits, vegetables, floriculture, specialty-crops, postharvest]
+    boundary_notes: 营养健康连接 D14；地方品种知识需连接 D01.09/D07.02。
+    bridge_domains: [D05, D07, D14]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:animal-science-livestock
+    code: D15.04
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 动物科学与畜牧系统, en: Animal Science and Livestock Systems}
+    definition: 研究养殖动物的营养、繁育、行为、福利、生产和环境影响。
+    core_questions: [怎样兼顾动物健康福利生产效率和生态影响]
+    scope_includes: [livestock, animal-nutrition, breeding, welfare, production-systems]
+    boundary_notes: 动物基础生理归 D05；疾病诊疗使用 D15.05。
+    bridge_domains: [D05, D09, D14]
+    epistemic_modes: [empirical, causal, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:veterinary-health-one-health
+    code: D15.05
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 兽医、动物健康与同一健康, en: Veterinary, Animal Health and One Health}
+    definition: 研究动物疾病、诊疗、预防、兽医公共卫生和人—动物—环境健康联系。
+    core_questions: [怎样跨物种和环境预防诊疗并控制共同健康风险]
+    scope_includes: [veterinary-medicine, animal-disease, zoonoses, veterinary-public-health, one-health]
+    boundary_notes: 人体临床归 D14；野生生态归 D05；治理连接 D17。
+    bridge_domains: [D05, D14, D17]
+    epistemic_modes: [empirical, causal, synthetic, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:forestry-agroforestry
+    code: D15.06
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 林业与农林系统, en: Forestry and Agroforestry}
+    definition: 研究森林培育、采收、保护、生态服务、木材和农林复合系统。
+    core_questions: [怎样在长周期和多目标下管理森林与树木资源]
+    scope_includes: [forestry, silviculture, agroforestry, forest-products, ecosystem-services]
+    boundary_notes: 自然森林生态归 D05；土地治理和社区权利连接 D09/D07。
+    bridge_domains: [D04, D05, D07, D09]
+    epistemic_modes: [empirical, historical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:fisheries-aquaculture
+    code: D15.07
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 渔业与水产养殖, en: Fisheries and Aquaculture}
+    definition: 研究捕捞种群、养殖系统、水生动物健康、生态影响和共同资源管理。
+    core_questions: [怎样在生态承载与社区生计约束下持续获得水产资源]
+    scope_includes: [fisheries, aquaculture, stock-assessment, aquatic-health, resource-management]
+    boundary_notes: 海洋与淡水生态归 D04/D05；治理连接 D09。
+    bridge_domains: [D04, D05, D09, D14]
+    epistemic_modes: [empirical, formal, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:breeding-agricultural-biotechnology
+    code: D15.08
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 育种与农业生物技术, en: Breeding and Agricultural Biotechnology}
+    definition: 研究植物动物微生物的选择育种、基因组、工程和种质资源。
+    core_questions: [怎样负责任地产生可遗传的生产性状并管理生态社会风险]
+    scope_includes: [breeding, quantitative-genetics, genomics, biotechnology, germplasm]
+    boundary_notes: 遗传机制归 D05；风险伦理治理连接 D01/D09/D17。
+    bridge_domains: [D01, D05, D09, D13, D17]
+    epistemic_modes: [empirical, formal, causal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:food-science-processing-safety
+    code: D15.09
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 食品科学、加工与安全, en: Food Science, Processing and Safety}
+    definition: 研究食品组成、加工、保存、感官、微生物、质量、危害和安全控制。
+    core_questions: [怎样把原料转化为安全营养稳定且可接受的食品]
+    scope_includes: [food-chemistry, processing, preservation, sensory, food-safety]
+    boundary_notes: 人体营养归 D14；过程设备归 D13。
+    bridge_domains: [D03, D05, D13, D14, D17]
+    epistemic_modes: [empirical, causal, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:agricultural-engineering-digital-agriculture
+    code: D15.10
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 农业工程与数字农业, en: Agricultural Engineering and Digital Agriculture}
+    definition: 研究农业机械、灌溉、设施、传感、自动化、精准农业和数据决策。
+    core_questions: [工程与数据怎样改善生产而不制造新依赖和生态负担]
+    scope_includes: [machinery, irrigation, controlled-environment, precision-agriculture, farm-data]
+    boundary_notes: 工程通用原理归 D13；计算系统归 D12。
+    bridge_domains: [D04, D12, D13]
+    epistemic_modes: [empirical, formal, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:food-systems-rural-development
+    code: D15.11
+    parent: hkm:domain:agriculture-food-bioproduction
+    labels: {zh: 食物系统、供应链与乡村发展, en: Food Systems, Supply Chains and Rural Development}
+    definition: 综合研究投入生产加工流通消费浪费、农户生计、乡村制度和食物公平。
+    core_questions: [食物系统怎样协调营养生计韧性效率与环境公平]
+    scope_includes: [food-systems, value-chains, rural-development, food-security, food-waste]
+    boundary_notes: 是桥接范围；经济、社会、治理和健康分别连接 D10/D07/D09/D14。
+    bridge_domains: [D04, D07, D09, D10, D14, D17, D20]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+
+  # D16 教育、学习与发展
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:learning-sciences-educational-psychology
+    code: D16.01
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 学习科学与教育心理, en: Learning Sciences and Educational Psychology}
+    definition: 研究知识建构、认知负荷、动机、迁移、协作、反馈和学习环境。
+    core_questions: [怎样设计条件使理解保持迁移和学习动机共同改善]
+    scope_includes: [learning, cognition, motivation, transfer, collaboration, feedback]
+    boundary_notes: 一般心理机制归 D06；本域关注可设计的学习情境。
+    bridge_domains: [D06, D12, D20]
+    epistemic_modes: [empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:curriculum-pedagogy-instruction
+    code: D16.02
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 课程、教学法与教学设计, en: Curriculum, Pedagogy and Instructional Design}
+    definition: 研究学习目标、内容选择、教学活动、顺序、支架、练习和课堂互动。
+    core_questions: [哪些内容应以何种顺序和活动帮助特定学习者掌握]
+    scope_includes: [curriculum, pedagogy, instruction, lesson-design, scaffolding]
+    boundary_notes: 学科内容由相应领域维护；工具平台归 D12。
+    bridge_domains: [D01, D06, D11, D12]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:assessment-measurement-evaluation
+    code: D16.03
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 教育测量、评价与反馈, en: Educational Assessment, Measurement and Feedback}
+    definition: 研究学习证据、测验、表现评价、形成性反馈、公平性和项目评估。
+    core_questions: [怎样收集不会扭曲目标且能改善学习的有效证据]
+    scope_includes: [assessment, psychometrics, formative-feedback, evaluation, fairness]
+    boundary_notes: 通用统计和测量理论归 D02；评价用途和后果必须显式。
+    bridge_domains: [D01, D02, D06]
+    epistemic_modes: [empirical, formal, causal, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:early-childhood-education
+    code: D16.04
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 早期儿童教育与照护, en: Early Childhood Education and Care}
+    definition: 研究幼儿发展、游戏、语言、家庭合作、照护和早期学习环境。
+    core_questions: [怎样通过安全关系游戏和环境支持儿童整体发展]
+    scope_includes: [early-childhood, play, early-language, family-engagement, care]
+    boundary_notes: 生理心理发展归 D05/D06；儿童健康归 D14。
+    bridge_domains: [D05, D06, D07, D14, D20]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:primary-secondary-education
+    code: D16.05
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 基础与中等教育, en: Primary and Secondary Education}
+    definition: 研究学校课程、学科教学、青少年发展、课堂、学校文化和升学转衔。
+    core_questions: [怎样让所有学生获得通识基础并发展差异化能力]
+    scope_includes: [primary-school, secondary-school, subject-teaching, schooling, transitions]
+    boundary_notes: 不把学校教育等同全部学习；制度政策连接 D09。
+    bridge_domains: [D06, D07, D09, D11]
+    epistemic_modes: [empirical, comparative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:higher-education-scholarship
+    code: D16.06
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 高等教育与学术发展, en: Higher Education and Academic Development}
+    definition: 研究大学学习、专业教育、科研训练、学术共同体、资格与高教制度。
+    core_questions: [高等教育怎样形成高级能力知识生产和社会责任]
+    scope_includes: [universities, professional-education, research-training, academic-development, credentials]
+    boundary_notes: 研究诚信连接 D01.10；具体专业知识归对象域。
+    bridge_domains: [D01, D07, D09, D10]
+    epistemic_modes: [empirical, historical, comparative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:vocational-workplace-professional-learning
+    code: D16.07
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 职业、工作场所与专业学习, en: Vocational, Workplace and Professional Learning}
+    definition: 研究学徒制、职业教育、岗位训练、专业判断、继续教育和能力认证。
+    core_questions: [显性知识和隐性技能怎样在真实工作中形成并更新]
+    scope_includes: [vocational-education, apprenticeship, workplace-learning, professional-development, competency]
+    boundary_notes: 职业任务与组织环境连接 D10；具体技能归相应实践域。
+    bridge_domains: [D10, D13, D14, D15, D20]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:special-inclusive-education
+    code: D16.08
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 特殊、融合与无障碍教育, en: Special, Inclusive and Accessible Education}
+    definition: 研究学习差异、残障、支持、通用学习设计、融合和教育权利。
+    core_questions: [怎样改变环境和支持使不同学习者真实参与和发展]
+    scope_includes: [special-education, inclusion, accessibility, learning-differences, universal-design]
+    boundary_notes: 不把差异仅归因个体缺陷；健康康复与权利连接 D14/D09。
+    bridge_domains: [D06, D09, D14, D20]
+    epistemic_modes: [empirical, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:teacher-education-professional-practice
+    code: D16.09
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 教师教育与教学专业实践, en: Teacher Education and Professional Practice}
+    definition: 研究教师知识、课堂判断、实践训练、协作、反思和专业伦理。
+    core_questions: [教师怎样形成把内容学习者和情境连接起来的专业判断]
+    scope_includes: [teacher-knowledge, practicum, classroom-management, reflection, professional-ethics]
+    boundary_notes: 不能用通用教学技巧替代学科教学知识。
+    bridge_domains: [D01, D06, D10, D20]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:education-leadership-policy-systems
+    code: D16.10
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 教育领导、政策与系统, en: Educational Leadership, Policy and Systems}
+    definition: 研究学校与教育系统治理、资源、公平、问责、改革和组织改进。
+    core_questions: [怎样组织教育系统使质量公平与持续改进相互支持]
+    scope_includes: [leadership, governance, finance, accountability, reform, equity]
+    boundary_notes: 通用政策和组织理论归 D09/D10。
+    bridge_domains: [D07, D09, D10]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:education-technology-open-distance
+    code: D16.11
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 教育技术、开放与远程学习, en: Educational Technology, Open and Distance Learning}
+    definition: 研究数字学习环境、开放资源、远程教学、智能辅导和技术评估。
+    core_questions: [技术何时真正改善学习可及性和教师能力]
+    scope_includes: [edtech, online-learning, open-resources, intelligent-tutoring, learning-analytics]
+    boundary_notes: 平台技术归 D12；不能以使用量替代学习和公平证据。
+    bridge_domains: [D02, D06, D12, D20]
+    epistemic_modes: [empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:lifelong-self-directed-learning
+    code: D16.12
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 终身、自主与成人学习, en: Lifelong, Self-Directed and Adult Learning}
+    definition: 研究成人发展、自主学习、学习策略、社区教育和职业转型。
+    core_questions: [人在学校之外怎样持续识别目标获取反馈并更新能力]
+    scope_includes: [adult-learning, self-directed-learning, learning-strategies, community-education, reskilling]
+    boundary_notes: 个人知识工作实践归 D20；职业环境连接 D10。
+    bridge_domains: [D06, D10, D20]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:comparative-international-education
+    code: D16.13
+    parent: hkm:domain:education-learning-development
+    labels: {zh: 比较与国际教育, en: Comparative and International Education}
+    definition: 比较教育制度、文化、发展、迁移、全球指标和政策借鉴。
+    core_questions: [教育制度为何不同且政策怎样在跨情境迁移中变形]
+    scope_includes: [comparative-education, international-education, policy-borrowing, development, migration]
+    boundary_notes: 排名和指标不可脱离制度文化语境。
+    bridge_domains: [D07, D08, D09, D10]
+    epistemic_modes: [empirical, historical, comparative, interpretive]
+
+  # D17 安全、冲突与韧性
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:risk-safety-science
+    code: D17.01
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 风险与安全科学, en: Risk and Safety Science}
+    definition: 研究危害、暴露、脆弱性、概率、后果、风险感知和安全决策。
+    core_questions: [在不确定和价值冲突下怎样识别比较并降低风险]
+    scope_includes: [hazard, exposure, vulnerability, risk-analysis, safety-decision]
+    boundary_notes: 概率形式归 D02；具体风险必须由对象域定义损失与证据。
+    bridge_domains: [D01, D02, D06, D09, D13]
+    epistemic_modes: [formal, empirical, causal, normative, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:conflict-peace-studies
+    code: D17.02
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 冲突、和平与暴力研究, en: Conflict, Peace and Violence Studies}
+    definition: 研究暴力冲突的结构、动员、升级、调解、和平构建和转型正义。
+    core_questions: [冲突怎样升级持续并在不复制伤害的条件下转化]
+    scope_includes: [conflict, violence, mediation, peacebuilding, transitional-justice]
+    boundary_notes: 政治制度和国际法归 D09；历史过程连接 D08。
+    bridge_domains: [D07, D08, D09, D11, D14]
+    epistemic_modes: [empirical, causal, historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:military-strategy-defense
+    code: D17.03
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 军事、战略与防务, en: Military, Strategy and Defense}
+    definition: 研究威慑、战争、作战、后勤、指挥、国防组织和军民关系。
+    core_questions: [武力能力怎样影响威慑冲突结果和政治目标]
+    scope_includes: [strategy, deterrence, operations, logistics, command, civil-military]
+    boundary_notes: 收录不等于正当化；法律伦理和和平替代必须连接 D01/D09/D17.02。
+    bridge_domains: [D01, D08, D09, D10, D13]
+    epistemic_modes: [historical, empirical, formal, normative, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:intelligence-security-analysis
+    code: D17.04
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 情报与安全分析, en: Intelligence and Security Analysis}
+    definition: 研究信息收集、来源评估、预警、竞争假设、欺骗与分析组织。
+    core_questions: [怎样从不完整且可能被操纵的信息形成可校准判断]
+    scope_includes: [intelligence, source-evaluation, warning, deception, structured-analysis]
+    boundary_notes: 隐私法律与监督归 D09；一般批判探究归 D01。
+    bridge_domains: [D01, D02, D06, D09, D11]
+    epistemic_modes: [empirical, causal, interpretive, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:crime-policing-prevention
+    code: D17.05
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 犯罪、警务与预防实践, en: Crime, Policing and Prevention Practice}
+    definition: 研究犯罪模式、警务、社区安全、预防、调查和执法组织效果。
+    core_questions: [怎样减少伤害并使执法有效合法可问责]
+    scope_includes: [criminology, policing, prevention, investigation, community-safety]
+    boundary_notes: 刑法程序归 D09.08；社会原因归 D07。
+    bridge_domains: [D06, D07, D09, D12]
+    epistemic_modes: [empirical, causal, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:cyber-information-security-strategy
+    code: D17.06
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 网络与信息安全战略, en: Cyber and Information Security Strategy}
+    definition: 研究网络威胁、信息行动、关键资产保护、响应、国家与组织安全战略。
+    core_questions: [怎样治理跨边界数字威胁且避免安全措施侵蚀权利]
+    scope_includes: [cyber-strategy, information-operations, incident-response, critical-assets, security-governance]
+    boundary_notes: 技术安全实现归 D12.07；法律监管归 D09。
+    bridge_domains: [D09, D11, D12, D13]
+    epistemic_modes: [empirical, causal, historical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:disaster-emergency-management
+    code: D17.07
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 灾害与应急管理, en: Disaster and Emergency Management}
+    definition: 研究预防、准备、预警、指挥、救援、安置、恢复和灾害风险降低。
+    core_questions: [怎样跨组织和社区准备应对突发事件并公平恢复]
+    scope_includes: [preparedness, warning, emergency-command, response, recovery, disaster-risk-reduction]
+    boundary_notes: 自然灾害机制归 D04；急救医疗归 D14；个人准备归 D20。
+    bridge_domains: [D04, D07, D09, D13, D14, D20]
+    epistemic_modes: [empirical, causal, design, embodied, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:critical-infrastructure-civil-protection
+    code: D17.08
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 关键基础设施与民事保护, en: Critical Infrastructure and Civil Protection}
+    definition: 研究能源、水、交通、通信、供应链等关键系统的依赖、保护和连续服务。
+    core_questions: [相互依赖基础设施怎样防止级联失效并维持最低服务]
+    scope_includes: [critical-infrastructure, interdependencies, civil-protection, continuity, cascading-failure]
+    boundary_notes: 各基础设施工程归 D13；供应链运营归 D10。
+    bridge_domains: [D10, D12, D13, D14]
+    epistemic_modes: [formal, empirical, causal, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:accident-human-factors-safety-culture
+    code: D17.09
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 事故、人因与安全文化, en: Accidents, Human Factors and Safety Culture}
+    definition: 研究事故机制、人机组织互动、近失事件、正常化偏差和安全文化。
+    core_questions: [事故怎样由多层条件共同形成且如何从弱信号学习]
+    scope_includes: [accidents, human-factors, near-misses, safety-culture, organizational-learning]
+    boundary_notes: 可靠性工程归 D13.14；组织行为连接 D10.11。
+    bridge_domains: [D06, D10, D13, D16]
+    epistemic_modes: [empirical, causal, historical, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:biosecurity-health-security
+    code: D17.10
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 生物安全与卫生安全, en: Biosecurity and Health Security}
+    definition: 研究自然、意外和蓄意生物威胁的预防、监测、实验室安全和治理。
+    core_questions: [怎样降低生物事件风险且维持研究健康与社会信任]
+    scope_includes: [biosecurity, biosafety, pandemic-preparedness, laboratory-safety, dual-use]
+    boundary_notes: 病原机制和公共卫生归 D05/D14；伦理法律连接 D01/D09。
+    bridge_domains: [D01, D05, D09, D14, D15]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:resilience-continuity-recovery
+    code: D17.11
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 韧性、连续性与恢复, en: Resilience, Continuity and Recovery}
+    definition: 研究吸收冲击、维持关键功能、适应、恢复和必要转型的系统能力。
+    core_questions: [系统在冲击下应保留什么改变什么且如何避免把负担转嫁]
+    scope_includes: [resilience, business-continuity, adaptation, recovery, transformation]
+    boundary_notes: “韧性”不能替代预防和责任；具体系统由对象域定义。
+    bridge_domains: [D04, D07, D10, D13, D14]
+    epistemic_modes: [causal, normative, design, synthetic]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:personal-community-safety
+    code: D17.12
+    parent: hkm:domain:security-conflict-resilience
+    labels: {zh: 个人、家庭与社区安全, en: Personal, Household and Community Safety}
+    definition: 研究伤害预防、居家和出行安全、社区互助、急救准备与风险沟通。
+    core_questions: [普通人在不过度恐惧的前提下应掌握哪些高价值安全能力]
+    scope_includes: [injury-prevention, home-safety, travel-safety, community-preparedness, risk-communication]
+    boundary_notes: 具体执行技能归 D20.13；专业应急系统归 D17.07。
+    bridge_domains: [D11, D14, D20]
+    epistemic_modes: [empirical, design, embodied]
+
+  # D18 艺术、文学与创造
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:aesthetics-art-theory
+    code: D18.01
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 美学、艺术理论与创作研究, en: Aesthetics, Art Theory and Creative Research}
+    definition: 研究艺术、审美经验、形式、表达、创造性、作者与接受。
+    core_questions: [作品怎样通过形式媒介和情境产生审美与意义]
+    scope_includes: [aesthetics, art-theory, creativity, interpretation, reception]
+    boundary_notes: 规范与概念哲学连接 D01.05；心理体验连接 D06。
+    bridge_domains: [D01, D06, D19]
+    epistemic_modes: [interpretive, normative, historical]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:visual-arts
+    code: D18.02
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 视觉艺术, en: Visual Arts}
+    definition: 涵盖绘画、素描、雕塑、版画、装置及其材料、形式和实践。
+    core_questions: [视觉材料和构图怎样形成经验表达与批评]
+    scope_includes: [painting, drawing, sculpture, printmaking, installation]
+    boundary_notes: 图形技术归 D12；设计约束产品归 D13。
+    bridge_domains: [D06, D12, D13, D19]
+    epistemic_modes: [interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:craft-design-arts
+    code: D18.03
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 工艺与设计艺术, en: Craft and Design Arts}
+    definition: 研究陶瓷、纤维、金工、木作、书艺和其他材料工艺的审美与传统。
+    core_questions: [材料技能传统与形式怎样在制作中共同生成价值]
+    scope_includes: [ceramics, textiles, metalwork, woodcraft, calligraphy, decorative-arts]
+    boundary_notes: 实用工程性能归 D13；日常手工能力连接 D20。
+    bridge_domains: [D07, D13, D19, D20]
+    epistemic_modes: [historical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:music-sound-arts
+    code: D18.04
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 音乐与声音艺术, en: Music and Sound Arts}
+    definition: 研究作曲、演奏、即兴、声音、音乐理论、听觉文化和录音实践。
+    core_questions: [时间化声音怎样形成结构情感身份与共同体验]
+    scope_includes: [composition, performance, improvisation, music-theory, sound-art]
+    boundary_notes: 声学物理归 D03；宗教音乐连接 D19。
+    bridge_domains: [D03, D06, D07, D12, D19]
+    epistemic_modes: [formal, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:theatre-dance-performance
+    code: D18.05
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 戏剧、舞蹈与表演, en: Theatre, Dance and Performance}
+    definition: 研究身体、动作、角色、舞台、现场性、编舞、导演和表演传统。
+    core_questions: [身体与现场关系怎样创造叙事情感和公共体验]
+    scope_includes: [theatre, dance, performance, choreography, directing]
+    boundary_notes: 身体训练健康连接 D14/D20；仪式连接 D19。
+    bridge_domains: [D06, D07, D14, D19, D20]
+    epistemic_modes: [interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:literature-poetics
+    code: D18.06
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 文学与诗学, en: Literature and Poetics}
+    definition: 研究诗歌、小说、散文、戏剧文本、体裁、形式、传统和文学解释。
+    core_questions: [语言形式和叙事怎样创造超越字面陈述的经验]
+    scope_includes: [poetry, fiction, drama-texts, genre, poetics, literary-analysis]
+    boundary_notes: 语言结构归 D11；纯历史语境连接 D08。
+    bridge_domains: [D08, D11, D19]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:film-screen-media-arts
+    code: D18.07
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 电影、影像与屏幕艺术, en: Film, Moving Image and Screen Arts}
+    definition: 研究电影、动画、电视影像、剪辑、摄影机、声音和屏幕叙事。
+    core_questions: [运动影像怎样通过时间镜头声音和产业形成经验]
+    scope_includes: [film, animation, cinematography, editing, screen-narrative]
+    boundary_notes: 媒体制度归 D11；视听计算技术归 D12。
+    bridge_domains: [D11, D12, D13]
+    epistemic_modes: [historical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:photography-digital-new-media-art
+    code: D18.08
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 摄影、数字与新媒体艺术, en: Photography, Digital and New Media Art}
+    definition: 研究摄影、数字图像、互动、生成、网络、游戏和沉浸式艺术实践。
+    core_questions: [技术媒介怎样改变作品作者观众与真实感]
+    scope_includes: [photography, digital-art, interactive-art, generative-art, game-art, immersive-art]
+    boundary_notes: 算法和平台实现归 D12；技术伦理连接 D01/D09。
+    bridge_domains: [D01, D11, D12, D13]
+    epistemic_modes: [interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:architecture-spatial-arts
+    code: D18.09
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 建筑与空间艺术, en: Architecture and Spatial Arts}
+    definition: 研究建筑、景观、室内和公共空间的形式、体验、象征与审美历史。
+    core_questions: [空间形式怎样塑造身体体验记忆身份和公共生活]
+    scope_includes: [architectural-aesthetics, landscape-art, interior, public-space, spatial-installation]
+    boundary_notes: 工程和规划主归 D13.12；城市社会连接 D07。
+    bridge_domains: [D07, D08, D13, D19]
+    epistemic_modes: [historical, interpretive, design]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:creative-writing-storytelling
+    code: D18.10
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 创意写作与叙事实践, en: Creative Writing and Storytelling Practice}
+    definition: 研究构思、人物、视角、结构、风格、修订和口述/书面叙事实践。
+    core_questions: [怎样通过选择和组织语言创造有力而负责的叙事]
+    scope_includes: [creative-writing, storytelling, narrative-craft, revision, oral-story]
+    boundary_notes: 事实报道归 D11.06；叙事伦理连接 D01。
+    bridge_domains: [D01, D08, D11, D19, D20]
+    epistemic_modes: [interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:art-history-global-traditions
+    code: D18.11
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 艺术史与全球艺术传统, en: Art History and Global Artistic Traditions}
+    definition: 研究不同时空的作品、风格、材料、赞助、流通和艺术制度。
+    core_questions: [艺术形式怎样在历史权力交流和地方传统中变化]
+    scope_includes: [art-history, global-art, material-culture, patronage, artistic-traditions]
+    boundary_notes: 避免以单一文明的时期和媒介体系覆盖全球艺术。
+    bridge_domains: [D07, D08, D10, D19]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:criticism-curation-conservation
+    code: D18.12
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 艺术批评、策展与保存, en: Art Criticism, Curation and Conservation}
+    definition: 研究作品解释评价、展览叙事、收藏伦理、物质保存和文化财产权。
+    core_questions: [作品怎样被解释展示保存且谁有权决定]
+    scope_includes: [criticism, curation, collections, conservation, provenance]
+    boundary_notes: 博物馆与公共记忆连接 D08.12；法律和材料技术连接 D09/D13。
+    bridge_domains: [D08, D09, D11, D13, D19]
+    epistemic_modes: [historical, interpretive, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:participatory-community-arts
+    code: D18.13
+    parent: hkm:domain:arts-literature-creation
+    labels: {zh: 参与式、社区与艺术教育实践, en: Participatory, Community and Arts Education Practice}
+    definition: 研究共同创作、社区艺术、艺术教育、疗愈性参与和公共文化实践。
+    core_questions: [艺术参与怎样扩展表达关系学习和公共能动性]
+    scope_includes: [community-arts, participatory-art, arts-education, facilitation, public-culture]
+    boundary_notes: 不把艺术工具化为单一社会指标；教育与健康应用连接 D16/D14。
+    bridge_domains: [D07, D14, D16, D20]
+    epistemic_modes: [interpretive, normative, design, embodied]
+
+  # D19 宗教、意义与世界观
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:comparative-religious-studies
+    code: D19.01
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 比较宗教学与宗教现象, en: Comparative Religious Studies}
+    definition: 比较宗教传统、信仰、实践、制度与概念，同时保持历史和内部差异。
+    core_questions: [怎样比较宗教现象而不把某一传统当普遍模板]
+    scope_includes: [comparative-religion, religious-concepts, traditions, institutions, methods]
+    boundary_notes: 比较类别本身需反思；具体传统由后续 H4 展开。
+    bridge_domains: [D01, D07, D08]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:theology-doctrine
+    code: D19.02
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 神学、教义与宗教思想, en: Theology, Doctrine and Religious Thought}
+    definition: 在传统内部与比较语境中研究神圣、救赎、启示、教义和理性反思。
+    core_questions: [信仰传统怎样系统表达并论证其终极主张]
+    scope_includes: [theology, doctrine, revelation, salvation, religious-philosophy]
+    boundary_notes: 收录传统内部理由不等于外部经验验证；哲学论证连接 D01。
+    bridge_domains: [D01, D08, D11]
+    epistemic_modes: [formal, historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:scripture-hermeneutics
+    code: D19.03
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 经典、注释与诠释学, en: Scripture, Commentary and Hermeneutics}
+    definition: 研究宗教文本、口传经典、注释传统、翻译、正典形成和解释冲突。
+    core_questions: [经典怎样在语言历史权威和共同体中被解释]
+    scope_includes: [scripture, canon, commentary, exegesis, oral-text, translation]
+    boundary_notes: 文本语言方法连接 D11；历史来源批判连接 D08。
+    bridge_domains: [D08, D11, D18]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:ritual-worship-material-religion
+    code: D19.04
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 仪式、礼拜与物质宗教, en: Ritual, Worship and Material Religion}
+    definition: 研究仪式、节期、身体、空间、器物、图像、音乐和礼拜实践。
+    core_questions: [身体化和物质实践怎样维持转化并争议神圣秩序]
+    scope_includes: [ritual, worship, pilgrimage, sacred-space, material-religion]
+    boundary_notes: 艺术形式连接 D18；社会组织连接 D07。
+    bridge_domains: [D07, D08, D18, D20]
+    epistemic_modes: [historical, interpretive, comparative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:mysticism-spirituality-contemplative-practice
+    code: D19.05
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 神秘主义、灵性与观修实践, en: Mysticism, Spirituality and Contemplative Practice}
+    definition: 研究神秘体验、祈祷、冥想、修行、转化和当代灵性。
+    core_questions: [宗教和灵性实践怎样塑造体验自我与生活]
+    scope_includes: [mysticism, spirituality, prayer, meditation, contemplative-practice]
+    boundary_notes: 主观体验的心理神经研究连接 D06；健康效应需 D14 证据。
+    bridge_domains: [D06, D14, D20]
+    epistemic_modes: [empirical, historical, interpretive, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:religion-society-politics
+    code: D19.06
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 宗教、社会与政治, en: Religion, Society and Politics}
+    definition: 研究宗教共同体、权威、身份、公共领域、国家关系、冲突与社会变迁。
+    core_questions: [宗教怎样作为信仰共同体和制度参与社会权力]
+    scope_includes: [religious-communities, authority, identity, public-religion, religion-politics]
+    boundary_notes: 一般社会和政治机制归 D07/D09。
+    bridge_domains: [D07, D08, D09, D17]
+    epistemic_modes: [empirical, historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:religious-ethics-law
+    code: D19.07
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 宗教伦理与宗教法, en: Religious Ethics and Religious Law}
+    definition: 研究传统内部的义务、德性、戒律、法学、生活规范及其当代解释。
+    core_questions: [宗教规范怎样获得权威并在新情境中解释应用]
+    scope_includes: [religious-ethics, religious-law, virtue, duties, applied-tradition]
+    boundary_notes: 国家法律效力归 D09；一般伦理论证连接 D01。
+    bridge_domains: [D01, D09, D14, D20]
+    epistemic_modes: [historical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:history-religions
+    code: D19.08
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 宗教史与传统变迁, en: History of Religions and Traditions}
+    definition: 研究传统形成、分化、传播、改革、接触、压迫和复兴的历史。
+    core_questions: [宗教传统怎样在交流冲突和社会变化中演化]
+    scope_includes: [religious-history, movements, reform, missions, syncretism, revival]
+    boundary_notes: 历史方法和时序主连接 D08；不假定传统本质不变。
+    bridge_domains: [D07, D08, D11]
+    epistemic_modes: [historical, interpretive, comparative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:secularism-nonreligion
+    code: D19.09
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 世俗主义、无宗教与怀疑传统, en: Secularism, Nonreligion and Skeptical Traditions}
+    definition: 研究世俗化、无神论、不可知论、人文主义、无宗教身份和国家世俗安排。
+    core_questions: [非宗教和世俗世界观怎样形成意义伦理与公共秩序]
+    scope_includes: [secularism, atheism, agnosticism, humanism, nonreligion]
+    boundary_notes: 不把无宗教仅定义为宗教缺失；政治制度连接 D09。
+    bridge_domains: [D01, D07, D09]
+    epistemic_modes: [historical, empirical, interpretive, normative]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:worldviews-existential-meaning
+    code: D19.10
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 世界观、存在问题与生命意义, en: Worldviews, Existential Questions and Meaning}
+    definition: 比较宗教与世俗框架如何理解生命、苦难、死亡、希望、责任和归属。
+    core_questions: [人在有限性和不确定性中怎样构造可生活的意义框架]
+    scope_includes: [worldviews, meaning, suffering, death, hope, existential-practice]
+    boundary_notes: 哲学价值论连接 D01；心理健康效应连接 D06/D14。
+    bridge_domains: [D01, D06, D14, D18, D20]
+    epistemic_modes: [interpretive, comparative, normative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:indigenous-local-cosmologies
+    code: D19.11
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 原住民与地方宇宙观, en: Indigenous and Local Cosmologies}
+    definition: 研究地方和原住民族关于土地、祖先、非人存在、责任与实践的整体世界观。
+    core_questions: [怎样在知识主权和地方语境中理解并保护整体性世界观]
+    scope_includes: [indigenous-cosmologies, land-relations, ancestors, relational-ontology, knowledge-sovereignty]
+    boundary_notes: 不把多样传统归为单一类型或抽取为免费数据；需共同体治理和来源伦理。
+    bridge_domains: [D01, D04, D07, D08, D15, D20]
+    epistemic_modes: [historical, interpretive, comparative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:lived-religion-community-practice
+    code: D19.12
+    parent: hkm:domain:religion-meaning-worldviews
+    labels: {zh: 生活宗教与共同体实践, en: Lived Religion and Community Practice}
+    definition: 研究普通人的家庭、工作、饮食、照护、节日、互助和身份中的宗教实践。
+    core_questions: [正式教义怎样在日常关系资源和地方文化中被实际生活]
+    scope_includes: [lived-religion, family-practice, community, mutual-aid, everyday-ethics]
+    boundary_notes: 日常能力归 D20；共同体社会机制归 D07。
+    bridge_domains: [D07, D14, D15, D20]
+    epistemic_modes: [empirical, interpretive, embodied]
+
+  # D20 日常生活、实践技能与自我管理
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:personal-health-self-care-navigation
+    code: D20.01
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 个人健康、自护与就医导航, en: Personal Health, Self-Care and Care Navigation}
+    definition: 把基础健康知识转化为卫生、用药安全、症状观察、预防、就医和照护协作能力。
+    core_questions: [哪些健康问题可安全自护且何时怎样求助专业人员]
+    scope_includes: [hygiene, medication-safety, symptom-monitoring, prevention, care-navigation]
+    boundary_notes: 不替代诊断治疗；专业医学证据归 D14。
+    bridge_domains: [D06, D14, D17]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:cooking-food-household-nutrition
+    code: D20.02
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 烹饪、食物与家庭营养, en: Cooking, Food and Household Nutrition}
+    definition: 研究并实践选购、储存、备餐、烹饪、食品安全、膳食计划和文化饮食。
+    core_questions: [怎样在预算时间健康文化和安全约束下持续吃得更好]
+    scope_includes: [cooking, shopping, storage, meal-planning, food-safety, household-nutrition]
+    boundary_notes: 营养医学和食品生产分别归 D14/D15。
+    bridge_domains: [D10, D14, D15, D19]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:home-household-maintenance-repair
+    code: D20.03
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 住所、家务、维护与维修, en: Home, Household, Maintenance and Repair}
+    definition: 涵盖清洁、整理、基础水电、工具使用、故障识别、保养和何时聘请专业人员。
+    core_questions: [怎样安全维持住所功能并在能力边界内诊断和修复]
+    scope_includes: [housekeeping, tools, preventive-maintenance, basic-repair, troubleshooting]
+    boundary_notes: 高风险电气结构燃气等工作必须转交合格专业人员；工程归 D13。
+    bridge_domains: [D13, D14, D17]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:personal-finance-consumer-capability
+    code: D20.04
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 个人财务与消费者能力, en: Personal Finance and Consumer Capability}
+    definition: 研究并实践预算、储蓄、债务、保险、税务基础、长期投资、消费判断和反欺诈。
+    core_questions: [怎样在不确定性和行为偏差下保护家庭财务韧性]
+    scope_includes: [budgeting, saving, debt, insurance, taxes, investing-basics, consumer-protection]
+    boundary_notes: 不提供个别投资建议；金融理论和法律分别归 D10/D09。
+    bridge_domains: [D06, D09, D10, D17]
+    epistemic_modes: [formal, empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:digital-media-information-literacy
+    code: D20.05
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 数字、媒体、数据与信息素养, en: Digital, Media, Data and Information Literacy}
+    definition: 涵盖设备账户、搜索、来源判断、数据理解、隐私、安全、AI 使用和媒介自控。
+    core_questions: [怎样有效安全地使用数字信息并识别其证据和操纵边界]
+    scope_includes: [digital-literacy, media-literacy, data-literacy, privacy, cybersecurity-hygiene, ai-literacy]
+    boundary_notes: 技术实现归 D12；新闻和传播系统归 D11。
+    bridge_domains: [D01, D02, D11, D12, D17]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:relationships-communication-caregiving
+    code: D20.06
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 关系、沟通、边界与家庭照护, en: Relationships, Communication, Boundaries and Caregiving}
+    definition: 实践倾听、表达、协商、冲突处理、同意、边界、家庭分工和日常照护。
+    core_questions: [怎样在尊重安全和相互责任中维持关系并处理冲突]
+    scope_includes: [listening, assertiveness, negotiation, consent, boundaries, caregiving]
+    boundary_notes: 不把虐待或危险关系简化为沟通技巧问题；需连接专业支持。
+    bridge_domains: [D06, D07, D11, D14, D17]
+    epistemic_modes: [empirical, interpretive, normative, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:learning-knowledge-work-practice
+    code: D20.07
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 学习、阅读、写作与知识工作实践, en: Learning, Reading, Writing and Knowledge Work Practice}
+    definition: 实践问题分解、检索、阅读、笔记、写作、计算、项目和知识管理。
+    core_questions: [怎样把信息转化为理解输出反馈和可迁移能力]
+    scope_includes: [reading, writing, note-making, research, projects, personal-knowledge-management]
+    boundary_notes: 教育理论归 D16；专业研究方法由对象领域维护。
+    bridge_domains: [D01, D02, D11, D12, D16]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:career-workplace-collaboration
+    code: D20.08
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 职业、工作场所与协作基础, en: Career, Workplace and Collaboration Foundations}
+    definition: 涵盖职业探索、求职、工作权利、沟通、会议、文档、反馈、协作和职业发展。
+    core_questions: [怎样选择进入并持续发展符合能力价值和现实约束的工作]
+    scope_includes: [career-planning, job-search, workplace-rights, collaboration, feedback, professional-growth]
+    boundary_notes: 组织管理归 D10；职业训练归 D16。
+    bridge_domains: [D07, D09, D10, D11, D16]
+    epistemic_modes: [empirical, interpretive, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:civic-legal-economic-navigation
+    code: D20.09
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 公民、法律与公共服务导航, en: Civic, Legal and Public-Service Navigation}
+    definition: 涵盖基本权利义务、合同文件、公共服务、投票参与、申诉和寻求专业帮助。
+    core_questions: [普通人怎样理解制度入口并保护权利履行责任]
+    scope_includes: [civic-literacy, legal-literacy, public-services, contracts, voting, complaints]
+    boundary_notes: 不替代具体法律意见；法学和公共政策归 D09。
+    bridge_domains: [D07, D09, D10, D11]
+    epistemic_modes: [interpretive, normative, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:mobility-travel-navigation
+    code: D20.10
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 出行、旅行与空间导航, en: Mobility, Travel and Spatial Navigation}
+    definition: 实践路线规划、交通选择、驾驶/骑行/步行安全、旅行准备和跨文化出行。
+    core_questions: [怎样在成本时间安全环境和无障碍约束下可靠移动]
+    scope_includes: [navigation, transport-choice, road-safety, travel-planning, accessibility]
+    boundary_notes: 交通工程归 D13；旅行安全连接 D17。
+    bridge_domains: [D04, D07, D13, D17]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:physical-literacy-sport-recreation
+    code: D20.11
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 身体素养、运动与休闲, en: Physical Literacy, Sport and Recreation}
+    definition: 实践基本动作、体能、运动技能、训练、恢复、游戏、户外和可持续休闲。
+    core_questions: [怎样在健康乐趣安全和长期参与之间发展身体能力]
+    scope_includes: [physical-literacy, exercise, sport-skills, recreation, outdoor-practice, recovery]
+    boundary_notes: 医疗与运动健康证据归 D14；表演艺术身体实践连接 D18。
+    bridge_domains: [D06, D14, D17, D18]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:craft-making-creative-hobbies
+    code: D20.12
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 手工、制作与创造性爱好, en: Craft, Making and Creative Hobbies}
+    definition: 实践材料工具、缝纫木作电子园艺摄影音乐等非专业制作与创作。
+    core_questions: [怎样通过安全反复制作形成材料判断创造性和自主修复能力]
+    scope_includes: [making, crafts, diy, gardening, amateur-arts, hobby-practice]
+    boundary_notes: 高风险工作遵守专业边界；艺术和工程知识连接 D18/D13。
+    bridge_domains: [D13, D15, D18]
+    epistemic_modes: [design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:emergency-preparedness-first-response
+    code: D20.13
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 应急准备、急救与个人安全, en: Emergency Preparedness, First Response and Personal Safety}
+    definition: 实践报警、撤离、基础急救、灾害物资、数字与旅行安全、家庭联络和恢复准备。
+    core_questions: [普通人应掌握哪些低频高价值技能以争取时间并避免二次伤害]
+    scope_includes: [first-aid, evacuation, emergency-kit, family-plan, personal-safety]
+    boundary_notes: 只执行受训范围；专业医疗与应急指挥归 D14/D17。
+    bridge_domains: [D14, D17]
+    epistemic_modes: [empirical, design, embodied]
+  - <<: *subdomain_defaults
+    id: hkm:subdomain:time-attention-habits-self-management
+    code: D20.14
+    parent: hkm:domain:everyday-life-practical-agency
+    labels: {zh: 时间、注意、习惯与自我管理, en: Time, Attention, Habits and Self-Management}
+    definition: 实践目标、优先级、计划、注意环境、习惯、复盘、休息和适应性自我调节。
+    core_questions: [怎样在有限精力和变化环境中持续完成重要事情而不透支]
+    scope_includes: [goals, planning, attention, habits, reflection, rest, self-regulation]
+    boundary_notes: 不把结构性困境个体化；心理机制和组织约束连接 D06/D10。
+    bridge_domains: [D06, D10, D14, D16]
+    epistemic_modes: [empirical, design, embodied]

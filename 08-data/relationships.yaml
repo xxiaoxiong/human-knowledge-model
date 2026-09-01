@@ -1,0 +1,391 @@
+schema_version: 0.1.0
+model_version: 0.1.0
+
+provenance_registry:
+  - id: hkm:source:editorial-synthesis-v0-1
+    type: editorial-synthesis
+    title: HKM v0.1 architecture and source-taxonomy synthesis
+    description: 基于 00-meta/source-taxonomy-review.md 所列标准与本体原则形成的领域级策展关系；不是概念级经验断言。
+
+relationships:
+  # H1 -> H0
+  - {id: hkm:relation:s1-narrower-root, source: hkm:superdomain:knowing-formal-representation, type: narrower-than, target: hkm:corpus:human-knowledge, scope: 直接范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:s2-narrower-root, source: hkm:superdomain:nature-life-mind, type: narrower-than, target: hkm:corpus:human-knowledge, scope: 直接范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:s3-narrower-root, source: hkm:superdomain:humans-society-institutions, type: narrower-than, target: hkm:corpus:human-knowledge, scope: 直接范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:s4-narrower-root, source: hkm:superdomain:design-technology-intervention, type: narrower-than, target: hkm:corpus:human-knowledge, scope: 直接范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:s5-narrower-root, source: hkm:superdomain:meaning-expression-practice, type: narrower-than, target: hkm:corpus:human-knowledge, scope: 直接范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+
+  # H2 -> H1
+  - {id: hkm:relation:d01-narrower-s1, source: hkm:domain:metaknowledge-philosophy-inquiry, type: narrower-than, target: hkm:superdomain:knowing-formal-representation, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d02-narrower-s1, source: hkm:domain:mathematics-statistics-formal-systems, type: narrower-than, target: hkm:superdomain:knowing-formal-representation, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d03-narrower-s2, source: hkm:domain:matter-energy-universe, type: narrower-than, target: hkm:superdomain:nature-life-mind, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d04-narrower-s2, source: hkm:domain:earth-space-environment, type: narrower-than, target: hkm:superdomain:nature-life-mind, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d05-narrower-s2, source: hkm:domain:life-evolution, type: narrower-than, target: hkm:superdomain:nature-life-mind, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d06-narrower-s2, source: hkm:domain:mind-brain-behavior, type: narrower-than, target: hkm:superdomain:nature-life-mind, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d07-narrower-s3, source: hkm:domain:society-human-groups, type: narrower-than, target: hkm:superdomain:humans-society-institutions, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d08-narrower-s3, source: hkm:domain:history-archaeology-civilization, type: narrower-than, target: hkm:superdomain:humans-society-institutions, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d09-narrower-s3, source: hkm:domain:politics-governance-law, type: narrower-than, target: hkm:superdomain:humans-society-institutions, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d10-narrower-s3, source: hkm:domain:economy-finance-organizations, type: narrower-than, target: hkm:superdomain:humans-society-institutions, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d11-narrower-s3, source: hkm:domain:language-communication-media, type: narrower-than, target: hkm:superdomain:humans-society-institutions, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d12-narrower-s4, source: hkm:domain:computing-information-ai, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d13-narrower-s4, source: hkm:domain:engineering-technology-design, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d14-narrower-s4, source: hkm:domain:health-medicine-wellbeing, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d15-narrower-s4, source: hkm:domain:agriculture-food-bioproduction, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d16-narrower-s4, source: hkm:domain:education-learning-development, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d17-narrower-s4, source: hkm:domain:security-conflict-resilience, type: narrower-than, target: hkm:superdomain:design-technology-intervention, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d18-narrower-s5, source: hkm:domain:arts-literature-creation, type: narrower-than, target: hkm:superdomain:meaning-expression-practice, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d19-narrower-s5, source: hkm:domain:religion-meaning-worldviews, type: narrower-than, target: hkm:superdomain:meaning-expression-practice, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+  - {id: hkm:relation:d20-narrower-s5, source: hkm:domain:everyday-life-practical-agency, type: narrower-than, target: hkm:superdomain:meaning-expression-practice, scope: 主导航范围层级, confidence: high, provenance: [hkm:source:editorial-synthesis-v0-1]}
+
+  # Cross-domain seed relations. Domain-level edges are curatorial routing claims;
+  # later concept-level edges must add precise conditions and evidence.
+  - id: hkm:relation:d01-complements-d02
+    source: hkm:domain:metaknowledge-philosophy-inquiry
+    type: complements
+    target: hkm:domain:mathematics-statistics-formal-systems
+    scope: 概念、推理与方法前提的澄清和形式化互补
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d03
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:matter-energy-universe
+    scope: 定量表征、理论推导、测量分析与不确定性处理
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d04
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:earth-space-environment
+    scope: 时空数据、动力模型、统计推断和情景预测
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d05
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:life-evolution
+    scope: 生物统计、种群模型、遗传与系统分析
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d06
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:mind-brain-behavior
+    scope: 实验设计、心理测量、计算建模和统计推断
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d10
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:economy-finance-organizations
+    scope: 优化、博弈、计量、风险与估值
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d12
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:computing-information-ai
+    scope: 算法、形式语言、概率学习、信息与计算理论
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d13
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:engineering-technology-design
+    scope: 建模、优化、控制、可靠性和信号分析
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d14
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 生物统计、流行病学、诊断推断和试验分析
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d02-supports-d17
+    source: hkm:domain:mathematics-statistics-formal-systems
+    type: supports
+    target: hkm:domain:security-conflict-resilience
+    scope: 风险、决策、优化、博弈和可靠性分析
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d03-constrains-d04
+    source: hkm:domain:matter-energy-universe
+    type: constrains
+    target: hkm:domain:earth-space-environment
+    scope: 地球系统必须符合物理化学规律，但需要系统和历史层解释
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d03-constrains-d05
+    source: hkm:domain:matter-energy-universe
+    type: constrains
+    target: hkm:domain:life-evolution
+    scope: 生命过程受物理化学约束，但生命组织和演化解释不可省略
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d03-constrains-d13
+    source: hkm:domain:matter-energy-universe
+    type: constrains
+    target: hkm:domain:engineering-technology-design
+    scope: 可实现性、材料、能量与性能边界
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d04-enables-d05
+    source: hkm:domain:earth-space-environment
+    type: enables
+    target: hkm:domain:life-evolution
+    scope: 地球环境为生命起源、生态位和演化提供条件并施加选择压力
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d04-constrains-d15
+    source: hkm:domain:earth-space-environment
+    type: constrains
+    target: hkm:domain:agriculture-food-bioproduction
+    scope: 气候、水、土壤、地形和环境承载力约束生产
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d04-influences-d17
+    source: hkm:domain:earth-space-environment
+    type: influences
+    target: hkm:domain:security-conflict-resilience
+    scope: 自然灾害、气候和资源变化影响威胁暴露与系统韧性
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d05-enables-d06
+    source: hkm:domain:life-evolution
+    type: enables
+    target: hkm:domain:mind-brain-behavior
+    scope: 神经、生理、发育和进化提供心智行为的生物基础
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d05-supports-d14
+    source: hkm:domain:life-evolution
+    type: supports
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 疾病机制、病原体、免疫、遗传和生理基础
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d05-supports-d15
+    source: hkm:domain:life-evolution
+    type: supports
+    target: hkm:domain:agriculture-food-bioproduction
+    scope: 遗传、育种、生理、生态和病虫害机制
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d06-influences-d07
+    source: hkm:domain:mind-brain-behavior
+    type: influences
+    target: hkm:domain:society-human-groups
+    scope: 个体认知、动机、情绪和发展参与形成群体行为；不可直接等同社会结构
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d07-influences-d06
+    source: hkm:domain:society-human-groups
+    type: influences
+    target: hkm:domain:mind-brain-behavior
+    scope: 文化、关系、身份、资源和规范塑造认知与行为发展
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d06-influences-d10
+    source: hkm:domain:mind-brain-behavior
+    type: influences
+    target: hkm:domain:economy-finance-organizations
+    scope: 决策偏差、动机、学习和社会偏好影响市场与组织行为
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d06-complements-d16
+    source: hkm:domain:mind-brain-behavior
+    type: complements
+    target: hkm:domain:education-learning-development
+    scope: 学习机制与教育设计互补，需同时考虑个体和制度层
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d07-influences-d09
+    source: hkm:domain:society-human-groups
+    type: influences
+    target: hkm:domain:politics-governance-law
+    scope: 社会结构、群体、网络、规范和不平等影响制度形成与执行
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d09-influences-d07
+    source: hkm:domain:politics-governance-law
+    type: influences
+    target: hkm:domain:society-human-groups
+    scope: 权利、规则、政策和执行能力改变社会关系与机会结构
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d07-influences-d10
+    source: hkm:domain:society-human-groups
+    type: influences
+    target: hkm:domain:economy-finance-organizations
+    scope: 信任、网络、身份、不平等和社会规范塑造经济组织
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d08-explains-d09
+    source: hkm:domain:history-archaeology-civilization
+    type: explains
+    target: hkm:domain:politics-governance-law
+    scope: 制度起源、时序、关键转折和路径依赖的历史解释
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d08-explains-d10
+    source: hkm:domain:history-archaeology-civilization
+    type: explains
+    target: hkm:domain:economy-finance-organizations
+    scope: 技术、制度、危机和组织形式的长期演化与路径依赖
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d09-constrains-d10
+    source: hkm:domain:politics-governance-law
+    type: constrains
+    target: hkm:domain:economy-finance-organizations
+    scope: 产权、合同、货币、监管、税收和公共规则界定经济可行集
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d10-influences-d09
+    source: hkm:domain:economy-finance-organizations
+    type: influences
+    target: hkm:domain:politics-governance-law
+    scope: 资源分配、利益集团、组织能力和经济冲击影响治理
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d11-influences-d07
+    source: hkm:domain:language-communication-media
+    type: influences
+    target: hkm:domain:society-human-groups
+    scope: 符号、叙事和媒介网络参与形成身份、规范与群体协调
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d11-influences-d09
+    source: hkm:domain:language-communication-media
+    type: influences
+    target: hkm:domain:politics-governance-law
+    scope: 公共叙事、新闻、信息环境和话语影响合法性与政策
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d12-enables-d13
+    source: hkm:domain:computing-information-ai
+    type: enables
+    target: hkm:domain:engineering-technology-design
+    scope: 仿真、控制、自动化、软件与数据基础设施扩展设计能力
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d12-transforms-d10
+    source: hkm:domain:computing-information-ai
+    type: transforms
+    target: hkm:domain:economy-finance-organizations
+    scope: 数字化、自动化、平台与人工智能改变成本、组织和市场结构
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d12-transforms-d11
+    source: hkm:domain:computing-information-ai
+    type: transforms
+    target: hkm:domain:language-communication-media
+    scope: 计算媒介、检索、生成和分发系统改变传播与语言实践
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d09-constrains-d13
+    source: hkm:domain:politics-governance-law
+    type: constrains
+    target: hkm:domain:engineering-technology-design
+    scope: 法律、标准、许可、责任与公共利益约束技术设计和部署
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d10-influences-d13
+    source: hkm:domain:economy-finance-organizations
+    type: influences
+    target: hkm:domain:engineering-technology-design
+    scope: 需求、成本、融资、供应链和组织能力塑造技术路径
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d13-transforms-d04
+    source: hkm:domain:engineering-technology-design
+    type: transforms
+    target: hkm:domain:earth-space-environment
+    scope: 基础设施、能源、开采、制造和治理技术改变地球环境
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d13-enables-d14
+    source: hkm:domain:engineering-technology-design
+    type: enables
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 诊断、治疗、康复、公共卫生和照护技术
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d13-enables-d15
+    source: hkm:domain:engineering-technology-design
+    type: enables
+    target: hkm:domain:agriculture-food-bioproduction
+    scope: 灌溉、机械、加工、储运、监测和生物生产系统
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d13-enables-d17
+    source: hkm:domain:engineering-technology-design
+    type: enables
+    target: hkm:domain:security-conflict-resilience
+    scope: 防护、预警、可靠性、应急和恢复能力；也可能制造新威胁
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d07-influences-d14
+    source: hkm:domain:society-human-groups
+    type: influences
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 社会条件、关系、工作、文化和不平等影响健康分布与照护可及性
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d09-influences-d14
+    source: hkm:domain:politics-governance-law
+    type: influences
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 公共卫生政策、监管、权利和系统治理影响健康结果
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d15-supports-d14
+    source: hkm:domain:agriculture-food-bioproduction
+    type: supports
+    target: hkm:domain:health-medicine-wellbeing
+    scope: 食物供给、营养质量、食品安全与人畜共患风险
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d16-transfer-d20
+    source: hkm:domain:education-learning-development
+    type: transfer-to
+    target: hkm:domain:everyday-life-practical-agency
+    scope: 学习设计、练习和反馈把跨域知识转化为个人可用能力
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d18-complements-d19
+    source: hkm:domain:arts-literature-creation
+    type: complements
+    target: hkm:domain:religion-meaning-worldviews
+    scope: 仪式、神圣艺术、叙事和意义体验的互补表达；两域不相互包含
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d18-influences-d20
+    source: hkm:domain:arts-literature-creation
+    type: influences
+    target: hkm:domain:everyday-life-practical-agency
+    scope: 审美、叙事、创作与参与性艺术塑造体验、表达和生活实践
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d19-influences-d20
+    source: hkm:domain:religion-meaning-worldviews
+    type: influences
+    target: hkm:domain:everyday-life-practical-agency
+    scope: 世界观、仪式、伦理传统和共同体影响日常选择与生活方式
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d14-transfer-d20
+    source: hkm:domain:health-medicine-wellbeing
+    type: transfer-to
+    target: hkm:domain:everyday-life-practical-agency
+    scope: 循证自护、风险识别、健康行为和求助阈值转化为日常能力
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]
+  - id: hkm:relation:d17-transfer-d20
+    source: hkm:domain:security-conflict-resilience
+    type: transfer-to
+    target: hkm:domain:everyday-life-practical-agency
+    scope: 风险识别、应急准备、数字安全和恢复能力转化为日常实践
+    confidence: high
+    provenance: [hkm:source:editorial-synthesis-v0-1]

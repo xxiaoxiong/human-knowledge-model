@@ -1,0 +1,1596 @@
+schema_version: 0.1.0
+model_version: 0.2.0
+generated_from: 08-data/bridges.yaml
+relationships:
+- id: hkm:relation:geography-bridges-d04
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:earth-space-environment
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d07
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d08
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:history-archaeology-civilization
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d09
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:politics-governance-law
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d10
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d13
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geography-bridges-d20
+  source: hkm:bridge-view:geography
+  type: bridges
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geospatial-earth-observation-member-geography
+  source: hkm:subdomain:geospatial-earth-observation
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-environment-sustainability-member-geography
+  source: hkm:subdomain:human-environment-sustainability
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-geography-urban-rural-member-geography
+  source: hkm:subdomain:human-geography-urban-rural
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:regional-local-histories-member-geography
+  source: hkm:subdomain:regional-local-histories
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:local-global-multilevel-governance-member-geography
+  source: hkm:subdomain:local-global-multilevel-governance
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:international-trade-economic-geography-member-geography
+  source: hkm:subdomain:international-trade-economic-geography
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:architecture-built-environment-member-geography
+  source: hkm:subdomain:architecture-built-environment
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mobility-travel-navigation-member-geography
+  source: hkm:subdomain:mobility-travel-navigation
+  type: member-of
+  target: hkm:bridge-view:geography
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d01
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d05
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:life-evolution
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d06
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:mind-brain-behavior
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d11
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:language-communication-media
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d12
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:computing-information-ai
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cognitive-science-bridges-d16
+  source: hkm:bridge-view:cognitive-science
+  type: bridges
+  target: hkm:domain:education-learning-development
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:philosophy-mind-language-member-cognitive-science
+  source: hkm:subdomain:philosophy-mind-language
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:behavioral-biology-animal-cognition-member-cognitive-science
+  source: hkm:subdomain:behavioral-biology-animal-cognition
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nervous-systems-neuroscience-member-cognitive-science
+  source: hkm:subdomain:nervous-systems-neuroscience
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:perception-sensation-member-cognitive-science
+  source: hkm:subdomain:perception-sensation
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:action-motor-embodied-cognition-member-cognitive-science
+  source: hkm:subdomain:action-motor-embodied-cognition
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:learning-memory-member-cognitive-science
+  source: hkm:subdomain:learning-memory
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:reasoning-judgment-decision-member-cognitive-science
+  source: hkm:subdomain:reasoning-judgment-decision
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:consciousness-self-agency-member-cognitive-science
+  source: hkm:subdomain:consciousness-self-agency
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:language-cognition-member-cognitive-science
+  source: hkm:subdomain:language-cognition
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:linguistic-structure-grammar-member-cognitive-science
+  source: hkm:subdomain:linguistic-structure-grammar
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ai-knowledge-reasoning-planning-member-cognitive-science
+  source: hkm:subdomain:ai-knowledge-reasoning-planning
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-computer-interaction-member-cognitive-science
+  source: hkm:subdomain:human-computer-interaction
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:learning-sciences-educational-psychology-member-cognitive-science
+  source: hkm:subdomain:learning-sciences-educational-psychology
+  type: member-of
+  target: hkm:bridge-view:cognitive-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d02
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d03
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:matter-energy-universe
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d04
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:earth-space-environment
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d05
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:life-evolution
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d07
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d10
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d12
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:computing-information-ai
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d13
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:complex-systems-bridges-d17
+  source: hkm:bridge-view:complex-systems
+  type: bridges
+  target: hkm:domain:security-conflict-resilience
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:probability-stochastic-processes-member-complex-systems
+  source: hkm:subdomain:probability-stochastic-processes
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:dynamical-systems-control-member-complex-systems
+  source: hkm:subdomain:dynamical-systems-control
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:thermodynamics-statistical-physics-member-complex-systems
+  source: hkm:subdomain:thermodynamics-statistical-physics
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-environment-sustainability-member-complex-systems
+  source: hkm:subdomain:human-environment-sustainability
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ecology-ecosystems-member-complex-systems
+  source: hkm:subdomain:ecology-ecosystems
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:systems-synthetic-biology-member-complex-systems
+  source: hkm:subdomain:systems-synthetic-biology
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:groups-networks-collective-behavior-member-complex-systems
+  source: hkm:subdomain:groups-networks-collective-behavior
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:macroeconomics-money-cycles-member-complex-systems
+  source: hkm:subdomain:macroeconomics-money-cycles
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:industrial-information-digital-economics-member-complex-systems
+  source: hkm:subdomain:industrial-information-digital-economics
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:operating-distributed-cloud-systems-member-complex-systems
+  source: hkm:subdomain:operating-distributed-cloud-systems
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:engineering-science-systems-member-complex-systems
+  source: hkm:subdomain:engineering-science-systems
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:resilience-continuity-recovery-member-complex-systems
+  source: hkm:subdomain:resilience-continuity-recovery
+  type: member-of
+  target: hkm:bridge-view:complex-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d01
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d03
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:matter-energy-universe
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d04
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:earth-space-environment
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d05
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:life-evolution
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d09
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:politics-governance-law
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d10
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d13
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d15
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:climate-sustainability-bridges-d17
+  source: hkm:bridge-view:climate-sustainability
+  type: bridges
+  target: hkm:domain:security-conflict-resilience
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ethics-moral-philosophy-member-climate-sustainability
+  source: hkm:subdomain:ethics-moral-philosophy
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:thermodynamics-statistical-physics-member-climate-sustainability
+  source: hkm:subdomain:thermodynamics-statistical-physics
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:earth-history-paleoclimate-member-climate-sustainability
+  source: hkm:subdomain:earth-history-paleoclimate
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:atmosphere-weather-climate-member-climate-sustainability
+  source: hkm:subdomain:atmosphere-weather-climate
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ocean-coastal-systems-member-climate-sustainability
+  source: hkm:subdomain:ocean-coastal-systems
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:hydrology-cryosphere-water-member-climate-sustainability
+  source: hkm:subdomain:hydrology-cryosphere-water
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-environment-sustainability-member-climate-sustainability
+  source: hkm:subdomain:human-environment-sustainability
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ecology-ecosystems-member-climate-sustainability
+  source: hkm:subdomain:ecology-ecosystems
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-policy-administration-member-climate-sustainability
+  source: hkm:subdomain:public-policy-administration
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:governance-regulation-institutions-member-climate-sustainability
+  source: hkm:subdomain:governance-regulation-institutions
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-labor-development-environment-economics-member-climate-sustainability
+  source: hkm:subdomain:public-labor-development-environment-economics
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:energy-power-engineering-member-climate-sustainability
+  source: hkm:subdomain:energy-power-engineering
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:environmental-engineering-member-climate-sustainability
+  source: hkm:subdomain:environmental-engineering
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:soil-agroecology-land-management-member-climate-sustainability
+  source: hkm:subdomain:soil-agroecology-land-management
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:food-systems-rural-development-member-climate-sustainability
+  source: hkm:subdomain:food-systems-rural-development
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:disaster-emergency-management-member-climate-sustainability
+  source: hkm:subdomain:disaster-emergency-management
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:resilience-continuity-recovery-member-climate-sustainability
+  source: hkm:subdomain:resilience-continuity-recovery
+  type: member-of
+  target: hkm:bridge-view:climate-sustainability
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d05
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:life-evolution
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d06
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:mind-brain-behavior
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d07
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d09
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:politics-governance-law
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d10
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d14
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d15
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d17
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:security-conflict-resilience
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-one-health-bridges-d20
+  source: hkm:bridge-view:public-health-one-health
+  type: bridges
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:microbiology-virology-member-public-health-one-health
+  source: hkm:subdomain:microbiology-virology
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ecology-ecosystems-member-public-health-one-health
+  source: hkm:subdomain:ecology-ecosystems
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:behavior-change-self-regulation-member-public-health-one-health
+  source: hkm:subdomain:behavior-change-self-regulation
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:demography-population-member-public-health-one-health
+  source: hkm:subdomain:demography-population
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:inequality-stratification-member-public-health-one-health
+  source: hkm:subdomain:inequality-stratification
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-policy-administration-member-public-health-one-health
+  source: hkm:subdomain:public-policy-administration
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-labor-development-environment-economics-member-public-health-one-health
+  source: hkm:subdomain:public-labor-development-environment-economics
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-epidemiology-prevention-member-public-health-one-health
+  source: hkm:subdomain:public-health-epidemiology-prevention
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nursing-care-practice-member-public-health-one-health
+  source: hkm:subdomain:nursing-care-practice
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nutrition-lifestyle-sleep-member-public-health-one-health
+  source: hkm:subdomain:nutrition-lifestyle-sleep
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:health-systems-policy-economics-member-public-health-one-health
+  source: hkm:subdomain:health-systems-policy-economics
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:occupational-environmental-emergency-health-member-public-health-one-health
+  source: hkm:subdomain:occupational-environmental-emergency-health
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:veterinary-health-one-health-member-public-health-one-health
+  source: hkm:subdomain:veterinary-health-one-health
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:food-science-processing-safety-member-public-health-one-health
+  source: hkm:subdomain:food-science-processing-safety
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:biosecurity-health-security-member-public-health-one-health
+  source: hkm:subdomain:biosecurity-health-security
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:personal-health-self-care-navigation-member-public-health-one-health
+  source: hkm:subdomain:personal-health-self-care-navigation
+  type: member-of
+  target: hkm:bridge-view:public-health-one-health
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-science-bridges-d03
+  source: hkm:bridge-view:materials-science
+  type: bridges
+  target: hkm:domain:matter-energy-universe
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-science-bridges-d04
+  source: hkm:bridge-view:materials-science
+  type: bridges
+  target: hkm:domain:earth-space-environment
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-science-bridges-d05
+  source: hkm:bridge-view:materials-science
+  type: bridges
+  target: hkm:domain:life-evolution
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-science-bridges-d13
+  source: hkm:bridge-view:materials-science
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:quantum-atomic-molecular-physics-member-materials-science
+  source: hkm:subdomain:quantum-atomic-molecular-physics
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:condensed-matter-material-properties-member-materials-science
+  source: hkm:subdomain:condensed-matter-material-properties
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:physical-theoretical-chemistry-member-materials-science
+  source: hkm:subdomain:physical-theoretical-chemistry
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:inorganic-materials-chemistry-member-materials-science
+  source: hkm:subdomain:inorganic-materials-chemistry
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:organic-biological-chemistry-member-materials-science
+  source: hkm:subdomain:organic-biological-chemistry
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:analytical-chemical-measurement-member-materials-science
+  source: hkm:subdomain:analytical-chemical-measurement
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geology-earth-materials-geophysics-member-materials-science
+  source: hkm:subdomain:geology-earth-materials-geophysics
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:biochemistry-molecular-biology-member-materials-science
+  source: hkm:subdomain:biochemistry-molecular-biology
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:chemical-process-engineering-member-materials-science
+  source: hkm:subdomain:chemical-process-engineering
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-engineering-member-materials-science
+  source: hkm:subdomain:materials-engineering
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:industrial-manufacturing-engineering-member-materials-science
+  source: hkm:subdomain:industrial-manufacturing-engineering
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:reliability-maintenance-safety-engineering-member-materials-science
+  source: hkm:subdomain:reliability-maintenance-safety-engineering
+  type: member-of
+  target: hkm:bridge-view:materials-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-science-bridges-d01
+  source: hkm:bridge-view:information-science
+  type: bridges
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-science-bridges-d02
+  source: hkm:bridge-view:information-science
+  type: bridges
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-science-bridges-d11
+  source: hkm:bridge-view:information-science
+  type: bridges
+  target: hkm:domain:language-communication-media
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-science-bridges-d12
+  source: hkm:bridge-view:information-science
+  type: bridges
+  target: hkm:domain:computing-information-ai
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-science-bridges-d20
+  source: hkm:bridge-view:information-science
+  type: bridges
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:knowledge-organization-ontology-member-information-science
+  source: hkm:subdomain:knowledge-organization-ontology
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-coding-cryptography-member-information-science
+  source: hkm:subdomain:information-coding-cryptography
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:journalism-public-information-member-information-science
+  source: hkm:subdomain:journalism-public-information
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:library-archive-information-organization-member-information-science
+  source: hkm:subdomain:library-archive-information-organization
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-databases-information-retrieval-member-information-science
+  source: hkm:subdomain:data-databases-information-retrieval
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cybersecurity-privacy-member-information-science
+  source: hkm:subdomain:cybersecurity-privacy
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ai-knowledge-reasoning-planning-member-information-science
+  source: hkm:subdomain:ai-knowledge-reasoning-planning
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:digital-media-information-literacy-member-information-science
+  source: hkm:subdomain:digital-media-information-literacy
+  type: member-of
+  target: hkm:bridge-view:information-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d01
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d02
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d03
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:matter-energy-universe
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d07
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d10
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d12
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:computing-information-ai
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d14
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-causal-science-bridges-d16
+  source: hkm:bridge-view:data-causal-science
+  type: bridges
+  target: hkm:domain:education-learning-development
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:philosophy-science-technology-methodology-member-data-causal-science
+  source: hkm:subdomain:philosophy-science-technology-methodology
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:metascience-research-integrity-member-data-causal-science
+  source: hkm:subdomain:metascience-research-integrity
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:probability-stochastic-processes-member-data-causal-science
+  source: hkm:subdomain:probability-stochastic-processes
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:statistics-inference-measurement-member-data-causal-science
+  source: hkm:subdomain:statistics-inference-measurement
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:numerical-computational-mathematics-member-data-causal-science
+  source: hkm:subdomain:numerical-computational-mathematics
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:measurement-physical-science-member-data-causal-science
+  source: hkm:subdomain:measurement-physical-science
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-theory-methods-member-data-causal-science
+  source: hkm:subdomain:social-theory-methods
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:econometrics-causal-policy-evaluation-member-data-causal-science
+  source: hkm:subdomain:econometrics-causal-policy-evaluation
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-databases-information-retrieval-member-data-causal-science
+  source: hkm:subdomain:data-databases-information-retrieval
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:machine-learning-data-science-member-data-causal-science
+  source: hkm:subdomain:machine-learning-data-science
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:clinical-reasoning-diagnostics-member-data-causal-science
+  source: hkm:subdomain:clinical-reasoning-diagnostics
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-epidemiology-prevention-member-data-causal-science
+  source: hkm:subdomain:public-health-epidemiology-prevention
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:assessment-measurement-evaluation-member-data-causal-science
+  source: hkm:subdomain:assessment-measurement-evaluation
+  type: member-of
+  target: hkm:bridge-view:data-causal-science
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d04
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:earth-space-environment
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d07
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d08
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:history-archaeology-civilization
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d09
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:politics-governance-law
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d10
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d13
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d17
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:security-conflict-resilience
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:urban-systems-bridges-d20
+  source: hkm:bridge-view:urban-systems
+  type: bridges
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geospatial-earth-observation-member-urban-systems
+  source: hkm:subdomain:geospatial-earth-observation
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-environment-sustainability-member-urban-systems
+  source: hkm:subdomain:human-environment-sustainability
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-geography-urban-rural-member-urban-systems
+  source: hkm:subdomain:human-geography-urban-rural
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:regional-local-histories-member-urban-systems
+  source: hkm:subdomain:regional-local-histories
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-policy-administration-member-urban-systems
+  source: hkm:subdomain:public-policy-administration
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:local-global-multilevel-governance-member-urban-systems
+  source: hkm:subdomain:local-global-multilevel-governance
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:international-trade-economic-geography-member-urban-systems
+  source: hkm:subdomain:international-trade-economic-geography
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:civil-structural-construction-member-urban-systems
+  source: hkm:subdomain:civil-structural-construction
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:transport-mobility-logistics-engineering-member-urban-systems
+  source: hkm:subdomain:transport-mobility-logistics-engineering
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:architecture-built-environment-member-urban-systems
+  source: hkm:subdomain:architecture-built-environment
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:critical-infrastructure-civil-protection-member-urban-systems
+  source: hkm:subdomain:critical-infrastructure-civil-protection
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:home-household-maintenance-repair-member-urban-systems
+  source: hkm:subdomain:home-household-maintenance-repair
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:civic-legal-economic-navigation-member-urban-systems
+  source: hkm:subdomain:civic-legal-economic-navigation
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mobility-travel-navigation-member-urban-systems
+  source: hkm:subdomain:mobility-travel-navigation
+  type: member-of
+  target: hkm:bridge-view:urban-systems
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d01
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d07
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:society-human-groups
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d08
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:history-archaeology-civilization
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d09
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:politics-governance-law
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d10
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:economy-finance-organizations
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d11
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:language-communication-media
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d12
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:computing-information-ai
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d13
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:engineering-technology-design
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-bridges-d19
+  source: hkm:bridge-view:science-technology-society
+  type: bridges
+  target: hkm:domain:religion-meaning-worldviews
+  scope: 桥接视图连接的 H2；由 bridges.yaml 的 member_domains 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:philosophy-science-technology-methodology-member-science-technology-society
+  source: hkm:subdomain:philosophy-science-technology-methodology
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-philosophy-knowledge-traditions-member-science-technology-society
+  source: hkm:subdomain:comparative-philosophy-knowledge-traditions
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:metascience-research-integrity-member-science-technology-society
+  source: hkm:subdomain:metascience-research-integrity
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-member-science-technology-society
+  source: hkm:subdomain:science-technology-society
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-medicine-environment-history-member-science-technology-society
+  source: hkm:subdomain:science-technology-medicine-environment-history
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:governance-regulation-institutions-member-science-technology-society
+  source: hkm:subdomain:governance-regulation-institutions
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:industrial-information-digital-economics-member-science-technology-society
+  source: hkm:subdomain:industrial-information-digital-economics
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:media-platform-public-sphere-member-science-technology-society
+  source: hkm:subdomain:media-platform-public-sphere
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ai-safety-governance-society-member-science-technology-society
+  source: hkm:subdomain:ai-safety-governance-society
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:engineering-science-systems-member-science-technology-society
+  source: hkm:subdomain:engineering-science-systems
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:product-service-interaction-design-member-science-technology-society
+  source: hkm:subdomain:product-service-interaction-design
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:indigenous-local-cosmologies-member-science-technology-society
+  source: hkm:subdomain:indigenous-local-cosmologies
+  type: member-of
+  target: hkm:bridge-view:science-technology-society
+  scope: H3 是跨域导航视图的成员；不表示范围父子或概念等价
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2

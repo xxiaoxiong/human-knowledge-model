@@ -1,0 +1,1988 @@
+schema_version: 0.1.0
+model_version: 0.2.0
+generated_from: 08-data/subdomains.yaml
+relationships:
+- id: hkm:relation:epistemology-knowledge-narrower-parent
+  source: hkm:subdomain:epistemology-knowledge
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:metaphysics-ontology-narrower-parent
+  source: hkm:subdomain:metaphysics-ontology
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:argumentation-critical-inquiry-narrower-parent
+  source: hkm:subdomain:argumentation-critical-inquiry
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ethics-moral-philosophy-narrower-parent
+  source: hkm:subdomain:ethics-moral-philosophy
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:value-aesthetics-life-philosophy-narrower-parent
+  source: hkm:subdomain:value-aesthetics-life-philosophy
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:philosophy-science-technology-methodology-narrower-parent
+  source: hkm:subdomain:philosophy-science-technology-methodology
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:philosophy-mind-language-narrower-parent
+  source: hkm:subdomain:philosophy-mind-language
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-political-legal-philosophy-narrower-parent
+  source: hkm:subdomain:social-political-legal-philosophy
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-philosophy-knowledge-traditions-narrower-parent
+  source: hkm:subdomain:comparative-philosophy-knowledge-traditions
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:metascience-research-integrity-narrower-parent
+  source: hkm:subdomain:metascience-research-integrity
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:knowledge-organization-ontology-narrower-parent
+  source: hkm:subdomain:knowledge-organization-ontology
+  type: narrower-than
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:foundations-sets-types-categories-narrower-parent
+  source: hkm:subdomain:foundations-sets-types-categories
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mathematical-logic-proof-narrower-parent
+  source: hkm:subdomain:mathematical-logic-proof
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:number-theory-arithmetic-narrower-parent
+  source: hkm:subdomain:number-theory-arithmetic
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:algebra-discrete-structures-narrower-parent
+  source: hkm:subdomain:algebra-discrete-structures
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geometry-topology-narrower-parent
+  source: hkm:subdomain:geometry-topology
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:analysis-calculus-equations-narrower-parent
+  source: hkm:subdomain:analysis-calculus-equations
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:probability-stochastic-processes-narrower-parent
+  source: hkm:subdomain:probability-stochastic-processes
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:statistics-inference-measurement-narrower-parent
+  source: hkm:subdomain:statistics-inference-measurement
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:optimization-operations-game-theory-narrower-parent
+  source: hkm:subdomain:optimization-operations-game-theory
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:dynamical-systems-control-narrower-parent
+  source: hkm:subdomain:dynamical-systems-control
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:information-coding-cryptography-narrower-parent
+  source: hkm:subdomain:information-coding-cryptography
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:numerical-computational-mathematics-narrower-parent
+  source: hkm:subdomain:numerical-computational-mathematics
+  type: narrower-than
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:measurement-physical-science-narrower-parent
+  source: hkm:subdomain:measurement-physical-science
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:classical-mechanics-fields-waves-narrower-parent
+  source: hkm:subdomain:classical-mechanics-fields-waves
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:electromagnetism-optics-narrower-parent
+  source: hkm:subdomain:electromagnetism-optics
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:thermodynamics-statistical-physics-narrower-parent
+  source: hkm:subdomain:thermodynamics-statistical-physics
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:quantum-atomic-molecular-physics-narrower-parent
+  source: hkm:subdomain:quantum-atomic-molecular-physics
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:particle-nuclear-physics-narrower-parent
+  source: hkm:subdomain:particle-nuclear-physics
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:relativity-gravitation-cosmology-narrower-parent
+  source: hkm:subdomain:relativity-gravitation-cosmology
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:condensed-matter-material-properties-narrower-parent
+  source: hkm:subdomain:condensed-matter-material-properties
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:physical-theoretical-chemistry-narrower-parent
+  source: hkm:subdomain:physical-theoretical-chemistry
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:inorganic-materials-chemistry-narrower-parent
+  source: hkm:subdomain:inorganic-materials-chemistry
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:organic-biological-chemistry-narrower-parent
+  source: hkm:subdomain:organic-biological-chemistry
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:analytical-chemical-measurement-narrower-parent
+  source: hkm:subdomain:analytical-chemical-measurement
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:astronomy-astrophysics-narrower-parent
+  source: hkm:subdomain:astronomy-astrophysics
+  type: narrower-than
+  target: hkm:domain:matter-energy-universe
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geology-earth-materials-geophysics-narrower-parent
+  source: hkm:subdomain:geology-earth-materials-geophysics
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:tectonics-geomorphology-hazards-narrower-parent
+  source: hkm:subdomain:tectonics-geomorphology-hazards
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:earth-history-paleoclimate-narrower-parent
+  source: hkm:subdomain:earth-history-paleoclimate
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:atmosphere-weather-climate-narrower-parent
+  source: hkm:subdomain:atmosphere-weather-climate
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ocean-coastal-systems-narrower-parent
+  source: hkm:subdomain:ocean-coastal-systems
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:hydrology-cryosphere-water-narrower-parent
+  source: hkm:subdomain:hydrology-cryosphere-water
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:soil-critical-zone-narrower-parent
+  source: hkm:subdomain:soil-critical-zone
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:environmental-science-pollution-narrower-parent
+  source: hkm:subdomain:environmental-science-pollution
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:geospatial-earth-observation-narrower-parent
+  source: hkm:subdomain:geospatial-earth-observation
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:planetary-space-environment-narrower-parent
+  source: hkm:subdomain:planetary-space-environment
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-environment-sustainability-narrower-parent
+  source: hkm:subdomain:human-environment-sustainability
+  type: narrower-than
+  target: hkm:domain:earth-space-environment
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:origin-life-astrobiology-narrower-parent
+  source: hkm:subdomain:origin-life-astrobiology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:biochemistry-molecular-biology-narrower-parent
+  source: hkm:subdomain:biochemistry-molecular-biology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cell-biology-narrower-parent
+  source: hkm:subdomain:cell-biology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:genetics-genomics-heredity-narrower-parent
+  source: hkm:subdomain:genetics-genomics-heredity
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:developmental-biology-narrower-parent
+  source: hkm:subdomain:developmental-biology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-physiology-anatomy-narrower-parent
+  source: hkm:subdomain:comparative-physiology-anatomy
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:microbiology-virology-narrower-parent
+  source: hkm:subdomain:microbiology-virology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:evolutionary-biology-narrower-parent
+  source: hkm:subdomain:evolutionary-biology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:systematics-biodiversity-paleobiology-narrower-parent
+  source: hkm:subdomain:systematics-biodiversity-paleobiology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ecology-ecosystems-narrower-parent
+  source: hkm:subdomain:ecology-ecosystems
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:behavioral-biology-animal-cognition-narrower-parent
+  source: hkm:subdomain:behavioral-biology-animal-cognition
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:systems-synthetic-biology-narrower-parent
+  source: hkm:subdomain:systems-synthetic-biology
+  type: narrower-than
+  target: hkm:domain:life-evolution
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nervous-systems-neuroscience-narrower-parent
+  source: hkm:subdomain:nervous-systems-neuroscience
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:perception-sensation-narrower-parent
+  source: hkm:subdomain:perception-sensation
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:action-motor-embodied-cognition-narrower-parent
+  source: hkm:subdomain:action-motor-embodied-cognition
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:learning-memory-narrower-parent
+  source: hkm:subdomain:learning-memory
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:reasoning-judgment-decision-narrower-parent
+  source: hkm:subdomain:reasoning-judgment-decision
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:emotion-motivation-affect-narrower-parent
+  source: hkm:subdomain:emotion-motivation-affect
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:consciousness-self-agency-narrower-parent
+  source: hkm:subdomain:consciousness-self-agency
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:development-lifespan-narrower-parent
+  source: hkm:subdomain:development-lifespan
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:personality-individual-differences-narrower-parent
+  source: hkm:subdomain:personality-individual-differences
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-cultural-psychology-narrower-parent
+  source: hkm:subdomain:social-cultural-psychology
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:language-cognition-narrower-parent
+  source: hkm:subdomain:language-cognition
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:behavior-change-self-regulation-narrower-parent
+  source: hkm:subdomain:behavior-change-self-regulation
+  type: narrower-than
+  target: hkm:domain:mind-brain-behavior
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-theory-methods-narrower-parent
+  source: hkm:subdomain:social-theory-methods
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-cultural-anthropology-narrower-parent
+  source: hkm:subdomain:social-cultural-anthropology
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:demography-population-narrower-parent
+  source: hkm:subdomain:demography-population
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:family-kinship-life-course-narrower-parent
+  source: hkm:subdomain:family-kinship-life-course
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:groups-networks-collective-behavior-narrower-parent
+  source: hkm:subdomain:groups-networks-collective-behavior
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:culture-identity-norms-narrower-parent
+  source: hkm:subdomain:culture-identity-norms
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:inequality-stratification-narrower-parent
+  source: hkm:subdomain:inequality-stratification
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:organizations-institutions-sociology-narrower-parent
+  source: hkm:subdomain:organizations-institutions-sociology
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-geography-urban-rural-narrower-parent
+  source: hkm:subdomain:human-geography-urban-rural
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:migration-globalization-narrower-parent
+  source: hkm:subdomain:migration-globalization
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:community-welfare-social-policy-narrower-parent
+  source: hkm:subdomain:community-welfare-social-policy
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-society-narrower-parent
+  source: hkm:subdomain:science-technology-society
+  type: narrower-than
+  target: hkm:domain:society-human-groups
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:historiography-sources-methods-narrower-parent
+  source: hkm:subdomain:historiography-sources-methods
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:archaeology-material-past-narrower-parent
+  source: hkm:subdomain:archaeology-material-past
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:prehistory-ancient-worlds-narrower-parent
+  source: hkm:subdomain:prehistory-ancient-worlds
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:medieval-early-modern-worlds-narrower-parent
+  source: hkm:subdomain:medieval-early-modern-worlds
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:modern-contemporary-history-narrower-parent
+  source: hkm:subdomain:modern-contemporary-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:global-connected-history-narrower-parent
+  source: hkm:subdomain:global-connected-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:regional-local-histories-narrower-parent
+  source: hkm:subdomain:regional-local-histories
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:social-cultural-intellectual-history-narrower-parent
+  source: hkm:subdomain:social-cultural-intellectual-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:political-legal-diplomatic-history-narrower-parent
+  source: hkm:subdomain:political-legal-diplomatic-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:economic-labor-business-history-narrower-parent
+  source: hkm:subdomain:economic-labor-business-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:science-technology-medicine-environment-history-narrower-parent
+  source: hkm:subdomain:science-technology-medicine-environment-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:memory-heritage-public-history-narrower-parent
+  source: hkm:subdomain:memory-heritage-public-history
+  type: narrower-than
+  target: hkm:domain:history-archaeology-civilization
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:political-theory-ideologies-narrower-parent
+  source: hkm:subdomain:political-theory-ideologies
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-politics-regimes-narrower-parent
+  source: hkm:subdomain:comparative-politics-regimes
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:political-behavior-elections-opinion-narrower-parent
+  source: hkm:subdomain:political-behavior-elections-opinion
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-policy-administration-narrower-parent
+  source: hkm:subdomain:public-policy-administration
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:jurisprudence-legal-reasoning-narrower-parent
+  source: hkm:subdomain:jurisprudence-legal-reasoning
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:constitutional-administrative-public-law-narrower-parent
+  source: hkm:subdomain:constitutional-administrative-public-law
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:private-commercial-labor-law-narrower-parent
+  source: hkm:subdomain:private-commercial-labor-law
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:criminal-law-justice-narrower-parent
+  source: hkm:subdomain:criminal-law-justice
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:international-relations-law-narrower-parent
+  source: hkm:subdomain:international-relations-law
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:governance-regulation-institutions-narrower-parent
+  source: hkm:subdomain:governance-regulation-institutions
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:rights-citizenship-social-justice-narrower-parent
+  source: hkm:subdomain:rights-citizenship-social-justice
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:local-global-multilevel-governance-narrower-parent
+  source: hkm:subdomain:local-global-multilevel-governance
+  type: narrower-than
+  target: hkm:domain:politics-governance-law
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:microeconomics-markets-narrower-parent
+  source: hkm:subdomain:microeconomics-markets
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:macroeconomics-money-cycles-narrower-parent
+  source: hkm:subdomain:macroeconomics-money-cycles
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:econometrics-causal-policy-evaluation-narrower-parent
+  source: hkm:subdomain:econometrics-causal-policy-evaluation
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:behavioral-experimental-economics-narrower-parent
+  source: hkm:subdomain:behavioral-experimental-economics
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-labor-development-environment-economics-narrower-parent
+  source: hkm:subdomain:public-labor-development-environment-economics
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:international-trade-economic-geography-narrower-parent
+  source: hkm:subdomain:international-trade-economic-geography
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:industrial-information-digital-economics-narrower-parent
+  source: hkm:subdomain:industrial-information-digital-economics
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:finance-investment-risk-narrower-parent
+  source: hkm:subdomain:finance-investment-risk
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:accounting-audit-control-narrower-parent
+  source: hkm:subdomain:accounting-audit-control
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:strategy-competition-entrepreneurship-narrower-parent
+  source: hkm:subdomain:strategy-competition-entrepreneurship
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:organization-behavior-human-resources-narrower-parent
+  source: hkm:subdomain:organization-behavior-human-resources
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:operations-supply-chains-quality-narrower-parent
+  source: hkm:subdomain:operations-supply-chains-quality
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:marketing-consumer-service-narrower-parent
+  source: hkm:subdomain:marketing-consumer-service
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:organization-design-governance-narrower-parent
+  source: hkm:subdomain:organization-design-governance
+  type: narrower-than
+  target: hkm:domain:economy-finance-organizations
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:linguistic-structure-grammar-narrower-parent
+  source: hkm:subdomain:linguistic-structure-grammar
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:language-diversity-change-documentation-narrower-parent
+  source: hkm:subdomain:language-diversity-change-documentation
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:pragmatics-sociolinguistics-conversation-narrower-parent
+  source: hkm:subdomain:pragmatics-sociolinguistics-conversation
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:semiotics-rhetoric-discourse-narrower-parent
+  source: hkm:subdomain:semiotics-rhetoric-discourse
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:interpersonal-organizational-communication-narrower-parent
+  source: hkm:subdomain:interpersonal-organizational-communication
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:journalism-public-information-narrower-parent
+  source: hkm:subdomain:journalism-public-information
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:media-platform-public-sphere-narrower-parent
+  source: hkm:subdomain:media-platform-public-sphere
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:translation-interpreting-multilingualism-narrower-parent
+  source: hkm:subdomain:translation-interpreting-multilingualism
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:library-archive-information-organization-narrower-parent
+  source: hkm:subdomain:library-archive-information-organization
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:visual-scientific-risk-communication-narrower-parent
+  source: hkm:subdomain:visual-scientific-risk-communication
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:communication-ethics-governance-narrower-parent
+  source: hkm:subdomain:communication-ethics-governance
+  type: narrower-than
+  target: hkm:domain:language-communication-media
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:algorithms-computability-complexity-narrower-parent
+  source: hkm:subdomain:algorithms-computability-complexity
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:computer-architecture-hardware-narrower-parent
+  source: hkm:subdomain:computer-architecture-hardware
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:operating-distributed-cloud-systems-narrower-parent
+  source: hkm:subdomain:operating-distributed-cloud-systems
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:networks-internet-communications-narrower-parent
+  source: hkm:subdomain:networks-internet-communications
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:data-databases-information-retrieval-narrower-parent
+  source: hkm:subdomain:data-databases-information-retrieval
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:software-engineering-programming-languages-narrower-parent
+  source: hkm:subdomain:software-engineering-programming-languages
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cybersecurity-privacy-narrower-parent
+  source: hkm:subdomain:cybersecurity-privacy
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:human-computer-interaction-narrower-parent
+  source: hkm:subdomain:human-computer-interaction
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:graphics-visualization-multimedia-narrower-parent
+  source: hkm:subdomain:graphics-visualization-multimedia
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ai-knowledge-reasoning-planning-narrower-parent
+  source: hkm:subdomain:ai-knowledge-reasoning-planning
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:machine-learning-data-science-narrower-parent
+  source: hkm:subdomain:machine-learning-data-science
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:robotics-autonomous-systems-narrower-parent
+  source: hkm:subdomain:robotics-autonomous-systems
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ai-safety-governance-society-narrower-parent
+  source: hkm:subdomain:ai-safety-governance-society
+  type: narrower-than
+  target: hkm:domain:computing-information-ai
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:engineering-science-systems-narrower-parent
+  source: hkm:subdomain:engineering-science-systems
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mechanical-mechatronics-engineering-narrower-parent
+  source: hkm:subdomain:mechanical-mechatronics-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:electrical-electronic-engineering-narrower-parent
+  source: hkm:subdomain:electrical-electronic-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:civil-structural-construction-narrower-parent
+  source: hkm:subdomain:civil-structural-construction
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:chemical-process-engineering-narrower-parent
+  source: hkm:subdomain:chemical-process-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:materials-engineering-narrower-parent
+  source: hkm:subdomain:materials-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:industrial-manufacturing-engineering-narrower-parent
+  source: hkm:subdomain:industrial-manufacturing-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:energy-power-engineering-narrower-parent
+  source: hkm:subdomain:energy-power-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:transport-mobility-logistics-engineering-narrower-parent
+  source: hkm:subdomain:transport-mobility-logistics-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:environmental-engineering-narrower-parent
+  source: hkm:subdomain:environmental-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:bio-biomedical-engineering-narrower-parent
+  source: hkm:subdomain:bio-biomedical-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:architecture-built-environment-narrower-parent
+  source: hkm:subdomain:architecture-built-environment
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:product-service-interaction-design-narrower-parent
+  source: hkm:subdomain:product-service-interaction-design
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:reliability-maintenance-safety-engineering-narrower-parent
+  source: hkm:subdomain:reliability-maintenance-safety-engineering
+  type: narrower-than
+  target: hkm:domain:engineering-technology-design
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:biomedical-foundations-pathobiology-narrower-parent
+  source: hkm:subdomain:biomedical-foundations-pathobiology
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:clinical-reasoning-diagnostics-narrower-parent
+  source: hkm:subdomain:clinical-reasoning-diagnostics
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:internal-medical-specialties-narrower-parent
+  source: hkm:subdomain:internal-medical-specialties
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:surgery-perioperative-procedural-care-narrower-parent
+  source: hkm:subdomain:surgery-perioperative-procedural-care
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:reproductive-maternal-child-health-narrower-parent
+  source: hkm:subdomain:reproductive-maternal-child-health
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mental-health-psychiatry-clinical-psychology-narrower-parent
+  source: hkm:subdomain:mental-health-psychiatry-clinical-psychology
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:public-health-epidemiology-prevention-narrower-parent
+  source: hkm:subdomain:public-health-epidemiology-prevention
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nursing-care-practice-narrower-parent
+  source: hkm:subdomain:nursing-care-practice
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:pharmacology-pharmacy-therapeutics-narrower-parent
+  source: hkm:subdomain:pharmacology-pharmacy-therapeutics
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:rehabilitation-disability-assistive-care-narrower-parent
+  source: hkm:subdomain:rehabilitation-disability-assistive-care
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:nutrition-lifestyle-sleep-narrower-parent
+  source: hkm:subdomain:nutrition-lifestyle-sleep
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:health-systems-policy-economics-narrower-parent
+  source: hkm:subdomain:health-systems-policy-economics
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:health-informatics-digital-health-narrower-parent
+  source: hkm:subdomain:health-informatics-digital-health
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:occupational-environmental-emergency-health-narrower-parent
+  source: hkm:subdomain:occupational-environmental-emergency-health
+  type: narrower-than
+  target: hkm:domain:health-medicine-wellbeing
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:crop-science-agronomy-narrower-parent
+  source: hkm:subdomain:crop-science-agronomy
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:soil-agroecology-land-management-narrower-parent
+  source: hkm:subdomain:soil-agroecology-land-management
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:horticulture-specialty-crops-narrower-parent
+  source: hkm:subdomain:horticulture-specialty-crops
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:animal-science-livestock-narrower-parent
+  source: hkm:subdomain:animal-science-livestock
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:veterinary-health-one-health-narrower-parent
+  source: hkm:subdomain:veterinary-health-one-health
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:forestry-agroforestry-narrower-parent
+  source: hkm:subdomain:forestry-agroforestry
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:fisheries-aquaculture-narrower-parent
+  source: hkm:subdomain:fisheries-aquaculture
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:breeding-agricultural-biotechnology-narrower-parent
+  source: hkm:subdomain:breeding-agricultural-biotechnology
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:food-science-processing-safety-narrower-parent
+  source: hkm:subdomain:food-science-processing-safety
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:agricultural-engineering-digital-agriculture-narrower-parent
+  source: hkm:subdomain:agricultural-engineering-digital-agriculture
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:food-systems-rural-development-narrower-parent
+  source: hkm:subdomain:food-systems-rural-development
+  type: narrower-than
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:learning-sciences-educational-psychology-narrower-parent
+  source: hkm:subdomain:learning-sciences-educational-psychology
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:curriculum-pedagogy-instruction-narrower-parent
+  source: hkm:subdomain:curriculum-pedagogy-instruction
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:assessment-measurement-evaluation-narrower-parent
+  source: hkm:subdomain:assessment-measurement-evaluation
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:early-childhood-education-narrower-parent
+  source: hkm:subdomain:early-childhood-education
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:primary-secondary-education-narrower-parent
+  source: hkm:subdomain:primary-secondary-education
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:higher-education-scholarship-narrower-parent
+  source: hkm:subdomain:higher-education-scholarship
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:vocational-workplace-professional-learning-narrower-parent
+  source: hkm:subdomain:vocational-workplace-professional-learning
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:special-inclusive-education-narrower-parent
+  source: hkm:subdomain:special-inclusive-education
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:teacher-education-professional-practice-narrower-parent
+  source: hkm:subdomain:teacher-education-professional-practice
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:education-leadership-policy-systems-narrower-parent
+  source: hkm:subdomain:education-leadership-policy-systems
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:education-technology-open-distance-narrower-parent
+  source: hkm:subdomain:education-technology-open-distance
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:lifelong-self-directed-learning-narrower-parent
+  source: hkm:subdomain:lifelong-self-directed-learning
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-international-education-narrower-parent
+  source: hkm:subdomain:comparative-international-education
+  type: narrower-than
+  target: hkm:domain:education-learning-development
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:risk-safety-science-narrower-parent
+  source: hkm:subdomain:risk-safety-science
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:conflict-peace-studies-narrower-parent
+  source: hkm:subdomain:conflict-peace-studies
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:military-strategy-defense-narrower-parent
+  source: hkm:subdomain:military-strategy-defense
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:intelligence-security-analysis-narrower-parent
+  source: hkm:subdomain:intelligence-security-analysis
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:crime-policing-prevention-narrower-parent
+  source: hkm:subdomain:crime-policing-prevention
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cyber-information-security-strategy-narrower-parent
+  source: hkm:subdomain:cyber-information-security-strategy
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:disaster-emergency-management-narrower-parent
+  source: hkm:subdomain:disaster-emergency-management
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:critical-infrastructure-civil-protection-narrower-parent
+  source: hkm:subdomain:critical-infrastructure-civil-protection
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:accident-human-factors-safety-culture-narrower-parent
+  source: hkm:subdomain:accident-human-factors-safety-culture
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:biosecurity-health-security-narrower-parent
+  source: hkm:subdomain:biosecurity-health-security
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:resilience-continuity-recovery-narrower-parent
+  source: hkm:subdomain:resilience-continuity-recovery
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:personal-community-safety-narrower-parent
+  source: hkm:subdomain:personal-community-safety
+  type: narrower-than
+  target: hkm:domain:security-conflict-resilience
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:aesthetics-art-theory-narrower-parent
+  source: hkm:subdomain:aesthetics-art-theory
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:visual-arts-narrower-parent
+  source: hkm:subdomain:visual-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:craft-design-arts-narrower-parent
+  source: hkm:subdomain:craft-design-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:music-sound-arts-narrower-parent
+  source: hkm:subdomain:music-sound-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:theatre-dance-performance-narrower-parent
+  source: hkm:subdomain:theatre-dance-performance
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:literature-poetics-narrower-parent
+  source: hkm:subdomain:literature-poetics
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:film-screen-media-arts-narrower-parent
+  source: hkm:subdomain:film-screen-media-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:photography-digital-new-media-art-narrower-parent
+  source: hkm:subdomain:photography-digital-new-media-art
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:architecture-spatial-arts-narrower-parent
+  source: hkm:subdomain:architecture-spatial-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:creative-writing-storytelling-narrower-parent
+  source: hkm:subdomain:creative-writing-storytelling
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:art-history-global-traditions-narrower-parent
+  source: hkm:subdomain:art-history-global-traditions
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:criticism-curation-conservation-narrower-parent
+  source: hkm:subdomain:criticism-curation-conservation
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:participatory-community-arts-narrower-parent
+  source: hkm:subdomain:participatory-community-arts
+  type: narrower-than
+  target: hkm:domain:arts-literature-creation
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:comparative-religious-studies-narrower-parent
+  source: hkm:subdomain:comparative-religious-studies
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:theology-doctrine-narrower-parent
+  source: hkm:subdomain:theology-doctrine
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:scripture-hermeneutics-narrower-parent
+  source: hkm:subdomain:scripture-hermeneutics
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:ritual-worship-material-religion-narrower-parent
+  source: hkm:subdomain:ritual-worship-material-religion
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mysticism-spirituality-contemplative-practice-narrower-parent
+  source: hkm:subdomain:mysticism-spirituality-contemplative-practice
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:religion-society-politics-narrower-parent
+  source: hkm:subdomain:religion-society-politics
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:religious-ethics-law-narrower-parent
+  source: hkm:subdomain:religious-ethics-law
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:history-religions-narrower-parent
+  source: hkm:subdomain:history-religions
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:secularism-nonreligion-narrower-parent
+  source: hkm:subdomain:secularism-nonreligion
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:worldviews-existential-meaning-narrower-parent
+  source: hkm:subdomain:worldviews-existential-meaning
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:indigenous-local-cosmologies-narrower-parent
+  source: hkm:subdomain:indigenous-local-cosmologies
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:lived-religion-community-practice-narrower-parent
+  source: hkm:subdomain:lived-religion-community-practice
+  type: narrower-than
+  target: hkm:domain:religion-meaning-worldviews
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:personal-health-self-care-navigation-narrower-parent
+  source: hkm:subdomain:personal-health-self-care-navigation
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:cooking-food-household-nutrition-narrower-parent
+  source: hkm:subdomain:cooking-food-household-nutrition
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:home-household-maintenance-repair-narrower-parent
+  source: hkm:subdomain:home-household-maintenance-repair
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:personal-finance-consumer-capability-narrower-parent
+  source: hkm:subdomain:personal-finance-consumer-capability
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:digital-media-information-literacy-narrower-parent
+  source: hkm:subdomain:digital-media-information-literacy
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:relationships-communication-caregiving-narrower-parent
+  source: hkm:subdomain:relationships-communication-caregiving
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:learning-knowledge-work-practice-narrower-parent
+  source: hkm:subdomain:learning-knowledge-work-practice
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:career-workplace-collaboration-narrower-parent
+  source: hkm:subdomain:career-workplace-collaboration
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:civic-legal-economic-navigation-narrower-parent
+  source: hkm:subdomain:civic-legal-economic-navigation
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:mobility-travel-navigation-narrower-parent
+  source: hkm:subdomain:mobility-travel-navigation
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:physical-literacy-sport-recreation-narrower-parent
+  source: hkm:subdomain:physical-literacy-sport-recreation
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:craft-making-creative-hobbies-narrower-parent
+  source: hkm:subdomain:craft-making-creative-hobbies
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:emergency-preparedness-first-response-narrower-parent
+  source: hkm:subdomain:emergency-preparedness-first-response
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2
+- id: hkm:relation:time-attention-habits-self-management-narrower-parent
+  source: hkm:subdomain:time-attention-habits-self-management
+  type: narrower-than
+  target: hkm:domain:everyday-life-practical-agency
+  scope: H3 到 H2 的直接范围层级；由 subdomains.yaml 的 parent 字段生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-2

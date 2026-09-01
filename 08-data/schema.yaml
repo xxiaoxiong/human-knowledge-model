@@ -1,0 +1,238 @@
+schema_version: 0.1.0
+model_id: hkm
+description: Human Knowledge Model 的最小机器可读模式。语义说明以 00-meta/ontology.md 为准。
+
+id_policy:
+  pattern: '^hkm:[a-z-]+:[a-z0-9-]+$'
+  immutable: true
+  language_neutral: true
+
+scope_levels:
+  H0: corpus
+  H1: superdomain
+  H2: domain
+  H3: subdomain
+  H4: theme
+
+node_types:
+  scope:
+    - corpus
+    - superdomain
+    - domain
+    - subdomain
+    - theme
+  organization:
+    - bridge-view
+    - facet-view
+  world:
+    - entity-type
+    - system
+    - agent
+    - phenomenon
+    - event
+    - artifact
+    - resource
+  knowledge:
+    - concept
+    - claim
+    - observation
+    - evidence
+    - law-principle
+    - theory
+    - model
+    - framework
+    - norm-value
+    - case
+  inquiry:
+    - question
+    - method
+    - measurement
+  action:
+    - tool
+    - technology
+    - skill
+    - practice
+    - intervention
+    - problem-template
+  learning:
+    - learning-unit
+    - learning-path
+
+relation_types:
+  structural:
+    - narrower-than
+    - instance-of
+    - is-a
+    - part-of
+    - member-of
+    - in-scope
+    - primary-domain
+    - in-domain
+  epistemic:
+    - defines
+    - operationalizes
+    - measures
+    - supports
+    - challenges
+    - contradicts
+    - explains
+    - predicts
+    - assumes
+    - derived-from
+    - generalizes
+    - refines
+  causal_action:
+    - causes
+    - influences
+    - mediates
+    - moderates
+    - constrains
+    - enables
+    - uses
+    - implements
+    - applies-to
+    - produces
+    - transforms
+  integration_learning:
+    - depends-on
+    - complements
+    - analogous-to
+    - bridges
+    - prerequisite-of
+    - recommended-before
+    - transfer-to
+    - replaced-by
+
+facets:
+  aims:
+    - identify-classify
+    - describe-measure
+    - explain-understand
+    - predict-warn
+    - diagnose-abduce
+    - evaluate-norm
+    - design-create
+    - control-maintain
+    - optimize-allocate
+    - decide-negotiate
+    - learn-transfer
+  epistemic_modes:
+    - empirical
+    - formal
+    - causal
+    - historical
+    - interpretive
+    - comparative
+    - normative
+    - design
+    - embodied
+    - synthetic
+  epistemic_status:
+    - proposal
+    - hypothesis
+    - active-research
+    - contested
+    - limited-consensus
+    - strong-consensus
+    - deprecated
+  learning_priority:
+    - S
+    - A
+    - B
+    - C
+    - D
+  skeleton_roles:
+    - foundation
+    - mechanism
+    - representation
+    - evidence
+    - method
+    - design
+    - decision
+    - practice
+    - synthesis
+    - boundary
+  confidence:
+    - high
+    - medium
+    - low
+    - contested
+
+required_node_fields:
+  - id
+  - primary_type
+  - labels
+  - definition
+  - status
+  - version
+
+required_scope_fields:
+  - level
+  - core_questions
+  - scope_includes
+  - boundary_notes
+
+required_bridge_fields:
+  - code
+  - core_questions
+  - member_domains
+  - members
+  - unifying_mechanisms
+  - boundary_notes
+  - epistemic_modes
+
+required_core_node_fields:
+  - code
+  - core_questions
+  - primary_domain
+  - related_subdomains
+  - roles
+  - aims
+  - epistemic_modes
+  - learning_priority
+  - prerequisites
+  - connections
+  - boundary_notes
+
+required_relation_fields:
+  - id
+  - source
+  - type
+  - target
+  - scope
+  - confidence
+  - provenance
+
+relation_constraints:
+  narrower-than:
+    source_types: [superdomain, domain, subdomain, theme]
+    target_types: [corpus, superdomain, domain, subdomain]
+    acyclic: true
+    transitive_inference: true
+  primary-domain:
+    target_types: [domain]
+    max_per_source_per_version: 1
+  in-scope:
+    target_types: [domain, subdomain, theme]
+  is-a:
+    transitive_inference: true
+  complements:
+    symmetric: true
+  analogous-to:
+    symmetric: true
+  contradicts:
+    symmetric: true
+  replaced-by:
+    acyclic: true
+
+relation_defaults:
+  valid_from: null
+  valid_to: null
+  confidence: medium
+  epistemic_status: proposal
+
+versioning:
+  current: 0.2.0
+  deprecated_nodes_are_retained: true
+  rename_does_not_change_id: true
+  breaking_changes_require_major_version: true

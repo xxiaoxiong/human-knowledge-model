@@ -1,0 +1,289 @@
+schema_version: 0.1.0
+model_version: 0.2.0
+description: 跨越三个以上 H2、且不能无损压回单一父域的桥接导航视图。成员关系不表示概念等价或范围父子。
+
+bridge_views:
+  - id: hkm:bridge-view:geography
+    code: B01
+    primary_type: bridge-view
+    labels: {zh: 地理与空间系统, en: Geography and Spatial Systems}
+    definition: 以位置、空间关系、区域差异和人地互动为共同轴，连接自然地理、人文地理、空间技术、治理和生活移动。
+    core_questions:
+      - 现象为何分布于此处而非彼处，尺度与空间关系如何改变解释？
+      - 自然过程、社会组织和建成环境如何共同塑造地方与区域？
+    member_domains: [D04, D07, D08, D09, D10, D13, D20]
+    members:
+      - hkm:subdomain:geospatial-earth-observation
+      - hkm:subdomain:human-environment-sustainability
+      - hkm:subdomain:human-geography-urban-rural
+      - hkm:subdomain:regional-local-histories
+      - hkm:subdomain:local-global-multilevel-governance
+      - hkm:subdomain:international-trade-economic-geography
+      - hkm:subdomain:architecture-built-environment
+      - hkm:subdomain:mobility-travel-navigation
+    unifying_mechanisms: [location, distance, scale, spatial-interaction, place, region, human-environment-coupling]
+    boundary_notes: 这是空间观察轴，不把所有带地点的数据都重分类为地理；成员仍保留各自主域证据标准。
+    epistemic_modes: [empirical, causal, historical, comparative, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:cognitive-science
+    code: B02
+    primary_type: bridge-view
+    labels: {zh: 认知科学, en: Cognitive Science}
+    definition: 连接心智哲学、神经与行为、语言、人工智能和学习科学，以多层机制解释感知、表征、推理、行动与学习。
+    core_questions:
+      - 心智功能如何由脑、身体、环境、社会和表征系统共同实现？
+      - 人类、动物与机器的认知模型在哪些层面可比较，边界在哪里？
+    member_domains: [D01, D05, D06, D11, D12, D16]
+    members:
+      - hkm:subdomain:philosophy-mind-language
+      - hkm:subdomain:behavioral-biology-animal-cognition
+      - hkm:subdomain:nervous-systems-neuroscience
+      - hkm:subdomain:perception-sensation
+      - hkm:subdomain:action-motor-embodied-cognition
+      - hkm:subdomain:learning-memory
+      - hkm:subdomain:reasoning-judgment-decision
+      - hkm:subdomain:consciousness-self-agency
+      - hkm:subdomain:language-cognition
+      - hkm:subdomain:linguistic-structure-grammar
+      - hkm:subdomain:ai-knowledge-reasoning-planning
+      - hkm:subdomain:human-computer-interaction
+      - hkm:subdomain:learning-sciences-educational-psychology
+    unifying_mechanisms: [representation, perception-action-loop, learning, memory, inference, embodiment, language]
+    boundary_notes: 计算类比不自动证明脑按同一算法工作；主观经验、行为、神经和机器性能是不同证据层。
+    epistemic_modes: [empirical, formal, causal, comparative, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:complex-systems
+    code: B03
+    primary_type: bridge-view
+    labels: {zh: 复杂系统, en: Complex Systems}
+    definition: 研究大量相互作用单元如何通过非线性、反馈、网络、适应和多尺度动力学产生宏观结构与涌现行为。
+    core_questions:
+      - 局部互动如何产生全局模式、相变、稳定性或崩溃？
+      - 哪些跨域形式结构可迁移，哪些只是表面类比？
+    member_domains: [D02, D03, D04, D05, D07, D10, D12, D13, D17]
+    members:
+      - hkm:subdomain:probability-stochastic-processes
+      - hkm:subdomain:dynamical-systems-control
+      - hkm:subdomain:thermodynamics-statistical-physics
+      - hkm:subdomain:human-environment-sustainability
+      - hkm:subdomain:ecology-ecosystems
+      - hkm:subdomain:systems-synthetic-biology
+      - hkm:subdomain:groups-networks-collective-behavior
+      - hkm:subdomain:macroeconomics-money-cycles
+      - hkm:subdomain:industrial-information-digital-economics
+      - hkm:subdomain:operating-distributed-cloud-systems
+      - hkm:subdomain:engineering-science-systems
+      - hkm:subdomain:resilience-continuity-recovery
+    unifying_mechanisms: [nonlinearity, feedback, networks, emergence, adaptation, phase-transition, multiscale-dynamics]
+    boundary_notes: 共享数学结构不保证共享因果机制；跨域迁移必须声明变量对应、尺度和断裂点。
+    epistemic_modes: [formal, empirical, causal, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:climate-sustainability
+    code: B04
+    primary_type: bridge-view
+    labels: {zh: 气候与可持续性, en: Climate and Sustainability}
+    definition: 连接地球系统、生态、能源、生产、制度、经济、公平和韧性，以理解并治理跨代际环境变化。
+    core_questions:
+      - 气候与生态风险如何由自然过程和人类活动共同形成并跨尺度传播？
+      - 减缓、适应与公正转型如何在不确定性和多重目标下设计？
+    member_domains: [D01, D03, D04, D05, D09, D10, D13, D15, D17]
+    members:
+      - hkm:subdomain:ethics-moral-philosophy
+      - hkm:subdomain:thermodynamics-statistical-physics
+      - hkm:subdomain:earth-history-paleoclimate
+      - hkm:subdomain:atmosphere-weather-climate
+      - hkm:subdomain:ocean-coastal-systems
+      - hkm:subdomain:hydrology-cryosphere-water
+      - hkm:subdomain:human-environment-sustainability
+      - hkm:subdomain:ecology-ecosystems
+      - hkm:subdomain:public-policy-administration
+      - hkm:subdomain:governance-regulation-institutions
+      - hkm:subdomain:public-labor-development-environment-economics
+      - hkm:subdomain:energy-power-engineering
+      - hkm:subdomain:environmental-engineering
+      - hkm:subdomain:soil-agroecology-land-management
+      - hkm:subdomain:food-systems-rural-development
+      - hkm:subdomain:disaster-emergency-management
+      - hkm:subdomain:resilience-continuity-recovery
+    unifying_mechanisms: [earth-system-feedback, carbon-energy-flow, externality, collective-action, transition, adaptation, intergenerational-equity]
+    boundary_notes: 不把规范目标伪装成自然事实；情景、模型不确定性、地区差异与分配影响必须显式记录。
+    epistemic_modes: [empirical, causal, historical, normative, design, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:public-health-one-health
+    code: B05
+    primary_type: bridge-view
+    labels: {zh: 公共卫生与同一健康, en: Public Health and One Health}
+    definition: 连接人、动物、环境、行为、社区和制度层面的健康决定因素，强调预防、人群证据、照护系统与健康公平。
+    core_questions:
+      - 健康风险如何在人、动物、环境和社会网络之间产生与传播？
+      - 哪些预防和系统干预对哪些人群有效、公平且可持续？
+    member_domains: [D05, D06, D07, D09, D10, D14, D15, D17, D20]
+    members:
+      - hkm:subdomain:microbiology-virology
+      - hkm:subdomain:ecology-ecosystems
+      - hkm:subdomain:behavior-change-self-regulation
+      - hkm:subdomain:demography-population
+      - hkm:subdomain:inequality-stratification
+      - hkm:subdomain:public-policy-administration
+      - hkm:subdomain:public-labor-development-environment-economics
+      - hkm:subdomain:public-health-epidemiology-prevention
+      - hkm:subdomain:nursing-care-practice
+      - hkm:subdomain:nutrition-lifestyle-sleep
+      - hkm:subdomain:health-systems-policy-economics
+      - hkm:subdomain:occupational-environmental-emergency-health
+      - hkm:subdomain:veterinary-health-one-health
+      - hkm:subdomain:food-science-processing-safety
+      - hkm:subdomain:biosecurity-health-security
+      - hkm:subdomain:personal-health-self-care-navigation
+    unifying_mechanisms: [exposure, transmission, prevention, population-risk, social-determinants, surveillance, care-system, health-equity]
+    boundary_notes: 人群建议不能替代个体诊疗；健康相关性、因果性和干预效果必须区分。
+    epistemic_modes: [empirical, causal, comparative, design, embodied, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:materials-science
+    code: B06
+    primary_type: bridge-view
+    labels: {zh: 材料科学, en: Materials Science}
+    definition: 以成分—结构—加工—性质—性能关系连接物理、化学、地球材料、生物材料和工程全生命周期。
+    core_questions:
+      - 微观成分与结构如何决定材料性质和宏观性能？
+      - 加工、服役环境、失效与循环利用如何共同约束材料选择？
+    member_domains: [D03, D04, D05, D13]
+    members:
+      - hkm:subdomain:quantum-atomic-molecular-physics
+      - hkm:subdomain:condensed-matter-material-properties
+      - hkm:subdomain:physical-theoretical-chemistry
+      - hkm:subdomain:inorganic-materials-chemistry
+      - hkm:subdomain:organic-biological-chemistry
+      - hkm:subdomain:analytical-chemical-measurement
+      - hkm:subdomain:geology-earth-materials-geophysics
+      - hkm:subdomain:biochemistry-molecular-biology
+      - hkm:subdomain:chemical-process-engineering
+      - hkm:subdomain:materials-engineering
+      - hkm:subdomain:industrial-manufacturing-engineering
+      - hkm:subdomain:reliability-maintenance-safety-engineering
+    unifying_mechanisms: [composition, structure, processing, properties, performance, degradation, lifecycle]
+    boundary_notes: 基础性质主归 D03/D04/D05，设计、制造与服役主归 D13；桥接视图不抹平证据尺度。
+    epistemic_modes: [empirical, formal, causal, design, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:information-science
+    code: B07
+    primary_type: bridge-view
+    labels: {zh: 信息科学与知识组织, en: Information Science and Knowledge Organization}
+    definition: 连接信息的形式度量、知识组织、记录保存、检索、可信传播、隐私治理与个人信息素养。
+    core_questions:
+      - 信息如何被表示、组织、保存、发现、验证和安全使用？
+      - 形式信息、语义、证据和社会信任之间如何对应又如何区分？
+    member_domains: [D01, D02, D11, D12, D20]
+    members:
+      - hkm:subdomain:knowledge-organization-ontology
+      - hkm:subdomain:information-coding-cryptography
+      - hkm:subdomain:journalism-public-information
+      - hkm:subdomain:library-archive-information-organization
+      - hkm:subdomain:data-databases-information-retrieval
+      - hkm:subdomain:cybersecurity-privacy
+      - hkm:subdomain:ai-knowledge-reasoning-planning
+      - hkm:subdomain:digital-media-information-literacy
+    unifying_mechanisms: [representation, metadata, classification, retrieval, provenance, preservation, access, trust]
+    boundary_notes: 香农信息、语义信息、证据质量和知识不能互换；每种转换都需声明语义损失。
+    epistemic_modes: [formal, empirical, interpretive, design, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:data-causal-science
+    code: B08
+    primary_type: bridge-view
+    labels: {zh: 数据、测量与因果科学, en: Data, Measurement and Causal Science}
+    definition: 连接测量、统计、计算、研究设计、领域机制与决策，形成从问题到数据、推断、复现和行动的完整链。
+    core_questions:
+      - 概念如何被可靠测量，数据生成过程如何限制推断？
+      - 相关、预测与因果效应应如何区分、识别、验证并用于决策？
+    member_domains: [D01, D02, D03, D07, D10, D12, D14, D16]
+    members:
+      - hkm:subdomain:philosophy-science-technology-methodology
+      - hkm:subdomain:metascience-research-integrity
+      - hkm:subdomain:probability-stochastic-processes
+      - hkm:subdomain:statistics-inference-measurement
+      - hkm:subdomain:numerical-computational-mathematics
+      - hkm:subdomain:measurement-physical-science
+      - hkm:subdomain:social-theory-methods
+      - hkm:subdomain:econometrics-causal-policy-evaluation
+      - hkm:subdomain:data-databases-information-retrieval
+      - hkm:subdomain:machine-learning-data-science
+      - hkm:subdomain:clinical-reasoning-diagnostics
+      - hkm:subdomain:public-health-epidemiology-prevention
+      - hkm:subdomain:assessment-measurement-evaluation
+    unifying_mechanisms: [operationalization, sampling, data-generating-process, identification, estimation, validation, reproducibility, decision]
+    boundary_notes: 通用方法不能取代领域机制、伦理和测量知识；预测准确不自动给出因果或行动价值。
+    epistemic_modes: [empirical, formal, causal, design, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:urban-systems
+    code: B09
+    primary_type: bridge-view
+    labels: {zh: 城市与聚居系统, en: Urban and Settlement Systems}
+    definition: 把城市与乡村聚居视为由人口、土地、基础设施、制度、经济、历史、风险和日常生活共同构成的复杂系统。
+    core_questions:
+      - 聚居空间如何形成、运行、分化并随技术和人口变化？
+      - 如何在可达性、住房、效率、安全、公平和环境之间设计与治理？
+    member_domains: [D04, D07, D08, D09, D10, D13, D17, D20]
+    members:
+      - hkm:subdomain:geospatial-earth-observation
+      - hkm:subdomain:human-environment-sustainability
+      - hkm:subdomain:human-geography-urban-rural
+      - hkm:subdomain:regional-local-histories
+      - hkm:subdomain:public-policy-administration
+      - hkm:subdomain:local-global-multilevel-governance
+      - hkm:subdomain:international-trade-economic-geography
+      - hkm:subdomain:civil-structural-construction
+      - hkm:subdomain:transport-mobility-logistics-engineering
+      - hkm:subdomain:architecture-built-environment
+      - hkm:subdomain:critical-infrastructure-civil-protection
+      - hkm:subdomain:home-household-maintenance-repair
+      - hkm:subdomain:civic-legal-economic-navigation
+      - hkm:subdomain:mobility-travel-navigation
+    unifying_mechanisms: [land-use, agglomeration, accessibility, infrastructure, governance, housing, segregation, urban-metabolism]
+    boundary_notes: 城市不是只有规划或建造；自然环境、非正式实践、地方历史和不同群体经验必须共同进入分析。
+    epistemic_modes: [empirical, causal, historical, normative, design, embodied, synthetic]
+    status: active
+    version: 0.2.0
+
+  - id: hkm:bridge-view:science-technology-society
+    code: B10
+    primary_type: bridge-view
+    labels: {zh: 科学、技术与社会, en: Science, Technology and Society}
+    definition: 研究知识和技术如何在历史、组织、权力、媒体、市场与世界观中产生、获得权威、扩散并改变社会。
+    core_questions:
+      - 科学事实和技术系统如何由实践、制度与价值共同塑造而又受现实约束？
+      - 创新利益、风险、权力与责任如何分配和治理？
+    member_domains: [D01, D07, D08, D09, D10, D11, D12, D13, D19]
+    members:
+      - hkm:subdomain:philosophy-science-technology-methodology
+      - hkm:subdomain:comparative-philosophy-knowledge-traditions
+      - hkm:subdomain:metascience-research-integrity
+      - hkm:subdomain:science-technology-society
+      - hkm:subdomain:science-technology-medicine-environment-history
+      - hkm:subdomain:governance-regulation-institutions
+      - hkm:subdomain:industrial-information-digital-economics
+      - hkm:subdomain:media-platform-public-sphere
+      - hkm:subdomain:ai-safety-governance-society
+      - hkm:subdomain:engineering-science-systems
+      - hkm:subdomain:product-service-interaction-design
+      - hkm:subdomain:indigenous-local-cosmologies
+    unifying_mechanisms: [knowledge-production, expertise, standardization, innovation, diffusion, power, public-legitimacy, sociotechnical-change]
+    boundary_notes: 社会建构不表示自然约束不存在；同时避免把一种现代科学制度当成人类全部知识传统。
+    epistemic_modes: [empirical, historical, interpretive, normative, design, comparative, synthetic]
+    status: active
+    version: 0.2.0

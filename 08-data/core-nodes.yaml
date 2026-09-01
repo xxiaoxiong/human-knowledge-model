@@ -1,0 +1,1094 @@
+schema_version: 0.1.0
+model_version: 0.3.0-draft
+description: 领域核心骨架内容节点；首批以 D03、D10、D13、D20 为四类模板域。
+published_domains: [D03, D10, D13, D20]
+
+defaults: &core_defaults
+  status: active
+  version: 0.3.0-draft
+
+core_nodes:
+  # D03 自然规律模板
+  - <<: *core_defaults
+    id: hkm:framework:physical-quantities-dimensional-analysis
+    code: K03.01
+    primary_type: framework
+    additional_types: [measurement]
+    labels: {zh: 物理量、单位与量纲分析, en: Physical Quantities, Units and Dimensional Analysis}
+    definition: 用可操作量、单位制和量纲关系把观察、方程与尺度比较连接起来的基础表征框架。
+    core_questions: [什么被测量且单位如何定义, 方程与估算是否在量纲上自洽]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:measurement-physical-science]
+    roles: [foundation, representation, method]
+    aims: [describe-measure, learn-transfer]
+    epistemic_modes: [empirical, formal]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: constrains, target: hkm:law-principle:conservation-laws-balances, scope: 量纲一致是守恒方程可解释的必要但非充分条件}]
+    boundary_notes: 量纲正确不证明模型或因果机制正确；无量纲常数也可能承载关键经验信息。
+
+  - <<: *core_defaults
+    id: hkm:law-principle:conservation-laws-balances
+    code: K03.02
+    primary_type: law-principle
+    labels: {zh: 守恒律与收支平衡, en: Conservation Laws and Balances}
+    definition: 用系统边界内的存量、通量、源与汇表述质量、能量、动量、电荷等量如何变化。
+    core_questions: [什么在给定边界和相互作用下守恒, 观察到的变化来自通量还是源汇]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:classical-mechanics-fields-waves, hkm:subdomain:thermodynamics-statistical-physics, hkm:subdomain:particle-nuclear-physics]
+    roles: [foundation, mechanism]
+    aims: [explain-understand, predict-warn]
+    epistemic_modes: [formal, causal, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis]
+    connections: [{type: constrains, target: hkm:framework:energy-entropy-free-energy, scope: 能量守恒约束过程但不单独决定过程方向}]
+    boundary_notes: 必须声明系统边界、开放性和近似；局部守恒、全局守恒与有效理论中的守恒不可混为一谈。
+
+  - <<: *core_defaults
+    id: hkm:law-principle:symmetry-invariance
+    code: K03.03
+    primary_type: law-principle
+    labels: {zh: 对称性与不变性, en: Symmetry and Invariance}
+    definition: 研究表征或物理变换后哪些结构保持不变，并用不变性限制可行规律和分类。
+    core_questions: [哪些变换不改变可观察规律, 对称破缺如何产生可见结构]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:classical-mechanics-fields-waves, hkm:subdomain:quantum-atomic-molecular-physics, hkm:subdomain:particle-nuclear-physics]
+    roles: [foundation, mechanism, representation]
+    aims: [identify-classify, explain-understand]
+    epistemic_modes: [formal, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis]
+    connections: [{type: explains, target: hkm:law-principle:conservation-laws-balances, scope: 在满足相应作用量与连续对称条件时由 Noether 型关系连接}]
+    boundary_notes: 对称性是模型和规律的结构，不代表对象外观必然对称；离散、连续和规范对称需区分。
+
+  - <<: *core_defaults
+    id: hkm:framework:fields-forces-interactions
+    code: K03.04
+    primary_type: framework
+    labels: {zh: 场、力与相互作用, en: Fields, Forces and Interactions}
+    definition: 用局域场、势、交换或有效作用描述对象如何相互影响和传递动量能量。
+    core_questions: [相互作用通过什么自由度传播, 何时使用力场势或交换表征]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:classical-mechanics-fields-waves, hkm:subdomain:electromagnetism-optics, hkm:subdomain:particle-nuclear-physics]
+    roles: [mechanism, representation]
+    aims: [explain-understand, predict-warn]
+    epistemic_modes: [formal, causal, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis]
+    connections: [{type: explains, target: hkm:model:waves-spectra-signals, scope: 场方程的扰动和传播产生多类波动现象}]
+    boundary_notes: 经典力、连续场、量子场和有效相互作用属于不同层次，不能无条件互换。
+
+  - <<: *core_defaults
+    id: hkm:model:waves-spectra-signals
+    code: K03.05
+    primary_type: model
+    labels: {zh: 波、频谱与物理信号, en: Waves, Spectra and Physical Signals}
+    definition: 用振幅、相位、频率、叠加、色散和谱线表征传播、振荡及从信号反推结构的过程。
+    core_questions: [扰动如何传播和叠加, 频谱如何揭示源与介质]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:classical-mechanics-fields-waves, hkm:subdomain:electromagnetism-optics, hkm:subdomain:analytical-chemical-measurement, hkm:subdomain:astronomy-astrophysics]
+    roles: [representation, evidence, mechanism]
+    aims: [describe-measure, diagnose-abduce, predict-warn]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:fields-forces-interactions]
+    connections: [{type: enables, target: hkm:method:physical-experiment-measurement-uncertainty, scope: 频谱和信号处理使大量间接测量成为可能}]
+    boundary_notes: 信号表征依赖仪器响应、噪声和采样；相同频谱不必对应唯一机制。
+
+  - <<: *core_defaults
+    id: hkm:framework:energy-entropy-free-energy
+    code: K03.06
+    primary_type: framework
+    additional_types: [law-principle]
+    labels: {zh: 能量、熵与自由能, en: Energy, Entropy and Free Energy}
+    definition: 结合能量收支、状态数与可用功，判断过程可行方向、平衡条件和转换上限。
+    core_questions: [过程在能量上是否可行, 不可逆性与可用功如何受熵约束]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:thermodynamics-statistical-physics, hkm:subdomain:physical-theoretical-chemistry]
+    roles: [foundation, mechanism, boundary]
+    aims: [explain-understand, predict-warn, optimize-allocate]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:law-principle:conservation-laws-balances]
+    connections: [{type: constrains, target: hkm:framework:equilibrium-kinetics-timescales, scope: 热力学约束方向和平衡，动力学决定路径与速率}]
+    boundary_notes: 熵在热力学、统计物理和信息论中的定义相关但不等同；自由能依赖约束和系综。
+
+  - <<: *core_defaults
+    id: hkm:framework:scale-coarse-graining-emergence
+    code: K03.07
+    primary_type: framework
+    labels: {zh: 尺度、粗粒化与涌现, en: Scale, Coarse-Graining and Emergence}
+    definition: 分析微观自由度如何在尺度变换和信息压缩后形成宏观变量、有效规律与集体性质。
+    core_questions: [哪些细节在目标尺度上可忽略, 宏观规律如何从微观互动中出现]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:thermodynamics-statistical-physics, hkm:subdomain:condensed-matter-material-properties, hkm:subdomain:astronomy-astrophysics]
+    roles: [foundation, synthesis, boundary]
+    aims: [explain-understand, learn-transfer]
+    epistemic_modes: [formal, causal, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:framework:energy-entropy-free-energy]
+    connections: [{type: explains, target: hkm:framework:structure-property-phase-relations, scope: 多尺度组织和集体行为连接微观结构与宏观性质}]
+    boundary_notes: 涌现不等于机制不可研究；有效规律的适用尺度和粗粒化选择必须声明。
+
+  - <<: *core_defaults
+    id: hkm:model:quantum-states-observables-measurement
+    code: K03.08
+    primary_type: model
+    additional_types: [framework]
+    labels: {zh: 量子态、可观测量与测量, en: Quantum States, Observables and Measurement}
+    definition: 用态空间、算符、概率幅和测量规则表征微观系统及其可预测结果。
+    core_questions: [量子态编码什么预测信息, 测量与动力学如何连接可观测结果]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:quantum-atomic-molecular-physics, hkm:subdomain:particle-nuclear-physics]
+    roles: [foundation, representation, boundary]
+    aims: [explain-understand, predict-warn]
+    epistemic_modes: [formal, empirical]
+    learning_priority: A
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis, hkm:law-principle:symmetry-invariance]
+    connections: [{type: explains, target: hkm:model:molecular-structure-bonding, scope: 量子态与相互作用构成原子、分子结构和成键模型的基础}]
+    boundary_notes: 不同量子诠释对本体承诺不同但可能给出同一实验预测；模型层与哲学解释需分开。
+
+  - <<: *core_defaults
+    id: hkm:model:molecular-structure-bonding
+    code: K03.09
+    primary_type: model
+    labels: {zh: 原子分子结构与化学键, en: Atomic and Molecular Structure and Bonding}
+    definition: 用电子结构、轨道、键合、几何和分子间作用解释物质组成、稳定性与反应倾向。
+    core_questions: [原子如何组成分子与固体, 电子结构如何影响几何和反应性]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:quantum-atomic-molecular-physics, hkm:subdomain:physical-theoretical-chemistry, hkm:subdomain:inorganic-materials-chemistry, hkm:subdomain:organic-biological-chemistry]
+    roles: [mechanism, representation]
+    aims: [identify-classify, explain-understand, predict-warn]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:model:quantum-states-observables-measurement]
+    connections: [{type: explains, target: hkm:framework:structure-property-phase-relations, scope: 成分、键合和几何是性质差异的关键微观来源}]
+    boundary_notes: 轨道、键级和价键图是目的相关模型，不应被当作可直接观察的唯一实体划分。
+
+  - <<: *core_defaults
+    id: hkm:framework:equilibrium-kinetics-timescales
+    code: K03.10
+    primary_type: framework
+    labels: {zh: 平衡、动力学与时间尺度, en: Equilibrium, Kinetics and Timescales}
+    definition: 区分状态是否热力学有利、过程以何种路径和速率发生，以及观测窗口是否足够长。
+    core_questions: [系统趋向何种状态, 路径势垒与时间尺度为何使可行过程不发生或滞后]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:thermodynamics-statistical-physics, hkm:subdomain:physical-theoretical-chemistry, hkm:subdomain:organic-biological-chemistry]
+    roles: [mechanism, representation, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:energy-entropy-free-energy, hkm:model:molecular-structure-bonding]
+    connections: [{type: explains, target: hkm:framework:chemical-transformations-reaction-networks, scope: 平衡常数、速率律和势垒共同约束反应网络行为}]
+    boundary_notes: 达到稳态不等于达到平衡；快慢依赖温度、浓度、催化和观察尺度。
+
+  - <<: *core_defaults
+    id: hkm:framework:structure-property-phase-relations
+    code: K03.11
+    primary_type: framework
+    labels: {zh: 结构—性质—相态关系, en: Structure–Property–Phase Relations}
+    definition: 连接成分、微观结构、缺陷、相变与材料的力学、电学、光学、热学和化学性质。
+    core_questions: [哪些结构层级控制目标性质, 条件变化为何引发相变或性能突变]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:condensed-matter-material-properties, hkm:subdomain:inorganic-materials-chemistry, hkm:subdomain:organic-biological-chemistry]
+    roles: [mechanism, synthesis, representation]
+    aims: [explain-understand, predict-warn, design-create]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:scale-coarse-graining-emergence, hkm:model:molecular-structure-bonding]
+    connections: [{type: complements, target: hkm:framework:equilibrium-kinetics-timescales, scope: 性质和相态需同时由结构状态与转变路径解释}]
+    boundary_notes: 结构—性质相关不自动给出制造路径；服役性能还受加工、缺陷和环境历史影响。
+
+  - <<: *core_defaults
+    id: hkm:framework:chemical-transformations-reaction-networks
+    code: K03.12
+    primary_type: framework
+    labels: {zh: 化学转化与反应网络, en: Chemical Transformations and Reaction Networks}
+    definition: 用化学计量、反应机制、能量面、催化与耦合网络表征物质组成如何改变。
+    core_questions: [反应通过哪些中间步骤发生, 网络结构如何决定选择性产率与稳态]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:physical-theoretical-chemistry, hkm:subdomain:organic-biological-chemistry, hkm:subdomain:analytical-chemical-measurement]
+    roles: [mechanism, representation]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: A
+    prerequisites: [hkm:model:molecular-structure-bonding, hkm:framework:equilibrium-kinetics-timescales]
+    connections: [{type: depends-on, target: hkm:law-principle:conservation-laws-balances, scope: 化学计量和元素收支受质量与电荷守恒约束}]
+    boundary_notes: 总反应式不等于机制；体外或理想条件的反应网络不能无条件外推到工业或生命系统。
+
+  - <<: *core_defaults
+    id: hkm:model:spacetime-gravity-relativity
+    code: K03.13
+    primary_type: model
+    additional_types: [theory]
+    labels: {zh: 时空、引力与相对性, en: Spacetime, Gravitation and Relativity}
+    definition: 用时空结构、参考系和物质能量对几何的影响描述高速、强引力和宇宙尺度现象。
+    core_questions: [时空测量如何依赖运动与引力, 物质能量如何塑造引力动力学]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:relativity-gravitation-cosmology, hkm:subdomain:astronomy-astrophysics]
+    roles: [foundation, representation, mechanism]
+    aims: [explain-understand, predict-warn]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: B
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis, hkm:law-principle:symmetry-invariance]
+    connections: [{type: explains, target: hkm:framework:cosmic-evolution-observational-inference, scope: 引力和时空动力学约束恒星、星系及宇宙演化模型}]
+    boundary_notes: 牛顿近似在广泛低速弱场条件下仍有效；相对论表述不意味着一切判断都相对。
+
+  - <<: *core_defaults
+    id: hkm:framework:cosmic-evolution-observational-inference
+    code: K03.14
+    primary_type: framework
+    labels: {zh: 宇宙演化与观测推断, en: Cosmic Evolution and Observational Inference}
+    definition: 结合辐射、引力、核反应、距离尺度和历史光锥，从远程信号重建天体与宇宙的形成演化。
+    core_questions: [如何从有限远程观测推断天体性质与历史, 多尺度过程如何形成宇宙结构]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:relativity-gravitation-cosmology, hkm:subdomain:particle-nuclear-physics, hkm:subdomain:astronomy-astrophysics]
+    roles: [synthesis, evidence, representation]
+    aims: [describe-measure, explain-understand, diagnose-abduce]
+    epistemic_modes: [empirical, formal, historical, synthetic]
+    learning_priority: B
+    prerequisites: [hkm:model:waves-spectra-signals, hkm:model:spacetime-gravity-relativity]
+    connections: [{type: depends-on, target: hkm:method:physical-experiment-measurement-uncertainty, scope: 距离、光度、谱线和选择效应决定宇宙推断可信度}]
+    boundary_notes: 天文观测通常不可操纵对象；模型选择、选择偏差和不可见成分使推断具有欠定性。
+
+  - <<: *core_defaults
+    id: hkm:method:physical-experiment-measurement-uncertainty
+    code: K03.15
+    primary_type: method
+    additional_types: [measurement]
+    labels: {zh: 物理实验、测量链与不确定性, en: Physical Experiment, Measurement Chains and Uncertainty}
+    definition: 从操作定义、校准、仪器响应、采样和误差传播构建可复现的观察与模型检验链。
+    core_questions: [观测值如何由对象经仪器和处理产生, 不确定性与系统误差怎样限制结论]
+    primary_domain: hkm:domain:matter-energy-universe
+    related_subdomains: [hkm:subdomain:measurement-physical-science, hkm:subdomain:analytical-chemical-measurement, hkm:subdomain:astronomy-astrophysics]
+    roles: [evidence, method, boundary]
+    aims: [describe-measure, evaluate-norm, diagnose-abduce]
+    epistemic_modes: [empirical, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:physical-quantities-dimensional-analysis, hkm:model:waves-spectra-signals]
+    connections: [{type: operationalizes, target: hkm:framework:physical-quantities-dimensional-analysis, scope: 测量程序把物理量定义落实为仪器、校准与数据处理操作}]
+    boundary_notes: 精密不等于准确，统计误差不包含全部系统误差；复现失败也可能来自未建模情境差异。
+
+  # D10 社会制度模板
+  - <<: *core_defaults
+    id: hkm:concept:scarcity-opportunity-cost-tradeoffs
+    code: K10.01
+    primary_type: concept
+    labels: {zh: 稀缺、机会成本与权衡, en: Scarcity, Opportunity Cost and Trade-offs}
+    definition: 以有限资源和互斥选择为起点，比较采取某方案所放弃的最佳替代及其分配后果。
+    core_questions: [真正稀缺的资源是什么, 选择该方案放弃了什么且由谁承担]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:microeconomics-markets, hkm:subdomain:public-labor-development-environment-economics, hkm:subdomain:operations-supply-chains-quality]
+    roles: [foundation, decision, boundary]
+    aims: [optimize-allocate, decide-negotiate, evaluate-norm]
+    epistemic_modes: [formal, empirical, normative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: constrains, target: hkm:framework:marginal-choice-equilibrium-welfare, scope: 机会成本定义边际比较和可行选择集}]
+    boundary_notes: 稀缺不决定分配应当如何；货币价格可能遗漏权力、公共价值、不可逆损害和无偿劳动。
+
+  - <<: *core_defaults
+    id: hkm:framework:marginal-choice-equilibrium-welfare
+    code: K10.02
+    primary_type: framework
+    labels: {zh: 边际选择、均衡与福利, en: Marginal Choice, Equilibrium and Welfare}
+    definition: 用偏好、边际收益成本、约束和相互一致的选择分析个体行为、市场结果与福利变化。
+    core_questions: [在约束下多做一单位的净效果是什么, 个体最优如何形成或不能形成社会可取结果]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:microeconomics-markets, hkm:subdomain:behavioral-experimental-economics]
+    roles: [foundation, representation, decision]
+    aims: [explain-understand, predict-warn, optimize-allocate]
+    epistemic_modes: [formal, empirical, normative]
+    learning_priority: S
+    prerequisites: [hkm:concept:scarcity-opportunity-cost-tradeoffs]
+    connections: [{type: depends-on, target: hkm:framework:information-asymmetry-signals, scope: 均衡预测随信息集合和信念结构改变}]
+    boundary_notes: 均衡是相容性条件而非道德认可或动态稳定保证；偏好也可能受制度和社会塑造。
+
+  - <<: *core_defaults
+    id: hkm:framework:incentives-strategy-mechanism-design
+    code: K10.03
+    primary_type: framework
+    labels: {zh: 激励、策略互动与机制设计, en: Incentives, Strategic Interaction and Mechanism Design}
+    definition: 研究多主体在规则、预期和他人选择下的策略行为，以及如何设计规则使私人行动接近集体目标。
+    core_questions: [规则如何改变行为而非只改变口号, 个体最优与集体结果为何偏离]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:microeconomics-markets, hkm:subdomain:industrial-information-digital-economics, hkm:subdomain:organization-design-governance]
+    roles: [mechanism, design, decision]
+    aims: [explain-understand, design-create, decide-negotiate]
+    epistemic_modes: [formal, empirical, causal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:marginal-choice-equilibrium-welfare]
+    connections: [{type: complements, target: hkm:framework:institutions-property-transaction-costs, scope: 激励分析需要制度规则和执行成本才能映射现实}]
+    boundary_notes: 人不总是稳定自利的优化者；规范、身份、有限理性和权力可改变策略空间与收益。
+
+  - <<: *core_defaults
+    id: hkm:framework:information-asymmetry-signals
+    code: K10.04
+    primary_type: framework
+    labels: {zh: 信息、不对称、信号与筛选, en: Information, Asymmetry, Signaling and Screening}
+    definition: 分析主体拥有不同信息时的逆向选择、道德风险、信号、筛选和委托代理问题。
+    core_questions: [谁知道什么且谁不能验证, 如何设计可信信号监督和信息披露]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:microeconomics-markets, hkm:subdomain:industrial-information-digital-economics, hkm:subdomain:finance-investment-risk, hkm:subdomain:marketing-consumer-service, hkm:subdomain:organization-design-governance]
+    roles: [mechanism, representation, design]
+    aims: [diagnose-abduce, predict-warn, design-create]
+    epistemic_modes: [formal, causal, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:marginal-choice-equilibrium-welfare]
+    connections: [{type: explains, target: hkm:framework:markets-competition-platforms, scope: 搜寻成本与信息不对称改变价格形成、市场进入和平台权力}]
+    boundary_notes: 信息更多不必然更好；注意力、隐私、可理解性和策略性披露会改变信息价值。
+
+  - <<: *core_defaults
+    id: hkm:framework:institutions-property-transaction-costs
+    code: K10.05
+    primary_type: framework
+    labels: {zh: 制度、产权与交易成本, en: Institutions, Property Rights and Transaction Costs}
+    definition: 用正式与非正式规则、权利束、执行能力和协调成本解释活动为何由市场、组织、家庭或公共部门承载。
+    core_questions: [哪些规则界定权利责任与可执行承诺, 为何这种治理结构比替代方案更可行]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:public-labor-development-environment-economics, hkm:subdomain:industrial-information-digital-economics, hkm:subdomain:organization-design-governance]
+    roles: [foundation, mechanism, synthesis]
+    aims: [explain-understand, diagnose-abduce, design-create]
+    epistemic_modes: [empirical, causal, historical, design]
+    learning_priority: S
+    prerequisites: [hkm:concept:scarcity-opportunity-cost-tradeoffs]
+    connections: [{type: explains, target: hkm:framework:organization-authority-governance, scope: 交易成本和权利配置帮助解释组织边界与治理安排}]
+    boundary_notes: 制度效果依赖执行、权力、文化与历史；“产权清晰”不是单一制度处方。
+
+  - <<: *core_defaults
+    id: hkm:framework:markets-competition-platforms
+    code: K10.06
+    primary_type: framework
+    labels: {zh: 市场结构、竞争与平台, en: Market Structure, Competition and Platforms}
+    definition: 研究进入退出、集中度、差异化、网络效应和定价权如何塑造市场绩效与创新。
+    core_questions: [谁能进入并影响价格规则, 网络效应和规模经济何时产生锁定或效率]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:microeconomics-markets, hkm:subdomain:industrial-information-digital-economics, hkm:subdomain:strategy-competition-entrepreneurship]
+    roles: [mechanism, representation, evidence]
+    aims: [identify-classify, explain-understand, predict-warn]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:marginal-choice-equilibrium-welfare, hkm:framework:information-asymmetry-signals]
+    connections: [{type: constrains, target: hkm:framework:strategy-capabilities-innovation, scope: 产业结构和平台规则改变企业可行战略与创新收益}]
+    boundary_notes: 集中度只是竞争线索；相关市场界定、潜在进入、质量、创新和买方权力都可能改变判断。
+
+  - <<: *core_defaults
+    id: hkm:framework:externalities-public-goods-collective-action
+    code: K10.07
+    primary_type: framework
+    labels: {zh: 外部性、公共品与集体行动, en: Externalities, Public Goods and Collective Action}
+    definition: 分析行动成本收益未由决策者完全承担、排他困难或共同资源竞争时的协调失败与治理选择。
+    core_questions: [谁承受未计价后果, 何种规则能在搭便车拥挤与公平之间改善结果]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:public-labor-development-environment-economics, hkm:subdomain:industrial-information-digital-economics]
+    roles: [mechanism, design, boundary]
+    aims: [diagnose-abduce, evaluate-norm, design-create]
+    epistemic_modes: [formal, causal, normative, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:incentives-strategy-mechanism-design, hkm:framework:institutions-property-transaction-costs]
+    connections: [{type: challenges, target: hkm:framework:marginal-choice-equilibrium-welfare, scope: 外部性和公共品使私人边际选择不再保证社会福利改进}]
+    boundary_notes: 税、产权、规制、共同体治理和公共供给各有信息、执行与分配条件，不存在脱离情境的唯一解。
+
+  - <<: *core_defaults
+    id: hkm:model:money-credit-inflation-macrodynamics
+    code: K10.08
+    primary_type: model
+    additional_types: [framework]
+    labels: {zh: 货币、信用、通胀与宏观波动, en: Money, Credit, Inflation and Macrodynamics}
+    definition: 连接货币支付、银行信用、资产负债表、总需求供给、就业和价格水平的宏观动力学。
+    core_questions: [货币信用如何创造和收缩, 冲击为何通过资产负债表与预期放大为周期]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:macroeconomics-money-cycles, hkm:subdomain:finance-investment-risk]
+    roles: [mechanism, representation, synthesis]
+    aims: [explain-understand, predict-warn, decide-negotiate]
+    epistemic_modes: [formal, empirical, causal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:marginal-choice-equilibrium-welfare, hkm:framework:institutions-property-transaction-costs]
+    connections: [{type: depends-on, target: hkm:framework:accounting-stocks-flows-control, scope: 宏观存量流量一致性依赖部门资产负债表与会计恒等式}]
+    boundary_notes: 会计恒等式不自动确定因果方向；通胀、失业和政策传导随制度与冲击类型改变。
+
+  - <<: *core_defaults
+    id: hkm:framework:growth-productivity-innovation-distribution
+    code: K10.09
+    primary_type: framework
+    labels: {zh: 增长、生产率、创新与分配, en: Growth, Productivity, Innovation and Distribution}
+    definition: 连接资本、劳动、知识、技术变迁、制度和市场结构，解释长期产出能力及收益如何分配。
+    core_questions: [生产率和生活水平为何长期变化, 创新收益与调整成本由谁获得和承担]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:macroeconomics-money-cycles, hkm:subdomain:public-labor-development-environment-economics, hkm:subdomain:international-trade-economic-geography, hkm:subdomain:industrial-information-digital-economics]
+    roles: [mechanism, synthesis, evidence]
+    aims: [explain-understand, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, causal, historical, formal]
+    learning_priority: A
+    prerequisites: [hkm:concept:scarcity-opportunity-cost-tradeoffs, hkm:framework:institutions-property-transaction-costs]
+    connections: [{type: complements, target: hkm:framework:strategy-capabilities-innovation, scope: 宏观创新与生产率需要连接企业能力、投资和产业扩散机制}]
+    boundary_notes: GDP 与生产率不能完整表示福祉、生态损耗和无偿劳动；增长来源分解对测量和模型敏感。
+
+  - <<: *core_defaults
+    id: hkm:framework:time-value-risk-decision-under-uncertainty
+    code: K10.10
+    primary_type: framework
+    labels: {zh: 时间价值、风险与不确定性决策, en: Time Value, Risk and Decision under Uncertainty}
+    definition: 用跨期选择、概率、贴现、风险承受、保险和情景比较分析未来收益损失与不可知性。
+    core_questions: [未来结果应如何比较与折现, 可量化风险和深度不确定性应如何分别处理]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:finance-investment-risk, hkm:subdomain:behavioral-experimental-economics, hkm:subdomain:strategy-competition-entrepreneurship]
+    roles: [foundation, decision, boundary]
+    aims: [predict-warn, optimize-allocate, decide-negotiate]
+    epistemic_modes: [formal, empirical, normative]
+    learning_priority: S
+    prerequisites: [hkm:concept:scarcity-opportunity-cost-tradeoffs]
+    connections: [{type: enables, target: hkm:model:valuation-portfolio-financial-risk, scope: 跨期和风险表征构成估值、组合与保险模型的基础}]
+    boundary_notes: 概率与偏好可能无法稳定估计；贴现率含经验与伦理选择，不能伪装成纯技术常数。
+
+  - <<: *core_defaults
+    id: hkm:model:valuation-portfolio-financial-risk
+    code: K10.11
+    primary_type: model
+    labels: {zh: 估值、组合与金融风险, en: Valuation, Portfolios and Financial Risk}
+    definition: 用现金流、状态价格、相关性、杠杆、流动性和尾部损失比较资产与融资结构。
+    core_questions: [价值依赖哪些未来现金流和风险假设, 分散杠杆和流动性如何改变损失分布]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:finance-investment-risk, hkm:subdomain:accounting-audit-control]
+    roles: [representation, decision, boundary]
+    aims: [describe-measure, predict-warn, optimize-allocate]
+    epistemic_modes: [formal, empirical]
+    learning_priority: B
+    prerequisites: [hkm:framework:time-value-risk-decision-under-uncertainty, hkm:framework:accounting-stocks-flows-control]
+    connections: [{type: depends-on, target: hkm:framework:information-asymmetry-signals, scope: 估值和融资成本受信息质量、披露与激励冲突影响}]
+    boundary_notes: 模型价值不是保证成交价或内在真值；相关性、流动性和尾部风险会在危机中改变。
+
+  - <<: *core_defaults
+    id: hkm:framework:accounting-stocks-flows-control
+    code: K10.12
+    primary_type: framework
+    additional_types: [measurement]
+    labels: {zh: 会计、存量流量与管理控制, en: Accounting, Stocks, Flows and Management Control}
+    definition: 用确认、计量、复式记录、资产负债和责任中心追踪资源状态、绩效与控制信号。
+    core_questions: [哪些事件被何时如何记录, 指标如何支持问责又可能诱发行为扭曲]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:accounting-audit-control, hkm:subdomain:organization-design-governance]
+    roles: [representation, evidence, boundary]
+    aims: [describe-measure, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:concept:scarcity-opportunity-cost-tradeoffs]
+    connections: [{type: enables, target: hkm:framework:operations-flow-bottlenecks-quality, scope: 成本、库存和责任数据为运营控制提供观测基础}]
+    boundary_notes: 会计数值依赖确认规则和估计；可计量绩效不等于全部价值，指标可能被博弈。
+
+  - <<: *core_defaults
+    id: hkm:framework:organization-authority-governance
+    code: K10.13
+    primary_type: framework
+    labels: {zh: 组织设计、权威与治理, en: Organization Design, Authority and Governance}
+    definition: 研究分工、层级、授权、团队、文化、激励和监督如何协调共同生产与承担责任。
+    core_questions: [决策权信息与责任应如何配置, 正式结构和非正式规范如何共同影响行为]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:organization-behavior-human-resources, hkm:subdomain:organization-design-governance, hkm:subdomain:accounting-audit-control]
+    roles: [mechanism, design, decision]
+    aims: [explain-understand, design-create, control-maintain]
+    epistemic_modes: [empirical, causal, design, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:incentives-strategy-mechanism-design, hkm:framework:institutions-property-transaction-costs]
+    connections: [{type: enables, target: hkm:framework:operations-flow-bottlenecks-quality, scope: 权责、沟通和跨职能协调决定流程能否稳定运行}]
+    boundary_notes: 组织图不等于真实权力和信息流；最佳结构随任务不确定性、规模、技能和制度环境改变。
+
+  - <<: *core_defaults
+    id: hkm:framework:operations-flow-bottlenecks-quality
+    code: K10.14
+    primary_type: framework
+    labels: {zh: 运营流、瓶颈、库存与质量, en: Operational Flow, Bottlenecks, Inventory and Quality}
+    definition: 用流程、能力、排队、变异、库存和质量反馈设计与改进产品服务的稳定交付。
+    core_questions: [真正限制系统吞吐的瓶颈在哪里, 如何在效率缓冲质量和韧性间权衡]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:operations-supply-chains-quality, hkm:subdomain:accounting-audit-control]
+    roles: [mechanism, design, practice]
+    aims: [describe-measure, optimize-allocate, control-maintain]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:accounting-stocks-flows-control, hkm:framework:organization-authority-governance]
+    connections: [{type: constrains, target: hkm:framework:strategy-capabilities-innovation, scope: 运营能力和供应网络限制战略承诺能否兑现}]
+    boundary_notes: 局部利用率最大化可能降低全局流动；精益、库存和标准化的适用性取决于需求变异与中断风险。
+
+  - <<: *core_defaults
+    id: hkm:framework:strategy-capabilities-innovation
+    code: K10.15
+    primary_type: framework
+    labels: {zh: 战略、能力、创业与创新, en: Strategy, Capabilities, Entrepreneurship and Innovation}
+    definition: 连接环境变化、价值创造、差异化资源、组织能力、实验学习和承诺，解释长期行动方向。
+    core_questions: [组织为谁创造何种独特价值, 哪些能力和选择能在变化中形成可持续适应]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:strategy-competition-entrepreneurship, hkm:subdomain:industrial-information-digital-economics, hkm:subdomain:organization-design-governance]
+    roles: [synthesis, design, decision]
+    aims: [diagnose-abduce, design-create, decide-negotiate]
+    epistemic_modes: [empirical, causal, historical, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:markets-competition-platforms, hkm:framework:organization-authority-governance, hkm:framework:operations-flow-bottlenecks-quality]
+    connections: [{type: depends-on, target: hkm:method:economic-causal-evaluation-forecasting, scope: 战略假设需要用实验、比较、指标和前瞻情景持续检验}]
+    boundary_notes: 成功案例有幸存者偏差；优势可能被模仿、技术替代、制度变化或自身刚性侵蚀。
+
+  - <<: *core_defaults
+    id: hkm:method:economic-causal-evaluation-forecasting
+    code: K10.16
+    primary_type: method
+    labels: {zh: 经济因果评估、预测与决策检验, en: Economic Causal Evaluation, Forecasting and Decision Testing}
+    definition: 结合反事实、实验与准实验、结构模型、预测和敏感性分析评估政策、经营行动及不确定性。
+    core_questions: [观察到的变化是否由行动造成, 预测对假设与结构变化有多敏感]
+    primary_domain: hkm:domain:economy-finance-organizations
+    related_subdomains: [hkm:subdomain:econometrics-causal-policy-evaluation, hkm:subdomain:behavioral-experimental-economics, hkm:subdomain:strategy-competition-entrepreneurship]
+    roles: [evidence, method, decision, boundary]
+    aims: [predict-warn, diagnose-abduce, evaluate-norm, decide-negotiate]
+    epistemic_modes: [empirical, formal, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:marginal-choice-equilibrium-welfare, hkm:framework:time-value-risk-decision-under-uncertainty]
+    connections: [{type: challenges, target: hkm:framework:strategy-capabilities-innovation, scope: 因果评估和预测误差用于淘汰或修正未经检验的战略叙事}]
+    boundary_notes: 因果识别依赖假设，局部效应不自动外推；预测准确也不等于政策可行、公平或因果正确。
+
+  # D13 设计工程模板
+  - <<: *core_defaults
+    id: hkm:framework:needs-requirements-stakeholders
+    code: K13.01
+    primary_type: framework
+    labels: {zh: 需求、要求与利益相关者, en: Needs, Requirements and Stakeholders}
+    definition: 把模糊需要、使用情境、价值冲突和法规转成可追踪、可验证且可协商的系统要求。
+    core_questions: [谁在何种情境下真正需要什么, 要求如何被验证且冲突如何处理]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:product-service-interaction-design]
+    roles: [foundation, design, decision]
+    aims: [identify-classify, design-create, decide-negotiate]
+    epistemic_modes: [design, empirical, interpretive, normative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: constrains, target: hkm:framework:engineering-constraints-trade-space, scope: 经确认的需要和要求定义设计可行域与评价标准}]
+    boundary_notes: 用户表达的方案不必等于真实需要；被忽略的利益相关者、未来维护者和受外部性影响者也应进入边界。
+
+  - <<: *core_defaults
+    id: hkm:framework:engineering-constraints-trade-space
+    code: K13.02
+    primary_type: framework
+    labels: {zh: 工程约束、权衡与设计空间, en: Engineering Constraints, Trade-offs and Design Space}
+    definition: 组织物理、成本、时间、资源、人因、安全、环境与法规约束，并比较多目标方案而非追求单一最优。
+    core_questions: [哪些是硬约束哪些是可协商目标, 权衡曲面和不可逆承诺在哪里]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:industrial-manufacturing-engineering, hkm:subdomain:product-service-interaction-design]
+    roles: [foundation, representation, decision]
+    aims: [optimize-allocate, design-create, decide-negotiate]
+    epistemic_modes: [formal, design, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:needs-requirements-stakeholders]
+    connections: [{type: constrains, target: hkm:framework:systems-architecture-interfaces, scope: 架构选择必须落在约束定义的可行设计空间内}]
+    boundary_notes: 数值优化依赖目标函数与约束建模；不可量化价值不能因此被当作零。
+
+  - <<: *core_defaults
+    id: hkm:framework:systems-architecture-interfaces
+    code: K13.03
+    primary_type: framework
+    labels: {zh: 系统架构、分解与接口, en: Systems Architecture, Decomposition and Interfaces}
+    definition: 把整体功能分配到相互作用的组件、层级和接口，并控制耦合、依赖和变更传播。
+    core_questions: [系统边界和模块如何划分, 接口如何传递物质能量信息与责任]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:mechanical-mechatronics-engineering, hkm:subdomain:electrical-electronic-engineering]
+    roles: [representation, design, synthesis]
+    aims: [explain-understand, design-create, control-maintain]
+    epistemic_modes: [formal, causal, design, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:engineering-constraints-trade-space]
+    connections: [{type: enables, target: hkm:framework:standards-modularity-interoperability, scope: 明确接口使模块化、兼容性和替换策略可实施}]
+    boundary_notes: 分解会隐藏跨组件涌现行为；组织边界与技术边界不一致时容易形成无人负责的接口风险。
+
+  - <<: *core_defaults
+    id: hkm:model:engineering-models-safety-margins
+    code: K13.04
+    primary_type: model
+    labels: {zh: 工程模型、近似与安全裕度, en: Engineering Models, Approximations and Safety Margins}
+    definition: 用目的相关的物理、经验和计算模型估计载荷、响应与极限，并为不确定性保留合理裕度。
+    core_questions: [模型保留和忽略了什么, 裕度覆盖哪些变异失效和未知]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:mechanical-mechatronics-engineering, hkm:subdomain:civil-structural-construction, hkm:subdomain:materials-engineering]
+    roles: [representation, evidence, boundary]
+    aims: [predict-warn, diagnose-abduce, design-create]
+    epistemic_modes: [formal, empirical, causal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:engineering-constraints-trade-space]
+    connections: [{type: enables, target: hkm:method:verification-validation-testing, scope: 模型预测给出可验证指标、包络与失效判据}]
+    boundary_notes: 安全系数不能弥补错误失效模式或相关风险；高精度仿真仍需模型验证和现实确认。
+
+  - <<: *core_defaults
+    id: hkm:method:design-synthesis-prototyping
+    code: K13.05
+    primary_type: method
+    labels: {zh: 设计综合、原型与迭代, en: Design Synthesis, Prototyping and Iteration}
+    definition: 通过概念生成、形态组合、原型、试验和反馈把需求逐步转为可运行方案。
+    core_questions: [如何产生不止一个可比较方案, 最小原型应消除哪项最大不确定性]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:product-service-interaction-design, hkm:subdomain:industrial-manufacturing-engineering]
+    roles: [method, design, practice]
+    aims: [design-create, diagnose-abduce, learn-transfer]
+    epistemic_modes: [design, empirical, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:needs-requirements-stakeholders, hkm:framework:engineering-constraints-trade-space]
+    connections: [{type: produces, target: hkm:method:verification-validation-testing, scope: 原型产生可用于验证要求和暴露未知的测试对象}]
+    boundary_notes: 快速迭代不等于跳过危害分析；高风险系统的原型范围和试验环境必须受控。
+
+  - <<: *core_defaults
+    id: hkm:method:verification-validation-testing
+    code: K13.06
+    primary_type: method
+    labels: {zh: 验证、确认与测试, en: Verification, Validation and Testing}
+    definition: 分别检查实现是否符合规定、规定是否满足真实需要，并用分层证据覆盖正常、边界与失效情形。
+    core_questions: [系统是否按规格构建, 规格和系统是否解决了正确的问题]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:bio-biomedical-engineering, hkm:subdomain:reliability-maintenance-safety-engineering]
+    roles: [evidence, method, boundary]
+    aims: [describe-measure, evaluate-norm, predict-warn]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:needs-requirements-stakeholders, hkm:model:engineering-models-safety-margins]
+    connections: [{type: challenges, target: hkm:framework:systems-architecture-interfaces, scope: 集成与接口测试可揭示架构假设和耦合错误}]
+    boundary_notes: 通过测试只支持已覆盖条件；测试用例、测量链和验收阈值本身也需要审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:manufacturing-process-capability
+    code: K13.07
+    primary_type: framework
+    labels: {zh: 制造过程、变异与过程能力, en: Manufacturing Processes, Variation and Process Capability}
+    definition: 连接材料转换、工艺窗口、公差、测量和统计控制，判断设计能否稳定经济地被实现。
+    core_questions: [关键特性如何由过程产生, 变异是否在可接受能力范围内]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:chemical-process-engineering, hkm:subdomain:materials-engineering, hkm:subdomain:industrial-manufacturing-engineering]
+    roles: [mechanism, design, evidence]
+    aims: [describe-measure, optimize-allocate, control-maintain]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: A
+    prerequisites: [hkm:model:engineering-models-safety-margins, hkm:method:design-synthesis-prototyping]
+    connections: [{type: constrains, target: hkm:framework:systems-architecture-interfaces, scope: 工艺能力和装配公差反馈限制架构与接口设计}]
+    boundary_notes: 原型可制造不等于规模化过程稳定；过程能力指标依赖分布、测量系统与受控状态。
+
+  - <<: *core_defaults
+    id: hkm:framework:reliability-failure-risk
+    code: K13.08
+    primary_type: framework
+    labels: {zh: 可靠性、失效模式与工程风险, en: Reliability, Failure Modes and Engineering Risk}
+    definition: 从危害、载荷、退化、故障传播和后果分析系统为何失效，以及如何预防、检测、容错和恢复。
+    core_questions: [系统能以哪些方式失效且后果多大, 如何通过消除监测冗余和恢复降低风险]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:reliability-maintenance-safety-engineering]
+    roles: [mechanism, boundary, design]
+    aims: [predict-warn, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, causal, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:systems-architecture-interfaces, hkm:model:engineering-models-safety-margins]
+    connections: [{type: enables, target: hkm:practice:operations-maintenance-repair, scope: 失效模式和风险优先级决定监测、维护与备件策略}]
+    boundary_notes: 历史故障率不能覆盖未知共因、软件交互和极端环境；低概率高后果需独立审视。
+
+  - <<: *core_defaults
+    id: hkm:framework:sensing-feedback-control-automation
+    code: K13.09
+    primary_type: framework
+    labels: {zh: 感知、反馈、控制与自动化, en: Sensing, Feedback, Control and Automation}
+    definition: 通过测量系统状态、比较目标、调整输入和管理时延，使动态系统在扰动下保持或改变行为。
+    core_questions: [哪些状态可观测可控, 反馈在时延噪声和约束下会稳定还是放大问题]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:mechanical-mechatronics-engineering, hkm:subdomain:electrical-electronic-engineering, hkm:subdomain:energy-power-engineering]
+    roles: [mechanism, representation, design]
+    aims: [predict-warn, control-maintain, optimize-allocate]
+    epistemic_modes: [formal, empirical, causal, design]
+    learning_priority: A
+    prerequisites: [hkm:model:engineering-models-safety-margins, hkm:framework:systems-architecture-interfaces]
+    connections: [{type: complements, target: hkm:framework:human-factors-usability-ergonomics, scope: 自动化边界和告警设计必须匹配人的能力、负荷与接管行为}]
+    boundary_notes: 自动化会转移而非消除责任和风险；传感偏差、时延、饱和和模式混淆可使反馈失稳。
+
+  - <<: *core_defaults
+    id: hkm:framework:human-factors-usability-ergonomics
+    code: K13.10
+    primary_type: framework
+    labels: {zh: 人因、可用性与工效学, en: Human Factors, Usability and Ergonomics}
+    definition: 把人的知觉、认知、身体、协作和局限作为系统组成，设计任务、界面、环境和错误防护。
+    core_questions: [系统要求人感知记忆判断和动作什么, 设计如何减少可预见误用与负荷]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:product-service-interaction-design, hkm:subdomain:reliability-maintenance-safety-engineering, hkm:subdomain:architecture-built-environment]
+    roles: [design, evidence, boundary]
+    aims: [describe-measure, design-create, control-maintain]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:needs-requirements-stakeholders]
+    connections: [{type: constrains, target: hkm:method:design-synthesis-prototyping, scope: 真实使用能力和情境应进入原型任务与界面迭代}]
+    boundary_notes: “操作员错误”常是系统设计、训练和组织条件的症状；平均用户不能代表边缘能力和无障碍需求。
+
+  - <<: *core_defaults
+    id: hkm:practice:operations-maintenance-repair
+    code: K13.11
+    primary_type: practice
+    labels: {zh: 运行、维护、维修与资产管理, en: Operations, Maintenance, Repair and Asset Management}
+    definition: 通过状态监测、预防与纠正维护、备件、工单、维修和知识回馈保持系统全寿命可用。
+    core_questions: [何时检查维护更换或修复, 运行经验如何反馈设计和风险控制]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:reliability-maintenance-safety-engineering, hkm:subdomain:industrial-manufacturing-engineering, hkm:subdomain:transport-mobility-logistics-engineering]
+    roles: [practice, decision, evidence]
+    aims: [diagnose-abduce, control-maintain, optimize-allocate]
+    epistemic_modes: [empirical, causal, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:reliability-failure-risk]
+    connections: [{type: produces, target: hkm:framework:lifecycle-sustainability-circularity, scope: 运行寿命、维修性和退化数据改变生命周期成本与环境评价}]
+    boundary_notes: 延后维护可能形成不可见风险债务；按期更换也不必然优于状态维护，策略应匹配失效机制。
+
+  - <<: *core_defaults
+    id: hkm:framework:lifecycle-sustainability-circularity
+    code: K13.12
+    primary_type: framework
+    labels: {zh: 全生命周期、可持续性与循环设计, en: Lifecycle, Sustainability and Circular Design}
+    definition: 从原料、制造、运输、使用、维护到退役比较成本、能耗、排放、毒性、耐久和再利用路径。
+    core_questions: [影响是否只是被转移到另一阶段地区或群体, 如何延寿减量复用修复和安全回收]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:environmental-engineering, hkm:subdomain:materials-engineering, hkm:subdomain:industrial-manufacturing-engineering]
+    roles: [synthesis, design, boundary]
+    aims: [evaluate-norm, design-create, optimize-allocate]
+    epistemic_modes: [empirical, causal, normative, design, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:framework:engineering-constraints-trade-space, hkm:practice:operations-maintenance-repair]
+    connections: [{type: constrains, target: hkm:method:design-synthesis-prototyping, scope: 生命周期外部性和退役路径应前置进入方案选择}]
+    boundary_notes: 生命周期结果对功能单位、系统边界和数据假设敏感；可回收不等于现实中被回收。
+
+  - <<: *core_defaults
+    id: hkm:framework:standards-modularity-interoperability
+    code: K13.13
+    primary_type: framework
+    labels: {zh: 标准、模块化与互操作性, en: Standards, Modularity and Interoperability}
+    definition: 通过共享接口、测试规范、兼容规则和模块边界支持规模化协作、替换、维修与生态系统连接。
+    core_questions: [哪些接口应稳定标准化, 模块独立性与系统整体优化如何平衡]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:electrical-electronic-engineering, hkm:subdomain:industrial-manufacturing-engineering]
+    roles: [representation, design, synthesis]
+    aims: [design-create, control-maintain, learn-transfer]
+    epistemic_modes: [formal, design, historical]
+    learning_priority: B
+    prerequisites: [hkm:framework:systems-architecture-interfaces]
+    connections: [{type: enables, target: hkm:practice:operations-maintenance-repair, scope: 可替换模块、文档和通用接口提高诊断维修与备件可得性}]
+    boundary_notes: 标准可形成锁定和权力；互操作测试合格不保证语义、组织流程或安全目标完全一致。
+
+  - <<: *core_defaults
+    id: hkm:practice:engineering-project-configuration-change
+    code: K13.14
+    primary_type: practice
+    labels: {zh: 工程项目、配置与变更管理, en: Engineering Project, Configuration and Change Management}
+    definition: 管理范围、依赖、版本、接口、证据、供应和决策记录，使复杂系统在多人协作中保持可追踪一致。
+    core_questions: [当前权威配置和依据是什么, 变更会传播到哪些要求接口测试和维护活动]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:industrial-manufacturing-engineering]
+    roles: [practice, method, boundary]
+    aims: [control-maintain, decide-negotiate, predict-warn]
+    epistemic_modes: [design, empirical, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:framework:systems-architecture-interfaces, hkm:method:verification-validation-testing]
+    connections: [{type: enables, target: hkm:framework:reliability-failure-risk, scope: 配置和变更追踪使风险分析与现场版本保持一致}]
+    boundary_notes: 进度和预算指标不能替代技术成熟度与安全证据；文档数量也不等于可追踪性。
+
+  - <<: *core_defaults
+    id: hkm:norm-value:engineering-ethics-safety-responsibility
+    code: K13.15
+    primary_type: norm-value
+    labels: {zh: 工程伦理、安全责任与公共利益, en: Engineering Ethics, Safety Responsibility and Public Interest}
+    definition: 明确专业胜任、诚实披露、预防伤害、公平、隐私、环境和对公共安全负责的规范边界。
+    core_questions: [技术上可行的方案是否应当实施, 谁对风险知情同意申诉与长期后果负责]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:engineering-science-systems, hkm:subdomain:reliability-maintenance-safety-engineering, hkm:subdomain:product-service-interaction-design]
+    roles: [boundary, decision, synthesis]
+    aims: [evaluate-norm, decide-negotiate, design-create]
+    epistemic_modes: [normative, interpretive, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:needs-requirements-stakeholders, hkm:framework:reliability-failure-risk]
+    connections: [{type: constrains, target: hkm:framework:engineering-constraints-trade-space, scope: 公共安全、权利和专业义务不能仅作为可交换成本项}]
+    boundary_notes: 合法合规是最低线而非伦理充分条件；工程师也不能单方面替社会决定全部价值权衡。
+
+  - <<: *core_defaults
+    id: hkm:skill:engineering-troubleshooting-root-cause
+    code: K13.16
+    primary_type: skill
+    additional_types: [method]
+    labels: {zh: 工程故障诊断与根因分析, en: Engineering Troubleshooting and Root-Cause Analysis}
+    definition: 从症状、时间线、系统边界和证据逐步隔离故障，区分直接原因、促成条件与系统性根因。
+    core_questions: [症状由哪个机制和路径产生, 哪项检验最能区分竞争解释并安全恢复]
+    primary_domain: hkm:domain:engineering-technology-design
+    related_subdomains: [hkm:subdomain:reliability-maintenance-safety-engineering, hkm:subdomain:mechanical-mechatronics-engineering, hkm:subdomain:electrical-electronic-engineering]
+    roles: [method, practice, evidence]
+    aims: [diagnose-abduce, control-maintain, learn-transfer]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:systems-architecture-interfaces, hkm:framework:reliability-failure-risk, hkm:practice:operations-maintenance-repair]
+    connections: [{type: produces, target: hkm:practice:engineering-project-configuration-change, scope: 根因与修复证据应进入配置、变更和经验反馈记录}]
+    boundary_notes: “五个为什么”等工具不能代替机制证据；在高能量、有毒或关键系统上必须先隔离风险并遵守资质边界。
+
+  # D20 生活实践模板
+  - <<: *core_defaults
+    id: hkm:framework:everyday-risk-triage-escalation
+    code: K20.01
+    primary_type: framework
+    labels: {zh: 日常风险分级、行动阈值与专业求助, en: Everyday Risk Triage, Action Thresholds and Escalation}
+    definition: 依据严重性、紧迫性、不确定性、可逆性和个人能力，决定自行处理、观察、停止、求助或紧急升级。
+    core_questions: [最坏可信后果和时间窗口是什么, 哪些红旗意味着应停止并求助专业人员]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:personal-health-self-care-navigation, hkm:subdomain:home-household-maintenance-repair, hkm:subdomain:emergency-preparedness-first-response]
+    roles: [foundation, decision, boundary]
+    aims: [predict-warn, diagnose-abduce, decide-negotiate]
+    epistemic_modes: [empirical, causal, embodied, synthetic]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: constrains, target: hkm:skill:personal-health-self-care-navigation, scope: 健康自护必须先识别紧急红旗、资质边界和求助阈值}]
+    boundary_notes: 分级框架不能诊断专业问题；当信息不足且后果严重不可逆时，应偏向安全升级而非自信猜测。
+
+  - <<: *core_defaults
+    id: hkm:skill:personal-health-self-care-navigation
+    code: K20.02
+    primary_type: skill
+    labels: {zh: 个人健康、自护与就医导航, en: Personal Health, Self-Care and Care Navigation}
+    definition: 通过症状记录、基础预防、用药核对、就医准备和连续照护，在安全边界内管理常见健康需要。
+    core_questions: [哪些情况适合自护观察或预约就医, 如何向专业人员准确提供症状时间线与用药信息]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:personal-health-self-care-navigation]
+    roles: [practice, decision, boundary]
+    aims: [describe-measure, control-maintain, decide-negotiate]
+    epistemic_modes: [empirical, embodied, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:skill:emergency-preparedness-first-response, scope: 日常健康管理与紧急识别、急救和转运准备互补}]
+    boundary_notes: 不自行替代诊断处方或侵入性治疗；药物相互作用、孕产、儿童、老人和慢病需更低求助阈值。
+
+  - <<: *core_defaults
+    id: hkm:practice:food-hygiene-cooking-household-nutrition
+    code: K20.03
+    primary_type: practice
+    labels: {zh: 食品卫生、烹饪与家庭营养, en: Food Hygiene, Cooking and Household Nutrition}
+    definition: 通过采购、储存、交叉污染控制、加热、份量和膳食组合，把食物安全与可持续日常饮食结合。
+    core_questions: [如何降低食源风险并保留营养与可口性, 如何在预算文化健康和时间约束下安排饮食]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:cooking-food-household-nutrition]
+    roles: [practice, design, boundary]
+    aims: [control-maintain, design-create, optimize-allocate]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:practice:household-care-coordination, scope: 饮食安排常与过敏、照护需要、家庭分工和预算共同决定}]
+    boundary_notes: 通用膳食建议不能替代过敏、吞咽障碍、代谢病或进食障碍的专业方案；外观气味不能排除全部污染。
+
+  - <<: *core_defaults
+    id: hkm:skill:household-systems-maintenance-repair
+    code: K20.04
+    primary_type: skill
+    additional_types: [practice]
+    labels: {zh: 家庭系统检查、维护与安全维修, en: Household Systems Inspection, Maintenance and Safe Repair}
+    definition: 识别住所结构、水、电、燃气、通风、设备和耗材的状态，执行低风险维护并在越界前停手求助。
+    core_questions: [故障属于哪一系统且能否安全隔离, 哪些检查维护可自行做而哪些需要持证专业人员]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:home-household-maintenance-repair]
+    roles: [practice, method, boundary]
+    aims: [diagnose-abduce, control-maintain, predict-warn]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:skill:craft-making-low-risk-repair, scope: 基础制作技能支持低风险修复，但家庭公用系统需要更严格隔离与资质判断}]
+    boundary_notes: 不在带电、燃气泄漏、承重结构、制冷剂或未知有害材料上尝试无资质维修；先断能、确认和验证。
+
+  - <<: *core_defaults
+    id: hkm:practice:personal-finance-budgeting-risk
+    code: K20.05
+    primary_type: practice
+    labels: {zh: 个人财务、预算、负债与风险保护, en: Personal Finance, Budgeting, Debt and Risk Protection}
+    definition: 管理现金流、应急储备、负债成本、保险、长期目标和账户安全，使决策匹配期限与风险承受能力。
+    core_questions: [现金流和关键风险暴露在哪里, 决策在费用税收流动性和最坏情形后是否仍可承受]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:personal-finance-consumer-capability]
+    roles: [practice, decision, boundary]
+    aims: [describe-measure, optimize-allocate, predict-warn]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:skill:consumer-legal-public-service-navigation, scope: 金融产品决策需要合同、申诉、监管与公共保障导航能力}]
+    boundary_notes: 不把一般教育当个性化投资建议；高收益承诺、杠杆、集中持仓、流动性错配和诈骗需优先识别。
+
+  - <<: *core_defaults
+    id: hkm:skill:consumer-legal-public-service-navigation
+    code: K20.06
+    primary_type: skill
+    labels: {zh: 消费者、合同、法律与公共服务导航, en: Consumer, Contract, Legal and Public-Service Navigation}
+    definition: 阅读关键条款、保存证据、识别权利义务、按期限使用投诉申诉和公共服务渠道。
+    core_questions: [我同意了什么且关键期限证据和救济是什么, 哪个机构或专业人士有权处理]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:civic-legal-economic-navigation, hkm:subdomain:personal-finance-consumer-capability]
+    roles: [practice, decision, boundary]
+    aims: [identify-classify, decide-negotiate, control-maintain]
+    epistemic_modes: [interpretive, empirical, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: depends-on, target: hkm:skill:digital-security-media-information-literacy, scope: 现代合同、证据、身份认证和公共服务大量依赖可信数字信息处理}]
+    boundary_notes: 法律因辖区和时间变化；高金额、刑事、移民、时效或不可逆权利问题应尽早寻求合格法律帮助。
+
+  - <<: *core_defaults
+    id: hkm:skill:digital-security-media-information-literacy
+    code: K20.07
+    primary_type: skill
+    labels: {zh: 数字安全、媒体、数据与信息素养, en: Digital Security, Media, Data and Information Literacy}
+    definition: 管理账号设备权限备份和隐私，并用来源、证据、上下文与操纵迹象评估数字内容。
+    core_questions: [信息和请求来自谁且能否独立验证, 账号数据设备的主要威胁与恢复路径是什么]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:digital-media-information-literacy]
+    roles: [method, practice, boundary]
+    aims: [evaluate-norm, predict-warn, control-maintain]
+    epistemic_modes: [empirical, interpretive, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: enables, target: hkm:skill:learning-reading-writing-knowledge-workflow, scope: 可信检索、版本、备份和引用是个人知识工作的基础设施}]
+    boundary_notes: 单一“辟谣技巧”不能保证真假；高风险账号应使用多因素认证、恢复码和独立渠道核验，不向求助者索要密钥。
+
+  - <<: *core_defaults
+    id: hkm:skill:relationship-communication-consent-boundaries
+    code: K20.08
+    primary_type: skill
+    labels: {zh: 关系沟通、同意、边界与冲突处理, en: Relationship Communication, Consent, Boundaries and Conflict Handling}
+    definition: 通过倾听、明确请求、知情同意、界限、修复和安全退出处理亲密、家庭、朋友与协作关系。
+    core_questions: [双方是否能自由理解并撤回同意, 冲突是信息目标边界还是安全问题]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:relationships-communication-caregiving]
+    roles: [practice, decision, boundary]
+    aims: [decide-negotiate, evaluate-norm, control-maintain]
+    epistemic_modes: [interpretive, normative, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: enables, target: hkm:practice:household-care-coordination, scope: 清晰边界、请求与冲突修复支持可持续的照护分工}]
+    boundary_notes: 沟通技巧不能解决胁迫、暴力或权力严重不对称；出现安全风险应优先制定安全计划并联系专业支持。
+
+  - <<: *core_defaults
+    id: hkm:practice:household-care-coordination
+    code: K20.09
+    primary_type: practice
+    labels: {zh: 家庭照护、分工与连续性协调, en: Household Care, Division of Labor and Continuity Coordination}
+    definition: 协调儿童、老人、病患、残障者与日常家务所需的任务、信息、轮替、休息和外部支持。
+    core_questions: [谁需要何种照护且关键记录在哪里, 如何让负担可见可分担并有替补和喘息]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:relationships-communication-caregiving]
+    roles: [practice, design, boundary]
+    aims: [control-maintain, optimize-allocate, decide-negotiate]
+    epistemic_modes: [empirical, embodied, design, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:skill:relationship-communication-consent-boundaries, hkm:skill:personal-health-self-care-navigation]
+    connections: [{type: depends-on, target: hkm:skill:time-attention-habits-self-management, scope: 持续照护需要现实排程、提醒、恢复和照护者自身边界}]
+    boundary_notes: 家庭照护不应默认由某一性别或个人无限承担；临床操作、虐待风险和照护者耗竭需专业与社会支持。
+
+  - <<: *core_defaults
+    id: hkm:skill:learning-reading-writing-knowledge-workflow
+    code: K20.10
+    primary_type: skill
+    labels: {zh: 学习、阅读、写作与个人知识流程, en: Learning, Reading, Writing and Personal Knowledge Workflow}
+    definition: 以问题、检索、主动回忆、间隔练习、笔记、写作、反馈和版本管理形成可复用学习循环。
+    core_questions: [学习目标如何转为可检验表现, 信息如何从收集变成理解输出与迁移]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:learning-knowledge-work-practice]
+    roles: [method, practice, synthesis]
+    aims: [learn-transfer, design-create, evaluate-norm]
+    epistemic_modes: [empirical, design, embodied, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:skill:digital-security-media-information-literacy]
+    connections: [{type: enables, target: hkm:skill:career-workplace-collaboration-negotiation, scope: 清晰书面表达、反馈和知识留存提高工作协作与成长能力}]
+    boundary_notes: 收藏和重读不等于掌握；工具系统不应比真实练习、反馈和产出更复杂。
+
+  - <<: *core_defaults
+    id: hkm:skill:career-workplace-collaboration-negotiation
+    code: K20.11
+    primary_type: skill
+    labels: {zh: 职业探索、工作协作与基础谈判, en: Career Exploration, Workplace Collaboration and Basic Negotiation}
+    definition: 识别可迁移能力、评估岗位与组织、明确期望、记录成果、协作反馈并就条件和边界进行准备充分的谈判。
+    core_questions: [我的能力证据和发展缺口是什么, 目标角色的真实任务条件权力和风险如何]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:career-workplace-collaboration]
+    roles: [practice, decision, synthesis]
+    aims: [identify-classify, decide-negotiate, learn-transfer]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:skill:learning-reading-writing-knowledge-workflow, hkm:skill:relationship-communication-consent-boundaries]
+    connections: [{type: complements, target: hkm:practice:personal-finance-budgeting-risk, scope: 职业选择应与现金流、保障、机会成本和风险承受能力共同评估}]
+    boundary_notes: 职业结果受结构性机会、照护责任、歧视和地域影响；个人品牌话术不能替代技能证据与劳动权利。
+
+  - <<: *core_defaults
+    id: hkm:skill:mobility-travel-spatial-navigation
+    code: K20.12
+    primary_type: skill
+    labels: {zh: 出行、旅行与空间导航, en: Mobility, Travel and Spatial Navigation}
+    definition: 规划路线、时间、票证、无障碍、天气、通信、证件和备选方案，并在陌生环境中保持定向与安全。
+    core_questions: [路线的关键约束和失败点是什么, 失联延误迷路或证件问题时如何恢复]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:mobility-travel-navigation]
+    roles: [practice, decision, boundary]
+    aims: [predict-warn, optimize-allocate, control-maintain]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation, hkm:skill:digital-security-media-information-literacy]
+    connections: [{type: complements, target: hkm:skill:emergency-preparedness-first-response, scope: 出行计划需包含天气医疗通信撤离与紧急联系预案}]
+    boundary_notes: 导航应用会失效或给出不安全路线；跨境法律、健康风险和偏远活动需查询权威信息并准备离线备份。
+
+  - <<: *core_defaults
+    id: hkm:skill:physical-literacy-training-recovery
+    code: K20.13
+    primary_type: skill
+    labels: {zh: 身体素养、训练负荷与恢复, en: Physical Literacy, Training Load and Recovery}
+    definition: 发展基本动作、力量、耐力、灵活性和身体觉察，并用渐进负荷、恢复和伤害信号管理长期活动。
+    core_questions: [目标动作如何安全渐进练习, 疲劳疼痛和恢复信号何时需要调整或求助]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:physical-literacy-sport-recreation]
+    roles: [practice, evidence, boundary]
+    aims: [describe-measure, control-maintain, learn-transfer]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:skill:personal-health-self-care-navigation, scope: 训练计划需结合健康状态、睡眠、药物、伤病史和就医判断}]
+    boundary_notes: 剧烈胸痛、晕厥、神经症状或急性严重损伤应停止活动并求助；通用计划需适配残障和个体条件。
+
+  - <<: *core_defaults
+    id: hkm:skill:craft-making-low-risk-repair
+    code: K20.14
+    primary_type: skill
+    labels: {zh: 手工制作、工具使用与低风险修复, en: Craft, Making, Tool Use and Low-Risk Repair}
+    definition: 通过测量、材料选择、连接、切削、表面处理和迭代形成物件，并安全使用常见手工具完成低风险修复。
+    core_questions: [材料工具和工序如何匹配目标, 如何固定防护试装和检查以避免伤害与返工]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:craft-making-creative-hobbies, hkm:subdomain:home-household-maintenance-repair]
+    roles: [practice, design, method]
+    aims: [design-create, control-maintain, learn-transfer]
+    epistemic_modes: [design, empirical, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: enables, target: hkm:skill:household-systems-maintenance-repair, scope: 测量、紧固、材料和工具基础支持安全的非专业家庭维护}]
+    boundary_notes: 旋转机械、粉尘、溶剂、高温和锋利工具需专门防护；制作技能不授予电气燃气承重或车辆关键系统资质。
+
+  - <<: *core_defaults
+    id: hkm:skill:emergency-preparedness-first-response
+    code: K20.15
+    primary_type: skill
+    additional_types: [practice]
+    labels: {zh: 应急准备、急救与初期响应, en: Emergency Preparedness, First Aid and Initial Response}
+    definition: 通过风险清单、预警、通信、物资、疏散和基础急救，在专业救援到达前保护生命并避免二次伤害。
+    core_questions: [现场是否安全且最紧迫威胁是什么, 如何报警定位提供适当急救并持续监测]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:emergency-preparedness-first-response]
+    roles: [practice, decision, boundary]
+    aims: [predict-warn, control-maintain, decide-negotiate]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: complements, target: hkm:skill:household-systems-maintenance-repair, scope: 家庭应急准备依赖断水断电燃气、烟雾报警和安全出口等住所知识}]
+    boundary_notes: 先确保现场安全并呼叫当地急救；药物、复位、侵入操作和危险救援不得超出训练与法律授权。
+
+  - <<: *core_defaults
+    id: hkm:skill:time-attention-habits-self-management
+    code: K20.16
+    primary_type: skill
+    labels: {zh: 时间、注意、习惯与自我管理, en: Time, Attention, Habits and Self-Management}
+    definition: 用目标澄清、环境设计、任务分解、节律、提醒、复盘和恢复管理有限注意与行动持续性。
+    core_questions: [真正重要的下一步和约束是什么, 如何让环境系统而非意志力独自承担持续行动]
+    primary_domain: hkm:domain:everyday-life-practical-agency
+    related_subdomains: [hkm:subdomain:time-attention-habits-self-management]
+    roles: [practice, design, decision]
+    aims: [control-maintain, optimize-allocate, learn-transfer]
+    epistemic_modes: [empirical, causal, embodied, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:everyday-risk-triage-escalation]
+    connections: [{type: enables, target: hkm:skill:learning-reading-writing-knowledge-workflow, scope: 注意管理、间隔安排和反馈节律使学习流程可持续执行}]
+    boundary_notes: 自我管理不能消除贫困、照护负担、残障或组织压迫；持续功能困难可需要医疗、心理或社会支持。

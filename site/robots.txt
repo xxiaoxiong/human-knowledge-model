@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xxiaoxiong.github.io/human-knowledge-model/sitemap.xml

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Human Knowledge Model：连接知识领域、子领域、跨学科桥梁与核心骨架的开放知识图谱。"
+    />
+    <meta name="theme-color" content="#f1eee6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Human Knowledge Model" />
+    <meta property="og:description" content="A map for knowing and acting — explore domains, bridge views and core knowledge skeletons." />
+    <meta property="og:url" content="https://xxiaoxiong.github.io/human-knowledge-model/" />
+    <meta property="og:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Human Knowledge Model" />
+    <meta name="twitter:description" content="A map for knowing and acting." />
+    <meta name="twitter:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og.png" />
+    <title>Human Knowledge Model · 人类知识模型</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Human Knowledge Model 首页">
+        <span class="brand-mark" aria-hidden="true">HKM</span>
+        <span class="brand-copy">
+          <strong>Human Knowledge Model</strong>
+          <small data-i18n="brandTagline">人类知识模型</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#map" data-i18n="navMap">知识地图</a>
+        <a href="#bridges" data-i18n="navBridges">跨域桥梁</a>
+        <a href="#skeletons" data-i18n="navSkeletons">核心骨架</a>
+        <a href="#method" data-i18n="navMethod">如何使用</a>
+      </nav>
+      <div class="header-actions">
+        <button class="quiet-button" id="language-toggle" type="button" aria-label="Switch language">EN</button>
+        <button class="quiet-button theme-button" id="theme-toggle" type="button" aria-label="切换深浅主题">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">一张描述人类如何认识世界的开放图谱</p>
+          <h1 id="hero-title">
+            <span data-i18n="heroLine1">知识不是一棵静止的树，</span>
+            <em data-i18n="heroLine2">而是一张可以行动的网络。</em>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            从现实对象、核心问题、证据和方法出发，连接领域、模型、实践与学习路径。树给你入口，图保留真实关系。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#map" data-i18n="exploreMap">探索知识地图</a>
+            <a class="text-link" href="#method" data-i18n="howItWorks">理解模型如何工作 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-atlas" aria-label="人类知识的五个超级领域">
+          <div class="atlas-center">
+            <span>H0</span>
+            <strong>Human<br />Knowledge</strong>
+          </div>
+          <div id="hero-superdomains" class="atlas-orbits"></div>
+        </div>
+        <div class="stat-ribbon" id="stat-ribbon" aria-label="模型统计"></div>
+      </section>
+
+      <section class="search-band" aria-labelledby="search-title">
+        <div class="section-shell search-layout">
+          <div>
+            <p class="eyebrow" data-i18n="findEyebrow">从问题或概念进入</p>
+            <h2 id="search-title" data-i18n="findTitle">在整张图中寻找知识入口</h2>
+          </div>
+          <div class="search-box">
+            <label class="sr-only" for="global-search" data-i18n="searchLabel">搜索知识模型</label>
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="global-search"
+              type="search"
+              autocomplete="off"
+              placeholder="搜索：因果、气候、组织、学习……"
+              data-i18n-placeholder="searchPlaceholder"
+            />
+            <kbd>/</kbd>
+          </div>
+        </div>
+        <div id="search-results" class="section-shell search-results" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="map-section section-shell" id="map" aria-labelledby="map-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow" data-i18n="mapEyebrow">H1 → H2 → H3</p>
+            <h2 id="map-title" data-i18n="mapTitle">从五个入口进入整个人类知识</h2>
+          </div>
+          <p data-i18n="mapIntro">
+            20 个一级领域是稳定导航，不是互斥领地。点击节点查看核心问题、边界、子领域和桥接关系。
+          </p>
+        </div>
+        <div class="network-panel">
+          <div class="network-toolbar">
+            <div id="superdomain-filters" class="filter-row" aria-label="按超级领域筛选"></div>
+            <p class="network-hint" data-i18n="networkHint">悬停识别连接 · 点击打开领域</p>
+          </div>
+          <div class="network-wrap">
+            <canvas id="knowledge-network" aria-label="20 个知识领域关系图"></canvas>
+            <div id="network-tooltip" class="network-tooltip" hidden></div>
+          </div>
+          <noscript>此交互关系图需要 JavaScript。下方领域卡片仍可作为完整导航。</noscript>
+        </div>
+        <div id="domain-groups" class="domain-groups"></div>
+      </section>
+
+      <section class="bridge-section" id="bridges" aria-labelledby="bridge-title">
+        <div class="section-shell">
+          <div class="section-heading split-heading light-heading">
+            <div>
+              <p class="eyebrow" data-i18n="bridgeEyebrow">Bridge views</p>
+              <h2 id="bridge-title" data-i18n="bridgeTitle">现实问题穿过学科边界</h2>
+            </div>
+            <p data-i18n="bridgeIntro">
+              地理、认知、复杂系统与公共卫生不是重复父级，而是把多个领域重新组织成可调用的问题视图。
+            </p>
+          </div>
+          <div id="bridge-grid" class="bridge-grid"></div>
+        </div>
+      </section>
+
+      <section class="skeleton-section section-shell" id="skeletons" aria-labelledby="skeleton-title">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow" data-i18n="skeletonEyebrow">10–30 个结构节点 / 领域</p>
+            <h2 id="skeleton-title" data-i18n="skeletonTitle">先掌握骨架，再进入细节</h2>
+          </div>
+          <p data-i18n="skeletonIntro">
+            骨架不是词表。每个节点都有类型、问题、前置、适用边界和学习优先级；当前先用四类模板域验证结构。
+          </p>
+        </div>
+        <div id="skeleton-tabs" class="skeleton-tabs" role="tablist" aria-label="选择领域骨架"></div>
+        <div id="skeleton-panel" class="skeleton-panel"></div>
+      </section>
+
+      <section class="method-section" id="method" aria-labelledby="method-title">
+        <div class="section-shell method-layout">
+          <div class="method-copy">
+            <p class="eyebrow" data-i18n="methodEyebrow">从知道到行动</p>
+            <h2 id="method-title" data-i18n="methodTitle">怎样使用这张知识图谱</h2>
+            <p data-i18n="methodLead">
+              不从“我该学哪门课”开始，而从“我面对什么问题、需要做到什么”开始。模型帮助你定位对象、补齐前置、组合证据并检查边界。
+            </p>
+          </div>
+          <ol class="method-steps">
+            <li><span>01</span><div><strong data-i18n="step1Title">定义问题与成功标准</strong><p data-i18n="step1Body">说明目标、时间尺度、受影响者和不可接受后果。</p></div></li>
+            <li><span>02</span><div><strong data-i18n="step2Title">划定系统边界</strong><p data-i18n="step2Body">识别对象、主体、变量、约束、价值与不确定性。</p></div></li>
+            <li><span>03</span><div><strong data-i18n="step3Title">调用知识与桥接视图</strong><p data-i18n="step3Body">沿领域、H3、模型、方法和前置关系建立证据链。</p></div></li>
+            <li><span>04</span><div><strong data-i18n="step4Title">生成并比较方案</strong><p data-i18n="step4Body">检查因果、激励、反馈、二阶效应与替代解释。</p></div></li>
+            <li><span>05</span><div><strong data-i18n="step5Title">试验、监测与更新</strong><p data-i18n="step5Body">把行动变成可学习循环，保留反证和升级阈值。</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="principles section-shell" aria-labelledby="principles-title">
+        <p class="eyebrow" data-i18n="principlesEyebrow">设计底线</p>
+        <h2 id="principles-title" class="sr-only" data-i18n="principlesTitle">模型设计原则</h2>
+        <div class="principle-line">
+          <span data-i18n="principle1">结构 &gt; 数量</span>
+          <span data-i18n="principle2">关系 &gt; 罗列</span>
+          <span data-i18n="principle3">迁移 &gt; 学科边界</span>
+          <span data-i18n="principle4">显式边界 &gt; 假装完备</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-layout">
+        <div>
+          <strong>Human Knowledge Model</strong>
+          <p data-i18n="footerText">一个可扩展、可审计、机器可读的人类知识图谱。</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/xxiaoxiong/human-knowledge-model" rel="noreferrer">GitHub</a>
+          <a href="#top" data-i18n="backTop">回到顶部 ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+      <form method="dialog" class="dialog-bar">
+        <span id="detail-kicker"></span>
+        <button class="dialog-close" aria-label="关闭详情">×</button>
+      </form>
+      <div id="detail-content"></div>
+    </dialog>
+
+    <div id="loading-state" class="loading-state" role="status">
+      <span></span><span></span><span></span>
+      <p data-i18n="loading">正在展开知识图谱…</p>
+    </div>
+  </body>
+</html>
