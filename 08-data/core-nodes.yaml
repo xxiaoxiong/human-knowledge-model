@@ -1,11 +1,11 @@
 schema_version: 0.1.0
-model_version: 0.3.0-draft
-description: 领域核心骨架内容节点；当前覆盖十六个领域，其余领域按同一质量门槛持续扩展。
-published_domains: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D20]
+model_version: 0.3.0
+description: 领域核心骨架内容节点；当前覆盖全部二十个领域。
+published_domains: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20]
 
 defaults: &core_defaults
   status: active
-  version: 0.3.0-draft
+  version: 0.3.0
 
 core_nodes:
   # D01 元知识与探究骨架
@@ -13,7 +13,7 @@ core_nodes:
     id: hkm:framework:knowledge-justification-truth
     code: K01.01
     primary_type: framework
-    labels: {zh: 知识、证成与真理框架, en: Knowledge, Justification and Truth}
+    labels: {zh: 知识、证成与真理框架, en: "Knowledge, Justification and Truth"}
     definition: 区分信念、证据、证成、可靠性与真理条件，并分析认知主体如何在不确定和可错条件下形成可辩护判断。
     core_questions: [什么使一个信念有资格被称为知识, 证据与可靠过程如何支持或削弱判断]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -30,7 +30,7 @@ core_nodes:
     id: hkm:framework:ontology-identity-modality
     code: K01.02
     primary_type: framework
-    labels: {zh: 存在、同一性与模态框架, en: Ontology, Identity and Modality}
+    labels: {zh: 存在、同一性与模态框架, en: "Ontology, Identity and Modality"}
     definition: 用实体、属性、关系、过程、部分整体、可能性与必然性等范畴澄清我们承诺何种存在及其持续条件。
     core_questions: [理论承诺了哪些存在者与关系, 对象跨时间和反事实情境保持同一需要什么条件]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -81,7 +81,7 @@ core_nodes:
     id: hkm:framework:value-aesthetic-life-evaluation
     code: K01.05
     primary_type: framework
-    labels: {zh: 价值、审美与生活评价, en: Value, Aesthetic and Life Evaluation}
+    labels: {zh: 价值、审美与生活评价, en: "Value, Aesthetic and Life Evaluation"}
     definition: 分析何物值得追求、何种体验具有审美意义，以及幸福、成就、关系、自主和意义如何构成对生活的评价。
     core_questions: [评价对象依赖哪些价值标准与感受结构, 良好生活的不同组成如何冲突或互补]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -98,7 +98,7 @@ core_nodes:
     id: hkm:framework:scientific-explanation-theory-change
     code: K01.06
     primary_type: framework
-    labels: {zh: 科学解释、模型与理论变迁, en: Scientific Explanation, Models and Theory Change}
+    labels: {zh: 科学解释、模型与理论变迁, en: "Scientific Explanation, Models and Theory Change"}
     definition: 比较因果、机制、统一、统计与模型型解释，考察观察负载、理想化、证伪、确认和研究纲领如何推动理论变化。
     core_questions: [解释为何有效且依赖哪些理想化, 新证据应促使参数修正模型替换还是研究问题重构]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -115,7 +115,7 @@ core_nodes:
     id: hkm:model:mind-language-reference
     code: K01.07
     primary_type: model
-    labels: {zh: 心智、语言与指称模型, en: Mind, Language and Reference}
+    labels: {zh: 心智、语言与指称模型, en: "Mind, Language and Reference"}
     definition: 连接意识内容、意向性、概念、语言使用、意义、指称与社会实践，解释思想如何关于世界并可被交流。
     core_questions: [心理内容和语言表达如何获得意义, 私人体验与公共规则如何共同支持理解]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -132,7 +132,7 @@ core_nodes:
     id: hkm:framework:justice-legitimacy-rights
     code: K01.08
     primary_type: framework
-    labels: {zh: 正义、合法性与权利框架, en: Justice, Legitimacy and Rights}
+    labels: {zh: 正义、合法性与权利框架, en: "Justice, Legitimacy and Rights"}
     definition: 评价制度如何分配权利、机会、资源、负担与政治声音，以及何种权威和强制可被受影响者合理接受。
     core_questions: [制度的收益风险和话语权如何分配, 权威的来源程序边界与救济是否正当]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -166,7 +166,7 @@ core_nodes:
     id: hkm:framework:metascience-reproducibility-incentives
     code: K01.10
     primary_type: framework
-    labels: {zh: 元科学、可复现性与研究激励, en: Metascience, Reproducibility and Research Incentives}
+    labels: {zh: 元科学、可复现性与研究激励, en: "Metascience, Reproducibility and Research Incentives"}
     definition: 把研究设计、测量、统计选择、发表机制、利益冲突、开放实践和纠错制度视为共同塑造证据可靠性的系统。
     core_questions: [结果能否在透明条件下复核重复或再现, 奖励结构如何影响选题分析发表与纠错]
     primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
@@ -218,7 +218,7 @@ core_nodes:
     id: hkm:framework:formal-objects-axioms-types-categories
     code: K02.01
     primary_type: framework
-    labels: {zh: 形式对象、公理、类型与范畴, en: Formal Objects, Axioms, Types and Categories}
+    labels: {zh: 形式对象、公理、类型与范畴, en: "Formal Objects, Axioms, Types and Categories"}
     definition: 用集合、关系、结构、类型、映射和范畴刻画形式对象，区分语法规则、语义解释与不同基础体系的承诺。
     core_questions: [对象与合法操作由哪些公理和类型规则规定, 不同基础语言保留了哪些结构与证明]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -235,7 +235,7 @@ core_nodes:
     id: hkm:framework:logic-proof-model-theory
     code: K02.02
     primary_type: framework
-    labels: {zh: 逻辑、证明与模型理论, en: Logic, Proof and Model Theory}
+    labels: {zh: 逻辑、证明与模型理论, en: "Logic, Proof and Model Theory"}
     definition: 研究形式语言中的可推导性、有效性、一致性、完备性、可判定性与模型满足关系，连接证明系统和语义结构。
     core_questions: [结论能否从给定公理按规则推出, 语法可证与语义为真之间在何种条件下对应]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -269,7 +269,7 @@ core_nodes:
     id: hkm:framework:algebra-discrete-symmetry
     code: K02.04
     primary_type: framework
-    labels: {zh: 代数、离散结构与对称性, en: Algebra, Discrete Structures and Symmetry}
+    labels: {zh: 代数、离散结构与对称性, en: "Algebra, Discrete Structures and Symmetry"}
     definition: 用群、环、域、模、图、组合结构和同态研究运算封闭性、不变量、对称变换与离散关系网络。
     core_questions: [哪些运算和变换保持结构, 离散对象如何按同构不变量和组合约束分类]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -286,7 +286,7 @@ core_nodes:
     id: hkm:framework:geometry-topology-invariants
     code: K02.05
     primary_type: framework
-    labels: {zh: 几何、拓扑与空间不变量, en: Geometry, Topology and Spatial Invariants}
+    labels: {zh: 几何、拓扑与空间不变量, en: "Geometry, Topology and Spatial Invariants"}
     definition: 区分距离、角度、曲率、连通性、邻域与洞等在不同变换下保持的空间性质，并研究局部与整体结构。
     core_questions: [允许哪些空间变换且什么量保持不变, 局部几何如何限制或揭示整体拓扑]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -303,7 +303,7 @@ core_nodes:
     id: hkm:framework:analysis-calculus-differential-equations
     code: K02.06
     primary_type: framework
-    labels: {zh: 分析、微积分与微分方程, en: Analysis, Calculus and Differential Equations}
+    labels: {zh: 分析、微积分与微分方程, en: "Analysis, Calculus and Differential Equations"}
     definition: 以极限、连续、导数、积分、函数空间和方程研究连续变化、累积效应、稳定性及初边值条件下的解。
     core_questions: [局部变化率如何积累成整体行为, 方程的解是否存在唯一稳定且对扰动连续]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -338,7 +338,7 @@ core_nodes:
     code: K02.08
     primary_type: framework
     additional_types: [measurement]
-    labels: {zh: 统计推断、数据生成与测量, en: Statistical Inference, Data Generation and Measurement}
+    labels: {zh: 统计推断、数据生成与测量, en: "Statistical Inference, Data Generation and Measurement"}
     definition: 将抽样、测量误差、估计、检验、贝叶斯更新、因果识别和模型检验纳入对总体与机制的可校准推断。
     core_questions: [数据由什么选择测量和缺失过程产生, 结论对模型假设先验多重比较与误差多敏感]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -355,7 +355,7 @@ core_nodes:
     id: hkm:framework:optimization-operations-games
     code: K02.09
     primary_type: framework
-    labels: {zh: 优化、运筹与博弈, en: Optimization, Operations Research and Games}
+    labels: {zh: 优化、运筹与博弈, en: "Optimization, Operations Research and Games"}
     definition: 在目标、约束、资源、不确定性和多主体策略下寻找可行或近优决策，并分析均衡、激励与机制设计。
     core_questions: [目标函数和约束是否代表真实价值与边界, 多主体反应如何改变单方最优和系统结果]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -372,7 +372,7 @@ core_nodes:
     id: hkm:framework:dynamical-systems-control-complexity
     code: K02.10
     primary_type: framework
-    labels: {zh: 动力系统、控制与复杂性, en: Dynamical Systems, Control and Complexity}
+    labels: {zh: 动力系统、控制与复杂性, en: "Dynamical Systems, Control and Complexity"}
     definition: 以状态空间、反馈、稳定性、吸引子、分岔、混沌和可控可观性研究系统随时间演化及干预边界。
     core_questions: [长期行为由哪些状态反馈与参数区间决定, 系统能否被观测控制并对扰动保持鲁棒]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -389,7 +389,7 @@ core_nodes:
     id: hkm:framework:information-coding-cryptographic-structure
     code: K02.11
     primary_type: framework
-    labels: {zh: 信息、编码与密码结构, en: Information, Coding and Cryptographic Structure}
+    labels: {zh: 信息、编码与密码结构, en: "Information, Coding and Cryptographic Structure"}
     definition: 用熵、信道、编码、纠错、复杂度与计算困难性研究信息压缩、可靠传输、保密、认证和完整性。
     core_questions: [信源信道和攻击模型允许何种编码上限, 安全主张依赖哪些困难假设密钥和实现条件]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -406,7 +406,7 @@ core_nodes:
     id: hkm:framework:numerical-computation-approximation-error
     code: K02.12
     primary_type: framework
-    labels: {zh: 数值计算、近似与误差, en: Numerical Computation, Approximation and Error}
+    labels: {zh: 数值计算、近似与误差, en: "Numerical Computation, Approximation and Error"}
     definition: 用离散化、迭代、插值、矩阵计算、条件数和误差传播把数学对象转为有限资源下可执行且可验证的近似。
     core_questions: [算法误差来自截断舍入采样还是模型偏差, 结果是否收敛稳定且在资源限制下可复核]
     primary_domain: hkm:domain:mathematics-statistics-formal-systems
@@ -425,7 +425,7 @@ core_nodes:
     code: K03.01
     primary_type: framework
     additional_types: [measurement]
-    labels: {zh: 物理量、单位与量纲分析, en: Physical Quantities, Units and Dimensional Analysis}
+    labels: {zh: 物理量、单位与量纲分析, en: "Physical Quantities, Units and Dimensional Analysis"}
     definition: 用可操作量、单位制和量纲关系把观察、方程与尺度比较连接起来的基础表征框架。
     core_questions: [什么被测量且单位如何定义, 方程与估算是否在量纲上自洽]
     primary_domain: hkm:domain:matter-energy-universe
@@ -476,7 +476,7 @@ core_nodes:
     id: hkm:framework:fields-forces-interactions
     code: K03.04
     primary_type: framework
-    labels: {zh: 场、力与相互作用, en: Fields, Forces and Interactions}
+    labels: {zh: 场、力与相互作用, en: "Fields, Forces and Interactions"}
     definition: 用局域场、势、交换或有效作用描述对象如何相互影响和传递动量能量。
     core_questions: [相互作用通过什么自由度传播, 何时使用力场势或交换表征]
     primary_domain: hkm:domain:matter-energy-universe
@@ -493,7 +493,7 @@ core_nodes:
     id: hkm:model:waves-spectra-signals
     code: K03.05
     primary_type: model
-    labels: {zh: 波、频谱与物理信号, en: Waves, Spectra and Physical Signals}
+    labels: {zh: 波、频谱与物理信号, en: "Waves, Spectra and Physical Signals"}
     definition: 用振幅、相位、频率、叠加、色散和谱线表征传播、振荡及从信号反推结构的过程。
     core_questions: [扰动如何传播和叠加, 频谱如何揭示源与介质]
     primary_domain: hkm:domain:matter-energy-universe
@@ -511,7 +511,7 @@ core_nodes:
     code: K03.06
     primary_type: framework
     additional_types: [law-principle]
-    labels: {zh: 能量、熵与自由能, en: Energy, Entropy and Free Energy}
+    labels: {zh: 能量、熵与自由能, en: "Energy, Entropy and Free Energy"}
     definition: 结合能量收支、状态数与可用功，判断过程可行方向、平衡条件和转换上限。
     core_questions: [过程在能量上是否可行, 不可逆性与可用功如何受熵约束]
     primary_domain: hkm:domain:matter-energy-universe
@@ -528,7 +528,7 @@ core_nodes:
     id: hkm:framework:scale-coarse-graining-emergence
     code: K03.07
     primary_type: framework
-    labels: {zh: 尺度、粗粒化与涌现, en: Scale, Coarse-Graining and Emergence}
+    labels: {zh: 尺度、粗粒化与涌现, en: "Scale, Coarse-Graining and Emergence"}
     definition: 分析微观自由度如何在尺度变换和信息压缩后形成宏观变量、有效规律与集体性质。
     core_questions: [哪些细节在目标尺度上可忽略, 宏观规律如何从微观互动中出现]
     primary_domain: hkm:domain:matter-energy-universe
@@ -546,7 +546,7 @@ core_nodes:
     code: K03.08
     primary_type: model
     additional_types: [framework]
-    labels: {zh: 量子态、可观测量与测量, en: Quantum States, Observables and Measurement}
+    labels: {zh: 量子态、可观测量与测量, en: "Quantum States, Observables and Measurement"}
     definition: 用态空间、算符、概率幅和测量规则表征微观系统及其可预测结果。
     core_questions: [量子态编码什么预测信息, 测量与动力学如何连接可观测结果]
     primary_domain: hkm:domain:matter-energy-universe
@@ -580,7 +580,7 @@ core_nodes:
     id: hkm:framework:equilibrium-kinetics-timescales
     code: K03.10
     primary_type: framework
-    labels: {zh: 平衡、动力学与时间尺度, en: Equilibrium, Kinetics and Timescales}
+    labels: {zh: 平衡、动力学与时间尺度, en: "Equilibrium, Kinetics and Timescales"}
     definition: 区分状态是否热力学有利、过程以何种路径和速率发生，以及观测窗口是否足够长。
     core_questions: [系统趋向何种状态, 路径势垒与时间尺度为何使可行过程不发生或滞后]
     primary_domain: hkm:domain:matter-energy-universe
@@ -632,7 +632,7 @@ core_nodes:
     code: K03.13
     primary_type: model
     additional_types: [theory]
-    labels: {zh: 时空、引力与相对性, en: Spacetime, Gravitation and Relativity}
+    labels: {zh: 时空、引力与相对性, en: "Spacetime, Gravitation and Relativity"}
     definition: 用时空结构、参考系和物质能量对几何的影响描述高速、强引力和宇宙尺度现象。
     core_questions: [时空测量如何依赖运动与引力, 物质能量如何塑造引力动力学]
     primary_domain: hkm:domain:matter-energy-universe
@@ -667,7 +667,7 @@ core_nodes:
     code: K03.15
     primary_type: method
     additional_types: [measurement]
-    labels: {zh: 物理实验、测量链与不确定性, en: Physical Experiment, Measurement Chains and Uncertainty}
+    labels: {zh: 物理实验、测量链与不确定性, en: "Physical Experiment, Measurement Chains and Uncertainty"}
     definition: 从操作定义、校准、仪器响应、采样和误差传播构建可复现的观察与模型检验链。
     core_questions: [观测值如何由对象经仪器和处理产生, 不确定性与系统误差怎样限制结论]
     primary_domain: hkm:domain:matter-energy-universe
@@ -685,7 +685,7 @@ core_nodes:
     id: hkm:framework:life-origin-chemical-evolution-habitability
     code: K05.01
     primary_type: framework
-    labels: {zh: 生命起源、化学演化与宜居性, en: Origins of Life, Chemical Evolution and Habitability}
+    labels: {zh: 生命起源、化学演化与宜居性, en: "Origins of Life, Chemical Evolution and Habitability"}
     definition: 连接前生物化学、能量梯度、自催化、区室化、遗传复制与行星环境，研究生命系统形成的必要与可能条件。
     core_questions: [非生命化学如何形成可复制可选择的组织, 哪些环境证据能区分宜居条件与实际生命活动]
     primary_domain: hkm:domain:life-evolution
@@ -702,7 +702,7 @@ core_nodes:
     id: hkm:framework:biochemical-information-metabolism
     code: K05.02
     primary_type: framework
-    labels: {zh: 生化信息、代谢与能量耦合, en: Biochemical Information, Metabolism and Energy Coupling}
+    labels: {zh: 生化信息、代谢与能量耦合, en: "Biochemical Information, Metabolism and Energy Coupling"}
     definition: 以核酸、蛋白质、酶、膜、代谢通路和能量货币解释生命如何存储信息、催化反应并维持非平衡组织。
     core_questions: [序列结构与功能如何相互约束, 物质能量和还原力怎样在代谢网络中耦合]
     primary_domain: hkm:domain:life-evolution
@@ -719,7 +719,7 @@ core_nodes:
     id: hkm:framework:cellular-organization-homeostasis
     code: K05.03
     primary_type: framework
-    labels: {zh: 细胞组织、膜运输与稳态, en: Cellular Organization, Transport and Homeostasis}
+    labels: {zh: 细胞组织、膜运输与稳态, en: "Cellular Organization, Transport and Homeostasis"}
     definition: 研究膜、细胞器、骨架、运输、信号、细胞周期和质量控制如何维持边界、内部状态与可适应响应。
     core_questions: [细胞如何建立并维持内外差异, 信号运输分裂与死亡如何协调成稳定生命周期]
     primary_domain: hkm:domain:life-evolution
@@ -736,7 +736,7 @@ core_nodes:
     id: hkm:framework:heredity-genome-regulation-variation
     code: K05.04
     primary_type: framework
-    labels: {zh: 遗传、基因组调控与变异, en: Heredity, Genome Regulation and Variation}
+    labels: {zh: 遗传、基因组调控与变异, en: "Heredity, Genome Regulation and Variation"}
     definition: 连接复制、重组、突变、染色质、基因调控、数量性状和群体变异，解释信息跨细胞与世代的保持和改变。
     core_questions: [基因型如何在环境与调控网络中影响表型, 变异怎样产生传递并在群体中分布]
     primary_domain: hkm:domain:life-evolution
@@ -753,7 +753,7 @@ core_nodes:
     id: hkm:framework:development-differentiation-regeneration
     code: K05.05
     primary_type: framework
-    labels: {zh: 发育、分化与再生, en: Development, Differentiation and Regeneration}
+    labels: {zh: 发育、分化与再生, en: "Development, Differentiation and Regeneration"}
     definition: 用位置讯号、基因调控、细胞力学、形态发生和干细胞动力学解释单个受精卵如何形成、维持和修复多细胞结构。
     core_questions: [细胞如何获得位置身份并协调形态, 发育可塑性和再生能力受哪些时空约束]
     primary_domain: hkm:domain:life-evolution
@@ -770,7 +770,7 @@ core_nodes:
     id: hkm:framework:comparative-anatomy-physiology-homeostasis
     code: K05.06
     primary_type: framework
-    labels: {zh: 比较解剖、生理与机体稳态, en: Comparative Anatomy, Physiology and Organismal Homeostasis}
+    labels: {zh: 比较解剖、生理与机体稳态, en: "Comparative Anatomy, Physiology and Organismal Homeostasis"}
     definition: 比较体制、器官系统、运输交换、神经内分泌调节和热量水盐平衡，连接结构功能与环境适应。
     core_questions: [不同体制如何解决交换支撑运动和调节问题, 多器官反馈怎样维持机体稳态与适应]
     primary_domain: hkm:domain:life-evolution
@@ -787,7 +787,7 @@ core_nodes:
     id: hkm:framework:microbe-virus-host-interactions
     code: K05.07
     primary_type: framework
-    labels: {zh: 微生物、病毒与宿主互作, en: Microbe, Virus and Host Interactions}
+    labels: {zh: 微生物、病毒与宿主互作, en: "Microbe, Virus and Host Interactions"}
     definition: 研究微生物代谢、群落生态、病毒复制、免疫逃逸、共生与致病过程如何在多尺度上塑造宿主和环境。
     core_questions: [微生物或病毒如何进入复制传播并影响宿主, 共生失衡和致病取决于哪些宿主环境条件]
     primary_domain: hkm:domain:life-evolution
@@ -804,7 +804,7 @@ core_nodes:
     id: hkm:framework:evolution-selection-drift-speciation
     code: K05.08
     primary_type: framework
-    labels: {zh: 进化、选择、漂变与物种形成, en: Evolution, Selection, Drift and Speciation}
+    labels: {zh: 进化、选择、漂变与物种形成, en: "Evolution, Selection, Drift and Speciation"}
     definition: 用共同祖先、变异、选择、漂变、基因流、重组和隔离解释群体频率变化、适应与谱系分化。
     core_questions: [观察到的性状和频率变化由哪些进化力量造成, 群体何时以及如何形成持续分化的谱系]
     primary_domain: hkm:domain:life-evolution
@@ -821,7 +821,7 @@ core_nodes:
     id: hkm:framework:phylogeny-taxonomy-biodiversity-history
     code: K05.09
     primary_type: framework
-    labels: {zh: 系统发育、分类与生物多样性历史, en: Phylogeny, Taxonomy and Biodiversity History}
+    labels: {zh: 系统发育、分类与生物多样性历史, en: "Phylogeny, Taxonomy and Biodiversity History"}
     definition: 结合形态、分子、化石、地层和地理证据重建谱系关系，界定分类单元并解释多样化、灭绝与保存偏差。
     core_questions: [哪些性状和模型最能支持谱系关系, 观察到的多样性如何受采样化石与分类实践影响]
     primary_domain: hkm:domain:life-evolution
@@ -838,7 +838,7 @@ core_nodes:
     id: hkm:framework:ecology-populations-networks-cycles
     code: K05.10
     primary_type: framework
-    labels: {zh: 生态种群、互作网络与物质循环, en: Ecological Populations, Interaction Networks and Cycles}
+    labels: {zh: 生态种群、互作网络与物质循环, en: "Ecological Populations, Interaction Networks and Cycles"}
     definition: 连接个体、种群、群落、食物网、生态系统和生物地球化学循环，研究资源、干扰、互作与环境变化的多尺度后果。
     core_questions: [数量分布和群落结构由哪些限制与互作决定, 能量物质与扰动如何在网络和尺度间传播]
     primary_domain: hkm:domain:life-evolution
@@ -855,7 +855,7 @@ core_nodes:
     id: hkm:framework:animal-behavior-cognition-fitness
     code: K05.11
     primary_type: framework
-    labels: {zh: 动物行为、认知与适合度, en: Animal Behavior, Cognition and Fitness}
+    labels: {zh: 动物行为、认知与适合度, en: "Animal Behavior, Cognition and Fitness"}
     definition: 结合感觉、学习、决策、沟通、社会互动和生命周期代价，解释行为如何由机制发育功能与进化史共同塑造。
     core_questions: [行为由即时机制和学习历史如何产生, 行为策略在何种生态社会环境下影响存活与繁殖]
     primary_domain: hkm:domain:life-evolution
@@ -890,7 +890,7 @@ core_nodes:
     id: hkm:framework:neural-coding-circuits-plasticity
     code: K06.01
     primary_type: framework
-    labels: {zh: 神经编码、回路与可塑性, en: Neural Coding, Circuits and Plasticity}
+    labels: {zh: 神经编码、回路与可塑性, en: "Neural Coding, Circuits and Plasticity"}
     definition: 连接神经元电化学、群体编码、回路动力学、神经调质和突触可塑性，解释信息如何在神经系统中表征与改变。
     core_questions: [神经活动的哪些模式携带任务相关信息, 回路如何通过可塑性在稳定与适应之间平衡]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -941,7 +941,7 @@ core_nodes:
     id: hkm:framework:learning-memory-reinforcement-consolidation
     code: K06.04
     primary_type: framework
-    labels: {zh: 学习、记忆、强化与巩固, en: Learning, Memory, Reinforcement and Consolidation}
+    labels: {zh: 学习、记忆、强化与巩固, en: "Learning, Memory, Reinforcement and Consolidation"}
     definition: 区分工作、情景、语义、程序与习惯系统，连接预测误差、强化、检索、遗忘、睡眠和再巩固过程。
     core_questions: [经验如何改变表征策略与行为, 何种编码检索反馈和间隔条件支持持久迁移]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -958,7 +958,7 @@ core_nodes:
     id: hkm:framework:reasoning-judgment-decision
     code: K06.05
     primary_type: framework
-    labels: {zh: 推理、判断与决策, en: Reasoning, Judgment and Decision-Making}
+    labels: {zh: 推理、判断与决策, en: "Reasoning, Judgment and Decision-Making"}
     definition: 比较启发式、规则、概率推断、价值计算和证据累积，解释人在有限信息、时间和计算资源下如何选择。
     core_questions: [判断依赖哪些表征证据和默认启发式, 决策目标概率时间偏好与社会约束如何共同作用]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -975,7 +975,7 @@ core_nodes:
     id: hkm:framework:emotion-motivation-affect-regulation
     code: K06.06
     primary_type: framework
-    labels: {zh: 情绪、动机与情感调节, en: Emotion, Motivation and Affect Regulation}
+    labels: {zh: 情绪、动机与情感调节, en: "Emotion, Motivation and Affect Regulation"}
     definition: 连接需要、奖励、唤醒、评价、身体信号、行动倾向和社会表达，解释情绪如何引导注意、学习与目标追求。
     core_questions: [情绪由哪些评价身体和情境过程构成, 动机与调节策略何时支持或损害长期目标]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -992,7 +992,7 @@ core_nodes:
     id: hkm:framework:consciousness-self-agency-metacognition
     code: K06.07
     primary_type: framework
-    labels: {zh: 意识、自我、能动性与元认知, en: Consciousness, Self, Agency and Metacognition}
+    labels: {zh: 意识、自我、能动性与元认知, en: "Consciousness, Self, Agency and Metacognition"}
     definition: 研究主观体验、全局可用性、自我模型、行动归因、意向控制和对自身认知置信度的监测。
     core_questions: [什么信息进入可报告体验和灵活控制, 自我感能动感与元认知准确性如何形成]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1009,7 +1009,7 @@ core_nodes:
     id: hkm:framework:development-lifespan-adaptation
     code: K06.08
     primary_type: framework
-    labels: {zh: 心理发展、生命历程与适应, en: Psychological Development, Lifespan and Adaptation}
+    labels: {zh: 心理发展、生命历程与适应, en: "Psychological Development, Lifespan and Adaptation"}
     definition: 连接脑身体成熟、依恋、社会化、语言、认知变化、身份与老化，研究个体在关系和制度环境中的连续与转变。
     core_questions: [能力和需求如何随生命阶段与经验共同变化, 早期条件通过哪些可塑与累积路径影响后来发展]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1027,7 +1027,7 @@ core_nodes:
     code: K06.09
     primary_type: framework
     additional_types: [measurement]
-    labels: {zh: 个体差异、人格与心理测量, en: Individual Differences, Personality and Psychological Measurement}
+    labels: {zh: 个体差异、人格与心理测量, en: "Individual Differences, Personality and Psychological Measurement"}
     definition: 用特质、能力、状态、情境交互和潜变量测量描述稳定差异，并评估信度、效度、公平性与预测边界。
     core_questions: [测量分数反映何种构念且跨群体可比吗, 稳定特质和具体情境如何共同预测行为]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1044,7 +1044,7 @@ core_nodes:
     id: hkm:framework:social-cognition-culture-norms
     code: K06.10
     primary_type: framework
-    labels: {zh: 社会认知、文化与规范, en: Social Cognition, Culture and Norms}
+    labels: {zh: 社会认知、文化与规范, en: "Social Cognition, Culture and Norms"}
     definition: 研究他心推断、归因、身份、规范学习、合作竞争、权力和文化模型如何塑造知觉、判断与互动。
     core_questions: [个体如何推断他人意图并学习群体规范, 身份权力与文化语境如何改变心理过程和行为]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1061,7 +1061,7 @@ core_nodes:
     id: hkm:framework:language-representation-acquisition-interaction
     code: K06.11
     primary_type: framework
-    labels: {zh: 语言表征、习得与互动, en: Language Representation, Acquisition and Interaction}
+    labels: {zh: 语言表征、习得与互动, en: "Language Representation, Acquisition and Interaction"}
     definition: 连接语音词汇句法语义语用、预测加工、共同注意和社会互动，解释语言理解产生与习得。
     core_questions: [语言形式如何编码并在语境中确定意义, 儿童和成人怎样从输入互动与反馈中习得语言]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1078,7 +1078,7 @@ core_nodes:
     id: hkm:framework:behavior-change-self-regulation-habits
     code: K06.12
     primary_type: framework
-    labels: {zh: 行为改变、自我调节与习惯, en: Behavior Change, Self-Regulation and Habits}
+    labels: {zh: 行为改变、自我调节与习惯, en: "Behavior Change, Self-Regulation and Habits"}
     definition: 用目标、能力、机会、动机、线索、强化、承诺、反馈和环境设计解释行为启动、维持、复发与改变。
     core_questions: [目标行为受哪些能力机会动机和环境摩擦限制, 如何用最小可行干预形成反馈并处理复发]
     primary_domain: hkm:domain:mind-brain-behavior
@@ -1096,7 +1096,7 @@ core_nodes:
     id: hkm:framework:earth-materials-interior-geophysics
     code: K04.01
     primary_type: framework
-    labels: {zh: 地球物质、内部结构与地球物理, en: Earth Materials, Interior Structure and Geophysics}
+    labels: {zh: 地球物质、内部结构与地球物理, en: "Earth Materials, Interior Structure and Geophysics"}
     definition: 结合矿物岩石、地球化学、弹性波、重力、热流与磁场，推断地球内部组成、结构、状态和演化。
     core_questions: [地表与物理信号如何约束不可直接观测的地球内部, 物质性质和能量传输怎样驱动内部过程]
     primary_domain: hkm:domain:earth-space-environment
@@ -1113,7 +1113,7 @@ core_nodes:
     id: hkm:framework:tectonics-landforms-geohazards
     code: K04.02
     primary_type: framework
-    labels: {zh: 构造、地貌演化与地质灾害, en: Tectonics, Landscape Evolution and Geohazards}
+    labels: {zh: 构造、地貌演化与地质灾害, en: "Tectonics, Landscape Evolution and Geohazards"}
     definition: 连接板块运动、断层、火山、风化侵蚀、沉积与重力过程，解释地貌形成及地震滑坡等危险。
     core_questions: [深部构造与表面过程如何共同塑造地形, 危险发生概率暴露和脆弱性如何区分]
     primary_domain: hkm:domain:earth-space-environment
@@ -1130,7 +1130,7 @@ core_nodes:
     id: hkm:framework:geologic-time-earth-history-paleoclimate
     code: K04.03
     primary_type: framework
-    labels: {zh: 地质时间、地球历史与古气候, en: Geologic Time, Earth History and Paleoclimate}
+    labels: {zh: 地质时间、地球历史与古气候, en: "Geologic Time, Earth History and Paleoclimate"}
     definition: 用地层、年代学、化石、同位素和沉积代用指标重建大陆、海洋、大气、生命与气候的长期共演化。
     core_questions: [记录如何被定年关联并转为环境代理, 保存偏差与时间分辨率怎样限制历史重建]
     primary_domain: hkm:domain:earth-space-environment
@@ -1147,7 +1147,7 @@ core_nodes:
     id: hkm:framework:atmosphere-weather-climate-system
     code: K04.04
     primary_type: framework
-    labels: {zh: 大气、天气与气候系统, en: Atmosphere, Weather and Climate System}
+    labels: {zh: 大气、天气与气候系统, en: "Atmosphere, Weather and Climate System"}
     definition: 连接辐射收支、流体运动、水循环、化学、云、陆海耦合与反馈，区分短期天气和长期气候统计。
     core_questions: [能量水分和动量如何驱动天气尺度结构, 外强迫内部变率和反馈如何共同改变气候]
     primary_domain: hkm:domain:earth-space-environment
@@ -1164,7 +1164,7 @@ core_nodes:
     id: hkm:framework:ocean-coastal-circulation-change
     code: K04.05
     primary_type: framework
-    labels: {zh: 海洋环流、海岸过程与变化, en: Ocean Circulation, Coastal Processes and Change}
+    labels: {zh: 海洋环流、海岸过程与变化, en: "Ocean Circulation, Coastal Processes and Change"}
     definition: 研究海洋热盐环流、波浪潮汐、上升流、生地化循环与海岸泥沙过程及其对气候生态和沿海风险的作用。
     core_questions: [海洋怎样储存输送热量碳和养分, 海平面波浪泥沙和人类工程如何共同改变海岸]
     primary_domain: hkm:domain:earth-space-environment
@@ -1181,7 +1181,7 @@ core_nodes:
     id: hkm:framework:water-cycle-cryosphere-catchments
     code: K04.06
     primary_type: framework
-    labels: {zh: 水循环、冰冻圈与流域系统, en: Water Cycle, Cryosphere and Catchment Systems}
+    labels: {zh: 水循环、冰冻圈与流域系统, en: "Water Cycle, Cryosphere and Catchment Systems"}
     definition: 连接降水、蒸散、土壤水、地下水、河流、积雪冰川和水库，研究水量水质与洪旱在流域中的传播。
     core_questions: [水在储库之间以何种通量和时间尺度转移, 冻融土地利用和取水怎样改变洪旱与供水]
     primary_domain: hkm:domain:earth-space-environment
@@ -1215,7 +1215,7 @@ core_nodes:
     id: hkm:framework:pollutant-fate-risk-remediation
     code: K04.08
     primary_type: framework
-    labels: {zh: 污染物归趋、环境风险与修复, en: Pollutant Fate, Environmental Risk and Remediation}
+    labels: {zh: 污染物归趋、环境风险与修复, en: "Pollutant Fate, Environmental Risk and Remediation"}
     definition: 连接污染源、排放、输运、转化、生物累积、暴露、毒性和修复技术，形成从监测到风险管理的证据链。
     core_questions: [污染物从哪里来并通过哪些路径到达受体, 修复方案能否降低总风险且不转移污染]
     primary_domain: hkm:domain:earth-space-environment
@@ -1233,7 +1233,7 @@ core_nodes:
     code: K04.09
     primary_type: framework
     additional_types: [measurement]
-    labels: {zh: 地理空间观测、制图与空间推断, en: Geospatial Observation, Mapping and Spatial Inference}
+    labels: {zh: 地理空间观测、制图与空间推断, en: "Geospatial Observation, Mapping and Spatial Inference"}
     definition: 用坐标基准、测绘、遥感、GIS、空间统计和变化检测，把地点、尺度、时间和不确定性组织为可比较证据。
     core_questions: [观测的空间时间分辨率与定位误差是什么, 地图模式来自真实过程采样设计还是尺度效应]
     primary_domain: hkm:domain:earth-space-environment
@@ -1336,7 +1336,7 @@ core_nodes:
     id: hkm:framework:family-kinship-life-course
     code: K07.04
     primary_type: framework
-    labels: {zh: 家庭、亲属与生命历程, en: Family, Kinship and the Life Course}
+    labels: {zh: 家庭、亲属与生命历程, en: "Family, Kinship and the Life Course"}
     definition: 研究亲属制度、家庭形成、代际交换、照护、居住安排和制度时序如何塑造个体生命轨迹与不平等。
     core_questions: [关系义务资源和照护怎样跨家庭与世代流动, 制度事件和历史时期如何改变生命历程]
     primary_domain: hkm:domain:society-human-groups
@@ -1353,7 +1353,7 @@ core_nodes:
     id: hkm:framework:groups-networks-collective-action
     code: K07.05
     primary_type: framework
-    labels: {zh: 群体、社会网络与集体行动, en: Groups, Social Networks and Collective Action}
+    labels: {zh: 群体、社会网络与集体行动, en: "Groups, Social Networks and Collective Action"}
     definition: 用关系结构、信任、规范、扩散、身份、协调困境和动员资源解释群体形成、集体行为与社会传播。
     core_questions: [网络位置与关系强度如何改变信息机会和行为, 个体何时能够克服协调搭便车与镇压形成集体行动]
     primary_domain: hkm:domain:society-human-groups
@@ -1370,7 +1370,7 @@ core_nodes:
     id: hkm:framework:culture-identity-norms-power
     code: K07.06
     primary_type: framework
-    labels: {zh: 文化、身份、规范与权力, en: Culture, Identity, Norms and Power}
+    labels: {zh: 文化、身份、规范与权力, en: "Culture, Identity, Norms and Power"}
     definition: 研究意义体系、分类、惯习、仪式、身份边界和制裁如何被学习、争议、制度化并在权力关系中改变。
     core_questions: [规范如何获得正当性并通过何种制裁维持, 身份分类由谁定义且如何影响资源与自我理解]
     primary_domain: hkm:domain:society-human-groups
@@ -1387,7 +1387,7 @@ core_nodes:
     id: hkm:framework:inequality-stratification-mobility
     code: K07.07
     primary_type: framework
-    labels: {zh: 不平等、分层与社会流动, en: Inequality, Stratification and Social Mobility}
+    labels: {zh: 不平等、分层与社会流动, en: "Inequality, Stratification and Social Mobility"}
     definition: 连接阶级、种族化、性别、教育、财富、职业、空间和制度歧视，分析优势如何产生、交叉、积累和传递。
     core_questions: [资源机会风险和尊严沿哪些轴线不均分配, 流动指标是否区分绝对改善相对位置与代际再生产]
     primary_domain: hkm:domain:society-human-groups
@@ -1404,7 +1404,7 @@ core_nodes:
     id: hkm:framework:organizations-institutions-fields
     code: K07.08
     primary_type: framework
-    labels: {zh: 组织、制度与社会场域, en: Organizations, Institutions and Social Fields}
+    labels: {zh: 组织、制度与社会场域, en: "Organizations, Institutions and Social Fields"}
     definition: 研究正式规则、非正式惯例、组织边界、专业规范、资源依赖和合法性如何协调行动并产生惯性和变化。
     core_questions: [组织如何在环境约束下获得资源权威与协调能力, 制度为何持续扩散失灵或被行动者改变]
     primary_domain: hkm:domain:society-human-groups
@@ -1421,7 +1421,7 @@ core_nodes:
     id: hkm:framework:place-urban-rural-spatial-relations
     code: K07.09
     primary_type: framework
-    labels: {zh: 地方、城乡与空间社会关系, en: Place, Urban–Rural and Spatial Social Relations}
+    labels: {zh: 地方、城乡与空间社会关系, en: "Place, Urban–Rural and Spatial Social Relations"}
     definition: 连接地点意义、土地使用、住房、基础设施、交通、城市化、乡村转型和区域不平衡，解释空间如何组织社会机会。
     core_questions: [空间布局和基础设施如何分配可达性风险与机会, 地方尺度如何连接区域国家与全球过程]
     primary_domain: hkm:domain:society-human-groups
@@ -1438,7 +1438,7 @@ core_nodes:
     id: hkm:framework:migration-globalization-transnationalism
     code: K07.10
     primary_type: framework
-    labels: {zh: 迁移、全球化与跨国联系, en: Migration, Globalization and Transnationalism}
+    labels: {zh: 迁移、全球化与跨国联系, en: "Migration, Globalization and Transnationalism"}
     definition: 研究人口、资本、商品、观念和制度跨边界流动，以及国家、网络、家庭和身份如何共同塑造移动与停留。
     core_questions: [迁移由哪些推拉网络政策和生命周期因素产生, 跨国联系如何改变原居地目的地与身份归属]
     primary_domain: hkm:domain:society-human-groups
@@ -1455,7 +1455,7 @@ core_nodes:
     id: hkm:framework:community-welfare-capabilities-social-policy
     code: K07.11
     primary_type: framework
-    labels: {zh: 社区、福利、能力与社会政策, en: Community, Welfare, Capabilities and Social Policy}
+    labels: {zh: 社区、福利、能力与社会政策, en: "Community, Welfare, Capabilities and Social Policy"}
     definition: 连接社会支持、公共服务、保障制度、社区组织与能力方法，评价人们是否拥有实际可行的安全参与和发展机会。
     core_questions: [人们面临哪些相互叠加的脆弱性与照护需求, 服务资源权利和关系支持能否转化为真实能力]
     primary_domain: hkm:domain:society-human-groups
@@ -1472,7 +1472,7 @@ core_nodes:
     id: hkm:framework:science-technology-society-coproduction
     code: K07.12
     primary_type: framework
-    labels: {zh: 科学技术社会共构, en: Science, Technology and Society Co-Production}
+    labels: {zh: 科学技术社会共构, en: "Science, Technology and Society Co-Production"}
     definition: 研究知识、技术物、标准、基础设施、专业权威和公众如何共同生产事实、能力、风险与社会秩序。
     core_questions: [技术设计内嵌了哪些价值用户与制度假设, 专业知识和公众经验如何在争议中获得或失去权威]
     primary_domain: hkm:domain:society-human-groups
@@ -1490,7 +1490,7 @@ core_nodes:
     id: hkm:method:historical-reasoning-source-criticism
     code: K08.01
     primary_type: method
-    labels: {zh: 历史推理、史料批判与叙事, en: Historical Reasoning, Source Criticism and Narrative}
+    labels: {zh: 历史推理、史料批判与叙事, en: "Historical Reasoning, Source Criticism and Narrative"}
     definition: 评估史料出处、语境、目的、沉默、互证和时间关系，构造能区分证据、推断、争议与反事实的历史解释。
     core_questions: [材料由谁在何种情境为谁产生并保存, 哪种因果叙事最能解释时序机制与替代可能]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1507,7 +1507,7 @@ core_nodes:
     id: hkm:method:archaeological-context-material-culture
     code: K08.02
     primary_type: method
-    labels: {zh: 考古语境、地层与物质文化, en: Archaeological Context, Stratigraphy and Material Culture}
+    labels: {zh: 考古语境、地层与物质文化, en: "Archaeological Context, Stratigraphy and Material Culture"}
     definition: 通过地层、年代、遗物组合、空间分布、生物考古和实验分析重建过去行为、环境与社会组织。
     core_questions: [遗存如何形成扰动和保存且其关联是否同一时期, 物质模式能支持哪些行为社会与交换解释]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1558,7 +1558,7 @@ core_nodes:
     id: hkm:framework:modernity-industrialization-colonialism-nation-states
     code: K08.05
     primary_type: framework
-    labels: {zh: 现代性、工业化、殖民与民族国家, en: Modernity, Industrialization, Colonialism and Nation-States}
+    labels: {zh: 现代性、工业化、殖民与民族国家, en: "Modernity, Industrialization, Colonialism and Nation-States"}
     definition: 连接工业资本、帝国殖民、民族主义、革命、官僚国家、大众政治、战争与去殖民化，解释现代世界的不均衡形成。
     core_questions: [能源生产金融与国家能力如何相互强化, 殖民种族化和民族国家怎样重构权利边界与全球差异]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1575,7 +1575,7 @@ core_nodes:
     id: hkm:framework:global-maritime-connected-histories
     code: K08.06
     primary_type: framework
-    labels: {zh: 全球、海洋与关联史, en: Global, Maritime and Connected Histories}
+    labels: {zh: 全球、海洋与关联史, en: "Global, Maritime and Connected Histories"}
     definition: 追踪跨区域的商品、人员、病原体、知识、宗教、金融与权力流动，同时保留地方中介和不对称关系。
     core_questions: [哪些连接链条使远距离事件彼此相关, 全球过程在不同地点被谁翻译利用抵抗或承受]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1592,7 +1592,7 @@ core_nodes:
     id: hkm:framework:regional-local-multiscalar-history
     code: K08.07
     primary_type: framework
-    labels: {zh: 区域、国家与地方的多尺度历史, en: Regional, National and Local Multiscalar History}
+    labels: {zh: 区域、国家与地方的多尺度历史, en: "Regional, National and Local Multiscalar History"}
     definition: 在村社、城市、区域、国家和跨境尺度之间追踪事件制度与记忆，检验宏大叙事在具体地方的差异。
     core_questions: [研究尺度如何改变因果主体与时间边界, 地方材料怎样支持修正或反驳国家与全球叙事]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1609,7 +1609,7 @@ core_nodes:
     id: hkm:framework:social-cultural-intellectual-history
     code: K08.08
     primary_type: framework
-    labels: {zh: 社会、文化与思想史, en: Social, Cultural and Intellectual History}
+    labels: {zh: 社会、文化与思想史, en: "Social, Cultural and Intellectual History"}
     definition: 研究日常生活、阶层、性别、家庭、情感、知识、阅读和象征实践如何随制度与物质条件改变。
     core_questions: [普通人的经验如何从不均衡保存的材料中重建, 观念如何在媒介制度和实践中产生历史效力]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1626,7 +1626,7 @@ core_nodes:
     id: hkm:framework:political-legal-diplomatic-history
     code: K08.09
     primary_type: framework
-    labels: {zh: 政治、法律与外交史, en: Political, Legal and Diplomatic History}
+    labels: {zh: 政治、法律与外交史, en: "Political, Legal and Diplomatic History"}
     definition: 追踪国家形成、法制、政党、官僚、战争、外交和国际秩序的变化，并连接正式决策与社会力量。
     core_questions: [权力如何通过制度法律和暴力被组织与挑战, 档案中的国家视角如何与社会和跨国材料互证]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1643,7 +1643,7 @@ core_nodes:
     id: hkm:framework:economic-labor-business-history
     code: K08.10
     primary_type: framework
-    labels: {zh: 经济、劳动与商业史, en: Economic, Labor and Business History}
+    labels: {zh: 经济、劳动与商业史, en: "Economic, Labor and Business History"}
     definition: 研究生产、劳动制度、企业、市场、金融、消费、技术与不平等的长期变化及其数量和档案证据。
     core_questions: [生产制度和企业组织怎样改变劳动生活与分配, 价格工资产出等序列如何在定义变化下比较]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1660,7 +1660,7 @@ core_nodes:
     id: hkm:framework:science-technology-medicine-environment-history
     code: K08.11
     primary_type: framework
-    labels: {zh: 科学、技术、医学与环境史, en: History of Science, Technology, Medicine and Environment}
+    labels: {zh: 科学、技术、医学与环境史, en: "History of Science, Technology, Medicine and Environment"}
     definition: 研究知识、仪器、基础设施、疾病、专业制度和环境改造如何在社会权力与跨文化流动中形成。
     core_questions: [事实技术和专业权威通过哪些实践制度与材料条件稳定, 创新和医疗环境干预的收益风险由谁承担]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1677,7 +1677,7 @@ core_nodes:
     id: hkm:framework:memory-heritage-public-history
     code: K08.12
     primary_type: framework
-    labels: {zh: 记忆、遗产与公共历史, en: Memory, Heritage and Public History}
+    labels: {zh: 记忆、遗产与公共历史, en: "Memory, Heritage and Public History"}
     definition: 分析个人集体记忆、纪念、博物馆、遗址、档案、数字展示和教育如何选择并争议过去的公共意义。
     core_questions: [谁有权保存解释展示或归还过去, 公共叙事如何区分纪念认同证据与责任]
     primary_domain: hkm:domain:history-archaeology-civilization
@@ -1695,7 +1695,7 @@ core_nodes:
     id: hkm:framework:political-authority-ideology-collective-choice
     code: K09.01
     primary_type: framework
-    labels: {zh: 政治权威、意识形态与集体选择, en: Political Authority, Ideology and Collective Choice}
+    labels: {zh: 政治权威、意识形态与集体选择, en: "Political Authority, Ideology and Collective Choice"}
     definition: 研究权力、合法性、国家、自由、平等、民主、共同体和意识形态如何组织公共目标、冲突与强制。
     core_questions: [何种权威和强制可被谁以什么理由接受, 集体选择如何处理分歧少数权利与公共利益]
     primary_domain: hkm:domain:politics-governance-law
@@ -1712,7 +1712,7 @@ core_nodes:
     id: hkm:framework:comparative-regimes-state-capacity
     code: K09.02
     primary_type: framework
-    labels: {zh: 比较政体、国家能力与制度变迁, en: Comparative Regimes, State Capacity and Institutional Change}
+    labels: {zh: 比较政体、国家能力与制度变迁, en: "Comparative Regimes, State Capacity and Institutional Change"}
     definition: 比较民主、威权、混合政体、政党制度、国家建构和官僚能力，解释制度稳定、转型与绩效差异。
     core_questions: [政体规则如何分配参与竞争和问责, 国家能力由哪些财政组织和社会关系形成]
     primary_domain: hkm:domain:politics-governance-law
@@ -1729,7 +1729,7 @@ core_nodes:
     id: hkm:framework:political-behavior-elections-public-opinion
     code: K09.03
     primary_type: framework
-    labels: {zh: 政治行为、选举与公共意见, en: Political Behavior, Elections and Public Opinion}
+    labels: {zh: 政治行为、选举与公共意见, en: "Political Behavior, Elections and Public Opinion"}
     definition: 连接身份、利益、信息、媒体、动员、投票制度、精英策略和调查测量，解释参与、选择与意见变化。
     core_questions: [公民如何形成政治判断并决定是否参与, 选举规则动员和信息环境如何改变代表结果]
     primary_domain: hkm:domain:politics-governance-law
@@ -1746,7 +1746,7 @@ core_nodes:
     id: hkm:framework:policy-cycle-public-administration-implementation
     code: K09.04
     primary_type: framework
-    labels: {zh: 政策循环、公共行政与执行, en: Policy Cycle, Public Administration and Implementation}
+    labels: {zh: 政策循环、公共行政与执行, en: "Policy Cycle, Public Administration and Implementation"}
     definition: 连接议程、政策设计、预算、官僚组织、街头执行、评估与反馈，研究公共目标如何转为可问责行动。
     core_questions: [问题如何进入议程并被定义为可治理对象, 政策在组织激励能力和地方情境中如何变形]
     primary_domain: hkm:domain:politics-governance-law
@@ -1763,7 +1763,7 @@ core_nodes:
     id: hkm:framework:jurisprudence-legal-reasoning-systems
     code: K09.05
     primary_type: framework
-    labels: {zh: 法理、法律体系与法律推理, en: Jurisprudence, Legal Systems and Legal Reasoning}
+    labels: {zh: 法理、法律体系与法律推理, en: "Jurisprudence, Legal Systems and Legal Reasoning"}
     definition: 区分法律来源、效力、规则原则、事实认定、解释、先例与裁量，分析法律规范如何形成并适用于具体案件。
     core_questions: [规范从何获得法律效力且与道德正当性如何区分, 文本先例事实与目的冲突时如何给出可复核理由]
     primary_domain: hkm:domain:politics-governance-law
@@ -1780,7 +1780,7 @@ core_nodes:
     id: hkm:framework:constitutional-administrative-public-law
     code: K09.06
     primary_type: framework
-    labels: {zh: 宪法、行政法与公权边界, en: Constitutional, Administrative and Public Law}
+    labels: {zh: 宪法、行政法与公权边界, en: "Constitutional, Administrative and Public Law"}
     definition: 研究国家机构权力配置、基本权利、依法行政、程序正当、司法审查和公共责任的规则与实践。
     core_questions: [公权由谁以何种程序授权限制和监督, 权利受到限制时适用什么标准与救济]
     primary_domain: hkm:domain:politics-governance-law
@@ -1797,7 +1797,7 @@ core_nodes:
     id: hkm:framework:private-commercial-labor-law-relations
     code: K09.07
     primary_type: framework
-    labels: {zh: 私法、商法与劳动关系, en: Private, Commercial and Labor Law Relations}
+    labels: {zh: 私法、商法与劳动关系, en: "Private, Commercial and Labor Law Relations"}
     definition: 连接人格财产、合同、侵权、公司、交易、劳动权利和争议解决，组织私人主体之间的权利义务与风险分配。
     core_questions: [当事人权利义务和责任由何种事实规范产生, 形式自愿交易在信息权力和公共利益限制下是否有效]
     primary_domain: hkm:domain:politics-governance-law
@@ -1814,7 +1814,7 @@ core_nodes:
     id: hkm:framework:criminal-law-justice-due-process
     code: K09.08
     primary_type: framework
-    labels: {zh: 刑法、刑事司法与正当程序, en: Criminal Law, Justice and Due Process}
+    labels: {zh: 刑法、刑事司法与正当程序, en: "Criminal Law, Justice and Due Process"}
     definition: 研究犯罪构成、责任、证据、侦查审判、刑罚、矫正、被害人权利和冤错救济的规范与机构实践。
     core_questions: [国家何时可以认定责任并施加强制, 证据程序裁量和资源差异如何影响司法结果]
     primary_domain: hkm:domain:politics-governance-law
@@ -1831,7 +1831,7 @@ core_nodes:
     id: hkm:framework:international-relations-diplomacy-law
     code: K09.09
     primary_type: framework
-    labels: {zh: 国际关系、外交与国际法, en: International Relations, Diplomacy and International Law}
+    labels: {zh: 国际关系、外交与国际法, en: "International Relations, Diplomacy and International Law"}
     definition: 连接国家、国际组织、非国家行为者、权力、安全、合作、贸易、人权与法律义务，分析跨境秩序与争端。
     core_questions: [利益权力规范和制度如何塑造合作与冲突, 国际义务如何形成解释执行并在权力不对称中发挥作用]
     primary_domain: hkm:domain:politics-governance-law
@@ -1848,7 +1848,7 @@ core_nodes:
     id: hkm:framework:governance-regulation-institutional-design
     code: K09.10
     primary_type: framework
-    labels: {zh: 治理、监管与制度设计, en: Governance, Regulation and Institutional Design}
+    labels: {zh: 治理、监管与制度设计, en: "Governance, Regulation and Institutional Design"}
     definition: 用权责、标准、许可、信息披露、激励、监督、审计、制裁和救济设计多主体规则并管理公共风险。
     core_questions: [市场政府专业与社区各自掌握什么信息能力和权力, 规则如何应对规避俘获执行不足与意外后果]
     primary_domain: hkm:domain:politics-governance-law
@@ -1865,7 +1865,7 @@ core_nodes:
     id: hkm:framework:rights-citizenship-social-justice
     code: K09.11
     primary_type: framework
-    labels: {zh: 权利、公民身份与社会正义, en: Rights, Citizenship and Social Justice}
+    labels: {zh: 权利、公民身份与社会正义, en: "Rights, Citizenship and Social Justice"}
     definition: 连接公民政治经济社会文化权利、身份资格、反歧视、承认、再分配和实际可及性，评价制度包容与排除。
     core_questions: [谁被承认为权利主体且可获得何种救济, 形式平等如何转化为面对差异和历史不正义的实际平等]
     primary_domain: hkm:domain:politics-governance-law
@@ -1882,7 +1882,7 @@ core_nodes:
     id: hkm:framework:multilevel-local-global-governance
     code: K09.12
     primary_type: framework
-    labels: {zh: 地方、区域、国家与全球多层治理, en: Local, Regional, National and Global Multilevel Governance}
+    labels: {zh: 地方、区域、国家与全球多层治理, en: "Local, Regional, National and Global Multilevel Governance"}
     definition: 研究跨层级权限、财政、标准、信息、代表和协调如何共同处理气候、卫生、数字平台、迁移等跨边界问题。
     core_questions: [问题影响与治理权限在哪些尺度错配, 如何分配地方适配统一标准资源和问责]
     primary_domain: hkm:domain:politics-governance-law
@@ -1900,7 +1900,7 @@ core_nodes:
     id: hkm:concept:scarcity-opportunity-cost-tradeoffs
     code: K10.01
     primary_type: concept
-    labels: {zh: 稀缺、机会成本与权衡, en: Scarcity, Opportunity Cost and Trade-offs}
+    labels: {zh: 稀缺、机会成本与权衡, en: "Scarcity, Opportunity Cost and Trade-offs"}
     definition: 以有限资源和互斥选择为起点，比较采取某方案所放弃的最佳替代及其分配后果。
     core_questions: [真正稀缺的资源是什么, 选择该方案放弃了什么且由谁承担]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -1917,7 +1917,7 @@ core_nodes:
     id: hkm:framework:marginal-choice-equilibrium-welfare
     code: K10.02
     primary_type: framework
-    labels: {zh: 边际选择、均衡与福利, en: Marginal Choice, Equilibrium and Welfare}
+    labels: {zh: 边际选择、均衡与福利, en: "Marginal Choice, Equilibrium and Welfare"}
     definition: 用偏好、边际收益成本、约束和相互一致的选择分析个体行为、市场结果与福利变化。
     core_questions: [在约束下多做一单位的净效果是什么, 个体最优如何形成或不能形成社会可取结果]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -1934,7 +1934,7 @@ core_nodes:
     id: hkm:framework:incentives-strategy-mechanism-design
     code: K10.03
     primary_type: framework
-    labels: {zh: 激励、策略互动与机制设计, en: Incentives, Strategic Interaction and Mechanism Design}
+    labels: {zh: 激励、策略互动与机制设计, en: "Incentives, Strategic Interaction and Mechanism Design"}
     definition: 研究多主体在规则、预期和他人选择下的策略行为，以及如何设计规则使私人行动接近集体目标。
     core_questions: [规则如何改变行为而非只改变口号, 个体最优与集体结果为何偏离]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -1951,7 +1951,7 @@ core_nodes:
     id: hkm:framework:information-asymmetry-signals
     code: K10.04
     primary_type: framework
-    labels: {zh: 信息、不对称、信号与筛选, en: Information, Asymmetry, Signaling and Screening}
+    labels: {zh: 信息、不对称、信号与筛选, en: "Information, Asymmetry, Signaling and Screening"}
     definition: 分析主体拥有不同信息时的逆向选择、道德风险、信号、筛选和委托代理问题。
     core_questions: [谁知道什么且谁不能验证, 如何设计可信信号监督和信息披露]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -1968,7 +1968,7 @@ core_nodes:
     id: hkm:framework:institutions-property-transaction-costs
     code: K10.05
     primary_type: framework
-    labels: {zh: 制度、产权与交易成本, en: Institutions, Property Rights and Transaction Costs}
+    labels: {zh: 制度、产权与交易成本, en: "Institutions, Property Rights and Transaction Costs"}
     definition: 用正式与非正式规则、权利束、执行能力和协调成本解释活动为何由市场、组织、家庭或公共部门承载。
     core_questions: [哪些规则界定权利责任与可执行承诺, 为何这种治理结构比替代方案更可行]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -1985,7 +1985,7 @@ core_nodes:
     id: hkm:framework:markets-competition-platforms
     code: K10.06
     primary_type: framework
-    labels: {zh: 市场结构、竞争与平台, en: Market Structure, Competition and Platforms}
+    labels: {zh: 市场结构、竞争与平台, en: "Market Structure, Competition and Platforms"}
     definition: 研究进入退出、集中度、差异化、网络效应和定价权如何塑造市场绩效与创新。
     core_questions: [谁能进入并影响价格规则, 网络效应和规模经济何时产生锁定或效率]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2002,7 +2002,7 @@ core_nodes:
     id: hkm:framework:externalities-public-goods-collective-action
     code: K10.07
     primary_type: framework
-    labels: {zh: 外部性、公共品与集体行动, en: Externalities, Public Goods and Collective Action}
+    labels: {zh: 外部性、公共品与集体行动, en: "Externalities, Public Goods and Collective Action"}
     definition: 分析行动成本收益未由决策者完全承担、排他困难或共同资源竞争时的协调失败与治理选择。
     core_questions: [谁承受未计价后果, 何种规则能在搭便车拥挤与公平之间改善结果]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2020,7 +2020,7 @@ core_nodes:
     code: K10.08
     primary_type: model
     additional_types: [framework]
-    labels: {zh: 货币、信用、通胀与宏观波动, en: Money, Credit, Inflation and Macrodynamics}
+    labels: {zh: 货币、信用、通胀与宏观波动, en: "Money, Credit, Inflation and Macrodynamics"}
     definition: 连接货币支付、银行信用、资产负债表、总需求供给、就业和价格水平的宏观动力学。
     core_questions: [货币信用如何创造和收缩, 冲击为何通过资产负债表与预期放大为周期]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2037,7 +2037,7 @@ core_nodes:
     id: hkm:framework:growth-productivity-innovation-distribution
     code: K10.09
     primary_type: framework
-    labels: {zh: 增长、生产率、创新与分配, en: Growth, Productivity, Innovation and Distribution}
+    labels: {zh: 增长、生产率、创新与分配, en: "Growth, Productivity, Innovation and Distribution"}
     definition: 连接资本、劳动、知识、技术变迁、制度和市场结构，解释长期产出能力及收益如何分配。
     core_questions: [生产率和生活水平为何长期变化, 创新收益与调整成本由谁获得和承担]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2054,7 +2054,7 @@ core_nodes:
     id: hkm:framework:time-value-risk-decision-under-uncertainty
     code: K10.10
     primary_type: framework
-    labels: {zh: 时间价值、风险与不确定性决策, en: Time Value, Risk and Decision under Uncertainty}
+    labels: {zh: 时间价值、风险与不确定性决策, en: "Time Value, Risk and Decision under Uncertainty"}
     definition: 用跨期选择、概率、贴现、风险承受、保险和情景比较分析未来收益损失与不可知性。
     core_questions: [未来结果应如何比较与折现, 可量化风险和深度不确定性应如何分别处理]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2071,7 +2071,7 @@ core_nodes:
     id: hkm:model:valuation-portfolio-financial-risk
     code: K10.11
     primary_type: model
-    labels: {zh: 估值、组合与金融风险, en: Valuation, Portfolios and Financial Risk}
+    labels: {zh: 估值、组合与金融风险, en: "Valuation, Portfolios and Financial Risk"}
     definition: 用现金流、状态价格、相关性、杠杆、流动性和尾部损失比较资产与融资结构。
     core_questions: [价值依赖哪些未来现金流和风险假设, 分散杠杆和流动性如何改变损失分布]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2089,7 +2089,7 @@ core_nodes:
     code: K10.12
     primary_type: framework
     additional_types: [measurement]
-    labels: {zh: 会计、存量流量与管理控制, en: Accounting, Stocks, Flows and Management Control}
+    labels: {zh: 会计、存量流量与管理控制, en: "Accounting, Stocks, Flows and Management Control"}
     definition: 用确认、计量、复式记录、资产负债和责任中心追踪资源状态、绩效与控制信号。
     core_questions: [哪些事件被何时如何记录, 指标如何支持问责又可能诱发行为扭曲]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2106,7 +2106,7 @@ core_nodes:
     id: hkm:framework:organization-authority-governance
     code: K10.13
     primary_type: framework
-    labels: {zh: 组织设计、权威与治理, en: Organization Design, Authority and Governance}
+    labels: {zh: 组织设计、权威与治理, en: "Organization Design, Authority and Governance"}
     definition: 研究分工、层级、授权、团队、文化、激励和监督如何协调共同生产与承担责任。
     core_questions: [决策权信息与责任应如何配置, 正式结构和非正式规范如何共同影响行为]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2123,7 +2123,7 @@ core_nodes:
     id: hkm:framework:operations-flow-bottlenecks-quality
     code: K10.14
     primary_type: framework
-    labels: {zh: 运营流、瓶颈、库存与质量, en: Operational Flow, Bottlenecks, Inventory and Quality}
+    labels: {zh: 运营流、瓶颈、库存与质量, en: "Operational Flow, Bottlenecks, Inventory and Quality"}
     definition: 用流程、能力、排队、变异、库存和质量反馈设计与改进产品服务的稳定交付。
     core_questions: [真正限制系统吞吐的瓶颈在哪里, 如何在效率缓冲质量和韧性间权衡]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2140,7 +2140,7 @@ core_nodes:
     id: hkm:framework:strategy-capabilities-innovation
     code: K10.15
     primary_type: framework
-    labels: {zh: 战略、能力、创业与创新, en: Strategy, Capabilities, Entrepreneurship and Innovation}
+    labels: {zh: 战略、能力、创业与创新, en: "Strategy, Capabilities, Entrepreneurship and Innovation"}
     definition: 连接环境变化、价值创造、差异化资源、组织能力、实验学习和承诺，解释长期行动方向。
     core_questions: [组织为谁创造何种独特价值, 哪些能力和选择能在变化中形成可持续适应]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2157,7 +2157,7 @@ core_nodes:
     id: hkm:method:economic-causal-evaluation-forecasting
     code: K10.16
     primary_type: method
-    labels: {zh: 经济因果评估、预测与决策检验, en: Economic Causal Evaluation, Forecasting and Decision Testing}
+    labels: {zh: 经济因果评估、预测与决策检验, en: "Economic Causal Evaluation, Forecasting and Decision Testing"}
     definition: 结合反事实、实验与准实验、结构模型、预测和敏感性分析评估政策、经营行动及不确定性。
     core_questions: [观察到的变化是否由行动造成, 预测对假设与结构变化有多敏感]
     primary_domain: hkm:domain:economy-finance-organizations
@@ -2175,7 +2175,7 @@ core_nodes:
     id: hkm:framework:linguistic-structure-grammar-meaning
     code: K11.01
     primary_type: framework
-    labels: {zh: 语言结构、语法与意义组合, en: Linguistic Structure, Grammar and Compositional Meaning}
+    labels: {zh: 语言结构、语法与意义组合, en: "Linguistic Structure, Grammar and Compositional Meaning"}
     definition: 连接语音、音系、形态、句法、语义和词汇，解释有限规则与单位如何产生可理解的语言表达。
     core_questions: [语言单位在各层怎样组合并形成对比, 结构与语义如何在语境介入前后共同约束解释]
     primary_domain: hkm:domain:language-communication-media
@@ -2192,7 +2192,7 @@ core_nodes:
     id: hkm:framework:language-diversity-change-documentation
     code: K11.02
     primary_type: framework
-    labels: {zh: 语言多样性、演变与记录, en: Language Diversity, Change and Documentation}
+    labels: {zh: 语言多样性、演变与记录, en: "Language Diversity, Change and Documentation"}
     definition: 研究语言谱系、接触、音义语法变化、濒危、复兴与田野记录，保留语言结构及其社群知识。
     core_questions: [语言差异来自继承接触创新还是记录偏差, 记录和复兴如何由社群目标与数据主权引导]
     primary_domain: hkm:domain:language-communication-media
@@ -2209,7 +2209,7 @@ core_nodes:
     id: hkm:framework:pragmatics-sociolinguistics-conversation
     code: K11.03
     primary_type: framework
-    labels: {zh: 语用、社会语言与会话互动, en: Pragmatics, Sociolinguistics and Conversation}
+    labels: {zh: 语用、社会语言与会话互动, en: "Pragmatics, Sociolinguistics and Conversation"}
     definition: 连接言外之意、指示、礼貌、轮替、修复、语体、身份和权力，解释语言在具体互动中的社会行动。
     core_questions: [说话者如何依赖共同背景推断意图, 变体语体与会话规则怎样索引关系身份和权力]
     primary_domain: hkm:domain:language-communication-media
@@ -2226,7 +2226,7 @@ core_nodes:
     id: hkm:framework:semiotics-rhetoric-discourse-power
     code: K11.04
     primary_type: framework
-    labels: {zh: 符号、修辞、话语与权力, en: Semiotics, Rhetoric, Discourse and Power}
+    labels: {zh: 符号、修辞、话语与权力, en: "Semiotics, Rhetoric, Discourse and Power"}
     definition: 研究文字、图像、声音、体裁、隐喻、叙事和话语框架如何组织注意、可信度、身份与可说范围。
     core_questions: [符号如何依赖代码体裁和互文关系产生意义, 修辞框架由谁传播并使哪些主体和因果可见]
     primary_domain: hkm:domain:language-communication-media
@@ -2243,7 +2243,7 @@ core_nodes:
     id: hkm:framework:interpersonal-group-organizational-communication
     code: K11.05
     primary_type: framework
-    labels: {zh: 人际、群体与组织传播, en: Interpersonal, Group and Organizational Communication}
+    labels: {zh: 人际、群体与组织传播, en: "Interpersonal, Group and Organizational Communication"}
     definition: 研究关系、反馈、冲突、协作、领导、渠道和非正式网络如何影响共同理解、信任与组织行动。
     core_questions: [信息在关系与组织边界中如何失真遗漏或被修复, 沟通结构如何支持心理安全协调和问责]
     primary_domain: hkm:domain:language-communication-media
@@ -2260,7 +2260,7 @@ core_nodes:
     id: hkm:framework:journalism-verification-public-information
     code: K11.06
     primary_type: framework
-    labels: {zh: 新闻核实、事实查证与公共信息, en: Journalism, Verification and Public Information}
+    labels: {zh: 新闻核实、事实查证与公共信息, en: "Journalism, Verification and Public Information"}
     definition: 用来源评估、文档核验、现场报道、数据查证、编辑责任和更正机制生产可追溯的公共事实叙述。
     core_questions: [主张由哪些独立来源和原始材料支持, 时效公共利益伤害风险与可验证性如何平衡]
     primary_domain: hkm:domain:language-communication-media
@@ -2277,7 +2277,7 @@ core_nodes:
     id: hkm:framework:media-platform-public-sphere-attention
     code: K11.07
     primary_type: framework
-    labels: {zh: 媒体、平台、注意与公共领域, en: Media, Platforms, Attention and the Public Sphere}
+    labels: {zh: 媒体、平台、注意与公共领域, en: "Media, Platforms, Attention and the Public Sphere"}
     definition: 连接媒体制度、推荐算法、广告商业、创作者劳动、受众实践、网络扩散和治理，解释公共可见性如何形成。
     core_questions: [谁控制分发排序货币化与审核规则, 注意激励和网络结构如何放大信息多样性极化或操纵]
     primary_domain: hkm:domain:language-communication-media
@@ -2294,7 +2294,7 @@ core_nodes:
     id: hkm:method:translation-interpreting-multilingual-mediation
     code: K11.08
     primary_type: method
-    labels: {zh: 翻译、口译与多语调解, en: Translation, Interpreting and Multilingual Mediation}
+    labels: {zh: 翻译、口译与多语调解, en: "Translation, Interpreting and Multilingual Mediation"}
     definition: 在语言、体裁、文化、权力和任务约束之间重构意义与功能，并管理不可等值、术语、语气和伦理责任。
     core_questions: [目标文本需要保留何种意义功能风格与证据关系, 不可译和文化前提如何透明处理]
     primary_domain: hkm:domain:language-communication-media
@@ -2311,7 +2311,7 @@ core_nodes:
     id: hkm:framework:library-archive-information-organization
     code: K11.09
     primary_type: framework
-    labels: {zh: 图书馆、档案与信息组织, en: Library, Archive and Information Organization}
+    labels: {zh: 图书馆、档案与信息组织, en: "Library, Archive and Information Organization"}
     definition: 用描述元数据、分类、主题分析、来源链、保存、检索和访问政策组织长期可发现且可审计的信息资源。
     core_questions: [资源身份版本来源和关系如何被稳定描述, 保存访问隐私版权和社区权利如何平衡]
     primary_domain: hkm:domain:language-communication-media
@@ -2328,7 +2328,7 @@ core_nodes:
     id: hkm:framework:visual-science-risk-communication
     code: K11.10
     primary_type: framework
-    labels: {zh: 视觉、科学与风险传播, en: Visual, Science and Risk Communication}
+    labels: {zh: 视觉、科学与风险传播, en: "Visual, Science and Risk Communication"}
     definition: 通过受众研究、概率表达、图表、叙事、预警、双向参与和不确定性说明，使复杂证据支持知情行动。
     core_questions: [受众需要做什么决定且已有何种心智模型, 如何诚实表达不确定性严重性与行动阈值而不误导]
     primary_domain: hkm:domain:language-communication-media
@@ -2345,7 +2345,7 @@ core_nodes:
     id: hkm:framework:communication-ethics-information-rights-governance
     code: K11.11
     primary_type: framework
-    labels: {zh: 传播伦理、信息权利与治理, en: Communication Ethics, Information Rights and Governance}
+    labels: {zh: 传播伦理、信息权利与治理, en: "Communication Ethics, Information Rights and Governance"}
     definition: 连接表达、知情、隐私、名誉、版权、平台责任、内容治理和信息完整性，评价传播权力与伤害边界。
     core_questions: [传播涉及哪些权利责任和可预见伤害, 内容规则由谁制定执行申诉并接受独立监督]
     primary_domain: hkm:domain:language-communication-media
@@ -2363,7 +2363,7 @@ core_nodes:
     id: hkm:framework:algorithms-computability-complexity
     code: K12.01
     primary_type: framework
-    labels: {zh: 算法、可计算性与复杂度, en: Algorithms, Computability and Complexity}
+    labels: {zh: 算法、可计算性与复杂度, en: "Algorithms, Computability and Complexity"}
     definition: 用问题规约、数据结构、算法正确性、可计算边界和时间空间复杂度研究任务能否以及以何种资源完成。
     core_questions: [问题输入输出与正确性条件是什么, 是否存在算法且其最坏平均和摊销成本如何]
     primary_domain: hkm:domain:computing-information-ai
@@ -2380,7 +2380,7 @@ core_nodes:
     id: hkm:framework:computer-architecture-hardware-performance
     code: K12.02
     primary_type: framework
-    labels: {zh: 计算机体系结构、硬件与性能, en: Computer Architecture, Hardware and Performance}
+    labels: {zh: 计算机体系结构、硬件与性能, en: "Computer Architecture, Hardware and Performance"}
     definition: 连接指令、处理器、存储层次、并行、加速器、互连、功耗和可靠性，解释软件工作如何映射为物理计算。
     core_questions: [工作负载受计算存储通信还是能耗限制, 并行和缓存设计如何改变吞吐延迟与一致性]
     primary_domain: hkm:domain:computing-information-ai
@@ -2397,7 +2397,7 @@ core_nodes:
     id: hkm:framework:operating-distributed-cloud-systems
     code: K12.03
     primary_type: framework
-    labels: {zh: 操作系统、分布式系统与云, en: Operating, Distributed and Cloud Systems}
+    labels: {zh: 操作系统、分布式系统与云, en: "Operating, Distributed and Cloud Systems"}
     definition: 用进程、内存、文件、并发、复制、共识、容错、调度和虚拟化管理共享计算资源及跨节点状态。
     core_questions: [并发故障和网络分区下系统保证什么一致性与可用性, 资源隔离调度和恢复如何实现]
     primary_domain: hkm:domain:computing-information-ai
@@ -2414,7 +2414,7 @@ core_nodes:
     id: hkm:framework:computer-networks-internet-protocols
     code: K12.04
     primary_type: framework
-    labels: {zh: 计算机网络、互联网与协议, en: Computer Networks, the Internet and Protocols}
+    labels: {zh: 计算机网络、互联网与协议, en: "Computer Networks, the Internet and Protocols"}
     definition: 连接分层协议、寻址路由、传输、拥塞、无线、名称服务和应用协议，解释端到端通信及其故障。
     core_questions: [数据如何跨异构链路可靠及时到达, 协议层次中的拥塞丢包攻击和中间盒如何影响行为]
     primary_domain: hkm:domain:computing-information-ai
@@ -2431,7 +2431,7 @@ core_nodes:
     id: hkm:framework:data-databases-information-retrieval
     code: K12.05
     primary_type: framework
-    labels: {zh: 数据、数据库与信息检索, en: Data, Databases and Information Retrieval}
+    labels: {zh: 数据、数据库与信息检索, en: "Data, Databases and Information Retrieval"}
     definition: 用数据模型、模式、事务、索引、查询、来源、质量和相关性排序组织可更新、可检索和可审计的信息。
     core_questions: [数据实体关系约束与版本如何表示, 查询和检索结果如何在完整性相关性和成本间权衡]
     primary_domain: hkm:domain:computing-information-ai
@@ -2448,7 +2448,7 @@ core_nodes:
     id: hkm:framework:software-engineering-programming-languages-verification
     code: K12.06
     primary_type: framework
-    labels: {zh: 软件工程、编程语言与验证, en: Software Engineering, Programming Languages and Verification}
+    labels: {zh: 软件工程、编程语言与验证, en: "Software Engineering, Programming Languages and Verification"}
     definition: 连接规格、类型、模块、版本、测试、静态分析、形式验证、部署、观测和团队流程，管理软件生命周期复杂性。
     core_questions: [系统应满足哪些可检验功能与质量属性, 变更如何通过抽象测试审查和发布控制避免回归]
     primary_domain: hkm:domain:computing-information-ai
@@ -2465,7 +2465,7 @@ core_nodes:
     id: hkm:framework:cybersecurity-privacy-trust
     code: K12.07
     primary_type: framework
-    labels: {zh: 网络安全、隐私与可信计算, en: Cybersecurity, Privacy and Trusted Computing}
+    labels: {zh: 网络安全、隐私与可信计算, en: "Cybersecurity, Privacy and Trusted Computing"}
     definition: 用威胁建模、最小权限、认证、密码、隔离、检测、响应、隐私工程和审计保护系统与主体权利。
     core_questions: [资产对手能力信任边界和失败影响是什么, 控制如何预防检测响应恢复并最小化数据处理]
     primary_domain: hkm:domain:computing-information-ai
@@ -2482,7 +2482,7 @@ core_nodes:
     id: hkm:framework:human-computer-interaction-ux
     code: K12.08
     primary_type: framework
-    labels: {zh: 人机交互、可用性与用户体验, en: Human–Computer Interaction, Usability and UX}
+    labels: {zh: 人机交互、可用性与用户体验, en: "Human–Computer Interaction, Usability and UX"}
     definition: 连接用户任务、认知与身体能力、交互模型、原型、可用性研究、无障碍和参与式设计，评价技术使用后果。
     core_questions: [谁在何种情境完成什么任务且容易在哪失败, 界面反馈控制可见性和无障碍如何支持真实能力]
     primary_domain: hkm:domain:computing-information-ai
@@ -2499,7 +2499,7 @@ core_nodes:
     id: hkm:framework:graphics-visualization-multimedia-computing
     code: K12.09
     primary_type: framework
-    labels: {zh: 图形、可视化与多媒体计算, en: Graphics, Visualization and Multimedia Computing}
+    labels: {zh: 图形、可视化与多媒体计算, en: "Graphics, Visualization and Multimedia Computing"}
     definition: 用几何、渲染、图像音视频处理、视觉编码和交互把数据与模拟转为可感知、可探索和可生成的媒体。
     core_questions: [表示和渲染管线保留或丢失了什么信息, 视觉编码是否支持目标任务且诚实表达不确定性]
     primary_domain: hkm:domain:computing-information-ai
@@ -2516,7 +2516,7 @@ core_nodes:
     id: hkm:framework:ai-knowledge-reasoning-planning
     code: K12.10
     primary_type: framework
-    labels: {zh: 人工智能、知识、推理与规划, en: AI, Knowledge, Reasoning and Planning}
+    labels: {zh: 人工智能、知识、推理与规划, en: "AI, Knowledge, Reasoning and Planning"}
     definition: 用搜索、约束、逻辑、知识表示、规划、决策和智能体架构，使系统在状态、目标和行动模型上执行推理。
     core_questions: [环境状态目标行动与约束如何表示, 推理规划在不完整信息与组合爆炸下如何保持可解释可控]
     primary_domain: hkm:domain:computing-information-ai
@@ -2533,7 +2533,7 @@ core_nodes:
     id: hkm:framework:machine-learning-data-science-generalization
     code: K12.11
     primary_type: framework
-    labels: {zh: 机器学习、数据科学与泛化, en: Machine Learning, Data Science and Generalization}
+    labels: {zh: 机器学习、数据科学与泛化, en: "Machine Learning, Data Science and Generalization"}
     definition: 连接数据生成、表示、训练目标、优化、评估、因果、分布变化和部署监测，研究模型何时能对新情境可靠泛化。
     core_questions: [训练数据标签和损失代表什么目标与偏差, 性能能否跨时间群体环境和干预稳定迁移]
     primary_domain: hkm:domain:computing-information-ai
@@ -2550,7 +2550,7 @@ core_nodes:
     id: hkm:framework:robotics-autonomous-perception-control
     code: K12.12
     primary_type: framework
-    labels: {zh: 机器人、自主感知与控制, en: Robotics, Autonomous Perception and Control}
+    labels: {zh: 机器人、自主感知与控制, en: "Robotics, Autonomous Perception and Control"}
     definition: 连接传感、定位建图、运动规划、控制、学习、人机协作和安全约束，使机器在物理世界中闭环行动。
     core_questions: [系统如何估计自身环境与不确定性, 计划控制和安全监护如何在实时故障下协调]
     primary_domain: hkm:domain:computing-information-ai
@@ -2567,7 +2567,7 @@ core_nodes:
     id: hkm:framework:ai-safety-governance-society
     code: K12.13
     primary_type: framework
-    labels: {zh: AI 安全、治理与社会影响, en: AI Safety, Governance and Social Impact}
+    labels: {zh: AI 安全、治理与社会影响, en: "AI Safety, Governance and Social Impact"}
     definition: 综合可靠性、滥用、权限、对齐、人类监督、评估、透明、责任、劳动与权利，治理 AI 全生命周期风险和收益。
     core_questions: [系统能力失效滥用与结构性影响分别如何评估, 谁可部署监督申诉停用并承担损害责任]
     primary_domain: hkm:domain:computing-information-ai
@@ -2585,7 +2585,7 @@ core_nodes:
     id: hkm:framework:needs-requirements-stakeholders
     code: K13.01
     primary_type: framework
-    labels: {zh: 需求、要求与利益相关者, en: Needs, Requirements and Stakeholders}
+    labels: {zh: 需求、要求与利益相关者, en: "Needs, Requirements and Stakeholders"}
     definition: 把模糊需要、使用情境、价值冲突和法规转成可追踪、可验证且可协商的系统要求。
     core_questions: [谁在何种情境下真正需要什么, 要求如何被验证且冲突如何处理]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2602,7 +2602,7 @@ core_nodes:
     id: hkm:framework:engineering-constraints-trade-space
     code: K13.02
     primary_type: framework
-    labels: {zh: 工程约束、权衡与设计空间, en: Engineering Constraints, Trade-offs and Design Space}
+    labels: {zh: 工程约束、权衡与设计空间, en: "Engineering Constraints, Trade-offs and Design Space"}
     definition: 组织物理、成本、时间、资源、人因、安全、环境与法规约束，并比较多目标方案而非追求单一最优。
     core_questions: [哪些是硬约束哪些是可协商目标, 权衡曲面和不可逆承诺在哪里]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2619,7 +2619,7 @@ core_nodes:
     id: hkm:framework:systems-architecture-interfaces
     code: K13.03
     primary_type: framework
-    labels: {zh: 系统架构、分解与接口, en: Systems Architecture, Decomposition and Interfaces}
+    labels: {zh: 系统架构、分解与接口, en: "Systems Architecture, Decomposition and Interfaces"}
     definition: 把整体功能分配到相互作用的组件、层级和接口，并控制耦合、依赖和变更传播。
     core_questions: [系统边界和模块如何划分, 接口如何传递物质能量信息与责任]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2636,7 +2636,7 @@ core_nodes:
     id: hkm:model:engineering-models-safety-margins
     code: K13.04
     primary_type: model
-    labels: {zh: 工程模型、近似与安全裕度, en: Engineering Models, Approximations and Safety Margins}
+    labels: {zh: 工程模型、近似与安全裕度, en: "Engineering Models, Approximations and Safety Margins"}
     definition: 用目的相关的物理、经验和计算模型估计载荷、响应与极限，并为不确定性保留合理裕度。
     core_questions: [模型保留和忽略了什么, 裕度覆盖哪些变异失效和未知]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2653,7 +2653,7 @@ core_nodes:
     id: hkm:method:design-synthesis-prototyping
     code: K13.05
     primary_type: method
-    labels: {zh: 设计综合、原型与迭代, en: Design Synthesis, Prototyping and Iteration}
+    labels: {zh: 设计综合、原型与迭代, en: "Design Synthesis, Prototyping and Iteration"}
     definition: 通过概念生成、形态组合、原型、试验和反馈把需求逐步转为可运行方案。
     core_questions: [如何产生不止一个可比较方案, 最小原型应消除哪项最大不确定性]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2670,7 +2670,7 @@ core_nodes:
     id: hkm:method:verification-validation-testing
     code: K13.06
     primary_type: method
-    labels: {zh: 验证、确认与测试, en: Verification, Validation and Testing}
+    labels: {zh: 验证、确认与测试, en: "Verification, Validation and Testing"}
     definition: 分别检查实现是否符合规定、规定是否满足真实需要，并用分层证据覆盖正常、边界与失效情形。
     core_questions: [系统是否按规格构建, 规格和系统是否解决了正确的问题]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2687,7 +2687,7 @@ core_nodes:
     id: hkm:framework:manufacturing-process-capability
     code: K13.07
     primary_type: framework
-    labels: {zh: 制造过程、变异与过程能力, en: Manufacturing Processes, Variation and Process Capability}
+    labels: {zh: 制造过程、变异与过程能力, en: "Manufacturing Processes, Variation and Process Capability"}
     definition: 连接材料转换、工艺窗口、公差、测量和统计控制，判断设计能否稳定经济地被实现。
     core_questions: [关键特性如何由过程产生, 变异是否在可接受能力范围内]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2704,7 +2704,7 @@ core_nodes:
     id: hkm:framework:reliability-failure-risk
     code: K13.08
     primary_type: framework
-    labels: {zh: 可靠性、失效模式与工程风险, en: Reliability, Failure Modes and Engineering Risk}
+    labels: {zh: 可靠性、失效模式与工程风险, en: "Reliability, Failure Modes and Engineering Risk"}
     definition: 从危害、载荷、退化、故障传播和后果分析系统为何失效，以及如何预防、检测、容错和恢复。
     core_questions: [系统能以哪些方式失效且后果多大, 如何通过消除监测冗余和恢复降低风险]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2721,7 +2721,7 @@ core_nodes:
     id: hkm:framework:sensing-feedback-control-automation
     code: K13.09
     primary_type: framework
-    labels: {zh: 感知、反馈、控制与自动化, en: Sensing, Feedback, Control and Automation}
+    labels: {zh: 感知、反馈、控制与自动化, en: "Sensing, Feedback, Control and Automation"}
     definition: 通过测量系统状态、比较目标、调整输入和管理时延，使动态系统在扰动下保持或改变行为。
     core_questions: [哪些状态可观测可控, 反馈在时延噪声和约束下会稳定还是放大问题]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2738,7 +2738,7 @@ core_nodes:
     id: hkm:framework:human-factors-usability-ergonomics
     code: K13.10
     primary_type: framework
-    labels: {zh: 人因、可用性与工效学, en: Human Factors, Usability and Ergonomics}
+    labels: {zh: 人因、可用性与工效学, en: "Human Factors, Usability and Ergonomics"}
     definition: 把人的知觉、认知、身体、协作和局限作为系统组成，设计任务、界面、环境和错误防护。
     core_questions: [系统要求人感知记忆判断和动作什么, 设计如何减少可预见误用与负荷]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2755,7 +2755,7 @@ core_nodes:
     id: hkm:practice:operations-maintenance-repair
     code: K13.11
     primary_type: practice
-    labels: {zh: 运行、维护、维修与资产管理, en: Operations, Maintenance, Repair and Asset Management}
+    labels: {zh: 运行、维护、维修与资产管理, en: "Operations, Maintenance, Repair and Asset Management"}
     definition: 通过状态监测、预防与纠正维护、备件、工单、维修和知识回馈保持系统全寿命可用。
     core_questions: [何时检查维护更换或修复, 运行经验如何反馈设计和风险控制]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2772,7 +2772,7 @@ core_nodes:
     id: hkm:framework:lifecycle-sustainability-circularity
     code: K13.12
     primary_type: framework
-    labels: {zh: 全生命周期、可持续性与循环设计, en: Lifecycle, Sustainability and Circular Design}
+    labels: {zh: 全生命周期、可持续性与循环设计, en: "Lifecycle, Sustainability and Circular Design"}
     definition: 从原料、制造、运输、使用、维护到退役比较成本、能耗、排放、毒性、耐久和再利用路径。
     core_questions: [影响是否只是被转移到另一阶段地区或群体, 如何延寿减量复用修复和安全回收]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2789,7 +2789,7 @@ core_nodes:
     id: hkm:framework:standards-modularity-interoperability
     code: K13.13
     primary_type: framework
-    labels: {zh: 标准、模块化与互操作性, en: Standards, Modularity and Interoperability}
+    labels: {zh: 标准、模块化与互操作性, en: "Standards, Modularity and Interoperability"}
     definition: 通过共享接口、测试规范、兼容规则和模块边界支持规模化协作、替换、维修与生态系统连接。
     core_questions: [哪些接口应稳定标准化, 模块独立性与系统整体优化如何平衡]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2806,7 +2806,7 @@ core_nodes:
     id: hkm:practice:engineering-project-configuration-change
     code: K13.14
     primary_type: practice
-    labels: {zh: 工程项目、配置与变更管理, en: Engineering Project, Configuration and Change Management}
+    labels: {zh: 工程项目、配置与变更管理, en: "Engineering Project, Configuration and Change Management"}
     definition: 管理范围、依赖、版本、接口、证据、供应和决策记录，使复杂系统在多人协作中保持可追踪一致。
     core_questions: [当前权威配置和依据是什么, 变更会传播到哪些要求接口测试和维护活动]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2823,7 +2823,7 @@ core_nodes:
     id: hkm:norm-value:engineering-ethics-safety-responsibility
     code: K13.15
     primary_type: norm-value
-    labels: {zh: 工程伦理、安全责任与公共利益, en: Engineering Ethics, Safety Responsibility and Public Interest}
+    labels: {zh: 工程伦理、安全责任与公共利益, en: "Engineering Ethics, Safety Responsibility and Public Interest"}
     definition: 明确专业胜任、诚实披露、预防伤害、公平、隐私、环境和对公共安全负责的规范边界。
     core_questions: [技术上可行的方案是否应当实施, 谁对风险知情同意申诉与长期后果负责]
     primary_domain: hkm:domain:engineering-technology-design
@@ -2876,7 +2876,7 @@ core_nodes:
     id: hkm:method:clinical-reasoning-diagnosis-evidence
     code: K14.02
     primary_type: method
-    labels: {zh: 临床推理、诊断与证据整合, en: Clinical Reasoning, Diagnosis and Evidence Integration}
+    labels: {zh: 临床推理、诊断与证据整合, en: "Clinical Reasoning, Diagnosis and Evidence Integration"}
     definition: 以病史、查体、基线风险、检验性能和病程更新鉴别诊断，权衡漏诊、过诊、干预收益与伤害并形成可复核计划。
     core_questions: [哪些解释最能覆盖当前证据且哪些危险诊断必须先排除, 新检验或观察会怎样改变概率与行动阈值]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2893,7 +2893,7 @@ core_nodes:
     id: hkm:framework:organ-systems-internal-medicine-multimorbidity
     code: K14.03
     primary_type: framework
-    labels: {zh: 器官系统、内科疾病与多病共存, en: Organ Systems, Internal Medicine and Multimorbidity}
+    labels: {zh: 器官系统、内科疾病与多病共存, en: "Organ Systems, Internal Medicine and Multimorbidity"}
     definition: 综合心肺、消化、肾脏、内分泌、血液、免疫、神经等系统的常见病程，并分析共病、脆弱性与治疗负担之间的相互作用。
     core_questions: [局部症状可能来自哪些跨系统机制, 多个疾病与治疗目标冲突时如何确定整体优先级]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2910,7 +2910,7 @@ core_nodes:
     id: hkm:framework:surgical-perioperative-procedural-safety
     code: K14.04
     primary_type: framework
-    labels: {zh: 外科、围手术期与操作安全, en: Surgery, Perioperative Care and Procedural Safety}
+    labels: {zh: 外科、围手术期与操作安全, en: "Surgery, Perioperative Care and Procedural Safety"}
     definition: 围绕适应证、解剖、麻醉、无菌、操作步骤、出血感染风险、术后恢复和团队核查管理侵入性诊疗的完整路径。
     core_questions: [何种证据和患者目标足以支持侵入性操作, 围手术期哪些失效模式需通过核查监测与救援预防]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2927,7 +2927,7 @@ core_nodes:
     id: hkm:framework:reproductive-maternal-child-developmental-health
     code: K14.05
     primary_type: framework
-    labels: {zh: 生殖、孕产、儿童与发育健康, en: Reproductive, Maternal, Child and Developmental Health}
+    labels: {zh: 生殖、孕产、儿童与发育健康, en: "Reproductive, Maternal, Child and Developmental Health"}
     definition: 以生命历程理解生殖选择、妊娠分娩、新生儿与儿童发育、预防照护和家庭环境，并识别年龄阶段特有的风险窗口。
     core_questions: [生殖与发育阶段怎样改变生理需求和风险阈值, 如何兼顾儿童最佳利益照护者支持与自主权发展]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2944,7 +2944,7 @@ core_nodes:
     id: hkm:framework:mental-health-psychiatry-clinical-psychology
     code: K14.06
     primary_type: framework
-    labels: {zh: 心理健康、精神医学与临床心理, en: Mental Health, Psychiatry and Clinical Psychology}
+    labels: {zh: 心理健康、精神医学与临床心理, en: "Mental Health, Psychiatry and Clinical Psychology"}
     definition: 从生物、心理、关系和社会层面理解痛苦、功能、发展与精神障碍，结合风险评估、共同决策和循证心理及医学干预。
     core_questions: [体验与行为在何时构成功能受损或安全风险, 哪些生物心理社会因素维持问题并可被安全改变]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2961,7 +2961,7 @@ core_nodes:
     id: hkm:method:public-health-epidemiology-prevention
     code: K14.07
     primary_type: method
-    labels: {zh: 公共卫生、流行病学与预防, en: Public Health, Epidemiology and Prevention}
+    labels: {zh: 公共卫生、流行病学与预防, en: "Public Health, Epidemiology and Prevention"}
     definition: 描述人群健康分布与决定因素，使用监测、因果推断、筛查、免疫、环境和政策干预评价预防效果、公平性与外部性。
     core_questions: [疾病负担在何人何地何时集中且原因是什么, 哪个预防层级能以可接受成本和伤害获得最大人群收益]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2978,7 +2978,7 @@ core_nodes:
     id: hkm:practice:nursing-relational-care-continuity
     code: K14.08
     primary_type: practice
-    labels: {zh: 护理、关系性照护与连续性, en: Nursing, Relational Care and Continuity}
+    labels: {zh: 护理、关系性照护与连续性, en: "Nursing, Relational Care and Continuity"}
     definition: 通过持续评估、基础照护、症状监测、用药核对、患者教育、交接和照护协调，把治疗计划转化为安全的日常实践。
     core_questions: [患者当前最重要的功能舒适安全和理解需要是什么, 信息与责任如何在班次机构和家庭之间可靠交接]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -2995,7 +2995,7 @@ core_nodes:
     id: hkm:framework:pharmacology-therapeutics-medication-safety
     code: K14.09
     primary_type: framework
-    labels: {zh: 药理、治疗学与用药安全, en: Pharmacology, Therapeutics and Medication Safety}
+    labels: {zh: 药理、治疗学与用药安全, en: "Pharmacology, Therapeutics and Medication Safety"}
     definition: 联结药代动力学、药效学、适应证、剂量反应、相互作用、不良反应、依从性和药物警戒，以比较治疗的净获益。
     core_questions: [药物通过什么机制在何种人群和剂量产生效果, 如何监测疗效毒性相互作用并在需要时调整或停用]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3012,7 +3012,7 @@ core_nodes:
     id: hkm:framework:rehabilitation-disability-assistive-participation
     code: K14.10
     primary_type: framework
-    labels: {zh: 康复、残障、辅助技术与社会参与, en: Rehabilitation, Disability, Assistive Technology and Participation}
+    labels: {zh: 康复、残障、辅助技术与社会参与, en: "Rehabilitation, Disability, Assistive Technology and Participation"}
     definition: 以功能、活动、参与和环境障碍为中心，整合训练、适配、辅助技术、无障碍与社会支持，改善自主性和有意义生活。
     core_questions: [限制来自身体功能任务要求还是环境与制度障碍, 哪种训练辅助或环境改变最能支持个人目标与参与]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3029,7 +3029,7 @@ core_nodes:
     id: hkm:practice:nutrition-lifestyle-sleep-behavior
     code: K14.11
     primary_type: practice
-    labels: {zh: 营养、生活方式、睡眠与健康行为, en: Nutrition, Lifestyle, Sleep and Health Behavior}
+    labels: {zh: 营养、生活方式、睡眠与健康行为, en: "Nutrition, Lifestyle, Sleep and Health Behavior"}
     definition: 将膳食、体力活动、睡眠、物质使用、压力与行为改变置于生理需求、文化、资源和长期可持续性中进行综合管理。
     core_questions: [哪些可改变行为对当前健康目标的证据和影响最大, 如何通过环境反馈和渐进设计形成可持续改变]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3046,7 +3046,7 @@ core_nodes:
     id: hkm:framework:health-systems-policy-economics-quality-equity
     code: K14.12
     primary_type: framework
-    labels: {zh: 卫生系统、政策、经济、质量与公平, en: Health Systems, Policy, Economics, Quality and Equity}
+    labels: {zh: 卫生系统、政策、经济、质量与公平, en: "Health Systems, Policy, Economics, Quality and Equity"}
     definition: 分析筹资、支付、服务组织、人员、药械、治理和质量改进如何影响可及性、效率、安全、连续性与健康公平。
     core_questions: [资源与激励怎样塑造谁能获得何种质量的照护, 如何在成本效果权利和分配正义之间作透明取舍]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3063,7 +3063,7 @@ core_nodes:
     id: hkm:framework:health-informatics-digital-health-data
     code: K14.13
     primary_type: framework
-    labels: {zh: 健康信息学、数字健康与临床数据, en: Health Informatics, Digital Health and Clinical Data}
+    labels: {zh: 健康信息学、数字健康与临床数据, en: "Health Informatics, Digital Health and Clinical Data"}
     definition: 设计健康数据的采集、标准、交换、决策支持、远程服务和分析流程，使其兼顾临床价值、可用性、安全、隐私与可问责性。
     core_questions: [数据表示和工作流是否保留临床语境并减少额外负担, 算法或数字服务如何验证监测并在失效时安全降级]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3080,7 +3080,7 @@ core_nodes:
     id: hkm:framework:occupational-environmental-emergency-health
     code: K14.14
     primary_type: framework
-    labels: {zh: 职业、环境与急危重健康, en: Occupational, Environmental and Emergency Health}
+    labels: {zh: 职业、环境与急危重健康, en: "Occupational, Environmental and Emergency Health"}
     definition: 识别工作与环境暴露、伤害机制、毒理、灾害和急危重症的时间敏感风险，连接预防控制、现场分诊、稳定化和转运。
     core_questions: [暴露与伤害的来源途径剂量和时间窗口是什么, 何种红旗要求立即隔离去污急救或升级转运]
     primary_domain: hkm:domain:health-medicine-wellbeing
@@ -3115,7 +3115,7 @@ core_nodes:
     id: hkm:framework:soil-agroecology-land-stewardship
     code: K15.02
     primary_type: framework
-    labels: {zh: 土壤、农业生态与土地管护, en: Soil, Agroecology and Land Stewardship}
+    labels: {zh: 土壤、农业生态与土地管护, en: "Soil, Agroecology and Land Stewardship"}
     definition: 把土壤物理化学、生物过程、水文、养分循环、景观生态和土地制度整合为生产力、生态服务与退化风险的共同基础。
     core_questions: [土壤与景观过程如何限制生产并产生场外影响, 哪种轮作覆盖保育和投入组合能维持长期功能]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3132,7 +3132,7 @@ core_nodes:
     id: hkm:practice:horticulture-specialty-crops-controlled-environments
     code: K15.03
     primary_type: practice
-    labels: {zh: 园艺、特色作物与受控环境生产, en: Horticulture, Specialty Crops and Controlled Environments}
+    labels: {zh: 园艺、特色作物与受控环境生产, en: "Horticulture, Specialty Crops and Controlled Environments"}
     definition: 管理果蔬花卉和其他高价值作物的繁殖、冠层、授粉、微气候、采收与采后品质，并比较露地、设施和无土系统。
     core_questions: [目标品质和上市窗口需要怎样的品种与环境控制, 能源水分病害劳动和采后损耗之间如何权衡]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3149,7 +3149,7 @@ core_nodes:
     id: hkm:framework:animal-science-livestock-welfare-production
     code: K15.04
     primary_type: framework
-    labels: {zh: 动物科学、畜牧生产与福利, en: Animal Science, Livestock Production and Welfare}
+    labels: {zh: 动物科学、畜牧生产与福利, en: "Animal Science, Livestock Production and Welfare"}
     definition: 综合营养、遗传、繁殖、行为、环境、饲养系统和福利评估，在健康、产出、资源利用与动物感受之间进行管理。
     core_questions: [动物需要与福利状态如何被可靠观察和改善, 遗传饲料环境和管理如何共同影响健康与生产]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3166,7 +3166,7 @@ core_nodes:
     id: hkm:framework:veterinary-epidemiology-one-health-biosecurity
     code: K15.05
     primary_type: framework
-    labels: {zh: 兽医流行病学、同一健康与生物安全, en: Veterinary Epidemiology, One Health and Biosecurity}
+    labels: {zh: 兽医流行病学、同一健康与生物安全, en: "Veterinary Epidemiology, One Health and Biosecurity"}
     definition: 在动物群体、人类、野生生物和环境之间追踪病原传播、耐药性与暴露，设计监测、隔离、免疫、检疫和应急控制。
     core_questions: [病原在宿主环境与生产网络中通过何种路径传播, 哪个控制点能最早发现并以最小附带伤害阻断传播]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3183,7 +3183,7 @@ core_nodes:
     id: hkm:framework:forestry-agroforestry-ecosystem-management
     code: K15.06
     primary_type: framework
-    labels: {zh: 林业、农林复合与生态系统管理, en: Forestry, Agroforestry and Ecosystem Management}
+    labels: {zh: 林业、农林复合与生态系统管理, en: "Forestry, Agroforestry and Ecosystem Management"}
     definition: 管理森林与农林复合系统的更新、演替、采伐、火灾、碳、水、生物多样性和社区使用权，以跨代维持多重生态服务。
     core_questions: [林分和景观在不同扰动与经营方案下将如何演替, 木材生计碳水源生境和火风险之间怎样权衡]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3200,7 +3200,7 @@ core_nodes:
     id: hkm:framework:fisheries-aquaculture-population-water-management
     code: K15.07
     primary_type: framework
-    labels: {zh: 渔业、水产养殖与水域管理, en: Fisheries, Aquaculture and Aquatic Resource Management}
+    labels: {zh: 渔业、水产养殖与水域管理, en: "Fisheries, Aquaculture and Aquatic Resource Management"}
     definition: 联结种群动态、捕捞努力、栖息地、水质、饲料、养殖密度、疾病和治理规则，管理水生食品生产与生态承载力。
     core_questions: [种群补充死亡与捕捞压力如何决定可持续产出, 养殖投入疾病逃逸和排放怎样影响流域及沿海生态]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3217,7 +3217,7 @@ core_nodes:
     id: hkm:framework:breeding-agricultural-biotechnology-genetic-resources
     code: K15.08
     primary_type: framework
-    labels: {zh: 育种、农业生物技术与遗传资源, en: Breeding, Agricultural Biotechnology and Genetic Resources}
+    labels: {zh: 育种、农业生物技术与遗传资源, en: "Breeding, Agricultural Biotechnology and Genetic Resources"}
     definition: 运用数量遗传、选择、杂交、分子标记和基因编辑改良作物与动物，同时维护遗传多样性、可追溯性和社会许可。
     core_questions: [目标性状的遗传结构与环境互作如何影响选择响应, 新品系的收益风险多样性和所有权如何被验证与治理]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3234,7 +3234,7 @@ core_nodes:
     id: hkm:framework:food-science-processing-safety-quality
     code: K15.09
     primary_type: framework
-    labels: {zh: 食品科学、加工、安全与质量, en: Food Science, Processing, Safety and Quality}
+    labels: {zh: 食品科学、加工、安全与质量, en: "Food Science, Processing, Safety and Quality"}
     definition: 研究食品组成、结构、加工、保存、感官、营养与危害控制，设计从原料到消费的质量指标、关键控制点和追溯体系。
     core_questions: [加工与储运怎样改变安全营养感官和货架期, 哪些生物化学物理危害需在哪个控制点预防监测与纠偏]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3251,7 +3251,7 @@ core_nodes:
     id: hkm:framework:agricultural-engineering-sensing-automation-digital
     code: K15.10
     primary_type: framework
-    labels: {zh: 农业工程、感知、自动化与数字农业, en: Agricultural Engineering, Sensing, Automation and Digital Agriculture}
+    labels: {zh: 农业工程、感知、自动化与数字农业, en: "Agricultural Engineering, Sensing, Automation and Digital Agriculture"}
     definition: 设计农业机械、水利、能源、设施、遥感、传感器、机器人和决策支持，使操作在复杂田间环境中安全、可靠且资源高效。
     core_questions: [哪些可观测量和执行动作足以形成有效闭环控制, 技术在泥尘天气网络故障和小农约束下如何安全降级]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3268,7 +3268,7 @@ core_nodes:
     id: hkm:framework:food-systems-supply-chains-rural-development
     code: K15.11
     primary_type: framework
-    labels: {zh: 食品系统、供应链与乡村发展, en: Food Systems, Supply Chains and Rural Development}
+    labels: {zh: 食品系统、供应链与乡村发展, en: "Food Systems, Supply Chains and Rural Development"}
     definition: 把投入、生产、加工、物流、零售、消费、废弃、金融和政策连接为完整系统，评价粮食安全、生计、韧性、公平与环境结果。
     core_questions: [价值风险权力与损耗如何沿供应链分布, 哪些干预能同时改善可负担营养生产者生计和生态韧性]
     primary_domain: hkm:domain:agriculture-food-bioproduction
@@ -3281,12 +3281,866 @@ core_nodes:
     connections: [{type: complements, target: hkm:framework:operations-flow-bottlenecks-quality, scope: 通用运营模型与食品易腐性、生物风险、季节性和农村制度共同决定供应链设计}]
     boundary_notes: 总产量增长不自动减少饥饿或改善生计；必须显式分析获得权、性别与土地权、市场集中、浪费和外部成本。
 
+  # D16 教育、学习与发展骨架
+  - <<: *core_defaults
+    id: hkm:framework:learning-sciences-cognition-motivation
+    code: K16.01
+    primary_type: framework
+    labels: {zh: 学习科学、认知与动机, en: "Learning Sciences, Cognition and Motivation"}
+    definition: 研究注意、工作记忆、先备知识、练习、反馈、迁移、动机、情绪和社会互动如何共同塑造学习与长期发展。
+    core_questions: [学习者当前的知识表征与认知负荷是什么, 哪种练习反馈和动机条件能产生保持与迁移]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:learning-sciences-educational-psychology]
+    roles: [foundation, mechanism, evidence]
+    aims: [explain-understand, predict-warn, learn-transfer]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:curriculum-pedagogy-instructional-design, scope: 学习机制为目标序列、活动、练习与反馈设计提供约束}]
+    boundary_notes: 实验室平均效应不能直接移植到所有年龄、文化和学科；神经或学习风格标签不得替代任务分析与真实表现证据。
+
+  - <<: *core_defaults
+    id: hkm:framework:curriculum-pedagogy-instructional-design
+    code: K16.02
+    primary_type: framework
+    labels: {zh: 课程、教学法与教学设计, en: "Curriculum, Pedagogy and Instructional Design"}
+    definition: 将教育目的转译为内容序列、学习活动、示范、探究、练习、反馈与支持，并使正式课程、实施课程和实际体验相互对齐。
+    core_questions: [学习目标需要哪些可观察表现和先备结构, 教学活动如何兼顾认知挑战参与机会与反馈闭环]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:curriculum-pedagogy-instruction]
+    roles: [design, method, synthesis]
+    aims: [design-create, learn-transfer, evaluate-norm]
+    epistemic_modes: [design, empirical, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation]
+    connections: [{type: depends-on, target: hkm:method:assessment-measurement-evaluation, scope: 目标与活动须由有效测量和形成性证据持续校准}]
+    boundary_notes: 教学法没有脱离内容、学习者与制度情境的普遍最优；课程选择还包含文化权力与价值取舍。
+
+  - <<: *core_defaults
+    id: hkm:method:assessment-measurement-evaluation
+    code: K16.03
+    primary_type: method
+    labels: {zh: 教育测量、评价与项目评估, en: "Educational Assessment, Measurement and Evaluation"}
+    definition: 设计任务、量表、评分、形成性反馈和项目评价，分析效度、信度、公平、可比性与后果，支持而非替代教育判断。
+    core_questions: [分数对目标解释是否有效可靠且对不同群体公平, 评价结果会如何改变教学激励机会和学习行为]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:assessment-measurement-evaluation]
+    roles: [method, evidence, boundary]
+    aims: [describe-measure, evaluate-norm, diagnose-abduce]
+    epistemic_modes: [formal, empirical, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design]
+    connections: [{type: constrains, target: hkm:framework:primary-secondary-subject-schooling, scope: 学校评价需与课程目标、发展阶段和公平后果一致}]
+    boundary_notes: 高风险决策不得依赖单次分数；测量误差、语言文化偏差、教学窄化和数据隐私必须显式处理。
+
+  - <<: *core_defaults
+    id: hkm:framework:early-childhood-development-play-learning
+    code: K16.04
+    primary_type: framework
+    labels: {zh: 早期发展、游戏与幼儿教育, en: "Early Development, Play and Childhood Education"}
+    definition: 从依恋、语言、动作、执行功能、游戏、照护关系与家庭社区环境理解儿童早期发展和以游戏为基础的学习。
+    core_questions: [儿童当前发展需要如何通过关系游戏和环境得到支持, 哪些发展差异需持续观察适配或专业转介]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:early-childhood-education]
+    roles: [foundation, practice, boundary]
+    aims: [describe-measure, learn-transfer, control-maintain]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design]
+    connections: [{type: complements, target: hkm:framework:special-inclusive-education-access, scope: 早期观察与包容性设计共同减少障碍并避免等待失败后才支持}]
+    boundary_notes: 发展里程碑是范围而非刚性时钟；不得用筛查结果贴标签或忽视残障、语言、文化与家庭资源差异。
+
+  - <<: *core_defaults
+    id: hkm:framework:primary-secondary-subject-schooling
+    code: K16.05
+    primary_type: framework
+    labels: {zh: 基础教育、学科教学与学校生活, en: Primary and Secondary Subject Schooling}
+    definition: 组织读写、数学、科学、人文、艺术、体育与公民学习的纵向进阶，并协调班级文化、学生发展、支持服务和学校生活。
+    core_questions: [学科核心概念与实践如何跨年级逐步深化, 学校怎样同时支持学业归属福祉与公共生活]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:primary-secondary-education]
+    roles: [synthesis, practice, design]
+    aims: [learn-transfer, design-create, control-maintain]
+    epistemic_modes: [empirical, design, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: depends-on, target: hkm:practice:teacher-education-reflective-professional-practice, scope: 学科进阶需要教师的内容知识、教学判断与共同备课能力}]
+    boundary_notes: 标准化不能抹平地方课程、学生声音和多语言背景；纪律、分流和资源配置需审查差别影响。
+
+  - <<: *core_defaults
+    id: hkm:framework:higher-education-scholarship-academic-development
+    code: K16.06
+    primary_type: framework
+    labels: {zh: 高等教育、学术发展与研究育人, en: "Higher Education, Scholarship and Academic Development"}
+    definition: 连接学科知识、研究探究、专业形成、教学学术、导师制、认证与大学公共使命，支持高阶理解和知识生产参与。
+    core_questions: [学习者如何进入学科的问题证据与实践共同体, 课程研究评价与职业路径怎样形成连贯发展]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:higher-education-scholarship]
+    roles: [synthesis, design, boundary]
+    aims: [learn-transfer, design-create, evaluate-norm]
+    epistemic_modes: [empirical, interpretive, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: complements, target: hkm:framework:vocational-workplace-professional-learning, scope: 高校学习与工作实践通过真实任务、导师和能力证据衔接}]
+    boundary_notes: 学位与排名不是学习质量的充分代理；学术自由、成本、隐性课程、无障碍和不平等进入机会需同时审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:vocational-workplace-professional-learning
+    code: K16.07
+    primary_type: framework
+    labels: {zh: 职业、工作场所与专业学习, en: "Vocational, Workplace and Professional Learning"}
+    definition: 通过任务分析、示范、学徒制、模拟、监督实践、能力评价和持续专业发展，把显性知识与情境判断及技能整合。
+    core_questions: [真实工作需要哪些知识技能判断与身份责任, 练习如何在安全监督下由分解任务走向独立胜任]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:vocational-workplace-professional-learning]
+    roles: [practice, method, boundary]
+    aims: [learn-transfer, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, embodied, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design]
+    connections: [{type: depends-on, target: hkm:method:assessment-measurement-evaluation, scope: 胜任判断需要多情境表现证据而非仅靠知识测验}]
+    boundary_notes: 模拟与证书不能自动授权高风险独立实践；劳动安全、监督质量、无偿劳动和职业准入公平必须保障。
+
+  - <<: *core_defaults
+    id: hkm:framework:special-inclusive-education-access
+    code: K16.08
+    primary_type: framework
+    labels: {zh: 特殊教育、融合教育与学习可及性, en: Special and Inclusive Education and Access}
+    definition: 识别学习、感官、动作、沟通、情绪和环境障碍，以通用学习设计、合理便利、专门支持和协同服务促进参与。
+    core_questions: [障碍来自学习者任务环境还是其交互, 哪些通用设计与个别支持能提高自主参与和真实学习]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:special-inclusive-education]
+    roles: [design, practice, boundary]
+    aims: [identify-classify, design-create, evaluate-norm]
+    epistemic_modes: [empirical, design, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: constrains, target: hkm:framework:education-technology-open-distance, scope: 教育技术从一开始就应满足可访问、可替代表达与辅助技术互操作}]
+    boundary_notes: 诊断不决定潜能或唯一安置；支持方案应与学习者及家庭共同制定，并保护隐私、尊严和最少限制环境。
+
+  - <<: *core_defaults
+    id: hkm:practice:teacher-education-reflective-professional-practice
+    code: K16.09
+    primary_type: practice
+    labels: {zh: 教师教育与反思性专业实践, en: Teacher Education and Reflective Professional Practice}
+    definition: 发展学科教学知识、课堂观察、关系建立、形成性评价、协作探究和伦理判断，通过计划实施证据反思循环改进教学。
+    core_questions: [学生工作和课堂互动揭示了什么学习状态, 下一轮教学改变的假设证据与共同支持是什么]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:teacher-education-professional-practice]
+    roles: [practice, evidence, synthesis]
+    aims: [learn-transfer, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: enables, target: hkm:framework:primary-secondary-subject-schooling, scope: 教师共同体把课程与评价转化为对具体学生有效的课堂实践}]
+    boundary_notes: 反思不能替代内容专长、证据和外部反馈；教师绩效不应由学生单一分数机械归因。
+
+  - <<: *core_defaults
+    id: hkm:framework:education-leadership-policy-systems
+    code: K16.10
+    primary_type: framework
+    labels: {zh: 教育领导、政策与系统治理, en: "Education Leadership, Policy and Systems Governance"}
+    definition: 分析教育的筹资、权责、组织、教师劳动力、课程评价政策、改进网络和问责机制如何影响质量、公平与系统能力。
+    core_questions: [制度激励资源和信息流怎样塑造学校与课堂行为, 政策如何试点实施监测并根据分配后果调整]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:education-leadership-policy-systems]
+    roles: [synthesis, decision, boundary]
+    aims: [optimize-allocate, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, comparative, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: influences, target: hkm:framework:comparative-international-education, scope: 国内治理能力与全球流动共同塑造政策借鉴和教育结果}]
+    boundary_notes: 指标问责会改变被测行为；成功政策不能脱离财政、教师能力、地方参与和制度历史直接复制。
+
+  - <<: *core_defaults
+    id: hkm:framework:education-technology-open-distance
+    code: K16.11
+    primary_type: framework
+    labels: {zh: 教育技术、开放教育与远程学习, en: "Education Technology, Open and Distance Learning"}
+    definition: 设计数字、混合、开放与远程学习环境，协调内容、交互、反馈、学习分析、教师支持、可访问性、隐私和平台治理。
+    core_questions: [技术改变了哪种学习活动和反馈而非只改变媒介, 离线条件可及性数据权利和教师工作如何被保障]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:education-technology-open-distance]
+    roles: [design, representation, boundary]
+    aims: [design-create, learn-transfer, evaluate-norm]
+    epistemic_modes: [design, empirical, synthetic]
+    learning_priority: B
+    prerequisites: [hkm:framework:curriculum-pedagogy-instructional-design, hkm:method:assessment-measurement-evaluation]
+    connections: [{type: depends-on, target: hkm:framework:special-inclusive-education-access, scope: 开放与远程并不自动可及，需系统处理感官认知语言设备与连接障碍}]
+    boundary_notes: 使用量与完成率不是学习的充分证据；算法监控、供应商锁定、版权、隐私和数字排斥需独立治理。
+
+  - <<: *core_defaults
+    id: hkm:practice:lifelong-self-directed-learning
+    code: K16.12
+    primary_type: practice
+    labels: {zh: 终身学习与自我导向学习, en: Lifelong and Self-Directed Learning}
+    definition: 通过目标澄清、资源评估、主动回忆、刻意练习、项目产出、反馈网络与反思，持续更新个人能力和学习身份。
+    core_questions: [目标能力如何转成可验证项目与练习序列, 如何校准自我判断并在时间动机和资源约束下持续]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:lifelong-self-directed-learning]
+    roles: [practice, decision, synthesis]
+    aims: [learn-transfer, optimize-allocate, design-create]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-sciences-cognition-motivation, hkm:framework:curriculum-pedagogy-instructional-design]
+    connections: [{type: complements, target: hkm:skill:learning-reading-writing-knowledge-workflow, scope: 通用学习科学为个人知识工作流提供目标、练习、反馈和迁移标准}]
+    boundary_notes: 自我导向不等于独自学习；技能幻觉、资源不平等和缺乏反馈需通过同伴导师与真实任务纠正。
+
+  - <<: *core_defaults
+    id: hkm:framework:comparative-international-education
+    code: K16.13
+    primary_type: framework
+    labels: {zh: 比较教育与国际教育, en: Comparative and International Education}
+    definition: 比较不同社会的教育制度、文化、历史、语言、发展与全球流动，解释结果差异并审查政策借鉴及国际合作。
+    core_questions: [教育差异由哪些制度文化人口与历史机制形成, 比较指标和政策移植在何种条件下有效或失真]
+    primary_domain: hkm:domain:education-learning-development
+    related_subdomains: [hkm:subdomain:comparative-international-education]
+    roles: [evidence, synthesis, boundary]
+    aims: [explain-understand, evaluate-norm, decide-negotiate]
+    epistemic_modes: [comparative, historical, interpretive]
+    learning_priority: B
+    prerequisites: [hkm:method:assessment-measurement-evaluation, hkm:framework:education-leadership-policy-systems]
+    connections: [{type: constrains, target: hkm:framework:education-leadership-policy-systems, scope: 跨国证据只有在制度语境、测量等值和实施能力相容时才能支持治理选择}]
+    boundary_notes: 国际排名可能遮蔽课程、语言、选择与不平等差异；避免以单一发展尺度排序文化和制度。
+
+  # D17 安全、冲突与韧性骨架
+  - <<: *core_defaults
+    id: hkm:framework:risk-safety-science-governance
+    code: K17.01
+    primary_type: framework
+    labels: {zh: 风险、安全科学与治理, en: "Risk, Safety Science and Governance"}
+    definition: 以危险、暴露、脆弱性、后果、概率、不确定性和可接受性组织风险识别、分析、控制、沟通与问责。
+    core_questions: [什么会伤害谁且通过哪些失效路径发生, 如何按控制层级降低风险并保留监测救援和学习能力]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:risk-safety-science]
+    roles: [foundation, decision, boundary]
+    aims: [predict-warn, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, causal, normative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:disaster-emergency-management, scope: 通用风险分析为灾害预防准备响应和恢复提供共同语言}]
+    boundary_notes: 风险分数不是客观价值裁决；尾部风险、模型不确定、不可逆伤害、知情同意和风险转移必须单独呈现。
+
+  - <<: *core_defaults
+    id: hkm:framework:conflict-analysis-peacebuilding
+    code: K17.02
+    primary_type: framework
+    labels: {zh: 冲突分析、和平研究与建设, en: "Conflict Analysis, Peace Studies and Peacebuilding"}
+    definition: 分析利益、身份、叙事、资源、权力、制度和暴力循环，设计预防、调解、保护、转型正义与可持续和平路径。
+    core_questions: [冲突的显性议题与深层结构驱动分别是什么, 哪些安排能减少伤害并改变持续冲突的激励关系与叙事]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:conflict-peace-studies]
+    roles: [synthesis, decision, boundary]
+    aims: [diagnose-abduce, decide-negotiate, evaluate-norm]
+    epistemic_modes: [causal, interpretive, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance]
+    connections: [{type: constrains, target: hkm:framework:military-strategy-defense-civil-control, scope: 防务行动应受冲突升级、平民保护、政治目的和和平路径约束}]
+    boundary_notes: 中立话语可能掩盖侵略、压迫与权力不对称；调解不应强迫受害者在缺乏安全和责任机制时妥协。
+
+  - <<: *core_defaults
+    id: hkm:framework:military-strategy-defense-civil-control
+    code: K17.03
+    primary_type: framework
+    labels: {zh: 军事战略、防务与文官控制, en: "Military Strategy, Defense and Civilian Control"}
+    definition: 研究政治目的、威慑、防御、作战、后勤、联盟、技术和升级如何相互作用，并以合法授权、文官控制和战争法约束武力。
+    core_questions: [军事手段能否实现明确政治目的且替代方案是什么, 行动如何控制升级保护平民并维持合法问责]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:military-strategy-defense]
+    roles: [synthesis, decision, boundary]
+    aims: [predict-warn, decide-negotiate, evaluate-norm]
+    epistemic_modes: [historical, causal, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:conflict-analysis-peacebuilding]
+    connections: [{type: depends-on, target: hkm:method:intelligence-security-analysis, scope: 防务规划依赖可审查的预警、能力与意图评估而非确定性断言}]
+    boundary_notes: 本节点只提供分析框架，不提供伤害性操作指令；国际人道法、平民保护、比例性和合法指挥始终优先。
+
+  - <<: *core_defaults
+    id: hkm:method:intelligence-security-analysis
+    code: K17.04
+    primary_type: method
+    labels: {zh: 情报、预警与安全分析, en: "Intelligence, Warning and Security Analysis"}
+    definition: 通过需求定义、来源评价、竞争假设、指标预警、概率表达和红队审查，在欺骗、缺失和时间压力下形成可追溯判断。
+    core_questions: [证据来源的获取链可靠性与动机是什么, 哪些竞争解释预警指标和可证伪条件应持续监测]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:intelligence-security-analysis]
+    roles: [method, evidence, boundary]
+    aims: [diagnose-abduce, predict-warn, decide-negotiate]
+    epistemic_modes: [empirical, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:conflict-analysis-peacebuilding]
+    connections: [{type: enables, target: hkm:framework:cyber-information-security-strategy, scope: 威胁情报与预警支持网络防御优先级、归因置信度和危机沟通}]
+    boundary_notes: 情报判断不是事实证明；须防止政治化、确认偏误、非法监控、来源暴露和把群体身份当风险代理。
+
+  - <<: *core_defaults
+    id: hkm:framework:crime-policing-prevention-justice
+    code: K17.05
+    primary_type: framework
+    labels: {zh: 犯罪、警务、预防与安全正义, en: "Crime, Policing, Prevention and Safety Justice"}
+    definition: 连接犯罪成因、受害风险、社区环境、执法、程序正义、矫治与预防，评价安全结果、权利保障和差别影响。
+    core_questions: [伤害在何种情境和机制中集中且哪些预防点可改变, 执法措施是否必要相称有效并受独立问责]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:crime-policing-prevention]
+    roles: [evidence, decision, boundary]
+    aims: [diagnose-abduce, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, causal, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:conflict-analysis-peacebuilding]
+    connections: [{type: enables, target: hkm:practice:personal-community-safety, scope: 社区伤害模式与可信服务网络帮助个人安全计划超越单纯自我防卫}]
+    boundary_notes: 记录犯罪受报案、执法和分类偏差影响；不得以预测工具替代个体证据、正当程序和免受歧视权。
+
+  - <<: *core_defaults
+    id: hkm:framework:cyber-information-security-strategy
+    code: K17.06
+    primary_type: framework
+    labels: {zh: 网络与信息安全战略, en: Cyber and Information Security Strategy}
+    definition: 从关键任务、威胁主体、攻击面、依赖、影响和恢复出发，组织纵深防御、信息共享、危机决策、规范与跨域威慑。
+    core_questions: [哪些数字依赖和资产失效会造成不可接受影响, 如何在防御归因响应连续性和公共信任之间权衡]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:cyber-information-security-strategy]
+    roles: [synthesis, decision, boundary]
+    aims: [predict-warn, control-maintain, decide-negotiate]
+    epistemic_modes: [empirical, causal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:method:intelligence-security-analysis]
+    connections: [{type: complements, target: hkm:framework:cybersecurity-privacy-trust, scope: 战略治理与系统级安全工程共同连接国家组织和产品层防护}]
+    boundary_notes: 本节点不提供入侵或破坏步骤；归因应表达置信度，响应需遵守法律、比例性、隐私与升级控制。
+
+  - <<: *core_defaults
+    id: hkm:framework:disaster-emergency-management
+    code: K17.07
+    primary_type: framework
+    labels: {zh: 灾害与应急管理, en: Disaster and Emergency Management}
+    definition: 以减灾、准备、预警、指挥协调、资源调度、公众沟通、救援安置和恢复构成全周期、多灾种应急体系。
+    core_questions: [危险暴露脆弱性和关键时间窗在哪里, 谁在何种触发条件下拥有指挥信息资源与升级责任]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:disaster-emergency-management]
+    roles: [synthesis, practice, boundary]
+    aims: [predict-warn, control-maintain, optimize-allocate]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:method:intelligence-security-analysis]
+    connections: [{type: enables, target: hkm:framework:critical-infrastructure-civil-protection, scope: 多灾种规划和统一协调支持关键服务优先级与公众保护}]
+    boundary_notes: 真实事件应服从当地指挥和专业救援；计划必须覆盖残障者、语言少数群体、无证人口和其他高脆弱群体。
+
+  - <<: *core_defaults
+    id: hkm:framework:critical-infrastructure-civil-protection
+    code: K17.08
+    primary_type: framework
+    labels: {zh: 关键基础设施与民事防护, en: Critical Infrastructure and Civil Protection}
+    definition: 建模能源、水、通信、交通、医疗、食品、金融和政府服务的相互依赖，设计冗余、隔离、优先恢复和公众防护措施。
+    core_questions: [哪些依赖和单点失效会跨系统级联, 最低服务水平、备用能力和恢复顺序如何确定]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:critical-infrastructure-civil-protection]
+    roles: [representation, design, decision]
+    aims: [predict-warn, design-create, control-maintain]
+    epistemic_modes: [causal, design, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:disaster-emergency-management]
+    connections: [{type: depends-on, target: hkm:framework:resilience-continuity-recovery, scope: 基础设施防护需通过业务连续性、替代服务和恢复演练转化为可用能力}]
+    boundary_notes: 公开透明与敏感脆弱性信息需分层；安全加固不能以长期剥夺弱势社区服务或权利为代价。
+
+  - <<: *core_defaults
+    id: hkm:framework:accident-human-factors-safety-culture
+    code: K17.09
+    primary_type: framework
+    labels: {zh: 事故、人因与安全文化, en: "Accidents, Human Factors and Safety Culture"}
+    definition: 将事故视为任务、界面、组织、维护、监管与正常工作适应的系统结果，通过屏障、报告、调查和学习改善安全。
+    core_questions: [局部行动如何在系统条件和失效屏障中形成事故, 如何设计使错误可见可恢复且报告不会被压制]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:accident-human-factors-safety-culture]
+    roles: [mechanism, evidence, practice]
+    aims: [diagnose-abduce, design-create, learn-transfer]
+    epistemic_modes: [empirical, causal, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance]
+    connections: [{type: enables, target: hkm:framework:resilience-continuity-recovery, scope: 事故学习和人因设计提高系统吸收扰动、恢复与适应能力}]
+    boundary_notes: 不以操作者失误作为调查终点；公正文化也不取消故意违规、隐瞒与管理失职的问责。
+
+  - <<: *core_defaults
+    id: hkm:framework:biosecurity-health-security
+    code: K17.10
+    primary_type: framework
+    labels: {zh: 生物安全与卫生安全, en: Biosecurity and Health Security}
+    definition: 管理自然、意外与蓄意生物风险，连接监测、实验室安全、供应链、医疗能力、同一健康、风险沟通和国际协作。
+    core_questions: [哪些生物事件可通过什么指标及早发现并分级响应, 如何同时保障科研医疗开放性与材料信息人员安全]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:biosecurity-health-security]
+    roles: [synthesis, decision, boundary]
+    aims: [predict-warn, control-maintain, decide-negotiate]
+    epistemic_modes: [empirical, causal, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:disaster-emergency-management]
+    connections: [{type: complements, target: hkm:framework:veterinary-epidemiology-one-health-biosecurity, scope: 动物人类环境联合监测与国家卫生安全能力相互补充}]
+    boundary_notes: 不披露可促进生物伤害的操作细节；措施须基于证据、比例性、公平、隐私和防污名原则。
+
+  - <<: *core_defaults
+    id: hkm:framework:resilience-continuity-recovery
+    code: K17.11
+    primary_type: framework
+    labels: {zh: 韧性、连续性与恢复, en: "Resilience, Continuity and Recovery"}
+    definition: 识别关键功能、最大可容忍中断、替代路径、缓冲、恢复目标和适应机会，通过演练与复盘维持系统在冲击中的服务。
+    core_questions: [必须优先维持的功能和最低可接受水平是什么, 中断后如何切换恢复验证并将经验转化为结构改进]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:resilience-continuity-recovery]
+    roles: [design, synthesis, practice]
+    aims: [control-maintain, design-create, learn-transfer]
+    epistemic_modes: [design, causal, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:disaster-emergency-management, hkm:framework:critical-infrastructure-civil-protection, hkm:framework:accident-human-factors-safety-culture]
+    connections: [{type: enables, target: hkm:practice:personal-community-safety, scope: 组织与社区连续性为家庭通信、避难、物资和恢复提供外部支撑}]
+    boundary_notes: 韧性不应成为把风险和无偿适应责任下放给弱势群体的口号；恢复目标应包含更安全公平的重建。
+
+  - <<: *core_defaults
+    id: hkm:practice:personal-community-safety
+    code: K17.12
+    primary_type: practice
+    labels: {zh: 个人与社区安全实践, en: Personal and Community Safety Practice}
+    definition: 通过情境觉察、可信联系、边界、旁观者支持、避险通信、家庭预案和社区互助降低日常伤害并改善求助可达性。
+    core_questions: [当前威胁严重性紧迫性和安全退出路径是什么, 哪些可信人员服务和社区资源可共同形成保护网络]
+    primary_domain: hkm:domain:security-conflict-resilience
+    related_subdomains: [hkm:subdomain:personal-community-safety]
+    roles: [practice, decision, boundary]
+    aims: [predict-warn, control-maintain, decide-negotiate]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:risk-safety-science-governance, hkm:framework:crime-policing-prevention-justice, hkm:framework:disaster-emergency-management]
+    connections: [{type: complements, target: hkm:framework:everyday-risk-triage-escalation, scope: 社区资源和系统风险知识扩展个人对红旗、求助阈值与安全升级的判断}]
+    boundary_notes: 不把受害责任推给个人警觉或技巧；面对暴力、跟踪、灾害和紧急危险应优先安全退出并联系当地专业服务。
+
+  # D18 艺术、文学与创造骨架
+  - <<: *core_defaults
+    id: hkm:framework:aesthetics-art-theory-experience
+    code: K18.01
+    primary_type: framework
+    labels: {zh: 美学、艺术理论与审美经验, en: "Aesthetics, Art Theory and Aesthetic Experience"}
+    definition: 分析形式、感知、情感、表现、再现、想象、判断、制度与生活世界如何共同构成艺术经验、作品身份和价值争论。
+    core_questions: [什么使对象行动或事件成为艺术及其判断依据是什么, 形式媒介语境与观者经验怎样共同产生意义和价值]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:aesthetics-art-theory]
+    roles: [foundation, representation, boundary]
+    aims: [explain-understand, evaluate-norm, identify-classify]
+    epistemic_modes: [interpretive, normative, comparative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:visual-arts-form-material-practice, scope: 美学概念为视觉形式、材料过程和观看经验提供可争论的分析语言}]
+    boundary_notes: 审美判断既非纯任意偏好也非唯一客观尺度；应说明传统、权力、位置和评价共同体。
+
+  - <<: *core_defaults
+    id: hkm:framework:visual-arts-form-material-practice
+    code: K18.02
+    primary_type: framework
+    labels: {zh: 视觉艺术、形式与材料实践, en: "Visual Arts, Form and Material Practice"}
+    definition: 通过构图、色彩、线面体、空间、材料、技法、图像传统和观看情境理解绘画、雕塑、装置及跨媒介视觉创作。
+    core_questions: [形式材料和制作痕迹如何组织观看与意义, 作品如何在传统场所技术和观众中获得不同解释]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:visual-arts]
+    roles: [practice, representation, synthesis]
+    aims: [design-create, explain-understand, learn-transfer]
+    epistemic_modes: [design, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience]
+    connections: [{type: complements, target: hkm:framework:photography-digital-new-media-art, scope: 视觉构成与观看理论跨越物质图像、摄影和计算媒介}]
+    boundary_notes: 形式分析不能脱离出处、委托、殖民流动与社会语境；使用有毒材料和工具需遵守工作室安全规范。
+
+  - <<: *core_defaults
+    id: hkm:practice:craft-design-arts-material-making
+    code: K18.03
+    primary_type: practice
+    labels: {zh: 工艺、设计艺术与材料制作, en: "Craft, Design Arts and Material Making"}
+    definition: 在陶瓷、纤维、木金工、首饰、书籍和复合材料中整合材料知识、手艺传承、功能、装饰、原型与迭代判断。
+    core_questions: [材料特性工具痕迹和制作顺序如何塑造对象, 功能耐用审美文化意义和可维修性怎样共同设计]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:craft-design-arts]
+    roles: [practice, design, method]
+    aims: [design-create, control-maintain, learn-transfer]
+    epistemic_modes: [design, empirical, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience]
+    connections: [{type: complements, target: hkm:framework:architecture-spatial-arts-place, scope: 材料工艺、尺度和人体经验共同连接对象设计与空间营造}]
+    boundary_notes: 手艺知识可能属于特定社区和师承；应尊重出处、知识产权与文化协议，高风险工具需训练和防护。
+
+  - <<: *core_defaults
+    id: hkm:framework:music-sound-listening-composition
+    code: K18.04
+    primary_type: framework
+    labels: {zh: 音乐、声音、聆听与创作, en: "Music, Sound, Listening and Composition"}
+    definition: 以音高、节奏、音色、织体、结构、表演、录音、聆听文化和声学环境理解音乐与声音艺术的生成和经验。
+    core_questions: [声音关系如何在时间中建立预期张力记忆和身体响应, 作品表演技术和聆听共同体怎样共同决定意义]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:music-sound-arts]
+    roles: [representation, practice, synthesis]
+    aims: [design-create, explain-understand, learn-transfer]
+    epistemic_modes: [formal, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience]
+    connections: [{type: enables, target: hkm:framework:theatre-dance-performance-presence, scope: 音乐和声音组织表演的时间、空间、情绪与观众注意}]
+    boundary_notes: 西方记谱与调性只是多种音乐知识之一；应保护听力、表演者权益、传统归属与录音许可。
+
+  - <<: *core_defaults
+    id: hkm:framework:theatre-dance-performance-presence
+    code: K18.05
+    primary_type: framework
+    labels: {zh: 戏剧、舞蹈、表演与现场性, en: "Theatre, Dance, Performance and Presence"}
+    definition: 连接身体、声音、角色、动作、空间、编创、排练、舞台技术、观众与事件性，理解现场和媒介化表演。
+    core_questions: [身体时间空间与观众关系如何构成表演事件, 排练怎样在实验纪律安全同意与集体创作间平衡]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:theatre-dance-performance]
+    roles: [practice, synthesis, boundary]
+    aims: [design-create, decide-negotiate, learn-transfer]
+    epistemic_modes: [interpretive, design, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:framework:music-sound-listening-composition]
+    connections: [{type: complements, target: hkm:framework:film-screen-media-language, scope: 舞台调度表演与观众关系在镜头剪辑和屏幕媒介中被重新组织}]
+    boundary_notes: 身体训练、亲密场景、特技和高声压需同意协调与专业安全；不得以创作自由掩盖骚扰或剥削。
+
+  - <<: *core_defaults
+    id: hkm:framework:literature-poetics-interpretation
+    code: K18.06
+    primary_type: framework
+    labels: {zh: 文学、诗学与文本解释, en: "Literature, Poetics and Textual Interpretation"}
+    definition: 分析体裁、声音、叙述、修辞、节奏、互文、翻译、读者反应与历史语境，理解文学形式如何组织经验和可能世界。
+    core_questions: [文本的语言形式与叙述结构怎样产生多层意义, 解释如何由文本证据传统语境和读者位置共同约束]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:literature-poetics]
+    roles: [synthesis, representation, evidence]
+    aims: [explain-understand, evaluate-norm, learn-transfer]
+    epistemic_modes: [interpretive, historical, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience]
+    connections: [{type: enables, target: hkm:practice:creative-writing-storytelling, scope: 诗学与叙事分析为创作选择、修订和读者效果提供可操作语言}]
+    boundary_notes: 解释可以多元但须回应文本证据与语境；经典形成、翻译和出版权力会决定谁被保存与阅读。
+
+  - <<: *core_defaults
+    id: hkm:framework:film-screen-media-language
+    code: K18.07
+    primary_type: framework
+    labels: {zh: 电影、屏幕媒介与视听语言, en: "Film, Screen Media and Audiovisual Language"}
+    definition: 通过镜头、场面调度、表演、声音、剪辑、类型、制作体系和观看平台分析电影、电视、动画与屏幕叙事。
+    core_questions: [视听选择如何控制时间空间视点与情感, 制作发行平台和观众实践怎样塑造作品形式与公共影响]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:film-screen-media-arts]
+    roles: [representation, synthesis, design]
+    aims: [explain-understand, design-create, evaluate-norm]
+    epistemic_modes: [interpretive, design, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:framework:theatre-dance-performance-presence]
+    connections: [{type: complements, target: hkm:framework:photography-digital-new-media-art, scope: 镜头图像与计算媒介共同扩展视听叙事、互动和分发形态}]
+    boundary_notes: 再现选择可能强化偏见或伤害真实人物；拍摄需处理同意、版权、劳动安全、深度伪造和纪录伦理。
+
+  - <<: *core_defaults
+    id: hkm:framework:photography-digital-new-media-art
+    code: K18.08
+    primary_type: framework
+    labels: {zh: 摄影、数字与新媒体艺术, en: "Photography, Digital and New Media Art"}
+    definition: 研究光学捕捉、图像索引性、编辑、计算生成、网络互动、游戏、沉浸与数据媒介如何改变作者性、真实性和参与。
+    core_questions: [图像或互动系统怎样在记录构造与生成之间运作, 软件平台数据与界面如何成为作品材料和权力结构]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:photography-digital-new-media-art]
+    roles: [design, representation, boundary]
+    aims: [design-create, diagnose-abduce, evaluate-norm]
+    epistemic_modes: [design, interpretive, empirical]
+    learning_priority: B
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:framework:visual-arts-form-material-practice]
+    connections: [{type: depends-on, target: hkm:framework:film-screen-media-language, scope: 动态与互动媒介继承并改写摄影、镜头、声音与蒙太奇语言}]
+    boundary_notes: 数字可复制性不取消作者权、肖像权、数据同意和来源义务；生成式工具需披露重要参与并审查训练来源。
+
+  - <<: *core_defaults
+    id: hkm:framework:architecture-spatial-arts-place
+    code: K18.09
+    primary_type: framework
+    labels: {zh: 建筑、空间艺术与场所经验, en: "Architecture, Spatial Arts and Place Experience"}
+    definition: 从尺度、比例、路径、光声、材料、结构、用途、记忆与公共性理解建成空间和景观作为审美、社会与身体经验。
+    core_questions: [空间序列怎样组织身体行动感知和共同生活, 形式意图如何与结构环境可及性和地方记忆协调]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:architecture-spatial-arts]
+    roles: [design, synthesis, boundary]
+    aims: [design-create, evaluate-norm, control-maintain]
+    epistemic_modes: [design, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:practice:craft-design-arts-material-making]
+    connections: [{type: complements, target: hkm:practice:participatory-community-arts, scope: 场所营造与社区艺术共同协商公共空间的记忆身份和使用权}]
+    boundary_notes: 艺术性空间概念不能替代建筑工程、消防、无障碍和法定审批；更新项目须防止文化抹除与排挤。
+
+  - <<: *core_defaults
+    id: hkm:practice:creative-writing-storytelling
+    code: K18.10
+    primary_type: practice
+    labels: {zh: 创意写作、叙事与修订, en: "Creative Writing, Storytelling and Revision"}
+    definition: 运用观察、声音、人物、视点、场景、结构、节奏、意象与修订，创造诗歌、小说、非虚构及跨媒介叙事。
+    core_questions: [作品的核心经验冲突声音和形式承诺是什么, 反馈与修订如何让语言结构和伦理选择更准确有力]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:creative-writing-storytelling]
+    roles: [practice, design, synthesis]
+    aims: [design-create, learn-transfer, evaluate-norm]
+    epistemic_modes: [interpretive, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:literature-poetics-interpretation]
+    connections: [{type: complements, target: hkm:framework:theatre-dance-performance-presence, scope: 角色场景对白与节奏可从书面叙事迁移到表演和口述形式}]
+    boundary_notes: 借用真实创伤、边缘身份与传统故事需考虑同意、隐私、权力和文化归属；非虚构不得以艺术性免除事实责任。
+
+  - <<: *core_defaults
+    id: hkm:framework:art-history-global-traditions
+    code: K18.11
+    primary_type: framework
+    labels: {zh: 艺术史与全球传统, en: Art History and Global Traditions}
+    definition: 通过物件、图像、技法、赞助、贸易、宗教、帝国、博物馆和艺术家网络研究艺术在多地区多时期的生产、流通与再解释。
+    core_questions: [作品在原始用途与后续收藏展示中经历了什么变化, 跨文化接触权力与材料流动如何塑造形式和艺术史叙事]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:art-history-global-traditions]
+    roles: [evidence, representation, synthesis]
+    aims: [explain-understand, identify-classify, evaluate-norm]
+    epistemic_modes: [historical, comparative, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience]
+    connections: [{type: enables, target: hkm:framework:criticism-curation-conservation, scope: 出处、功能与流通史为阐释、收藏、返还和保护决策提供证据}]
+    boundary_notes: 不以单一中心和线性进步叙述全球艺术；来源缺失、殖民获取、匿名集体创作和在地分类需显式说明。
+
+  - <<: *core_defaults
+    id: hkm:framework:criticism-curation-conservation
+    code: K18.12
+    primary_type: framework
+    labels: {zh: 批评、策展、收藏与保护, en: "Criticism, Curation, Collection and Conservation"}
+    definition: 以论证、选择、展示、阐释、保存、修复和公众参与组织作品的当代关系，并治理出处、返还、风险与机构责任。
+    core_questions: [选择与展示建立了何种叙事并排除了谁, 作品材料意图活态传统访问和长期保存之间如何权衡]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:criticism-curation-conservation]
+    roles: [synthesis, decision, boundary]
+    aims: [evaluate-norm, decide-negotiate, control-maintain]
+    epistemic_modes: [interpretive, empirical, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:framework:art-history-global-traditions]
+    connections: [{type: constrains, target: hkm:practice:participatory-community-arts, scope: 公共展示与参与创作需共享叙事权并处理保存记录和社区控制}]
+    boundary_notes: 保护不总等于冻结原状；敏感圣物、人类遗存和争议来源须遵循来源社区权利、返还和专业伦理。
+
+  - <<: *core_defaults
+    id: hkm:practice:participatory-community-arts
+    code: K18.13
+    primary_type: practice
+    labels: {zh: 参与式、社区与公共艺术, en: "Participatory, Community and Public Arts"}
+    definition: 通过共同议题、关系建立、协作创作、公共空间介入、传播与长期维护，使社区成员参与定义过程、成果和评价。
+    core_questions: [谁定义问题拥有叙事和决定参与条件, 艺术过程如何产生可感知作品同时维护关系能力与公共价值]
+    primary_domain: hkm:domain:arts-literature-creation
+    related_subdomains: [hkm:subdomain:participatory-community-arts]
+    roles: [practice, decision, boundary]
+    aims: [design-create, decide-negotiate, evaluate-norm]
+    epistemic_modes: [interpretive, design, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:aesthetics-art-theory-experience, hkm:framework:criticism-curation-conservation]
+    connections: [{type: complements, target: hkm:framework:architecture-spatial-arts-place, scope: 公共艺术与场所设计共同塑造空间使用、记忆、归属和可见性}]
+    boundary_notes: 参与不能成为免费劳动或预定结论的装饰；需保障知情同意、报酬、退出、署名、冲突处理与成果控制。
+
+  # D19 宗教、意义与世界观骨架
+  - <<: *core_defaults
+    id: hkm:method:comparative-religion-reflexive-study
+    code: K19.01
+    primary_type: method
+    labels: {zh: 比较宗教与反思性研究, en: Comparative Religion and Reflexive Study}
+    definition: 以历史、文本、民族志、物质文化和社会分析比较宗教传统，同时反思宗教分类、研究者位置及内部多样性。
+    core_questions: [比较单位与类别由谁在何种历史中形成, 如何同时理解参与者意义并保持可检验的分析距离]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:comparative-religious-studies]
+    roles: [method, synthesis, boundary]
+    aims: [identify-classify, explain-understand, evaluate-norm]
+    epistemic_modes: [comparative, historical, interpretive]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:theology-doctrine-tradition-reason, scope: 比较与反思性方法帮助区分内部神学论证和外部历史社会解释}]
+    boundary_notes: 不把传统视为同质封闭实体，也不以研究分类裁决超越主张真伪；应尊重自称、语境和内部争论。
+
+  - <<: *core_defaults
+    id: hkm:framework:theology-doctrine-tradition-reason
+    code: K19.02
+    primary_type: framework
+    labels: {zh: 神学、教义、传统与理性, en: "Theology, Doctrine, Tradition and Reason"}
+    definition: 从传统内部考察关于神圣、终极实在、人性、救赎、启示和共同体的系统主张，以及权威、理性和经验的关系。
+    core_questions: [教义主张依据何种启示传统理性与经验, 系统内部如何处理一致性发展分歧与异议]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:theology-doctrine]
+    roles: [foundation, representation, synthesis]
+    aims: [explain-understand, evaluate-norm, learn-transfer]
+    epistemic_modes: [interpretive, normative, historical]
+    learning_priority: A
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: depends-on, target: hkm:method:scripture-hermeneutics-reception, scope: 多数教义形成与争论依赖经文解释、传统接受和制度权威}]
+    boundary_notes: 神学理由对传统内部与公共领域可能具有不同证成范围；不得将单一宗派立场冒充整个传统共识。
+
+  - <<: *core_defaults
+    id: hkm:method:scripture-hermeneutics-reception
+    code: K19.03
+    primary_type: method
+    labels: {zh: 经文、诠释学与接受史, en: "Scripture, Hermeneutics and Reception"}
+    definition: 研究经典形成、语言体裁、文本传承、注释传统、礼仪使用、翻译与历史接受，比较字面、象征、法律和批判解释。
+    core_questions: [文本在何种历史语言和文类中产生并被编辑传播, 解释如何受传统共同体权威处境与伦理后果约束]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:scripture-hermeneutics]
+    roles: [method, evidence, synthesis]
+    aims: [explain-understand, diagnose-abduce, evaluate-norm]
+    epistemic_modes: [historical, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: enables, target: hkm:framework:ritual-worship-material-religion, scope: 经典的诵读、表演和物质承载连接文本解释与礼仪实践}]
+    boundary_notes: 引文脱离上下文和接受史会误导；翻译不是透明替换，应说明版本、语言能力和解释传统。
+
+  - <<: *core_defaults
+    id: hkm:framework:ritual-worship-material-religion
+    code: K19.04
+    primary_type: framework
+    labels: {zh: 仪式、崇拜与物质宗教, en: "Ritual, Worship and Material Religion"}
+    definition: 分析身体动作、时间历法、声音、空间、物件、食物、服饰和共同参与如何承载神圣关系、身份、记忆与社会秩序。
+    core_questions: [仪式如何通过重复身体物质和情感建立意义, 参与者角色场所权威与变化如何重塑实践]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:ritual-worship-material-religion]
+    roles: [practice, representation, synthesis]
+    aims: [explain-understand, identify-classify, learn-transfer]
+    epistemic_modes: [interpretive, historical, embodied]
+    learning_priority: A
+    prerequisites: [hkm:method:comparative-religion-reflexive-study, hkm:method:scripture-hermeneutics-reception]
+    connections: [{type: enables, target: hkm:framework:lived-religion-community-practice, scope: 仪式与物质实践把制度教义转化为日常关系身份和共同体节律}]
+    boundary_notes: 观察记录或参与仪式需遵守场所规范、同意与禁忌；不公开秘密、敏感地点或受限制知识。
+
+  - <<: *core_defaults
+    id: hkm:framework:mysticism-spirituality-contemplative-practice
+    code: K19.05
+    primary_type: framework
+    labels: {zh: 神秘主义、灵性与沉思实践, en: "Mysticism, Spirituality and Contemplative Practice"}
+    definition: 比较祈祷、冥想、禁欲、朝圣、入门和神秘经验的语言、训练、身体技术、导师关系与传统解释。
+    core_questions: [经验如何由实践期待共同体和语言框架塑造, 传统用哪些标准辨别成长错觉伤害与权威滥用]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:mysticism-spirituality-contemplative-practice]
+    roles: [practice, synthesis, boundary]
+    aims: [explain-understand, learn-transfer, evaluate-norm]
+    epistemic_modes: [interpretive, embodied, comparative]
+    learning_priority: B
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: complements, target: hkm:framework:worldviews-existential-meaning, scope: 沉思体验与世界观共同组织苦难自我终极关怀和生活方向}]
+    boundary_notes: 强烈实践可能引发身心风险且不替代医疗；须警惕导师权力、胁迫、经济剥削和把所有传统混成同一种体验。
+
+  - <<: *core_defaults
+    id: hkm:framework:religion-society-politics-public-life
+    code: K19.06
+    primary_type: framework
+    labels: {zh: 宗教、社会、政治与公共生活, en: "Religion, Society, Politics and Public Life"}
+    definition: 研究宗教组织、身份、权威、社会运动、国家关系、公共话语、福利网络和冲突合作如何在不同制度中互动。
+    core_questions: [宗教与国家社会边界如何被法律历史和组织实践共同构造, 信仰身份何时促进团结服务抗争排斥或暴力]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:religion-society-politics]
+    roles: [synthesis, mechanism, boundary]
+    aims: [explain-understand, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, historical, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:method:comparative-religion-reflexive-study, hkm:framework:history-religions-change-encounter]
+    connections: [{type: constrains, target: hkm:framework:religious-ethics-law-pluralism, scope: 宗教伦理与法律在多元公共制度中的权威范围和权利冲突需明确}]
+    boundary_notes: 不把宗教身份当作政治行为或安全风险的代理；必须区分组织领袖、制度主张与成员多样实践。
+
+  - <<: *core_defaults
+    id: hkm:framework:religious-ethics-law-pluralism
+    code: K19.07
+    primary_type: framework
+    labels: {zh: 宗教伦理、法律与多元共处, en: "Religious Ethics, Law and Pluralism"}
+    definition: 比较宗教传统中的德性、义务、法律、良知和共同善，并分析其与世俗法、宗教自由、平等及多元社会的协商。
+    core_questions: [规范主张如何由经典传统理性和实践证成, 宗教自由与他者权利公共安全和反歧视发生冲突时如何裁量]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:religious-ethics-law]
+    roles: [foundation, decision, boundary]
+    aims: [evaluate-norm, decide-negotiate, explain-understand]
+    epistemic_modes: [normative, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:method:comparative-religion-reflexive-study, hkm:framework:theology-doctrine-tradition-reason, hkm:method:scripture-hermeneutics-reception]
+    connections: [{type: complements, target: hkm:framework:religion-society-politics-public-life, scope: 规范论证与社会制度分析共同处理宗教权利、责任和公共理由}]
+    boundary_notes: 不以文化或宗教辩护胁迫、暴力和剥夺基本权利；也不假定世俗规范天然中立或无历史权力。
+
+  - <<: *core_defaults
+    id: hkm:framework:history-religions-change-encounter
+    code: K19.08
+    primary_type: framework
+    labels: {zh: 宗教史、变迁与跨文化相遇, en: "History of Religions, Change and Encounter"}
+    definition: 追踪传统的形成、分化、改革、传播、皈依、翻译、帝国遭遇、迁徙和现代转型，解释连续性与创新的共同作用。
+    core_questions: [制度文本实践和身份在何种历史转折中重组, 贸易征服迁徙和技术如何改变传统边界与自我理解]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:history-religions]
+    roles: [evidence, mechanism, synthesis]
+    aims: [explain-understand, identify-classify, diagnose-abduce]
+    epistemic_modes: [historical, comparative, interpretive]
+    learning_priority: A
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: enables, target: hkm:framework:religion-society-politics-public-life, scope: 历史形成路径解释当代宗教组织、国家关系和公共争议的制度惯性}]
+    boundary_notes: 后来的正统分类不能无条件投射到早期群体；档案常由制度权力保存，应寻找物质、口述和地方证据。
+
+  - <<: *core_defaults
+    id: hkm:framework:secularism-nonreligion-plurality
+    code: K19.09
+    primary_type: framework
+    labels: {zh: 世俗主义、非宗教与信念多元, en: "Secularism, Nonreligion and Belief Plurality"}
+    definition: 研究国家世俗性、无神论、不可知论、人文主义、宗教冷漠和后宗教身份的多种形态及其制度和生活实践。
+    core_questions: [世俗与宗教边界在特定社会中如何被定义执行, 非宗教者如何形成伦理共同体仪式身份和终极关怀]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:secularism-nonreligion]
+    roles: [foundation, synthesis, boundary]
+    aims: [identify-classify, explain-understand, evaluate-norm]
+    epistemic_modes: [empirical, historical, comparative]
+    learning_priority: A
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: enables, target: hkm:framework:worldviews-existential-meaning, scope: 非宗教立场扩展终极关怀、伦理和意义建构的比较空间}]
+    boundary_notes: 世俗化不是单一路线也不等于宗教消失；不把非宗教描述成缺失、把宗教描述成落后或反之。
+
+  - <<: *core_defaults
+    id: hkm:framework:worldviews-existential-meaning
+    code: K19.10
+    primary_type: framework
+    labels: {zh: 世界观、存在问题与生活意义, en: "Worldviews, Existential Questions and Meaning"}
+    definition: 比较宗教与非宗教世界观如何回答实在、自我、自由、死亡、苦难、价值、希望和归属，并把答案落实为生活方向。
+    core_questions: [一个世界观如何连接事实图景价值承诺与生活实践, 面对有限性苦难与不确定时意义如何形成修正并与他者共处]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:worldviews-existential-meaning]
+    roles: [synthesis, representation, decision]
+    aims: [explain-understand, evaluate-norm, decide-negotiate]
+    epistemic_modes: [interpretive, normative, comparative]
+    learning_priority: S
+    prerequisites: [hkm:method:comparative-religion-reflexive-study, hkm:framework:secularism-nonreligion-plurality]
+    connections: [{type: complements, target: hkm:framework:mysticism-spirituality-contemplative-practice, scope: 世界观概念与具体修习经验共同塑造自我理解、希望和行动}]
+    boundary_notes: 意义危机可能伴随抑郁、自伤或急性风险，应及时寻求专业帮助；世界观探索不应变成强迫改宗或心理替代治疗。
+
+  - <<: *core_defaults
+    id: hkm:framework:indigenous-local-cosmologies-knowledge
+    code: K19.11
+    primary_type: framework
+    labels: {zh: 原住民与地方宇宙观、土地和知识, en: "Indigenous and Local Cosmologies, Land and Knowledge"}
+    definition: 理解特定人民以土地、祖先、非人生命、亲属关系、故事、仪式和实践组织存在与责任的知识体系及其延续。
+    core_questions: [知识由哪些关系地点语言和责任维系, 研究收藏传播和应用需要哪些社区授权互惠与数据主权]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:indigenous-local-cosmologies]
+    roles: [foundation, representation, boundary]
+    aims: [explain-understand, evaluate-norm, decide-negotiate]
+    epistemic_modes: [interpretive, historical, embodied]
+    learning_priority: B
+    prerequisites: [hkm:method:comparative-religion-reflexive-study]
+    connections: [{type: constrains, target: hkm:framework:lived-religion-community-practice, scope: 地方知识的访问和表述须遵守共同体关系、场所责任和知识权限}]
+    boundary_notes: 不把多样传统合并为单一原住民灵性，不提取秘密或神圣知识；社区有权拒绝记录、决定访问与要求返还。
+
+  - <<: *core_defaults
+    id: hkm:framework:lived-religion-community-practice
+    code: K19.12
+    primary_type: framework
+    labels: {zh: 生活宗教、共同体与日常实践, en: "Lived Religion, Community and Everyday Practice"}
+    definition: 观察家庭、会众、网络、照护、节庆、食物、服饰、工作和生命礼仪中的实际宗教，比较制度规范与日常协商。
+    core_questions: [人们如何在日常关系资源和多重身份中实践信念, 正式教义与地方创新代际性别及迁徙经验怎样互动]
+    primary_domain: hkm:domain:religion-meaning-worldviews
+    related_subdomains: [hkm:subdomain:lived-religion-community-practice]
+    roles: [practice, evidence, synthesis]
+    aims: [describe-measure, explain-understand, learn-transfer]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: A
+    prerequisites: [hkm:method:comparative-religion-reflexive-study, hkm:framework:ritual-worship-material-religion, hkm:framework:religion-society-politics-public-life]
+    connections: [{type: complements, target: hkm:framework:indigenous-local-cosmologies-knowledge, scope: 日常实践研究需要尊重地方知识、土地关系与共同体解释权}]
+    boundary_notes: 田野进入不等于持续同意；应保护匿名、安全和内部差异，不让领袖或公开声音代表所有成员。
+
   # D20 生活实践模板
   - <<: *core_defaults
     id: hkm:framework:everyday-risk-triage-escalation
     code: K20.01
     primary_type: framework
-    labels: {zh: 日常风险分级、行动阈值与专业求助, en: Everyday Risk Triage, Action Thresholds and Escalation}
+    labels: {zh: 日常风险分级、行动阈值与专业求助, en: "Everyday Risk Triage, Action Thresholds and Escalation"}
     definition: 依据严重性、紧迫性、不确定性、可逆性和个人能力，决定自行处理、观察、停止、求助或紧急升级。
     core_questions: [最坏可信后果和时间窗口是什么, 哪些红旗意味着应停止并求助专业人员]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3303,7 +4157,7 @@ core_nodes:
     id: hkm:skill:personal-health-self-care-navigation
     code: K20.02
     primary_type: skill
-    labels: {zh: 个人健康、自护与就医导航, en: Personal Health, Self-Care and Care Navigation}
+    labels: {zh: 个人健康、自护与就医导航, en: "Personal Health, Self-Care and Care Navigation"}
     definition: 通过症状记录、基础预防、用药核对、就医准备和连续照护，在安全边界内管理常见健康需要。
     core_questions: [哪些情况适合自护观察或预约就医, 如何向专业人员准确提供症状时间线与用药信息]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3320,7 +4174,7 @@ core_nodes:
     id: hkm:practice:food-hygiene-cooking-household-nutrition
     code: K20.03
     primary_type: practice
-    labels: {zh: 食品卫生、烹饪与家庭营养, en: Food Hygiene, Cooking and Household Nutrition}
+    labels: {zh: 食品卫生、烹饪与家庭营养, en: "Food Hygiene, Cooking and Household Nutrition"}
     definition: 通过采购、储存、交叉污染控制、加热、份量和膳食组合，把食物安全与可持续日常饮食结合。
     core_questions: [如何降低食源风险并保留营养与可口性, 如何在预算文化健康和时间约束下安排饮食]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3338,7 +4192,7 @@ core_nodes:
     code: K20.04
     primary_type: skill
     additional_types: [practice]
-    labels: {zh: 家庭系统检查、维护与安全维修, en: Household Systems Inspection, Maintenance and Safe Repair}
+    labels: {zh: 家庭系统检查、维护与安全维修, en: "Household Systems Inspection, Maintenance and Safe Repair"}
     definition: 识别住所结构、水、电、燃气、通风、设备和耗材的状态，执行低风险维护并在越界前停手求助。
     core_questions: [故障属于哪一系统且能否安全隔离, 哪些检查维护可自行做而哪些需要持证专业人员]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3355,7 +4209,7 @@ core_nodes:
     id: hkm:practice:personal-finance-budgeting-risk
     code: K20.05
     primary_type: practice
-    labels: {zh: 个人财务、预算、负债与风险保护, en: Personal Finance, Budgeting, Debt and Risk Protection}
+    labels: {zh: 个人财务、预算、负债与风险保护, en: "Personal Finance, Budgeting, Debt and Risk Protection"}
     definition: 管理现金流、应急储备、负债成本、保险、长期目标和账户安全，使决策匹配期限与风险承受能力。
     core_questions: [现金流和关键风险暴露在哪里, 决策在费用税收流动性和最坏情形后是否仍可承受]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3372,7 +4226,7 @@ core_nodes:
     id: hkm:skill:consumer-legal-public-service-navigation
     code: K20.06
     primary_type: skill
-    labels: {zh: 消费者、合同、法律与公共服务导航, en: Consumer, Contract, Legal and Public-Service Navigation}
+    labels: {zh: 消费者、合同、法律与公共服务导航, en: "Consumer, Contract, Legal and Public-Service Navigation"}
     definition: 阅读关键条款、保存证据、识别权利义务、按期限使用投诉申诉和公共服务渠道。
     core_questions: [我同意了什么且关键期限证据和救济是什么, 哪个机构或专业人士有权处理]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3389,7 +4243,7 @@ core_nodes:
     id: hkm:skill:digital-security-media-information-literacy
     code: K20.07
     primary_type: skill
-    labels: {zh: 数字安全、媒体、数据与信息素养, en: Digital Security, Media, Data and Information Literacy}
+    labels: {zh: 数字安全、媒体、数据与信息素养, en: "Digital Security, Media, Data and Information Literacy"}
     definition: 管理账号设备权限备份和隐私，并用来源、证据、上下文与操纵迹象评估数字内容。
     core_questions: [信息和请求来自谁且能否独立验证, 账号数据设备的主要威胁与恢复路径是什么]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3406,7 +4260,7 @@ core_nodes:
     id: hkm:skill:relationship-communication-consent-boundaries
     code: K20.08
     primary_type: skill
-    labels: {zh: 关系沟通、同意、边界与冲突处理, en: Relationship Communication, Consent, Boundaries and Conflict Handling}
+    labels: {zh: 关系沟通、同意、边界与冲突处理, en: "Relationship Communication, Consent, Boundaries and Conflict Handling"}
     definition: 通过倾听、明确请求、知情同意、界限、修复和安全退出处理亲密、家庭、朋友与协作关系。
     core_questions: [双方是否能自由理解并撤回同意, 冲突是信息目标边界还是安全问题]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3423,7 +4277,7 @@ core_nodes:
     id: hkm:practice:household-care-coordination
     code: K20.09
     primary_type: practice
-    labels: {zh: 家庭照护、分工与连续性协调, en: Household Care, Division of Labor and Continuity Coordination}
+    labels: {zh: 家庭照护、分工与连续性协调, en: "Household Care, Division of Labor and Continuity Coordination"}
     definition: 协调儿童、老人、病患、残障者与日常家务所需的任务、信息、轮替、休息和外部支持。
     core_questions: [谁需要何种照护且关键记录在哪里, 如何让负担可见可分担并有替补和喘息]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3440,7 +4294,7 @@ core_nodes:
     id: hkm:skill:learning-reading-writing-knowledge-workflow
     code: K20.10
     primary_type: skill
-    labels: {zh: 学习、阅读、写作与个人知识流程, en: Learning, Reading, Writing and Personal Knowledge Workflow}
+    labels: {zh: 学习、阅读、写作与个人知识流程, en: "Learning, Reading, Writing and Personal Knowledge Workflow"}
     definition: 以问题、检索、主动回忆、间隔练习、笔记、写作、反馈和版本管理形成可复用学习循环。
     core_questions: [学习目标如何转为可检验表现, 信息如何从收集变成理解输出与迁移]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3457,7 +4311,7 @@ core_nodes:
     id: hkm:skill:career-workplace-collaboration-negotiation
     code: K20.11
     primary_type: skill
-    labels: {zh: 职业探索、工作协作与基础谈判, en: Career Exploration, Workplace Collaboration and Basic Negotiation}
+    labels: {zh: 职业探索、工作协作与基础谈判, en: "Career Exploration, Workplace Collaboration and Basic Negotiation"}
     definition: 识别可迁移能力、评估岗位与组织、明确期望、记录成果、协作反馈并就条件和边界进行准备充分的谈判。
     core_questions: [我的能力证据和发展缺口是什么, 目标角色的真实任务条件权力和风险如何]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3474,7 +4328,7 @@ core_nodes:
     id: hkm:skill:mobility-travel-spatial-navigation
     code: K20.12
     primary_type: skill
-    labels: {zh: 出行、旅行与空间导航, en: Mobility, Travel and Spatial Navigation}
+    labels: {zh: 出行、旅行与空间导航, en: "Mobility, Travel and Spatial Navigation"}
     definition: 规划路线、时间、票证、无障碍、天气、通信、证件和备选方案，并在陌生环境中保持定向与安全。
     core_questions: [路线的关键约束和失败点是什么, 失联延误迷路或证件问题时如何恢复]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3491,7 +4345,7 @@ core_nodes:
     id: hkm:skill:physical-literacy-training-recovery
     code: K20.13
     primary_type: skill
-    labels: {zh: 身体素养、训练负荷与恢复, en: Physical Literacy, Training Load and Recovery}
+    labels: {zh: 身体素养、训练负荷与恢复, en: "Physical Literacy, Training Load and Recovery"}
     definition: 发展基本动作、力量、耐力、灵活性和身体觉察，并用渐进负荷、恢复和伤害信号管理长期活动。
     core_questions: [目标动作如何安全渐进练习, 疲劳疼痛和恢复信号何时需要调整或求助]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3508,7 +4362,7 @@ core_nodes:
     id: hkm:skill:craft-making-low-risk-repair
     code: K20.14
     primary_type: skill
-    labels: {zh: 手工制作、工具使用与低风险修复, en: Craft, Making, Tool Use and Low-Risk Repair}
+    labels: {zh: 手工制作、工具使用与低风险修复, en: "Craft, Making, Tool Use and Low-Risk Repair"}
     definition: 通过测量、材料选择、连接、切削、表面处理和迭代形成物件，并安全使用常见手工具完成低风险修复。
     core_questions: [材料工具和工序如何匹配目标, 如何固定防护试装和检查以避免伤害与返工]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3526,7 +4380,7 @@ core_nodes:
     code: K20.15
     primary_type: skill
     additional_types: [practice]
-    labels: {zh: 应急准备、急救与初期响应, en: Emergency Preparedness, First Aid and Initial Response}
+    labels: {zh: 应急准备、急救与初期响应, en: "Emergency Preparedness, First Aid and Initial Response"}
     definition: 通过风险清单、预警、通信、物资、疏散和基础急救，在专业救援到达前保护生命并避免二次伤害。
     core_questions: [现场是否安全且最紧迫威胁是什么, 如何报警定位提供适当急救并持续监测]
     primary_domain: hkm:domain:everyday-life-practical-agency
@@ -3543,7 +4397,7 @@ core_nodes:
     id: hkm:skill:time-attention-habits-self-management
     code: K20.16
     primary_type: skill
-    labels: {zh: 时间、注意、习惯与自我管理, en: Time, Attention, Habits and Self-Management}
+    labels: {zh: 时间、注意、习惯与自我管理, en: "Time, Attention, Habits and Self-Management"}
     definition: 用目标澄清、环境设计、任务分解、节律、提醒、复盘和恢复管理有限注意与行动持续性。
     core_questions: [真正重要的下一步和约束是什么, 如何让环境系统而非意志力独自承担持续行动]
     primary_domain: hkm:domain:everyday-life-practical-agency

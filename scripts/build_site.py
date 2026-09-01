@@ -117,7 +117,7 @@ def build_payload() -> dict:
     return {
         "meta": {
             "id": "human-knowledge-model",
-            "version": "0.3.0-draft",
+            "version": core_data["model_version"],
             "generatedFrom": [
                 "08-data/domains.yaml",
                 "08-data/subdomains.yaml",

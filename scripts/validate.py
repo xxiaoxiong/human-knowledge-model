@@ -27,6 +27,12 @@ def load_yaml(relative_path: str) -> dict:
         return yaml.safe_load(stream)
 
 
+def normalize_identity_text(value: str) -> str:
+    """Normalize human-facing identity text for exact duplicate checks."""
+
+    return re.sub(r"[^\w]+", "", value.casefold(), flags=re.UNICODE)
+
+
 def main() -> int:
     schema = load_yaml("08-data/schema.yaml")
     domain_data = load_yaml("08-data/domains.yaml")
@@ -179,6 +185,8 @@ def main() -> int:
         code: set() for code in published_domains
     }
     seen_core_codes: set[str] = set()
+    seen_core_labels: dict[tuple[str, str], str] = {}
+    seen_core_definitions: dict[str, str] = {}
     prereq_graph: dict[str, list[str]] = {node_id: [] for node_id in core_ids}
     for node in core_nodes:
         missing = required_core - node.keys()
@@ -195,6 +203,30 @@ def main() -> int:
         if node["code"] in seen_core_codes:
             errors.append(f"duplicate core code: {node['code']}")
         seen_core_codes.add(node["code"])
+        label_locales = set(node["labels"])
+        if label_locales != {"zh", "en"}:
+            errors.append(
+                f"{node['code']}: labels must contain exactly zh and en, "
+                f"got {sorted(str(locale) for locale in label_locales)}"
+            )
+        for locale in ("zh", "en"):
+            if locale not in node["labels"]:
+                continue
+            normalized_label = normalize_identity_text(node["labels"][locale])
+            label_key = (locale, normalized_label)
+            if label_key in seen_core_labels:
+                errors.append(
+                    f"duplicate normalized {locale} core label: "
+                    f"{seen_core_labels[label_key]} and {node['code']}"
+                )
+            seen_core_labels[label_key] = node["code"]
+        normalized_definition = normalize_identity_text(node["definition"])
+        if normalized_definition in seen_core_definitions:
+            errors.append(
+                "duplicate normalized core definition: "
+                f"{seen_core_definitions[normalized_definition]} and {node['code']}"
+            )
+        seen_core_definitions[normalized_definition] = node["code"]
         if node["primary_domain"] not in domain_code_by_id:
             errors.append(f"{node['code']}: invalid primary domain {node['primary_domain']}")
             continue
