@@ -1,13 +1,424 @@
 schema_version: 0.1.0
 model_version: 0.3.0-draft
-description: 领域核心骨架内容节点；首批以 D03、D10、D13、D20 为四类模板域。
-published_domains: [D03, D10, D13, D20]
+description: 领域核心骨架内容节点；当前覆盖八个基础与模板领域，其余领域按同一质量门槛持续扩展。
+published_domains: [D01, D02, D03, D05, D06, D10, D13, D20]
 
 defaults: &core_defaults
   status: active
   version: 0.3.0-draft
 
 core_nodes:
+  # D01 元知识与探究骨架
+  - <<: *core_defaults
+    id: hkm:framework:knowledge-justification-truth
+    code: K01.01
+    primary_type: framework
+    labels: {zh: 知识、证成与真理框架, en: Knowledge, Justification and Truth}
+    definition: 区分信念、证据、证成、可靠性与真理条件，并分析认知主体如何在不确定和可错条件下形成可辩护判断。
+    core_questions: [什么使一个信念有资格被称为知识, 证据与可靠过程如何支持或削弱判断]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:epistemology-knowledge]
+    roles: [foundation, evidence, boundary]
+    aims: [evaluate-norm, explain-understand, diagnose-abduce]
+    epistemic_modes: [formal, interpretive, normative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:method:argument-analysis-dialectical-inquiry, scope: 对证成和证据的区分为论证重构与批判提供评价标准}]
+    boundary_notes: 知识分析存在内在主义、外在主义与社会认识论等竞争方案；不可把确信程度直接当作真实性或正当性。
+
+  - <<: *core_defaults
+    id: hkm:framework:ontology-identity-modality
+    code: K01.02
+    primary_type: framework
+    labels: {zh: 存在、同一性与模态框架, en: Ontology, Identity and Modality}
+    definition: 用实体、属性、关系、过程、部分整体、可能性与必然性等范畴澄清我们承诺何种存在及其持续条件。
+    core_questions: [理论承诺了哪些存在者与关系, 对象跨时间和反事实情境保持同一需要什么条件]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:metaphysics-ontology]
+    roles: [foundation, representation, boundary]
+    aims: [identify-classify, explain-understand, learn-transfer]
+    epistemic_modes: [formal, interpretive]
+    learning_priority: A
+    prerequisites: [hkm:framework:knowledge-justification-truth]
+    connections: [{type: enables, target: hkm:framework:knowledge-organization-ontology-design, scope: 形而上范畴为知识表示中的类别关系和身份条件提供概念资源}]
+    boundary_notes: 本体承诺依赖语言、理论与解释目的；概念分类的便利性不自动证明世界具有同样的唯一切分。
+
+  - <<: *core_defaults
+    id: hkm:method:argument-analysis-dialectical-inquiry
+    code: K01.03
+    primary_type: method
+    labels: {zh: 论证分析与辩证探究, en: Argument Analysis and Dialectical Inquiry}
+    definition: 重构前提、结论、隐含假设和反例，区分演绎有效性、归纳强度与溯因解释，并通过异议修正主张。
+    core_questions: [结论依赖哪些明示或隐含前提, 什么反例证据或替代解释会改变判断]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:argumentation-critical-inquiry]
+    roles: [method, evidence, boundary]
+    aims: [diagnose-abduce, evaluate-norm, decide-negotiate]
+    epistemic_modes: [formal, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:knowledge-justification-truth]
+    connections: [{type: enables, target: hkm:framework:ethical-reasoning-moral-pluralism, scope: 伦理分歧需要区分事实前提价值前提与推理结构}]
+    boundary_notes: 形式有效不保证前提真实或相关；修辞说服、身份权威与论证质量必须分别判断。
+
+  - <<: *core_defaults
+    id: hkm:framework:ethical-reasoning-moral-pluralism
+    code: K01.04
+    primary_type: framework
+    labels: {zh: 伦理推理与道德多元, en: Ethical Reasoning and Moral Pluralism}
+    definition: 综合后果、义务、权利、德性、关怀、公正与情境，识别行动受影响者、可接受理由和不可逾越边界。
+    core_questions: [谁受到怎样的利益风险与权利影响, 冲突价值之间哪些取舍可被公开辩护]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:ethics-moral-philosophy]
+    roles: [foundation, decision, boundary]
+    aims: [evaluate-norm, decide-negotiate, control-maintain]
+    epistemic_modes: [normative, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:method:argument-analysis-dialectical-inquiry]
+    connections: [{type: enables, target: hkm:framework:justice-legitimacy-rights, scope: 公共制度评价把个体伦理理由扩展到权利分配与合法强制}]
+    boundary_notes: 伦理框架不能机械输出唯一答案；事实不确定、权力差异、文化语境和不可逆伤害需显式呈现。
+
+  - <<: *core_defaults
+    id: hkm:framework:value-aesthetic-life-evaluation
+    code: K01.05
+    primary_type: framework
+    labels: {zh: 价值、审美与生活评价, en: Value, Aesthetic and Life Evaluation}
+    definition: 分析何物值得追求、何种体验具有审美意义，以及幸福、成就、关系、自主和意义如何构成对生活的评价。
+    core_questions: [评价对象依赖哪些价值标准与感受结构, 良好生活的不同组成如何冲突或互补]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:value-aesthetics-life-philosophy]
+    roles: [foundation, synthesis, decision]
+    aims: [evaluate-norm, explain-understand, decide-negotiate]
+    epistemic_modes: [normative, interpretive, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:ethical-reasoning-moral-pluralism]
+    connections: [{type: complements, target: hkm:framework:reflexive-inquiry-worldview-audit, scope: 生活选择的反思既需要价值澄清也需要检视世界观和社会条件}]
+    boundary_notes: 主观偏好、社会地位信号与审美价值不等同；价值评价可有理由约束但通常不能简化为单一量表。
+
+  - <<: *core_defaults
+    id: hkm:framework:scientific-explanation-theory-change
+    code: K01.06
+    primary_type: framework
+    labels: {zh: 科学解释、模型与理论变迁, en: Scientific Explanation, Models and Theory Change}
+    definition: 比较因果、机制、统一、统计与模型型解释，考察观察负载、理想化、证伪、确认和研究纲领如何推动理论变化。
+    core_questions: [解释为何有效且依赖哪些理想化, 新证据应促使参数修正模型替换还是研究问题重构]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:philosophy-science-technology-methodology]
+    roles: [foundation, synthesis, boundary]
+    aims: [explain-understand, evaluate-norm, learn-transfer]
+    epistemic_modes: [historical, interpretive, comparative, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:knowledge-justification-truth, hkm:method:argument-analysis-dialectical-inquiry]
+    connections: [{type: enables, target: hkm:framework:metascience-reproducibility-incentives, scope: 对模型证据和理论变化的理解为研究实践评价提供规范基线}]
+    boundary_notes: 单次反例通常不能脱离辅助假设和测量条件裁决理论；科学方法不是跨领域完全相同的固定步骤。
+
+  - <<: *core_defaults
+    id: hkm:model:mind-language-reference
+    code: K01.07
+    primary_type: model
+    labels: {zh: 心智、语言与指称模型, en: Mind, Language and Reference}
+    definition: 连接意识内容、意向性、概念、语言使用、意义、指称与社会实践，解释思想如何关于世界并可被交流。
+    core_questions: [心理内容和语言表达如何获得意义, 私人体验与公共规则如何共同支持理解]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:philosophy-mind-language]
+    roles: [representation, mechanism, boundary]
+    aims: [explain-understand, identify-classify, learn-transfer]
+    epistemic_modes: [interpretive, formal, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:ontology-identity-modality]
+    connections: [{type: complements, target: hkm:framework:knowledge-organization-ontology-design, scope: 形式本体需要与自然语言语境多义性和使用规则相互校正}]
+    boundary_notes: 心灵哲学立场和意义理论高度争议；语义模型的预测成功不自动解决意识本体或理解是否真实的问题。
+
+  - <<: *core_defaults
+    id: hkm:framework:justice-legitimacy-rights
+    code: K01.08
+    primary_type: framework
+    labels: {zh: 正义、合法性与权利框架, en: Justice, Legitimacy and Rights}
+    definition: 评价制度如何分配权利、机会、资源、负担与政治声音，以及何种权威和强制可被受影响者合理接受。
+    core_questions: [制度的收益风险和话语权如何分配, 权威的来源程序边界与救济是否正当]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:social-political-legal-philosophy]
+    roles: [foundation, decision, boundary]
+    aims: [evaluate-norm, decide-negotiate, optimize-allocate]
+    epistemic_modes: [normative, historical, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:ethical-reasoning-moral-pluralism]
+    connections: [{type: complements, target: hkm:method:comparative-philosophy-contextual-translation, scope: 正义与合法性概念需在不同历史制度和思想传统之间谨慎翻译}]
+    boundary_notes: 合法、民主或多数支持不自动等于正义；抽象原则需检验其对边缘群体和现实权力关系的影响。
+
+  - <<: *core_defaults
+    id: hkm:method:comparative-philosophy-contextual-translation
+    code: K01.09
+    primary_type: method
+    labels: {zh: 比较哲学与语境化翻译, en: Comparative Philosophy and Contextual Translation}
+    definition: 在不预设单一传统为尺度的前提下，比较概念、问题、论证形式、修行实践与历史语境，建立可修正的对应关系。
+    core_questions: [概念在原传统中解决什么问题并嵌入何种实践, 跨传统对应是等同近似类比还是不可通约]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:comparative-philosophy-knowledge-traditions]
+    roles: [method, synthesis, boundary]
+    aims: [identify-classify, learn-transfer, evaluate-norm]
+    epistemic_modes: [comparative, historical, interpretive]
+    learning_priority: B
+    prerequisites: [hkm:method:argument-analysis-dialectical-inquiry]
+    connections: [{type: enables, target: hkm:framework:reflexive-inquiry-worldview-audit, scope: 多传统比较暴露默认范畴和问题设定的地方性}]
+    boundary_notes: 相似译词可能掩盖历史实践差异；比较既要避免把差异异国化，也要避免用熟悉范畴抹平差异。
+
+  - <<: *core_defaults
+    id: hkm:framework:metascience-reproducibility-incentives
+    code: K01.10
+    primary_type: framework
+    labels: {zh: 元科学、可复现性与研究激励, en: Metascience, Reproducibility and Research Incentives}
+    definition: 把研究设计、测量、统计选择、发表机制、利益冲突、开放实践和纠错制度视为共同塑造证据可靠性的系统。
+    core_questions: [结果能否在透明条件下复核重复或再现, 奖励结构如何影响选题分析发表与纠错]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:metascience-research-integrity]
+    roles: [evidence, method, boundary]
+    aims: [evaluate-norm, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, formal, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:scientific-explanation-theory-change]
+    connections: [{type: constrains, target: hkm:framework:knowledge-organization-ontology-design, scope: 知识组织应保留来源版本不确定性撤回和争议状态}]
+    boundary_notes: 不可复现有技术、统计、样本与理论多种原因；开放数据也受隐私、安全、同意和知识主权限制。
+
+  - <<: *core_defaults
+    id: hkm:framework:knowledge-organization-ontology-design
+    code: K01.11
+    primary_type: framework
+    labels: {zh: 知识组织与本体设计, en: Knowledge Organization and Ontology Design}
+    definition: 以身份、类型、关系、层级、分面、来源、版本和映射语义组织知识，使人和机器能检索、比较、推理与演化。
+    core_questions: [哪些对象需要稳定身份且关系语义是什么, 分类如何同时支持主路径跨域复用和版本迁移]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:knowledge-organization-ontology]
+    roles: [representation, design, synthesis]
+    aims: [identify-classify, design-create, learn-transfer]
+    epistemic_modes: [formal, design, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:ontology-identity-modality, hkm:method:argument-analysis-dialectical-inquiry]
+    connections: [{type: implements, target: hkm:framework:reflexive-inquiry-worldview-audit, scope: 显式类型边界来源和版本使分类假设可被审计与修正}]
+    boundary_notes: 本体是目的约束下的可演化模型而非世界的最终目录；过度细分、混合层级和无语境复用会制造伪精确。
+
+  - <<: *core_defaults
+    id: hkm:framework:reflexive-inquiry-worldview-audit
+    code: K01.12
+    primary_type: framework
+    labels: {zh: 反身探究与世界观审计, en: Reflexive Inquiry and Worldview Audit}
+    definition: 检视问题设定、价值承诺、知识来源、利益位置、缺席声音和行动后果，形成可重复的自我修正闭环。
+    core_questions: [我的框架让哪些事实价值和主体可见或不可见, 什么证据经验或异议会促使我改变立场]
+    primary_domain: hkm:domain:metaknowledge-philosophy-inquiry
+    related_subdomains: [hkm:subdomain:epistemology-knowledge, hkm:subdomain:value-aesthetics-life-philosophy, hkm:subdomain:comparative-philosophy-knowledge-traditions, hkm:subdomain:metascience-research-integrity]
+    roles: [synthesis, method, boundary]
+    aims: [evaluate-norm, learn-transfer, decide-negotiate]
+    epistemic_modes: [interpretive, comparative, normative, synthetic]
+    learning_priority: B
+    prerequisites: [hkm:framework:ethical-reasoning-moral-pluralism, hkm:method:comparative-philosophy-contextual-translation, hkm:framework:metascience-reproducibility-incentives]
+    connections: [{type: refines, target: hkm:framework:knowledge-justification-truth, scope: 反身审计把个体证成扩展到社会位置制度激励和被排除证言}]
+    boundary_notes: 反身性不等于所有观点同样可靠或陷入无限怀疑；审计仍需可检验主张、证据标准与行动责任。
+
+  # D02 数学、统计与形式系统骨架
+  - <<: *core_defaults
+    id: hkm:framework:formal-objects-axioms-types-categories
+    code: K02.01
+    primary_type: framework
+    labels: {zh: 形式对象、公理、类型与范畴, en: Formal Objects, Axioms, Types and Categories}
+    definition: 用集合、关系、结构、类型、映射和范畴刻画形式对象，区分语法规则、语义解释与不同基础体系的承诺。
+    core_questions: [对象与合法操作由哪些公理和类型规则规定, 不同基础语言保留了哪些结构与证明]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:foundations-sets-types-categories]
+    roles: [foundation, representation, boundary]
+    aims: [identify-classify, explain-understand, learn-transfer]
+    epistemic_modes: [formal]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:logic-proof-model-theory, scope: 基础对象和构造规则为命题证明与模型解释提供语言}]
+    boundary_notes: 不同基础方案可对大部分日常数学给出等价表达；形式存在与经验世界中的对象存在不可直接等同。
+
+  - <<: *core_defaults
+    id: hkm:framework:logic-proof-model-theory
+    code: K02.02
+    primary_type: framework
+    labels: {zh: 逻辑、证明与模型理论, en: Logic, Proof and Model Theory}
+    definition: 研究形式语言中的可推导性、有效性、一致性、完备性、可判定性与模型满足关系，连接证明系统和语义结构。
+    core_questions: [结论能否从给定公理按规则推出, 语法可证与语义为真之间在何种条件下对应]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:mathematical-logic-proof]
+    roles: [foundation, method, boundary]
+    aims: [explain-understand, evaluate-norm, learn-transfer]
+    epistemic_modes: [formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:formal-objects-axioms-types-categories]
+    connections: [{type: enables, target: hkm:framework:number-arithmetic-structures, scope: 证明和模型工具用于研究数系结构与不可判定边界}]
+    boundary_notes: 形式证明保证相对公理和规则的正确性，不保证公理适合经验问题；不完备结果也不意味着任意命题不可知。
+
+  - <<: *core_defaults
+    id: hkm:framework:number-arithmetic-structures
+    code: K02.03
+    primary_type: framework
+    labels: {zh: 数与算术结构, en: Number and Arithmetic Structures}
+    definition: 从自然数、整数、域、同余、素数与丢番图关系研究离散数量结构及其代数、逻辑和计算性质。
+    core_questions: [整数结构中的分解同余和可解性遵循什么规律, 局部信息如何约束全局算术性质]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:number-theory-arithmetic]
+    roles: [foundation, mechanism, representation]
+    aims: [identify-classify, explain-understand, predict-warn]
+    epistemic_modes: [formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:logic-proof-model-theory]
+    connections: [{type: enables, target: hkm:framework:information-coding-cryptographic-structure, scope: 模运算素数和有限域构成编码与现代密码的关键基础}]
+    boundary_notes: 理论难解性与工程安全性不同；有限样例中的数值模式不能替代证明。
+
+  - <<: *core_defaults
+    id: hkm:framework:algebra-discrete-symmetry
+    code: K02.04
+    primary_type: framework
+    labels: {zh: 代数、离散结构与对称性, en: Algebra, Discrete Structures and Symmetry}
+    definition: 用群、环、域、模、图、组合结构和同态研究运算封闭性、不变量、对称变换与离散关系网络。
+    core_questions: [哪些运算和变换保持结构, 离散对象如何按同构不变量和组合约束分类]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:algebra-discrete-structures]
+    roles: [foundation, representation, synthesis]
+    aims: [identify-classify, explain-understand, design-create]
+    epistemic_modes: [formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:formal-objects-axioms-types-categories]
+    connections: [{type: enables, target: hkm:framework:geometry-topology-invariants, scope: 代数不变量和变换群用于描述空间结构}]
+    boundary_notes: 相同代数形式可实例化为不同现实机制；离散化会舍弃连续空间中的度量与极限信息。
+
+  - <<: *core_defaults
+    id: hkm:framework:geometry-topology-invariants
+    code: K02.05
+    primary_type: framework
+    labels: {zh: 几何、拓扑与空间不变量, en: Geometry, Topology and Spatial Invariants}
+    definition: 区分距离、角度、曲率、连通性、邻域与洞等在不同变换下保持的空间性质，并研究局部与整体结构。
+    core_questions: [允许哪些空间变换且什么量保持不变, 局部几何如何限制或揭示整体拓扑]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:geometry-topology]
+    roles: [representation, mechanism, synthesis]
+    aims: [describe-measure, identify-classify, explain-understand]
+    epistemic_modes: [formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:algebra-discrete-symmetry]
+    connections: [{type: complements, target: hkm:framework:analysis-calculus-differential-equations, scope: 现代空间问题常同时需要拓扑整体约束与局部微分结构}]
+    boundary_notes: 可视化直觉在高维、非欧和奇异空间中可能失效；拓扑等价不保留长度、能量或动力学性质。
+
+  - <<: *core_defaults
+    id: hkm:framework:analysis-calculus-differential-equations
+    code: K02.06
+    primary_type: framework
+    labels: {zh: 分析、微积分与微分方程, en: Analysis, Calculus and Differential Equations}
+    definition: 以极限、连续、导数、积分、函数空间和方程研究连续变化、累积效应、稳定性及初边值条件下的解。
+    core_questions: [局部变化率如何积累成整体行为, 方程的解是否存在唯一稳定且对扰动连续]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:analysis-calculus-equations]
+    roles: [foundation, mechanism, method]
+    aims: [explain-understand, predict-warn, describe-measure]
+    epistemic_modes: [formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:formal-objects-axioms-types-categories]
+    connections: [{type: enables, target: hkm:framework:dynamical-systems-control-complexity, scope: 微分和差分方程为状态演化稳定性与控制提供主要表达}]
+    boundary_notes: 方程有解不等于可闭式求解或可稳定计算；连续模型对离散事件和奇异点需额外处理。
+
+  - <<: *core_defaults
+    id: hkm:framework:probability-stochastic-processes
+    code: K02.07
+    primary_type: framework
+    labels: {zh: 概率与随机过程, en: Probability and Stochastic Processes}
+    definition: 用样本空间、随机变量、条件概率、期望、极限定理和随机过程表示不确定事件及其随时间和信息变化的分布。
+    core_questions: [不确定性来自随机机制知识不足还是建模选择, 条件信息如何更新事件与路径的概率]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:probability-stochastic-processes]
+    roles: [foundation, representation, mechanism]
+    aims: [predict-warn, describe-measure, diagnose-abduce]
+    epistemic_modes: [formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:formal-objects-axioms-types-categories]
+    connections: [{type: enables, target: hkm:framework:statistical-inference-measurement, scope: 概率模型把数据生成假设与参数不确定性连接起来}]
+    boundary_notes: 概率需声明频率、倾向或信念等解释及参考类；低概率不等于不可能，高概率不等于已发生。
+
+  - <<: *core_defaults
+    id: hkm:framework:statistical-inference-measurement
+    code: K02.08
+    primary_type: framework
+    additional_types: [measurement]
+    labels: {zh: 统计推断、数据生成与测量, en: Statistical Inference, Data Generation and Measurement}
+    definition: 将抽样、测量误差、估计、检验、贝叶斯更新、因果识别和模型检验纳入对总体与机制的可校准推断。
+    core_questions: [数据由什么选择测量和缺失过程产生, 结论对模型假设先验多重比较与误差多敏感]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:statistics-inference-measurement]
+    roles: [evidence, method, boundary]
+    aims: [diagnose-abduce, describe-measure, evaluate-norm]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:probability-stochastic-processes]
+    connections: [{type: constrains, target: hkm:framework:optimization-operations-games, scope: 决策优化需要使用经校准的不确定性估计而非点预测幻觉}]
+    boundary_notes: 统计显著性不等于效应重要、因果或可复现；模型外推必须说明总体、干预与测量稳定条件。
+
+  - <<: *core_defaults
+    id: hkm:framework:optimization-operations-games
+    code: K02.09
+    primary_type: framework
+    labels: {zh: 优化、运筹与博弈, en: Optimization, Operations Research and Games}
+    definition: 在目标、约束、资源、不确定性和多主体策略下寻找可行或近优决策，并分析均衡、激励与机制设计。
+    core_questions: [目标函数和约束是否代表真实价值与边界, 多主体反应如何改变单方最优和系统结果]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:optimization-operations-game-theory]
+    roles: [decision, design, method]
+    aims: [optimize-allocate, decide-negotiate, design-create]
+    epistemic_modes: [formal, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:analysis-calculus-differential-equations, hkm:framework:probability-stochastic-processes]
+    connections: [{type: enables, target: hkm:framework:dynamical-systems-control-complexity, scope: 控制策略和资源调度常以动态优化和反馈决策构造}]
+    boundary_notes: 可计算最优只相对于编码目标；遗漏公平、安全、鲁棒性和战略操纵会产生形式正确但现实有害的方案。
+
+  - <<: *core_defaults
+    id: hkm:framework:dynamical-systems-control-complexity
+    code: K02.10
+    primary_type: framework
+    labels: {zh: 动力系统、控制与复杂性, en: Dynamical Systems, Control and Complexity}
+    definition: 以状态空间、反馈、稳定性、吸引子、分岔、混沌和可控可观性研究系统随时间演化及干预边界。
+    core_questions: [长期行为由哪些状态反馈与参数区间决定, 系统能否被观测控制并对扰动保持鲁棒]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:dynamical-systems-control]
+    roles: [mechanism, representation, design]
+    aims: [predict-warn, control-maintain, explain-understand]
+    epistemic_modes: [formal, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:analysis-calculus-differential-equations, hkm:framework:optimization-operations-games]
+    connections: [{type: complements, target: hkm:framework:numerical-computation-approximation-error, scope: 非线性动力系统通常依赖数值模拟但需同时审查误差和敏感性}]
+    boundary_notes: 混沌限制长期轨迹预测但不排除统计规律；反馈控制在模型偏差、延迟和执行饱和下可能失稳。
+
+  - <<: *core_defaults
+    id: hkm:framework:information-coding-cryptographic-structure
+    code: K02.11
+    primary_type: framework
+    labels: {zh: 信息、编码与密码结构, en: Information, Coding and Cryptographic Structure}
+    definition: 用熵、信道、编码、纠错、复杂度与计算困难性研究信息压缩、可靠传输、保密、认证和完整性。
+    core_questions: [信源信道和攻击模型允许何种编码上限, 安全主张依赖哪些困难假设密钥和实现条件]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:information-coding-cryptography]
+    roles: [representation, design, boundary]
+    aims: [describe-measure, design-create, predict-warn]
+    epistemic_modes: [formal]
+    learning_priority: B
+    prerequisites: [hkm:framework:number-arithmetic-structures, hkm:framework:algebra-discrete-symmetry, hkm:framework:probability-stochastic-processes]
+    connections: [{type: complements, target: hkm:framework:numerical-computation-approximation-error, scope: 形式编码和密码在实现时仍受有限精度随机源与计算资源约束}]
+    boundary_notes: 信息论安全、计算安全与系统安全不同；强算法不能弥补泄漏密钥、恶意终端或错误协议组合。
+
+  - <<: *core_defaults
+    id: hkm:framework:numerical-computation-approximation-error
+    code: K02.12
+    primary_type: framework
+    labels: {zh: 数值计算、近似与误差, en: Numerical Computation, Approximation and Error}
+    definition: 用离散化、迭代、插值、矩阵计算、条件数和误差传播把数学对象转为有限资源下可执行且可验证的近似。
+    core_questions: [算法误差来自截断舍入采样还是模型偏差, 结果是否收敛稳定且在资源限制下可复核]
+    primary_domain: hkm:domain:mathematics-statistics-formal-systems
+    related_subdomains: [hkm:subdomain:numerical-computational-mathematics]
+    roles: [method, evidence, boundary]
+    aims: [describe-measure, predict-warn, design-create]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:analysis-calculus-differential-equations, hkm:framework:algebra-discrete-symmetry]
+    connections: [{type: operationalizes, target: hkm:framework:dynamical-systems-control-complexity, scope: 数值算法使复杂动力模型的轨迹稳定性和参数敏感性可计算检验}]
+    boundary_notes: 更多小数位不保证更真实；病态问题、网格依赖和未报告容差会产生精确外观下的不可靠结论。
+
   # D03 自然规律模板
   - <<: *core_defaults
     id: hkm:framework:physical-quantities-dimensional-analysis
@@ -268,6 +679,417 @@ core_nodes:
     prerequisites: [hkm:framework:physical-quantities-dimensional-analysis, hkm:model:waves-spectra-signals]
     connections: [{type: operationalizes, target: hkm:framework:physical-quantities-dimensional-analysis, scope: 测量程序把物理量定义落实为仪器、校准与数据处理操作}]
     boundary_notes: 精密不等于准确，统计误差不包含全部系统误差；复现失败也可能来自未建模情境差异。
+
+  # D05 生命与进化骨架
+  - <<: *core_defaults
+    id: hkm:framework:life-origin-chemical-evolution-habitability
+    code: K05.01
+    primary_type: framework
+    labels: {zh: 生命起源、化学演化与宜居性, en: Origins of Life, Chemical Evolution and Habitability}
+    definition: 连接前生物化学、能量梯度、自催化、区室化、遗传复制与行星环境，研究生命系统形成的必要与可能条件。
+    core_questions: [非生命化学如何形成可复制可选择的组织, 哪些环境证据能区分宜居条件与实际生命活动]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:origin-life-astrobiology]
+    roles: [foundation, mechanism, boundary]
+    aims: [explain-understand, diagnose-abduce, predict-warn]
+    epistemic_modes: [empirical, causal, historical]
+    learning_priority: B
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:biochemical-information-metabolism, scope: 起源研究提出复制代谢与区室耦合的最低生命条件}]
+    boundary_notes: 生命起源路径缺乏完整历史记录且存在多种竞争模型；发现有机物或液态水不等于发现生命。
+
+  - <<: *core_defaults
+    id: hkm:framework:biochemical-information-metabolism
+    code: K05.02
+    primary_type: framework
+    labels: {zh: 生化信息、代谢与能量耦合, en: Biochemical Information, Metabolism and Energy Coupling}
+    definition: 以核酸、蛋白质、酶、膜、代谢通路和能量货币解释生命如何存储信息、催化反应并维持非平衡组织。
+    core_questions: [序列结构与功能如何相互约束, 物质能量和还原力怎样在代谢网络中耦合]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:biochemistry-molecular-biology]
+    roles: [foundation, mechanism, representation]
+    aims: [explain-understand, predict-warn, describe-measure]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:life-origin-chemical-evolution-habitability]
+    connections: [{type: enables, target: hkm:framework:cellular-organization-homeostasis, scope: 生化反应被膜和细胞器组织后形成可调节的细胞系统}]
+    boundary_notes: 通路图通常忽略空间拥挤、随机涨落与条件依赖；体外反应活性不能直接外推到完整细胞。
+
+  - <<: *core_defaults
+    id: hkm:framework:cellular-organization-homeostasis
+    code: K05.03
+    primary_type: framework
+    labels: {zh: 细胞组织、膜运输与稳态, en: Cellular Organization, Transport and Homeostasis}
+    definition: 研究膜、细胞器、骨架、运输、信号、细胞周期和质量控制如何维持边界、内部状态与可适应响应。
+    core_questions: [细胞如何建立并维持内外差异, 信号运输分裂与死亡如何协调成稳定生命周期]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:cell-biology]
+    roles: [foundation, mechanism, synthesis]
+    aims: [explain-understand, control-maintain, predict-warn]
+    epistemic_modes: [empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:biochemical-information-metabolism]
+    connections: [{type: enables, target: hkm:framework:development-differentiation-regeneration, scope: 细胞状态转换和相互作用构成多细胞发育的执行层}]
+    boundary_notes: 细胞系和二维培养会改变代谢、力学与基因表达；细胞自主机制需与组织环境区分。
+
+  - <<: *core_defaults
+    id: hkm:framework:heredity-genome-regulation-variation
+    code: K05.04
+    primary_type: framework
+    labels: {zh: 遗传、基因组调控与变异, en: Heredity, Genome Regulation and Variation}
+    definition: 连接复制、重组、突变、染色质、基因调控、数量性状和群体变异，解释信息跨细胞与世代的保持和改变。
+    core_questions: [基因型如何在环境与调控网络中影响表型, 变异怎样产生传递并在群体中分布]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:genetics-genomics-heredity]
+    roles: [foundation, mechanism, evidence]
+    aims: [explain-understand, predict-warn, diagnose-abduce]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:biochemical-information-metabolism]
+    connections: [{type: enables, target: hkm:framework:evolution-selection-drift-speciation, scope: 可遗传变异是选择漂变与谱系分化的必要材料}]
+    boundary_notes: 基因效应通常依赖背景、发育阶段和环境；遗传关联不自动等于单基因决定或可干预因果。
+
+  - <<: *core_defaults
+    id: hkm:framework:development-differentiation-regeneration
+    code: K05.05
+    primary_type: framework
+    labels: {zh: 发育、分化与再生, en: Development, Differentiation and Regeneration}
+    definition: 用位置讯号、基因调控、细胞力学、形态发生和干细胞动力学解释单个受精卵如何形成、维持和修复多细胞结构。
+    core_questions: [细胞如何获得位置身份并协调形态, 发育可塑性和再生能力受哪些时空约束]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:developmental-biology]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:cellular-organization-homeostasis, hkm:framework:heredity-genome-regulation-variation]
+    connections: [{type: enables, target: hkm:framework:comparative-anatomy-physiology-homeostasis, scope: 发育过程产生器官结构并约束成年生理功能}]
+    boundary_notes: 模式生物的发育机制不能无条件外推到其他物种或人类治疗；再生潜力受组织生态与肿瘤风险限制。
+
+  - <<: *core_defaults
+    id: hkm:framework:comparative-anatomy-physiology-homeostasis
+    code: K05.06
+    primary_type: framework
+    labels: {zh: 比较解剖、生理与机体稳态, en: Comparative Anatomy, Physiology and Organismal Homeostasis}
+    definition: 比较体制、器官系统、运输交换、神经内分泌调节和热量水盐平衡，连接结构功能与环境适应。
+    core_questions: [不同体制如何解决交换支撑运动和调节问题, 多器官反馈怎样维持机体稳态与适应]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:comparative-physiology-anatomy]
+    roles: [mechanism, synthesis, representation]
+    aims: [explain-understand, identify-classify, predict-warn]
+    epistemic_modes: [empirical, causal, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:cellular-organization-homeostasis, hkm:framework:development-differentiation-regeneration]
+    connections: [{type: enables, target: hkm:framework:animal-behavior-cognition-fitness, scope: 感觉运动与内部生理状态构成行为能力和代价的基础}]
+    boundary_notes: 功能相似可来自同源或趋同结构；稳态是动态调节区间而非固定正常值。
+
+  - <<: *core_defaults
+    id: hkm:framework:microbe-virus-host-interactions
+    code: K05.07
+    primary_type: framework
+    labels: {zh: 微生物、病毒与宿主互作, en: Microbe, Virus and Host Interactions}
+    definition: 研究微生物代谢、群落生态、病毒复制、免疫逃逸、共生与致病过程如何在多尺度上塑造宿主和环境。
+    core_questions: [微生物或病毒如何进入复制传播并影响宿主, 共生失衡和致病取决于哪些宿主环境条件]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:microbiology-virology]
+    roles: [mechanism, evidence, boundary]
+    aims: [explain-understand, predict-warn, diagnose-abduce]
+    epistemic_modes: [empirical, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:cellular-organization-homeostasis, hkm:framework:heredity-genome-regulation-variation]
+    connections: [{type: complements, target: hkm:framework:ecology-populations-networks-cycles, scope: 微生物群落和病毒传播同时受生态网络与进化反馈塑造}]
+    boundary_notes: 检出核酸不等于活性感染或致病；培养条件、宿主状态与群落背景会显著改变互作结果。
+
+  - <<: *core_defaults
+    id: hkm:framework:evolution-selection-drift-speciation
+    code: K05.08
+    primary_type: framework
+    labels: {zh: 进化、选择、漂变与物种形成, en: Evolution, Selection, Drift and Speciation}
+    definition: 用共同祖先、变异、选择、漂变、基因流、重组和隔离解释群体频率变化、适应与谱系分化。
+    core_questions: [观察到的性状和频率变化由哪些进化力量造成, 群体何时以及如何形成持续分化的谱系]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:evolutionary-biology]
+    roles: [foundation, mechanism, synthesis]
+    aims: [explain-understand, predict-warn, diagnose-abduce]
+    epistemic_modes: [empirical, causal, historical, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:heredity-genome-regulation-variation]
+    connections: [{type: enables, target: hkm:framework:phylogeny-taxonomy-biodiversity-history, scope: 谱系分化模型为系统发育重建和生物分类提供生成解释}]
+    boundary_notes: 进化不预设进步方向或完美适应；当前功能、历史来源与选择原因必须区分。
+
+  - <<: *core_defaults
+    id: hkm:framework:phylogeny-taxonomy-biodiversity-history
+    code: K05.09
+    primary_type: framework
+    labels: {zh: 系统发育、分类与生物多样性历史, en: Phylogeny, Taxonomy and Biodiversity History}
+    definition: 结合形态、分子、化石、地层和地理证据重建谱系关系，界定分类单元并解释多样化、灭绝与保存偏差。
+    core_questions: [哪些性状和模型最能支持谱系关系, 观察到的多样性如何受采样化石与分类实践影响]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:systematics-biodiversity-paleobiology]
+    roles: [representation, evidence, synthesis]
+    aims: [identify-classify, diagnose-abduce, explain-understand]
+    epistemic_modes: [historical, empirical, comparative, formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:evolution-selection-drift-speciation]
+    connections: [{type: complements, target: hkm:framework:ecology-populations-networks-cycles, scope: 谱系历史帮助解释生态性状与群落组装但不替代当代过程证据}]
+    boundary_notes: 系统树是带模型和数据不确定性的假设；分类名称、物种概念与进化谱系并非永远一一对应。
+
+  - <<: *core_defaults
+    id: hkm:framework:ecology-populations-networks-cycles
+    code: K05.10
+    primary_type: framework
+    labels: {zh: 生态种群、互作网络与物质循环, en: Ecological Populations, Interaction Networks and Cycles}
+    definition: 连接个体、种群、群落、食物网、生态系统和生物地球化学循环，研究资源、干扰、互作与环境变化的多尺度后果。
+    core_questions: [数量分布和群落结构由哪些限制与互作决定, 能量物质与扰动如何在网络和尺度间传播]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:ecology-ecosystems]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:evolution-selection-drift-speciation]
+    connections: [{type: enables, target: hkm:framework:systems-synthetic-biology-network-design, scope: 生态网络的稳定性与反馈为设计多物种或环境生物系统提供约束}]
+    boundary_notes: 生态关系强烈依赖尺度、历史和开放边界；相关共现不能直接证明互利捕食或竞争机制。
+
+  - <<: *core_defaults
+    id: hkm:framework:animal-behavior-cognition-fitness
+    code: K05.11
+    primary_type: framework
+    labels: {zh: 动物行为、认知与适合度, en: Animal Behavior, Cognition and Fitness}
+    definition: 结合感觉、学习、决策、沟通、社会互动和生命周期代价，解释行为如何由机制发育功能与进化史共同塑造。
+    core_questions: [行为由即时机制和学习历史如何产生, 行为策略在何种生态社会环境下影响存活与繁殖]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:behavioral-biology-animal-cognition]
+    roles: [mechanism, synthesis, evidence]
+    aims: [explain-understand, predict-warn, identify-classify]
+    epistemic_modes: [empirical, causal, comparative, historical]
+    learning_priority: B
+    prerequisites: [hkm:framework:comparative-anatomy-physiology-homeostasis, hkm:framework:evolution-selection-drift-speciation]
+    connections: [{type: complements, target: hkm:framework:ecology-populations-networks-cycles, scope: 行为改变资源使用扩散和群体互作并受生态反馈约束}]
+    boundary_notes: 拟人化和过度反拟人化都可能误导；实验任务表现需与物种生态和感知能力相匹配。
+
+  - <<: *core_defaults
+    id: hkm:framework:systems-synthetic-biology-network-design
+    code: K05.12
+    primary_type: framework
+    labels: {zh: 系统生物学与合成生物网络设计, en: Systems and Synthetic Biology Network Design}
+    definition: 用组学、网络、动力模型、模块化和设计构建测试循环，理解或重编程生物系统的反馈、鲁棒性与功能。
+    core_questions: [多组分网络如何产生系统表型与失效模式, 设计构件在真实细胞群落和环境中是否稳定可控]
+    primary_domain: hkm:domain:life-evolution
+    related_subdomains: [hkm:subdomain:systems-synthetic-biology]
+    roles: [synthesis, design, boundary]
+    aims: [explain-understand, design-create, control-maintain]
+    epistemic_modes: [empirical, causal, formal, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:biochemical-information-metabolism, hkm:framework:cellular-organization-homeostasis, hkm:framework:heredity-genome-regulation-variation]
+    connections: [{type: uses, target: hkm:framework:evolution-selection-drift-speciation, scope: 工程生物系统会突变选择和逃逸因而需进化稳定性设计}]
+    boundary_notes: 模块在不同底盘和环境中可能失去独立性；双重用途、生态释放、知情同意与公平分配需前置治理。
+
+  # D06 心智、脑与行为骨架
+  - <<: *core_defaults
+    id: hkm:framework:neural-coding-circuits-plasticity
+    code: K06.01
+    primary_type: framework
+    labels: {zh: 神经编码、回路与可塑性, en: Neural Coding, Circuits and Plasticity}
+    definition: 连接神经元电化学、群体编码、回路动力学、神经调质和突触可塑性，解释信息如何在神经系统中表征与改变。
+    core_questions: [神经活动的哪些模式携带任务相关信息, 回路如何通过可塑性在稳定与适应之间平衡]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:nervous-systems-neuroscience]
+    roles: [foundation, mechanism, representation]
+    aims: [explain-understand, describe-measure, predict-warn]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:sensory-transduction-perceptual-inference, scope: 感觉系统把物理刺激转换为神经编码并在回路中整合}]
+    boundary_notes: 神经相关不自动证明心理功能的充分或必要机制；脑区标签常掩盖分布式和任务依赖加工。
+
+  - <<: *core_defaults
+    id: hkm:framework:sensory-transduction-perceptual-inference
+    code: K06.02
+    primary_type: framework
+    labels: {zh: 感觉转导与知觉推断, en: Sensory Transduction and Perceptual Inference}
+    definition: 研究刺激如何经感受器编码，并由先验、注意、情境和多模态整合形成对外界与身体状态的知觉估计。
+    core_questions: [感觉信号中的信息和噪声如何被转换整合, 知觉如何结合当前证据先验和行动目标]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:perception-sensation]
+    roles: [mechanism, representation, evidence]
+    aims: [explain-understand, diagnose-abduce, predict-warn]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:neural-coding-circuits-plasticity]
+    connections: [{type: enables, target: hkm:framework:motor-control-embodied-action, scope: 行动选择依赖外界身体与目标状态的持续知觉估计}]
+    boundary_notes: 知觉不是被动复制也不是任意建构；实验错觉需区分适应性推断、任务策略与测量伪影。
+
+  - <<: *core_defaults
+    id: hkm:framework:motor-control-embodied-action
+    code: K06.03
+    primary_type: framework
+    labels: {zh: 运动控制与具身行动, en: Motor Control and Embodied Action}
+    definition: 用内部模型、反馈、身体力学、动作可供性和感知行动循环解释目标如何转为协调运动与技能。
+    core_questions: [系统如何在延迟噪声和身体约束下控制动作, 身体与环境怎样参与认知和问题求解]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:action-motor-embodied-cognition]
+    roles: [mechanism, practice, representation]
+    aims: [control-maintain, explain-understand, learn-transfer]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:neural-coding-circuits-plasticity, hkm:framework:sensory-transduction-perceptual-inference]
+    connections: [{type: complements, target: hkm:framework:learning-memory-reinforcement-consolidation, scope: 技能形成需要动作反馈误差学习和长期巩固}]
+    boundary_notes: 运动表现受疼痛疲劳环境与设备影响；具身解释不能排除抽象表征和社会符号的作用。
+
+  - <<: *core_defaults
+    id: hkm:framework:learning-memory-reinforcement-consolidation
+    code: K06.04
+    primary_type: framework
+    labels: {zh: 学习、记忆、强化与巩固, en: Learning, Memory, Reinforcement and Consolidation}
+    definition: 区分工作、情景、语义、程序与习惯系统，连接预测误差、强化、检索、遗忘、睡眠和再巩固过程。
+    core_questions: [经验如何改变表征策略与行为, 何种编码检索反馈和间隔条件支持持久迁移]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:learning-memory]
+    roles: [foundation, mechanism, practice]
+    aims: [learn-transfer, explain-understand, control-maintain]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:neural-coding-circuits-plasticity, hkm:framework:sensory-transduction-perceptual-inference]
+    connections: [{type: enables, target: hkm:framework:reasoning-judgment-decision, scope: 推理与决策使用从经验中学习并可被检索的表征和价值估计}]
+    boundary_notes: 熟悉感和流畅感不等于准确记忆；记忆具有重构性，单一学习风格标签缺乏稳健支持。
+
+  - <<: *core_defaults
+    id: hkm:framework:reasoning-judgment-decision
+    code: K06.05
+    primary_type: framework
+    labels: {zh: 推理、判断与决策, en: Reasoning, Judgment and Decision-Making}
+    definition: 比较启发式、规则、概率推断、价值计算和证据累积，解释人在有限信息、时间和计算资源下如何选择。
+    core_questions: [判断依赖哪些表征证据和默认启发式, 决策目标概率时间偏好与社会约束如何共同作用]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:reasoning-judgment-decision]
+    roles: [decision, mechanism, boundary]
+    aims: [decide-negotiate, diagnose-abduce, predict-warn]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-memory-reinforcement-consolidation]
+    connections: [{type: enables, target: hkm:framework:behavior-change-self-regulation-habits, scope: 自我调节把决策意图转化为环境线索反馈和重复行动}]
+    boundary_notes: 偏差标签需相对于任务目标和生态环境评价；规范理性模型不等于对真实心理机制的描述。
+
+  - <<: *core_defaults
+    id: hkm:framework:emotion-motivation-affect-regulation
+    code: K06.06
+    primary_type: framework
+    labels: {zh: 情绪、动机与情感调节, en: Emotion, Motivation and Affect Regulation}
+    definition: 连接需要、奖励、唤醒、评价、身体信号、行动倾向和社会表达，解释情绪如何引导注意、学习与目标追求。
+    core_questions: [情绪由哪些评价身体和情境过程构成, 动机与调节策略何时支持或损害长期目标]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:emotion-motivation-affect]
+    roles: [mechanism, decision, boundary]
+    aims: [explain-understand, control-maintain, predict-warn]
+    epistemic_modes: [empirical, causal, embodied, interpretive]
+    learning_priority: A
+    prerequisites: [hkm:framework:neural-coding-circuits-plasticity, hkm:framework:learning-memory-reinforcement-consolidation]
+    connections: [{type: influences, target: hkm:framework:reasoning-judgment-decision, scope: 情绪和动机改变注意证据权重风险估计和时间偏好}]
+    boundary_notes: 情绪不是理性的反面也不是纯生理读数；调节目标需区分短期压制、适应表达和情境改变。
+
+  - <<: *core_defaults
+    id: hkm:framework:consciousness-self-agency-metacognition
+    code: K06.07
+    primary_type: framework
+    labels: {zh: 意识、自我、能动性与元认知, en: Consciousness, Self, Agency and Metacognition}
+    definition: 研究主观体验、全局可用性、自我模型、行动归因、意向控制和对自身认知置信度的监测。
+    core_questions: [什么信息进入可报告体验和灵活控制, 自我感能动感与元认知准确性如何形成]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:consciousness-self-agency]
+    roles: [synthesis, representation, boundary]
+    aims: [explain-understand, describe-measure, evaluate-norm]
+    epistemic_modes: [empirical, formal, interpretive]
+    learning_priority: B
+    prerequisites: [hkm:framework:sensory-transduction-perceptual-inference, hkm:framework:motor-control-embodied-action, hkm:framework:learning-memory-reinforcement-consolidation]
+    connections: [{type: complements, target: hkm:framework:behavior-change-self-regulation-habits, scope: 元认知监测支持目标修正但不能单独保证行动控制}]
+    boundary_notes: 意识理论对机制与测量存在竞争；语言报告、行为指标和神经指标各有盲区，不应循环定义。
+
+  - <<: *core_defaults
+    id: hkm:framework:development-lifespan-adaptation
+    code: K06.08
+    primary_type: framework
+    labels: {zh: 心理发展、生命历程与适应, en: Psychological Development, Lifespan and Adaptation}
+    definition: 连接脑身体成熟、依恋、社会化、语言、认知变化、身份与老化，研究个体在关系和制度环境中的连续与转变。
+    core_questions: [能力和需求如何随生命阶段与经验共同变化, 早期条件通过哪些可塑与累积路径影响后来发展]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:development-lifespan]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:neural-coding-circuits-plasticity, hkm:framework:learning-memory-reinforcement-consolidation]
+    connections: [{type: enables, target: hkm:framework:individual-differences-personality-measurement, scope: 个体差异需要放在发展轨迹情境和测量时间中解释}]
+    boundary_notes: 年龄平均趋势不能决定个体能力；发展阶段模型需避免把特定文化和历史样本当作普遍规范。
+
+  - <<: *core_defaults
+    id: hkm:framework:individual-differences-personality-measurement
+    code: K06.09
+    primary_type: framework
+    additional_types: [measurement]
+    labels: {zh: 个体差异、人格与心理测量, en: Individual Differences, Personality and Psychological Measurement}
+    definition: 用特质、能力、状态、情境交互和潜变量测量描述稳定差异，并评估信度、效度、公平性与预测边界。
+    core_questions: [测量分数反映何种构念且跨群体可比吗, 稳定特质和具体情境如何共同预测行为]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:personality-individual-differences]
+    roles: [representation, evidence, boundary]
+    aims: [describe-measure, identify-classify, predict-warn]
+    epistemic_modes: [empirical, formal]
+    learning_priority: B
+    prerequisites: [hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:development-lifespan-adaptation]
+    connections: [{type: constrains, target: hkm:framework:social-cognition-culture-norms, scope: 群体情境和文化规范影响特质表达与量表解释}]
+    boundary_notes: 心理量表不是人的本质标签；测量不变性、刻板印象风险和用途授权必须审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:social-cognition-culture-norms
+    code: K06.10
+    primary_type: framework
+    labels: {zh: 社会认知、文化与规范, en: Social Cognition, Culture and Norms}
+    definition: 研究他心推断、归因、身份、规范学习、合作竞争、权力和文化模型如何塑造知觉、判断与互动。
+    core_questions: [个体如何推断他人意图并学习群体规范, 身份权力与文化语境如何改变心理过程和行为]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:social-cultural-psychology]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, decide-negotiate]
+    epistemic_modes: [empirical, causal, interpretive, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:sensory-transduction-perceptual-inference, hkm:framework:reasoning-judgment-decision, hkm:framework:emotion-motivation-affect-regulation]
+    connections: [{type: influences, target: hkm:framework:language-representation-acquisition-interaction, scope: 语言学习和使用嵌入共同注意身份规范与互动目的}]
+    boundary_notes: 样本文化和实验情境限制普遍化；群体差异不能无视群内变异、历史权力与测量偏差。
+
+  - <<: *core_defaults
+    id: hkm:framework:language-representation-acquisition-interaction
+    code: K06.11
+    primary_type: framework
+    labels: {zh: 语言表征、习得与互动, en: Language Representation, Acquisition and Interaction}
+    definition: 连接语音词汇句法语义语用、预测加工、共同注意和社会互动，解释语言理解产生与习得。
+    core_questions: [语言形式如何编码并在语境中确定意义, 儿童和成人怎样从输入互动与反馈中习得语言]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:language-cognition]
+    roles: [representation, mechanism, synthesis]
+    aims: [explain-understand, learn-transfer, describe-measure]
+    epistemic_modes: [empirical, formal, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:sensory-transduction-perceptual-inference, hkm:framework:learning-memory-reinforcement-consolidation]
+    connections: [{type: complements, target: hkm:framework:social-cognition-culture-norms, scope: 语言既承载社会文化规范也在互动中持续改变它们}]
+    boundary_notes: 语言能力不等于单一标准语熟练度；双语、方言、手语和辅助沟通需要避免缺陷化视角。
+
+  - <<: *core_defaults
+    id: hkm:framework:behavior-change-self-regulation-habits
+    code: K06.12
+    primary_type: framework
+    labels: {zh: 行为改变、自我调节与习惯, en: Behavior Change, Self-Regulation and Habits}
+    definition: 用目标、能力、机会、动机、线索、强化、承诺、反馈和环境设计解释行为启动、维持、复发与改变。
+    core_questions: [目标行为受哪些能力机会动机和环境摩擦限制, 如何用最小可行干预形成反馈并处理复发]
+    primary_domain: hkm:domain:mind-brain-behavior
+    related_subdomains: [hkm:subdomain:behavior-change-self-regulation]
+    roles: [practice, design, decision]
+    aims: [control-maintain, design-create, learn-transfer]
+    epistemic_modes: [empirical, causal, design, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:reasoning-judgment-decision, hkm:framework:emotion-motivation-affect-regulation]
+    connections: [{type: uses, target: hkm:framework:consciousness-self-agency-metacognition, scope: 元认知和能动感可支持监测选择与复盘但需配合环境和社会资源}]
+    boundary_notes: 行为问题不应自动归咎意志力；精神健康、成瘾、贫困、残障和强制环境可能需要专业或结构性干预。
 
   # D10 社会制度模板
   - <<: *core_defaults

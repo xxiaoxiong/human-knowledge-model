@@ -2,6 +2,854 @@ schema_version: 0.1.0
 model_version: 0.3.0-draft
 generated_from: 08-data/core-nodes.yaml
 relationships:
+- id: hkm:relation:knowledge-justification-truth-primary-d01
+  source: hkm:framework:knowledge-justification-truth
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-justification-truth-in-epistemology-knowledge
+  source: hkm:framework:knowledge-justification-truth
+  type: in-scope
+  target: hkm:subdomain:epistemology-knowledge
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-justification-truth-enables-argument-analysis-dialectical-inquiry
+  source: hkm:framework:knowledge-justification-truth
+  type: enables
+  target: hkm:method:argument-analysis-dialectical-inquiry
+  scope: 对证成和证据的区分为论证重构与批判提供评价标准
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ontology-identity-modality-primary-d01
+  source: hkm:framework:ontology-identity-modality
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ontology-identity-modality-in-metaphysics-ontology
+  source: hkm:framework:ontology-identity-modality
+  type: in-scope
+  target: hkm:subdomain:metaphysics-ontology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-justification-truth-prerequisite-ontology-identity-modality
+  source: hkm:framework:knowledge-justification-truth
+  type: prerequisite-of
+  target: hkm:framework:ontology-identity-modality
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ontology-identity-modality-enables-knowledge-organization-ontology-design
+  source: hkm:framework:ontology-identity-modality
+  type: enables
+  target: hkm:framework:knowledge-organization-ontology-design
+  scope: 形而上范畴为知识表示中的类别关系和身份条件提供概念资源
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-primary-d01
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-in-argumentation-critical-inquiry
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: in-scope
+  target: hkm:subdomain:argumentation-critical-inquiry
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-justification-truth-prerequisite-argument-analysis-dialectical-inquiry
+  source: hkm:framework:knowledge-justification-truth
+  type: prerequisite-of
+  target: hkm:method:argument-analysis-dialectical-inquiry
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-enables-ethical-reasoning-moral-pluralism
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: enables
+  target: hkm:framework:ethical-reasoning-moral-pluralism
+  scope: 伦理分歧需要区分事实前提价值前提与推理结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-primary-d01
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-in-ethics-moral-philosophy
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: in-scope
+  target: hkm:subdomain:ethics-moral-philosophy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-prerequisite-ethical-reasoning-moral-pluralism
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: prerequisite-of
+  target: hkm:framework:ethical-reasoning-moral-pluralism
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-enables-justice-legitimacy-rights
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: enables
+  target: hkm:framework:justice-legitimacy-rights
+  scope: 公共制度评价把个体伦理理由扩展到权利分配与合法强制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:value-aesthetic-life-evaluation-primary-d01
+  source: hkm:framework:value-aesthetic-life-evaluation
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:value-aesthetic-life-evaluation-in-value-aesthetics-life-philosophy
+  source: hkm:framework:value-aesthetic-life-evaluation
+  type: in-scope
+  target: hkm:subdomain:value-aesthetics-life-philosophy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-prerequisite-value-aesthetic-life-evaluation
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: prerequisite-of
+  target: hkm:framework:value-aesthetic-life-evaluation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:value-aesthetic-life-evaluation-complements-reflexive-inquiry-worldview-audit
+  source: hkm:framework:value-aesthetic-life-evaluation
+  type: complements
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 生活选择的反思既需要价值澄清也需要检视世界观和社会条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:scientific-explanation-theory-change-primary-d01
+  source: hkm:framework:scientific-explanation-theory-change
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:scientific-explanation-theory-change-in-philosophy-science-technology-methodology
+  source: hkm:framework:scientific-explanation-theory-change
+  type: in-scope
+  target: hkm:subdomain:philosophy-science-technology-methodology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-justification-truth-prerequisite-scientific-explanation-theory-change
+  source: hkm:framework:knowledge-justification-truth
+  type: prerequisite-of
+  target: hkm:framework:scientific-explanation-theory-change
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-prerequisite-scientific-explanation-theory-change
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: prerequisite-of
+  target: hkm:framework:scientific-explanation-theory-change
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:scientific-explanation-theory-change-enables-metascience-reproducibility-incentives
+  source: hkm:framework:scientific-explanation-theory-change
+  type: enables
+  target: hkm:framework:metascience-reproducibility-incentives
+  scope: 对模型证据和理论变化的理解为研究实践评价提供规范基线
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:mind-language-reference-primary-d01
+  source: hkm:model:mind-language-reference
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:mind-language-reference-in-philosophy-mind-language
+  source: hkm:model:mind-language-reference
+  type: in-scope
+  target: hkm:subdomain:philosophy-mind-language
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ontology-identity-modality-prerequisite-mind-language-reference
+  source: hkm:framework:ontology-identity-modality
+  type: prerequisite-of
+  target: hkm:model:mind-language-reference
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:mind-language-reference-complements-knowledge-organization-ontology-design
+  source: hkm:model:mind-language-reference
+  type: complements
+  target: hkm:framework:knowledge-organization-ontology-design
+  scope: 形式本体需要与自然语言语境多义性和使用规则相互校正
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:justice-legitimacy-rights-primary-d01
+  source: hkm:framework:justice-legitimacy-rights
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:justice-legitimacy-rights-in-social-political-legal-philosophy
+  source: hkm:framework:justice-legitimacy-rights
+  type: in-scope
+  target: hkm:subdomain:social-political-legal-philosophy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-prerequisite-justice-legitimacy-rights
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: prerequisite-of
+  target: hkm:framework:justice-legitimacy-rights
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:justice-legitimacy-rights-complements-comparative-philosophy-contextual-translation
+  source: hkm:framework:justice-legitimacy-rights
+  type: complements
+  target: hkm:method:comparative-philosophy-contextual-translation
+  scope: 正义与合法性概念需在不同历史制度和思想传统之间谨慎翻译
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-philosophy-contextual-translation-primary-d01
+  source: hkm:method:comparative-philosophy-contextual-translation
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-philosophy-contextual-translation-in-comparative-philosophy-knowledge-traditions
+  source: hkm:method:comparative-philosophy-contextual-translation
+  type: in-scope
+  target: hkm:subdomain:comparative-philosophy-knowledge-traditions
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-prerequisite-comparative-philosophy-contextual-translation
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: prerequisite-of
+  target: hkm:method:comparative-philosophy-contextual-translation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-philosophy-contextual-translation-enables-reflexive-inquiry-worldview-audit
+  source: hkm:method:comparative-philosophy-contextual-translation
+  type: enables
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 多传统比较暴露默认范畴和问题设定的地方性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:metascience-reproducibility-incentives-primary-d01
+  source: hkm:framework:metascience-reproducibility-incentives
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:metascience-reproducibility-incentives-in-metascience-research-integrity
+  source: hkm:framework:metascience-reproducibility-incentives
+  type: in-scope
+  target: hkm:subdomain:metascience-research-integrity
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:scientific-explanation-theory-change-prerequisite-metascience-reproducibility-incentives
+  source: hkm:framework:scientific-explanation-theory-change
+  type: prerequisite-of
+  target: hkm:framework:metascience-reproducibility-incentives
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:metascience-reproducibility-incentives-constrains-knowledge-organization-ontology-design
+  source: hkm:framework:metascience-reproducibility-incentives
+  type: constrains
+  target: hkm:framework:knowledge-organization-ontology-design
+  scope: 知识组织应保留来源版本不确定性撤回和争议状态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-organization-ontology-design-primary-d01
+  source: hkm:framework:knowledge-organization-ontology-design
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-organization-ontology-design-in-knowledge-organization-ontology
+  source: hkm:framework:knowledge-organization-ontology-design
+  type: in-scope
+  target: hkm:subdomain:knowledge-organization-ontology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ontology-identity-modality-prerequisite-knowledge-organization-ontology-design
+  source: hkm:framework:ontology-identity-modality
+  type: prerequisite-of
+  target: hkm:framework:knowledge-organization-ontology-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:argument-analysis-dialectical-inquiry-prerequisite-knowledge-organization-ontology-design
+  source: hkm:method:argument-analysis-dialectical-inquiry
+  type: prerequisite-of
+  target: hkm:framework:knowledge-organization-ontology-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:knowledge-organization-ontology-design-implements-reflexive-inquiry-worldview-audit
+  source: hkm:framework:knowledge-organization-ontology-design
+  type: implements
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 显式类型边界来源和版本使分类假设可被审计与修正
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-primary-d01
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: primary-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-in-epistemology-knowledge
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: in-scope
+  target: hkm:subdomain:epistemology-knowledge
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-in-value-aesthetics-life-philosophy
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: in-scope
+  target: hkm:subdomain:value-aesthetics-life-philosophy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-in-comparative-philosophy-knowledge-traditions
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: in-scope
+  target: hkm:subdomain:comparative-philosophy-knowledge-traditions
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-in-metascience-research-integrity
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: in-scope
+  target: hkm:subdomain:metascience-research-integrity
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethical-reasoning-moral-pluralism-prerequisite-reflexive-inquiry-worldview-audit
+  source: hkm:framework:ethical-reasoning-moral-pluralism
+  type: prerequisite-of
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-philosophy-contextual-translation-prerequisite-reflexive-inquiry-worldview-audit
+  source: hkm:method:comparative-philosophy-contextual-translation
+  type: prerequisite-of
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:metascience-reproducibility-incentives-prerequisite-reflexive-inquiry-worldview-audit
+  source: hkm:framework:metascience-reproducibility-incentives
+  type: prerequisite-of
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reflexive-inquiry-worldview-audit-refines-knowledge-justification-truth
+  source: hkm:framework:reflexive-inquiry-worldview-audit
+  type: refines
+  target: hkm:framework:knowledge-justification-truth
+  scope: 反身审计把个体证成扩展到社会位置制度激励和被排除证言
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-primary-d02
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-in-foundations-sets-types-categories
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: in-scope
+  target: hkm:subdomain:foundations-sets-types-categories
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-enables-logic-proof-model-theory
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: enables
+  target: hkm:framework:logic-proof-model-theory
+  scope: 基础对象和构造规则为命题证明与模型解释提供语言
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:logic-proof-model-theory-primary-d02
+  source: hkm:framework:logic-proof-model-theory
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:logic-proof-model-theory-in-mathematical-logic-proof
+  source: hkm:framework:logic-proof-model-theory
+  type: in-scope
+  target: hkm:subdomain:mathematical-logic-proof
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-prerequisite-logic-proof-model-theory
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: prerequisite-of
+  target: hkm:framework:logic-proof-model-theory
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:logic-proof-model-theory-enables-number-arithmetic-structures
+  source: hkm:framework:logic-proof-model-theory
+  type: enables
+  target: hkm:framework:number-arithmetic-structures
+  scope: 证明和模型工具用于研究数系结构与不可判定边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:number-arithmetic-structures-primary-d02
+  source: hkm:framework:number-arithmetic-structures
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:number-arithmetic-structures-in-number-theory-arithmetic
+  source: hkm:framework:number-arithmetic-structures
+  type: in-scope
+  target: hkm:subdomain:number-theory-arithmetic
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:logic-proof-model-theory-prerequisite-number-arithmetic-structures
+  source: hkm:framework:logic-proof-model-theory
+  type: prerequisite-of
+  target: hkm:framework:number-arithmetic-structures
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:number-arithmetic-structures-enables-information-coding-cryptographic-structure
+  source: hkm:framework:number-arithmetic-structures
+  type: enables
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 模运算素数和有限域构成编码与现代密码的关键基础
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-primary-d02
+  source: hkm:framework:algebra-discrete-symmetry
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-in-algebra-discrete-structures
+  source: hkm:framework:algebra-discrete-symmetry
+  type: in-scope
+  target: hkm:subdomain:algebra-discrete-structures
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-prerequisite-algebra-discrete-symmetry
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: prerequisite-of
+  target: hkm:framework:algebra-discrete-symmetry
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-enables-geometry-topology-invariants
+  source: hkm:framework:algebra-discrete-symmetry
+  type: enables
+  target: hkm:framework:geometry-topology-invariants
+  scope: 代数不变量和变换群用于描述空间结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geometry-topology-invariants-primary-d02
+  source: hkm:framework:geometry-topology-invariants
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geometry-topology-invariants-in-geometry-topology
+  source: hkm:framework:geometry-topology-invariants
+  type: in-scope
+  target: hkm:subdomain:geometry-topology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-prerequisite-geometry-topology-invariants
+  source: hkm:framework:algebra-discrete-symmetry
+  type: prerequisite-of
+  target: hkm:framework:geometry-topology-invariants
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geometry-topology-invariants-complements-analysis-calculus-differential-equations
+  source: hkm:framework:geometry-topology-invariants
+  type: complements
+  target: hkm:framework:analysis-calculus-differential-equations
+  scope: 现代空间问题常同时需要拓扑整体约束与局部微分结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-primary-d02
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-in-analysis-calculus-equations
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: in-scope
+  target: hkm:subdomain:analysis-calculus-equations
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-prerequisite-analysis-calculus-differential-equations
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: prerequisite-of
+  target: hkm:framework:analysis-calculus-differential-equations
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-enables-dynamical-systems-control-complexity
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: enables
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 微分和差分方程为状态演化稳定性与控制提供主要表达
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-primary-d02
+  source: hkm:framework:probability-stochastic-processes
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-in-probability-stochastic-processes
+  source: hkm:framework:probability-stochastic-processes
+  type: in-scope
+  target: hkm:subdomain:probability-stochastic-processes
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:formal-objects-axioms-types-categories-prerequisite-probability-stochastic-processes
+  source: hkm:framework:formal-objects-axioms-types-categories
+  type: prerequisite-of
+  target: hkm:framework:probability-stochastic-processes
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-enables-statistical-inference-measurement
+  source: hkm:framework:probability-stochastic-processes
+  type: enables
+  target: hkm:framework:statistical-inference-measurement
+  scope: 概率模型把数据生成假设与参数不确定性连接起来
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:statistical-inference-measurement-primary-d02
+  source: hkm:framework:statistical-inference-measurement
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:statistical-inference-measurement-in-statistics-inference-measurement
+  source: hkm:framework:statistical-inference-measurement
+  type: in-scope
+  target: hkm:subdomain:statistics-inference-measurement
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-prerequisite-statistical-inference-measurement
+  source: hkm:framework:probability-stochastic-processes
+  type: prerequisite-of
+  target: hkm:framework:statistical-inference-measurement
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:statistical-inference-measurement-constrains-optimization-operations-games
+  source: hkm:framework:statistical-inference-measurement
+  type: constrains
+  target: hkm:framework:optimization-operations-games
+  scope: 决策优化需要使用经校准的不确定性估计而非点预测幻觉
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:optimization-operations-games-primary-d02
+  source: hkm:framework:optimization-operations-games
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:optimization-operations-games-in-optimization-operations-game-theory
+  source: hkm:framework:optimization-operations-games
+  type: in-scope
+  target: hkm:subdomain:optimization-operations-game-theory
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-prerequisite-optimization-operations-games
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: prerequisite-of
+  target: hkm:framework:optimization-operations-games
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-prerequisite-optimization-operations-games
+  source: hkm:framework:probability-stochastic-processes
+  type: prerequisite-of
+  target: hkm:framework:optimization-operations-games
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:optimization-operations-games-enables-dynamical-systems-control-complexity
+  source: hkm:framework:optimization-operations-games
+  type: enables
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 控制策略和资源调度常以动态优化和反馈决策构造
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:dynamical-systems-control-complexity-primary-d02
+  source: hkm:framework:dynamical-systems-control-complexity
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:dynamical-systems-control-complexity-in-dynamical-systems-control
+  source: hkm:framework:dynamical-systems-control-complexity
+  type: in-scope
+  target: hkm:subdomain:dynamical-systems-control
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-prerequisite-dynamical-systems-control-complexity
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: prerequisite-of
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:optimization-operations-games-prerequisite-dynamical-systems-control-complexity
+  source: hkm:framework:optimization-operations-games
+  type: prerequisite-of
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:dynamical-systems-control-complexity-complements-numerical-computation-approximation-error
+  source: hkm:framework:dynamical-systems-control-complexity
+  type: complements
+  target: hkm:framework:numerical-computation-approximation-error
+  scope: 非线性动力系统通常依赖数值模拟但需同时审查误差和敏感性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:information-coding-cryptographic-structure-primary-d02
+  source: hkm:framework:information-coding-cryptographic-structure
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:information-coding-cryptographic-structure-in-information-coding-cryptography
+  source: hkm:framework:information-coding-cryptographic-structure
+  type: in-scope
+  target: hkm:subdomain:information-coding-cryptography
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:number-arithmetic-structures-prerequisite-information-coding-cryptographic-structure
+  source: hkm:framework:number-arithmetic-structures
+  type: prerequisite-of
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-prerequisite-information-coding-cryptographic-structure
+  source: hkm:framework:algebra-discrete-symmetry
+  type: prerequisite-of
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:probability-stochastic-processes-prerequisite-information-coding-cryptographic-structure
+  source: hkm:framework:probability-stochastic-processes
+  type: prerequisite-of
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:information-coding-cryptographic-structure-complements-numerical-computation-approximation-error
+  source: hkm:framework:information-coding-cryptographic-structure
+  type: complements
+  target: hkm:framework:numerical-computation-approximation-error
+  scope: 形式编码和密码在实现时仍受有限精度随机源与计算资源约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:numerical-computation-approximation-error-primary-d02
+  source: hkm:framework:numerical-computation-approximation-error
+  type: primary-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:numerical-computation-approximation-error-in-numerical-computational-mathematics
+  source: hkm:framework:numerical-computation-approximation-error
+  type: in-scope
+  target: hkm:subdomain:numerical-computational-mathematics
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:analysis-calculus-differential-equations-prerequisite-numerical-computation-approximation-error
+  source: hkm:framework:analysis-calculus-differential-equations
+  type: prerequisite-of
+  target: hkm:framework:numerical-computation-approximation-error
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:algebra-discrete-symmetry-prerequisite-numerical-computation-approximation-error
+  source: hkm:framework:algebra-discrete-symmetry
+  type: prerequisite-of
+  target: hkm:framework:numerical-computation-approximation-error
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:numerical-computation-approximation-error-operationalizes-dynamical-systems-control-complexity
+  source: hkm:framework:numerical-computation-approximation-error
+  type: operationalizes
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 数值算法使复杂动力模型的轨迹稳定性和参数敏感性可计算检验
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
 - id: hkm:relation:physical-quantities-dimensional-analysis-primary-d03
   source: hkm:framework:physical-quantities-dimensional-analysis
   type: primary-domain
@@ -743,6 +1591,902 @@ relationships:
   type: operationalizes
   target: hkm:framework:physical-quantities-dimensional-analysis
   scope: 测量程序把物理量定义落实为仪器、校准与数据处理操作
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:life-origin-chemical-evolution-habitability-primary-d05
+  source: hkm:framework:life-origin-chemical-evolution-habitability
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:life-origin-chemical-evolution-habitability-in-origin-life-astrobiology
+  source: hkm:framework:life-origin-chemical-evolution-habitability
+  type: in-scope
+  target: hkm:subdomain:origin-life-astrobiology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:life-origin-chemical-evolution-habitability-enables-biochemical-information-metabolism
+  source: hkm:framework:life-origin-chemical-evolution-habitability
+  type: enables
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 起源研究提出复制代谢与区室耦合的最低生命条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-primary-d05
+  source: hkm:framework:biochemical-information-metabolism
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-in-biochemistry-molecular-biology
+  source: hkm:framework:biochemical-information-metabolism
+  type: in-scope
+  target: hkm:subdomain:biochemistry-molecular-biology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:life-origin-chemical-evolution-habitability-prerequisite-biochemical-information-metabolism
+  source: hkm:framework:life-origin-chemical-evolution-habitability
+  type: prerequisite-of
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-enables-cellular-organization-homeostasis
+  source: hkm:framework:biochemical-information-metabolism
+  type: enables
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 生化反应被膜和细胞器组织后形成可调节的细胞系统
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-primary-d05
+  source: hkm:framework:cellular-organization-homeostasis
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-in-cell-biology
+  source: hkm:framework:cellular-organization-homeostasis
+  type: in-scope
+  target: hkm:subdomain:cell-biology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-prerequisite-cellular-organization-homeostasis
+  source: hkm:framework:biochemical-information-metabolism
+  type: prerequisite-of
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-enables-development-differentiation-regeneration
+  source: hkm:framework:cellular-organization-homeostasis
+  type: enables
+  target: hkm:framework:development-differentiation-regeneration
+  scope: 细胞状态转换和相互作用构成多细胞发育的执行层
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-primary-d05
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-in-genetics-genomics-heredity
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: in-scope
+  target: hkm:subdomain:genetics-genomics-heredity
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-prerequisite-heredity-genome-regulation-variation
+  source: hkm:framework:biochemical-information-metabolism
+  type: prerequisite-of
+  target: hkm:framework:heredity-genome-regulation-variation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-enables-evolution-selection-drift-speciation
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: enables
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 可遗传变异是选择漂变与谱系分化的必要材料
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-differentiation-regeneration-primary-d05
+  source: hkm:framework:development-differentiation-regeneration
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-differentiation-regeneration-in-developmental-biology
+  source: hkm:framework:development-differentiation-regeneration
+  type: in-scope
+  target: hkm:subdomain:developmental-biology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-prerequisite-development-differentiation-regeneration
+  source: hkm:framework:cellular-organization-homeostasis
+  type: prerequisite-of
+  target: hkm:framework:development-differentiation-regeneration
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-prerequisite-development-differentiation-regeneration
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: prerequisite-of
+  target: hkm:framework:development-differentiation-regeneration
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-differentiation-regeneration-enables-comparative-anatomy-physiology-homeostasis
+  source: hkm:framework:development-differentiation-regeneration
+  type: enables
+  target: hkm:framework:comparative-anatomy-physiology-homeostasis
+  scope: 发育过程产生器官结构并约束成年生理功能
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-anatomy-physiology-homeostasis-primary-d05
+  source: hkm:framework:comparative-anatomy-physiology-homeostasis
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-anatomy-physiology-homeostasis-in-comparative-physiology-anatomy
+  source: hkm:framework:comparative-anatomy-physiology-homeostasis
+  type: in-scope
+  target: hkm:subdomain:comparative-physiology-anatomy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-prerequisite-comparative-anatomy-physiology-homeostasis
+  source: hkm:framework:cellular-organization-homeostasis
+  type: prerequisite-of
+  target: hkm:framework:comparative-anatomy-physiology-homeostasis
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-differentiation-regeneration-prerequisite-comparative-anatomy-physiology-homeostasis
+  source: hkm:framework:development-differentiation-regeneration
+  type: prerequisite-of
+  target: hkm:framework:comparative-anatomy-physiology-homeostasis
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-anatomy-physiology-homeostasis-enables-animal-behavior-cognition-fitness
+  source: hkm:framework:comparative-anatomy-physiology-homeostasis
+  type: enables
+  target: hkm:framework:animal-behavior-cognition-fitness
+  scope: 感觉运动与内部生理状态构成行为能力和代价的基础
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:microbe-virus-host-interactions-primary-d05
+  source: hkm:framework:microbe-virus-host-interactions
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:microbe-virus-host-interactions-in-microbiology-virology
+  source: hkm:framework:microbe-virus-host-interactions
+  type: in-scope
+  target: hkm:subdomain:microbiology-virology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-prerequisite-microbe-virus-host-interactions
+  source: hkm:framework:cellular-organization-homeostasis
+  type: prerequisite-of
+  target: hkm:framework:microbe-virus-host-interactions
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-prerequisite-microbe-virus-host-interactions
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: prerequisite-of
+  target: hkm:framework:microbe-virus-host-interactions
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:microbe-virus-host-interactions-complements-ecology-populations-networks-cycles
+  source: hkm:framework:microbe-virus-host-interactions
+  type: complements
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 微生物群落和病毒传播同时受生态网络与进化反馈塑造
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-primary-d05
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-in-evolutionary-biology
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: in-scope
+  target: hkm:subdomain:evolutionary-biology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-prerequisite-evolution-selection-drift-speciation
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: prerequisite-of
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-enables-phylogeny-taxonomy-biodiversity-history
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: enables
+  target: hkm:framework:phylogeny-taxonomy-biodiversity-history
+  scope: 谱系分化模型为系统发育重建和生物分类提供生成解释
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:phylogeny-taxonomy-biodiversity-history-primary-d05
+  source: hkm:framework:phylogeny-taxonomy-biodiversity-history
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:phylogeny-taxonomy-biodiversity-history-in-systematics-biodiversity-paleobiology
+  source: hkm:framework:phylogeny-taxonomy-biodiversity-history
+  type: in-scope
+  target: hkm:subdomain:systematics-biodiversity-paleobiology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-prerequisite-phylogeny-taxonomy-biodiversity-history
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: prerequisite-of
+  target: hkm:framework:phylogeny-taxonomy-biodiversity-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:phylogeny-taxonomy-biodiversity-history-complements-ecology-populations-networks-cycles
+  source: hkm:framework:phylogeny-taxonomy-biodiversity-history
+  type: complements
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 谱系历史帮助解释生态性状与群落组装但不替代当代过程证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ecology-populations-networks-cycles-primary-d05
+  source: hkm:framework:ecology-populations-networks-cycles
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ecology-populations-networks-cycles-in-ecology-ecosystems
+  source: hkm:framework:ecology-populations-networks-cycles
+  type: in-scope
+  target: hkm:subdomain:ecology-ecosystems
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-prerequisite-ecology-populations-networks-cycles
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: prerequisite-of
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ecology-populations-networks-cycles-enables-systems-synthetic-biology-network-design
+  source: hkm:framework:ecology-populations-networks-cycles
+  type: enables
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 生态网络的稳定性与反馈为设计多物种或环境生物系统提供约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:animal-behavior-cognition-fitness-primary-d05
+  source: hkm:framework:animal-behavior-cognition-fitness
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:animal-behavior-cognition-fitness-in-behavioral-biology-animal-cognition
+  source: hkm:framework:animal-behavior-cognition-fitness
+  type: in-scope
+  target: hkm:subdomain:behavioral-biology-animal-cognition
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-anatomy-physiology-homeostasis-prerequisite-animal-behavior-cognition-fitness
+  source: hkm:framework:comparative-anatomy-physiology-homeostasis
+  type: prerequisite-of
+  target: hkm:framework:animal-behavior-cognition-fitness
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:evolution-selection-drift-speciation-prerequisite-animal-behavior-cognition-fitness
+  source: hkm:framework:evolution-selection-drift-speciation
+  type: prerequisite-of
+  target: hkm:framework:animal-behavior-cognition-fitness
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:animal-behavior-cognition-fitness-complements-ecology-populations-networks-cycles
+  source: hkm:framework:animal-behavior-cognition-fitness
+  type: complements
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 行为改变资源使用扩散和群体互作并受生态反馈约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:systems-synthetic-biology-network-design-primary-d05
+  source: hkm:framework:systems-synthetic-biology-network-design
+  type: primary-domain
+  target: hkm:domain:life-evolution
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:systems-synthetic-biology-network-design-in-systems-synthetic-biology
+  source: hkm:framework:systems-synthetic-biology-network-design
+  type: in-scope
+  target: hkm:subdomain:systems-synthetic-biology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:biochemical-information-metabolism-prerequisite-systems-synthetic-biology-network-design
+  source: hkm:framework:biochemical-information-metabolism
+  type: prerequisite-of
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:cellular-organization-homeostasis-prerequisite-systems-synthetic-biology-network-design
+  source: hkm:framework:cellular-organization-homeostasis
+  type: prerequisite-of
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:heredity-genome-regulation-variation-prerequisite-systems-synthetic-biology-network-design
+  source: hkm:framework:heredity-genome-regulation-variation
+  type: prerequisite-of
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:systems-synthetic-biology-network-design-uses-evolution-selection-drift-speciation
+  source: hkm:framework:systems-synthetic-biology-network-design
+  type: uses
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 工程生物系统会突变选择和逃逸因而需进化稳定性设计
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-primary-d06
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-in-nervous-systems-neuroscience
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: in-scope
+  target: hkm:subdomain:nervous-systems-neuroscience
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-enables-sensory-transduction-perceptual-inference
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: enables
+  target: hkm:framework:sensory-transduction-perceptual-inference
+  scope: 感觉系统把物理刺激转换为神经编码并在回路中整合
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-primary-d06
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-in-perception-sensation
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: in-scope
+  target: hkm:subdomain:perception-sensation
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-prerequisite-sensory-transduction-perceptual-inference
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: prerequisite-of
+  target: hkm:framework:sensory-transduction-perceptual-inference
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-enables-motor-control-embodied-action
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: enables
+  target: hkm:framework:motor-control-embodied-action
+  scope: 行动选择依赖外界身体与目标状态的持续知觉估计
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:motor-control-embodied-action-primary-d06
+  source: hkm:framework:motor-control-embodied-action
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:motor-control-embodied-action-in-action-motor-embodied-cognition
+  source: hkm:framework:motor-control-embodied-action
+  type: in-scope
+  target: hkm:subdomain:action-motor-embodied-cognition
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-prerequisite-motor-control-embodied-action
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: prerequisite-of
+  target: hkm:framework:motor-control-embodied-action
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-prerequisite-motor-control-embodied-action
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: prerequisite-of
+  target: hkm:framework:motor-control-embodied-action
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:motor-control-embodied-action-complements-learning-memory-reinforcement-consolidation
+  source: hkm:framework:motor-control-embodied-action
+  type: complements
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 技能形成需要动作反馈误差学习和长期巩固
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-primary-d06
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-in-learning-memory
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: in-scope
+  target: hkm:subdomain:learning-memory
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-prerequisite-learning-memory-reinforcement-consolidation
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: prerequisite-of
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-prerequisite-learning-memory-reinforcement-consolidation
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: prerequisite-of
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-enables-reasoning-judgment-decision
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: enables
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 推理与决策使用从经验中学习并可被检索的表征和价值估计
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reasoning-judgment-decision-primary-d06
+  source: hkm:framework:reasoning-judgment-decision
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reasoning-judgment-decision-in-reasoning-judgment-decision
+  source: hkm:framework:reasoning-judgment-decision
+  type: in-scope
+  target: hkm:subdomain:reasoning-judgment-decision
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-reasoning-judgment-decision
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reasoning-judgment-decision-enables-behavior-change-self-regulation-habits
+  source: hkm:framework:reasoning-judgment-decision
+  type: enables
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 自我调节把决策意图转化为环境线索反馈和重复行动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:emotion-motivation-affect-regulation-primary-d06
+  source: hkm:framework:emotion-motivation-affect-regulation
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:emotion-motivation-affect-regulation-in-emotion-motivation-affect
+  source: hkm:framework:emotion-motivation-affect-regulation
+  type: in-scope
+  target: hkm:subdomain:emotion-motivation-affect
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-prerequisite-emotion-motivation-affect-regulation
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: prerequisite-of
+  target: hkm:framework:emotion-motivation-affect-regulation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-emotion-motivation-affect-regulation
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:emotion-motivation-affect-regulation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:emotion-motivation-affect-regulation-influences-reasoning-judgment-decision
+  source: hkm:framework:emotion-motivation-affect-regulation
+  type: influences
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 情绪和动机改变注意证据权重风险估计和时间偏好
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:consciousness-self-agency-metacognition-primary-d06
+  source: hkm:framework:consciousness-self-agency-metacognition
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:consciousness-self-agency-metacognition-in-consciousness-self-agency
+  source: hkm:framework:consciousness-self-agency-metacognition
+  type: in-scope
+  target: hkm:subdomain:consciousness-self-agency
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-prerequisite-consciousness-self-agency-metacognition
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: prerequisite-of
+  target: hkm:framework:consciousness-self-agency-metacognition
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:motor-control-embodied-action-prerequisite-consciousness-self-agency-metacognition
+  source: hkm:framework:motor-control-embodied-action
+  type: prerequisite-of
+  target: hkm:framework:consciousness-self-agency-metacognition
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-consciousness-self-agency-metacognition
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:consciousness-self-agency-metacognition
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:consciousness-self-agency-metacognition-complements-behavior-change-self-regulation-habits
+  source: hkm:framework:consciousness-self-agency-metacognition
+  type: complements
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 元认知监测支持目标修正但不能单独保证行动控制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-lifespan-adaptation-primary-d06
+  source: hkm:framework:development-lifespan-adaptation
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-lifespan-adaptation-in-development-lifespan
+  source: hkm:framework:development-lifespan-adaptation
+  type: in-scope
+  target: hkm:subdomain:development-lifespan
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:neural-coding-circuits-plasticity-prerequisite-development-lifespan-adaptation
+  source: hkm:framework:neural-coding-circuits-plasticity
+  type: prerequisite-of
+  target: hkm:framework:development-lifespan-adaptation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-development-lifespan-adaptation
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:development-lifespan-adaptation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-lifespan-adaptation-enables-individual-differences-personality-measurement
+  source: hkm:framework:development-lifespan-adaptation
+  type: enables
+  target: hkm:framework:individual-differences-personality-measurement
+  scope: 个体差异需要放在发展轨迹情境和测量时间中解释
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:individual-differences-personality-measurement-primary-d06
+  source: hkm:framework:individual-differences-personality-measurement
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:individual-differences-personality-measurement-in-personality-individual-differences
+  source: hkm:framework:individual-differences-personality-measurement
+  type: in-scope
+  target: hkm:subdomain:personality-individual-differences
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-individual-differences-personality-measurement
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:individual-differences-personality-measurement
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:development-lifespan-adaptation-prerequisite-individual-differences-personality-measurement
+  source: hkm:framework:development-lifespan-adaptation
+  type: prerequisite-of
+  target: hkm:framework:individual-differences-personality-measurement
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:individual-differences-personality-measurement-constrains-social-cognition-culture-norms
+  source: hkm:framework:individual-differences-personality-measurement
+  type: constrains
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 群体情境和文化规范影响特质表达与量表解释
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cognition-culture-norms-primary-d06
+  source: hkm:framework:social-cognition-culture-norms
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cognition-culture-norms-in-social-cultural-psychology
+  source: hkm:framework:social-cognition-culture-norms
+  type: in-scope
+  target: hkm:subdomain:social-cultural-psychology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-prerequisite-social-cognition-culture-norms
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: prerequisite-of
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reasoning-judgment-decision-prerequisite-social-cognition-culture-norms
+  source: hkm:framework:reasoning-judgment-decision
+  type: prerequisite-of
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:emotion-motivation-affect-regulation-prerequisite-social-cognition-culture-norms
+  source: hkm:framework:emotion-motivation-affect-regulation
+  type: prerequisite-of
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cognition-culture-norms-influences-language-representation-acquisition-interaction
+  source: hkm:framework:social-cognition-culture-norms
+  type: influences
+  target: hkm:framework:language-representation-acquisition-interaction
+  scope: 语言学习和使用嵌入共同注意身份规范与互动目的
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:language-representation-acquisition-interaction-primary-d06
+  source: hkm:framework:language-representation-acquisition-interaction
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:language-representation-acquisition-interaction-in-language-cognition
+  source: hkm:framework:language-representation-acquisition-interaction
+  type: in-scope
+  target: hkm:subdomain:language-cognition
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:sensory-transduction-perceptual-inference-prerequisite-language-representation-acquisition-interaction
+  source: hkm:framework:sensory-transduction-perceptual-inference
+  type: prerequisite-of
+  target: hkm:framework:language-representation-acquisition-interaction
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-language-representation-acquisition-interaction
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:language-representation-acquisition-interaction
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:language-representation-acquisition-interaction-complements-social-cognition-culture-norms
+  source: hkm:framework:language-representation-acquisition-interaction
+  type: complements
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 语言既承载社会文化规范也在互动中持续改变它们
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:behavior-change-self-regulation-habits-primary-d06
+  source: hkm:framework:behavior-change-self-regulation-habits
+  type: primary-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:behavior-change-self-regulation-habits-in-behavior-change-self-regulation
+  source: hkm:framework:behavior-change-self-regulation-habits
+  type: in-scope
+  target: hkm:subdomain:behavior-change-self-regulation
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:learning-memory-reinforcement-consolidation-prerequisite-behavior-change-self-regulation-habits
+  source: hkm:framework:learning-memory-reinforcement-consolidation
+  type: prerequisite-of
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:reasoning-judgment-decision-prerequisite-behavior-change-self-regulation-habits
+  source: hkm:framework:reasoning-judgment-decision
+  type: prerequisite-of
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:emotion-motivation-affect-regulation-prerequisite-behavior-change-self-regulation-habits
+  source: hkm:framework:emotion-motivation-affect-regulation
+  type: prerequisite-of
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:behavior-change-self-regulation-habits-uses-consciousness-self-agency-metacognition
+  source: hkm:framework:behavior-change-self-regulation-habits
+  type: uses
+  target: hkm:framework:consciousness-self-agency-metacognition
+  scope: 元认知和能动感可支持监测选择与复盘但需配合环境和社会资源
   confidence: medium
   provenance:
   - hkm:source:editorial-synthesis-v0-3

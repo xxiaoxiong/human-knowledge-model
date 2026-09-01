@@ -331,7 +331,7 @@ def generate_core_skeletons(
         items.sort(key=lambda item: item["code"])
 
     lines = [
-        "# 领域核心骨架：四类模板域",
+        f"# 领域核心骨架：{len(children)} 个已发布域",
         "",
         "> 本文件由 `08-data/core-nodes.yaml` 生成。节点是可复用的本体身份，不是 H4 目录项。",
         "",

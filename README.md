@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则、一级知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk。阶段 3 已用 D03、D10、D13、D20 四类模板域发布 63 个核心骨架节点和 368 条生成关系；其余领域骨架、思维模型库和问题求解框架将在此基础上逐层展开。
+当前版本已完成总体架构、Ontology、分类原则、一级知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk。阶段 3 已在 D01、D02、D03、D05、D06、D10、D13、D20 八个领域发布 111 个核心骨架节点和 586 条生成关系；其余领域骨架、思维模型库和问题求解框架将在此基础上逐层展开。
 
 ## 一眼看懂整个模型
 
@@ -154,7 +154,9 @@ human-knowledge-model/
 │  ├─ source-taxonomy-review.md
 │  ├─ phase-1-audit.md
 │  ├─ h3-structure-pressure-test.md
-│  └─ phase-2b-audit.md
+│  ├─ phase-2b-audit.md
+│  ├─ core-skeleton-design.md
+│  └─ phase-3-progress-audit.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -204,7 +206,7 @@ python scripts/validate_site.py
 | 1. 总体设计 | **已完成 v0.1** | 架构、Ontology、分类原则、源分类比较 |
 | 2a. 一级地图 | **已完成 v0.1** | H1 超级领域、20 个 H2 一级领域、跨域种子关系 |
 | 2b. 二/三级地图 | **已完成 v0.2.0** | 248 个 H3、10 个桥接视图、80 条外部 crosswalk、冻结审计 |
-| 3. 领域骨架 | **进行中 v0.3-draft** | D03/D10/D13/D20 共 63 个节点；其余 16 域待扩展 |
+| 3. 领域骨架 | **进行中 v0.3-draft** | 8 个领域共 111 个节点、586 条骨架关系；其余 12 域待扩展 |
 | 4. 跨学科模型 | 待展开 | Thinking Models、Universal Models |
 | 5. 问题映射 | 待展开 | Problem → Knowledge Mapping |
 | 6. 学习体系 | 待展开 | 核心知识、优先级、前置关系、路线 |
