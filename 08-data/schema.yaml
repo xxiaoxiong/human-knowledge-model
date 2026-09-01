@@ -265,6 +265,18 @@ required_learning_unit_fields:
   - estimated_hours
   - boundary_notes
 
+required_framework_fields:
+  - code
+  - framework_kind
+  - entry_questions
+  - components
+  - outputs
+  - gates
+  - escalation_conditions
+  - related_frameworks
+  - applies_to_problem_templates
+  - boundary_notes
+
 required_relation_fields:
   - id
   - source

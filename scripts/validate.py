@@ -8,6 +8,7 @@ from pathlib import Path
 
 import yaml
 
+from generate_frameworks import generate_framework_relations, generate_framework_view
 from generate_learning import (
     calculate_learning_priorities,
     generate_core_knowledge_view,
@@ -57,6 +58,7 @@ def main() -> int:
     problem_data = load_yaml("08-data/problem-templates.yaml")
     priority_data = load_yaml("08-data/learning-priorities.generated.yaml")
     roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
+    framework_data = load_yaml("08-data/frameworks.yaml")
     relation_data = load_yaml("08-data/relationships.yaml")
     hierarchy_data = load_yaml("08-data/hierarchy-relationships.generated.yaml")
     bridge_relation_data = load_yaml("08-data/bridge-relationships.generated.yaml")
@@ -64,6 +66,7 @@ def main() -> int:
     model_relation_data = load_yaml("08-data/model-relationships.generated.yaml")
     problem_relation_data = load_yaml("08-data/problem-relationships.generated.yaml")
     learning_relation_data = load_yaml("08-data/learning-relationships.generated.yaml")
+    framework_relation_data = load_yaml("08-data/framework-relationships.generated.yaml")
     errors: list[str] = []
 
     subdomains = subdomain_data["subdomains"]
@@ -74,6 +77,7 @@ def main() -> int:
     problem_templates = problem_data["problem_templates"]
     learning_path = roadmap_data["learning_path"]
     learning_units = roadmap_data["learning_units"]
+    frameworks = framework_data["frameworks"]
     scope_nodes = [
         domain_data["root"],
         *domain_data["superdomains"],
@@ -89,6 +93,7 @@ def main() -> int:
         *problem_templates,
         learning_path,
         *learning_units,
+        *frameworks,
     ]
     node_ids = [node["id"] for node in nodes]
     node_id_set = set(node_ids)
@@ -949,6 +954,138 @@ def main() -> int:
     for unit_id in learning_unit_ids:
         visit_learning_unit(unit_id)
 
+    required_framework = required_node | set(schema["required_framework_fields"])
+    framework_by_id = {framework["id"]: framework for framework in frameworks}
+    framework_ids = set(framework_by_id)
+    expected_framework_codes = {"FM01", "FM02"}
+    if {framework["code"] for framework in frameworks} != expected_framework_codes:
+        errors.append("framework codes must be exactly FM01 and FM02")
+    if {framework["framework_kind"] for framework in frameworks} != {
+        "multidimensional-thinking",
+        "universal-problem-solving",
+    }:
+        errors.append("framework kinds must include thinking and problem-solving")
+    component_ids: set[tuple[str, str]] = set()
+    thinking_ids = {model["id"] for model in thinking_models}
+    universal_ids = {model["id"] for model in universal_models}
+    for framework in frameworks:
+        missing = required_framework - framework.keys()
+        if missing:
+            errors.append(
+                f"{framework.get('id')}: missing framework fields {sorted(missing)}"
+            )
+            continue
+        if framework["primary_type"] != "framework":
+            errors.append(f"{framework['code']}: primary_type must be framework")
+        if set(framework["labels"]) != {"zh", "en"}:
+            errors.append(f"{framework['code']}: labels must contain exactly zh and en")
+        for locale in ("zh", "en"):
+            if locale not in framework["labels"]:
+                continue
+            key = (locale, normalize_identity_text(framework["labels"][locale]))
+            if key in seen_model_labels:
+                errors.append(
+                    f"duplicate normalized {locale} framework label: "
+                    f"{seen_model_labels[key]} and {framework['code']}"
+                )
+            seen_model_labels[key] = framework["code"]
+        definition_key = normalize_identity_text(framework["definition"])
+        if definition_key in seen_model_definitions:
+            errors.append(
+                f"duplicate normalized framework definition: "
+                f"{seen_model_definitions[definition_key]} and {framework['code']}"
+            )
+        seen_model_definitions[definition_key] = framework["code"]
+        if len(framework["components"]) != 10:
+            errors.append(f"{framework['code']}: expected exactly ten components")
+        expected_sequences = (
+            list(range(1, 11))
+            if framework["framework_kind"] == "multidimensional-thinking"
+            else list(range(0, 10))
+        )
+        components = sorted(framework["components"], key=lambda item: item["sequence"])
+        if [component["sequence"] for component in components] != expected_sequences:
+            errors.append(f"{framework['code']}: component sequence is not contiguous")
+        called_domains: set[str] = set()
+        called_thinking: set[str] = set()
+        called_universal: set[str] = set()
+        for component in components:
+            component_key = (framework["id"], component.get("id", ""))
+            if component_key in component_ids:
+                errors.append(
+                    f"{framework['code']}: duplicate component ID {component.get('id')}"
+                )
+            component_ids.add(component_key)
+            missing_component = {
+                "id",
+                "sequence",
+                "labels",
+                "purpose",
+                "questions",
+                "domains",
+                "thinking_models",
+                "universal_models",
+                "output",
+            } - component.keys()
+            if missing_component:
+                errors.append(
+                    f"{framework['code']} {component.get('id')}: missing component fields "
+                    f"{sorted(missing_component)}"
+                )
+                continue
+            if set(component["labels"]) != {"zh", "en"}:
+                errors.append(
+                    f"{framework['code']} {component['id']}: labels need zh and en"
+                )
+            if len(component["questions"]) < 3:
+                errors.append(
+                    f"{framework['code']} {component['id']}: needs three questions"
+                )
+            called_domains.update(component["domains"])
+            called_thinking.update(component["thinking_models"])
+            called_universal.update(component["universal_models"])
+            invalid_domains = set(component["domains"]) - domain_ids
+            invalid_thinking = set(component["thinking_models"]) - thinking_ids
+            invalid_universal = set(component["universal_models"]) - universal_ids
+            if invalid_domains or invalid_thinking or invalid_universal:
+                errors.append(
+                    f"{framework['code']} {component['id']}: invalid calls "
+                    f"domains={sorted(invalid_domains)}, thinking={sorted(invalid_thinking)}, "
+                    f"universal={sorted(invalid_universal)}"
+                )
+        if called_domains != domain_ids:
+            errors.append(
+                f"{framework['code']}: must cover all H2 domains; "
+                f"missing {sorted(domain_ids - called_domains)}"
+            )
+        if len(called_thinking) < 25 or len(called_universal) < 15:
+            errors.append(
+                f"{framework['code']}: insufficient cross-model coverage "
+                f"({len(called_thinking)} Thinking, {len(called_universal)} Universal)"
+            )
+        invalid_related = set(framework["related_frameworks"]) - framework_ids
+        invalid_problem_calls = (
+            set(framework["applies_to_problem_templates"]) - problem_ids
+        )
+        if invalid_related:
+            errors.append(
+                f"{framework['code']}: invalid related frameworks {sorted(invalid_related)}"
+            )
+        if invalid_problem_calls:
+            errors.append(
+                f"{framework['code']}: invalid problem templates "
+                f"{sorted(invalid_problem_calls)}"
+            )
+        if framework["framework_kind"] == "universal-problem-solving":
+            if set(framework["applies_to_problem_templates"]) != problem_ids:
+                errors.append("FM02 must apply to all twenty problem templates")
+        elif framework["applies_to_problem_templates"]:
+            errors.append("FM01 uses lenses and should not duplicate problem mapping edges")
+        if len(framework["gates"]) < 5 or len(framework["outputs"]) < 5:
+            errors.append(f"{framework['code']}: needs at least five gates and outputs")
+        if len(framework["escalation_conditions"]) < 4:
+            errors.append(f"{framework['code']}: needs four escalation conditions")
+
     prereq_state: dict[str, int] = {}
 
     def visit_prerequisite(node_id: str) -> None:
@@ -1020,6 +1157,7 @@ def main() -> int:
         *model_relation_data["relationships"],
         *problem_relation_data["relationships"],
         *learning_relation_data["relationships"],
+        *framework_relation_data["relationships"],
     ]
     for relation in all_relations:
         relation_ids.append(relation["id"])
@@ -1161,6 +1299,24 @@ def main() -> int:
     )
     if learning_relation_data != expected_learning_relations:
         errors.append("learning-relationships.generated.yaml is stale; run generate_views.py")
+    framework_path_by_kind = {
+        "multidimensional-thinking": ROOT
+        / "07-frameworks/multidimensional-thinking-framework.md",
+        "universal-problem-solving": ROOT
+        / "07-frameworks/universal-problem-solving-framework.md",
+    }
+    for framework in frameworks:
+        expected_framework_text = generate_framework_view(
+            framework, domain_data, thinking_data, universal_data
+        )
+        framework_path = framework_path_by_kind[framework["framework_kind"]]
+        if framework_path.read_text(encoding="utf-8") != expected_framework_text:
+            errors.append(
+                f"{framework_path.name} is stale; run generate_views.py"
+            )
+    expected_framework_relations = generate_framework_relations(framework_data)
+    if framework_relation_data != expected_framework_relations:
+        errors.append("framework-relationships.generated.yaml is stale; run generate_views.py")
 
     if errors:
         print("VALIDATION FAILED")
@@ -1176,6 +1332,7 @@ def main() -> int:
         f"{len(universal_models)} universal models, "
         f"{len(problem_templates)} problem templates, "
         f"{len(learning_units)} learning units, "
+        f"{len(frameworks)} operating frameworks, "
         f"{len(all_relations)} relations, "
         f"20 H2 domains, {len(subdomains)} H3 subdomains, "
         f"{crosswalk_rows} external crosswalk rows, generated views current, "

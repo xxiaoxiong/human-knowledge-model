@@ -9,6 +9,7 @@ const state = {
   activeModelLayer: "thinking",
   activeProblemFamily: "all",
   activeLearningTier: 50,
+  activeFramework: "FM01",
   networkNodes: [],
   hoveredDomain: null,
 };
@@ -22,6 +23,7 @@ const copy = {
     navModels: "思维模型",
     navProblems: "问题映射",
     navLearning: "学习路线",
+    navFrameworks: "求解框架",
     navMethod: "如何使用",
     eyebrow: "一张描述人类如何认识世界的开放图谱",
     heroLine1: "知识不是一棵静止的树，",
@@ -56,6 +58,9 @@ const copy = {
     learningIntro: "320 项候选按问题覆盖、前置杠杆、跨域广度、风险与日常价值评分，再以领域和模型配额保证认知多样性。",
     roadmapEyebrow: "八阶段螺旋路线",
     roadmapTitle: "用作品和迁移证据完成八阶段共同底座",
+    frameworksEyebrow: "Think wide · act in a loop",
+    frameworksTitle: "从十个观察透镜进入十阶段问题闭环",
+    frameworksIntro: "多维思考框架扩展观察空间，通用问题求解框架把问题转成有安全门、证据、授权、行动、监测和更新的闭环。",
     methodEyebrow: "从知道到行动",
     methodTitle: "怎样使用这张知识图谱",
     methodLead: "不从“我该学哪门课”开始，而从“我面对什么问题、需要做到什么”开始。模型帮助你定位对象、补齐前置、组合证据并检查边界。",
@@ -110,6 +115,7 @@ const copy = {
     detailUniversal: "通用世界模型",
     detailProblem: "问题—知识模板",
     detailLearning: "学习路线单元",
+    detailFramework: "认知操作框架",
     coreIdea: "核心思想",
     sourceDomains: "来源领域",
     mechanismAnchors: "机制锚点",
@@ -143,6 +149,12 @@ const copy = {
     thinkingAsset: "思维模型",
     universalAsset: "通用模型",
     rankingMethod: "组合规则",
+    entryQuestions: "进入问题",
+    frameworkComponents: "透镜与阶段",
+    qualityGates: "质量门",
+    operatingOutputs: "完整输出",
+    componentOutput: "退出产物",
+    openFramework: "打开完整调用说明",
   },
   en: {
     brandTagline: "A map of how humanity knows",
@@ -152,6 +164,7 @@ const copy = {
     navModels: "Thinking models",
     navProblems: "Problem maps",
     navLearning: "Learning path",
+    navFrameworks: "Frameworks",
     navMethod: "How to use",
     eyebrow: "An open graph of how humanity understands the world",
     heroLine1: "Knowledge is not a static tree,",
@@ -186,6 +199,9 @@ const copy = {
     learningIntro: "The 320 candidates are scored for problem coverage, prerequisite leverage, cross-domain reach, risk and everyday value, then balanced with domain and model quotas.",
     roadmapEyebrow: "Eight-stage spiral",
     roadmapTitle: "Build the common foundation through artifacts and transfer evidence",
+    frameworksEyebrow: "Think wide · act in a loop",
+    frameworksTitle: "Move from ten lenses into a ten-stage problem loop",
+    frameworksIntro: "The thinking framework widens the observation space; the problem-solving framework turns it into a loop with safety gates, evidence, authority, action, monitoring and updates.",
     methodEyebrow: "From knowing to acting",
     methodTitle: "How to use this knowledge graph",
     methodLead: "Start not with “which course should I take?” but with “what problem am I facing and what must I achieve?” The model helps locate objects, restore prerequisites, combine evidence and test boundaries.",
@@ -240,6 +256,7 @@ const copy = {
     detailUniversal: "Universal model",
     detailProblem: "Problem–knowledge template",
     detailLearning: "Learning roadmap unit",
+    detailFramework: "Cognitive operating framework",
     coreIdea: "Core idea",
     sourceDomains: "Source domains",
     mechanismAnchors: "Mechanism anchors",
@@ -273,6 +290,12 @@ const copy = {
     thinkingAsset: "Thinking models",
     universalAsset: "Universal models",
     rankingMethod: "Portfolio rule",
+    entryQuestions: "Entry questions",
+    frameworkComponents: "Lenses and stages",
+    qualityGates: "Quality gates",
+    operatingOutputs: "Complete outputs",
+    componentOutput: "Exit artifact",
+    openFramework: "Open the full operating guide",
   },
 };
 
@@ -314,6 +337,8 @@ function indexes() {
     problemById: new Map(model.problemTemplates.map((item) => [item.id, item])),
     learningById: new Map(model.learningUnits.map((item) => [item.id, item])),
     priorityById: new Map(model.learningPriorities.map((item) => [item.node_id, item])),
+    frameworkById: new Map(model.frameworks.map((item) => [item.id, item])),
+    frameworkByCode: new Map(model.frameworks.map((item) => [item.code, item])),
     modelById: new Map([...model.thinkingModels, ...model.universalModels].map((item) => [item.id, item])),
   };
 }
@@ -652,6 +677,44 @@ function renderLearning() {
   bindOpenButtons($("#roadmap-grid"));
 }
 
+function renderFrameworks() {
+  const frameworks = state.model.frameworks.slice().sort((a, b) => a.code.localeCompare(b.code));
+  if (!frameworks.some((item) => item.code === state.activeFramework)) {
+    state.activeFramework = frameworks[0]?.code || "FM01";
+  }
+  const tabs = $("#framework-tabs");
+  tabs.innerHTML = frameworks
+    .map(
+      (framework) => `<button type="button" role="tab" class="framework-tab" data-framework-code="${escapeHTML(framework.code)}" aria-selected="${state.activeFramework === framework.code}"><span>${escapeHTML(framework.code)}</span><strong>${escapeHTML(label(framework))}</strong><small>${framework.components.length}</small></button>`,
+    )
+    .join("");
+  $$('[data-framework-code]', tabs).forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeFramework = button.dataset.frameworkCode;
+      renderFrameworks();
+    });
+  });
+
+  const framework = frameworks.find((item) => item.code === state.activeFramework) || frameworks[0];
+  if (!framework) return;
+  const components = framework.components.slice().sort((a, b) => a.sequence - b.sequence);
+  $("#framework-panel").innerHTML = `<header class="framework-summary">
+      <div><span>${escapeHTML(framework.code)} · ${escapeHTML(framework.framework_kind)}</span><h3>${escapeHTML(label(framework))}</h3><p>${escapeHTML(definition(framework))}</p></div>
+      <div class="framework-entry"><strong>${escapeHTML(t("entryQuestions"))}</strong>${questionList(framework.entry_questions)}</div>
+    </header>
+    <div class="framework-component-grid">
+      ${components.map((component) => `<article class="framework-component">
+        <span class="framework-component-number">${String(component.sequence).padStart(2, "0")}</span>
+        <strong>${escapeHTML(label(component))}</strong>
+        <p>${escapeHTML(component.purpose)}</p>
+        <small>${component.domains.length} H2 · ${component.thinking_models.length} TM · ${component.universal_models.length} UM</small>
+        <span class="framework-component-output">${escapeHTML(component.output)}</span>
+      </article>`).join("")}
+    </div>
+    <button type="button" class="framework-open" data-open-kind="framework" data-open-id="${escapeHTML(framework.id)}">${escapeHTML(t("openFramework"))} ↗</button>`;
+  bindOpenButtons($("#framework-panel"));
+}
+
 function bindOpenButtons(context = document) {
   $$('[data-open-kind]', context).forEach((button) => {
     button.addEventListener("click", () => openDetail(button.dataset.openKind, button.dataset.openId));
@@ -888,6 +951,32 @@ function openDetail(kind, id, updateHash = true) {
     html += detailBlock(t("exercises"), questionList(node.exercises));
     html += detailBlock(t("exitEvidence"), questionList(node.exit_evidence));
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "framework") {
+    node = idx.frameworkById.get(id) || idx.frameworkByCode.get(id);
+    if (!node) return;
+    color = node.code === "FM01" ? "#5579a7" : "#de6f52";
+    kicker = `${t("detailFramework")} · ${node.code}`;
+    const components = node.components.slice().sort((a, b) => a.sequence - b.sequence);
+    const clickableTags = (items, callKind) => `<div class="tag-cloud">${items.map((item) => `<button type="button" class="tag" data-open-kind="${callKind}" data-open-id="${escapeHTML(item.id)}">${escapeHTML(item.code)} · ${escapeHTML(label(item))}</button>`).join("")}</div>`;
+    html = detailHeader(node);
+    html += detailBlock(t("entryQuestions"), questionList(node.entry_questions));
+    html += detailBlock(
+      t("frameworkComponents"),
+      `<div class="framework-detail-list">${components.map((component) => {
+        const domains = component.domains.map((item) => idx.domainById.get(item)).filter(Boolean);
+        const thinkingModels = component.thinking_models.map((item) => idx.thinkingById.get(item)).filter(Boolean);
+        const universalModels = component.universal_models.map((item) => idx.universalById.get(item)).filter(Boolean);
+        return `<article class="framework-detail-component"><header><span>${String(component.sequence).padStart(2, "0")}</span><h4>${escapeHTML(label(component))}</h4></header><p>${escapeHTML(component.purpose)}</p>${questionList(component.questions)}<div class="framework-call-group"><small>H2 Domains</small>${clickableTags(domains, "domain")}<small>Thinking Models</small>${clickableTags(thinkingModels, "thinking")}<small>Universal Models</small>${clickableTags(universalModels, "universal")}</div><strong class="framework-detail-output">${escapeHTML(t("componentOutput"))} · ${escapeHTML(component.output)}</strong></article>`;
+      }).join("")}</div>`,
+    );
+    if (node.applies_to_problem_templates.length) {
+      const problems = node.applies_to_problem_templates.map((item) => idx.problemById.get(item)).filter(Boolean);
+      html += detailBlock(t("applicableProblems"), clickableTags(problems, "problem"));
+    }
+    html += detailBlock(t("qualityGates"), questionList(node.gates));
+    html += detailBlock(t("operatingOutputs"), questionList(node.outputs));
+    html += detailBlock(t("escalationConditions"), questionList(node.escalation_conditions), "escalation-block");
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   }
 
   $("#detail-kicker").textContent = kicker;
@@ -930,6 +1019,7 @@ function buildSearchIndex() {
     ...state.model.universalModels.map((item) => ({ kind: "universal", item, type: t("detailUniversal") })),
     ...state.model.problemTemplates.map((item) => ({ kind: "problem", item, type: t("detailProblem") })),
     ...state.model.learningUnits.map((item) => ({ kind: "learning", item, type: t("detailLearning") })),
+    ...state.model.frameworks.map((item) => ({ kind: "framework", item, type: t("detailFramework") })),
   ].map((entry) => ({
     ...entry,
     haystack: [
@@ -964,6 +1054,9 @@ function buildSearchIndex() {
       ...(entry.item.learning_outcomes || []),
       ...(entry.item.exercises || []),
       ...(entry.item.exit_evidence || []),
+      ...(entry.item.entry_questions || []),
+      ...(entry.item.components || []).flatMap((item) => [item.labels?.zh, item.labels?.en, item.purpose, item.output, ...(item.questions || [])]),
+      ...(entry.item.gates || []),
     ]
       .join(" ")
       .toLocaleLowerCase(),
@@ -1168,6 +1261,7 @@ function renderAllDynamic() {
   renderModels();
   renderProblems();
   renderLearning();
+  renderFrameworks();
   drawNetwork();
 }
 

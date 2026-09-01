@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；以及 v0.6.0 的 320 项个人核心知识排名与八单元学习路线。当前总图谱包含 2,895 条关系。
+当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；v0.6.0 的 320 项个人核心知识排名与八单元学习路线；以及 v0.7.0 的多维思考与通用问题求解框架。当前总图谱包含 3,056 条关系。
 
 ## 一眼看懂整个模型
 
@@ -86,6 +86,20 @@ flowchart LR
 
 关系不是随意的 `related-to` 标签。模型区分范围、分类、组成、依赖、证据、解释、因果、实现、应用、学习与类比关系，并为边保留方向、语境、置信度和来源。详见[Ontology](00-meta/ontology.md)与[领域关系](01-knowledge-map/domain-relations.md)。
 
+## 最重要的跨学科模型
+
+41 个 Thinking Models 是可执行的认知操作，22 个 Universal Models 是跨领域重复出现的世界结构。两者必须成对使用：例如“系统思维”是观察动作，“反馈、调节与控制”是被观察的结构。
+
+| 模型簇 | Thinking Models 示例 | Universal Models 示例 | 主要用途 |
+|---|---|---|---|
+| 证据与因果 | 因果机制、概率、贝叶斯更新、基准率 | 测量—观察—推断、信息—信号—表征 | 描述未知、比较解释、校准主张 |
+| 系统与动力学 | 系统边界、反馈、二阶效应、阈值、瓶颈 | 存量流量、反馈控制、约束、非线性、韧性 | 理解复杂系统、失效和恢复 |
+| 主体与决策 | 机会成本、激励、博弈、情景、可逆性、权衡前沿 | 资源配置、风险可选性、主体激励治理 | 比较选项、预测策略反应、承担责任 |
+| 网络、进化与涌现 | 选择、网络效应、厚尾、多层解释 | 网络传播、变异选择、涌现多尺度 | 解释扩散、适应、集中和宏观模式 |
+| 学习、创造与边界 | 失败预演、模型边界、实验迭代、视角转换、发散收敛 | 优化搜索学习、复制传播记忆 | 生成方案、主动反证、迁移并更新 |
+
+每个模型均保留来源领域、机制锚点、适用问题、案例、反例、误用和边界。完整内容见[Thinking Models](03-thinking-models/thinking-models.generated.md)与[Universal Models](04-universal-models/universal-models.generated.md)。
+
 ## 多维知识坐标
 
 任何重要节点都可以沿以下维度定位：
@@ -142,7 +156,9 @@ flowchart TD
     D -->|反馈| P
 ```
 
-这条流程现已由 20 个 `Problem → Knowledge Mapping` 原型具体化：每个原型都给出问题边界、H2 与骨架调用、Thinking / Universal Models、证据门槛、五步工作流、失效模式和专业升级条件。详见[问题—知识调用体系](05-problem-mapping/problem-templates.generated.md)；后续 Universal Problem Solving Framework 将提取这些原型的共同操作内核。
+这条流程现已由 20 个 `Problem → Knowledge Mapping` 原型具体化：每个原型都给出问题边界、H2 与骨架调用、Thinking / Universal Models、证据门槛、五步工作流、失效模式和专业升级条件。详见[问题—知识调用体系](05-problem-mapping/problem-templates.generated.md)。
+
+当问题仍然模糊时，先用[多维思考框架](07-frameworks/multidimensional-thinking-framework.md)的十个透镜扫描遗漏；当需要从判断进入行动时，使用[通用问题求解框架](07-frameworks/universal-problem-solving-framework.md)的十阶段闭环。流程按风险和可逆性缩放：低风险问题可以合并阶段，高风险、不可逆或受监管问题必须提高证据、授权、监督与升级要求。
 
 ## 怎样扩展而不破坏结构
 
@@ -176,7 +192,8 @@ human-knowledge-model/
 │  ├─ problem-mapping-design.md
 │  ├─ phase-5-audit.md
 │  ├─ learning-priority-design.md
-│  └─ phase-6-audit.md
+│  ├─ phase-6-audit.md
+│  └─ phase-7-audit.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -196,6 +213,9 @@ human-knowledge-model/
 ├─ 06-learning/
 │  ├─ core-knowledge.generated.md
 │  └─ learning-roadmap.generated.md
+├─ 07-frameworks/
+│  ├─ multidimensional-thinking-framework.md
+│  └─ universal-problem-solving-framework.md
 ├─ 08-data/
 │  ├─ schema.yaml
 │  ├─ domains.yaml
@@ -207,6 +227,7 @@ human-knowledge-model/
 │  ├─ problem-templates.yaml
 │  ├─ learning-roadmap.yaml
 │  ├─ learning-priorities.generated.yaml
+│  ├─ frameworks.yaml
 │  ├─ relationships.yaml
 │  ├─ hierarchy-relationships.generated.yaml
 │  ├─ bridge-relationships.generated.yaml
@@ -214,6 +235,7 @@ human-knowledge-model/
 │  ├─ model-relationships.generated.yaml
 │  ├─ problem-relationships.generated.yaml
 │  ├─ learning-relationships.generated.yaml
+│  ├─ framework-relationships.generated.yaml
 │  └─ crosswalks.yaml
 ├─ site/
 │  ├─ index.html
@@ -223,6 +245,7 @@ human-knowledge-model/
 └─ scripts/
    ├─ build_site.py
    ├─ generate_learning.py
+   ├─ generate_frameworks.py
    ├─ generate_views.py
    ├─ validate.py
    └─ validate_site.py
@@ -248,7 +271,7 @@ python scripts/validate_site.py
 | 4. 跨学科模型 | **已完成 v0.4.0** | 41 个 Thinking Models、22 个 Universal Models、530 条模型关系；全域覆盖、边界与反例审计 |
 | 5. 问题映射 | **已完成 v0.5.0** | 20 个问题原型、463 条调用关系；全域/全模型覆盖、证据门槛、工作流与升级边界 |
 | 6. 学习体系 | **已完成 v0.6.0** | 320 项候选与 Top 50/100/300；8 个学习单元、3 个层级循环、4 条分支路线、109 条学习关系 |
-| 7. 求解框架 | 待展开 | 多维思考与通用问题求解框架 |
+| 7. 求解框架 | **已完成 v0.7.0** | 2 个操作框架、20 个透镜/阶段、161 条调用关系；20 个 H2 与 20 个问题原型覆盖 |
 | 8. 全局审计 | 待展开 | 遗漏、重复、错层、断边与重构报告 |
 
 ## 设计底线
@@ -259,4 +282,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架）

@@ -40,6 +40,7 @@ def main() -> int:
         "models",
         "problems",
         "learning",
+        "frameworks",
         "method",
         "knowledge-network",
         "detail-dialog",
@@ -66,6 +67,7 @@ def main() -> int:
         "problemTemplates": len(payload["problemTemplates"]),
         "learningCandidates": len(payload["learningPriorities"]),
         "learningUnits": len(payload["learningUnits"]),
+        "frameworks": len(payload["frameworks"]),
     }
     for key, expected in expected_counts.items():
         if counts.get(key) != expected:
@@ -82,6 +84,8 @@ def main() -> int:
         errors.append("site payload must expose all 320 ranked learning candidates")
     if counts["learningUnits"] != 8:
         errors.append("site payload must expose all eight learning roadmap units")
+    if counts["frameworks"] != 2:
+        errors.append("site payload must expose both operating frameworks")
     ranks = [entry["rank"] for entry in payload["learningPriorities"]]
     if sorted(ranks) != list(range(1, 321)):
         errors.append("site payload learning ranks must be unique and contiguous from 1 to 320")
@@ -97,6 +101,7 @@ def main() -> int:
         payload["problemTemplates"],
         payload["learningUnits"],
         [payload["learningPath"]],
+        payload["frameworks"],
     )
     ids = {
         node["id"]
@@ -121,6 +126,7 @@ def main() -> int:
         f"{counts['problemTemplates']} problem templates, "
         f"{counts['learningCandidates']} learning candidates, "
         f"{counts['learningUnits']} learning units, "
+        f"{counts['frameworks']} operating frameworks, "
         "project-relative assets and required interaction surfaces present"
     )
     return 0

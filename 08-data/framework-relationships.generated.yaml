@@ -1,0 +1,1297 @@
+schema_version: 0.1.0
+model_version: 0.7.0
+generated_from:
+- 08-data/frameworks.yaml
+- 08-data/domains.yaml
+- 08-data/thinking-models.yaml
+- 08-data/universal-models.yaml
+- 08-data/problem-templates.yaml
+relationships:
+- id: hkm:relation:fm01-uses-domain-agriculture-food-bioproduction
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-arts-literature-creation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:arts-literature-creation
+  scope: FM01 在 时间、尺度与历史路径、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-computing-information-ai
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: FM01 在 证据、测量与未知、网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-earth-space-environment
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-economy-finance-organizations
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: FM01 在 主体、激励与制度、资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-education-learning-development
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:education-learning-development
+  scope: FM01 在 学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-engineering-technology-design
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: FM01 在 系统、动力学与韧性、资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-everyday-life-practical-agency
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: FM01 在 框定、目的与边界、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-health-medicine-wellbeing
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: FM01 在 证据、测量与未知、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-history-archaeology-civilization
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:history-archaeology-civilization
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-language-communication-media
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: FM01 在 网络、分布与接口、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-life-evolution
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:life-evolution
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-mathematics-statistics-formal-systems
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-matter-energy-universe
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:matter-energy-universe
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-metaknowledge-philosophy-inquiry
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: FM01 在 框定、目的与边界 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-mind-brain-behavior
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: FM01 在 因果、机制与替代解释、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-politics-governance-law
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-religion-meaning-worldviews
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:religion-meaning-worldviews
+  scope: FM01 在 时间、尺度与历史路径、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-security-conflict-resilience
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: FM01 在 系统、动力学与韧性、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-domain-society-human-groups
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: FM01 在 主体、激励与制度、网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-base-rates-reference-classes
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-bayesian-updating
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-causal-mechanistic-reasoning
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:causal-mechanistic-reasoning
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-comparative-advantage-specialization
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:comparative-advantage-specialization
+  scope: FM01 在 网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-compounding-accumulation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:compounding-accumulation
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-constraint-bottleneck-theory
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-cooperation-collective-action
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-critical-threshold-tipping
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:critical-threshold-tipping
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-divergent-convergent-creative-iteration
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:divergent-convergent-creative-iteration
+  scope: FM01 在 学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-emergence-multilevel-explanation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:emergence-multilevel-explanation
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-evolutionary-selection-thinking
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:evolutionary-selection-thinking
+  scope: FM01 在 学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-experiment-iteration-learning
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: FM01 在 学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-feedback-loop-reasoning
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-first-principles-decomposition
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-incentives-mechanism-design
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-inversion-prevention
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: FM01 在 风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-map-territory-model-limits
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: FM01 在 框定、目的与边界 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-marginal-analysis
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:marginal-analysis
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-modularity-loose-coupling
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:modularity-loose-coupling
+  scope: FM01 在 系统、动力学与韧性、网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-network-effects
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:network-effects
+  scope: FM01 在 网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-opportunity-cost
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-optionality-real-options
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:optionality-real-options
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-pareto-prioritization
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:pareto-prioritization
+  scope: FM01 在 网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-path-dependence-lock-in
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-perspectival-reflexive-interpretation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: FM01 在 框定、目的与边界、时间、尺度与历史路径、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-power-laws-long-tails
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:power-laws-long-tails
+  scope: FM01 在 网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-principal-agent-information-asymmetry
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:principal-agent-information-asymmetry
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-probabilistic-reasoning
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-redundancy-safety-margin
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: FM01 在 风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-reversible-irreversible-decisions
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: FM01 在 风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-robustness-antifragility
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:robustness-antifragility
+  scope: FM01 在 风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-scale-effects
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:scale-effects
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-scenario-sensitivity-analysis
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: FM01 在 风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-second-order-effects
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-selection-survivorship-bias
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-strategic-interaction-game-theory
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-systems-thinking
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-thinking-model-tradeoff-frontier
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-agency-incentives-governance
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: FM01 在 框定、目的与边界、主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-competition-cooperation-coordination
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:competition-cooperation-coordination
+  scope: FM01 在 主体、激励与制度 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-constraints-bottlenecks-feasibility
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-cycles-oscillation-delays
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:cycles-oscillation-delays
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-emergence-multiscale-organization
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:emergence-multiscale-organization
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-energy-work-efficiency
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:energy-work-efficiency
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-entropy-dissipation-maintenance
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:entropy-dissipation-maintenance
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-feedback-regulation-control
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-growth-decay-saturation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-hierarchy-modularity-interfaces
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:hierarchy-modularity-interfaces
+  scope: FM01 在 系统、动力学与韧性、网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-information-signals-representation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:information-signals-representation
+  scope: FM01 在 证据、测量与未知 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-measurement-observation-inference
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: FM01 在 证据、测量与未知、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-networks-propagation-connectivity
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: FM01 在 网络、分布与接口 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-nonlinear-thresholds-regime-change
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:nonlinear-thresholds-regime-change
+  scope: FM01 在 系统、动力学与韧性 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-optimization-search-learning
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: FM01 在 资源、选项与权衡、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-path-dependence-lock-in
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: FM01 在 时间、尺度与历史路径 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-replication-transmission-memory
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:replication-transmission-memory
+  scope: FM01 在 时间、尺度与历史路径、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-resilience-redundancy-recovery
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: FM01 在 系统、动力学与韧性、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-resource-allocation-tradeoffs
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: FM01 在 资源、选项与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-risk-uncertainty-optionality
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: FM01 在 框定、目的与边界、风险、行动与反证 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-stocks-flows-conservation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: FM01 在 因果、机制与替代解释 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-uses-universal-model-variation-selection-adaptation
+  source: hkm:framework:multidimensional-thinking
+  type: uses
+  target: hkm:universal-model:variation-selection-adaptation
+  scope: FM01 在 因果、机制与替代解释、学习、语言与意义 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-agriculture-food-bioproduction
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-arts-literature-creation
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:arts-literature-creation
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-computing-information-ai
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: FM02 在 建立基线与证据账本 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-earth-space-environment
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: FM02 在 划界系统与主体 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-economy-finance-organizations
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: FM02 在 划界系统与主体、评价、压力测试与权衡、决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-education-learning-development
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:education-learning-development
+  scope: FM02 在 行动、监测与适应、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-engineering-technology-design
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: FM02 在 生成选项与设计、行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-everyday-life-practical-agency
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: FM02 在 安全分诊与权限、决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-health-medicine-wellbeing
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: FM02 在 安全分诊与权限、行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-history-archaeology-civilization
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:history-archaeology-civilization
+  scope: FM02 在 建立基线与证据账本、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-language-communication-media
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: FM02 在 框定问题与成功、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-life-evolution
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:life-evolution
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-mathematics-statistics-formal-systems
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: FM02 在 建立基线与证据账本 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-matter-energy-universe
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:matter-energy-universe
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-metaknowledge-philosophy-inquiry
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: FM02 在 框定问题与成功 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-mind-brain-behavior
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-politics-governance-law
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: FM02 在 安全分诊与权限、评价、压力测试与权衡、决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-religion-meaning-worldviews
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:religion-meaning-worldviews
+  scope: FM02 在 框定问题与成功 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-security-conflict-resilience
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: FM02 在 安全分诊与权限、评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-domain-society-human-groups
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: FM02 在 划界系统与主体 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-base-rates-reference-classes
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: FM02 在 建立基线与证据账本 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-bayesian-updating
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: FM02 在 建立基线与证据账本、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-causal-mechanistic-reasoning
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:causal-mechanistic-reasoning
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-constraint-bottleneck-theory
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-divergent-convergent-creative-iteration
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:divergent-convergent-creative-iteration
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-emergence-multilevel-explanation
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:emergence-multilevel-explanation
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-experiment-iteration-learning
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: FM02 在 行动、监测与适应、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-feedback-loop-reasoning
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-first-principles-decomposition
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: FM02 在 框定问题与成功 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-incentives-mechanism-design
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-inversion-prevention
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: FM02 在 安全分诊与权限、评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-map-territory-model-limits
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: FM02 在 框定问题与成功、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-opportunity-cost
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: FM02 在 决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-optionality-real-options
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:optionality-real-options
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-perspectival-reflexive-interpretation
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: FM02 在 划界系统与主体 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-probabilistic-reasoning
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: FM02 在 建立基线与证据账本 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-redundancy-safety-margin
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: FM02 在 行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-reversible-irreversible-decisions
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: FM02 在 安全分诊与权限、决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-robustness-antifragility
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:robustness-antifragility
+  scope: FM02 在 行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-scenario-sensitivity-analysis
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-second-order-effects
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-selection-survivorship-bias
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: FM02 在 建立基线与证据账本 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-strategic-interaction-game-theory
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: FM02 在 决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-systems-thinking
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: FM02 在 划界系统与主体 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-thinking-model-tradeoff-frontier
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-agency-incentives-governance
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: FM02 在 安全分诊与权限、划界系统与主体、决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-competition-cooperation-coordination
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:competition-cooperation-coordination
+  scope: FM02 在 决定、授权与承诺 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-constraints-bottlenecks-feasibility
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: FM02 在 生成选项与设计 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-emergence-multiscale-organization
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:emergence-multiscale-organization
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-feedback-regulation-control
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: FM02 在 解释、诊断与竞争假设、行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-information-signals-representation
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:information-signals-representation
+  scope: FM02 在 框定问题与成功 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-measurement-observation-inference
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: FM02 在 建立基线与证据账本、复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-nonlinear-thresholds-regime-change
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:nonlinear-thresholds-regime-change
+  scope: FM02 在 解释、诊断与竞争假设 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-optimization-search-learning
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: FM02 在 生成选项与设计、行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-path-dependence-lock-in
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-replication-transmission-memory
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:replication-transmission-memory
+  scope: FM02 在 复盘、更新与迁移 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-resilience-redundancy-recovery
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: FM02 在 评价、压力测试与权衡、行动、监测与适应 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-resource-allocation-tradeoffs
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: FM02 在 评价、压力测试与权衡 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-risk-uncertainty-optionality
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: FM02 在 安全分诊与权限 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-uses-universal-model-stocks-flows-conservation
+  source: hkm:framework:universal-problem-solving
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: FM02 在 划界系统与主体 中调用该知识入口
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-measure-current-state
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:measure-current-state
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-explain-diagnose-causes
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:explain-diagnose-causes
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-forecast-early-warning
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:forecast-early-warning
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-decide-under-uncertainty
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:decide-under-uncertainty
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-allocate-scarce-resources
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:allocate-scarce-resources
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-design-system-service
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:design-system-service
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-evaluate-intervention-impact
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:evaluate-intervention-impact
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-govern-policy-regulation
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:govern-policy-regulation
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-negotiate-coordinate-conflict
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:negotiate-coordinate-conflict
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-manage-risk-crisis-recovery
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:manage-risk-crisis-recovery
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-organizational-strategy-change
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:organizational-strategy-change
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-assess-company-investment
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:assess-company-investment
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-assess-new-technology-success
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:assess-new-technology-success
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-assess-social-policy-impact
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:assess-social-policy-impact
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-make-health-medical-decision
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:make-health-medical-decision
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-sustainability-transition
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:sustainability-transition
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-learn-teach-skill
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:learn-teach-skill
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-personal-life-career-plan
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:personal-life-career-plan
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-interpret-history-culture-meaning
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:interpret-history-culture-meaning
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm02-applies-problem-template-create-innovate-express
+  source: hkm:framework:universal-problem-solving
+  type: applies-to
+  target: hkm:problem-template:create-innovate-express
+  scope: FM02 为该问题原型提供通用操作闭环
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7
+- id: hkm:relation:fm01-complements-fm02
+  source: hkm:framework:multidimensional-thinking
+  type: complements
+  target: hkm:framework:universal-problem-solving
+  scope: 多维透镜负责扩展观察空间，问题求解闭环负责生成、授权、监测和更新行动
+  confidence: high
+  provenance:
+  - hkm:source:framework-synthesis-v0-7

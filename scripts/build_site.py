@@ -211,6 +211,30 @@ def compact_learning_unit(node: dict) -> dict:
     }
 
 
+def compact_framework(node: dict) -> dict:
+    return {
+        key: node[key]
+        for key in (
+            "id",
+            "code",
+            "primary_type",
+            "framework_kind",
+            "labels",
+            "definition",
+            "entry_questions",
+            "components",
+            "outputs",
+            "gates",
+            "escalation_conditions",
+            "related_frameworks",
+            "applies_to_problem_templates",
+            "boundary_notes",
+            "status",
+            "version",
+        )
+    }
+
+
 def build_payload() -> dict:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
@@ -221,6 +245,7 @@ def build_payload() -> dict:
     problem_data = load_yaml("08-data/problem-templates.yaml")
     priority_data = load_yaml("08-data/learning-priorities.generated.yaml")
     roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
+    framework_data = load_yaml("08-data/frameworks.yaml")
     relation_files = [
         "08-data/relationships.yaml",
         "08-data/hierarchy-relationships.generated.yaml",
@@ -229,6 +254,7 @@ def build_payload() -> dict:
         "08-data/model-relationships.generated.yaml",
         "08-data/problem-relationships.generated.yaml",
         "08-data/learning-relationships.generated.yaml",
+        "08-data/framework-relationships.generated.yaml",
     ]
     relations = [
         relation
@@ -254,6 +280,7 @@ def build_payload() -> dict:
         compact_learning_unit(node) for node in roadmap_data["learning_units"]
     ]
     learning_priorities = priority_data["entries"]
+    frameworks = [compact_framework(node) for node in framework_data["frameworks"]]
     domain_ids = {domain["id"] for domain in domains}
     domain_relations = [
         relation
@@ -263,7 +290,7 @@ def build_payload() -> dict:
     return {
         "meta": {
             "id": "human-knowledge-model",
-            "version": roadmap_data["model_version"],
+            "version": framework_data["model_version"],
             "generatedFrom": [
                 "08-data/domains.yaml",
                 "08-data/subdomains.yaml",
@@ -274,6 +301,7 @@ def build_payload() -> dict:
                 "08-data/problem-templates.yaml",
                 "08-data/learning-priorities.generated.yaml",
                 "08-data/learning-roadmap.yaml",
+                "08-data/frameworks.yaml",
             ],
             "counts": {
                 "superdomains": len(superdomains),
@@ -286,6 +314,7 @@ def build_payload() -> dict:
                 "problemTemplates": len(problem_templates),
                 "learningCandidates": len(learning_priorities),
                 "learningUnits": len(learning_units),
+                "frameworks": len(frameworks),
                 "relations": len(relations),
             },
         },
@@ -301,6 +330,7 @@ def build_payload() -> dict:
         "learningPriorities": learning_priorities,
         "learningPath": learning_path,
         "learningUnits": learning_units,
+        "frameworks": frameworks,
         "domainRelations": domain_relations,
     }
 
@@ -332,6 +362,7 @@ def main() -> None:
         f"{payload['meta']['counts']['problemTemplates']} problem templates, "
         f"{payload['meta']['counts']['learningCandidates']} learning candidates, "
         f"{payload['meta']['counts']['learningUnits']} learning units, "
+        f"{payload['meta']['counts']['frameworks']} operating frameworks, "
         f"{payload['meta']['counts']['relations']} relations"
     )
 

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import yaml
 
+from generate_frameworks import generate_framework_relations, generate_framework_view
 from generate_learning import (
     calculate_learning_priorities,
     generate_core_knowledge_view,
@@ -935,6 +936,7 @@ def main() -> None:
     universal_data = load_yaml("08-data/universal-models.yaml")
     problem_data = load_yaml("08-data/problem-templates.yaml")
     roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
+    framework_data = load_yaml("08-data/frameworks.yaml")
     map_text = generate_map(domain_data, subdomain_data)
     (ROOT / "01-knowledge-map/level-2-3-map.generated.md").write_text(
         map_text, encoding="utf-8", newline="\n"
@@ -1060,6 +1062,29 @@ def main() -> None:
     (ROOT / "08-data/learning-relationships.generated.yaml").write_text(
         learning_relation_yaml, encoding="utf-8", newline="\n"
     )
+    framework_path_by_kind = {
+        "multidimensional-thinking": "multidimensional-thinking-framework.md",
+        "universal-problem-solving": "universal-problem-solving-framework.md",
+    }
+    framework_output_dir = ROOT / "07-frameworks"
+    framework_output_dir.mkdir(parents=True, exist_ok=True)
+    for framework in framework_data["frameworks"]:
+        framework_text = generate_framework_view(
+            framework, domain_data, thinking_data, universal_data
+        )
+        (framework_output_dir / framework_path_by_kind[framework["framework_kind"]]).write_text(
+            framework_text, encoding="utf-8", newline="\n"
+        )
+    framework_relations = generate_framework_relations(framework_data)
+    framework_relation_yaml = yaml.safe_dump(
+        framework_relations,
+        allow_unicode=True,
+        sort_keys=False,
+        width=120,
+    )
+    (ROOT / "08-data/framework-relationships.generated.yaml").write_text(
+        framework_relation_yaml, encoding="utf-8", newline="\n"
+    )
     print(
         f"Generated H1-H3 map, {len(hierarchy['relationships'])} hierarchy relations, "
         f"{sum(len(s['categories']) for s in crosswalk_data['systems'])} crosswalk rows, "
@@ -1074,7 +1099,10 @@ def main() -> None:
         f"{len(problem_relations['relationships'])} problem-call relations; "
         f"{len(learning_priorities['entries'])} learning candidates ranked; "
         f"{len(roadmap_data['learning_units'])} learning units and "
-        f"{len(learning_relations['relationships'])} learning relations."
+        f"{len(learning_relations['relationships'])} learning relations; "
+        f"{len(framework_data['frameworks'])} frameworks with "
+        f"{sum(len(item['components']) for item in framework_data['frameworks'])} components and "
+        f"{len(framework_relations['relationships'])} framework relations."
     )
 
 

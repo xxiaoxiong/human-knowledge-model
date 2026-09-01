@@ -1,0 +1,219 @@
+schema_version: 0.1.0
+model_version: 0.7.0
+description: 把完整知识图谱压缩成可重复调用的多维审视与通用问题求解流程。
+
+defaults: &framework_defaults
+  primary_type: framework
+  status: active
+  version: 0.7.0
+
+frameworks:
+  - <<: *framework_defaults
+    id: hkm:framework:multidimensional-thinking
+    code: FM01
+    framework_kind: multidimensional-thinking
+    labels: {zh: 多维思考框架, en: "Multi-dimensional Thinking Framework"}
+    definition: 用十个互补透镜检查问题的框定、证据、机制、系统、主体、资源、时间、网络、意义和行动风险，避免把单一学科或单一模型误作完整现实。
+    entry_questions: [我正在解释、预测、评价、设计还是决定什么, 哪些后果不可接受且何时必须升级, 哪些透镜对当前问题最关键而哪些可以明确暂缓]
+    components:
+      - id: frame-purpose-boundary
+        sequence: 1
+        labels: {zh: 框定、目的与边界, en: "Framing Purpose and Boundaries"}
+        purpose: 明确问题陈述、成功标准、价值、非目标、模型边界和受影响者。
+        questions: [真正要改变或理解的对象是什么, 谁定义成功且谁承担代价, 哪些内容在边界外但可能改变结论]
+        domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:everyday-life-practical-agency]
+        thinking_models: [hkm:thinking-model:map-territory-model-limits, hkm:thinking-model:perspectival-reflexive-interpretation]
+        universal_models: [hkm:universal-model:agency-incentives-governance, hkm:universal-model:risk-uncertainty-optionality]
+        output: 一页问题契约，含目标、非目标、边界、受影响者和升级阈值。
+      - id: evidence-measurement-uncertainty
+        sequence: 2
+        labels: {zh: 证据、测量与未知, en: "Evidence Measurement and Unknowns"}
+        purpose: 追踪数据如何产生，区分观察、推断、价值和未知，并校准证据权重。
+        questions: [当前状态如何被测量且误差来自哪里, 基准率和竞争证据是什么, 哪些未知可学习哪些只能用情景管理]
+        domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:computing-information-ai, hkm:domain:health-medicine-wellbeing]
+        thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:selection-survivorship-bias, hkm:thinking-model:base-rates-reference-classes]
+        universal_models: [hkm:universal-model:measurement-observation-inference, hkm:universal-model:information-signals-representation]
+        output: 证据账本，含来源、测量链、可信区间、缺失数据和更新条件。
+      - id: cause-mechanism-alternatives
+        sequence: 3
+        labels: {zh: 因果、机制与替代解释, en: "Causality Mechanisms and Alternatives"}
+        purpose: 从相关性走向可检验机制，同时保留多层原因和竞争解释。
+        questions: [必要与促成机制分别是什么, 有哪些反事实和共同原因, 微观机制如何产生宏观表现]
+        domains: [hkm:domain:matter-energy-universe, hkm:domain:life-evolution, hkm:domain:mind-brain-behavior]
+        thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:causal-mechanistic-reasoning, hkm:thinking-model:emergence-multilevel-explanation]
+        universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:variation-selection-adaptation, hkm:universal-model:emergence-multiscale-organization]
+        output: 因果图与竞争解释表，列出可区分预测和潜在反证。
+      - id: system-dynamics-resilience
+        sequence: 4
+        labels: {zh: 系统、动力学与韧性, en: "Systems Dynamics and Resilience"}
+        purpose: 检查存量流量、反馈、延迟、约束、阈值、级联和恢复能力。
+        questions: [核心状态变量和反馈回路是什么, 瓶颈阈值与延迟在哪里, 局部优化会怎样破坏整体韧性]
+        domains: [hkm:domain:earth-space-environment, hkm:domain:engineering-technology-design, hkm:domain:security-conflict-resilience]
+        thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:feedback-loop-reasoning, hkm:thinking-model:critical-threshold-tipping, hkm:thinking-model:constraint-bottleneck-theory, hkm:thinking-model:modularity-loose-coupling]
+        universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:energy-work-efficiency, hkm:universal-model:entropy-dissipation-maintenance, hkm:universal-model:cycles-oscillation-delays, hkm:universal-model:nonlinear-thresholds-regime-change, hkm:universal-model:hierarchy-modularity-interfaces, hkm:universal-model:resilience-redundancy-recovery]
+        output: 动态系统图、失效路径、控制点和恢复方案。
+      - id: agents-incentives-institutions
+        sequence: 5
+        labels: {zh: 主体、激励与制度, en: "Agents Incentives and Institutions"}
+        purpose: 识别权力、信息、策略互动、正式规则与非正式规范如何改变行为。
+        questions: [各主体想要什么且掌握什么信息, 规则会诱发哪些策略反应, 谁拥有决定权申诉权和退出权]
+        domains: [hkm:domain:society-human-groups, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations]
+        thinking_models: [hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:principal-agent-information-asymmetry, hkm:thinking-model:cooperation-collective-action]
+        universal_models: [hkm:universal-model:competition-cooperation-coordination, hkm:universal-model:agency-incentives-governance]
+        output: 主体—激励—权力图及可预期策略响应。
+      - id: resources-options-tradeoffs
+        sequence: 6
+        labels: {zh: 资源、选项与权衡, en: "Resources Options and Trade-offs"}
+        purpose: 把稀缺、机会成本、可行集、可选性和分配后果放入同一决策空间。
+        questions: [真正稀缺的资源和硬约束是什么, 包括不行动在内有哪些可行选项, 效率风险公平与可逆性如何权衡]
+        domains: [hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design, hkm:domain:agriculture-food-bioproduction]
+        thinking_models: [hkm:thinking-model:marginal-analysis, hkm:thinking-model:opportunity-cost, hkm:thinking-model:optionality-real-options, hkm:thinking-model:tradeoff-frontier]
+        universal_models: [hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:optimization-search-learning]
+        output: 可行选项集、机会成本和多准则权衡前沿。
+      - id: time-scale-history
+        sequence: 7
+        labels: {zh: 时间、尺度与历史路径, en: "Time Scale and Historical Path"}
+        purpose: 比较短长期、微观宏观和不同历史路径，识别累积、锁定与不可逆变化。
+        questions: [结论随时间窗和尺度怎样改变, 哪些早期选择形成锁定, 历史类比在哪些机制上相似又在哪里失效]
+        domains: [hkm:domain:history-archaeology-civilization, hkm:domain:arts-literature-creation, hkm:domain:religion-meaning-worldviews]
+        thinking_models: [hkm:thinking-model:second-order-effects, hkm:thinking-model:compounding-accumulation, hkm:thinking-model:scale-effects, hkm:thinking-model:path-dependence-lock-in, hkm:thinking-model:perspectival-reflexive-interpretation]
+        universal_models: [hkm:universal-model:growth-decay-saturation, hkm:universal-model:replication-transmission-memory, hkm:universal-model:path-dependence-lock-in]
+        output: 多时间尺度后果链、历史路径和不可逆点清单。
+      - id: networks-distributions-interfaces
+        sequence: 8
+        labels: {zh: 网络、分布与接口, en: "Networks Distributions and Interfaces"}
+        purpose: 检查连接结构、传播、集中度、厚尾、专业化和接口失效。
+        questions: [谁与谁连接且什么会沿网络传播, 平均值掩盖了哪些分布和尾部风险, 模块边界与接口如何改变扩散和故障]
+        domains: [hkm:domain:society-human-groups, hkm:domain:language-communication-media, hkm:domain:computing-information-ai]
+        thinking_models: [hkm:thinking-model:network-effects, hkm:thinking-model:power-laws-long-tails, hkm:thinking-model:pareto-prioritization, hkm:thinking-model:comparative-advantage-specialization, hkm:thinking-model:modularity-loose-coupling]
+        universal_models: [hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:hierarchy-modularity-interfaces]
+        output: 网络与接口图、分布摘要、传播和级联路径。
+      - id: learning-language-meaning
+        sequence: 9
+        labels: {zh: 学习、语言与意义, en: "Learning Language and Meaning"}
+        purpose: 评估人的认知、动机、语言、文化、创造和价值解释如何影响问题与方案。
+        questions: [人们如何理解记忆和学习这件事, 语言和媒介怎样框定可见选项, 哪些权利身份传统和意义不能被单一效用指标替代]
+        domains: [hkm:domain:mind-brain-behavior, hkm:domain:language-communication-media, hkm:domain:education-learning-development, hkm:domain:arts-literature-creation, hkm:domain:religion-meaning-worldviews]
+        thinking_models: [hkm:thinking-model:evolutionary-selection-thinking, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:perspectival-reflexive-interpretation, hkm:thinking-model:divergent-convergent-creative-iteration]
+        universal_models: [hkm:universal-model:variation-selection-adaptation, hkm:universal-model:replication-transmission-memory, hkm:universal-model:optimization-search-learning]
+        output: 认知与语境假设、受众解释和不可化约价值清单。
+      - id: risk-action-disconfirmation
+        sequence: 10
+        labels: {zh: 风险、行动与反证, en: "Risk Action and Disconfirmation"}
+        purpose: 在深度不确定性下设计可逆行动、保护性冗余、监测和明确的停止升级条件。
+        questions: [最坏的可信后果和共同原因失效是什么, 能否先做可逆且可学习的小步试验, 什么观测会推翻方案并触发停止求助或升级]
+        domains: [hkm:domain:health-medicine-wellbeing, hkm:domain:security-conflict-resilience, hkm:domain:everyday-life-practical-agency]
+        thinking_models: [hkm:thinking-model:inversion-prevention, hkm:thinking-model:redundancy-safety-margin, hkm:thinking-model:robustness-antifragility, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions]
+        universal_models: [hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:resilience-redundancy-recovery, hkm:universal-model:measurement-observation-inference]
+        output: 风险登记、试验协议、监测指标、停止和专业升级条件。
+    outputs: [问题契约, 证据账本, 竞争解释与系统图, 主体激励和权衡分析, 风险行动与反证协议]
+    gates: [问题与成功标准能被不同参与者复述, 事实推断价值和未知被明确分开, 至少保留一个竞争解释和一个不行动选项, 检查短长期分配与二阶效应, 高风险行动已有权限监督和升级接口]
+    escalation_conditions: [出现生命健康安全或法律紧急风险, 关键证据质量不足且行动不可逆, 决策超出授权或影响未被代表群体, 结果对模型边界或价值权重高度敏感]
+    related_frameworks: [hkm:framework:universal-problem-solving]
+    applies_to_problem_templates: []
+    boundary_notes: 十个透镜是检查清单而不是要求平均用力；低风险问题可压缩，但不得省略安全升级、证据边界或受影响者。透镜发现问题，不替代领域专业知识。
+
+  - <<: *framework_defaults
+    id: hkm:framework:universal-problem-solving
+    code: FM02
+    framework_kind: universal-problem-solving
+    labels: {zh: 通用问题求解框架, en: "Universal Problem Solving Framework"}
+    definition: 把二十类现实问题的共同操作内核组织为十阶段闭环，从安全分诊、框定和证据到选项、授权行动、监测与更新，并允许按风险与可逆性缩放流程。
+    entry_questions: [这是需要理解预测评价设计协商还是紧急响应的问题, 现在最小安全动作是什么, 谁拥有信息决定权执行能力和结果责任]
+    components:
+      - id: triage-safety-authority
+        sequence: 0
+        labels: {zh: 安全分诊与权限, en: "Safety Triage and Authority"}
+        purpose: 在分析前识别紧急性、不可逆损害、专业责任和授权边界。
+        questions: [是否存在立即危害或强制报告义务, 谁可以决定执行和停止, 现在应先保护稳定还是收集更多信息]
+        domains: [hkm:domain:health-medicine-wellbeing, hkm:domain:politics-governance-law, hkm:domain:security-conflict-resilience, hkm:domain:everyday-life-practical-agency]
+        thinking_models: [hkm:thinking-model:inversion-prevention, hkm:thinking-model:reversible-irreversible-decisions]
+        universal_models: [hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:agency-incentives-governance]
+        output: 紧急性等级、临时保护措施、权限和升级接口。
+      - id: frame-goal-success
+        sequence: 1
+        labels: {zh: 框定问题与成功, en: "Frame the Problem and Success"}
+        purpose: 把模糊诉求改写为有对象、目标、时间、价值、非目标和验收标准的问题契约。
+        questions: [需要改变什么而不是先采用什么方案, 对谁在何时算成功, 哪些结果明确不可接受]
+        domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:language-communication-media, hkm:domain:religion-meaning-worldviews]
+        thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:map-territory-model-limits]
+        universal_models: [hkm:universal-model:information-signals-representation]
+        output: 版本化问题陈述与成功标准。
+      - id: scope-system-stakeholders
+        sequence: 2
+        labels: {zh: 划界系统与主体, en: "Scope the System and Stakeholders"}
+        purpose: 确定系统边界、尺度、状态变量、主体、约束、价值与外部性。
+        questions: [边界内外有哪些对象流和主体, 不同尺度与时间窗怎样改变答案, 谁受影响却没有发言或退出能力]
+        domains: [hkm:domain:society-human-groups, hkm:domain:earth-space-environment, hkm:domain:economy-finance-organizations]
+        thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:perspectival-reflexive-interpretation]
+        universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:agency-incentives-governance]
+        output: 系统边界、主体、变量和价值图。
+      - id: baseline-evidence-unknowns
+        sequence: 3
+        labels: {zh: 建立基线与证据账本, en: "Build the Baseline and Evidence Ledger"}
+        purpose: 描述当前状态、数据生成过程、基准率、误差和关键未知。
+        questions: [什么证据支持当前状态和趋势, 测量采样与选择偏差在哪里, 哪些信息值得先购买或试验获得]
+        domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:computing-information-ai, hkm:domain:history-archaeology-civilization]
+        thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:selection-survivorship-bias]
+        universal_models: [hkm:universal-model:measurement-observation-inference]
+        output: 基线、概率判断、证据质量和未知清单。
+      - id: explain-diagnose-hypotheses
+        sequence: 4
+        labels: {zh: 解释、诊断与竞争假设, en: "Explain Diagnose and Compare Hypotheses"}
+        purpose: 构造多层原因、机制、反馈和竞争解释，并给出可区分预测。
+        questions: [哪些机制足以产生观察结果, 共同原因反馈和延迟是什么, 哪个新观察最能区分竞争解释]
+        domains: [hkm:domain:matter-energy-universe, hkm:domain:life-evolution, hkm:domain:mind-brain-behavior]
+        thinking_models: [hkm:thinking-model:causal-mechanistic-reasoning, hkm:thinking-model:feedback-loop-reasoning, hkm:thinking-model:emergence-multilevel-explanation]
+        universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:nonlinear-thresholds-regime-change, hkm:universal-model:emergence-multiscale-organization]
+        output: 竞争假设、因果图、可区分预测与反证。
+      - id: generate-options-design
+        sequence: 5
+        labels: {zh: 生成选项与设计, en: "Generate Options and Designs"}
+        purpose: 生成包括不行动、等待、信息购买、试点和结构性改变在内的多种可行选项。
+        questions: [若不能采用默认方案还有什么路径, 哪些约束可以移除绕过或重新设计, 如何保留可选性并让行动产生信息]
+        domains: [hkm:domain:engineering-technology-design, hkm:domain:arts-literature-creation, hkm:domain:agriculture-food-bioproduction]
+        thinking_models: [hkm:thinking-model:constraint-bottleneck-theory, hkm:thinking-model:optionality-real-options, hkm:thinking-model:divergent-convergent-creative-iteration]
+        universal_models: [hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:optimization-search-learning]
+        output: 至少三个结构不同的选项及不行动基线。
+      - id: evaluate-stress-test
+        sequence: 6
+        labels: {zh: 评价、压力测试与权衡, en: "Evaluate Stress-test and Trade-off"}
+        purpose: 比较效果、成本、风险、公平、可逆性、激励反应和多情景稳健性。
+        questions: [关键结果对哪些假设最敏感, 短长期和不同群体代价如何分布, 失败预演会暴露哪些共同原因风险]
+        domains: [hkm:domain:economy-finance-organizations, hkm:domain:politics-governance-law, hkm:domain:security-conflict-resilience]
+        thinking_models: [hkm:thinking-model:second-order-effects, hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:inversion-prevention, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:tradeoff-frontier]
+        universal_models: [hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:resilience-redundancy-recovery]
+        output: 多准则比较、情景敏感性、分配影响和失败预演。
+      - id: decide-authorize-commit
+        sequence: 7
+        labels: {zh: 决定、授权与承诺, en: "Decide Authorize and Commit"}
+        purpose: 记录选择依据、责任、资源、权利保护、可逆点和不行动理由。
+        questions: [由谁依据什么标准作出决定, 哪些前提是承诺哪些仍是待验证假设, 何时可以撤销暂停或转向]
+        domains: [hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:everyday-life-practical-agency]
+        thinking_models: [hkm:thinking-model:opportunity-cost, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:reversible-irreversible-decisions]
+        universal_models: [hkm:universal-model:competition-cooperation-coordination, hkm:universal-model:agency-incentives-governance]
+        output: 决策记录、授权责任、资源计划和撤销条件。
+      - id: act-monitor-adapt
+        sequence: 8
+        labels: {zh: 行动、监测与适应, en: "Act Monitor and Adapt"}
+        purpose: 先以合适规模执行，监测领先和滞后指标，处理偏差并保护恢复能力。
+        questions: [最小可学习且安全的行动是什么, 哪些指标能提前发现偏离和伤害, 反馈延迟或执行漂移时如何调整]
+        domains: [hkm:domain:engineering-technology-design, hkm:domain:education-learning-development, hkm:domain:health-medicine-wellbeing]
+        thinking_models: [hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:redundancy-safety-margin, hkm:thinking-model:robustness-antifragility]
+        universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:optimization-search-learning, hkm:universal-model:resilience-redundancy-recovery]
+        output: 实施协议、监测板、异常响应和恢复计划。
+      - id: review-update-transfer
+        sequence: 9
+        labels: {zh: 复盘、更新与迁移, en: "Review Update and Transfer"}
+        purpose: 比较结果与反事实，更新判断，记录意外效应并决定扩展、修订、退出或升级。
+        questions: [结果相对基线和替代方案如何, 什么证据改变了原有判断, 哪些机制可迁移哪些只适用于当前语境]
+        domains: [hkm:domain:history-archaeology-civilization, hkm:domain:education-learning-development, hkm:domain:language-communication-media]
+        thinking_models: [hkm:thinking-model:bayesian-updating, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:map-territory-model-limits]
+        universal_models: [hkm:universal-model:measurement-observation-inference, hkm:universal-model:replication-transmission-memory]
+        output: 结果审计、更新后的模型、迁移边界和下一轮问题。
+    outputs: [问题与权限契约, 系统和证据账本, 竞争解释, 选项与压力测试, 决策记录, 实施监测与更新档案]
+    gates: [安全与授权门, 证据充分性门, 竞争解释门, 可行性与权衡门, 决策责任门, 行动监测门, 结果更新门]
+    escalation_conditions: [存在紧急危险或不可逆伤害, 需要受监管专业判断或法定权限, 关键利益相关者无法代表或同意, 证据不足以支持高风险行动, 执行结果越过预设停止阈值]
+    related_frameworks: [hkm:framework:multidimensional-thinking]
+    applies_to_problem_templates: [hkm:problem-template:measure-current-state, hkm:problem-template:explain-diagnose-causes, hkm:problem-template:forecast-early-warning, hkm:problem-template:decide-under-uncertainty, hkm:problem-template:allocate-scarce-resources, hkm:problem-template:design-system-service, hkm:problem-template:evaluate-intervention-impact, hkm:problem-template:govern-policy-regulation, hkm:problem-template:negotiate-coordinate-conflict, hkm:problem-template:manage-risk-crisis-recovery, hkm:problem-template:organizational-strategy-change, hkm:problem-template:assess-company-investment, hkm:problem-template:assess-new-technology-success, hkm:problem-template:assess-social-policy-impact, hkm:problem-template:make-health-medical-decision, hkm:problem-template:sustainability-transition, hkm:problem-template:learn-teach-skill, hkm:problem-template:personal-life-career-plan, hkm:problem-template:interpret-history-culture-meaning, hkm:problem-template:create-innovate-express]
+    boundary_notes: 框架不能保证正确答案，也不能替代领域资格、参与式治理或价值判断。流程深度应随风险、不可逆性、影响规模和证据不足增加；低风险可逆问题可以合并阶段，但安全、证据、反证、责任和更新不可删除。
