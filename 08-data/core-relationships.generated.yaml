@@ -1594,6 +1594,414 @@ relationships:
   confidence: medium
   provenance:
   - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-primary-d04
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-in-geology-earth-materials-geophysics
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: in-scope
+  target: hkm:subdomain:geology-earth-materials-geophysics
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-enables-tectonics-landforms-geohazards
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: enables
+  target: hkm:framework:tectonics-landforms-geohazards
+  scope: 内部热力和岩石圈性质约束板块运动变形与地震火山过程
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:tectonics-landforms-geohazards-primary-d04
+  source: hkm:framework:tectonics-landforms-geohazards
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:tectonics-landforms-geohazards-in-tectonics-geomorphology-hazards
+  source: hkm:framework:tectonics-landforms-geohazards
+  type: in-scope
+  target: hkm:subdomain:tectonics-geomorphology-hazards
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-prerequisite-tectonics-landforms-geohazards
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: prerequisite-of
+  target: hkm:framework:tectonics-landforms-geohazards
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:tectonics-landforms-geohazards-enables-geologic-time-earth-history-paleoclimate
+  source: hkm:framework:tectonics-landforms-geohazards
+  type: enables
+  target: hkm:framework:geologic-time-earth-history-paleoclimate
+  scope: 构造沉积与地貌记录提供重建地球历史的时空档案
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geologic-time-earth-history-paleoclimate-primary-d04
+  source: hkm:framework:geologic-time-earth-history-paleoclimate
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geologic-time-earth-history-paleoclimate-in-earth-history-paleoclimate
+  source: hkm:framework:geologic-time-earth-history-paleoclimate
+  type: in-scope
+  target: hkm:subdomain:earth-history-paleoclimate
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-prerequisite-geologic-time-earth-history-paleoclimate
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: prerequisite-of
+  target: hkm:framework:geologic-time-earth-history-paleoclimate
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:tectonics-landforms-geohazards-prerequisite-geologic-time-earth-history-paleoclimate
+  source: hkm:framework:tectonics-landforms-geohazards
+  type: prerequisite-of
+  target: hkm:framework:geologic-time-earth-history-paleoclimate
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geologic-time-earth-history-paleoclimate-constrains-atmosphere-weather-climate-system
+  source: hkm:framework:geologic-time-earth-history-paleoclimate
+  type: constrains
+  target: hkm:framework:atmosphere-weather-climate-system
+  scope: 古气候记录检验气候敏感度反馈与长期边界条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-primary-d04
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-in-atmosphere-weather-climate
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: in-scope
+  target: hkm:subdomain:atmosphere-weather-climate
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geologic-time-earth-history-paleoclimate-prerequisite-atmosphere-weather-climate-system
+  source: hkm:framework:geologic-time-earth-history-paleoclimate
+  type: prerequisite-of
+  target: hkm:framework:atmosphere-weather-climate-system
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-influences-ocean-coastal-circulation-change
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: influences
+  target: hkm:framework:ocean-coastal-circulation-change
+  scope: 风应力热量淡水和气体交换耦合大气与海洋变化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ocean-coastal-circulation-change-primary-d04
+  source: hkm:framework:ocean-coastal-circulation-change
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ocean-coastal-circulation-change-in-ocean-coastal-systems
+  source: hkm:framework:ocean-coastal-circulation-change
+  type: in-scope
+  target: hkm:subdomain:ocean-coastal-systems
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-prerequisite-ocean-coastal-circulation-change
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: prerequisite-of
+  target: hkm:framework:ocean-coastal-circulation-change
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ocean-coastal-circulation-change-complements-water-cycle-cryosphere-catchments
+  source: hkm:framework:ocean-coastal-circulation-change
+  type: complements
+  target: hkm:framework:water-cycle-cryosphere-catchments
+  scope: 海洋边界与陆地径流冰融共同决定淡水和海平面变化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-primary-d04
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-in-hydrology-cryosphere-water
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: in-scope
+  target: hkm:subdomain:hydrology-cryosphere-water
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-prerequisite-water-cycle-cryosphere-catchments
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: prerequisite-of
+  target: hkm:framework:water-cycle-cryosphere-catchments
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ocean-coastal-circulation-change-prerequisite-water-cycle-cryosphere-catchments
+  source: hkm:framework:ocean-coastal-circulation-change
+  type: prerequisite-of
+  target: hkm:framework:water-cycle-cryosphere-catchments
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-enables-soil-critical-zone-processes
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: enables
+  target: hkm:framework:soil-critical-zone-processes
+  scope: 水分流动控制风化土壤形成溶质迁移与植被可用水
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:soil-critical-zone-processes-primary-d04
+  source: hkm:framework:soil-critical-zone-processes
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:soil-critical-zone-processes-in-soil-critical-zone
+  source: hkm:framework:soil-critical-zone-processes
+  type: in-scope
+  target: hkm:subdomain:soil-critical-zone
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-prerequisite-soil-critical-zone-processes
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: prerequisite-of
+  target: hkm:framework:soil-critical-zone-processes
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-prerequisite-soil-critical-zone-processes
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: prerequisite-of
+  target: hkm:framework:soil-critical-zone-processes
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:soil-critical-zone-processes-influences-pollutant-fate-risk-remediation
+  source: hkm:framework:soil-critical-zone-processes
+  type: influences
+  target: hkm:framework:pollutant-fate-risk-remediation
+  scope: 土壤矿物有机质孔隙和生物过程控制污染物迁移转化与暴露
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:pollutant-fate-risk-remediation-primary-d04
+  source: hkm:framework:pollutant-fate-risk-remediation
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:pollutant-fate-risk-remediation-in-environmental-science-pollution
+  source: hkm:framework:pollutant-fate-risk-remediation
+  type: in-scope
+  target: hkm:subdomain:environmental-science-pollution
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-prerequisite-pollutant-fate-risk-remediation
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: prerequisite-of
+  target: hkm:framework:pollutant-fate-risk-remediation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:soil-critical-zone-processes-prerequisite-pollutant-fate-risk-remediation
+  source: hkm:framework:soil-critical-zone-processes
+  type: prerequisite-of
+  target: hkm:framework:pollutant-fate-risk-remediation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:pollutant-fate-risk-remediation-uses-geospatial-observation-mapping-inference
+  source: hkm:framework:pollutant-fate-risk-remediation
+  type: uses
+  target: hkm:framework:geospatial-observation-mapping-inference
+  scope: 空间监测遥感和地图用于识别污染分布暴露热点与修复成效
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geospatial-observation-mapping-inference-primary-d04
+  source: hkm:framework:geospatial-observation-mapping-inference
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geospatial-observation-mapping-inference-in-geospatial-earth-observation
+  source: hkm:framework:geospatial-observation-mapping-inference
+  type: in-scope
+  target: hkm:subdomain:geospatial-earth-observation
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-prerequisite-geospatial-observation-mapping-inference
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: prerequisite-of
+  target: hkm:framework:geospatial-observation-mapping-inference
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geospatial-observation-mapping-inference-enables-planetary-comparative-space-environments
+  source: hkm:framework:geospatial-observation-mapping-inference
+  type: enables
+  target: hkm:framework:planetary-comparative-space-environments
+  scope: 遥感制图和反演方法可迁移到行星表面与空间环境研究
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:planetary-comparative-space-environments-primary-d04
+  source: hkm:framework:planetary-comparative-space-environments
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:planetary-comparative-space-environments-in-planetary-space-environment
+  source: hkm:framework:planetary-comparative-space-environments
+  type: in-scope
+  target: hkm:subdomain:planetary-space-environment
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:earth-materials-interior-geophysics-prerequisite-planetary-comparative-space-environments
+  source: hkm:framework:earth-materials-interior-geophysics
+  type: prerequisite-of
+  target: hkm:framework:planetary-comparative-space-environments
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geospatial-observation-mapping-inference-prerequisite-planetary-comparative-space-environments
+  source: hkm:framework:geospatial-observation-mapping-inference
+  type: prerequisite-of
+  target: hkm:framework:planetary-comparative-space-environments
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:planetary-comparative-space-environments-refines-life-origin-chemical-evolution-habitability
+  source: hkm:framework:planetary-comparative-space-environments
+  type: refines
+  target: hkm:framework:life-origin-chemical-evolution-habitability
+  scope: 比较行星环境限定宜居性指标和生命起源可能条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:coupled-human-earth-sustainability-primary-d04
+  source: hkm:framework:coupled-human-earth-sustainability
+  type: primary-domain
+  target: hkm:domain:earth-space-environment
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:coupled-human-earth-sustainability-in-human-environment-sustainability
+  source: hkm:framework:coupled-human-earth-sustainability
+  type: in-scope
+  target: hkm:subdomain:human-environment-sustainability
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:atmosphere-weather-climate-system-prerequisite-coupled-human-earth-sustainability
+  source: hkm:framework:atmosphere-weather-climate-system
+  type: prerequisite-of
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:water-cycle-cryosphere-catchments-prerequisite-coupled-human-earth-sustainability
+  source: hkm:framework:water-cycle-cryosphere-catchments
+  type: prerequisite-of
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:pollutant-fate-risk-remediation-prerequisite-coupled-human-earth-sustainability
+  source: hkm:framework:pollutant-fate-risk-remediation
+  type: prerequisite-of
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:geospatial-observation-mapping-inference-prerequisite-coupled-human-earth-sustainability
+  source: hkm:framework:geospatial-observation-mapping-inference
+  type: prerequisite-of
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:coupled-human-earth-sustainability-complements-community-welfare-capabilities-social-policy
+  source: hkm:framework:coupled-human-earth-sustainability
+  type: complements
+  target: hkm:framework:community-welfare-capabilities-social-policy
+  scope: 环境转型需要把生态风险与社区能力分配和社会保障共同设计
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
 - id: hkm:relation:life-origin-chemical-evolution-habitability-primary-d05
   source: hkm:framework:life-origin-chemical-evolution-habitability
   type: primary-domain
@@ -2487,6 +2895,1310 @@ relationships:
   type: uses
   target: hkm:framework:consciousness-self-agency-metacognition
   scope: 元认知和能动感可支持监测选择与复盘但需配合环境和社会资源
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-primary-d07
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-in-social-theory-methods
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: in-scope
+  target: hkm:subdomain:social-theory-methods
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-enables-ethnography-cultural-comparison
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: enables
+  target: hkm:method:ethnography-cultural-comparison
+  scope: 社会理论帮助民族志在情境意义与更大制度结构之间往返
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethnography-cultural-comparison-primary-d07
+  source: hkm:method:ethnography-cultural-comparison
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethnography-cultural-comparison-in-social-cultural-anthropology
+  source: hkm:method:ethnography-cultural-comparison
+  type: in-scope
+  target: hkm:subdomain:social-cultural-anthropology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-prerequisite-ethnography-cultural-comparison
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: prerequisite-of
+  target: hkm:method:ethnography-cultural-comparison
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethnography-cultural-comparison-constrains-culture-identity-norms-power
+  source: hkm:method:ethnography-cultural-comparison
+  type: constrains
+  target: hkm:framework:culture-identity-norms-power
+  scope: 文化和身份概念需由具体实践语言与权力关系校正
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:demography-population-processes-primary-d07
+  source: hkm:framework:demography-population-processes
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:demography-population-processes-in-demography-population
+  source: hkm:framework:demography-population-processes
+  type: in-scope
+  target: hkm:subdomain:demography-population
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-prerequisite-demography-population-processes
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: prerequisite-of
+  target: hkm:framework:demography-population-processes
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:demography-population-processes-enables-family-kinship-life-course
+  source: hkm:framework:demography-population-processes
+  type: enables
+  target: hkm:framework:family-kinship-life-course
+  scope: 人口过程为家庭形成照护代际和生命历程转变提供结构背景
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:family-kinship-life-course-primary-d07
+  source: hkm:framework:family-kinship-life-course
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:family-kinship-life-course-in-family-kinship-life-course
+  source: hkm:framework:family-kinship-life-course
+  type: in-scope
+  target: hkm:subdomain:family-kinship-life-course
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:demography-population-processes-prerequisite-family-kinship-life-course
+  source: hkm:framework:demography-population-processes
+  type: prerequisite-of
+  target: hkm:framework:family-kinship-life-course
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethnography-cultural-comparison-prerequisite-family-kinship-life-course
+  source: hkm:method:ethnography-cultural-comparison
+  type: prerequisite-of
+  target: hkm:framework:family-kinship-life-course
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:family-kinship-life-course-influences-inequality-stratification-mobility
+  source: hkm:framework:family-kinship-life-course
+  type: influences
+  target: hkm:framework:inequality-stratification-mobility
+  scope: 家庭资源照护与继承是社会优势劣势累积的重要通道
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:groups-networks-collective-action-primary-d07
+  source: hkm:framework:groups-networks-collective-action
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:groups-networks-collective-action-in-groups-networks-collective-behavior
+  source: hkm:framework:groups-networks-collective-action
+  type: in-scope
+  target: hkm:subdomain:groups-networks-collective-behavior
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-prerequisite-groups-networks-collective-action
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: prerequisite-of
+  target: hkm:framework:groups-networks-collective-action
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:groups-networks-collective-action-complements-culture-identity-norms-power
+  source: hkm:framework:groups-networks-collective-action
+  type: complements
+  target: hkm:framework:culture-identity-norms-power
+  scope: 网络扩散依赖群体身份规范解释和权力边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:culture-identity-norms-power-primary-d07
+  source: hkm:framework:culture-identity-norms-power
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:culture-identity-norms-power-in-culture-identity-norms
+  source: hkm:framework:culture-identity-norms-power
+  type: in-scope
+  target: hkm:subdomain:culture-identity-norms
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:ethnography-cultural-comparison-prerequisite-culture-identity-norms-power
+  source: hkm:method:ethnography-cultural-comparison
+  type: prerequisite-of
+  target: hkm:framework:culture-identity-norms-power
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:groups-networks-collective-action-prerequisite-culture-identity-norms-power
+  source: hkm:framework:groups-networks-collective-action
+  type: prerequisite-of
+  target: hkm:framework:culture-identity-norms-power
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:culture-identity-norms-power-influences-inequality-stratification-mobility
+  source: hkm:framework:culture-identity-norms-power
+  type: influences
+  target: hkm:framework:inequality-stratification-mobility
+  scope: 文化分类和身份边界可合法化或挑战资源与地位差异
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:inequality-stratification-mobility-primary-d07
+  source: hkm:framework:inequality-stratification-mobility
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:inequality-stratification-mobility-in-inequality-stratification
+  source: hkm:framework:inequality-stratification-mobility
+  type: in-scope
+  target: hkm:subdomain:inequality-stratification
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:family-kinship-life-course-prerequisite-inequality-stratification-mobility
+  source: hkm:framework:family-kinship-life-course
+  type: prerequisite-of
+  target: hkm:framework:inequality-stratification-mobility
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:culture-identity-norms-power-prerequisite-inequality-stratification-mobility
+  source: hkm:framework:culture-identity-norms-power
+  type: prerequisite-of
+  target: hkm:framework:inequality-stratification-mobility
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:inequality-stratification-mobility-constrains-community-welfare-capabilities-social-policy
+  source: hkm:framework:inequality-stratification-mobility
+  type: constrains
+  target: hkm:framework:community-welfare-capabilities-social-policy
+  scope: 福利设计需识别结构性障碍差异需求和实际能力而非只比较名义资源
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:organizations-institutions-fields-primary-d07
+  source: hkm:framework:organizations-institutions-fields
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:organizations-institutions-fields-in-organizations-institutions-sociology
+  source: hkm:framework:organizations-institutions-fields
+  type: in-scope
+  target: hkm:subdomain:organizations-institutions-sociology
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-prerequisite-organizations-institutions-fields
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: prerequisite-of
+  target: hkm:framework:organizations-institutions-fields
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:groups-networks-collective-action-prerequisite-organizations-institutions-fields
+  source: hkm:framework:groups-networks-collective-action
+  type: prerequisite-of
+  target: hkm:framework:organizations-institutions-fields
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:organizations-institutions-fields-complements-governance-regulation-institutional-design
+  source: hkm:framework:organizations-institutions-fields
+  type: complements
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 社会学解释制度实际运行，治理设计规定权责激励与救济
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:place-urban-rural-spatial-relations-primary-d07
+  source: hkm:framework:place-urban-rural-spatial-relations
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:place-urban-rural-spatial-relations-in-human-geography-urban-rural
+  source: hkm:framework:place-urban-rural-spatial-relations
+  type: in-scope
+  target: hkm:subdomain:human-geography-urban-rural
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-theory-mixed-method-inference-prerequisite-place-urban-rural-spatial-relations
+  source: hkm:framework:social-theory-mixed-method-inference
+  type: prerequisite-of
+  target: hkm:framework:place-urban-rural-spatial-relations
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:place-urban-rural-spatial-relations-enables-migration-globalization-transnationalism
+  source: hkm:framework:place-urban-rural-spatial-relations
+  type: enables
+  target: hkm:framework:migration-globalization-transnationalism
+  scope: 地方机会住房边界和基础设施共同塑造迁移路径与定居结果
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:migration-globalization-transnationalism-primary-d07
+  source: hkm:framework:migration-globalization-transnationalism
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:migration-globalization-transnationalism-in-migration-globalization
+  source: hkm:framework:migration-globalization-transnationalism
+  type: in-scope
+  target: hkm:subdomain:migration-globalization
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:demography-population-processes-prerequisite-migration-globalization-transnationalism
+  source: hkm:framework:demography-population-processes
+  type: prerequisite-of
+  target: hkm:framework:migration-globalization-transnationalism
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:place-urban-rural-spatial-relations-prerequisite-migration-globalization-transnationalism
+  source: hkm:framework:place-urban-rural-spatial-relations
+  type: prerequisite-of
+  target: hkm:framework:migration-globalization-transnationalism
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:migration-globalization-transnationalism-influences-family-kinship-life-course
+  source: hkm:framework:migration-globalization-transnationalism
+  type: influences
+  target: hkm:framework:family-kinship-life-course
+  scope: 迁移重组家庭照护汇款身份与代际轨迹
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:community-welfare-capabilities-social-policy-primary-d07
+  source: hkm:framework:community-welfare-capabilities-social-policy
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:community-welfare-capabilities-social-policy-in-community-welfare-social-policy
+  source: hkm:framework:community-welfare-capabilities-social-policy
+  type: in-scope
+  target: hkm:subdomain:community-welfare-social-policy
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:inequality-stratification-mobility-prerequisite-community-welfare-capabilities-social-policy
+  source: hkm:framework:inequality-stratification-mobility
+  type: prerequisite-of
+  target: hkm:framework:community-welfare-capabilities-social-policy
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:organizations-institutions-fields-prerequisite-community-welfare-capabilities-social-policy
+  source: hkm:framework:organizations-institutions-fields
+  type: prerequisite-of
+  target: hkm:framework:community-welfare-capabilities-social-policy
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:community-welfare-capabilities-social-policy-complements-policy-cycle-public-administration-implementation
+  source: hkm:framework:community-welfare-capabilities-social-policy
+  type: complements
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 社区经验和能力评价为政策设计执行与反馈提供对象证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-society-coproduction-primary-d07
+  source: hkm:framework:science-technology-society-coproduction
+  type: primary-domain
+  target: hkm:domain:society-human-groups
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-society-coproduction-in-science-technology-society
+  source: hkm:framework:science-technology-society-coproduction
+  type: in-scope
+  target: hkm:subdomain:science-technology-society
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:organizations-institutions-fields-prerequisite-science-technology-society-coproduction
+  source: hkm:framework:organizations-institutions-fields
+  type: prerequisite-of
+  target: hkm:framework:science-technology-society-coproduction
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:culture-identity-norms-power-prerequisite-science-technology-society-coproduction
+  source: hkm:framework:culture-identity-norms-power
+  type: prerequisite-of
+  target: hkm:framework:science-technology-society-coproduction
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-society-coproduction-complements-engineering-ethics-safety-responsibility
+  source: hkm:framework:science-technology-society-coproduction
+  type: complements
+  target: hkm:norm-value:engineering-ethics-safety-responsibility
+  scope: 技术治理需要把性能安全与制度权力劳动和社会分类共同分析
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-primary-d08
+  source: hkm:method:historical-reasoning-source-criticism
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-in-historiography-sources-methods
+  source: hkm:method:historical-reasoning-source-criticism
+  type: in-scope
+  target: hkm:subdomain:historiography-sources-methods
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-enables-archaeological-context-material-culture
+  source: hkm:method:historical-reasoning-source-criticism
+  type: enables
+  target: hkm:method:archaeological-context-material-culture
+  scope: 物质遗存同样需要来源语境形成过程与保存偏差批判
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:archaeological-context-material-culture-primary-d08
+  source: hkm:method:archaeological-context-material-culture
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:archaeological-context-material-culture-in-archaeology-material-past
+  source: hkm:method:archaeological-context-material-culture
+  type: in-scope
+  target: hkm:subdomain:archaeology-material-past
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-archaeological-context-material-culture
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:method:archaeological-context-material-culture
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:archaeological-context-material-culture-enables-prehistory-ancient-state-society
+  source: hkm:method:archaeological-context-material-culture
+  type: enables
+  target: hkm:framework:prehistory-ancient-state-society
+  scope: 考古证据是无文字与早期国家社会重建的主要基础
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:prehistory-ancient-state-society-primary-d08
+  source: hkm:framework:prehistory-ancient-state-society
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:prehistory-ancient-state-society-in-prehistory-ancient-worlds
+  source: hkm:framework:prehistory-ancient-state-society
+  type: in-scope
+  target: hkm:subdomain:prehistory-ancient-worlds
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-prehistory-ancient-state-society
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:prehistory-ancient-state-society
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:archaeological-context-material-culture-prerequisite-prehistory-ancient-state-society
+  source: hkm:method:archaeological-context-material-culture
+  type: prerequisite-of
+  target: hkm:framework:prehistory-ancient-state-society
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:prehistory-ancient-state-society-enables-medieval-early-modern-institutions-exchange
+  source: hkm:framework:prehistory-ancient-state-society
+  type: enables
+  target: hkm:framework:medieval-early-modern-institutions-exchange
+  scope: 古代国家宗教法律与交换遗产为后续制度变化提供路径依赖
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:medieval-early-modern-institutions-exchange-primary-d08
+  source: hkm:framework:medieval-early-modern-institutions-exchange
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:medieval-early-modern-institutions-exchange-in-medieval-early-modern-worlds
+  source: hkm:framework:medieval-early-modern-institutions-exchange
+  type: in-scope
+  target: hkm:subdomain:medieval-early-modern-worlds
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:prehistory-ancient-state-society-prerequisite-medieval-early-modern-institutions-exchange
+  source: hkm:framework:prehistory-ancient-state-society
+  type: prerequisite-of
+  target: hkm:framework:medieval-early-modern-institutions-exchange
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:medieval-early-modern-institutions-exchange-enables-modernity-industrialization-colonialism-nation-states
+  source: hkm:framework:medieval-early-modern-institutions-exchange
+  type: enables
+  target: hkm:framework:modernity-industrialization-colonialism-nation-states
+  scope: 早期近代财政军事贸易和殖民网络为现代转型创造不均衡条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-primary-d08
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-in-modern-contemporary-history
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: in-scope
+  target: hkm:subdomain:modern-contemporary-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:medieval-early-modern-institutions-exchange-prerequisite-modernity-industrialization-colonialism-nation-states
+  source: hkm:framework:medieval-early-modern-institutions-exchange
+  type: prerequisite-of
+  target: hkm:framework:modernity-industrialization-colonialism-nation-states
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-enables-global-maritime-connected-histories
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: enables
+  target: hkm:framework:global-maritime-connected-histories
+  scope: 现代帝国工业和迁移只能在跨区域连接中完整解释
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:global-maritime-connected-histories-primary-d08
+  source: hkm:framework:global-maritime-connected-histories
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:global-maritime-connected-histories-in-global-connected-history
+  source: hkm:framework:global-maritime-connected-histories
+  type: in-scope
+  target: hkm:subdomain:global-connected-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-global-maritime-connected-histories
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:global-maritime-connected-histories
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-prerequisite-global-maritime-connected-histories
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: prerequisite-of
+  target: hkm:framework:global-maritime-connected-histories
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:global-maritime-connected-histories-complements-regional-local-multiscalar-history
+  source: hkm:framework:global-maritime-connected-histories
+  type: complements
+  target: hkm:framework:regional-local-multiscalar-history
+  scope: 全球链条需要地方档案语言与社会关系解释其具体作用
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:regional-local-multiscalar-history-primary-d08
+  source: hkm:framework:regional-local-multiscalar-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:regional-local-multiscalar-history-in-regional-local-histories
+  source: hkm:framework:regional-local-multiscalar-history
+  type: in-scope
+  target: hkm:subdomain:regional-local-histories
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-regional-local-multiscalar-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:regional-local-multiscalar-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:regional-local-multiscalar-history-refines-global-maritime-connected-histories
+  source: hkm:framework:regional-local-multiscalar-history
+  type: refines
+  target: hkm:framework:global-maritime-connected-histories
+  scope: 地方研究揭示全球过程的中介摩擦和不均衡后果
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cultural-intellectual-history-primary-d08
+  source: hkm:framework:social-cultural-intellectual-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cultural-intellectual-history-in-social-cultural-intellectual-history
+  source: hkm:framework:social-cultural-intellectual-history
+  type: in-scope
+  target: hkm:subdomain:social-cultural-intellectual-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-social-cultural-intellectual-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:social-cultural-intellectual-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cultural-intellectual-history-enables-memory-heritage-public-history
+  source: hkm:framework:social-cultural-intellectual-history
+  type: enables
+  target: hkm:framework:memory-heritage-public-history
+  scope: 公共记忆和遗产选择建立在对社会文化经验的历史解释上
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-legal-diplomatic-history-primary-d08
+  source: hkm:framework:political-legal-diplomatic-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-legal-diplomatic-history-in-political-legal-diplomatic-history
+  source: hkm:framework:political-legal-diplomatic-history
+  type: in-scope
+  target: hkm:subdomain:political-legal-diplomatic-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-political-legal-diplomatic-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:political-legal-diplomatic-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-prerequisite-political-legal-diplomatic-history
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: prerequisite-of
+  target: hkm:framework:political-legal-diplomatic-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-legal-diplomatic-history-supports-comparative-regimes-state-capacity
+  source: hkm:framework:political-legal-diplomatic-history
+  type: supports
+  target: hkm:framework:comparative-regimes-state-capacity
+  scope: 政体和国家能力比较需要制度形成与危机的历史路径证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:economic-labor-business-history-primary-d08
+  source: hkm:framework:economic-labor-business-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:economic-labor-business-history-in-economic-labor-business-history
+  source: hkm:framework:economic-labor-business-history
+  type: in-scope
+  target: hkm:subdomain:economic-labor-business-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-economic-labor-business-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:economic-labor-business-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-prerequisite-economic-labor-business-history
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: prerequisite-of
+  target: hkm:framework:economic-labor-business-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:economic-labor-business-history-complements-global-maritime-connected-histories
+  source: hkm:framework:economic-labor-business-history
+  type: complements
+  target: hkm:framework:global-maritime-connected-histories
+  scope: 企业商品金融与劳动体系通过跨区域链条共同演化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-medicine-environment-history-primary-d08
+  source: hkm:framework:science-technology-medicine-environment-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-medicine-environment-history-in-science-technology-medicine-environment-history
+  source: hkm:framework:science-technology-medicine-environment-history
+  type: in-scope
+  target: hkm:subdomain:science-technology-medicine-environment-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-science-technology-medicine-environment-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:science-technology-medicine-environment-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:modernity-industrialization-colonialism-nation-states-prerequisite-science-technology-medicine-environment-history
+  source: hkm:framework:modernity-industrialization-colonialism-nation-states
+  type: prerequisite-of
+  target: hkm:framework:science-technology-medicine-environment-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:science-technology-medicine-environment-history-complements-science-technology-society-coproduction
+  source: hkm:framework:science-technology-medicine-environment-history
+  type: complements
+  target: hkm:framework:science-technology-society-coproduction
+  scope: 历史案例揭示知识技术与社会秩序共同形成的具体路径
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:memory-heritage-public-history-primary-d08
+  source: hkm:framework:memory-heritage-public-history
+  type: primary-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:memory-heritage-public-history-in-memory-heritage-public-history
+  source: hkm:framework:memory-heritage-public-history
+  type: in-scope
+  target: hkm:subdomain:memory-heritage-public-history
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:historical-reasoning-source-criticism-prerequisite-memory-heritage-public-history
+  source: hkm:method:historical-reasoning-source-criticism
+  type: prerequisite-of
+  target: hkm:framework:memory-heritage-public-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:social-cultural-intellectual-history-prerequisite-memory-heritage-public-history
+  source: hkm:framework:social-cultural-intellectual-history
+  type: prerequisite-of
+  target: hkm:framework:memory-heritage-public-history
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:memory-heritage-public-history-uses-archaeological-context-material-culture
+  source: hkm:framework:memory-heritage-public-history
+  type: uses
+  target: hkm:method:archaeological-context-material-culture
+  scope: 遗产保护与展示需尊重材料语境来源社区和保存条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-primary-d09
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-in-political-theory-ideologies
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: in-scope
+  target: hkm:subdomain:political-theory-ideologies
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-enables-comparative-regimes-state-capacity
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: enables
+  target: hkm:framework:comparative-regimes-state-capacity
+  scope: 比较政体需要明确权威代表性问责和国家能力等核心概念
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-primary-d09
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-in-comparative-politics-regimes
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: in-scope
+  target: hkm:subdomain:comparative-politics-regimes
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-prerequisite-comparative-regimes-state-capacity
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: prerequisite-of
+  target: hkm:framework:comparative-regimes-state-capacity
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-enables-political-behavior-elections-public-opinion
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: enables
+  target: hkm:framework:political-behavior-elections-public-opinion
+  scope: 政体和选举制度设定政治参与竞争和意见表达的机会结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-behavior-elections-public-opinion-primary-d09
+  source: hkm:framework:political-behavior-elections-public-opinion
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-behavior-elections-public-opinion-in-political-behavior-elections-opinion
+  source: hkm:framework:political-behavior-elections-public-opinion
+  type: in-scope
+  target: hkm:subdomain:political-behavior-elections-opinion
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-prerequisite-political-behavior-elections-public-opinion
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: prerequisite-of
+  target: hkm:framework:political-behavior-elections-public-opinion
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-prerequisite-political-behavior-elections-public-opinion
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: prerequisite-of
+  target: hkm:framework:political-behavior-elections-public-opinion
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-behavior-elections-public-opinion-influences-policy-cycle-public-administration-implementation
+  source: hkm:framework:political-behavior-elections-public-opinion
+  type: influences
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 选举舆论与动员改变议程授权和政策反馈但不完全决定执行
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:policy-cycle-public-administration-implementation-primary-d09
+  source: hkm:framework:policy-cycle-public-administration-implementation
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:policy-cycle-public-administration-implementation-in-public-policy-administration
+  source: hkm:framework:policy-cycle-public-administration-implementation
+  type: in-scope
+  target: hkm:subdomain:public-policy-administration
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-prerequisite-policy-cycle-public-administration-implementation
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: prerequisite-of
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-behavior-elections-public-opinion-prerequisite-policy-cycle-public-administration-implementation
+  source: hkm:framework:political-behavior-elections-public-opinion
+  type: prerequisite-of
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:policy-cycle-public-administration-implementation-enables-governance-regulation-institutional-design
+  source: hkm:framework:policy-cycle-public-administration-implementation
+  type: enables
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 政策执行证据揭示制度规则激励监督和救济需要如何设计
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-primary-d09
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-in-jurisprudence-legal-reasoning
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: in-scope
+  target: hkm:subdomain:jurisprudence-legal-reasoning
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-prerequisite-jurisprudence-legal-reasoning-systems
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: prerequisite-of
+  target: hkm:framework:jurisprudence-legal-reasoning-systems
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-enables-constitutional-administrative-public-law
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: enables
+  target: hkm:framework:constitutional-administrative-public-law
+  scope: 公法推理依赖法律效力解释权力边界和救济等一般法理
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:constitutional-administrative-public-law-primary-d09
+  source: hkm:framework:constitutional-administrative-public-law
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:constitutional-administrative-public-law-in-constitutional-administrative-public-law
+  source: hkm:framework:constitutional-administrative-public-law
+  type: in-scope
+  target: hkm:subdomain:constitutional-administrative-public-law
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-constitutional-administrative-public-law
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:constitutional-administrative-public-law
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:constitutional-administrative-public-law-constrains-policy-cycle-public-administration-implementation
+  source: hkm:framework:constitutional-administrative-public-law
+  type: constrains
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 政策设计执行必须遵守权限程序平等比例和救济要求
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:private-commercial-labor-law-relations-primary-d09
+  source: hkm:framework:private-commercial-labor-law-relations
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:private-commercial-labor-law-relations-in-private-commercial-labor-law
+  source: hkm:framework:private-commercial-labor-law-relations
+  type: in-scope
+  target: hkm:subdomain:private-commercial-labor-law
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-private-commercial-labor-law-relations
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:private-commercial-labor-law-relations
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:private-commercial-labor-law-relations-complements-governance-regulation-institutional-design
+  source: hkm:framework:private-commercial-labor-law-relations
+  type: complements
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 私法自治需要消费者竞争劳动与环境监管设定外部边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:criminal-law-justice-due-process-primary-d09
+  source: hkm:framework:criminal-law-justice-due-process
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:criminal-law-justice-due-process-in-criminal-law-justice
+  source: hkm:framework:criminal-law-justice-due-process
+  type: in-scope
+  target: hkm:subdomain:criminal-law-justice
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-criminal-law-justice-due-process
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:criminal-law-justice-due-process
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:constitutional-administrative-public-law-prerequisite-criminal-law-justice-due-process
+  source: hkm:framework:constitutional-administrative-public-law
+  type: prerequisite-of
+  target: hkm:framework:criminal-law-justice-due-process
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:criminal-law-justice-due-process-complements-justice-legitimacy-rights
+  source: hkm:framework:criminal-law-justice-due-process
+  type: complements
+  target: hkm:framework:justice-legitimacy-rights
+  scope: 刑事责任和程序规范需与正义合法性及基本权利共同评估
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:international-relations-diplomacy-law-primary-d09
+  source: hkm:framework:international-relations-diplomacy-law
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:international-relations-diplomacy-law-in-international-relations-law
+  source: hkm:framework:international-relations-diplomacy-law
+  type: in-scope
+  target: hkm:subdomain:international-relations-law
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-prerequisite-international-relations-diplomacy-law
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: prerequisite-of
+  target: hkm:framework:international-relations-diplomacy-law
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-international-relations-diplomacy-law
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:international-relations-diplomacy-law
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:international-relations-diplomacy-law-enables-multilevel-local-global-governance
+  source: hkm:framework:international-relations-diplomacy-law
+  type: enables
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 跨境问题需要把国际规则与地方国家区域执行层连接
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:governance-regulation-institutional-design-primary-d09
+  source: hkm:framework:governance-regulation-institutional-design
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:governance-regulation-institutional-design-in-governance-regulation-institutions
+  source: hkm:framework:governance-regulation-institutional-design
+  type: in-scope
+  target: hkm:subdomain:governance-regulation-institutions
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:policy-cycle-public-administration-implementation-prerequisite-governance-regulation-institutional-design
+  source: hkm:framework:policy-cycle-public-administration-implementation
+  type: prerequisite-of
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-governance-regulation-institutional-design
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:governance-regulation-institutional-design-enables-multilevel-local-global-governance
+  source: hkm:framework:governance-regulation-institutional-design
+  type: enables
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 多层治理需要明确各层权限协调标准信息和问责机制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:rights-citizenship-social-justice-primary-d09
+  source: hkm:framework:rights-citizenship-social-justice
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:rights-citizenship-social-justice-in-rights-citizenship-social-justice
+  source: hkm:framework:rights-citizenship-social-justice
+  type: in-scope
+  target: hkm:subdomain:rights-citizenship-social-justice
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:political-authority-ideology-collective-choice-prerequisite-rights-citizenship-social-justice
+  source: hkm:framework:political-authority-ideology-collective-choice
+  type: prerequisite-of
+  target: hkm:framework:rights-citizenship-social-justice
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:jurisprudence-legal-reasoning-systems-prerequisite-rights-citizenship-social-justice
+  source: hkm:framework:jurisprudence-legal-reasoning-systems
+  type: prerequisite-of
+  target: hkm:framework:rights-citizenship-social-justice
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:rights-citizenship-social-justice-constrains-governance-regulation-institutional-design
+  source: hkm:framework:rights-citizenship-social-justice
+  type: constrains
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 制度设计需满足权利平等程序参与和有效救济约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:multilevel-local-global-governance-primary-d09
+  source: hkm:framework:multilevel-local-global-governance
+  type: primary-domain
+  target: hkm:domain:politics-governance-law
+  scope: 核心节点的稳定 H2 主导航；由 core-nodes.yaml 生成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:multilevel-local-global-governance-in-local-global-multilevel-governance
+  source: hkm:framework:multilevel-local-global-governance
+  type: in-scope
+  target: hkm:subdomain:local-global-multilevel-governance
+  scope: 核心节点直接适用的 H3 范围；不改变节点身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:comparative-regimes-state-capacity-prerequisite-multilevel-local-global-governance
+  source: hkm:framework:comparative-regimes-state-capacity
+  type: prerequisite-of
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:policy-cycle-public-administration-implementation-prerequisite-multilevel-local-global-governance
+  source: hkm:framework:policy-cycle-public-administration-implementation
+  type: prerequisite-of
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:international-relations-diplomacy-law-prerequisite-multilevel-local-global-governance
+  source: hkm:framework:international-relations-diplomacy-law
+  type: prerequisite-of
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:governance-regulation-institutional-design-prerequisite-multilevel-local-global-governance
+  source: hkm:framework:governance-regulation-institutional-design
+  type: prerequisite-of
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 掌握当前领域骨架的一般学习前置；并非严格逻辑蕴含
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-3
+- id: hkm:relation:multilevel-local-global-governance-complements-coupled-human-earth-sustainability
+  source: hkm:framework:multilevel-local-global-governance
+  type: complements
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 地球系统问题需要跨尺度环境证据与多层制度能力共同作用
   confidence: medium
   provenance:
   - hkm:source:editorial-synthesis-v0-3

@@ -1,7 +1,7 @@
 schema_version: 0.1.0
 model_version: 0.3.0-draft
-description: 领域核心骨架内容节点；当前覆盖八个基础与模板领域，其余领域按同一质量门槛持续扩展。
-published_domains: [D01, D02, D03, D05, D06, D10, D13, D20]
+description: 领域核心骨架内容节点；当前覆盖十二个领域，其余领域按同一质量门槛持续扩展。
+published_domains: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D13, D20]
 
 defaults: &core_defaults
   status: active
@@ -1090,6 +1090,810 @@ core_nodes:
     prerequisites: [hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:reasoning-judgment-decision, hkm:framework:emotion-motivation-affect-regulation]
     connections: [{type: uses, target: hkm:framework:consciousness-self-agency-metacognition, scope: 元认知和能动感可支持监测选择与复盘但需配合环境和社会资源}]
     boundary_notes: 行为问题不应自动归咎意志力；精神健康、成瘾、贫困、残障和强制环境可能需要专业或结构性干预。
+
+  # D04 地球、空间与环境骨架
+  - <<: *core_defaults
+    id: hkm:framework:earth-materials-interior-geophysics
+    code: K04.01
+    primary_type: framework
+    labels: {zh: 地球物质、内部结构与地球物理, en: Earth Materials, Interior Structure and Geophysics}
+    definition: 结合矿物岩石、地球化学、弹性波、重力、热流与磁场，推断地球内部组成、结构、状态和演化。
+    core_questions: [地表与物理信号如何约束不可直接观测的地球内部, 物质性质和能量传输怎样驱动内部过程]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:geology-earth-materials-geophysics]
+    roles: [foundation, mechanism, evidence]
+    aims: [identify-classify, diagnose-abduce, explain-understand]
+    epistemic_modes: [empirical, causal, historical, formal]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:tectonics-landforms-geohazards, scope: 内部热力和岩石圈性质约束板块运动变形与地震火山过程}]
+    boundary_notes: 地球内部模型依赖反演和材料假设；相同地球物理信号可能对应多种结构，需多源证据联合约束。
+
+  - <<: *core_defaults
+    id: hkm:framework:tectonics-landforms-geohazards
+    code: K04.02
+    primary_type: framework
+    labels: {zh: 构造、地貌演化与地质灾害, en: Tectonics, Landscape Evolution and Geohazards}
+    definition: 连接板块运动、断层、火山、风化侵蚀、沉积与重力过程，解释地貌形成及地震滑坡等危险。
+    core_questions: [深部构造与表面过程如何共同塑造地形, 危险发生概率暴露和脆弱性如何区分]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:tectonics-geomorphology-hazards]
+    roles: [mechanism, evidence, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, historical, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:earth-materials-interior-geophysics]
+    connections: [{type: enables, target: hkm:framework:geologic-time-earth-history-paleoclimate, scope: 构造沉积与地貌记录提供重建地球历史的时空档案}]
+    boundary_notes: 危险预测通常是概率和情景而非精确时刻；自然危险与社会暴露共同决定灾害损失。
+
+  - <<: *core_defaults
+    id: hkm:framework:geologic-time-earth-history-paleoclimate
+    code: K04.03
+    primary_type: framework
+    labels: {zh: 地质时间、地球历史与古气候, en: Geologic Time, Earth History and Paleoclimate}
+    definition: 用地层、年代学、化石、同位素和沉积代用指标重建大陆、海洋、大气、生命与气候的长期共演化。
+    core_questions: [记录如何被定年关联并转为环境代理, 保存偏差与时间分辨率怎样限制历史重建]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:earth-history-paleoclimate]
+    roles: [evidence, representation, synthesis]
+    aims: [diagnose-abduce, explain-understand, predict-warn]
+    epistemic_modes: [historical, empirical, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:earth-materials-interior-geophysics, hkm:framework:tectonics-landforms-geohazards]
+    connections: [{type: constrains, target: hkm:framework:atmosphere-weather-climate-system, scope: 古气候记录检验气候敏感度反馈与长期边界条件}]
+    boundary_notes: 代用指标不是目标变量的直接测量；年代误差、成岩改造与空间代表性需传播到结论中。
+
+  - <<: *core_defaults
+    id: hkm:framework:atmosphere-weather-climate-system
+    code: K04.04
+    primary_type: framework
+    labels: {zh: 大气、天气与气候系统, en: Atmosphere, Weather and Climate System}
+    definition: 连接辐射收支、流体运动、水循环、化学、云、陆海耦合与反馈，区分短期天气和长期气候统计。
+    core_questions: [能量水分和动量如何驱动天气尺度结构, 外强迫内部变率和反馈如何共同改变气候]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:atmosphere-weather-climate]
+    roles: [mechanism, representation, evidence]
+    aims: [explain-understand, predict-warn, describe-measure]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:geologic-time-earth-history-paleoclimate]
+    connections: [{type: influences, target: hkm:framework:ocean-coastal-circulation-change, scope: 风应力热量淡水和气体交换耦合大气与海洋变化}]
+    boundary_notes: 单次天气事件不能直接等同气候趋势；预测需区分初值不确定性、情景不确定性和模型结构误差。
+
+  - <<: *core_defaults
+    id: hkm:framework:ocean-coastal-circulation-change
+    code: K04.05
+    primary_type: framework
+    labels: {zh: 海洋环流、海岸过程与变化, en: Ocean Circulation, Coastal Processes and Change}
+    definition: 研究海洋热盐环流、波浪潮汐、上升流、生地化循环与海岸泥沙过程及其对气候生态和沿海风险的作用。
+    core_questions: [海洋怎样储存输送热量碳和养分, 海平面波浪泥沙和人类工程如何共同改变海岸]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:ocean-coastal-systems]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, control-maintain]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:atmosphere-weather-climate-system]
+    connections: [{type: complements, target: hkm:framework:water-cycle-cryosphere-catchments, scope: 海洋边界与陆地径流冰融共同决定淡水和海平面变化}]
+    boundary_notes: 海岸变化高度依赖地方地形沉降和工程；全球平均海平面不能替代地点风险评估。
+
+  - <<: *core_defaults
+    id: hkm:framework:water-cycle-cryosphere-catchments
+    code: K04.06
+    primary_type: framework
+    labels: {zh: 水循环、冰冻圈与流域系统, en: Water Cycle, Cryosphere and Catchment Systems}
+    definition: 连接降水、蒸散、土壤水、地下水、河流、积雪冰川和水库，研究水量水质与洪旱在流域中的传播。
+    core_questions: [水在储库之间以何种通量和时间尺度转移, 冻融土地利用和取水怎样改变洪旱与供水]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:hydrology-cryosphere-water]
+    roles: [mechanism, representation, decision]
+    aims: [describe-measure, predict-warn, optimize-allocate]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:atmosphere-weather-climate-system, hkm:framework:ocean-coastal-circulation-change]
+    connections: [{type: enables, target: hkm:framework:soil-critical-zone-processes, scope: 水分流动控制风化土壤形成溶质迁移与植被可用水}]
+    boundary_notes: 流域模型依赖边界、地下连通和参数尺度；平均水量可能掩盖季节、质量、生态和公平约束。
+
+  - <<: *core_defaults
+    id: hkm:framework:soil-critical-zone-processes
+    code: K04.07
+    primary_type: framework
+    labels: {zh: 土壤与地球关键带过程, en: Soil and Earth Critical Zone Processes}
+    definition: 研究岩石至植被冠层之间的风化、土壤形成、孔隙水、碳养分循环和生物活动如何调节地表功能。
+    core_questions: [成土母质气候生物地形和时间如何共同作用, 土壤结构与微生物怎样影响水碳养分和污染物]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:soil-critical-zone]
+    roles: [mechanism, synthesis, evidence]
+    aims: [explain-understand, describe-measure, control-maintain]
+    epistemic_modes: [empirical, causal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:earth-materials-interior-geophysics, hkm:framework:water-cycle-cryosphere-catchments]
+    connections: [{type: influences, target: hkm:framework:pollutant-fate-risk-remediation, scope: 土壤矿物有机质孔隙和生物过程控制污染物迁移转化与暴露}]
+    boundary_notes: 土壤性质空间异质且变化缓慢；表层样本不能代表剖面、季节和土地管理历史。
+
+  - <<: *core_defaults
+    id: hkm:framework:pollutant-fate-risk-remediation
+    code: K04.08
+    primary_type: framework
+    labels: {zh: 污染物归趋、环境风险与修复, en: Pollutant Fate, Environmental Risk and Remediation}
+    definition: 连接污染源、排放、输运、转化、生物累积、暴露、毒性和修复技术，形成从监测到风险管理的证据链。
+    core_questions: [污染物从哪里来并通过哪些路径到达受体, 修复方案能否降低总风险且不转移污染]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:environmental-science-pollution]
+    roles: [mechanism, decision, design]
+    aims: [diagnose-abduce, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, causal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:water-cycle-cryosphere-catchments, hkm:framework:soil-critical-zone-processes]
+    connections: [{type: uses, target: hkm:framework:geospatial-observation-mapping-inference, scope: 空间监测遥感和地图用于识别污染分布暴露热点与修复成效}]
+    boundary_notes: 检出不等于不可接受风险，未检出也受检测限影响；风险阈值、混合暴露和环境正义需显式说明。
+
+  - <<: *core_defaults
+    id: hkm:framework:geospatial-observation-mapping-inference
+    code: K04.09
+    primary_type: framework
+    additional_types: [measurement]
+    labels: {zh: 地理空间观测、制图与空间推断, en: Geospatial Observation, Mapping and Spatial Inference}
+    definition: 用坐标基准、测绘、遥感、GIS、空间统计和变化检测，把地点、尺度、时间和不确定性组织为可比较证据。
+    core_questions: [观测的空间时间分辨率与定位误差是什么, 地图模式来自真实过程采样设计还是尺度效应]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:geospatial-earth-observation]
+    roles: [method, representation, evidence]
+    aims: [describe-measure, identify-classify, diagnose-abduce]
+    epistemic_modes: [empirical, formal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:earth-materials-interior-geophysics]
+    connections: [{type: enables, target: hkm:framework:planetary-comparative-space-environments, scope: 遥感制图和反演方法可迁移到行星表面与空间环境研究}]
+    boundary_notes: 地图是选择和投影后的模型；生态谬误、可变空间单元和敏感地点隐私必须控制。
+
+  - <<: *core_defaults
+    id: hkm:framework:planetary-comparative-space-environments
+    code: K04.10
+    primary_type: framework
+    labels: {zh: 比较行星与空间环境, en: Comparative Planetary and Space Environments}
+    definition: 比较行星内部、表面、大气、磁层、太阳风和撞击历史，用地球与遥感证据解释行星演化及任务环境。
+    core_questions: [不同初始条件与反馈为何产生多样行星环境, 有限遥测和样本如何约束表面内部及宜居性]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:planetary-space-environment]
+    roles: [evidence, synthesis, boundary]
+    aims: [explain-understand, diagnose-abduce, predict-warn]
+    epistemic_modes: [empirical, comparative, historical, formal]
+    learning_priority: B
+    prerequisites: [hkm:framework:earth-materials-interior-geophysics, hkm:framework:geospatial-observation-mapping-inference]
+    connections: [{type: refines, target: hkm:framework:life-origin-chemical-evolution-habitability, scope: 比较行星环境限定宜居性指标和生命起源可能条件}]
+    boundary_notes: 地球类比既必要又可能偏误；遥感特征和生命标志需要排除非生物替代解释。
+
+  - <<: *core_defaults
+    id: hkm:framework:coupled-human-earth-sustainability
+    code: K04.11
+    primary_type: framework
+    labels: {zh: 耦合人地系统与可持续转型, en: Coupled Human–Earth Systems and Sustainability Transitions}
+    definition: 连接生态边界、资源流、基础设施、行为、制度、公平和长期反馈，评估人类活动与地球系统的共同演化和转型路径。
+    core_questions: [系统边界内的环境负荷收益与风险由谁承担, 何种转型在多尺度反馈和公平约束下可持续]
+    primary_domain: hkm:domain:earth-space-environment
+    related_subdomains: [hkm:subdomain:human-environment-sustainability]
+    roles: [synthesis, decision, boundary]
+    aims: [evaluate-norm, optimize-allocate, design-create]
+    epistemic_modes: [causal, normative, design, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:atmosphere-weather-climate-system, hkm:framework:water-cycle-cryosphere-catchments, hkm:framework:pollutant-fate-risk-remediation, hkm:framework:geospatial-observation-mapping-inference]
+    connections: [{type: complements, target: hkm:framework:community-welfare-capabilities-social-policy, scope: 环境转型需要把生态风险与社区能力分配和社会保障共同设计}]
+    boundary_notes: 可持续性指标依赖边界和价值权重；效率改进可能被反弹效应、外包和不公平转移抵消。
+
+  # D07 社会、人类与群体骨架
+  - <<: *core_defaults
+    id: hkm:framework:social-theory-mixed-method-inference
+    code: K07.01
+    primary_type: framework
+    labels: {zh: 社会理论与混合方法推断, en: Social Theory and Mixed-Method Inference}
+    definition: 连接行动者、结构、制度、意义、网络和历史，综合调查、实验、统计、访谈、民族志与比较案例形成社会解释。
+    core_questions: [现象需要在哪些个体关系制度和历史层次解释, 不同方法的证据如何相互检验而非简单相加]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:social-theory-methods]
+    roles: [foundation, method, synthesis]
+    aims: [explain-understand, diagnose-abduce, describe-measure]
+    epistemic_modes: [empirical, causal, interpretive, historical]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:method:ethnography-cultural-comparison, scope: 社会理论帮助民族志在情境意义与更大制度结构之间往返}]
+    boundary_notes: 微观意图不能单独解释宏观模式，宏观结构也不应抹去能动性；方法选择需与问题和伦理一致。
+
+  - <<: *core_defaults
+    id: hkm:method:ethnography-cultural-comparison
+    code: K07.02
+    primary_type: method
+    labels: {zh: 民族志与文化比较, en: Ethnography and Cultural Comparison}
+    definition: 通过长期参与观察、访谈、物质实践和语言语境理解生活世界，并在避免单一文明尺度下开展比较。
+    core_questions: [实践对参与者意味着什么且如何嵌入关系与历史, 研究者位置翻译和进入条件怎样塑造材料]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:social-cultural-anthropology]
+    roles: [method, evidence, boundary]
+    aims: [explain-understand, identify-classify, evaluate-norm]
+    epistemic_modes: [interpretive, comparative, historical, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:social-theory-mixed-method-inference]
+    connections: [{type: constrains, target: hkm:framework:culture-identity-norms-power, scope: 文化和身份概念需由具体实践语言与权力关系校正}]
+    boundary_notes: 深描不自动代表整个群体；同意、匿名、互惠、知识主权和危险披露需持续协商。
+
+  - <<: *core_defaults
+    id: hkm:framework:demography-population-processes
+    code: K07.03
+    primary_type: framework
+    labels: {zh: 人口结构与人口过程, en: Demographic Structure and Population Processes}
+    definition: 用生育、死亡、迁移、年龄结构、队列和生命表研究人口规模组成变化及其与制度环境的关系。
+    core_questions: [观察变化来自时期队列年龄还是迁移选择, 人口率和总量如何在结构差异下正确比较]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:demography-population]
+    roles: [representation, evidence, boundary]
+    aims: [describe-measure, predict-warn, optimize-allocate]
+    epistemic_modes: [empirical, formal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:social-theory-mixed-method-inference]
+    connections: [{type: enables, target: hkm:framework:family-kinship-life-course, scope: 人口过程为家庭形成照护代际和生命历程转变提供结构背景}]
+    boundary_notes: 人口预测依赖生育死亡迁移假设；平均指标会掩盖地区阶层性别和政策差异。
+
+  - <<: *core_defaults
+    id: hkm:framework:family-kinship-life-course
+    code: K07.04
+    primary_type: framework
+    labels: {zh: 家庭、亲属与生命历程, en: Family, Kinship and the Life Course}
+    definition: 研究亲属制度、家庭形成、代际交换、照护、居住安排和制度时序如何塑造个体生命轨迹与不平等。
+    core_questions: [关系义务资源和照护怎样跨家庭与世代流动, 制度事件和历史时期如何改变生命历程]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:family-kinship-life-course]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, historical, interpretive, comparative]
+    learning_priority: B
+    prerequisites: [hkm:framework:demography-population-processes, hkm:method:ethnography-cultural-comparison]
+    connections: [{type: influences, target: hkm:framework:inequality-stratification-mobility, scope: 家庭资源照护与继承是社会优势劣势累积的重要通道}]
+    boundary_notes: 家庭形式跨文化和历史多样；不能把特定婚姻性别或居住规范当作自然普遍结构。
+
+  - <<: *core_defaults
+    id: hkm:framework:groups-networks-collective-action
+    code: K07.05
+    primary_type: framework
+    labels: {zh: 群体、社会网络与集体行动, en: Groups, Social Networks and Collective Action}
+    definition: 用关系结构、信任、规范、扩散、身份、协调困境和动员资源解释群体形成、集体行为与社会传播。
+    core_questions: [网络位置与关系强度如何改变信息机会和行为, 个体何时能够克服协调搭便车与镇压形成集体行动]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:groups-networks-collective-behavior]
+    roles: [mechanism, representation, synthesis]
+    aims: [explain-understand, predict-warn, decide-negotiate]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:social-theory-mixed-method-inference]
+    connections: [{type: complements, target: hkm:framework:culture-identity-norms-power, scope: 网络扩散依赖群体身份规范解释和权力边界}]
+    boundary_notes: 网络相关可能来自同质选择共同环境或真实影响；在线连接指标不能代表关系质量与线下权力。
+
+  - <<: *core_defaults
+    id: hkm:framework:culture-identity-norms-power
+    code: K07.06
+    primary_type: framework
+    labels: {zh: 文化、身份、规范与权力, en: Culture, Identity, Norms and Power}
+    definition: 研究意义体系、分类、惯习、仪式、身份边界和制裁如何被学习、争议、制度化并在权力关系中改变。
+    core_questions: [规范如何获得正当性并通过何种制裁维持, 身份分类由谁定义且如何影响资源与自我理解]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:culture-identity-norms]
+    roles: [mechanism, representation, boundary]
+    aims: [explain-understand, evaluate-norm, diagnose-abduce]
+    epistemic_modes: [interpretive, historical, comparative, causal]
+    learning_priority: S
+    prerequisites: [hkm:method:ethnography-cultural-comparison, hkm:framework:groups-networks-collective-action]
+    connections: [{type: influences, target: hkm:framework:inequality-stratification-mobility, scope: 文化分类和身份边界可合法化或挑战资源与地位差异}]
+    boundary_notes: 文化不是封闭同质容器；解释差异时需避免本质化、群体归责和忽视制度强制。
+
+  - <<: *core_defaults
+    id: hkm:framework:inequality-stratification-mobility
+    code: K07.07
+    primary_type: framework
+    labels: {zh: 不平等、分层与社会流动, en: Inequality, Stratification and Social Mobility}
+    definition: 连接阶级、种族化、性别、教育、财富、职业、空间和制度歧视，分析优势如何产生、交叉、积累和传递。
+    core_questions: [资源机会风险和尊严沿哪些轴线不均分配, 流动指标是否区分绝对改善相对位置与代际再生产]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:inequality-stratification]
+    roles: [synthesis, evidence, boundary]
+    aims: [describe-measure, explain-understand, evaluate-norm]
+    epistemic_modes: [empirical, causal, historical, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:family-kinship-life-course, hkm:framework:culture-identity-norms-power]
+    connections: [{type: constrains, target: hkm:framework:community-welfare-capabilities-social-policy, scope: 福利设计需识别结构性障碍差异需求和实际能力而非只比较名义资源}]
+    boundary_notes: 群体平均差异不说明个体本质；收入单指标不能覆盖财富权力健康时间和安全等多维不平等。
+
+  - <<: *core_defaults
+    id: hkm:framework:organizations-institutions-fields
+    code: K07.08
+    primary_type: framework
+    labels: {zh: 组织、制度与社会场域, en: Organizations, Institutions and Social Fields}
+    definition: 研究正式规则、非正式惯例、组织边界、专业规范、资源依赖和合法性如何协调行动并产生惯性和变化。
+    core_questions: [组织如何在环境约束下获得资源权威与协调能力, 制度为何持续扩散失灵或被行动者改变]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:organizations-institutions-sociology]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, design-create]
+    epistemic_modes: [empirical, causal, historical, interpretive]
+    learning_priority: A
+    prerequisites: [hkm:framework:social-theory-mixed-method-inference, hkm:framework:groups-networks-collective-action]
+    connections: [{type: complements, target: hkm:framework:governance-regulation-institutional-design, scope: 社会学解释制度实际运行，治理设计规定权责激励与救济}]
+    boundary_notes: 正式组织图不代表真实工作网络；制度同形可能掩盖执行能力与地方适配差异。
+
+  - <<: *core_defaults
+    id: hkm:framework:place-urban-rural-spatial-relations
+    code: K07.09
+    primary_type: framework
+    labels: {zh: 地方、城乡与空间社会关系, en: Place, Urban–Rural and Spatial Social Relations}
+    definition: 连接地点意义、土地使用、住房、基础设施、交通、城市化、乡村转型和区域不平衡，解释空间如何组织社会机会。
+    core_questions: [空间布局和基础设施如何分配可达性风险与机会, 地方尺度如何连接区域国家与全球过程]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:human-geography-urban-rural]
+    roles: [representation, synthesis, decision]
+    aims: [describe-measure, explain-understand, optimize-allocate]
+    epistemic_modes: [empirical, historical, interpretive, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:social-theory-mixed-method-inference]
+    connections: [{type: enables, target: hkm:framework:migration-globalization-transnationalism, scope: 地方机会住房边界和基础设施共同塑造迁移路径与定居结果}]
+    boundary_notes: 城市与乡村不是固定二分；地图边界和行政尺度会改变对隔离贫困与服务可达性的判断。
+
+  - <<: *core_defaults
+    id: hkm:framework:migration-globalization-transnationalism
+    code: K07.10
+    primary_type: framework
+    labels: {zh: 迁移、全球化与跨国联系, en: Migration, Globalization and Transnationalism}
+    definition: 研究人口、资本、商品、观念和制度跨边界流动，以及国家、网络、家庭和身份如何共同塑造移动与停留。
+    core_questions: [迁移由哪些推拉网络政策和生命周期因素产生, 跨国联系如何改变原居地目的地与身份归属]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:migration-globalization]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, historical, comparative, causal]
+    learning_priority: B
+    prerequisites: [hkm:framework:demography-population-processes, hkm:framework:place-urban-rural-spatial-relations]
+    connections: [{type: influences, target: hkm:framework:family-kinship-life-course, scope: 迁移重组家庭照护汇款身份与代际轨迹}]
+    boundary_notes: 迁移者不是同质群体；自愿强迫合法身份技能和性别差异会产生不同风险与机会。
+
+  - <<: *core_defaults
+    id: hkm:framework:community-welfare-capabilities-social-policy
+    code: K07.11
+    primary_type: framework
+    labels: {zh: 社区、福利、能力与社会政策, en: Community, Welfare, Capabilities and Social Policy}
+    definition: 连接社会支持、公共服务、保障制度、社区组织与能力方法，评价人们是否拥有实际可行的安全参与和发展机会。
+    core_questions: [人们面临哪些相互叠加的脆弱性与照护需求, 服务资源权利和关系支持能否转化为真实能力]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:community-welfare-social-policy]
+    roles: [decision, synthesis, boundary]
+    aims: [evaluate-norm, optimize-allocate, control-maintain]
+    epistemic_modes: [empirical, normative, design, interpretive]
+    learning_priority: S
+    prerequisites: [hkm:framework:inequality-stratification-mobility, hkm:framework:organizations-institutions-fields]
+    connections: [{type: complements, target: hkm:framework:policy-cycle-public-administration-implementation, scope: 社区经验和能力评价为政策设计执行与反馈提供对象证据}]
+    boundary_notes: 名义福利覆盖不等于可达和有尊严的支持；指标需防止污名化监控和把结构问题个体化。
+
+  - <<: *core_defaults
+    id: hkm:framework:science-technology-society-coproduction
+    code: K07.12
+    primary_type: framework
+    labels: {zh: 科学技术社会共构, en: Science, Technology and Society Co-Production}
+    definition: 研究知识、技术物、标准、基础设施、专业权威和公众如何共同生产事实、能力、风险与社会秩序。
+    core_questions: [技术设计内嵌了哪些价值用户与制度假设, 专业知识和公众经验如何在争议中获得或失去权威]
+    primary_domain: hkm:domain:society-human-groups
+    related_subdomains: [hkm:subdomain:science-technology-society]
+    roles: [synthesis, boundary, evidence]
+    aims: [explain-understand, evaluate-norm, design-create]
+    epistemic_modes: [historical, interpretive, empirical, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:organizations-institutions-fields, hkm:framework:culture-identity-norms-power]
+    connections: [{type: complements, target: hkm:norm-value:engineering-ethics-safety-responsibility, scope: 技术治理需要把性能安全与制度权力劳动和社会分类共同分析}]
+    boundary_notes: 社会建构不意味着物质约束和经验事实不存在；参与机制需避免象征性咨询和代表性偏差。
+
+  # D08 历史、考古与文明骨架
+  - <<: *core_defaults
+    id: hkm:method:historical-reasoning-source-criticism
+    code: K08.01
+    primary_type: method
+    labels: {zh: 历史推理、史料批判与叙事, en: Historical Reasoning, Source Criticism and Narrative}
+    definition: 评估史料出处、语境、目的、沉默、互证和时间关系，构造能区分证据、推断、争议与反事实的历史解释。
+    core_questions: [材料由谁在何种情境为谁产生并保存, 哪种因果叙事最能解释时序机制与替代可能]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:historiography-sources-methods]
+    roles: [foundation, method, evidence]
+    aims: [diagnose-abduce, explain-understand, evaluate-norm]
+    epistemic_modes: [historical, interpretive, comparative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:method:archaeological-context-material-culture, scope: 物质遗存同样需要来源语境形成过程与保存偏差批判}]
+    boundary_notes: 史料缺失不是事件未发生的证明；历史叙事不可避免选择视角但仍受证据和反证约束。
+
+  - <<: *core_defaults
+    id: hkm:method:archaeological-context-material-culture
+    code: K08.02
+    primary_type: method
+    labels: {zh: 考古语境、地层与物质文化, en: Archaeological Context, Stratigraphy and Material Culture}
+    definition: 通过地层、年代、遗物组合、空间分布、生物考古和实验分析重建过去行为、环境与社会组织。
+    core_questions: [遗存如何形成扰动和保存且其关联是否同一时期, 物质模式能支持哪些行为社会与交换解释]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:archaeology-material-past]
+    roles: [method, evidence, boundary]
+    aims: [diagnose-abduce, describe-measure, explain-understand]
+    epistemic_modes: [historical, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:method:historical-reasoning-source-criticism]
+    connections: [{type: enables, target: hkm:framework:prehistory-ancient-state-society, scope: 考古证据是无文字与早期国家社会重建的主要基础}]
+    boundary_notes: 物质类型不等同族群或身份；发掘具有不可逆性并受遗产归属、祖先遗骸和社区同意约束。
+
+  - <<: *core_defaults
+    id: hkm:framework:prehistory-ancient-state-society
+    code: K08.03
+    primary_type: framework
+    labels: {zh: 史前转型与古代社会形成, en: Prehistoric Transitions and Ancient Social Formation}
+    definition: 比较狩猎采集、农业、定居、城市、文字、国家、帝国和交换网络的多路径形成及其生态社会代价。
+    core_questions: [生计技术人口和权力如何共同产生社会复杂化, 类似制度为何在不同地区沿不同路径出现]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:prehistory-ancient-worlds]
+    roles: [synthesis, mechanism, boundary]
+    aims: [explain-understand, identify-classify, learn-transfer]
+    epistemic_modes: [historical, comparative, causal]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:method:archaeological-context-material-culture]
+    connections: [{type: enables, target: hkm:framework:medieval-early-modern-institutions-exchange, scope: 古代国家宗教法律与交换遗产为后续制度变化提供路径依赖}]
+    boundary_notes: 文明与复杂化不等于线性进步；中心化国家不是所有社会的目标或唯一稳定形式。
+
+  - <<: *core_defaults
+    id: hkm:framework:medieval-early-modern-institutions-exchange
+    code: K08.04
+    primary_type: framework
+    labels: {zh: 中古与早期近代制度和交换, en: Medieval and Early Modern Institutions and Exchange}
+    definition: 研究跨欧亚非美洲的国家、宗教、土地、贸易、战争、知识和家庭制度如何重组并连接区域世界。
+    core_questions: [权力资源和合法性如何在多重主权与共同体中组织, 远程贸易宗教和战争怎样改变地方秩序]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:medieval-early-modern-worlds]
+    roles: [synthesis, mechanism, representation]
+    aims: [explain-understand, identify-classify, learn-transfer]
+    epistemic_modes: [historical, comparative, interpretive]
+    learning_priority: B
+    prerequisites: [hkm:framework:prehistory-ancient-state-society]
+    connections: [{type: enables, target: hkm:framework:modernity-industrialization-colonialism-nation-states, scope: 早期近代财政军事贸易和殖民网络为现代转型创造不均衡条件}]
+    boundary_notes: 欧洲分期不能直接套用全球；中古与早期近代内部差异远大于单一传统现代化叙事所示。
+
+  - <<: *core_defaults
+    id: hkm:framework:modernity-industrialization-colonialism-nation-states
+    code: K08.05
+    primary_type: framework
+    labels: {zh: 现代性、工业化、殖民与民族国家, en: Modernity, Industrialization, Colonialism and Nation-States}
+    definition: 连接工业资本、帝国殖民、民族主义、革命、官僚国家、大众政治、战争与去殖民化，解释现代世界的不均衡形成。
+    core_questions: [能源生产金融与国家能力如何相互强化, 殖民种族化和民族国家怎样重构权利边界与全球差异]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:modern-contemporary-history]
+    roles: [synthesis, mechanism, boundary]
+    aims: [explain-understand, diagnose-abduce, evaluate-norm]
+    epistemic_modes: [historical, causal, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:medieval-early-modern-institutions-exchange]
+    connections: [{type: enables, target: hkm:framework:global-maritime-connected-histories, scope: 现代帝国工业和迁移只能在跨区域连接中完整解释}]
+    boundary_notes: 现代化不是单一路径或统一收益；技术增长、公民权扩张、暴力剥夺与生态代价需同时呈现。
+
+  - <<: *core_defaults
+    id: hkm:framework:global-maritime-connected-histories
+    code: K08.06
+    primary_type: framework
+    labels: {zh: 全球、海洋与关联史, en: Global, Maritime and Connected Histories}
+    definition: 追踪跨区域的商品、人员、病原体、知识、宗教、金融与权力流动，同时保留地方中介和不对称关系。
+    core_questions: [哪些连接链条使远距离事件彼此相关, 全球过程在不同地点被谁翻译利用抵抗或承受]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:global-connected-history]
+    roles: [synthesis, representation, method]
+    aims: [explain-understand, learn-transfer, diagnose-abduce]
+    epistemic_modes: [historical, comparative, causal]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:framework:modernity-industrialization-colonialism-nation-states]
+    connections: [{type: complements, target: hkm:framework:regional-local-multiscalar-history, scope: 全球链条需要地方档案语言与社会关系解释其具体作用}]
+    boundary_notes: 连接史不应只追踪流动精英和中心；断裂、边界、未连接地区与强制性流动同样重要。
+
+  - <<: *core_defaults
+    id: hkm:framework:regional-local-multiscalar-history
+    code: K08.07
+    primary_type: framework
+    labels: {zh: 区域、国家与地方的多尺度历史, en: Regional, National and Local Multiscalar History}
+    definition: 在村社、城市、区域、国家和跨境尺度之间追踪事件制度与记忆，检验宏大叙事在具体地方的差异。
+    core_questions: [研究尺度如何改变因果主体与时间边界, 地方材料怎样支持修正或反驳国家与全球叙事]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:regional-local-histories]
+    roles: [method, evidence, synthesis]
+    aims: [describe-measure, explain-understand, identify-classify]
+    epistemic_modes: [historical, interpretive, comparative]
+    learning_priority: B
+    prerequisites: [hkm:method:historical-reasoning-source-criticism]
+    connections: [{type: refines, target: hkm:framework:global-maritime-connected-histories, scope: 地方研究揭示全球过程的中介摩擦和不均衡后果}]
+    boundary_notes: 地方史不应浪漫化封闭共同体；行政边界和国家记忆会选择性保存或压制地方材料。
+
+  - <<: *core_defaults
+    id: hkm:framework:social-cultural-intellectual-history
+    code: K08.08
+    primary_type: framework
+    labels: {zh: 社会、文化与思想史, en: Social, Cultural and Intellectual History}
+    definition: 研究日常生活、阶层、性别、家庭、情感、知识、阅读和象征实践如何随制度与物质条件改变。
+    core_questions: [普通人的经验如何从不均衡保存的材料中重建, 观念如何在媒介制度和实践中产生历史效力]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:social-cultural-intellectual-history]
+    roles: [synthesis, evidence, representation]
+    aims: [explain-understand, diagnose-abduce, evaluate-norm]
+    epistemic_modes: [historical, interpretive, comparative]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism]
+    connections: [{type: enables, target: hkm:framework:memory-heritage-public-history, scope: 公共记忆和遗产选择建立在对社会文化经验的历史解释上}]
+    boundary_notes: 精英文本与官方分类可能遮蔽无文字和边缘群体；过去概念不可用当代类别无条件替换。
+
+  - <<: *core_defaults
+    id: hkm:framework:political-legal-diplomatic-history
+    code: K08.09
+    primary_type: framework
+    labels: {zh: 政治、法律与外交史, en: Political, Legal and Diplomatic History}
+    definition: 追踪国家形成、法制、政党、官僚、战争、外交和国际秩序的变化，并连接正式决策与社会力量。
+    core_questions: [权力如何通过制度法律和暴力被组织与挑战, 档案中的国家视角如何与社会和跨国材料互证]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:political-legal-diplomatic-history]
+    roles: [synthesis, mechanism, evidence]
+    aims: [explain-understand, diagnose-abduce, learn-transfer]
+    epistemic_modes: [historical, causal, comparative]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:framework:modernity-industrialization-colonialism-nation-states]
+    connections: [{type: supports, target: hkm:framework:comparative-regimes-state-capacity, scope: 政体和国家能力比较需要制度形成与危机的历史路径证据}]
+    boundary_notes: 领导人意图不能单独解释政治结果；秘密档案、胜者记录与事后合理化构成系统偏差。
+
+  - <<: *core_defaults
+    id: hkm:framework:economic-labor-business-history
+    code: K08.10
+    primary_type: framework
+    labels: {zh: 经济、劳动与商业史, en: Economic, Labor and Business History}
+    definition: 研究生产、劳动制度、企业、市场、金融、消费、技术与不平等的长期变化及其数量和档案证据。
+    core_questions: [生产制度和企业组织怎样改变劳动生活与分配, 价格工资产出等序列如何在定义变化下比较]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:economic-labor-business-history]
+    roles: [synthesis, evidence, mechanism]
+    aims: [describe-measure, explain-understand, evaluate-norm]
+    epistemic_modes: [historical, empirical, causal, formal]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:framework:modernity-industrialization-colonialism-nation-states]
+    connections: [{type: complements, target: hkm:framework:global-maritime-connected-histories, scope: 企业商品金融与劳动体系通过跨区域链条共同演化}]
+    boundary_notes: 历史统计口径和边界会变化；GDP 与价格序列不能覆盖非市场劳动、强制劳动和生态成本。
+
+  - <<: *core_defaults
+    id: hkm:framework:science-technology-medicine-environment-history
+    code: K08.11
+    primary_type: framework
+    labels: {zh: 科学、技术、医学与环境史, en: History of Science, Technology, Medicine and Environment}
+    definition: 研究知识、仪器、基础设施、疾病、专业制度和环境改造如何在社会权力与跨文化流动中形成。
+    core_questions: [事实技术和专业权威通过哪些实践制度与材料条件稳定, 创新和医疗环境干预的收益风险由谁承担]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:science-technology-medicine-environment-history]
+    roles: [synthesis, boundary, evidence]
+    aims: [explain-understand, evaluate-norm, learn-transfer]
+    epistemic_modes: [historical, interpretive, causal]
+    learning_priority: A
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:framework:modernity-industrialization-colonialism-nation-states]
+    connections: [{type: complements, target: hkm:framework:science-technology-society-coproduction, scope: 历史案例揭示知识技术与社会秩序共同形成的具体路径}]
+    boundary_notes: 发现者英雄史会遮蔽集体劳动、殖民采集和失败路径；现今有效知识不应被投射为过去必然结果。
+
+  - <<: *core_defaults
+    id: hkm:framework:memory-heritage-public-history
+    code: K08.12
+    primary_type: framework
+    labels: {zh: 记忆、遗产与公共历史, en: Memory, Heritage and Public History}
+    definition: 分析个人集体记忆、纪念、博物馆、遗址、档案、数字展示和教育如何选择并争议过去的公共意义。
+    core_questions: [谁有权保存解释展示或归还过去, 公共叙事如何区分纪念认同证据与责任]
+    primary_domain: hkm:domain:history-archaeology-civilization
+    related_subdomains: [hkm:subdomain:memory-heritage-public-history]
+    roles: [practice, synthesis, boundary]
+    aims: [evaluate-norm, design-create, learn-transfer]
+    epistemic_modes: [historical, interpretive, normative, design]
+    learning_priority: B
+    prerequisites: [hkm:method:historical-reasoning-source-criticism, hkm:framework:social-cultural-intellectual-history]
+    connections: [{type: uses, target: hkm:method:archaeological-context-material-culture, scope: 遗产保护与展示需尊重材料语境来源社区和保存条件}]
+    boundary_notes: 记忆真实感不等于史实准确；展示创伤、祖先遗骸和神圣物件需遵守社区权利与避免再伤害。
+
+  # D09 政治、治理与法律骨架
+  - <<: *core_defaults
+    id: hkm:framework:political-authority-ideology-collective-choice
+    code: K09.01
+    primary_type: framework
+    labels: {zh: 政治权威、意识形态与集体选择, en: Political Authority, Ideology and Collective Choice}
+    definition: 研究权力、合法性、国家、自由、平等、民主、共同体和意识形态如何组织公共目标、冲突与强制。
+    core_questions: [何种权威和强制可被谁以什么理由接受, 集体选择如何处理分歧少数权利与公共利益]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:political-theory-ideologies]
+    roles: [foundation, decision, boundary]
+    aims: [evaluate-norm, decide-negotiate, explain-understand]
+    epistemic_modes: [normative, historical, interpretive]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:comparative-regimes-state-capacity, scope: 比较政体需要明确权威代表性问责和国家能力等核心概念}]
+    boundary_notes: 意识形态标签内部多样且随历史变化；规范合法性、法律有效性与社会服从必须区分。
+
+  - <<: *core_defaults
+    id: hkm:framework:comparative-regimes-state-capacity
+    code: K09.02
+    primary_type: framework
+    labels: {zh: 比较政体、国家能力与制度变迁, en: Comparative Regimes, State Capacity and Institutional Change}
+    definition: 比较民主、威权、混合政体、政党制度、国家建构和官僚能力，解释制度稳定、转型与绩效差异。
+    core_questions: [政体规则如何分配参与竞争和问责, 国家能力由哪些财政组织和社会关系形成]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:comparative-politics-regimes]
+    roles: [representation, mechanism, synthesis]
+    aims: [identify-classify, explain-understand, predict-warn]
+    epistemic_modes: [comparative, historical, causal, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:political-authority-ideology-collective-choice]
+    connections: [{type: enables, target: hkm:framework:political-behavior-elections-public-opinion, scope: 政体和选举制度设定政治参与竞争和意见表达的机会结构}]
+    boundary_notes: 政体指数和国家能力指标依赖概念与数据可得性；制度移植不能脱离历史权力和执行基础。
+
+  - <<: *core_defaults
+    id: hkm:framework:political-behavior-elections-public-opinion
+    code: K09.03
+    primary_type: framework
+    labels: {zh: 政治行为、选举与公共意见, en: Political Behavior, Elections and Public Opinion}
+    definition: 连接身份、利益、信息、媒体、动员、投票制度、精英策略和调查测量，解释参与、选择与意见变化。
+    core_questions: [公民如何形成政治判断并决定是否参与, 选举规则动员和信息环境如何改变代表结果]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:political-behavior-elections-opinion]
+    roles: [mechanism, evidence, representation]
+    aims: [explain-understand, predict-warn, describe-measure]
+    epistemic_modes: [empirical, causal, formal]
+    learning_priority: A
+    prerequisites: [hkm:framework:political-authority-ideology-collective-choice, hkm:framework:comparative-regimes-state-capacity]
+    connections: [{type: influences, target: hkm:framework:policy-cycle-public-administration-implementation, scope: 选举舆论与动员改变议程授权和政策反馈但不完全决定执行}]
+    boundary_notes: 民调受抽样问法不回答和社会期许影响；投票选择不能代表全部偏好、知情程度或制度公平。
+
+  - <<: *core_defaults
+    id: hkm:framework:policy-cycle-public-administration-implementation
+    code: K09.04
+    primary_type: framework
+    labels: {zh: 政策循环、公共行政与执行, en: Policy Cycle, Public Administration and Implementation}
+    definition: 连接议程、政策设计、预算、官僚组织、街头执行、评估与反馈，研究公共目标如何转为可问责行动。
+    core_questions: [问题如何进入议程并被定义为可治理对象, 政策在组织激励能力和地方情境中如何变形]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:public-policy-administration]
+    roles: [decision, practice, synthesis]
+    aims: [design-create, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, causal, design, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:comparative-regimes-state-capacity, hkm:framework:political-behavior-elections-public-opinion]
+    connections: [{type: enables, target: hkm:framework:governance-regulation-institutional-design, scope: 政策执行证据揭示制度规则激励监督和救济需要如何设计}]
+    boundary_notes: 线性政策循环是导航而非真实时序；绩效指标会改变行为并可能排除难测量目标和人群。
+
+  - <<: *core_defaults
+    id: hkm:framework:jurisprudence-legal-reasoning-systems
+    code: K09.05
+    primary_type: framework
+    labels: {zh: 法理、法律体系与法律推理, en: Jurisprudence, Legal Systems and Legal Reasoning}
+    definition: 区分法律来源、效力、规则原则、事实认定、解释、先例与裁量，分析法律规范如何形成并适用于具体案件。
+    core_questions: [规范从何获得法律效力且与道德正当性如何区分, 文本先例事实与目的冲突时如何给出可复核理由]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:jurisprudence-legal-reasoning]
+    roles: [foundation, method, boundary]
+    aims: [evaluate-norm, decide-negotiate, diagnose-abduce]
+    epistemic_modes: [normative, interpretive, historical, formal]
+    learning_priority: S
+    prerequisites: [hkm:framework:political-authority-ideology-collective-choice]
+    connections: [{type: enables, target: hkm:framework:constitutional-administrative-public-law, scope: 公法推理依赖法律效力解释权力边界和救济等一般法理}]
+    boundary_notes: 法律信息因司法辖区和时间变化；本骨架不构成具体法律意见，事实与程序需由有资格者核验。
+
+  - <<: *core_defaults
+    id: hkm:framework:constitutional-administrative-public-law
+    code: K09.06
+    primary_type: framework
+    labels: {zh: 宪法、行政法与公权边界, en: Constitutional, Administrative and Public Law}
+    definition: 研究国家机构权力配置、基本权利、依法行政、程序正当、司法审查和公共责任的规则与实践。
+    core_questions: [公权由谁以何种程序授权限制和监督, 权利受到限制时适用什么标准与救济]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:constitutional-administrative-public-law]
+    roles: [boundary, decision, representation]
+    aims: [evaluate-norm, control-maintain, decide-negotiate]
+    epistemic_modes: [normative, interpretive, historical, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:jurisprudence-legal-reasoning-systems]
+    connections: [{type: constrains, target: hkm:framework:policy-cycle-public-administration-implementation, scope: 政策设计执行必须遵守权限程序平等比例和救济要求}]
+    boundary_notes: 成文宪法与实际宪制可能不同；紧急状态和国家安全主张仍需合法性必要性与监督审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:private-commercial-labor-law-relations
+    code: K09.07
+    primary_type: framework
+    labels: {zh: 私法、商法与劳动关系, en: Private, Commercial and Labor Law Relations}
+    definition: 连接人格财产、合同、侵权、公司、交易、劳动权利和争议解决，组织私人主体之间的权利义务与风险分配。
+    core_questions: [当事人权利义务和责任由何种事实规范产生, 形式自愿交易在信息权力和公共利益限制下是否有效]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:private-commercial-labor-law]
+    roles: [representation, decision, boundary]
+    aims: [decide-negotiate, evaluate-norm, control-maintain]
+    epistemic_modes: [normative, interpretive, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:jurisprudence-legal-reasoning-systems]
+    connections: [{type: complements, target: hkm:framework:governance-regulation-institutional-design, scope: 私法自治需要消费者竞争劳动与环境监管设定外部边界}]
+    boundary_notes: 合同文本不能脱离强制法、事实履行与不平等议价；跨境交易需确认适用法和管辖。
+
+  - <<: *core_defaults
+    id: hkm:framework:criminal-law-justice-due-process
+    code: K09.08
+    primary_type: framework
+    labels: {zh: 刑法、刑事司法与正当程序, en: Criminal Law, Justice and Due Process}
+    definition: 研究犯罪构成、责任、证据、侦查审判、刑罚、矫正、被害人权利和冤错救济的规范与机构实践。
+    core_questions: [国家何时可以认定责任并施加强制, 证据程序裁量和资源差异如何影响司法结果]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:criminal-law-justice]
+    roles: [decision, boundary, evidence]
+    aims: [evaluate-norm, diagnose-abduce, control-maintain]
+    epistemic_modes: [normative, empirical, interpretive, causal]
+    learning_priority: A
+    prerequisites: [hkm:framework:jurisprudence-legal-reasoning-systems, hkm:framework:constitutional-administrative-public-law]
+    connections: [{type: complements, target: hkm:framework:justice-legitimacy-rights, scope: 刑事责任和程序规范需与正义合法性及基本权利共同评估}]
+    boundary_notes: 报案逮捕起诉和定罪数据代表不同筛选过程；公共安全不能作为削弱无罪推定和反歧视的空白授权。
+
+  - <<: *core_defaults
+    id: hkm:framework:international-relations-diplomacy-law
+    code: K09.09
+    primary_type: framework
+    labels: {zh: 国际关系、外交与国际法, en: International Relations, Diplomacy and International Law}
+    definition: 连接国家、国际组织、非国家行为者、权力、安全、合作、贸易、人权与法律义务，分析跨境秩序与争端。
+    core_questions: [利益权力规范和制度如何塑造合作与冲突, 国际义务如何形成解释执行并在权力不对称中发挥作用]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:international-relations-law]
+    roles: [synthesis, decision, boundary]
+    aims: [explain-understand, decide-negotiate, predict-warn]
+    epistemic_modes: [comparative, historical, causal, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:political-authority-ideology-collective-choice, hkm:framework:jurisprudence-legal-reasoning-systems]
+    connections: [{type: enables, target: hkm:framework:multilevel-local-global-governance, scope: 跨境问题需要把国际规则与地方国家区域执行层连接}]
+    boundary_notes: 国家不是统一行动者，国际体系也不只由国家构成；模型需避免把强权行为自然化为不可改变规律。
+
+  - <<: *core_defaults
+    id: hkm:framework:governance-regulation-institutional-design
+    code: K09.10
+    primary_type: framework
+    labels: {zh: 治理、监管与制度设计, en: Governance, Regulation and Institutional Design}
+    definition: 用权责、标准、许可、信息披露、激励、监督、审计、制裁和救济设计多主体规则并管理公共风险。
+    core_questions: [市场政府专业与社区各自掌握什么信息能力和权力, 规则如何应对规避俘获执行不足与意外后果]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:governance-regulation-institutions]
+    roles: [design, decision, boundary]
+    aims: [design-create, control-maintain, evaluate-norm]
+    epistemic_modes: [design, causal, normative, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:policy-cycle-public-administration-implementation, hkm:framework:jurisprudence-legal-reasoning-systems]
+    connections: [{type: enables, target: hkm:framework:multilevel-local-global-governance, scope: 多层治理需要明确各层权限协调标准信息和问责机制}]
+    boundary_notes: 更多规则不必然更安全；监管成本分配、俘获、创新锁定和弱势主体参与需纳入设计。
+
+  - <<: *core_defaults
+    id: hkm:framework:rights-citizenship-social-justice
+    code: K09.11
+    primary_type: framework
+    labels: {zh: 权利、公民身份与社会正义, en: Rights, Citizenship and Social Justice}
+    definition: 连接公民政治经济社会文化权利、身份资格、反歧视、承认、再分配和实际可及性，评价制度包容与排除。
+    core_questions: [谁被承认为权利主体且可获得何种救济, 形式平等如何转化为面对差异和历史不正义的实际平等]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:rights-citizenship-social-justice]
+    roles: [foundation, boundary, decision]
+    aims: [evaluate-norm, decide-negotiate, control-maintain]
+    epistemic_modes: [normative, historical, comparative, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:political-authority-ideology-collective-choice, hkm:framework:jurisprudence-legal-reasoning-systems]
+    connections: [{type: constrains, target: hkm:framework:governance-regulation-institutional-design, scope: 制度设计需满足权利平等程序参与和有效救济约束}]
+    boundary_notes: 权利声明与实际享有之间可能存在执行鸿沟；安全效率和多数偏好不能自动压倒基本权利。
+
+  - <<: *core_defaults
+    id: hkm:framework:multilevel-local-global-governance
+    code: K09.12
+    primary_type: framework
+    labels: {zh: 地方、区域、国家与全球多层治理, en: Local, Regional, National and Global Multilevel Governance}
+    definition: 研究跨层级权限、财政、标准、信息、代表和协调如何共同处理气候、卫生、数字平台、迁移等跨边界问题。
+    core_questions: [问题影响与治理权限在哪些尺度错配, 如何分配地方适配统一标准资源和问责]
+    primary_domain: hkm:domain:politics-governance-law
+    related_subdomains: [hkm:subdomain:local-global-multilevel-governance]
+    roles: [synthesis, design, decision]
+    aims: [optimize-allocate, decide-negotiate, control-maintain]
+    epistemic_modes: [comparative, design, normative, causal]
+    learning_priority: B
+    prerequisites: [hkm:framework:comparative-regimes-state-capacity, hkm:framework:policy-cycle-public-administration-implementation, hkm:framework:international-relations-diplomacy-law, hkm:framework:governance-regulation-institutional-design]
+    connections: [{type: complements, target: hkm:framework:coupled-human-earth-sustainability, scope: 地球系统问题需要跨尺度环境证据与多层制度能力共同作用}]
+    boundary_notes: 权限下放可能扩大参与也可能转移无资源责任；全球协调需审查代表性、能力差异和历史责任。
 
   # D10 社会制度模板
   - <<: *core_defaults
