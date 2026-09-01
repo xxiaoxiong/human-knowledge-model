@@ -1,0 +1,729 @@
+schema_version: 0.1.0
+model_version: 0.5.0
+description: 将现实问题映射到领域骨架、思维模型、通用模型、证据门槛与可复查工作流。
+
+defaults: &problem_defaults
+  primary_type: problem-template
+  status: active
+  version: 0.5.0
+
+problem_templates:
+  - <<: *problem_defaults
+    id: hkm:problem-template:measure-current-state
+    code: PT01
+    labels: {zh: 描述与测量当前状态, en: "Describe and Measure the Current State"}
+    definition: 把含混的现状判断转化为有边界的对象、指标、测量过程、误差来源和可更新状态估计。
+    problem_family: sensemaking
+    primary_aim: describe-measure
+    secondary_aims: [identify-classify, diagnose-abduce]
+    trigger_questions: [现在究竟发生了什么, 哪些变量能够代表目标状态, 观测误差和缺失会怎样改变结论]
+    success_criteria: [对象和边界可复述, 指标与目标有可辩护联系, 不确定性和数据缺口被量化或分级, 后续观测能更新判断]
+    scoping_dimensions:
+      objects: [被测系统, 指标与数据生成过程]
+      actors: [测量者, 数据提供者, 受测对象, 结果使用者]
+      timescales: [观测窗口, 更新频率, 基线与趋势]
+      scales: [个体或局部, 群体或系统]
+      values_at_stake: [准确性, 可比性, 隐私, 公平]
+      constraints: [成本, 可观测性, 测量干扰, 数据权限]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:earth-space-environment, hkm:domain:computing-information-ai, hkm:domain:engineering-technology-design]
+      core_nodes: [hkm:framework:statistical-inference-measurement, hkm:framework:geospatial-observation-mapping-inference, hkm:framework:data-databases-information-retrieval, hkm:framework:sensing-feedback-control-automation]
+      thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:map-territory-model-limits, hkm:thinking-model:scenario-sensitivity-analysis]
+      universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:information-signals-representation, hkm:universal-model:measurement-observation-inference]
+    evidence_requirements: [明确的操作定义和采样框, 校准记录与误差预算, 多来源交叉检查或重复观测, 缺失和选择机制说明]
+    workflow:
+      - {stage: "01", action: 定义对象边界和决策用途, output: 测量问题陈述, gate: 不把指标直接等同于目标}
+      - {stage: "02", action: 绘制变量和数据生成过程, output: 指标字典与测量链, gate: 标出不可观测量和代理变量}
+      - {stage: "03", action: 采样校准并记录误差, output: 带质量标记的数据集, gate: 检查偏差缺失和漂移}
+      - {stage: "04", action: 估计状态并做敏感性分析, output: 区间情景与替代指标比较, gate: 结论不依赖单一脆弱假设}
+      - {stage: "05", action: 发布状态判断和更新计划, output: 仪表板与下一观测触发器, gate: 使用者能区分事实估计和价值判断}
+    outputs: [测量问题陈述, 指标与变量字典, 误差和偏差清单, 状态估计与更新计划]
+    failure_modes: [以方便取得的数据替代真正目标, 忽略测量改变行为, 把精确小数误当高可信度, 在不可比样本间直接排名]
+    escalation_conditions: [测量结果触发医疗法律或安全处置, 数据涉及高敏感隐私或重大权益, 误差无法界定却需要不可逆决策]
+    boundary_notes: 测量只能把规定边界内的观察与模型连接起来；它不能自动决定什么值得追求，也不能消除未观测混杂和概念争议。
+    example_prompts: [评估一座城市的空气质量现状, 判断一个产品团队的交付健康度]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:explain-diagnose-causes
+    code: PT02
+    labels: {zh: 解释结果与诊断原因, en: "Explain Outcomes and Diagnose Causes"}
+    definition: 从竞争解释、时间顺序、机制链和反事实证据中识别结果如何产生，并区分直接原因、促成条件和表面相关。
+    problem_family: sensemaking
+    primary_aim: diagnose-abduce
+    secondary_aims: [explain-understand, predict-warn]
+    trigger_questions: [为什么结果偏离预期, 哪条机制链最能解释证据, 改变哪个条件可能防止复发]
+    success_criteria: [至少保留两个竞争解释, 原因与证据链一一对应, 根因和近因被区分, 结论能产生可检验预测]
+    scoping_dimensions:
+      objects: [结果变量, 候选原因, 机制与环境]
+      actors: [经历问题的人, 系统操作者, 调查者, 责任主体]
+      timescales: [事件前兆, 发生过程, 延迟后果]
+      scales: [部件或个体, 组织或群体, 制度环境]
+      values_at_stake: [真相, 安全, 公平归责, 学习]
+      constraints: [事后偏差, 记录缺失, 不可重复性, 权力影响]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mathematics-statistics-formal-systems, hkm:domain:mind-brain-behavior, hkm:domain:engineering-technology-design, hkm:domain:health-medicine-wellbeing]
+      core_nodes: [hkm:framework:scientific-explanation-theory-change, hkm:framework:statistical-inference-measurement, hkm:framework:reasoning-judgment-decision, hkm:skill:engineering-troubleshooting-root-cause, hkm:method:clinical-reasoning-diagnosis-evidence]
+      thinking_models: [hkm:thinking-model:causal-mechanistic-reasoning, hkm:thinking-model:selection-survivorship-bias, hkm:thinking-model:inversion-prevention, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:experiment-iteration-learning]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:measurement-observation-inference, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [带时间顺序的事件记录, 能区分解释的机制证据, 基准率或比较案例, 反事实设计或可证伪预测]
+    workflow:
+      - {stage: "01", action: 精确定义异常结果和正常基线, output: 偏差陈述与时间线, gate: 避免用原因词重述结果}
+      - {stage: "02", action: 生成多层竞争解释, output: 因果图和假设清单, gate: 包含个体系统和情境层}
+      - {stage: "03", action: 收集区分性证据, output: 证据矩阵, gate: 同时寻找支持和反证}
+      - {stage: "04", action: 比较机制与反事实, output: 加权诊断和剩余不确定性, gate: 不把相关或事后故事当充分因果}
+      - {stage: "05", action: 设计验证或防复发行动, output: 试验控制和监测计划, gate: 行动能检验而非掩盖诊断}
+    outputs: [事件时间线, 竞争解释图, 证据矩阵, 根因分层与验证计划]
+    failure_modes: [寻找单一替罪羊, 事后选择符合故事的证据, 控制中介或碰撞变量制造偏差, 用根因标签终止继续调查]
+    escalation_conditions: [涉及伤亡犯罪或重大公共安全, 需要临床诊断或法定事故调查, 权益冲突使内部调查缺乏独立性]
+    boundary_notes: 在开放系统中通常只能给出分层且带置信度的因果解释；诊断模板不替代临床、法医、工程认证或司法程序。
+    example_prompts: [解释生产线良率突然下降, 诊断一个反复复发的组织项目失败]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:forecast-early-warning
+    code: PT03
+    labels: {zh: 预测变化与建立早期预警, en: "Forecast Change and Build Early Warning"}
+    definition: 结合基准率、机制、时间序列、情景和领先指标，对未来状态给出可校准区间并明确更新触发器。
+    problem_family: prediction-decision
+    primary_aim: predict-warn
+    secondary_aims: [describe-measure, decide-negotiate]
+    trigger_questions: [未来可能出现哪些状态, 什么信号会先于结果变化, 哪些不确定性主导预测]
+    success_criteria: [预测以区间和概率表达, 基准率与领域机制同时进入, 情景覆盖关键结构变化, 预测能事后评分和更新]
+    scoping_dimensions:
+      objects: [目标变量, 驱动因素, 领先指标, 冲击]
+      actors: [预测者, 决策者, 数据生成者, 受影响群体]
+      timescales: [短期预警, 中期计划, 长期情景]
+      scales: [局部系统, 市场或组织, 区域或全球]
+      values_at_stake: [及时性, 校准, 可解释性, 防范损失]
+      constraints: [结构突变, 稀有事件, 数据延迟, 反馈行为]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:earth-space-environment, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai, hkm:domain:security-conflict-resilience]
+      core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:atmosphere-weather-climate-system, hkm:method:economic-causal-evaluation-forecasting, hkm:framework:machine-learning-data-science-generalization, hkm:method:intelligence-security-analysis]
+      thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:power-laws-long-tails, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:growth-scale-saturation]
+      universal_models: [hkm:universal-model:growth-decay-saturation, hkm:universal-model:cycles-oscillation-delays, hkm:universal-model:nonlinear-thresholds-regime-change, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:measurement-observation-inference]
+    evidence_requirements: [清楚定义的历史参考类, 时间戳一致的训练与检验数据, 机制或结构变化证据, 概率校准和回测记录]
+    workflow:
+      - {stage: "01", action: 定义预测目标时间窗和行动阈值, output: 可评分预测问题, gate: 结果可在指定时间判定}
+      - {stage: "02", action: 建立参考类和生成机制, output: 基准模型与因果驱动图, gate: 不从单一近期样本外推}
+      - {stage: "03", action: 构建多模型与情景, output: 概率区间和结构变化情景, gate: 包含延迟厚尾和阈值}
+      - {stage: "04", action: 回测校准并做敏感性分析, output: 误差分解和模型权重, gate: 防止时间泄漏和过拟合}
+      - {stage: "05", action: 发布预警触发器并持续更新, output: 监测板和预测日志, gate: 新证据能改变概率和行动}
+    outputs: [可评分预测陈述, 基准与情景集, 校准误差报告, 预警和更新规则]
+    failure_modes: [给出单点确定答案, 把模型拟合当未来机制, 忽略预测公开后引发的行为反馈, 用一次命中证明长期准确]
+    escalation_conditions: [低概率事件可能造成灾难性损失, 预测用于高风险自动决策, 数据或模型漂移无法监测]
+    boundary_notes: 预测质量依赖稳定的数据生成过程和可评价目标；对深度不确定性应以情景和稳健行动替代虚假精度。
+    example_prompts: [预测区域电力负荷与峰值风险, 建立供应链中断的早期预警]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:decide-under-uncertainty
+    code: PT04
+    labels: {zh: 在不确定性下做重要选择, en: "Make Important Choices Under Uncertainty"}
+    definition: 把选项、结果分布、价值、机会成本、可逆性和信息价值组合成可解释且可更新的选择。
+    problem_family: prediction-decision
+    primary_aim: decide-negotiate
+    secondary_aims: [evaluate-norm, optimize-allocate]
+    trigger_questions: [现在必须决定什么, 哪些未知会改变排序, 错误能否低成本纠正]
+    success_criteria: [目标和不可接受后果明确, 选项包含不行动和延迟, 不确定性进入比较, 决策规则与更新条件可追踪]
+    scoping_dimensions:
+      objects: [选项, 结果分布, 信息, 承诺]
+      actors: [决策者, 受影响者, 建议者, 承担后果者]
+      timescales: [立即承诺, 中期反馈, 长期后果]
+      scales: [个人, 家庭或团队, 组织]
+      values_at_stake: [收益, 安全, 公平, 自主, 后悔]
+      constraints: [预算, 时间, 法律伦理, 注意力, 不可逆性]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:mind-brain-behavior, hkm:domain:economy-finance-organizations, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:optimization-operations-games, hkm:framework:reasoning-judgment-decision, hkm:framework:time-value-risk-decision-under-uncertainty, hkm:framework:everyday-risk-triage-escalation]
+      thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:opportunity-cost, hkm:thinking-model:optionality-real-options, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions, hkm:thinking-model:tradeoff-frontier]
+      universal_models: [hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:optimization-search-learning, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [选项与结果的可比描述, 基准率和关键概率区间, 受影响者价值与约束, 可逆性和信息价值评估]
+    workflow:
+      - {stage: "01", action: 写出决策和成功失败标准, output: 决策声明, gate: 区分目标手段和身份焦虑}
+      - {stage: "02", action: 扩展选项与约束, output: 含不行动的选项集, gate: 没有把现状当零成本}
+      - {stage: "03", action: 建模结果概率和价值, output: 情景决策矩阵, gate: 同时记录基准率和主观价值}
+      - {stage: "04", action: 检查稳健性可逆性和信息价值, output: 敏感性与试点方案, gate: 决策速度匹配可逆程度}
+      - {stage: "05", action: 承诺执行并设复盘时间, output: 决策日志和更新阈值, gate: 结果不佳不自动等于过程错误}
+    outputs: [决策声明, 选项和约束表, 概率价值矩阵, 决策日志与复盘规则]
+    failure_modes: [只比较最显眼的两个选项, 用单一期望值掩盖灾难风险, 事后根据结果重写当时信息, 把偏好冲突伪装成技术问题]
+    escalation_conditions: [决定涉及重大健康法律或不可逆财务后果, 决策者与后果承担者严重分离, 利益冲突无法通过披露缓解]
+    boundary_notes: 模板能改进过程但不能替人决定价值权重；在高风险领域必须结合合格专业意见、法定程序和知情同意。
+    example_prompts: [是否接受一份跨城市工作机会, 是否在信息不足时启动大型项目]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:allocate-scarce-resources
+    code: PT05
+    labels: {zh: 配置稀缺资源与优化流程, en: "Allocate Scarce Resources and Optimize Flow"}
+    definition: 在多目标、瓶颈、容量、需求不确定和公平约束下配置时间、资金、人力或物资，并识别真正限制系统吞吐的环节。
+    problem_family: prediction-decision
+    primary_aim: optimize-allocate
+    secondary_aims: [decide-negotiate, control-maintain]
+    trigger_questions: [什么资源真正稀缺, 当前瓶颈在哪里, 提升一个局部会不会损害整体]
+    success_criteria: [目标函数和硬约束分离, 边际机会成本可见, 瓶颈和队列被测量, 方案在效率公平与韧性间可解释]
+    scoping_dimensions:
+      objects: [资源, 任务, 容量, 队列, 产出]
+      actors: [资源所有者, 执行者, 服务对象, 被排除者]
+      timescales: [日常调度, 预算周期, 能力建设]
+      scales: [任务或工位, 团队或组织, 公共系统]
+      values_at_stake: [效率, 公平, 质量, 响应时间, 韧性]
+      constraints: [硬容量, 技能匹配, 预算, 时限, 法定义务]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design]
+      core_nodes: [hkm:framework:optimization-operations-games, hkm:framework:policy-cycle-public-administration-implementation, hkm:concept:scarcity-opportunity-cost-tradeoffs, hkm:framework:operations-flow-bottlenecks-quality, hkm:framework:engineering-constraints-trade-space]
+      thinking_models: [hkm:thinking-model:marginal-analysis, hkm:thinking-model:opportunity-cost, hkm:thinking-model:constraint-bottleneck-theory, hkm:thinking-model:pareto-prioritization, hkm:thinking-model:tradeoff-frontier]
+      universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:optimization-search-learning]
+    evidence_requirements: [需求到达率和服务时间分布, 容量与利用率数据, 质量和返工指标, 不同群体的受益与排除影响]
+    workflow:
+      - {stage: "01", action: 定义系统目标硬约束和公平底线, output: 多目标资源问题, gate: 不把可协商偏好伪装成硬约束}
+      - {stage: "02", action: 映射流量存量队列和瓶颈, output: 价值流与容量图, gate: 以整体吞吐而非局部忙碌判断}
+      - {stage: "03", action: 估计边际价值和需求不确定性, output: 资源响应曲线, gate: 包含波动和峰值}
+      - {stage: "04", action: 比较可行前沿和缓冲方案, output: 方案集与权衡解释, gate: 检查质量公平和韧性损失}
+      - {stage: "05", action: 小步实施并监测约束迁移, output: 调度规则和再优化触发器, gate: 原瓶颈解除后重新测量}
+    outputs: [多目标约束表, 流程与瓶颈图, 可行前沿, 调度和监测规则]
+    failure_modes: [最大化局部利用率造成全局拥堵, 忽略需求方差只按均值配置, 让弱势群体承担全部等待, 把模型最优当执行可行]
+    escalation_conditions: [配置决定基本权利或救命资源, 优化算法形成法律上的差别待遇, 数据不足以评估安全容量]
+    boundary_notes: 数学最优依赖目标和约束定义；公共资源还需合法性、程序公平和申诉机制，不能只按效率排序。
+    example_prompts: [安排急诊科床位与人员, 在研发组合中分配预算]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:design-system-service
+    code: PT06
+    labels: {zh: 设计系统、产品或服务, en: "Design a System Product or Service"}
+    definition: 从利益相关者需求、约束和使用情境出发，形成架构、接口、原型、测试和全生命周期责任闭环。
+    problem_family: design-intervention
+    primary_aim: design-create
+    secondary_aims: [control-maintain, evaluate-norm]
+    trigger_questions: [谁在什么情境下需要什么结果, 系统边界和关键接口在哪里, 怎样证明设计既有用又安全]
+    success_criteria: [需求可追踪到测试, 关键权衡和假设显式, 原型暴露真实使用反馈, 安全可维护与退出路径纳入设计]
+    scoping_dimensions:
+      objects: [需求, 功能, 架构, 接口, 原型, 生命周期]
+      actors: [用户, 购买者, 运维者, 受影响非用户, 监管者]
+      timescales: [探索迭代, 交付运行, 维护退役]
+      scales: [组件, 产品或服务, 生态系统]
+      values_at_stake: [效用, 安全, 可及性, 隐私, 可持续性]
+      constraints: [物理可行性, 成本, 技能, 标准, 时间]
+    knowledge_calls:
+      domains: [hkm:domain:computing-information-ai, hkm:domain:engineering-technology-design, hkm:domain:arts-literature-creation, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:human-computer-interaction-ux, hkm:framework:needs-requirements-stakeholders, hkm:framework:systems-architecture-interfaces, hkm:method:design-synthesis-prototyping, hkm:practice:craft-design-arts-material-making, hkm:skill:household-systems-maintenance-repair]
+      thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:systems-thinking, hkm:thinking-model:inversion-prevention, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:modularity-loose-coupling, hkm:thinking-model:divergent-convergent-creative-iteration]
+      universal_models: [hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:hierarchy-modularity-interfaces, hkm:universal-model:optimization-search-learning, hkm:universal-model:resilience-redundancy-recovery]
+    evidence_requirements: [情境观察和利益相关者需求证据, 可追踪的约束与风险记录, 原型或仿真测试, 真实用户与运维反馈]
+    workflow:
+      - {stage: "01", action: 研究情境主体与待完成任务, output: 需求和非目标清单, gate: 包含受影响非用户}
+      - {stage: "02", action: 分解功能约束风险和接口, output: 系统边界与架构候选, gate: 安全隐私维护不是后补项}
+      - {stage: "03", action: 发散方案并建立权衡, output: 概念集与选择依据, gate: 至少比较一个不同机制方案}
+      - {stage: "04", action: 原型测试并迭代, output: 失败证据和修订记录, gate: 测试覆盖真实环境与极端条件}
+      - {stage: "05", action: 验证交付并规划运行退役, output: 验收证据和生命周期计划, gate: 责任接口和回滚路径明确}
+    outputs: [需求与非目标, 系统边界和架构, 权衡记录, 原型测试报告, 生命周期责任计划]
+    failure_modes: [把用户请求直接当需求, 只验证功能不验证危害, 用漂亮原型掩盖不可制造维护, 忽略受影响非用户和退出成本]
+    escalation_conditions: [系统涉及生命安全或关键基础设施, 处理敏感数据或自动化重大权益决定, 无法满足适用标准与认证]
+    boundary_notes: 设计模板组织证据和迭代，不授予工程、医疗、建筑或安全认证资格；高风险系统必须使用相应专业标准和独立验证。
+    example_prompts: [设计老年人可用的预约服务, 设计可离线运行的社区灾害通信工具]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:evaluate-intervention-impact
+    code: PT07
+    labels: {zh: 评估干预、项目或产品影响, en: "Evaluate Intervention Program or Product Impact"}
+    definition: 区分实施、产出、结果和长期影响，用反事实、机制、异质性和成本副作用判断某项干预是否真正有效。
+    problem_family: design-intervention
+    primary_aim: evaluate-norm
+    secondary_aims: [explain-understand, decide-negotiate]
+    trigger_questions: [结果是否由干预造成, 对谁在什么条件下有效, 成本和副作用是否可接受]
+    success_criteria: [干预理论和结果链明确, 反事实策略可辩护, 效应异质性和实施质量被分析, 收益成本副作用一起报告]
+    scoping_dimensions:
+      objects: [干预, 实施过程, 结果, 反事实]
+      actors: [参与者, 执行机构, 资助者, 未参与群体, 评价者]
+      timescales: [实施期, 结果期, 持续与溢出期]
+      scales: [个体, 机构, 人群或制度]
+      values_at_stake: [有效性, 公平, 隐私, 伤害, 机会成本]
+      constraints: [随机化可行性, 样本量, 伦理, 实施差异]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mathematics-statistics-formal-systems, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:health-medicine-wellbeing, hkm:domain:education-learning-development]
+      core_nodes: [hkm:framework:metascience-reproducibility-incentives, hkm:framework:statistical-inference-measurement, hkm:framework:policy-cycle-public-administration-implementation, hkm:method:economic-causal-evaluation-forecasting, hkm:method:public-health-epidemiology-prevention, hkm:method:assessment-measurement-evaluation]
+      thinking_models: [hkm:thinking-model:causal-mechanistic-reasoning, hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:regression-to-mean, hkm:thinking-model:selection-survivorship-bias, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:scenario-sensitivity-analysis]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:measurement-observation-inference, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [预先定义的结果与比较策略, 实施忠实度和参与数据, 效应区间与异质性, 成本副作用和溢出证据]
+    workflow:
+      - {stage: "01", action: 建立干预理论和可判定问题, output: 结果链与评价问题, gate: 区分活动产出和影响}
+      - {stage: "02", action: 选择反事实和测量方案, output: 识别假设与分析计划, gate: 评价设计不由结果反推}
+      - {stage: "03", action: 记录实施和收集结果, output: 实施过程与质量数据, gate: 缺失和偏离方案透明}
+      - {stage: "04", action: 估计效应异质性成本和副作用, output: 多维影响报告, gate: 报告区间而非只报显著性}
+      - {stage: "05", action: 判断扩展修订或停止, output: 决策建议与后续学习计划, gate: 外部效度与执行能力被单独审查}
+    outputs: [干预理论, 识别与分析计划, 实施质量记录, 多维影响报告, 扩展或停止建议]
+    failure_modes: [把前后变化当因果, 只报告成功参与者, 用代理指标替代最终福祉, 忽略实施成本和负面溢出]
+    escalation_conditions: [研究涉及人体健康或高风险人群, 评价影响法定权益或资源资格, 评价者存在未管理的重大利益冲突]
+    boundary_notes: 评价不能把价值选择消解为单一效应量；因果识别、伦理审查和外部效度需分别成立。
+    example_prompts: [评估企业培训是否提升长期绩效, 评估社区疫苗提醒项目的公平影响]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:govern-policy-regulation
+    code: PT08
+    labels: {zh: 设计治理、政策与监管机制, en: "Design Governance Policy and Regulation"}
+    definition: 在权利、合法性、执行能力、激励、信息不对称和适应性之间设计可实施、可问责、可修订的公共或组织规则。
+    problem_family: coordination-governance
+    primary_aim: design-create
+    secondary_aims: [evaluate-norm, decide-negotiate, control-maintain]
+    trigger_questions: [什么集体问题需要规则而非个体选择, 谁有权制定执行和申诉, 规则会诱导哪些适应行为]
+    success_criteria: [权利和合法性基础明确, 激励与执行能力一致, 受影响者有参与和申诉渠道, 规则含监测复审和退出机制]
+    scoping_dimensions:
+      objects: [权利, 规则, 执法, 指标, 申诉与复审]
+      actors: [公众或成员, 决策者, 执行者, 被监管者, 监督者]
+      timescales: [制定期, 实施适应期, 长期制度变迁]
+      scales: [组织, 地方, 国家, 跨国]
+      values_at_stake: [合法性, 权利, 公平, 效率, 可问责性]
+      constraints: [法律权限, 国家或组织能力, 信息, 预算, 政治可行性]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:society-human-groups, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:language-communication-media]
+      core_nodes: [hkm:framework:justice-legitimacy-rights, hkm:framework:organizations-institutions-fields, hkm:framework:governance-regulation-institutional-design, hkm:framework:incentives-strategy-mechanism-design, hkm:framework:visual-science-risk-communication]
+      thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:second-order-effects, hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:principal-agent-information-asymmetry, hkm:thinking-model:cooperation-collective-action, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:perspectival-reflexive-interpretation]
+      universal_models: [hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:competition-cooperation-coordination, hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [问题规模和现行制度基线, 受影响群体与权利分析, 执行能力和行为响应证据, 比较制度与试点结果]
+    workflow:
+      - {stage: "01", action: 定义公共问题权利和合法目标, output: 问题与权利框架, gate: 证明集体干预的必要性}
+      - {stage: "02", action: 映射主体权力激励和现行规则, output: 制度与执行图, gate: 包含非正式规范和规避路径}
+      - {stage: "03", action: 生成多种政策工具组合, output: 规则选项与机制假设, gate: 不只考虑命令控制}
+      - {stage: "04", action: 评估分配影响执行和二阶效应, output: 影响与可实施性矩阵, gate: 弱势群体和申诉能力可见}
+      - {stage: "05", action: 试点实施监测并定期复审, output: 法规文本实施计划与复审条款, gate: 失败时可以纠正或退出}
+    outputs: [问题和权利框架, 主体制度图, 政策工具组合, 分配影响评估, 实施复审机制]
+    failure_modes: [把政策意图当实际结果, 只优化可测指标, 忽略规避俘获和执行差异, 以专家效率取代合法程序]
+    escalation_conditions: [规则限制基本权利或自由, 权限和适用法律不明确, 影响跨司法辖区或产生重大不可逆后果]
+    boundary_notes: 治理设计不能由模型替代民主、法律与组织授权；技术分析应呈现价值冲突，而不是把它们隐藏在参数中。
+    example_prompts: [设计平台内容治理与申诉机制, 制定城市共享出行监管规则]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:negotiate-coordinate-conflict
+    code: PT09
+    labels: {zh: 谈判、协调与处理冲突, en: "Negotiate Coordinate and Address Conflict"}
+    definition: 识别多方利益、权力、信息、身份、替代方案和互动结构，寻找可执行协议、可信承诺或降级路径。
+    problem_family: coordination-governance
+    primary_aim: decide-negotiate
+    secondary_aims: [explain-understand, evaluate-norm]
+    trigger_questions: [各方真正关心什么, 如果谈判失败各自会怎样, 哪些承诺可以被验证和执行]
+    success_criteria: [立场与底层利益分离, 权力和信息不对称显式, 协议可执行可监测, 未解决冲突和退出路径明确]
+    scoping_dimensions:
+      objects: [议题, 利益, 资源, 承诺, 叙事]
+      actors: [直接当事方, 代表者, 中介者, 执行和受影响第三方]
+      timescales: [谈判窗口, 执行期, 关系长期]
+      scales: [人际, 团队或组织, 群体或国际]
+      values_at_stake: [安全, 尊严, 公平, 自主, 关系]
+      constraints: [权力差异, 保密, 时间压力, 法律, 身份威胁]
+    knowledge_calls:
+      domains: [hkm:domain:mind-brain-behavior, hkm:domain:society-human-groups, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:language-communication-media, hkm:domain:security-conflict-resilience]
+      core_nodes: [hkm:framework:social-cognition-culture-norms, hkm:framework:groups-networks-collective-action, hkm:framework:international-relations-diplomacy-law, hkm:framework:incentives-strategy-mechanism-design, hkm:framework:interpersonal-group-organizational-communication, hkm:framework:conflict-analysis-peacebuilding]
+      thinking_models: [hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:comparative-advantage-specialization, hkm:thinking-model:principal-agent-information-asymmetry, hkm:thinking-model:cooperation-collective-action, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:perspectival-reflexive-interpretation]
+      universal_models: [hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:competition-cooperation-coordination, hkm:universal-model:information-signals-representation, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [各方利益约束和替代方案访谈, 权力资源与执行机制, 历史承诺和信任记录, 文化语言和法律语境]
+    workflow:
+      - {stage: "01", action: 建立安全边界和谈判授权, output: 参与规则与不可接受线, gate: 暴力胁迫和利益冲突先处理}
+      - {stage: "02", action: 映射主体利益权力信息和替代方案, output: 多方利益地图, gate: 不把公开立场等同真实需要}
+      - {stage: "03", action: 分离议题并创造互利交换, output: 可组合方案集, gate: 检查对第三方和弱势方影响}
+      - {stage: "04", action: 测试激励承诺和执行, output: 协议草案与违约情景, gate: 承诺可观察且后果可信}
+      - {stage: "05", action: 签署实施监测和修复机制, output: 协议责任表和复审节点, gate: 保留申诉退出和冲突降级渠道}
+    outputs: [谈判授权与底线, 多方利益权力图, 方案组合, 可执行协议与监测机制]
+    failure_modes: [把对方当单一理性主体, 忽略身份尊严和历史记忆, 在胁迫下制造表面同意, 依赖无法验证的善意承诺]
+    escalation_conditions: [存在暴力威胁虐待或强迫控制, 当事方缺乏法律能力或有效授权, 冲突涉及刑事国家安全或重大公共风险]
+    boundary_notes: 模板适用于有最低沟通和退出空间的协调问题；它不要求受害者与施害者对称谈判，也不替代法律保护和专业调解。
+    example_prompts: [协调跨部门共享预算和责任, 处理社区基础设施选址冲突]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:manage-risk-crisis-recovery
+    code: PT10
+    labels: {zh: 管理风险、危机与恢复, en: "Manage Risk Crisis and Recovery"}
+    definition: 从危害、暴露、脆弱性和后果出发，组合预防、探测、响应、连续性与恢复，并按严重性设置明确升级阈值。
+    problem_family: risk-response
+    primary_aim: control-maintain
+    secondary_aims: [predict-warn, diagnose-abduce]
+    trigger_questions: [什么可能造成不可接受损失, 哪些控制能在不同防线阻断, 失败后如何保持关键功能并恢复]
+    success_criteria: [高后果风险优先处理, 预防探测响应恢复成体系, 责任和升级阈值明确, 演练和事件能更新控制]
+    scoping_dimensions:
+      objects: [危害, 暴露, 脆弱性, 控制, 关键功能]
+      actors: [风险所有者, 一线人员, 应急机构, 受影响公众, 监督者]
+      timescales: [预防期, 急性响应, 恢复与适应]
+      scales: [个人或设施, 组织或社区, 区域系统]
+      values_at_stake: [生命安全, 连续性, 公平, 信任, 环境]
+      constraints: [时间压力, 信息不全, 资源稀缺, 相互依赖]
+    knowledge_calls:
+      domains: [hkm:domain:earth-space-environment, hkm:domain:engineering-technology-design, hkm:domain:health-medicine-wellbeing, hkm:domain:security-conflict-resilience, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:tectonics-landforms-geohazards, hkm:framework:reliability-failure-risk, hkm:framework:occupational-environmental-emergency-health, hkm:framework:risk-safety-science-governance, hkm:framework:disaster-emergency-management, hkm:skill:emergency-preparedness-first-response]
+      thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:inversion-prevention, hkm:thinking-model:redundancy-safety-margin, hkm:thinking-model:robustness-antifragility, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:nonlinear-thresholds-regime-change, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:resilience-redundancy-recovery]
+    evidence_requirements: [危害和脆弱性清单, 事件基准率与极端情景, 控制有效性和失效独立性证据, 演练事件与恢复时间记录]
+    workflow:
+      - {stage: "01", action: 识别关键功能危害和不可接受后果, output: 风险边界与后果等级, gate: 先处理生命和级联损失}
+      - {stage: "02", action: 建模暴露脆弱性和级联路径, output: 风险场景与依赖图, gate: 包含共同原因和人为因素}
+      - {stage: "03", action: 配置多层预防探测缓解控制, output: 控制矩阵与剩余风险, gate: 不依赖单一防线}
+      - {stage: "04", action: 演练响应沟通连续性和恢复, output: 演练记录与缺口清单, gate: 权限资源和替代通信可用}
+      - {stage: "05", action: 监测近失事件并持续改进, output: 风险登记和升级触发器, gate: 不因暂时无事故降低警觉}
+    outputs: [危害与关键功能清单, 风险场景图, 多层控制矩阵, 响应恢复计划, 演练和改进日志]
+    failure_modes: [风险矩阵制造伪精度, 只防常见事件忽略灾难尾部, 多个控制依赖同一脆弱基础, 事故后责备个人而不改系统]
+    escalation_conditions: [出现或即将出现生命威胁, 关键基础设施或公共卫生事件, 风险超出本地授权资源或专业能力]
+    boundary_notes: 紧急情境优先遵循当地应急指令并联系专业机构；模板用于准备和协调，不能替代实时指挥、临床急救或法定安全程序。
+    example_prompts: [为小型工厂建立火灾与停电连续性计划, 为社区极端高温事件设计响应与恢复]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:organizational-strategy-change
+    code: PT11
+    labels: {zh: 制定组织战略与推动变革, en: "Develop Organizational Strategy and Lead Change"}
+    definition: 把外部变化、组织能力、权力激励、文化习惯和执行反馈连接起来，形成可选择、可实施、可学习的战略承诺。
+    problem_family: coordination-governance
+    primary_aim: design-create
+    secondary_aims: [decide-negotiate, control-maintain, learn-transfer]
+    trigger_questions: [组织应在哪些方面选择不做, 哪些能力和瓶颈限制战略, 人们为何会支持抵制或重新解释变革]
+    success_criteria: [战略包含清晰取舍而非愿望清单, 能力与资源支持承诺, 激励权力和文化被纳入, 执行指标能触发学习和调整]
+    scoping_dimensions:
+      objects: [使命, 能力, 业务组合, 结构, 文化, 变革项目]
+      actors: [领导者, 员工, 客户, 合作伙伴, 董事或所有者]
+      timescales: [季度执行, 多年能力建设, 长期身份与声誉]
+      scales: [团队, 组织, 产业生态]
+      values_at_stake: [生存, 绩效, 公平, 信任, 专业身份]
+      constraints: [资源, 既有系统, 权力, 技能, 市场与制度]
+    knowledge_calls:
+      domains: [hkm:domain:mind-brain-behavior, hkm:domain:society-human-groups, hkm:domain:economy-finance-organizations, hkm:domain:language-communication-media, hkm:domain:engineering-technology-design]
+      core_nodes: [hkm:framework:behavior-change-self-regulation-habits, hkm:framework:organizations-institutions-fields, hkm:framework:organization-authority-governance, hkm:framework:strategy-capabilities-innovation, hkm:framework:interpersonal-group-organizational-communication, hkm:practice:engineering-project-configuration-change]
+      thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:second-order-effects, hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:evolutionary-selection-thinking, hkm:thinking-model:path-dependence-lock-in, hkm:thinking-model:principal-agent-information-asymmetry, hkm:thinking-model:experiment-iteration-learning]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:variation-selection-adaptation, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [外部环境与客户行为证据, 能力资源和流程基线, 组织网络激励与文化访谈, 小规模变革试验和执行反馈]
+    workflow:
+      - {stage: "01", action: 明确使命成功标准与战略边界, output: 选择和不做清单, gate: 战略包含真实取舍}
+      - {stage: "02", action: 诊断环境能力权力和路径依赖, output: 战略情境与能力图, gate: 区分可改变约束和硬边界}
+      - {stage: "03", action: 生成不同战略假设与组织配置, output: 战略选项和因果逻辑, gate: 不只有现行方案的轻微变体}
+      - {stage: "04", action: 比较资源风险激励和执行顺序, output: 承诺组合与变革路线, gate: 关键群体行为反应被模拟}
+      - {stage: "05", action: 分阶段执行并用证据更新, output: 责任节奏和学习指标, gate: 允许停止修订而非沉没成本加码}
+    outputs: [战略选择与不做清单, 能力和权力图, 战略假设组合, 变革路线与学习指标]
+    failure_modes: [把目标口号当战略, 只重画组织结构不改激励流程, 忽略中层和非正式网络, 用滞后财务指标压制早期学习]
+    escalation_conditions: [变革涉及大规模裁员并购或法定义务, 董事管理层存在重大利益冲突, 转型危及关键服务连续性]
+    boundary_notes: 战略模板不能保证竞争胜利；它用于暴露假设、能力和执行约束，仍需行业证据、受托责任与劳动法律审查。
+    example_prompts: [传统制造企业如何建立数字服务业务, 快速增长团队如何重构决策权]
+    learning_priority: A
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:assess-company-investment
+    code: PT12
+    labels: {zh: 判断公司是否值得投资, en: "Assess Whether a Company Is Investable"}
+    definition: 组合会计质量、商业机制、竞争优势、治理、估值、资本结构、情景概率和机会成本，形成可证伪的投资论点。
+    problem_family: prediction-decision
+    primary_aim: decide-negotiate
+    secondary_aims: [predict-warn, evaluate-norm]
+    trigger_questions: [公司如何创造和保留现金流, 当前价格隐含什么预期, 哪些事件会证伪投资论点]
+    success_criteria: [业务与会计可相互核对, 估值使用多情景和基准率, 治理激励与资本配置被审查, 仓位与风险承受能力一致]
+    scoping_dimensions:
+      objects: [公司, 商业模式, 财务报表, 证券, 产业结构]
+      actors: [管理层, 员工, 客户, 竞争者, 股东, 债权人, 监管者]
+      timescales: [季度经营, 商业周期, 多年竞争与复利]
+      scales: [业务单元, 公司, 产业, 宏观制度]
+      values_at_stake: [资本保全, 回报, 流动性, 诚信, 外部影响]
+      constraints: [信息不对称, 估值误差, 流动性, 税法, 投资者期限]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:history-archaeology-civilization, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai]
+      core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:economic-labor-business-history, hkm:model:valuation-portfolio-financial-risk, hkm:framework:accounting-stocks-flows-control, hkm:framework:strategy-capabilities-innovation, hkm:framework:machine-learning-data-science-generalization]
+      thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:bayesian-updating, hkm:thinking-model:opportunity-cost, hkm:thinking-model:compounding-accumulation, hkm:thinking-model:regression-to-mean, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:principal-agent-information-asymmetry, hkm:thinking-model:scenario-sensitivity-analysis]
+      universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:growth-decay-saturation, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [经核对的财务报表和附注, 单位经济与现金转换证据, 同业历史基准和产业结构, 管理层激励交易与资本配置记录]
+    workflow:
+      - {stage: "01", action: 写出业务如何赚钱和可能失败, output: 商业机制与风险图, gate: 不依赖管理层叙事理解收入现金流}
+      - {stage: "02", action: 重构报表和单位经济, output: 标准化财务与会计质量清单, gate: 利润现金和资本需求可对账}
+      - {stage: "03", action: 分析产业竞争治理和历史基准, output: 优势持续性与参考类, gate: 区分周期顺风和结构优势}
+      - {stage: "04", action: 构建多情景估值和下行压力测试, output: 价值区间与关键敏感变量, gate: 价格隐含预期被反推}
+      - {stage: "05", action: 决定仓位监测和证伪条件, output: 投资备忘录与更新规则, gate: 机会成本流动性和总体组合风险可接受}
+    outputs: [商业机制图, 标准化财务与会计红旗, 竞争治理分析, 情景估值, 投资论点和证伪清单]
+    failure_modes: [把好公司等同好投资, 外推短期高增长, 只看市盈率忽略资本和周期, 因持仓而停止寻找反证]
+    escalation_conditions: [涉及杠杆衍生品或无法承受损失, 财务披露疑似欺诈或违法, 投资决定影响受托资产或他人基本生活]
+    boundary_notes: 本模板是研究结构，不构成个别证券建议；估值高度依赖假设，投资者应遵守适用法律并根据自身风险承受能力寻求持牌意见。
+    example_prompts: [评估一家高增长软件公司的当前估值, 判断周期性制造企业是否处于价值陷阱]
+    learning_priority: A
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:assess-new-technology-success
+    code: PT13
+    labels: {zh: 判断新技术是否可能成功, en: "Assess Whether a New Technology Can Succeed"}
+    definition: 从物理和工程可行性、性能成本曲线、制造供应链、需求、互补资产、扩散网络、制度与竞争路径评估技术成功条件。
+    problem_family: design-intervention
+    primary_aim: predict-warn
+    secondary_aims: [evaluate-norm, design-create]
+    trigger_questions: [技术在基本约束下能否工作, 能否可靠规模化并达到可接受成本, 谁会采用以及生态和规则是否支持]
+    success_criteria: [科学工程商业和制度风险分层, 性能成本证据可复查, 规模和供应链瓶颈显式, 采用路径与证伪里程碑明确]
+    scoping_dimensions:
+      objects: [技术原理, 产品, 制造流程, 基础设施, 市场生态]
+      actors: [研发者, 制造商, 供应商, 采用者, 竞争者, 监管者]
+      timescales: [实验验证, 产品化, 规模扩散, 替代与锁定]
+      scales: [材料或算法, 组件, 系统, 产业]
+      values_at_stake: [性能, 成本, 安全, 可及性, 环境与社会影响]
+      constraints: [物理极限, 可靠性, 资本, 供应链, 标准, 监管]
+    knowledge_calls:
+      domains: [hkm:domain:matter-energy-universe, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai, hkm:domain:engineering-technology-design, hkm:domain:agriculture-food-bioproduction]
+      core_nodes: [hkm:framework:structure-property-phase-relations, hkm:framework:governance-regulation-institutional-design, hkm:framework:growth-productivity-innovation-distribution, hkm:framework:strategy-capabilities-innovation, hkm:framework:ai-knowledge-reasoning-planning, hkm:framework:engineering-constraints-trade-space, hkm:framework:manufacturing-process-capability, hkm:framework:food-systems-supply-chains-rural-development]
+      thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:scale-effects, hkm:thinking-model:network-effects, hkm:thinking-model:path-dependence-lock-in, hkm:thinking-model:optionality-real-options, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:growth-scale-saturation]
+      universal_models: [hkm:universal-model:variation-selection-adaptation, hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:growth-decay-saturation, hkm:universal-model:hierarchy-modularity-interfaces, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:path-dependence-lock-in]
+    evidence_requirements: [可重复的原理与性能测试, 规模放大和可靠性数据, 成本构成供应链与学习率, 用户采用和付费行为, 标准监管和竞争路线]
+    workflow:
+      - {stage: "01", action: 分离科学工程产品和市场主张, output: 主张层级与关键假设, gate: 每层有独立证据标准}
+      - {stage: "02", action: 检查物理约束性能和可靠性, output: 技术可行性边界, gate: 实验室峰值不替代长期系统表现}
+      - {stage: "03", action: 建模制造成本供应链和规模效应, output: 规模化瓶颈与成本曲线, gate: 包含资本良率维护和稀缺投入}
+      - {stage: "04", action: 测试需求扩散生态和制度, output: 采用路径与竞争情景, gate: 区分用户兴趣和持续付费使用}
+      - {stage: "05", action: 定义里程碑期权和证伪条件, output: 技术评估备忘录, gate: 每次加码对应已解除的不确定性}
+    outputs: [主张与证据层级, 可行性和规模边界, 成本供应链模型, 采用竞争情景, 里程碑与证伪条件]
+    failure_modes: [把演示样机当规模化产品, 只谈技术性能不谈工作流替代, 假设成本必然沿学习曲线下降, 忽略标准互补资产和监管]
+    escalation_conditions: [技术涉及生命安全生物安全或重大环境风险, 关键性能无法由独立机构复现, 商业决策需要受监管工程认证]
+    boundary_notes: 成功不是单一概率，而是科学、工程、制造、市场和制度条件的联合；技术热度和融资规模都不是可行性的替代证据。
+    example_prompts: [评估新型储能技术能否进入电网市场, 判断生成式 AI 产品是否具有可持续采用优势]
+    learning_priority: A
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:assess-social-policy-impact
+    code: PT14
+    labels: {zh: 判断社会政策的影响, en: "Assess the Impact of a Social Policy"}
+    definition: 连接人口和制度基线、行为反应、执行能力、因果效应、分配后果、权利与长期反馈，评估政策对不同群体的影响。
+    problem_family: coordination-governance
+    primary_aim: evaluate-norm
+    secondary_aims: [explain-understand, predict-warn, decide-negotiate]
+    trigger_questions: [政策通过什么机制影响谁, 执行和行为适应会怎样改变效果, 哪些分配和权利后果不可接受]
+    success_criteria: [政策机制与执行链明确, 平均效应和群体异质性分开, 权利公平和成本纳入, 短期长期与溢出效应被监测]
+    scoping_dimensions:
+      objects: [政策工具, 资格规则, 服务与转移, 结果]
+      actors: [目标群体, 非目标群体, 执行机构, 政治主体, 纳税或出资者]
+      timescales: [推出期, 行为适应, 代际与制度反馈]
+      scales: [个体家庭, 社区机构, 国家社会]
+      values_at_stake: [福祉, 权利, 公平, 自由, 信任, 财政可持续]
+      constraints: [预算, 行政能力, 法律, 政治联盟, 数据]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:society-human-groups, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:health-medicine-wellbeing]
+      core_nodes: [hkm:framework:statistical-inference-measurement, hkm:framework:demography-population-processes, hkm:framework:community-welfare-capabilities-social-policy, hkm:framework:policy-cycle-public-administration-implementation, hkm:framework:rights-citizenship-social-justice, hkm:method:economic-causal-evaluation-forecasting, hkm:framework:health-systems-policy-economics-quality-equity]
+      thinking_models: [hkm:thinking-model:causal-mechanistic-reasoning, hkm:thinking-model:systems-thinking, hkm:thinking-model:second-order-effects, hkm:thinking-model:incentives-mechanism-design, hkm:thinking-model:strategic-interaction-game-theory, hkm:thinking-model:selection-survivorship-bias, hkm:thinking-model:cooperation-collective-action, hkm:thinking-model:perspectival-reflexive-interpretation]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:competition-cooperation-coordination, hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [人口与制度基线, 政策机制和执行数据, 可信反事实或比较研究, 群体异质性与分配结果, 权利和定性经验材料]
+    workflow:
+      - {stage: "01", action: 定义政策目标权利边界和受影响群体, output: 政策问题与价值框架, gate: 不用单一平均指标代表全部福祉}
+      - {stage: "02", action: 绘制机制执行和行为响应链, output: 政策理论与主体图, gate: 包含规避污名和行政负担}
+      - {stage: "03", action: 建立基线反事实和证据计划, output: 影响识别方案, gate: 区分政策选择和结果选择偏差}
+      - {stage: "04", action: 评估短长期分配溢出和财政影响, output: 多群体多时间影响矩阵, gate: 平均改善不掩盖严重受损群体}
+      - {stage: "05", action: 提出试点补偿监测和修订机制, output: 政策建议与复审指标, gate: 结论说明不确定性和合法决策主体}
+    outputs: [政策价值与权利框架, 机制执行图, 影响识别方案, 分配影响矩阵, 监测修订建议]
+    failure_modes: [只看政策宣布不看执行, 用总体平均掩盖异质伤害, 忽略领取成本和污名, 把价值判断伪装成模型参数]
+    escalation_conditions: [政策限制基本权利或影响脆弱群体生存, 因果证据不足却拟全国不可逆推行, 研究处理敏感行政健康或身份数据]
+    boundary_notes: 社会政策评价既有经验问题也有规范问题；模型不能替代法定程序、民主授权、权利审查和受影响者的知识。
+    example_prompts: [评估提高最低工资的就业与分配影响, 判断住房补贴改革对不同家庭的长期影响]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:make-health-medical-decision
+    code: PT15
+    labels: {zh: 做健康与医疗决策, en: "Make a Health or Medical Decision"}
+    definition: 把症状风险、基准率、诊断证据、治疗收益伤害、个人价值和升级阈值组织为与合格临床人员共同决策的结构。
+    problem_family: risk-response
+    primary_aim: decide-negotiate
+    secondary_aims: [diagnose-abduce, control-maintain]
+    trigger_questions: [是否存在需要立即处理的危险信号, 哪些诊断最可能且最不能漏, 治疗选择的绝对收益伤害是什么]
+    success_criteria: [急症先被分级, 证据以基准率和绝对风险表达, 偏好和生活情境进入选择, 随访和升级规则明确]
+    scoping_dimensions:
+      objects: [症状, 疾病假设, 检查, 治疗, 功能与生活质量]
+      actors: [患者, 家属照护者, 临床人员, 药师, 支付与照护系统]
+      timescales: [即时急症, 诊断治疗期, 慢病长期]
+      scales: [个体, 家庭照护, 卫生系统]
+      values_at_stake: [生命, 功能, 舒适, 自主, 公平, 隐私]
+      constraints: [时间, 可及性, 合并症, 费用, 证据不确定性]
+    knowledge_calls:
+      domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:mind-brain-behavior, hkm:domain:health-medicine-wellbeing, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:reasoning-judgment-decision, hkm:method:clinical-reasoning-diagnosis-evidence, hkm:framework:pharmacology-therapeutics-medication-safety, hkm:framework:everyday-risk-triage-escalation, hkm:skill:personal-health-self-care-navigation]
+      thinking_models: [hkm:thinking-model:probabilistic-reasoning, hkm:thinking-model:bayesian-updating, hkm:thinking-model:regression-to-mean, hkm:thinking-model:base-rates-reference-classes, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions, hkm:thinking-model:map-territory-model-limits]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:resilience-redundancy-recovery, hkm:universal-model:measurement-observation-inference, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [症状时间线和危险信号, 适用人群的诊断基准率, 检查似然和治疗绝对效应, 用药合并症过敏与个人偏好]
+    workflow:
+      - {stage: "01", action: 先做危险信号和紧急程度分级, output: 就医升级决定, gate: 急症不进入自行分析流程}
+      - {stage: "02", action: 与临床人员澄清鉴别诊断和基准率, output: 诊断假设与证据缺口, gate: 不用网络症状匹配替代诊断}
+      - {stage: "03", action: 比较检查如何改变后验和行动, output: 检查价值与局限, gate: 无法改变处理的检查需说明理由}
+      - {stage: "04", action: 比较治疗绝对收益伤害和偏好, output: 共同决策表, gate: 包含不治疗监测和替代方案}
+      - {stage: "05", action: 执行随访并设恶化升级阈值, output: 用药随访与安全网计划, gate: 记录谁在何时负责复评}
+    outputs: [危险信号清单, 诊断与检查问题表, 共同决策表, 随访和安全网计划]
+    failure_modes: [在线自诊替代面诊, 把相对风险当绝对收益, 忽略合并症药物相互作用, 因一次检查正常否定后续恶化]
+    escalation_conditions: [任何紧急危险信号或快速恶化, 妊娠儿童高龄或复杂合并症, 用药调整侵入性操作或精神健康危机]
+    boundary_notes: 本模板不提供诊断或治疗建议。紧急情况应立即联系当地急救服务；其他医疗决定应由合格临床人员结合具体病史和检查作出。
+    example_prompts: [如何准备一次关于慢性疼痛治疗的共同决策, 如何理解筛查阳性后的下一步问题]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:sustainability-transition
+    code: PT16
+    labels: {zh: 规划环境与可持续转型, en: "Plan an Environmental and Sustainability Transition"}
+    definition: 将物质能量边界、生态承载、气候风险、技术路径、经济分配、治理和代际价值纳入转型组合与适应性路线。
+    problem_family: risk-response
+    primary_aim: design-create
+    secondary_aims: [control-maintain, evaluate-norm, predict-warn]
+    trigger_questions: [系统的物质能量和生态边界是什么, 减缓适应与公平如何组合, 哪些锁定和临界点决定行动时序]
+    success_criteria: [边界和核算一致, 减缓适应韧性协同, 全生命周期与分配影响可见, 路线含阶段目标和更新触发器]
+    scoping_dimensions:
+      objects: [能源物质流, 生态系统, 基础设施, 生计与政策]
+      actors: [居民, 企业, 政府, 劳动者, 未来世代, 非人生命]
+      timescales: [近期行动, 资产周期, 世代与地球系统]
+      scales: [项目, 城市或区域, 国家, 全球]
+      values_at_stake: [安全, 福祉, 公平, 生物多样性, 代际责任]
+      constraints: [物理边界, 技术成熟度, 资本, 制度能力, 政治合法性]
+    knowledge_calls:
+      domains: [hkm:domain:matter-energy-universe, hkm:domain:earth-space-environment, hkm:domain:life-evolution, hkm:domain:politics-governance-law, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design, hkm:domain:agriculture-food-bioproduction, hkm:domain:security-conflict-resilience]
+      core_nodes: [hkm:law-principle:conservation-laws-balances, hkm:framework:coupled-human-earth-sustainability, hkm:framework:ecology-populations-networks-cycles, hkm:framework:multilevel-local-global-governance, hkm:framework:externalities-public-goods-collective-action, hkm:framework:lifecycle-sustainability-circularity, hkm:framework:food-systems-supply-chains-rural-development, hkm:framework:resilience-continuity-recovery]
+      thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:feedback-loop-reasoning, hkm:thinking-model:second-order-effects, hkm:thinking-model:entropy-information-order, hkm:thinking-model:critical-threshold-tipping, hkm:thinking-model:path-dependence-lock-in, hkm:thinking-model:cooperation-collective-action, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:tradeoff-frontier]
+      universal_models: [hkm:universal-model:stocks-flows-conservation, hkm:universal-model:feedback-regulation-control, hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:energy-work-efficiency, hkm:universal-model:entropy-dissipation-maintenance, hkm:universal-model:nonlinear-thresholds-regime-change, hkm:universal-model:resilience-redundancy-recovery]
+    evidence_requirements: [一致边界的物质能源和排放核算, 气候生态风险与阈值证据, 技术全生命周期和成本数据, 生计分配与地方知识, 政策执行和行为响应]
+    workflow:
+      - {stage: "01", action: 定义系统边界基线和不可接受损失, output: 转型问题与价值底线, gate: 不把负担转移出核算边界}
+      - {stage: "02", action: 映射物质能量生态和社会反馈, output: 耦合系统与风险图, gate: 包含间接反弹和供应链影响}
+      - {stage: "03", action: 生成减缓适应和韧性组合, output: 技术政策行为方案集, gate: 不依赖单一未来或单一技术}
+      - {stage: "04", action: 比较生命周期成本公平和锁定, output: 多情景转型路径, gate: 明确赢家输家和补偿机制}
+      - {stage: "05", action: 分阶段实施监测并适应性更新, output: 路线图指标与治理机制, gate: 触发器连接实际决策权限}
+    outputs: [系统边界与基线, 耦合风险图, 转型方案组合, 公平和生命周期评估, 适应性路线图]
+    failure_modes: [只算直接排放忽略转移和反弹, 以单一货币指标压平生态价值, 用遥远目标延迟近期行动, 技术方案忽略地方生计和合法性]
+    escalation_conditions: [项目可能造成不可逆生态或社区损害, 涉及原住民土地权利或跨境影响, 关键环境数据和法定评价缺失]
+    boundary_notes: 可持续性没有脱离价值与分配的单一技术最优；应遵守环境法定程序并让受影响社区和地方知识进入治理。
+    example_prompts: [制定工业园区十年脱碳路线, 规划流域农业适应气候变化]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:learn-teach-skill
+    code: PT17
+    labels: {zh: 学习、教学与形成技能, en: "Learn Teach and Build Skill"}
+    definition: 从目标表现、先备知识、认知负荷、动机、练习反馈、迁移和测评出发设计可持续学习闭环。
+    problem_family: learning-meaning
+    primary_aim: learn-transfer
+    secondary_aims: [design-create, describe-measure]
+    trigger_questions: [最终需要在什么情境中做出什么表现, 当前缺口是知识技能动机还是环境, 什么练习和反馈最能促进迁移]
+    success_criteria: [目标以可观察表现定义, 前置和错误模型被诊断, 练习包含检索反馈和间隔, 测评覆盖迁移而非短期熟悉]
+    scoping_dimensions:
+      objects: [知识结构, 技能表现, 任务, 练习, 反馈, 测评]
+      actors: [学习者, 教师或教练, 同伴, 组织与平台]
+      timescales: [单次练习, 周月巩固, 长期迁移]
+      scales: [概念或动作, 课程或项目, 学习生态]
+      values_at_stake: [能力, 自主, 可及性, 公平, 身心健康]
+      constraints: [时间注意, 先备差异, 资源, 障碍与技术]
+    knowledge_calls:
+      domains: [hkm:domain:mind-brain-behavior, hkm:domain:computing-information-ai, hkm:domain:education-learning-development, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:behavior-change-self-regulation-habits, hkm:framework:human-computer-interaction-ux, hkm:framework:learning-sciences-cognition-motivation, hkm:method:assessment-measurement-evaluation, hkm:practice:lifelong-self-directed-learning, hkm:skill:learning-reading-writing-knowledge-workflow, hkm:skill:time-attention-habits-self-management]
+      thinking_models: [hkm:thinking-model:feedback-loop-reasoning, hkm:thinking-model:compounding-accumulation, hkm:thinking-model:constraint-bottleneck-theory, hkm:thinking-model:pareto-prioritization, hkm:thinking-model:map-territory-model-limits, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:divergent-convergent-creative-iteration]
+      universal_models: [hkm:universal-model:feedback-regulation-control, hkm:universal-model:variation-selection-adaptation, hkm:universal-model:growth-decay-saturation, hkm:universal-model:replication-transmission-memory, hkm:universal-model:optimization-search-learning, hkm:universal-model:measurement-observation-inference]
+    evidence_requirements: [目标情境中的表现样本, 先备和错误诊断, 练习间隔反馈记录, 保留与迁移测评, 学习负荷和可及性反馈]
+    workflow:
+      - {stage: "01", action: 定义真实表现和迁移情境, output: 能力目标与评估样例, gate: 不用课程完成代替能力}
+      - {stage: "02", action: 诊断先备知识误解动机和环境, output: 学习缺口图, gate: 区分不会不熟和无法参与}
+      - {stage: "03", action: 编排解释示例检索练习和反馈, output: 学习序列与练习计划, gate: 练习难度和支持逐步变化}
+      - {stage: "04", action: 用作品测验或表现评估, output: 错误模式与迁移证据, gate: 不只测熟悉材料的回忆}
+      - {stage: "05", action: 间隔复习反思并调整路线, output: 学习日志和下一周期计划, gate: 负荷健康和长期可持续}
+    outputs: [能力目标, 先备与误解图, 学习练习序列, 迁移评估, 复习调整计划]
+    failure_modes: [把观看阅读当掌握, 只重复舒适题目, 反馈太晚或只给分数, 用统一节奏惩罚先备和障碍差异]
+    escalation_conditions: [学习困难可能涉及健康残障或心理危机, 评价决定重大教育资格且缺乏公平保障, 训练任务存在身体或职业安全风险]
+    boundary_notes: 学习科学给出设计原则而非保证；年龄、文化、障碍、动机和具体学科结构会改变最佳路径。
+    example_prompts: [六个月建立数据分析工作能力, 设计能真正迁移的安全培训]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:personal-life-career-plan
+    code: PT18
+    labels: {zh: 规划个人生活与职业方向, en: "Plan Personal Life and Career Direction"}
+    definition: 把价值、能力、机会、风险、财务、关系、时间和身份实验组合成可逆的小步计划，而非寻找唯一正确人生答案。
+    problem_family: learning-meaning
+    primary_aim: decide-negotiate
+    secondary_aims: [evaluate-norm, learn-transfer]
+    trigger_questions: [什么生活结果真正重要, 哪些选择保留未来可能性, 如何用低成本实验获得自我和环境信息]
+    success_criteria: [价值与外部期待被区分, 财务健康关系约束进入计划, 不确定性通过试验降低, 计划包含复盘和改变方向的条件]
+    scoping_dimensions:
+      objects: [价值, 能力, 角色, 机会, 财务, 时间]
+      actors: [本人, 家庭伴侣, 同事雇主, 社区与导师]
+      timescales: [近期试验, 一至三年路径, 长期生活阶段]
+      scales: [个人, 家庭关系, 工作与社会制度]
+      values_at_stake: [意义, 自主, 健康, 关系, 安全, 成长]
+      constraints: [收入负债, 照护责任, 地理, 健康, 资格]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mind-brain-behavior, hkm:domain:economy-finance-organizations, hkm:domain:education-learning-development, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:value-aesthetic-life-evaluation, hkm:framework:consciousness-self-agency-metacognition, hkm:framework:time-value-risk-decision-under-uncertainty, hkm:practice:lifelong-self-directed-learning, hkm:practice:personal-finance-budgeting-risk, hkm:skill:career-workplace-collaboration-negotiation, hkm:skill:time-attention-habits-self-management]
+      thinking_models: [hkm:thinking-model:opportunity-cost, hkm:thinking-model:compounding-accumulation, hkm:thinking-model:optionality-real-options, hkm:thinking-model:scenario-sensitivity-analysis, hkm:thinking-model:reversible-irreversible-decisions, hkm:thinking-model:tradeoff-frontier, hkm:thinking-model:perspectival-reflexive-interpretation]
+      universal_models: [hkm:universal-model:resource-allocation-tradeoffs, hkm:universal-model:growth-decay-saturation, hkm:universal-model:risk-uncertainty-optionality, hkm:universal-model:optimization-search-learning, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [个人价值与能量时间日志, 财务和照护约束基线, 目标角色的真实工作样本和访谈, 小规模试验的行为与感受反馈]
+    workflow:
+      - {stage: "01", action: 描述价值生活需求和不可牺牲底线, output: 生活设计原则, gate: 区分内在价值和地位比较}
+      - {stage: "02", action: 盘点能力资源关系和硬约束, output: 当前状态与安全边界, gate: 健康财务照护责任不被遗漏}
+      - {stage: "03", action: 生成多条可逆路径和最小试验, output: 路径组合与信息目标, gate: 不要求先做永久身份承诺}
+      - {stage: "04", action: 比较机会成本风险和长期复利, output: 情景权衡与缓冲计划, gate: 最坏可承受结果明确}
+      - {stage: "05", action: 执行试验复盘并更新方向, output: 行动节奏与季度复盘, gate: 用实际行为证据修正自我叙事}
+    outputs: [生活设计原则, 资源约束盘点, 路径与最小试验, 风险缓冲, 复盘和更新规则]
+    failure_modes: [寻找唯一激情或天职, 只优化收入地位, 忽略家庭健康和制度约束, 把短期不适误当路径错误]
+    escalation_conditions: [存在严重心理健康危机或自伤风险, 计划涉及不可承受债务法律或移民后果, 家庭安全或照护冲突无法自行协调]
+    boundary_notes: 模板支持反思和试验，不为个人规定何为美好生活；危机、法律、财务或健康问题需要相应专业支持。
+    example_prompts: [是否从稳定职业转向新领域, 如何在照护责任下重新规划三年学习和工作]
+    learning_priority: S
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:interpret-history-culture-meaning
+    code: PT19
+    labels: {zh: 解释历史、文化与意义争议, en: "Interpret Historical Cultural and Meaning Disputes"}
+    definition: 通过来源批判、语境、语言、权力、传统内部理解和多重视角，构造有证据且不抹平差异的解释。
+    problem_family: learning-meaning
+    primary_aim: explain-understand
+    secondary_aims: [evaluate-norm, identify-classify]
+    trigger_questions: [谁在什么语境中留下了哪些材料, 概念在当时和现在分别意味着什么, 哪些声音因权力和保存机制缺席]
+    success_criteria: [一手二手材料和来源位置清楚, 同情性理解与批判可同时进行, 多个竞争解释有证据权重, 不确定和不可通约处被保留]
+    scoping_dimensions:
+      objects: [文本, 物质遗存, 图像仪式, 概念, 记忆]
+      actors: [创作者, 受众, 共同体, 记录者, 解释者, 被沉默者]
+      timescales: [事件当时, 接受传播史, 当代再解释]
+      scales: [个人作品, 社群传统, 制度与跨文化联系]
+      values_at_stake: [真诚理解, 尊严, 历史正义, 多元, 公共记忆]
+      constraints: [材料残缺, 翻译, 时代错置, 立场性, 获取权]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:society-human-groups, hkm:domain:history-archaeology-civilization, hkm:domain:language-communication-media, hkm:domain:arts-literature-creation, hkm:domain:religion-meaning-worldviews]
+      core_nodes: [hkm:method:comparative-philosophy-contextual-translation, hkm:framework:reflexive-inquiry-worldview-audit, hkm:framework:culture-identity-norms-power, hkm:method:historical-reasoning-source-criticism, hkm:framework:semiotics-rhetoric-discourse-power, hkm:framework:art-history-global-traditions, hkm:method:comparative-religion-reflexive-study, hkm:framework:worldviews-existential-meaning]
+      thinking_models: [hkm:thinking-model:systems-thinking, hkm:thinking-model:emergence-multilevel-explanation, hkm:thinking-model:selection-survivorship-bias, hkm:thinking-model:path-dependence-lock-in, hkm:thinking-model:map-territory-model-limits, hkm:thinking-model:perspectival-reflexive-interpretation]
+      universal_models: [hkm:universal-model:networks-propagation-connectivity, hkm:universal-model:information-signals-representation, hkm:universal-model:emergence-multiscale-organization, hkm:universal-model:replication-transmission-memory, hkm:universal-model:path-dependence-lock-in, hkm:universal-model:agency-incentives-governance]
+    evidence_requirements: [来源出处年代和传承链, 同时代语境与概念用法, 多种材料和立场的互证, 翻译与解释选择记录, 缺席材料和保存偏差说明]
+    workflow:
+      - {stage: "01", action: 界定解释对象时间地点和争议, output: 问题与材料范围, gate: 不以今日概念直接替代历史用法}
+      - {stage: "02", action: 批判来源和保存选择机制, output: 来源谱系与偏差表, gate: 区分材料内容和材料为何留下}
+      - {stage: "03", action: 重建语言制度实践和权力语境, output: 多层语境地图, gate: 同时考察传统内部和外部视角}
+      - {stage: "04", action: 比较竞争解释和反证, output: 解释矩阵与置信度, gate: 不把共情理解等同赞同}
+      - {stage: "05", action: 写出论证限制和当代含义, output: 可追踪解释与未决问题, gate: 明确事实解释和规范评价的转换}
+    outputs: [材料范围与来源谱系, 语境权力图, 竞争解释矩阵, 论证和限制说明]
+    failure_modes: [时代错置, 只引用胜利者和易得档案, 把群体传统描述成固定本质, 用主观任意性逃避证据责任]
+    escalation_conditions: [材料涉及活态共同体神圣或受限知识, 公开解释可能造成现实迫害或法律风险, 需要专业语言考古档案或文物处理资格]
+    boundary_notes: 解释允许多元但不意味着所有读法证据相等；地方、原住民和传统内部知识拥有者应参与涉及其身份与遗产的解释。
+    example_prompts: [解释一场历史运动为何形成相反公共记忆, 分析一部宗教艺术作品在不同共同体中的意义]
+    learning_priority: A
+
+  - <<: *problem_defaults
+    id: hkm:problem-template:create-innovate-express
+    code: PT20
+    labels: {zh: 创造、创新与表达, en: "Create Innovate and Express"}
+    definition: 在意图、受众、材料、形式、约束和伦理之间发散可能性，通过原型、批评和修订形成既新颖又适切的作品或方案。
+    problem_family: design-intervention
+    primary_aim: design-create
+    secondary_aims: [evaluate-norm, learn-transfer]
+    trigger_questions: [想让谁经历理解或做到什么, 哪些约束可以成为生成资源, 怎样区分新颖适切和表面奇特]
+    success_criteria: [意图受众和语境清楚, 生成与评价阶段适当分离, 作品经过真实反馈和修订, 来源伦理和负面影响被审查]
+    scoping_dimensions:
+      objects: [主题, 材料, 形式, 叙事, 原型, 作品]
+      actors: [创作者, 合作者, 受众, 来源共同体, 委托或平台]
+      timescales: [探索, 制作, 发布, 接受与维护]
+      scales: [元素, 作品, 系列或体验, 文化语境]
+      values_at_stake: [表达, 新颖, 美感, 可用性, 尊重, 可及性]
+      constraints: [媒介, 技能, 预算, 截止期, 权利与安全]
+    knowledge_calls:
+      domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mind-brain-behavior, hkm:domain:language-communication-media, hkm:domain:engineering-technology-design, hkm:domain:arts-literature-creation, hkm:domain:everyday-life-practical-agency]
+      core_nodes: [hkm:framework:value-aesthetic-life-evaluation, hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:semiotics-rhetoric-discourse-power, hkm:method:design-synthesis-prototyping, hkm:framework:aesthetics-art-theory-experience, hkm:practice:creative-writing-storytelling, hkm:skill:craft-making-low-risk-repair]
+      thinking_models: [hkm:thinking-model:first-principles-decomposition, hkm:thinking-model:inversion-prevention, hkm:thinking-model:experiment-iteration-learning, hkm:thinking-model:reversible-irreversible-decisions, hkm:thinking-model:tradeoff-frontier, hkm:thinking-model:perspectival-reflexive-interpretation, hkm:thinking-model:divergent-convergent-creative-iteration]
+      universal_models: [hkm:universal-model:constraints-bottlenecks-feasibility, hkm:universal-model:hierarchy-modularity-interfaces, hkm:universal-model:replication-transmission-memory, hkm:universal-model:optimization-search-learning, hkm:universal-model:measurement-observation-inference]
+    evidence_requirements: [受众情境和先例研究, 材料媒介与制作试验, 版本批评和使用反馈, 来源授权归属与影响审查]
+    workflow:
+      - {stage: "01", action: 定义意图受众语境和伦理边界, output: 创作简报与非目标, gate: 不用流行风格替代真实意图}
+      - {stage: "02", action: 收集材料先例和多重视角, output: 参考谱系与问题素材, gate: 记录来源而非无痕挪用}
+      - {stage: "03", action: 分离发散生成与收敛评价, output: 多样概念草图或原型, gate: 不在第一个可行想法停下}
+      - {stage: "04", action: 制作测试批评并反复修订, output: 版本轨迹与反馈证据, gate: 反馈来自目标语境而非只来自同温层}
+      - {stage: "05", action: 发布呈现维护并反思影响, output: 完成作品与创作说明, gate: 权利安全可及性和退出机制明确}
+    outputs: [创作简报, 参考来源谱系, 概念与原型集, 版本反馈记录, 作品和影响说明]
+    failure_modes: [把新颖当唯一价值, 过早评价压制探索, 无视媒介工艺和受众情境, 挪用受限传统却不给授权归属]
+    escalation_conditions: [作品使用他人敏感数据形象或受保护材料, 制作表演涉及身体或公共安全, 涉及活态共同体受限文化和神圣知识]
+    boundary_notes: 创造没有单一算法；模板支持有意识的探索、反馈和责任，但不替代具体艺术传统、工艺训练或共同体授权。
+    example_prompts: [创作面向非专业公众的数据故事, 设计能表达地方记忆的参与式装置]
+    learning_priority: A

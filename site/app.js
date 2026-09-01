@@ -7,6 +7,7 @@ const state = {
   activeFilter: "all",
   activeSkeleton: "D03",
   activeModelLayer: "thinking",
+  activeProblemFamily: "all",
   networkNodes: [],
   hoveredDomain: null,
 };
@@ -18,6 +19,7 @@ const copy = {
     navBridges: "跨域桥梁",
     navSkeletons: "核心骨架",
     navModels: "思维模型",
+    navProblems: "问题映射",
     navMethod: "如何使用",
     eyebrow: "一张描述人类如何认识世界的开放图谱",
     heroLine1: "知识不是一棵静止的树，",
@@ -44,6 +46,9 @@ const copy = {
     modelsIntro: "Thinking Models 帮你思考，Universal Models 描述跨领域重复出现的世界结构；每个模型都有证据锚点、反例与使用边界。",
     thinkingLayer: "Thinking Models · 思维操作",
     universalLayer: "Universal Models · 世界结构",
+    problemsEyebrow: "Problem → Knowledge",
+    problemsTitle: "从现实问题生成知识调用栈",
+    problemsIntro: "20 个问题原型把目标、系统边界、领域骨架、两层模型、证据门槛和升级条件连接成可复查工作流。",
     methodEyebrow: "从知道到行动",
     methodTitle: "怎样使用这张知识图谱",
     methodLead: "不从“我该学哪门课”开始，而从“我面对什么问题、需要做到什么”开始。模型帮助你定位对象、补齐前置、组合证据并检查边界。",
@@ -73,6 +78,7 @@ const copy = {
     bridgeUnit: "个跨域视图",
     relationUnit: "条关系",
     modelUnit: "个跨学科模型",
+    problemUnit: "个问题原型",
     coreQuestion: "核心问题",
     boundary: "边界与限制",
     subdomains: "H3 子领域",
@@ -94,6 +100,7 @@ const copy = {
     detailCore: "核心骨架节点",
     detailThinking: "思维模型",
     detailUniversal: "通用世界模型",
+    detailProblem: "问题—知识模板",
     coreIdea: "核心思想",
     sourceDomains: "来源领域",
     mechanismAnchors: "机制锚点",
@@ -107,6 +114,16 @@ const copy = {
     dynamics: "动力学",
     manifestations: "跨域表现",
     failureModes: "失效模式",
+    problemFamily: "问题家族",
+    primaryAim: "目标类型",
+    successCriteria: "成功标准",
+    scopingDimensions: "问题边界",
+    knowledgeCalls: "知识调用栈",
+    evidenceRequirements: "证据门槛",
+    workflow: "工作流",
+    outputs: "最终输出",
+    escalationConditions: "升级条件",
+    examplePrompts: "示例问题",
   },
   en: {
     brandTagline: "A map of how humanity knows",
@@ -114,6 +131,7 @@ const copy = {
     navBridges: "Bridge views",
     navSkeletons: "Core skeletons",
     navModels: "Thinking models",
+    navProblems: "Problem maps",
     navMethod: "How to use",
     eyebrow: "An open graph of how humanity understands the world",
     heroLine1: "Knowledge is not a static tree,",
@@ -140,6 +158,9 @@ const copy = {
     modelsIntro: "Thinking Models guide reasoning; Universal Models describe structures repeated across domains. Every model includes evidence anchors, counterexamples and boundaries.",
     thinkingLayer: "Thinking Models · Cognitive tools",
     universalLayer: "Universal Models · World structures",
+    problemsEyebrow: "Problem → Knowledge",
+    problemsTitle: "Generate a knowledge stack from a real problem",
+    problemsIntro: "Twenty archetypes connect goals and scope to domain skeletons, both model layers, evidence gates, escalation conditions and an auditable workflow.",
     methodEyebrow: "From knowing to acting",
     methodTitle: "How to use this knowledge graph",
     methodLead: "Start not with “which course should I take?” but with “what problem am I facing and what must I achieve?” The model helps locate objects, restore prerequisites, combine evidence and test boundaries.",
@@ -169,6 +190,7 @@ const copy = {
     bridgeUnit: "bridge views",
     relationUnit: "relations",
     modelUnit: "cross-domain models",
+    problemUnit: "problem templates",
     coreQuestion: "Core questions",
     boundary: "Boundaries and limits",
     subdomains: "H3 subdomains",
@@ -190,6 +212,7 @@ const copy = {
     detailCore: "Core skeleton node",
     detailThinking: "Thinking model",
     detailUniversal: "Universal model",
+    detailProblem: "Problem–knowledge template",
     coreIdea: "Core idea",
     sourceDomains: "Source domains",
     mechanismAnchors: "Mechanism anchors",
@@ -203,6 +226,16 @@ const copy = {
     dynamics: "Dynamics",
     manifestations: "Cross-domain manifestations",
     failureModes: "Failure modes",
+    problemFamily: "Problem family",
+    primaryAim: "Aim types",
+    successCriteria: "Success criteria",
+    scopingDimensions: "Problem boundary",
+    knowledgeCalls: "Knowledge call stack",
+    evidenceRequirements: "Evidence gates",
+    workflow: "Workflow",
+    outputs: "Final outputs",
+    escalationConditions: "Escalation conditions",
+    examplePrompts: "Example prompts",
   },
 };
 
@@ -217,6 +250,19 @@ const escapeHTML = (value = "") =>
 const label = (node) => node?.labels?.[state.lang] || node?.labels?.zh || node?.labels?.en || node?.code || "";
 const definition = (node) => node?.definition || "";
 
+function problemFamilyLabel(family) {
+  const labels = {
+    all: { zh: "全部", en: "All" },
+    sensemaking: { zh: "理解与诊断", en: "Sensemaking" },
+    "prediction-decision": { zh: "预测与决策", en: "Prediction & decision" },
+    "design-intervention": { zh: "设计与干预", en: "Design & intervention" },
+    "coordination-governance": { zh: "协调与治理", en: "Coordination & governance" },
+    "risk-response": { zh: "风险与响应", en: "Risk & response" },
+    "learning-meaning": { zh: "学习与意义", en: "Learning & meaning" },
+  };
+  return labels[family]?.[state.lang] || family;
+}
+
 function indexes() {
   const model = state.model;
   return {
@@ -228,6 +274,7 @@ function indexes() {
     coreById: new Map(model.coreNodes.map((item) => [item.id, item])),
     thinkingById: new Map(model.thinkingModels.map((item) => [item.id, item])),
     universalById: new Map(model.universalModels.map((item) => [item.id, item])),
+    problemById: new Map(model.problemTemplates.map((item) => [item.id, item])),
     modelById: new Map([...model.thinkingModels, ...model.universalModels].map((item) => [item.id, item])),
   };
 }
@@ -273,6 +320,7 @@ function renderHero() {
     [counts.bridges, t("bridgeUnit")],
     [counts.coreNodes, t("coreUnit")],
     [counts.thinkingModels + counts.universalModels, t("modelUnit")],
+    [counts.problemTemplates, t("problemUnit")],
     [counts.relations, t("relationUnit")],
   ];
   $("#stat-ribbon").innerHTML = stats
@@ -451,6 +499,50 @@ function renderModels() {
   bindOpenButtons($("#model-grid"));
 }
 
+function renderProblems() {
+  const families = [
+    "all",
+    "sensemaking",
+    "prediction-decision",
+    "design-intervention",
+    "coordination-governance",
+    "risk-response",
+    "learning-meaning",
+  ];
+  const tabs = $("#problem-family-tabs");
+  tabs.innerHTML = families
+    .map((family) => {
+      const count = family === "all"
+        ? state.model.problemTemplates.length
+        : state.model.problemTemplates.filter((item) => item.problem_family === family).length;
+      return `<button type="button" role="tab" class="problem-family-tab" data-problem-family="${escapeHTML(family)}" aria-selected="${state.activeProblemFamily === family}"><span>${escapeHTML(problemFamilyLabel(family))}</span><strong>${count}</strong></button>`;
+    })
+    .join("");
+  $$('[data-problem-family]', tabs).forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeProblemFamily = button.dataset.problemFamily;
+      renderProblems();
+    });
+  });
+
+  const problems = state.model.problemTemplates
+    .filter((item) => state.activeProblemFamily === "all" || item.problem_family === state.activeProblemFamily)
+    .sort((a, b) => a.code.localeCompare(b.code));
+  $("#problem-grid").innerHTML = problems
+    .map((problem) => {
+      const calls = problem.knowledge_calls;
+      return `<button type="button" class="problem-card" data-open-kind="problem" data-open-id="${escapeHTML(problem.id)}">
+        <span class="problem-card-top"><span>${escapeHTML(problem.code)}</span><span class="priority-badge">${escapeHTML(problem.learning_priority)}</span></span>
+        <small>${escapeHTML(problemFamilyLabel(problem.problem_family))} · ${escapeHTML(problem.primary_aim)}</small>
+        <strong>${escapeHTML(label(problem))}</strong>
+        <p>${escapeHTML(definition(problem))}</p>
+        <span class="problem-call-counts"><span>${calls.domains.length} H2</span><span>${calls.thinking_models.length} TM</span><span>${calls.universal_models.length} UM</span></span>
+      </button>`;
+    })
+    .join("");
+  bindOpenButtons($("#problem-grid"));
+}
+
 function bindOpenButtons(context = document) {
   $$('[data-open-kind]', context).forEach((button) => {
     button.addEventListener("click", () => openDetail(button.dataset.openKind, button.dataset.openId));
@@ -619,6 +711,46 @@ function openDetail(kind, id, updateHash = true) {
     );
     html += detailBlock(t("learningPriority"), tagCloud([node.learning_priority, ...node.epistemic_modes]));
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "problem") {
+    node = idx.problemById.get(id);
+    if (!node) return;
+    color = "#c49a49";
+    kicker = `${t("detailProblem")} · ${node.code}`;
+    const calls = node.knowledge_calls;
+    const domainCalls = calls.domains.map((item) => idx.domainById.get(item)).filter(Boolean);
+    const coreCalls = calls.core_nodes.map((item) => idx.coreById.get(item)).filter(Boolean);
+    const thinkingCalls = calls.thinking_models.map((item) => idx.thinkingById.get(item)).filter(Boolean);
+    const universalCalls = calls.universal_models.map((item) => idx.universalById.get(item)).filter(Boolean);
+    const callList = (items, callKind) => `<div class="detail-list">${items.map((item) => `<button type="button" data-open-kind="${callKind}" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(item.primary_type || "domain")}</small></button>`).join("")}</div>`;
+    const scopeLabels = state.lang === "zh"
+      ? { objects: "对象", actors: "主体", timescales: "时间", scales: "尺度", values_at_stake: "价值", constraints: "约束" }
+      : { objects: "Objects", actors: "Actors", timescales: "Time", scales: "Scale", values_at_stake: "Values", constraints: "Constraints" };
+    const workflowLabels = state.lang === "zh"
+      ? { stage: "阶段", action: "动作", output: "产物", gate: "检查门" }
+      : { stage: "Stage", action: "Action", output: "Output", gate: "Gate" };
+    html = detailHeader(node);
+    html += detailBlock(t("problemFamily"), tagCloud([problemFamilyLabel(node.problem_family), node.learning_priority]));
+    html += detailBlock(t("primaryAim"), tagCloud([node.primary_aim, ...node.secondary_aims]));
+    html += detailBlock(t("coreQuestion"), questionList(node.trigger_questions));
+    html += detailBlock(t("successCriteria"), questionList(node.success_criteria));
+    html += detailBlock(
+      t("scopingDimensions"),
+      `<div class="scope-grid">${Object.entries(node.scoping_dimensions).map(([key, values]) => `<article><strong>${escapeHTML(scopeLabels[key] || key)}</strong>${tagCloud(values)}</article>`).join("")}</div>`,
+    );
+    html += detailBlock(
+      t("knowledgeCalls"),
+      `<div class="call-stack"><section><h4>H2 Domains</h4>${callList(domainCalls, "domain")}</section><section><h4>Core Nodes</h4>${callList(coreCalls, "core")}</section><section><h4>Thinking Models</h4>${callList(thinkingCalls, "thinking")}</section><section><h4>Universal Models</h4>${callList(universalCalls, "universal")}</section></div>`,
+    );
+    html += detailBlock(t("evidenceRequirements"), questionList(node.evidence_requirements));
+    html += detailBlock(
+      t("workflow"),
+      `<div class="workflow-table"><div class="workflow-row workflow-head"><span>${workflowLabels.stage}</span><span>${workflowLabels.action}</span><span>${workflowLabels.output}</span><span>${workflowLabels.gate}</span></div>${node.workflow.map((step) => `<div class="workflow-row"><strong>${escapeHTML(step.stage)}</strong><span>${escapeHTML(step.action)}</span><span>${escapeHTML(step.output)}</span><span>${escapeHTML(step.gate)}</span></div>`).join("")}</div>`,
+    );
+    html += detailBlock(t("outputs"), questionList(node.outputs));
+    html += detailBlock(t("failureModes"), questionList(node.failure_modes));
+    html += detailBlock(t("escalationConditions"), questionList(node.escalation_conditions), "escalation-block");
+    html += detailBlock(t("examplePrompts"), questionList(node.example_prompts));
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   }
 
   $("#detail-kicker").textContent = kicker;
@@ -659,6 +791,7 @@ function buildSearchIndex() {
     ...state.model.coreNodes.map((item) => ({ kind: "core", item, type: t("detailCore") })),
     ...state.model.thinkingModels.map((item) => ({ kind: "thinking", item, type: t("detailThinking") })),
     ...state.model.universalModels.map((item) => ({ kind: "universal", item, type: t("detailUniversal") })),
+    ...state.model.problemTemplates.map((item) => ({ kind: "problem", item, type: t("detailProblem") })),
   ].map((entry) => ({
     ...entry,
     haystack: [
@@ -681,6 +814,15 @@ function buildSearchIndex() {
       ...(entry.item.dynamics || []),
       ...(entry.item.failure_modes || []),
       ...(entry.item.manifestations || []).map((item) => item.expression),
+      entry.item.problem_family,
+      entry.item.primary_aim,
+      ...(entry.item.secondary_aims || []),
+      ...(entry.item.trigger_questions || []),
+      ...(entry.item.success_criteria || []),
+      ...(entry.item.evidence_requirements || []),
+      ...(entry.item.outputs || []),
+      ...(entry.item.escalation_conditions || []),
+      ...(entry.item.example_prompts || []),
     ]
       .join(" ")
       .toLocaleLowerCase(),
@@ -883,6 +1025,7 @@ function renderAllDynamic() {
   renderBridges();
   renderSkeletons();
   renderModels();
+  renderProblems();
   drawNetwork();
 }
 

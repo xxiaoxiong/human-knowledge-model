@@ -392,7 +392,7 @@ a {
 .stat-ribbon {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   border-block: 1px solid var(--line);
 }
 
@@ -917,9 +917,183 @@ kbd {
   font-size: 0.8rem;
 }
 
+.problems-section {
+  padding-block: clamp(5rem, 10vw, 9rem);
+}
+
+.problem-family-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.problem-family-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 99rem;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.problem-family-tab strong {
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.problem-family-tab[aria-selected="true"],
+.problem-family-tab:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.problem-card {
+  min-height: 295px;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 0.8rem;
+  padding: 1.45rem;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.problem-card:hover {
+  background: var(--paper-deep);
+  transform: translateY(-2px);
+}
+
+.problem-card-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.problem-card > small {
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+.problem-card > strong {
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.problem-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.problem-call-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.problem-call-counts span {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 99rem;
+  color: var(--ink-soft);
+  font-size: 0.62rem;
+}
+
 .manifestation-list {
   display: grid;
   gap: 0.8rem;
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.scope-grid article {
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+}
+
+.scope-grid article > strong,
+.call-stack h4 {
+  display: block;
+  margin: 0 0 0.65rem;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.call-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.workflow-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.workflow-row {
+  display: grid;
+  grid-template-columns: 3rem 1.1fr 0.9fr 1.1fr;
+}
+
+.workflow-row > * {
+  padding: 0.75rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.72rem;
+}
+
+.workflow-row > *:last-child {
+  border-right: 0;
+}
+
+.workflow-row:last-child > * {
+  border-bottom: 0;
+}
+
+.workflow-head {
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.escalation-block {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--coral) 50%, var(--line));
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--coral) 8%, transparent);
 }
 
 .manifestation-item {
@@ -1446,6 +1620,14 @@ kbd {
     grid-template-columns: 1fr;
   }
 
+  .stat-ribbon {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .skeleton-summary {
     border-right: 0;
     border-bottom: 1px solid var(--line);
@@ -1489,6 +1671,7 @@ kbd {
   .domain-card-grid,
   .bridge-grid,
   .model-grid,
+  .problem-grid,
   .detail-list {
     grid-template-columns: 1fr;
   }
@@ -1529,6 +1712,42 @@ kbd {
 
   .footer-layout {
     flex-direction: column;
+  }
+
+  .scope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-table {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .workflow-row,
+  .workflow-row.workflow-head {
+    grid-template-columns: 2.5rem 1fr;
+    border: 1px solid var(--line);
+    border-radius: 0.65rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .workflow-row.workflow-head {
+    display: none;
+  }
+
+  .workflow-row > * {
+    border: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .workflow-row > strong {
+    grid-row: 1 / 4;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .workflow-row > *:last-child {
+    border-bottom: 0;
   }
 }
 

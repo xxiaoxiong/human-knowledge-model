@@ -1,0 +1,3712 @@
+schema_version: 0.1.0
+model_version: 0.5.0
+generated_from:
+- 08-data/problem-templates.yaml
+- 08-data/core-nodes.yaml
+- 08-data/thinking-models.yaml
+- 08-data/universal-models.yaml
+relationships:
+- id: hkm:relation:pt01-uses-domain-d02
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-domain-d04
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-domain-d12
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-domain-d13
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-core-k02-08
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:framework:statistical-inference-measurement
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-core-k04-09
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:framework:geospatial-observation-mapping-inference
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-core-k12-05
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:framework:data-databases-information-retrieval
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-core-k13-09
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:framework:sensing-feedback-control-automation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-thinking-tm03
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-thinking-tm04
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-thinking-tm29
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-thinking-tm35
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-universal-um01
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-universal-um06
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:universal-model:information-signals-representation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt01-uses-universal-um21
+  source: hkm:problem-template:measure-current-state
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-domain-d01
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-domain-d02
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-domain-d06
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-domain-d13
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-domain-d14
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-core-k01-06
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:framework:scientific-explanation-theory-change
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-core-k02-08
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:framework:statistical-inference-measurement
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-core-k06-05
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-core-k13-16
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:skill:engineering-troubleshooting-root-cause
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-core-k14-02
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-thinking-tm02
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:thinking-model:causal-mechanistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-thinking-tm22
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-thinking-tm23
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-thinking-tm30
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-thinking-tm34
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-universal-um02
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-universal-um07
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-universal-um21
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt02-uses-universal-um22
+  source: hkm:problem-template:explain-diagnose-causes
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-domain-d02
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-domain-d04
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-domain-d10
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-domain-d12
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-domain-d17
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-core-k02-07
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:framework:probability-stochastic-processes
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-core-k04-04
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:framework:atmosphere-weather-climate-system
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-core-k10-16
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-core-k12-11
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:framework:machine-learning-data-science-generalization
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-core-k17-04
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:method:intelligence-security-analysis
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm03
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm04
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm18
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:power-laws-long-tails
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm30
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm35
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-thinking-tm39
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:thinking-model:growth-scale-saturation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-universal-um11
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-universal-um12
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:universal-model:cycles-oscillation-delays
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-universal-um13
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:universal-model:nonlinear-thresholds-regime-change
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-universal-um17
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt03-uses-universal-um21
+  source: hkm:problem-template:forecast-early-warning
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-domain-d02
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-domain-d06
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-domain-d10
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-domain-d20
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-core-k02-09
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:framework:optimization-operations-games
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-core-k06-05
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-core-k10-10
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:framework:time-value-risk-decision-under-uncertainty
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-core-k20-01
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm03
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm04
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm09
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm26
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:optionality-real-options
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm35
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm36
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-thinking-tm37
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-universal-um08
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-universal-um17
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-universal-um18
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt04-uses-universal-um22
+  source: hkm:problem-template:decide-under-uncertainty
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-domain-d02
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-domain-d09
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-domain-d10
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-domain-d13
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-core-k02-09
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:framework:optimization-operations-games
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-core-k09-04
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-core-k10-01
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:concept:scarcity-opportunity-cost-tradeoffs
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-core-k10-14
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-core-k13-02
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-thinking-tm08
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:thinking-model:marginal-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-thinking-tm09
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-thinking-tm24
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-thinking-tm25
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:thinking-model:pareto-prioritization
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-thinking-tm37
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-universal-um01
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-universal-um07
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-universal-um08
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt05-uses-universal-um18
+  source: hkm:problem-template:allocate-scarce-resources
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-domain-d12
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-domain-d13
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-domain-d18
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:domain:arts-literature-creation
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-domain-d20
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k12-08
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:framework:human-computer-interaction-ux
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k13-01
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:framework:needs-requirements-stakeholders
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k13-03
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:framework:systems-architecture-interfaces
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k13-05
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:method:design-synthesis-prototyping
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k18-03
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:practice:craft-design-arts-material-making
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-core-k20-04
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:skill:household-systems-maintenance-repair
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm01
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm05
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm23
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm34
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm38
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:modularity-loose-coupling
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-thinking-tm41
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:thinking-model:divergent-convergent-creative-iteration
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-universal-um07
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-universal-um15
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:universal-model:hierarchy-modularity-interfaces
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-universal-um18
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt06-uses-universal-um20
+  source: hkm:problem-template:design-system-service
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d01
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d02
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d09
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d10
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d14
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-domain-d16
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:domain:education-learning-development
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k01-10
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:framework:metascience-reproducibility-incentives
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k02-08
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:framework:statistical-inference-measurement
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k09-04
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k10-16
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k14-07
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:method:public-health-epidemiology-prevention
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-core-k16-03
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:method:assessment-measurement-evaluation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm02
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:causal-mechanistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm03
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm04
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm15
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:regression-to-mean
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm22
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm30
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm34
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-thinking-tm35
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-universal-um02
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-universal-um17
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-universal-um21
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt07-uses-universal-um22
+  source: hkm:problem-template:evaluate-intervention-impact
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-domain-d01
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-domain-d07
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-domain-d09
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-domain-d10
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-domain-d11
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-core-k01-08
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:framework:justice-legitimacy-rights
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-core-k07-08
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:framework:organizations-institutions-fields
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-core-k09-10
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-core-k10-03
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-core-k11-10
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:framework:visual-science-risk-communication
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm05
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm07
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm10
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm11
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm32
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:principal-agent-information-asymmetry
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm33
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm35
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-thinking-tm40
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-universal-um03
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-universal-um05
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:universal-model:competition-cooperation-coordination
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-universal-um08
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-universal-um19
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt08-uses-universal-um22
+  source: hkm:problem-template:govern-policy-regulation
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d06
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d07
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d09
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d10
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d11
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-domain-d17
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k06-10
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:social-cognition-culture-norms
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k07-05
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:groups-networks-collective-action
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k09-09
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:international-relations-diplomacy-law
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k10-03
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k11-05
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:interpersonal-group-organizational-communication
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-core-k17-02
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:framework:conflict-analysis-peacebuilding
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm10
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm11
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm31
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:comparative-advantage-specialization
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm32
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:principal-agent-information-asymmetry
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm33
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm35
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-thinking-tm40
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-universal-um03
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-universal-um05
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:universal-model:competition-cooperation-coordination
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-universal-um06
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:universal-model:information-signals-representation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-universal-um17
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt09-uses-universal-um22
+  source: hkm:problem-template:negotiate-coordinate-conflict
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-domain-d04
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-domain-d13
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-domain-d14
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-domain-d17
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-domain-d20
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k04-02
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:framework:tectonics-landforms-geohazards
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k13-08
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:framework:reliability-failure-risk
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k14-14
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:framework:occupational-environmental-emergency-health
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k17-01
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:framework:risk-safety-science-governance
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k17-07
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:framework:disaster-emergency-management
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-core-k20-15
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:skill:emergency-preparedness-first-response
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm03
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm23
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm27
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm28
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:robustness-antifragility
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm30
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm35
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-thinking-tm36
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-universal-um02
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-universal-um07
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-universal-um13
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:universal-model:nonlinear-thresholds-regime-change
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-universal-um17
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt10-uses-universal-um20
+  source: hkm:problem-template:manage-risk-crisis-recovery
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-domain-d06
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-domain-d07
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-domain-d10
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-domain-d11
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-domain-d13
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k06-12
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k07-08
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:framework:organizations-institutions-fields
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k10-13
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:framework:organization-authority-governance
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k10-15
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:framework:strategy-capabilities-innovation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k11-05
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:framework:interpersonal-group-organizational-communication
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-core-k13-14
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:practice:engineering-project-configuration-change
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm05
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm07
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm10
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm11
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm12
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:evolutionary-selection-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm21
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm32
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:principal-agent-information-asymmetry
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-thinking-tm34
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-universal-um02
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-universal-um03
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-universal-um04
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:universal-model:variation-selection-adaptation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-universal-um19
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt11-uses-universal-um22
+  source: hkm:problem-template:organizational-strategy-change
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-domain-d02
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-domain-d08
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:domain:history-archaeology-civilization
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-domain-d10
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-domain-d12
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k02-07
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:framework:probability-stochastic-processes
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k08-10
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:framework:economic-labor-business-history
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k10-11
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:model:valuation-portfolio-financial-risk
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k10-12
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:framework:accounting-stocks-flows-control
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k10-15
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:framework:strategy-capabilities-innovation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-core-k12-11
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:framework:machine-learning-data-science-generalization
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm01
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm04
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm09
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm14
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:compounding-accumulation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm15
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:regression-to-mean
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm30
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm32
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:principal-agent-information-asymmetry
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-thinking-tm35
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-universal-um01
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-universal-um11
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-universal-um17
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-universal-um19
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt12-uses-universal-um22
+  source: hkm:problem-template:assess-company-investment
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d03
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:matter-energy-universe
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d09
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d10
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d12
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d13
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-domain-d15
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k03-11
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:structure-property-phase-relations
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k09-10
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k10-09
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:growth-productivity-innovation-distribution
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k10-15
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:strategy-capabilities-innovation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k12-10
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:ai-knowledge-reasoning-planning
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k13-02
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k13-07
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:manufacturing-process-capability
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-core-k15-11
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:framework:food-systems-supply-chains-rural-development
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm01
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm16
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:scale-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm17
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:network-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm21
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm26
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:optionality-real-options
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm34
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm35
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-thinking-tm39
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:thinking-model:growth-scale-saturation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um04
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:variation-selection-adaptation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um07
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um11
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um15
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:hierarchy-modularity-interfaces
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um17
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt13-uses-universal-um19
+  source: hkm:problem-template:assess-new-technology-success
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-domain-d02
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-domain-d07
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-domain-d09
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-domain-d10
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-domain-d14
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k02-08
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:statistical-inference-measurement
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k07-03
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:demography-population-processes
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k07-11
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:community-welfare-capabilities-social-policy
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k09-04
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:policy-cycle-public-administration-implementation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k09-11
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:rights-citizenship-social-justice
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k10-16
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-core-k14-12
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:framework:health-systems-policy-economics-quality-equity
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm02
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:causal-mechanistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm05
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm07
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm10
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm11
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm22
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm33
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-thinking-tm40
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um02
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um03
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um05
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:competition-cooperation-coordination
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um08
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um19
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt14-uses-universal-um22
+  source: hkm:problem-template:assess-social-policy-impact
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-domain-d02
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-domain-d06
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-domain-d14
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-domain-d20
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k02-07
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:framework:probability-stochastic-processes
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k06-05
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k14-02
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k14-09
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:framework:pharmacology-therapeutics-medication-safety
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k20-01
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-core-k20-02
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:skill:personal-health-self-care-navigation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm03
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm04
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:bayesian-updating
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm15
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:regression-to-mean
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm30
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm35
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm36
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-thinking-tm29
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-universal-um02
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-universal-um17
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-universal-um20
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-universal-um21
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt15-uses-universal-um22
+  source: hkm:problem-template:make-health-medical-decision
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d03
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:matter-energy-universe
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d04
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:earth-space-environment
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d05
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:life-evolution
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d09
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:politics-governance-law
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d10
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d13
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d15
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-domain-d17
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:domain:security-conflict-resilience
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k03-02
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:law-principle:conservation-laws-balances
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k04-11
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k05-10
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k09-12
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:multilevel-local-global-governance
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k10-07
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:externalities-public-goods-collective-action
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k13-12
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:lifecycle-sustainability-circularity
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k15-11
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:food-systems-supply-chains-rural-development
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-core-k17-11
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:framework:resilience-continuity-recovery
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm05
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm06
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm07
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:second-order-effects
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm13
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:entropy-information-order
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm20
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:critical-threshold-tipping
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm21
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm33
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm35
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-thinking-tm37
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um01
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:stocks-flows-conservation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um02
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um03
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um08
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um09
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:energy-work-efficiency
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um10
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:entropy-dissipation-maintenance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um13
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:nonlinear-thresholds-regime-change
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt16-uses-universal-um20
+  source: hkm:problem-template:sustainability-transition
+  type: uses
+  target: hkm:universal-model:resilience-redundancy-recovery
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-domain-d06
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-domain-d12
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:domain:computing-information-ai
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-domain-d16
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:domain:education-learning-development
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-domain-d20
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k06-04
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k06-12
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:framework:behavior-change-self-regulation-habits
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k12-08
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:framework:human-computer-interaction-ux
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k16-01
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:framework:learning-sciences-cognition-motivation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k16-03
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:method:assessment-measurement-evaluation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k16-12
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:practice:lifelong-self-directed-learning
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k20-10
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:skill:learning-reading-writing-knowledge-workflow
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-core-k20-16
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm06
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm14
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:compounding-accumulation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm24
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm25
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:pareto-prioritization
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm29
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm34
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-thinking-tm41
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:thinking-model:divergent-convergent-creative-iteration
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um02
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um04
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:variation-selection-adaptation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um11
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um16
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:replication-transmission-memory
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um18
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt17-uses-universal-um21
+  source: hkm:problem-template:learn-teach-skill
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-domain-d01
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-domain-d06
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-domain-d10
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:domain:economy-finance-organizations
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-domain-d16
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:domain:education-learning-development
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-domain-d20
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k01-05
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:framework:value-aesthetic-life-evaluation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k06-07
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:framework:consciousness-self-agency-metacognition
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k10-10
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:framework:time-value-risk-decision-under-uncertainty
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k16-12
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:practice:lifelong-self-directed-learning
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k20-05
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:practice:personal-finance-budgeting-risk
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k20-11
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:skill:career-workplace-collaboration-negotiation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-core-k20-16
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm09
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:opportunity-cost
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm14
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:compounding-accumulation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm26
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:optionality-real-options
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm35
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm36
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm37
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-thinking-tm40
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um08
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:resource-allocation-tradeoffs
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um11
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um17
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:risk-uncertainty-optionality
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um18
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um19
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt18-uses-universal-um22
+  source: hkm:problem-template:personal-life-career-plan
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d01
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d07
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:society-human-groups
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d08
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:history-archaeology-civilization
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d11
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d18
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:arts-literature-creation
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-domain-d19
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:domain:religion-meaning-worldviews
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k01-09
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:method:comparative-philosophy-contextual-translation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k01-12
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:framework:reflexive-inquiry-worldview-audit
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k07-06
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:framework:culture-identity-norms-power
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k08-01
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:method:historical-reasoning-source-criticism
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k11-04
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:framework:semiotics-rhetoric-discourse-power
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k18-11
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:framework:art-history-global-traditions
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k19-01
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:method:comparative-religion-reflexive-study
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-core-k19-10
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:framework:worldviews-existential-meaning
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm05
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:systems-thinking
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm19
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:emergence-multilevel-explanation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm22
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:selection-survivorship-bias
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm21
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm29
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-thinking-tm40
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um03
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:networks-propagation-connectivity
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um06
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:information-signals-representation
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um14
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:emergence-multiscale-organization
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um16
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:replication-transmission-memory
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um19
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:path-dependence-lock-in
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt19-uses-universal-um22
+  source: hkm:problem-template:interpret-history-culture-meaning
+  type: uses
+  target: hkm:universal-model:agency-incentives-governance
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d01
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d06
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:mind-brain-behavior
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d11
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:language-communication-media
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d13
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:engineering-technology-design
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d18
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:arts-literature-creation
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-domain-d20
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 问题原型调用的知识领域范围
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k01-05
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:framework:value-aesthetic-life-evaluation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k06-04
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k11-04
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:framework:semiotics-rhetoric-discourse-power
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k13-05
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:method:design-synthesis-prototyping
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k18-01
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:framework:aesthetics-art-theory-experience
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k18-10
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:practice:creative-writing-storytelling
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-core-k20-14
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:skill:craft-making-low-risk-repair
+  scope: 问题原型调用的领域骨架机制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm01
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm23
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:inversion-prevention
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm34
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm36
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm37
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm40
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:perspectival-reflexive-interpretation
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-thinking-tm41
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:thinking-model:divergent-convergent-creative-iteration
+  scope: 问题原型调用的认知操作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-universal-um07
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:universal-model:constraints-bottlenecks-feasibility
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-universal-um15
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:universal-model:hierarchy-modularity-interfaces
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-universal-um16
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:universal-model:replication-transmission-memory
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-universal-um18
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:universal-model:optimization-search-learning
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5
+- id: hkm:relation:pt20-uses-universal-um21
+  source: hkm:problem-template:create-innovate-express
+  type: uses
+  target: hkm:universal-model:measurement-observation-inference
+  scope: 问题原型调用的跨域结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-5

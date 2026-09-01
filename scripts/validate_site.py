@@ -38,6 +38,7 @@ def main() -> int:
         "bridges",
         "skeletons",
         "models",
+        "problems",
         "method",
         "knowledge-network",
         "detail-dialog",
@@ -61,6 +62,7 @@ def main() -> int:
         "coreNodes": len(payload["coreNodes"]),
         "thinkingModels": len(payload["thinkingModels"]),
         "universalModels": len(payload["universalModels"]),
+        "problemTemplates": len(payload["problemTemplates"]),
     }
     for key, expected in expected_counts.items():
         if counts.get(key) != expected:
@@ -71,6 +73,8 @@ def main() -> int:
         errors.append("site payload is missing bridge views or template skeletons")
     if counts["thinkingModels"] < 30 or counts["universalModels"] < 15:
         errors.append("site payload is missing the cross-disciplinary model layers")
+    if counts["problemTemplates"] != 20:
+        errors.append("site payload must expose all twenty problem templates")
 
     ids = {
         node["id"]
@@ -82,6 +86,7 @@ def main() -> int:
             payload["coreNodes"],
             payload["thinkingModels"],
             payload["universalModels"],
+            payload["problemTemplates"],
         )
         for node in collection
     }
@@ -95,6 +100,7 @@ def main() -> int:
             payload["coreNodes"],
             payload["thinkingModels"],
             payload["universalModels"],
+            payload["problemTemplates"],
         )
     )
     if len(ids) != expected_total:
@@ -111,6 +117,7 @@ def main() -> int:
         f"{counts['bridges']} bridge views, {counts['coreNodes']} core nodes, "
         f"{counts['thinkingModels']} thinking models, "
         f"{counts['universalModels']} universal models, "
+        f"{counts['problemTemplates']} problem templates, "
         "project-relative assets and required interaction surfaces present"
     )
     return 0

@@ -639,6 +639,130 @@ def generate_universal_model_view(
     return "\n".join(lines) + "\n"
 
 
+def generate_problem_mapping_view(
+    domain_data: dict,
+    core_data: dict,
+    thinking_data: dict,
+    universal_data: dict,
+    problem_data: dict,
+) -> str:
+    domains = {item["id"]: item for item in domain_data["domains"]}
+    cores = {item["id"]: item for item in core_data["core_nodes"]}
+    models = {
+        item["id"]: item
+        for item in [
+            *thinking_data["thinking_models"],
+            *universal_data["universal_models"],
+        ]
+    }
+    problems = sorted(problem_data["problem_templates"], key=lambda item: item["code"])
+    family_labels = {
+        "sensemaking": "理解与诊断",
+        "prediction-decision": "预测与决策",
+        "design-intervention": "设计与干预",
+        "coordination-governance": "协调与治理",
+        "risk-response": "风险与响应",
+        "learning-meaning": "学习与意义",
+    }
+    lines = [
+        "# Problem → Knowledge Mapping：问题—知识调用体系",
+        "",
+        "> 本文件由 `08-data/problem-templates.yaml` 生成；请修改数据源后运行 `python scripts/generate_views.py`。",
+        "",
+        f"共 {len(problems)} 个问题原型。它们是生成知识调用、证据计划和行动工作流的模板，不是固定答案。",
+        "",
+        "| 代码 | 问题原型 | 家族 | H2 | TM | UM | 优先级 |",
+        "|---|---|---|---:|---:|---:|---:|",
+    ]
+    for problem in problems:
+        calls = problem["knowledge_calls"]
+        lines.append(
+            f"| {problem['code']} | {text_cell(problem['labels']['zh'])}<br>"
+            f"{text_cell(problem['labels']['en'])} | "
+            f"{family_labels[problem['problem_family']]} | "
+            f"{len(calls['domains'])} | {len(calls['thinking_models'])} | "
+            f"{len(calls['universal_models'])} | {problem['learning_priority']} |"
+        )
+
+    for problem in problems:
+        calls = problem["knowledge_calls"]
+        domain_labels = "；".join(
+            f"{domains[item]['code']} {domains[item]['labels']['zh']}"
+            for item in calls["domains"]
+        )
+        core_labels = "；".join(
+            f"{cores[item]['code']} {cores[item]['labels']['zh']}"
+            for item in calls["core_nodes"]
+        )
+        thinking_labels = "；".join(
+            f"{models[item]['code']} {models[item]['labels']['zh']}"
+            for item in calls["thinking_models"]
+        )
+        universal_labels = "；".join(
+            f"{models[item]['code']} {models[item]['labels']['zh']}"
+            for item in calls["universal_models"]
+        )
+        scoping = problem["scoping_dimensions"]
+        lines.extend(
+            [
+                "",
+                f"## {problem['code']} {problem['labels']['zh']} / {problem['labels']['en']}",
+                "",
+                problem["definition"],
+                "",
+                f"**家族 / 目标：** {family_labels[problem['problem_family']]} / "
+                f"`{problem['primary_aim']}`；次要目标："
+                f"{'、'.join(problem['secondary_aims'])}",
+                "",
+                f"**触发问题：** {'；'.join(problem['trigger_questions'])}",
+                "",
+                f"**成功标准：** {'；'.join(problem['success_criteria'])}",
+                "",
+                "### 问题边界",
+                "",
+                "| 对象 | 主体 | 时间 | 尺度 | 价值 | 约束 |",
+                "|---|---|---|---|---|---|",
+                f"| {'、'.join(scoping['objects'])} | {'、'.join(scoping['actors'])} | "
+                f"{'、'.join(scoping['timescales'])} | {'、'.join(scoping['scales'])} | "
+                f"{'、'.join(scoping['values_at_stake'])} | {'、'.join(scoping['constraints'])} |",
+                "",
+                "### 知识调用栈",
+                "",
+                f"- **H2：** {domain_labels}",
+                f"- **核心骨架：** {core_labels}",
+                f"- **Thinking Models：** {thinking_labels}",
+                f"- **Universal Models：** {universal_labels}",
+                "",
+                f"**证据门槛：** {'；'.join(problem['evidence_requirements'])}",
+                "",
+                "### 工作流",
+                "",
+                "| 阶段 | 动作 | 产物 | 检查门 |",
+                "|---:|---|---|---|",
+            ]
+        )
+        for step in problem["workflow"]:
+            lines.append(
+                f"| {step['stage']} | {text_cell(step['action'])} | "
+                f"{text_cell(step['output'])} | {text_cell(step['gate'])} |"
+            )
+        lines.extend(
+            [
+                "",
+                f"**最终输出：** {'；'.join(problem['outputs'])}",
+                "",
+                f"**失效模式：** {'；'.join(problem['failure_modes'])}",
+                "",
+                f"**升级条件：** {'；'.join(problem['escalation_conditions'])}",
+                "",
+                f"**使用边界：** {problem['boundary_notes']}",
+                "",
+                f"**示例问题：** {'；'.join(problem['example_prompts'])}",
+            ]
+        )
+    return "\n".join(lines) + "\n"
+
+
 def generate_cross_model_relations(
     domain_data: dict, core_data: dict, thinking_data: dict, universal_data: dict
 ) -> dict:
@@ -744,6 +868,56 @@ def generate_cross_model_relations(
     }
 
 
+def generate_problem_relations(
+    domain_data: dict,
+    core_data: dict,
+    thinking_data: dict,
+    universal_data: dict,
+    problem_data: dict,
+) -> dict:
+    domains = {item["id"]: item for item in domain_data["domains"]}
+    cores = {item["id"]: item for item in core_data["core_nodes"]}
+    thinking = {item["id"]: item for item in thinking_data["thinking_models"]}
+    universal = {item["id"]: item for item in universal_data["universal_models"]}
+    relationships: list[dict] = []
+
+    for problem in sorted(problem_data["problem_templates"], key=lambda item: item["code"]):
+        prefix = problem["code"].lower()
+        calls = problem["knowledge_calls"]
+        groups = [
+            ("domain", calls["domains"], domains, "问题原型调用的知识领域范围", "high"),
+            ("core", calls["core_nodes"], cores, "问题原型调用的领域骨架机制", "high"),
+            ("thinking", calls["thinking_models"], thinking, "问题原型调用的认知操作", "high"),
+            ("universal", calls["universal_models"], universal, "问题原型调用的跨域结构", "medium"),
+        ]
+        for group_name, target_ids, index, scope, confidence in groups:
+            for target_id in target_ids:
+                target = index[target_id]
+                code = target["code"].lower().replace(".", "-")
+                relationships.append(
+                    {
+                        "id": f"hkm:relation:{prefix}-uses-{group_name}-{code}",
+                        "source": problem["id"],
+                        "type": "uses",
+                        "target": target_id,
+                        "scope": scope,
+                        "confidence": confidence,
+                        "provenance": ["hkm:source:editorial-synthesis-v0-5"],
+                    }
+                )
+    return {
+        "schema_version": "0.1.0",
+        "model_version": problem_data["model_version"],
+        "generated_from": [
+            "08-data/problem-templates.yaml",
+            "08-data/core-nodes.yaml",
+            "08-data/thinking-models.yaml",
+            "08-data/universal-models.yaml",
+        ],
+        "relationships": relationships,
+    }
+
+
 def main() -> None:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
@@ -752,6 +926,7 @@ def main() -> None:
     core_data = load_yaml("08-data/core-nodes.yaml")
     thinking_data = load_yaml("08-data/thinking-models.yaml")
     universal_data = load_yaml("08-data/universal-models.yaml")
+    problem_data = load_yaml("08-data/problem-templates.yaml")
     map_text = generate_map(domain_data, subdomain_data)
     (ROOT / "01-knowledge-map/level-2-3-map.generated.md").write_text(
         map_text, encoding="utf-8", newline="\n"
@@ -822,6 +997,24 @@ def main() -> None:
     (ROOT / "08-data/model-relationships.generated.yaml").write_text(
         model_yaml, encoding="utf-8", newline="\n"
     )
+    problem_text = generate_problem_mapping_view(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    problem_path = ROOT / "05-problem-mapping/problem-templates.generated.md"
+    problem_path.parent.mkdir(parents=True, exist_ok=True)
+    problem_path.write_text(problem_text, encoding="utf-8", newline="\n")
+    problem_relations = generate_problem_relations(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    problem_yaml = yaml.safe_dump(
+        problem_relations,
+        allow_unicode=True,
+        sort_keys=False,
+        width=120,
+    )
+    (ROOT / "08-data/problem-relationships.generated.yaml").write_text(
+        problem_yaml, encoding="utf-8", newline="\n"
+    )
     print(
         f"Generated H1-H3 map, {len(hierarchy['relationships'])} hierarchy relations, "
         f"{sum(len(s['categories']) for s in crosswalk_data['systems'])} crosswalk rows, "
@@ -831,7 +1024,9 @@ def main() -> None:
         f"{len(core_relations['relationships'])} core relations; "
         f"{len(thinking_data['thinking_models'])} thinking models, "
         f"{len(universal_data['universal_models'])} universal models, and "
-        f"{len(model_relations['relationships'])} cross-model relations."
+        f"{len(model_relations['relationships'])} cross-model relations; "
+        f"{len(problem_data['problem_templates'])} problem templates and "
+        f"{len(problem_relations['relationships'])} problem-call relations."
     )
 
 

@@ -104,6 +104,13 @@ relation_types:
     - replaced-by
 
 facets:
+  problem_families:
+    - sensemaking
+    - prediction-decision
+    - design-intervention
+    - coordination-governance
+    - risk-response
+    - learning-meaning
   aims:
     - identify-classify
     - describe-measure
@@ -219,6 +226,24 @@ required_universal_model_fields:
   - related_models
   - learning_priority
   - epistemic_modes
+
+required_problem_template_fields:
+  - code
+  - problem_family
+  - primary_aim
+  - secondary_aims
+  - trigger_questions
+  - success_criteria
+  - scoping_dimensions
+  - knowledge_calls
+  - evidence_requirements
+  - workflow
+  - outputs
+  - failure_modes
+  - escalation_conditions
+  - boundary_notes
+  - example_prompts
+  - learning_priority
 
 required_relation_fields:
   - id

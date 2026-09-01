@@ -12,6 +12,8 @@ from generate_views import (
     generate_bridge_relations,
     generate_bridge_views,
     generate_cross_model_relations,
+    generate_problem_mapping_view,
+    generate_problem_relations,
     generate_core_relations,
     generate_core_skeletons,
     generate_crosswalk,
@@ -45,11 +47,13 @@ def main() -> int:
     core_data = load_yaml("08-data/core-nodes.yaml")
     thinking_data = load_yaml("08-data/thinking-models.yaml")
     universal_data = load_yaml("08-data/universal-models.yaml")
+    problem_data = load_yaml("08-data/problem-templates.yaml")
     relation_data = load_yaml("08-data/relationships.yaml")
     hierarchy_data = load_yaml("08-data/hierarchy-relationships.generated.yaml")
     bridge_relation_data = load_yaml("08-data/bridge-relationships.generated.yaml")
     core_relation_data = load_yaml("08-data/core-relationships.generated.yaml")
     model_relation_data = load_yaml("08-data/model-relationships.generated.yaml")
+    problem_relation_data = load_yaml("08-data/problem-relationships.generated.yaml")
     errors: list[str] = []
 
     subdomains = subdomain_data["subdomains"]
@@ -57,6 +61,7 @@ def main() -> int:
     core_nodes = core_data["core_nodes"]
     thinking_models = thinking_data["thinking_models"]
     universal_models = universal_data["universal_models"]
+    problem_templates = problem_data["problem_templates"]
     scope_nodes = [
         domain_data["root"],
         *domain_data["superdomains"],
@@ -69,6 +74,7 @@ def main() -> int:
         *core_nodes,
         *thinking_models,
         *universal_models,
+        *problem_templates,
     ]
     node_ids = [node["id"] for node in nodes]
     node_id_set = set(node_ids)
@@ -516,6 +522,194 @@ def main() -> int:
             f"{sorted(domain_ids - universal_covered_domains)}"
         )
 
+    required_problem = required_node | set(
+        schema["required_problem_template_fields"]
+    )
+    allowed_problem_families = set(schema["facets"]["problem_families"])
+    expected_problem_codes = {
+        f"PT{number:02d}" for number in range(1, len(problem_templates) + 1)
+    }
+    actual_problem_codes = {problem["code"] for problem in problem_templates}
+    if len(problem_templates) != 20:
+        errors.append(f"phase 5 must contain 20 problem templates, got {len(problem_templates)}")
+    if actual_problem_codes != expected_problem_codes:
+        errors.append("problem template codes must be contiguous from PT01")
+    problem_covered_domains: set[str] = set()
+    problem_covered_thinking: set[str] = set()
+    problem_covered_universal: set[str] = set()
+    family_counts: dict[str, int] = {family: 0 for family in allowed_problem_families}
+    expected_scoping_keys = {
+        "objects",
+        "actors",
+        "timescales",
+        "scales",
+        "values_at_stake",
+        "constraints",
+    }
+    expected_call_keys = {
+        "domains",
+        "core_nodes",
+        "thinking_models",
+        "universal_models",
+    }
+    required_workflow_keys = {"stage", "action", "output", "gate"}
+    for problem in problem_templates:
+        missing = required_problem - problem.keys()
+        if missing:
+            errors.append(
+                f"{problem.get('id')}: missing problem fields {sorted(missing)}"
+            )
+            continue
+        if problem["primary_type"] != "problem-template":
+            errors.append(
+                f"{problem['code']}: primary_type must be problem-template"
+            )
+        if set(problem["labels"]) != {"zh", "en"}:
+            errors.append(f"{problem['code']}: labels must contain exactly zh and en")
+        for locale in ("zh", "en"):
+            if locale not in problem["labels"]:
+                continue
+            key = (locale, normalize_identity_text(problem["labels"][locale]))
+            if key in seen_model_labels:
+                errors.append(
+                    f"duplicate normalized {locale} problem label: "
+                    f"{seen_model_labels[key]} and {problem['code']}"
+                )
+            seen_model_labels[key] = problem["code"]
+        definition_key = normalize_identity_text(problem["definition"])
+        if definition_key in seen_model_definitions:
+            errors.append(
+                "duplicate normalized problem definition: "
+                f"{seen_model_definitions[definition_key]} and {problem['code']}"
+            )
+        seen_model_definitions[definition_key] = problem["code"]
+        if problem["problem_family"] not in allowed_problem_families:
+            errors.append(
+                f"{problem['code']}: invalid problem family {problem['problem_family']}"
+            )
+        else:
+            family_counts[problem["problem_family"]] += 1
+        if problem["primary_aim"] not in allowed_aims:
+            errors.append(
+                f"{problem['code']}: invalid primary aim {problem['primary_aim']}"
+            )
+        invalid_secondary = set(problem["secondary_aims"]) - allowed_aims
+        if invalid_secondary:
+            errors.append(
+                f"{problem['code']}: invalid secondary aims {sorted(invalid_secondary)}"
+            )
+        if len(set(problem["secondary_aims"])) < 2:
+            errors.append(f"{problem['code']}: expected at least two secondary aims")
+        if problem["primary_aim"] in problem["secondary_aims"]:
+            errors.append(f"{problem['code']}: primary aim repeated as secondary")
+        if problem["learning_priority"] not in allowed_priorities:
+            errors.append(
+                f"{problem['code']}: invalid learning priority {problem['learning_priority']}"
+            )
+        if len(problem["trigger_questions"]) < 3:
+            errors.append(f"{problem['code']}: expected at least three trigger questions")
+        if len(problem["success_criteria"]) < 3:
+            errors.append(f"{problem['code']}: expected at least three success criteria")
+        if set(problem["scoping_dimensions"]) != expected_scoping_keys:
+            errors.append(f"{problem['code']}: incomplete scoping dimensions")
+        for key, values in problem["scoping_dimensions"].items():
+            if not isinstance(values, list) or len(values) < 2:
+                errors.append(f"{problem['code']}: scoping dimension {key} is too thin")
+        calls = problem["knowledge_calls"]
+        if set(calls) != expected_call_keys:
+            errors.append(f"{problem['code']}: knowledge_calls must contain four layers")
+            continue
+        problem_covered_domains.update(calls["domains"])
+        problem_covered_thinking.update(calls["thinking_models"])
+        problem_covered_universal.update(calls["universal_models"])
+        if len(set(calls["domains"])) < 3:
+            errors.append(f"{problem['code']}: expected at least three H2 calls")
+        if len(set(calls["core_nodes"])) < 3:
+            errors.append(f"{problem['code']}: expected at least three core calls")
+        if len(set(calls["thinking_models"])) < 4:
+            errors.append(f"{problem['code']}: expected at least four thinking models")
+        if len(set(calls["universal_models"])) < 3:
+            errors.append(f"{problem['code']}: expected at least three universal models")
+        unknown_domains = set(calls["domains"]) - domain_ids
+        unknown_cores = set(calls["core_nodes"]) - set(core_by_id)
+        unknown_thinking = set(calls["thinking_models"]) - {
+            model["id"] for model in thinking_models
+        }
+        unknown_universal = set(calls["universal_models"]) - {
+            model["id"] for model in universal_models
+        }
+        if unknown_domains:
+            errors.append(f"{problem['code']}: unknown domains {sorted(unknown_domains)}")
+        if unknown_cores:
+            errors.append(f"{problem['code']}: unknown core nodes {sorted(unknown_cores)}")
+        if unknown_thinking:
+            errors.append(
+                f"{problem['code']}: unknown thinking models {sorted(unknown_thinking)}"
+            )
+        if unknown_universal:
+            errors.append(
+                f"{problem['code']}: unknown universal models {sorted(unknown_universal)}"
+            )
+        unscoped_cores = {
+            core_id
+            for core_id in calls["core_nodes"]
+            if core_id in core_by_id
+            and core_by_id[core_id]["primary_domain"] not in calls["domains"]
+        }
+        if unscoped_cores:
+            errors.append(
+                f"{problem['code']}: core calls outside declared domains "
+                f"{sorted(unscoped_cores)}"
+            )
+        if len(problem["evidence_requirements"]) < 3:
+            errors.append(f"{problem['code']}: expected at least three evidence gates")
+        if len(problem["workflow"]) < 5:
+            errors.append(f"{problem['code']}: workflow must contain at least five stages")
+        actual_stages = [step.get("stage") for step in problem["workflow"]]
+        expected_stages = [f"{number:02d}" for number in range(1, len(actual_stages) + 1)]
+        if actual_stages != expected_stages:
+            errors.append(f"{problem['code']}: workflow stages must be contiguous")
+        for step in problem["workflow"]:
+            if set(step) != required_workflow_keys or any(
+                not step.get(key) for key in required_workflow_keys
+            ):
+                errors.append(f"{problem['code']}: workflow step is incomplete")
+        if len(problem["outputs"]) < 3:
+            errors.append(f"{problem['code']}: expected at least three outputs")
+        if len(problem["failure_modes"]) < 3:
+            errors.append(f"{problem['code']}: expected at least three failure modes")
+        if len(problem["escalation_conditions"]) < 2:
+            errors.append(f"{problem['code']}: expected escalation conditions")
+        if len(problem["example_prompts"]) < 2:
+            errors.append(f"{problem['code']}: expected at least two example prompts")
+        if not problem["boundary_notes"]:
+            errors.append(f"{problem['code']}: problem boundary must not be empty")
+    if problem_covered_domains != domain_ids:
+        errors.append(
+            "problem templates must collectively call all H2 domains; missing "
+            f"{sorted(domain_ids - problem_covered_domains)}"
+        )
+    if problem_covered_thinking != {model["id"] for model in thinking_models}:
+        errors.append(
+            "problem templates must collectively call all thinking models; missing "
+            f"{sorted({model['id'] for model in thinking_models} - problem_covered_thinking)}"
+        )
+    if problem_covered_universal != {model["id"] for model in universal_models}:
+        errors.append(
+            "problem templates must collectively call all universal models; missing "
+            f"{sorted({model['id'] for model in universal_models} - problem_covered_universal)}"
+        )
+    thin_families = {family: count for family, count in family_counts.items() if count < 2}
+    if thin_families:
+        errors.append(f"problem families need at least two templates: {thin_families}")
+    required_pressure_tests = {
+        "hkm:problem-template:assess-company-investment",
+        "hkm:problem-template:assess-new-technology-success",
+        "hkm:problem-template:assess-social-policy-impact",
+    }
+    if not required_pressure_tests <= {problem["id"] for problem in problem_templates}:
+        errors.append("missing company, technology, or social-policy pressure test")
+
     prereq_state: dict[str, int] = {}
 
     def visit_prerequisite(node_id: str) -> None:
@@ -585,6 +779,7 @@ def main() -> int:
         *bridge_relation_data["relationships"],
         *core_relation_data["relationships"],
         *model_relation_data["relationships"],
+        *problem_relation_data["relationships"],
     ]
     for relation in all_relations:
         relation_ids.append(relation["id"])
@@ -700,6 +895,17 @@ def main() -> int:
     )
     if model_relation_data != expected_model_relations:
         errors.append("model-relationships.generated.yaml is stale; run generate_views.py")
+    problem_path = ROOT / "05-problem-mapping/problem-templates.generated.md"
+    expected_problem_text = generate_problem_mapping_view(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    if problem_path.read_text(encoding="utf-8") != expected_problem_text:
+        errors.append("problem-templates.generated.md is stale; run generate_views.py")
+    expected_problem_relations = generate_problem_relations(
+        domain_data, core_data, thinking_data, universal_data, problem_data
+    )
+    if problem_relation_data != expected_problem_relations:
+        errors.append("problem-relationships.generated.yaml is stale; run generate_views.py")
 
     if errors:
         print("VALIDATION FAILED")
@@ -713,6 +919,7 @@ def main() -> int:
         f"{len(core_nodes)} core nodes across {len(published_domains)} domains, "
         f"{len(thinking_models)} thinking models, "
         f"{len(universal_models)} universal models, "
+        f"{len(problem_templates)} problem templates, "
         f"{len(all_relations)} relations, "
         f"20 H2 domains, {len(subdomains)} H3 subdomains, "
         f"{crosswalk_rows} external crosswalk rows, generated views current, "

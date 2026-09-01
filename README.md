@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则、一级知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk。阶段 3 已冻结全部 20 个领域的 257 个核心骨架节点；阶段 4 已冻结 41 个 Thinking Models、22 个 Universal Models 和 530 条模型关系。当前总图谱包含 2,323 条关系，问题映射与通用求解框架将在此基础上展开。
+当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；以及 v0.5.0 的 20 个 Problem → Knowledge 问题原型。当前总图谱包含 2,786 条关系。
 
 ## 一眼看懂整个模型
 
@@ -128,7 +128,7 @@ flowchart TD
     D -->|反馈| P
 ```
 
-后续阶段会把这条流程发展为 `Problem → Knowledge Mapping` 与 Universal Problem Solving Framework。当前结构已为问题、方法、领域和模型之间的可计算映射预留节点与关系。
+这条流程现已由 20 个 `Problem → Knowledge Mapping` 原型具体化：每个原型都给出问题边界、H2 与骨架调用、Thinking / Universal Models、证据门槛、五步工作流、失效模式和专业升级条件。详见[问题—知识调用体系](05-problem-mapping/problem-templates.generated.md)；后续 Universal Problem Solving Framework 将提取这些原型的共同操作内核。
 
 ## 怎样扩展而不破坏结构
 
@@ -158,7 +158,9 @@ human-knowledge-model/
 │  ├─ core-skeleton-design.md
 │  ├─ phase-3-progress-audit.md
 │  ├─ cross-disciplinary-model-design.md
-│  └─ phase-4-audit.md
+│  ├─ phase-4-audit.md
+│  ├─ problem-mapping-design.md
+│  └─ phase-5-audit.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -173,6 +175,8 @@ human-knowledge-model/
 │  └─ thinking-models.generated.md
 ├─ 04-universal-models/
 │  └─ universal-models.generated.md
+├─ 05-problem-mapping/
+│  └─ problem-templates.generated.md
 ├─ 08-data/
 │  ├─ schema.yaml
 │  ├─ domains.yaml
@@ -181,11 +185,13 @@ human-knowledge-model/
 │  ├─ core-nodes.yaml
 │  ├─ thinking-models.yaml
 │  ├─ universal-models.yaml
+│  ├─ problem-templates.yaml
 │  ├─ relationships.yaml
 │  ├─ hierarchy-relationships.generated.yaml
 │  ├─ bridge-relationships.generated.yaml
 │  ├─ core-relationships.generated.yaml
 │  ├─ model-relationships.generated.yaml
+│  ├─ problem-relationships.generated.yaml
 │  └─ crosswalks.yaml
 ├─ site/
 │  ├─ index.html
@@ -217,7 +223,7 @@ python scripts/validate_site.py
 | 2b. 二/三级地图 | **已完成 v0.2.0** | 248 个 H3、10 个桥接视图、80 条外部 crosswalk、冻结审计 |
 | 3. 领域骨架 | **已完成 v0.3.0** | 20 个领域共 257 个节点、1,271 条骨架关系；H3 全覆盖、前置无环、冻结审计 |
 | 4. 跨学科模型 | **已完成 v0.4.0** | 41 个 Thinking Models、22 个 Universal Models、530 条模型关系；全域覆盖、边界与反例审计 |
-| 5. 问题映射 | 待展开 | Problem → Knowledge Mapping |
+| 5. 问题映射 | **已完成 v0.5.0** | 20 个问题原型、463 条调用关系；全域/全模型覆盖、证据门槛、工作流与升级边界 |
 | 6. 学习体系 | 待展开 | 核心知识、优先级、前置关系、路线 |
 | 7. 求解框架 | 待展开 | 多维思考与通用问题求解框架 |
 | 8. 全局审计 | 待展开 | 遗漏、重复、错层、断边与重构报告 |
@@ -230,4 +236,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射）
