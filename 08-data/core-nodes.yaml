@@ -1,7 +1,7 @@
 schema_version: 0.1.0
 model_version: 0.3.0-draft
-description: 领域核心骨架内容节点；当前覆盖十二个领域，其余领域按同一质量门槛持续扩展。
-published_domains: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D13, D20]
+description: 领域核心骨架内容节点；当前覆盖十六个领域，其余领域按同一质量门槛持续扩展。
+published_domains: [D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D20]
 
 defaults: &core_defaults
   status: active
@@ -2170,6 +2170,416 @@ core_nodes:
     connections: [{type: challenges, target: hkm:framework:strategy-capabilities-innovation, scope: 因果评估和预测误差用于淘汰或修正未经检验的战略叙事}]
     boundary_notes: 因果识别依赖假设，局部效应不自动外推；预测准确也不等于政策可行、公平或因果正确。
 
+  # D11 语言、传播与媒体骨架
+  - <<: *core_defaults
+    id: hkm:framework:linguistic-structure-grammar-meaning
+    code: K11.01
+    primary_type: framework
+    labels: {zh: 语言结构、语法与意义组合, en: Linguistic Structure, Grammar and Compositional Meaning}
+    definition: 连接语音、音系、形态、句法、语义和词汇，解释有限规则与单位如何产生可理解的语言表达。
+    core_questions: [语言单位在各层怎样组合并形成对比, 结构与语义如何在语境介入前后共同约束解释]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:linguistic-structure-grammar]
+    roles: [foundation, representation, mechanism]
+    aims: [identify-classify, explain-understand, describe-measure]
+    epistemic_modes: [formal, empirical, comparative]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:language-diversity-change-documentation, scope: 描述语言差异与演变需要可比较的结构层次和单位}]
+    boundary_notes: 规范语法不等于语言系统的唯一正确形式；理论分析需覆盖口语、手语、方言和真实使用数据。
+
+  - <<: *core_defaults
+    id: hkm:framework:language-diversity-change-documentation
+    code: K11.02
+    primary_type: framework
+    labels: {zh: 语言多样性、演变与记录, en: Language Diversity, Change and Documentation}
+    definition: 研究语言谱系、接触、音义语法变化、濒危、复兴与田野记录，保留语言结构及其社群知识。
+    core_questions: [语言差异来自继承接触创新还是记录偏差, 记录和复兴如何由社群目标与数据主权引导]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:language-diversity-change-documentation]
+    roles: [evidence, method, boundary]
+    aims: [identify-classify, explain-understand, control-maintain]
+    epistemic_modes: [historical, comparative, empirical, interpretive]
+    learning_priority: B
+    prerequisites: [hkm:framework:linguistic-structure-grammar-meaning]
+    connections: [{type: enables, target: hkm:framework:pragmatics-sociolinguistics-conversation, scope: 语言变体和社群历史塑造会话选择身份和语用解释}]
+    boundary_notes: 语言边界与方言划分受政治身份影响；记录材料的访问、神圣内容与所有权需由社群共同决定。
+
+  - <<: *core_defaults
+    id: hkm:framework:pragmatics-sociolinguistics-conversation
+    code: K11.03
+    primary_type: framework
+    labels: {zh: 语用、社会语言与会话互动, en: Pragmatics, Sociolinguistics and Conversation}
+    definition: 连接言外之意、指示、礼貌、轮替、修复、语体、身份和权力，解释语言在具体互动中的社会行动。
+    core_questions: [说话者如何依赖共同背景推断意图, 变体语体与会话规则怎样索引关系身份和权力]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:pragmatics-sociolinguistics-conversation]
+    roles: [mechanism, evidence, representation]
+    aims: [explain-understand, diagnose-abduce, decide-negotiate]
+    epistemic_modes: [empirical, interpretive, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:linguistic-structure-grammar-meaning, hkm:framework:language-diversity-change-documentation]
+    connections: [{type: enables, target: hkm:framework:semiotics-rhetoric-discourse-power, scope: 会话层的意义与身份实践扩展为公共话语和符号权力分析}]
+    boundary_notes: 交际规范随社群和情境变化；沉默、间接和非标准表达不能按单一文化规则判断能力或诚意。
+
+  - <<: *core_defaults
+    id: hkm:framework:semiotics-rhetoric-discourse-power
+    code: K11.04
+    primary_type: framework
+    labels: {zh: 符号、修辞、话语与权力, en: Semiotics, Rhetoric, Discourse and Power}
+    definition: 研究文字、图像、声音、体裁、隐喻、叙事和话语框架如何组织注意、可信度、身份与可说范围。
+    core_questions: [符号如何依赖代码体裁和互文关系产生意义, 修辞框架由谁传播并使哪些主体和因果可见]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:semiotics-rhetoric-discourse]
+    roles: [representation, mechanism, boundary]
+    aims: [explain-understand, evaluate-norm, diagnose-abduce]
+    epistemic_modes: [interpretive, historical, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:linguistic-structure-grammar-meaning, hkm:framework:pragmatics-sociolinguistics-conversation]
+    connections: [{type: influences, target: hkm:framework:journalism-verification-public-information, scope: 新闻选题标题视觉和叙事框架影响事实被理解的方式}]
+    boundary_notes: 识别修辞不等于证明主张虚假；话语解释需与生产制度、受众反应和事实证据互证。
+
+  - <<: *core_defaults
+    id: hkm:framework:interpersonal-group-organizational-communication
+    code: K11.05
+    primary_type: framework
+    labels: {zh: 人际、群体与组织传播, en: Interpersonal, Group and Organizational Communication}
+    definition: 研究关系、反馈、冲突、协作、领导、渠道和非正式网络如何影响共同理解、信任与组织行动。
+    core_questions: [信息在关系与组织边界中如何失真遗漏或被修复, 沟通结构如何支持心理安全协调和问责]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:interpersonal-organizational-communication]
+    roles: [mechanism, practice, decision]
+    aims: [decide-negotiate, control-maintain, explain-understand]
+    epistemic_modes: [empirical, interpretive, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:pragmatics-sociolinguistics-conversation]
+    connections: [{type: enables, target: hkm:framework:visual-science-risk-communication, scope: 风险沟通依赖受众模型信任反馈和组织协调}]
+    boundary_notes: 沟通训练不能单独解决权力压迫和资源冲突；透明也需兼顾隐私、安全与信息负荷。
+
+  - <<: *core_defaults
+    id: hkm:framework:journalism-verification-public-information
+    code: K11.06
+    primary_type: framework
+    labels: {zh: 新闻核实、事实查证与公共信息, en: Journalism, Verification and Public Information}
+    definition: 用来源评估、文档核验、现场报道、数据查证、编辑责任和更正机制生产可追溯的公共事实叙述。
+    core_questions: [主张由哪些独立来源和原始材料支持, 时效公共利益伤害风险与可验证性如何平衡]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:journalism-public-information]
+    roles: [evidence, method, boundary]
+    aims: [diagnose-abduce, evaluate-norm, describe-measure]
+    epistemic_modes: [empirical, interpretive, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:semiotics-rhetoric-discourse-power, hkm:framework:interpersonal-group-organizational-communication]
+    connections: [{type: enables, target: hkm:framework:media-platform-public-sphere-attention, scope: 经过核实的报道进入平台分发后仍受注意机制和公共领域结构影响}]
+    boundary_notes: 平衡呈现不等于给不对称证据同等权重；匿名来源、创伤报道与安全泄露需严格必要性审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:media-platform-public-sphere-attention
+    code: K11.07
+    primary_type: framework
+    labels: {zh: 媒体、平台、注意与公共领域, en: Media, Platforms, Attention and the Public Sphere}
+    definition: 连接媒体制度、推荐算法、广告商业、创作者劳动、受众实践、网络扩散和治理，解释公共可见性如何形成。
+    core_questions: [谁控制分发排序货币化与审核规则, 注意激励和网络结构如何放大信息多样性极化或操纵]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:media-platform-public-sphere]
+    roles: [mechanism, synthesis, boundary]
+    aims: [explain-understand, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, causal, historical, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:semiotics-rhetoric-discourse-power, hkm:framework:journalism-verification-public-information]
+    connections: [{type: constrains, target: hkm:framework:communication-ethics-information-rights-governance, scope: 平台权力和注意外部性构成信息权利与传播治理的主要对象}]
+    boundary_notes: 互动量不等于社会影响或公共价值；平台数据不可得、机器人和算法变化会限制因果推断。
+
+  - <<: *core_defaults
+    id: hkm:method:translation-interpreting-multilingual-mediation
+    code: K11.08
+    primary_type: method
+    labels: {zh: 翻译、口译与多语调解, en: Translation, Interpreting and Multilingual Mediation}
+    definition: 在语言、体裁、文化、权力和任务约束之间重构意义与功能，并管理不可等值、术语、语气和伦理责任。
+    core_questions: [目标文本需要保留何种意义功能风格与证据关系, 不可译和文化前提如何透明处理]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:translation-interpreting-multilingualism]
+    roles: [method, practice, boundary]
+    aims: [learn-transfer, decide-negotiate, evaluate-norm]
+    epistemic_modes: [interpretive, comparative, embodied]
+    learning_priority: A
+    prerequisites: [hkm:framework:linguistic-structure-grammar-meaning, hkm:framework:pragmatics-sociolinguistics-conversation]
+    connections: [{type: complements, target: hkm:framework:visual-science-risk-communication, scope: 多语风险传播需同时处理术语可理解性文化信任和视觉证据}]
+    boundary_notes: 流利不等于专业翻译资质；医疗法律外交等高风险场景需合格口译、保密和利益冲突管理。
+
+  - <<: *core_defaults
+    id: hkm:framework:library-archive-information-organization
+    code: K11.09
+    primary_type: framework
+    labels: {zh: 图书馆、档案与信息组织, en: Library, Archive and Information Organization}
+    definition: 用描述元数据、分类、主题分析、来源链、保存、检索和访问政策组织长期可发现且可审计的信息资源。
+    core_questions: [资源身份版本来源和关系如何被稳定描述, 保存访问隐私版权和社区权利如何平衡]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:library-archive-information-organization]
+    roles: [representation, practice, boundary]
+    aims: [identify-classify, control-maintain, learn-transfer]
+    epistemic_modes: [formal, historical, design, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:linguistic-structure-grammar-meaning]
+    connections: [{type: enables, target: hkm:framework:data-databases-information-retrieval, scope: 信息组织语义来源与访问规则为数字数据库和检索系统提供业务模型}]
+    boundary_notes: 分类词表承载历史偏见且会过时；数字化不等于保存完成，也不能忽视原件语境和原住民访问协议。
+
+  - <<: *core_defaults
+    id: hkm:framework:visual-science-risk-communication
+    code: K11.10
+    primary_type: framework
+    labels: {zh: 视觉、科学与风险传播, en: Visual, Science and Risk Communication}
+    definition: 通过受众研究、概率表达、图表、叙事、预警、双向参与和不确定性说明，使复杂证据支持知情行动。
+    core_questions: [受众需要做什么决定且已有何种心智模型, 如何诚实表达不确定性严重性与行动阈值而不误导]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:visual-scientific-risk-communication]
+    roles: [representation, design, practice]
+    aims: [describe-measure, predict-warn, decide-negotiate]
+    epistemic_modes: [empirical, design, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:interpersonal-group-organizational-communication, hkm:framework:journalism-verification-public-information]
+    connections: [{type: uses, target: hkm:framework:graphics-visualization-multimedia-computing, scope: 视觉传播需要图形计算与交互工具但必须由证据和受众任务约束}]
+    boundary_notes: 简化不可删除关键条件或制造虚假确定性；恐惧诉求、色彩、比例和无障碍设计会显著改变理解。
+
+  - <<: *core_defaults
+    id: hkm:framework:communication-ethics-information-rights-governance
+    code: K11.11
+    primary_type: framework
+    labels: {zh: 传播伦理、信息权利与治理, en: Communication Ethics, Information Rights and Governance}
+    definition: 连接表达、知情、隐私、名誉、版权、平台责任、内容治理和信息完整性，评价传播权力与伤害边界。
+    core_questions: [传播涉及哪些权利责任和可预见伤害, 内容规则由谁制定执行申诉并接受独立监督]
+    primary_domain: hkm:domain:language-communication-media
+    related_subdomains: [hkm:subdomain:communication-ethics-governance]
+    roles: [boundary, decision, synthesis]
+    aims: [evaluate-norm, control-maintain, decide-negotiate]
+    epistemic_modes: [normative, comparative, historical, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:journalism-verification-public-information, hkm:framework:media-platform-public-sphere-attention, hkm:framework:library-archive-information-organization]
+    connections: [{type: complements, target: hkm:framework:cybersecurity-privacy-trust, scope: 信息治理规定权利和责任，安全工程实现保密完整性可用性与可审计控制}]
+    boundary_notes: 内容治理需同时防止伤害、过度删除和权力滥用；法律标准因辖区变化且不能取代伦理评估。
+
+  # D12 计算、信息与人工智能骨架
+  - <<: *core_defaults
+    id: hkm:framework:algorithms-computability-complexity
+    code: K12.01
+    primary_type: framework
+    labels: {zh: 算法、可计算性与复杂度, en: Algorithms, Computability and Complexity}
+    definition: 用问题规约、数据结构、算法正确性、可计算边界和时间空间复杂度研究任务能否以及以何种资源完成。
+    core_questions: [问题输入输出与正确性条件是什么, 是否存在算法且其最坏平均和摊销成本如何]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:algorithms-computability-complexity]
+    roles: [foundation, method, boundary]
+    aims: [design-create, evaluate-norm, optimize-allocate]
+    epistemic_modes: [formal, design]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:framework:computer-architecture-hardware-performance, scope: 算法资源模型需要在具体硬件结构和性能约束中实现}]
+    boundary_notes: 渐近复杂度忽略常数、数据分布、能耗和并行结构；理论难解不等于所有实例都不可实践求解。
+
+  - <<: *core_defaults
+    id: hkm:framework:computer-architecture-hardware-performance
+    code: K12.02
+    primary_type: framework
+    labels: {zh: 计算机体系结构、硬件与性能, en: Computer Architecture, Hardware and Performance}
+    definition: 连接指令、处理器、存储层次、并行、加速器、互连、功耗和可靠性，解释软件工作如何映射为物理计算。
+    core_questions: [工作负载受计算存储通信还是能耗限制, 并行和缓存设计如何改变吞吐延迟与一致性]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:computer-architecture-hardware]
+    roles: [mechanism, representation, boundary]
+    aims: [explain-understand, optimize-allocate, predict-warn]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: B
+    prerequisites: [hkm:framework:algorithms-computability-complexity]
+    connections: [{type: enables, target: hkm:framework:operating-distributed-cloud-systems, scope: 操作和分布式系统建立在处理器内存存储和互连的真实语义上}]
+    boundary_notes: 单一基准不能代表多样工作负载；性能优化需同时审查能耗、热、成本和数值正确性。
+
+  - <<: *core_defaults
+    id: hkm:framework:operating-distributed-cloud-systems
+    code: K12.03
+    primary_type: framework
+    labels: {zh: 操作系统、分布式系统与云, en: Operating, Distributed and Cloud Systems}
+    definition: 用进程、内存、文件、并发、复制、共识、容错、调度和虚拟化管理共享计算资源及跨节点状态。
+    core_questions: [并发故障和网络分区下系统保证什么一致性与可用性, 资源隔离调度和恢复如何实现]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:operating-distributed-cloud-systems]
+    roles: [mechanism, design, boundary]
+    aims: [control-maintain, design-create, predict-warn]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:algorithms-computability-complexity, hkm:framework:computer-architecture-hardware-performance]
+    connections: [{type: enables, target: hkm:framework:computer-networks-internet-protocols, scope: 分布式系统依赖网络寻址传输拥塞和故障语义}]
+    boundary_notes: 云抽象不消除物理位置、供应商依赖和故障域；高可用声明必须说明范围时间和数据丢失目标。
+
+  - <<: *core_defaults
+    id: hkm:framework:computer-networks-internet-protocols
+    code: K12.04
+    primary_type: framework
+    labels: {zh: 计算机网络、互联网与协议, en: Computer Networks, the Internet and Protocols}
+    definition: 连接分层协议、寻址路由、传输、拥塞、无线、名称服务和应用协议，解释端到端通信及其故障。
+    core_questions: [数据如何跨异构链路可靠及时到达, 协议层次中的拥塞丢包攻击和中间盒如何影响行为]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:networks-internet-communications]
+    roles: [mechanism, representation, boundary]
+    aims: [explain-understand, control-maintain, diagnose-abduce]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:operating-distributed-cloud-systems]
+    connections: [{type: enables, target: hkm:framework:cybersecurity-privacy-trust, scope: 网络协议与信任边界定义攻击面、认证、加密和可用性控制}]
+    boundary_notes: 连通不等于端到端可靠或安全；观测流量需遵守隐私授权且注意加密与采样盲区。
+
+  - <<: *core_defaults
+    id: hkm:framework:data-databases-information-retrieval
+    code: K12.05
+    primary_type: framework
+    labels: {zh: 数据、数据库与信息检索, en: Data, Databases and Information Retrieval}
+    definition: 用数据模型、模式、事务、索引、查询、来源、质量和相关性排序组织可更新、可检索和可审计的信息。
+    core_questions: [数据实体关系约束与版本如何表示, 查询和检索结果如何在完整性相关性和成本间权衡]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:data-databases-information-retrieval]
+    roles: [representation, design, evidence]
+    aims: [identify-classify, design-create, optimize-allocate]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:algorithms-computability-complexity, hkm:framework:operating-distributed-cloud-systems]
+    connections: [{type: enables, target: hkm:framework:ai-knowledge-reasoning-planning, scope: AI 推理规划需要可访问的状态知识约束和来源信息}]
+    boundary_notes: 数据库一致不等于现实真实；模式遗漏、标签偏差、删除义务和访问控制必须作为系统语义处理。
+
+  - <<: *core_defaults
+    id: hkm:framework:software-engineering-programming-languages-verification
+    code: K12.06
+    primary_type: framework
+    labels: {zh: 软件工程、编程语言与验证, en: Software Engineering, Programming Languages and Verification}
+    definition: 连接规格、类型、模块、版本、测试、静态分析、形式验证、部署、观测和团队流程，管理软件生命周期复杂性。
+    core_questions: [系统应满足哪些可检验功能与质量属性, 变更如何通过抽象测试审查和发布控制避免回归]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:software-engineering-programming-languages]
+    roles: [design, method, practice]
+    aims: [design-create, control-maintain, learn-transfer]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:algorithms-computability-complexity]
+    connections: [{type: enables, target: hkm:framework:human-computer-interaction-ux, scope: 可用交互产品需要可靠软件架构、迭代发布和用户反馈闭环}]
+    boundary_notes: 测试通过不证明无缺陷，形式验证也只覆盖给定模型和规格；依赖供应链与运维是产品的一部分。
+
+  - <<: *core_defaults
+    id: hkm:framework:cybersecurity-privacy-trust
+    code: K12.07
+    primary_type: framework
+    labels: {zh: 网络安全、隐私与可信计算, en: Cybersecurity, Privacy and Trusted Computing}
+    definition: 用威胁建模、最小权限、认证、密码、隔离、检测、响应、隐私工程和审计保护系统与主体权利。
+    core_questions: [资产对手能力信任边界和失败影响是什么, 控制如何预防检测响应恢复并最小化数据处理]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:cybersecurity-privacy]
+    roles: [boundary, design, practice]
+    aims: [predict-warn, control-maintain, evaluate-norm]
+    epistemic_modes: [formal, causal, design, empirical]
+    learning_priority: S
+    prerequisites: [hkm:framework:operating-distributed-cloud-systems, hkm:framework:computer-networks-internet-protocols, hkm:framework:software-engineering-programming-languages-verification]
+    connections: [{type: constrains, target: hkm:framework:ai-safety-governance-society, scope: AI 系统安全依赖数据模型工具和部署链的保密完整性可用性与权限控制}]
+    boundary_notes: 安全是持续风险管理而非绝对状态；监控控制可能侵犯隐私、劳动权和正当程序。
+
+  - <<: *core_defaults
+    id: hkm:framework:human-computer-interaction-ux
+    code: K12.08
+    primary_type: framework
+    labels: {zh: 人机交互、可用性与用户体验, en: Human–Computer Interaction, Usability and UX}
+    definition: 连接用户任务、认知与身体能力、交互模型、原型、可用性研究、无障碍和参与式设计，评价技术使用后果。
+    core_questions: [谁在何种情境完成什么任务且容易在哪失败, 界面反馈控制可见性和无障碍如何支持真实能力]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:human-computer-interaction]
+    roles: [design, evidence, boundary]
+    aims: [design-create, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, design, embodied, normative]
+    learning_priority: S
+    prerequisites: [hkm:framework:software-engineering-programming-languages-verification]
+    connections: [{type: enables, target: hkm:framework:graphics-visualization-multimedia-computing, scope: 图形和可视化系统需围绕感知任务交互与无障碍设计}]
+    boundary_notes: 易用性不等于有益或自愿；暗黑模式、排除性样本和把负担转给用户需被审查。
+
+  - <<: *core_defaults
+    id: hkm:framework:graphics-visualization-multimedia-computing
+    code: K12.09
+    primary_type: framework
+    labels: {zh: 图形、可视化与多媒体计算, en: Graphics, Visualization and Multimedia Computing}
+    definition: 用几何、渲染、图像音视频处理、视觉编码和交互把数据与模拟转为可感知、可探索和可生成的媒体。
+    core_questions: [表示和渲染管线保留或丢失了什么信息, 视觉编码是否支持目标任务且诚实表达不确定性]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:graphics-visualization-multimedia]
+    roles: [representation, design, method]
+    aims: [describe-measure, design-create, diagnose-abduce]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:algorithms-computability-complexity, hkm:framework:human-computer-interaction-ux]
+    connections: [{type: complements, target: hkm:framework:visual-science-risk-communication, scope: 可视化计算提供表示工具，传播框架约束语境叙事受众和伦理}]
+    boundary_notes: 写实图像可表现不存在的对象，漂亮图表也可误导；来源编辑和生成状态需要可见标注。
+
+  - <<: *core_defaults
+    id: hkm:framework:ai-knowledge-reasoning-planning
+    code: K12.10
+    primary_type: framework
+    labels: {zh: 人工智能、知识、推理与规划, en: AI, Knowledge, Reasoning and Planning}
+    definition: 用搜索、约束、逻辑、知识表示、规划、决策和智能体架构，使系统在状态、目标和行动模型上执行推理。
+    core_questions: [环境状态目标行动与约束如何表示, 推理规划在不完整信息与组合爆炸下如何保持可解释可控]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:ai-knowledge-reasoning-planning]
+    roles: [representation, mechanism, design]
+    aims: [diagnose-abduce, decide-negotiate, design-create]
+    epistemic_modes: [formal, design, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:algorithms-computability-complexity, hkm:framework:data-databases-information-retrieval]
+    connections: [{type: complements, target: hkm:framework:machine-learning-data-science-generalization, scope: 显式推理与从数据学习可在混合系统中互补但需统一语义和不确定性}]
+    boundary_notes: 符号推理正确性依赖知识库完整和规则适用；规划模型外的现实扰动会使最优计划失效。
+
+  - <<: *core_defaults
+    id: hkm:framework:machine-learning-data-science-generalization
+    code: K12.11
+    primary_type: framework
+    labels: {zh: 机器学习、数据科学与泛化, en: Machine Learning, Data Science and Generalization}
+    definition: 连接数据生成、表示、训练目标、优化、评估、因果、分布变化和部署监测，研究模型何时能对新情境可靠泛化。
+    core_questions: [训练数据标签和损失代表什么目标与偏差, 性能能否跨时间群体环境和干预稳定迁移]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:machine-learning-data-science]
+    roles: [method, evidence, boundary]
+    aims: [predict-warn, diagnose-abduce, describe-measure]
+    epistemic_modes: [formal, empirical, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:algorithms-computability-complexity, hkm:framework:data-databases-information-retrieval]
+    connections: [{type: enables, target: hkm:framework:robotics-autonomous-perception-control, scope: 学习模型为自主系统提供感知预测与策略但需物理反馈验证}]
+    boundary_notes: 基准高分不等于现实有效或公平；泄漏、捷径、分布漂移和选择性标签必须在部署前后监测。
+
+  - <<: *core_defaults
+    id: hkm:framework:robotics-autonomous-perception-control
+    code: K12.12
+    primary_type: framework
+    labels: {zh: 机器人、自主感知与控制, en: Robotics, Autonomous Perception and Control}
+    definition: 连接传感、定位建图、运动规划、控制、学习、人机协作和安全约束，使机器在物理世界中闭环行动。
+    core_questions: [系统如何估计自身环境与不确定性, 计划控制和安全监护如何在实时故障下协调]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:robotics-autonomous-systems]
+    roles: [mechanism, design, boundary]
+    aims: [control-maintain, design-create, predict-warn]
+    epistemic_modes: [formal, empirical, causal, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:computer-architecture-hardware-performance, hkm:framework:operating-distributed-cloud-systems, hkm:framework:ai-knowledge-reasoning-planning, hkm:framework:machine-learning-data-science-generalization]
+    connections: [{type: constrains, target: hkm:framework:ai-safety-governance-society, scope: 物理自主系统把模型失误转为现实伤害，要求运行时边界和责任治理}]
+    boundary_notes: 模拟和封闭场地覆盖有限；人类接管、极端环境、传感欺骗和机械失效需独立安全层。
+
+  - <<: *core_defaults
+    id: hkm:framework:ai-safety-governance-society
+    code: K12.13
+    primary_type: framework
+    labels: {zh: AI 安全、治理与社会影响, en: AI Safety, Governance and Social Impact}
+    definition: 综合可靠性、滥用、权限、对齐、人类监督、评估、透明、责任、劳动与权利，治理 AI 全生命周期风险和收益。
+    core_questions: [系统能力失效滥用与结构性影响分别如何评估, 谁可部署监督申诉停用并承担损害责任]
+    primary_domain: hkm:domain:computing-information-ai
+    related_subdomains: [hkm:subdomain:ai-safety-governance-society]
+    roles: [synthesis, boundary, decision]
+    aims: [predict-warn, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, causal, normative, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:cybersecurity-privacy-trust, hkm:framework:ai-knowledge-reasoning-planning, hkm:framework:machine-learning-data-science-generalization, hkm:framework:robotics-autonomous-perception-control]
+    connections: [{type: complements, target: hkm:framework:communication-ethics-information-rights-governance, scope: AI 生成和平台分发共同影响信息完整性表达权隐私与公共领域}]
+    boundary_notes: 安全不能简化为单一技术指标或合规清单；高影响用途需独立证据、持续监测和可用救济。
+
   # D13 设计工程模板
   - <<: *core_defaults
     id: hkm:framework:needs-requirements-stakeholders
@@ -2443,6 +2853,433 @@ core_nodes:
     prerequisites: [hkm:framework:systems-architecture-interfaces, hkm:framework:reliability-failure-risk, hkm:practice:operations-maintenance-repair]
     connections: [{type: produces, target: hkm:practice:engineering-project-configuration-change, scope: 根因与修复证据应进入配置、变更和经验反馈记录}]
     boundary_notes: “五个为什么”等工具不能代替机制证据；在高能量、有毒或关键系统上必须先隔离风险并遵守资质边界。
+
+  # D14 健康、医学与福祉骨架
+  - <<: *core_defaults
+    id: hkm:framework:biomedical-homeostasis-pathobiology
+    code: K14.01
+    primary_type: framework
+    labels: {zh: 生物医学稳态与病理生物学, en: Biomedical Homeostasis and Pathobiology}
+    definition: 从细胞、组织、器官与调节网络理解稳态、损伤、炎症、感染、免疫、修复和疾病进展，并把多层机制与可观察表型联系起来。
+    core_questions: [正常调节如何维持功能并在何处失代偿, 分子细胞与系统层机制怎样产生症状和疾病轨迹]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:biomedical-foundations-pathobiology]
+    roles: [foundation, mechanism, boundary]
+    aims: [explain-understand, diagnose-abduce, predict-warn]
+    epistemic_modes: [empirical, causal, synthetic]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: enables, target: hkm:method:clinical-reasoning-diagnosis-evidence, scope: 病理机制为症状解释、鉴别诊断和检验选择提供先验结构}]
+    boundary_notes: 机制知识不能仅凭生物学可行性证明临床有效；人体差异、共病、剂量和真实世界证据会改变结论。
+
+  - <<: *core_defaults
+    id: hkm:method:clinical-reasoning-diagnosis-evidence
+    code: K14.02
+    primary_type: method
+    labels: {zh: 临床推理、诊断与证据整合, en: Clinical Reasoning, Diagnosis and Evidence Integration}
+    definition: 以病史、查体、基线风险、检验性能和病程更新鉴别诊断，权衡漏诊、过诊、干预收益与伤害并形成可复核计划。
+    core_questions: [哪些解释最能覆盖当前证据且哪些危险诊断必须先排除, 新检验或观察会怎样改变概率与行动阈值]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:clinical-reasoning-diagnostics]
+    roles: [method, evidence, decision, boundary]
+    aims: [diagnose-abduce, evaluate-norm, decide-negotiate]
+    epistemic_modes: [empirical, causal, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology]
+    connections: [{type: constrains, target: hkm:framework:organ-systems-internal-medicine-multimorbidity, scope: 专科判断须经过概率更新、红旗分层和患者价值整合}]
+    boundary_notes: 该方法不构成对个人的远程诊断或处方；急症红旗、资格边界、知情同意和当地临床规范优先。
+
+  - <<: *core_defaults
+    id: hkm:framework:organ-systems-internal-medicine-multimorbidity
+    code: K14.03
+    primary_type: framework
+    labels: {zh: 器官系统、内科疾病与多病共存, en: Organ Systems, Internal Medicine and Multimorbidity}
+    definition: 综合心肺、消化、肾脏、内分泌、血液、免疫、神经等系统的常见病程，并分析共病、脆弱性与治疗负担之间的相互作用。
+    core_questions: [局部症状可能来自哪些跨系统机制, 多个疾病与治疗目标冲突时如何确定整体优先级]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:internal-medical-specialties]
+    roles: [mechanism, synthesis, decision]
+    aims: [explain-understand, diagnose-abduce, optimize-allocate]
+    epistemic_modes: [empirical, causal, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: complements, target: hkm:framework:pharmacology-therapeutics-medication-safety, scope: 多病共存使药物相互作用、治疗负担和去处方成为核心问题}]
+    boundary_notes: 器官系统分类会掩盖全身过程与社会决定因素；指南的单病种最优不一定是多病患者的整体最优。
+
+  - <<: *core_defaults
+    id: hkm:framework:surgical-perioperative-procedural-safety
+    code: K14.04
+    primary_type: framework
+    labels: {zh: 外科、围手术期与操作安全, en: Surgery, Perioperative Care and Procedural Safety}
+    definition: 围绕适应证、解剖、麻醉、无菌、操作步骤、出血感染风险、术后恢复和团队核查管理侵入性诊疗的完整路径。
+    core_questions: [何种证据和患者目标足以支持侵入性操作, 围手术期哪些失效模式需通过核查监测与救援预防]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:surgery-perioperative-procedural-care]
+    roles: [practice, design, boundary]
+    aims: [design-create, control-maintain, predict-warn]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: A
+    prerequisites: [hkm:method:clinical-reasoning-diagnosis-evidence, hkm:framework:organ-systems-internal-medicine-multimorbidity]
+    connections: [{type: depends-on, target: hkm:framework:pharmacology-therapeutics-medication-safety, scope: 麻醉、镇痛、抗菌和抗凝管理直接影响操作风险与恢复}]
+    boundary_notes: 侵入性操作必须由具备资质的团队在适当设施中实施；文字知识不能替代技能训练、监督和紧急救援能力。
+
+  - <<: *core_defaults
+    id: hkm:framework:reproductive-maternal-child-developmental-health
+    code: K14.05
+    primary_type: framework
+    labels: {zh: 生殖、孕产、儿童与发育健康, en: Reproductive, Maternal, Child and Developmental Health}
+    definition: 以生命历程理解生殖选择、妊娠分娩、新生儿与儿童发育、预防照护和家庭环境，并识别年龄阶段特有的风险窗口。
+    core_questions: [生殖与发育阶段怎样改变生理需求和风险阈值, 如何兼顾儿童最佳利益照护者支持与自主权发展]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:reproductive-maternal-child-health]
+    roles: [foundation, practice, boundary]
+    aims: [predict-warn, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, causal, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: complements, target: hkm:practice:nursing-relational-care-continuity, scope: 连续照护、家庭教育与发展监测连接不同生命阶段和服务场景}]
+    boundary_notes: 妊娠、婴幼儿与青少年常需更低的求助阈值；应保护隐私、知情同意和生殖权利并避免把差异病理化。
+
+  - <<: *core_defaults
+    id: hkm:framework:mental-health-psychiatry-clinical-psychology
+    code: K14.06
+    primary_type: framework
+    labels: {zh: 心理健康、精神医学与临床心理, en: Mental Health, Psychiatry and Clinical Psychology}
+    definition: 从生物、心理、关系和社会层面理解痛苦、功能、发展与精神障碍，结合风险评估、共同决策和循证心理及医学干预。
+    core_questions: [体验与行为在何时构成功能受损或安全风险, 哪些生物心理社会因素维持问题并可被安全改变]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:mental-health-psychiatry-clinical-psychology]
+    roles: [mechanism, decision, boundary]
+    aims: [explain-understand, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, interpretive, causal]
+    learning_priority: S
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: complements, target: hkm:framework:rehabilitation-disability-assistive-participation, scope: 康复与社会参与视角把症状减轻扩展到功能、关系和有意义生活}]
+    boundary_notes: 不以标签替代个体叙事；自伤他伤、精神病性症状、严重戒断或无法维持基本安全时应立即联系当地急救和专业支持。
+
+  - <<: *core_defaults
+    id: hkm:method:public-health-epidemiology-prevention
+    code: K14.07
+    primary_type: method
+    labels: {zh: 公共卫生、流行病学与预防, en: Public Health, Epidemiology and Prevention}
+    definition: 描述人群健康分布与决定因素，使用监测、因果推断、筛查、免疫、环境和政策干预评价预防效果、公平性与外部性。
+    core_questions: [疾病负担在何人何地何时集中且原因是什么, 哪个预防层级能以可接受成本和伤害获得最大人群收益]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:public-health-epidemiology-prevention]
+    roles: [method, evidence, decision]
+    aims: [describe-measure, predict-warn, evaluate-norm]
+    epistemic_modes: [empirical, causal, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: enables, target: hkm:framework:health-systems-policy-economics-quality-equity, scope: 人群负担和干预效果为资源配置、保障范围与质量改进提供证据}]
+    boundary_notes: 相关性、筛查检出和短期替代终点不等于因果净收益；公共措施还须审查权利、污名、隐私和分配影响。
+
+  - <<: *core_defaults
+    id: hkm:practice:nursing-relational-care-continuity
+    code: K14.08
+    primary_type: practice
+    labels: {zh: 护理、关系性照护与连续性, en: Nursing, Relational Care and Continuity}
+    definition: 通过持续评估、基础照护、症状监测、用药核对、患者教育、交接和照护协调，把治疗计划转化为安全的日常实践。
+    core_questions: [患者当前最重要的功能舒适安全和理解需要是什么, 信息与责任如何在班次机构和家庭之间可靠交接]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:nursing-care-practice]
+    roles: [practice, evidence, synthesis]
+    aims: [control-maintain, describe-measure, decide-negotiate]
+    epistemic_modes: [empirical, interpretive, embodied]
+    learning_priority: S
+    prerequisites: [hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: complements, target: hkm:practice:household-care-coordination, scope: 专业护理与家庭照护通过可执行计划、教育和安全交接形成连续路径}]
+    boundary_notes: 关系性照护不取消操作规范、感染控制与记录责任；应尊重患者自主、隐私和照护者承载上限。
+
+  - <<: *core_defaults
+    id: hkm:framework:pharmacology-therapeutics-medication-safety
+    code: K14.09
+    primary_type: framework
+    labels: {zh: 药理、治疗学与用药安全, en: Pharmacology, Therapeutics and Medication Safety}
+    definition: 联结药代动力学、药效学、适应证、剂量反应、相互作用、不良反应、依从性和药物警戒，以比较治疗的净获益。
+    core_questions: [药物通过什么机制在何种人群和剂量产生效果, 如何监测疗效毒性相互作用并在需要时调整或停用]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:pharmacology-pharmacy-therapeutics]
+    roles: [mechanism, evidence, boundary]
+    aims: [explain-understand, optimize-allocate, control-maintain]
+    epistemic_modes: [empirical, causal, comparative]
+    learning_priority: S
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: enables, target: hkm:practice:nursing-relational-care-continuity, scope: 药物核对、教育、监测和交接把处方意图转化为可持续安全使用}]
+    boundary_notes: 不提供个体化处方、剂量调整或停药指令；孕产、儿童、老年、肝肾功能异常和多重用药须由合格专业人员核对。
+
+  - <<: *core_defaults
+    id: hkm:framework:rehabilitation-disability-assistive-participation
+    code: K14.10
+    primary_type: framework
+    labels: {zh: 康复、残障、辅助技术与社会参与, en: Rehabilitation, Disability, Assistive Technology and Participation}
+    definition: 以功能、活动、参与和环境障碍为中心，整合训练、适配、辅助技术、无障碍与社会支持，改善自主性和有意义生活。
+    core_questions: [限制来自身体功能任务要求还是环境与制度障碍, 哪种训练辅助或环境改变最能支持个人目标与参与]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:rehabilitation-disability-assistive-care]
+    roles: [practice, design, boundary]
+    aims: [control-maintain, design-create, learn-transfer]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: A
+    prerequisites: [hkm:method:clinical-reasoning-diagnosis-evidence, hkm:framework:organ-systems-internal-medicine-multimorbidity]
+    connections: [{type: complements, target: hkm:framework:human-computer-interaction-ux, scope: 辅助技术与无障碍需要把功能目标转译为可用、可及且可维护的交互设计}]
+    boundary_notes: 不把残障仅视为个体缺陷；干预应由本人目标、尊严和参与定义，并由具备资质者评估高风险训练和设备。
+
+  - <<: *core_defaults
+    id: hkm:practice:nutrition-lifestyle-sleep-behavior
+    code: K14.11
+    primary_type: practice
+    labels: {zh: 营养、生活方式、睡眠与健康行为, en: Nutrition, Lifestyle, Sleep and Health Behavior}
+    definition: 将膳食、体力活动、睡眠、物质使用、压力与行为改变置于生理需求、文化、资源和长期可持续性中进行综合管理。
+    core_questions: [哪些可改变行为对当前健康目标的证据和影响最大, 如何通过环境反馈和渐进设计形成可持续改变]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:nutrition-lifestyle-sleep]
+    roles: [practice, mechanism, boundary]
+    aims: [control-maintain, learn-transfer, evaluate-norm]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence]
+    connections: [{type: complements, target: hkm:practice:food-hygiene-cooking-household-nutrition, scope: 临床营养原则需要通过安全采购、烹饪、预算和家庭习惯落地}]
+    boundary_notes: 一般生活方式建议不能替代疾病、进食障碍、过敏或药物相关问题的专业诊疗；避免道德化体重与健康差异。
+
+  - <<: *core_defaults
+    id: hkm:framework:health-systems-policy-economics-quality-equity
+    code: K14.12
+    primary_type: framework
+    labels: {zh: 卫生系统、政策、经济、质量与公平, en: Health Systems, Policy, Economics, Quality and Equity}
+    definition: 分析筹资、支付、服务组织、人员、药械、治理和质量改进如何影响可及性、效率、安全、连续性与健康公平。
+    core_questions: [资源与激励怎样塑造谁能获得何种质量的照护, 如何在成本效果权利和分配正义之间作透明取舍]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:health-systems-policy-economics]
+    roles: [synthesis, decision, boundary]
+    aims: [optimize-allocate, evaluate-norm, control-maintain]
+    epistemic_modes: [empirical, comparative, normative]
+    learning_priority: A
+    prerequisites: [hkm:method:clinical-reasoning-diagnosis-evidence, hkm:method:public-health-epidemiology-prevention, hkm:practice:nursing-relational-care-continuity]
+    connections: [{type: constrains, target: hkm:framework:health-informatics-digital-health-data, scope: 数字健康的采购、互操作、隐私和评估应服务系统目标而非技术自身}]
+    boundary_notes: 效率指标不能吞没患者体验、稀有需求和公平；政策效果依赖制度语境，不能脱离实施能力直接移植。
+
+  - <<: *core_defaults
+    id: hkm:framework:health-informatics-digital-health-data
+    code: K14.13
+    primary_type: framework
+    labels: {zh: 健康信息学、数字健康与临床数据, en: Health Informatics, Digital Health and Clinical Data}
+    definition: 设计健康数据的采集、标准、交换、决策支持、远程服务和分析流程，使其兼顾临床价值、可用性、安全、隐私与可问责性。
+    core_questions: [数据表示和工作流是否保留临床语境并减少额外负担, 算法或数字服务如何验证监测并在失效时安全降级]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:health-informatics-digital-health]
+    roles: [representation, design, boundary]
+    aims: [describe-measure, design-create, control-maintain]
+    epistemic_modes: [empirical, design, synthetic]
+    learning_priority: A
+    prerequisites: [hkm:method:clinical-reasoning-diagnosis-evidence, hkm:framework:health-systems-policy-economics-quality-equity]
+    connections: [{type: depends-on, target: hkm:framework:cybersecurity-privacy-trust, scope: 健康数据和关键服务需要身份、访问、审计、韧性与隐私工程保障}]
+    boundary_notes: 数据完整不等于临床真实，模型性能不等于改善结局；敏感信息须最小化收集并治理二次用途和偏差。
+
+  - <<: *core_defaults
+    id: hkm:framework:occupational-environmental-emergency-health
+    code: K14.14
+    primary_type: framework
+    labels: {zh: 职业、环境与急危重健康, en: Occupational, Environmental and Emergency Health}
+    definition: 识别工作与环境暴露、伤害机制、毒理、灾害和急危重症的时间敏感风险，连接预防控制、现场分诊、稳定化和转运。
+    core_questions: [暴露与伤害的来源途径剂量和时间窗口是什么, 何种红旗要求立即隔离去污急救或升级转运]
+    primary_domain: hkm:domain:health-medicine-wellbeing
+    related_subdomains: [hkm:subdomain:occupational-environmental-emergency-health]
+    roles: [evidence, decision, boundary]
+    aims: [predict-warn, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: [hkm:framework:biomedical-homeostasis-pathobiology, hkm:method:clinical-reasoning-diagnosis-evidence, hkm:method:public-health-epidemiology-prevention]
+    connections: [{type: complements, target: hkm:skill:emergency-preparedness-first-response, scope: 专业急诊体系与公众初期响应通过安全现场、报警、基础救命措施和转运衔接}]
+    boundary_notes: 首要原则是现场安全与当地急救指挥；危险化学品、高能量创伤和侵入性救援不得超越训练、防护及法律授权。
+
+  # D15 农业、食品与生物生产骨架
+  - <<: *core_defaults
+    id: hkm:framework:crop-physiology-agronomy-management
+    code: K15.01
+    primary_type: framework
+    labels: {zh: 作物生理与农艺管理, en: Crop Physiology and Agronomic Management}
+    definition: 联结遗传、生长发育、光水养分、群体结构、病虫草害和田间操作，解释作物产量、品质、稳定性与资源效率。
+    core_questions: [限制当前作物生长和产量形成的主要因子是什么, 品种环境与管理如何交互并跨季节验证]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:crop-science-agronomy]
+    roles: [foundation, mechanism, practice]
+    aims: [explain-understand, predict-warn, optimize-allocate]
+    epistemic_modes: [empirical, causal, embodied]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: depends-on, target: hkm:framework:soil-agroecology-land-stewardship, scope: 作物表现由土壤水分养分生物群落和土地管理共同约束}]
+    boundary_notes: 单点高产不等于长期可持续；农艺建议需校准品种、气候、土壤、投入可得性和当地法规。
+
+  - <<: *core_defaults
+    id: hkm:framework:soil-agroecology-land-stewardship
+    code: K15.02
+    primary_type: framework
+    labels: {zh: 土壤、农业生态与土地管护, en: Soil, Agroecology and Land Stewardship}
+    definition: 把土壤物理化学、生物过程、水文、养分循环、景观生态和土地制度整合为生产力、生态服务与退化风险的共同基础。
+    core_questions: [土壤与景观过程如何限制生产并产生场外影响, 哪种轮作覆盖保育和投入组合能维持长期功能]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:soil-agroecology-land-management]
+    roles: [foundation, mechanism, boundary]
+    aims: [describe-measure, explain-understand, control-maintain]
+    epistemic_modes: [empirical, causal, synthetic]
+    learning_priority: S
+    prerequisites: []
+    connections: [{type: constrains, target: hkm:framework:crop-physiology-agronomy-management, scope: 土壤结构肥力水文和生物多样性界定作物管理的可持续边界}]
+    boundary_notes: 土壤指标需结合深度、季节和空间异质性解释；恢复性标签不能替代可测基线、长期监测和租地权利分析。
+
+  - <<: *core_defaults
+    id: hkm:practice:horticulture-specialty-crops-controlled-environments
+    code: K15.03
+    primary_type: practice
+    labels: {zh: 园艺、特色作物与受控环境生产, en: Horticulture, Specialty Crops and Controlled Environments}
+    definition: 管理果蔬花卉和其他高价值作物的繁殖、冠层、授粉、微气候、采收与采后品质，并比较露地、设施和无土系统。
+    core_questions: [目标品质和上市窗口需要怎样的品种与环境控制, 能源水分病害劳动和采后损耗之间如何权衡]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:horticulture-specialty-crops]
+    roles: [practice, design, evidence]
+    aims: [design-create, control-maintain, optimize-allocate]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:crop-physiology-agronomy-management, hkm:framework:soil-agroecology-land-stewardship]
+    connections: [{type: complements, target: hkm:framework:agricultural-engineering-sensing-automation-digital, scope: 受控环境依靠传感、执行器与反馈控制稳定微气候和资源供给}]
+    boundary_notes: 高度控制不自动意味着低环境负担；应核算能源、基质、营养液、病害传播、劳动和废弃物全生命周期影响。
+
+  - <<: *core_defaults
+    id: hkm:framework:animal-science-livestock-welfare-production
+    code: K15.04
+    primary_type: framework
+    labels: {zh: 动物科学、畜牧生产与福利, en: Animal Science, Livestock Production and Welfare}
+    definition: 综合营养、遗传、繁殖、行为、环境、饲养系统和福利评估，在健康、产出、资源利用与动物感受之间进行管理。
+    core_questions: [动物需要与福利状态如何被可靠观察和改善, 遗传饲料环境和管理如何共同影响健康与生产]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:animal-science-livestock]
+    roles: [mechanism, practice, boundary]
+    aims: [describe-measure, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, causal, normative]
+    learning_priority: A
+    prerequisites: [hkm:framework:soil-agroecology-land-stewardship]
+    connections: [{type: depends-on, target: hkm:framework:veterinary-epidemiology-one-health-biosecurity, scope: 健康监测、疾病控制和人畜环境界面决定畜牧系统的安全与连续性}]
+    boundary_notes: 产出指标不能替代福利、抗菌药耐药与环境负担评价；医疗操作、处方和屠宰必须遵守资质和法规。
+
+  - <<: *core_defaults
+    id: hkm:framework:veterinary-epidemiology-one-health-biosecurity
+    code: K15.05
+    primary_type: framework
+    labels: {zh: 兽医流行病学、同一健康与生物安全, en: Veterinary Epidemiology, One Health and Biosecurity}
+    definition: 在动物群体、人类、野生生物和环境之间追踪病原传播、耐药性与暴露，设计监测、隔离、免疫、检疫和应急控制。
+    core_questions: [病原在宿主环境与生产网络中通过何种路径传播, 哪个控制点能最早发现并以最小附带伤害阻断传播]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:veterinary-health-one-health]
+    roles: [evidence, decision, boundary]
+    aims: [predict-warn, diagnose-abduce, control-maintain]
+    epistemic_modes: [empirical, causal, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:animal-science-livestock-welfare-production]
+    connections: [{type: complements, target: hkm:method:public-health-epidemiology-prevention, scope: 人畜共患病、耐药性和食品暴露需要动物与人群卫生联合监测}]
+    boundary_notes: 疑似重大动物疫病应按当地规定报告并隔离；不得依据简化信息自行用药、隐瞒疫情或制造对物种群体的污名。
+
+  - <<: *core_defaults
+    id: hkm:framework:forestry-agroforestry-ecosystem-management
+    code: K15.06
+    primary_type: framework
+    labels: {zh: 林业、农林复合与生态系统管理, en: Forestry, Agroforestry and Ecosystem Management}
+    definition: 管理森林与农林复合系统的更新、演替、采伐、火灾、碳、水、生物多样性和社区使用权，以跨代维持多重生态服务。
+    core_questions: [林分和景观在不同扰动与经营方案下将如何演替, 木材生计碳水源生境和火风险之间怎样权衡]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:forestry-agroforestry]
+    roles: [synthesis, design, boundary]
+    aims: [predict-warn, control-maintain, evaluate-norm]
+    epistemic_modes: [empirical, causal, historical]
+    learning_priority: A
+    prerequisites: [hkm:framework:soil-agroecology-land-stewardship]
+    connections: [{type: complements, target: hkm:framework:coupled-human-earth-sustainability, scope: 森林经营影响碳水能量交换并受气候反馈和极端事件反向约束}]
+    boundary_notes: 短期采伐或碳核算不能代表完整生态价值；原住民与地方社区权利、长期演替和泄漏效应必须纳入决策。
+
+  - <<: *core_defaults
+    id: hkm:framework:fisheries-aquaculture-population-water-management
+    code: K15.07
+    primary_type: framework
+    labels: {zh: 渔业、水产养殖与水域管理, en: Fisheries, Aquaculture and Aquatic Resource Management}
+    definition: 联结种群动态、捕捞努力、栖息地、水质、饲料、养殖密度、疾病和治理规则，管理水生食品生产与生态承载力。
+    core_questions: [种群补充死亡与捕捞压力如何决定可持续产出, 养殖投入疾病逃逸和排放怎样影响流域及沿海生态]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:fisheries-aquaculture]
+    roles: [mechanism, evidence, decision]
+    aims: [describe-measure, predict-warn, optimize-allocate]
+    epistemic_modes: [empirical, causal, comparative]
+    learning_priority: A
+    prerequisites: [hkm:framework:soil-agroecology-land-stewardship]
+    connections: [{type: complements, target: hkm:framework:veterinary-epidemiology-one-health-biosecurity, scope: 养殖疾病、药物使用和水体传播需要同一健康与生物安全视角}]
+    boundary_notes: 渔获和养殖数据常有漏报与空间偏差；配额、放流或药物方案需结合当地生态、权利和专业监管。
+
+  - <<: *core_defaults
+    id: hkm:framework:breeding-agricultural-biotechnology-genetic-resources
+    code: K15.08
+    primary_type: framework
+    labels: {zh: 育种、农业生物技术与遗传资源, en: Breeding, Agricultural Biotechnology and Genetic Resources}
+    definition: 运用数量遗传、选择、杂交、分子标记和基因编辑改良作物与动物，同时维护遗传多样性、可追溯性和社会许可。
+    core_questions: [目标性状的遗传结构与环境互作如何影响选择响应, 新品系的收益风险多样性和所有权如何被验证与治理]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:breeding-agricultural-biotechnology]
+    roles: [mechanism, design, boundary]
+    aims: [predict-warn, design-create, evaluate-norm]
+    epistemic_modes: [formal, empirical, design]
+    learning_priority: A
+    prerequisites: [hkm:framework:crop-physiology-agronomy-management, hkm:framework:animal-science-livestock-welfare-production]
+    connections: [{type: constrains, target: hkm:framework:food-systems-supply-chains-rural-development, scope: 种源知识产权、市场集中和农民留种权会重塑整个食品系统}]
+    boundary_notes: 实验室性状不保证田间净收益；生物安全、基因流、动物福利、遗传侵蚀和传统知识权利需独立评估。
+
+  - <<: *core_defaults
+    id: hkm:framework:food-science-processing-safety-quality
+    code: K15.09
+    primary_type: framework
+    labels: {zh: 食品科学、加工、安全与质量, en: Food Science, Processing, Safety and Quality}
+    definition: 研究食品组成、结构、加工、保存、感官、营养与危害控制，设计从原料到消费的质量指标、关键控制点和追溯体系。
+    core_questions: [加工与储运怎样改变安全营养感官和货架期, 哪些生物化学物理危害需在哪个控制点预防监测与纠偏]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:food-science-processing-safety]
+    roles: [mechanism, design, boundary]
+    aims: [control-maintain, design-create, predict-warn]
+    epistemic_modes: [empirical, causal, design]
+    learning_priority: S
+    prerequisites: [hkm:framework:crop-physiology-agronomy-management, hkm:framework:animal-science-livestock-welfare-production, hkm:framework:veterinary-epidemiology-one-health-biosecurity]
+    connections: [{type: enables, target: hkm:practice:food-hygiene-cooking-household-nutrition, scope: 食品危害、温度时间和交叉污染知识支持家庭安全处理}]
+    boundary_notes: 感官正常不能排除病原、毒素或过敏原；商业生产必须遵守检测、标签、召回与监管要求。
+
+  - <<: *core_defaults
+    id: hkm:framework:agricultural-engineering-sensing-automation-digital
+    code: K15.10
+    primary_type: framework
+    labels: {zh: 农业工程、感知、自动化与数字农业, en: Agricultural Engineering, Sensing, Automation and Digital Agriculture}
+    definition: 设计农业机械、水利、能源、设施、遥感、传感器、机器人和决策支持，使操作在复杂田间环境中安全、可靠且资源高效。
+    core_questions: [哪些可观测量和执行动作足以形成有效闭环控制, 技术在泥尘天气网络故障和小农约束下如何安全降级]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:agricultural-engineering-digital-agriculture]
+    roles: [design, method, boundary]
+    aims: [describe-measure, control-maintain, optimize-allocate]
+    epistemic_modes: [empirical, design, embodied]
+    learning_priority: B
+    prerequisites: [hkm:framework:crop-physiology-agronomy-management, hkm:framework:soil-agroecology-land-stewardship]
+    connections: [{type: depends-on, target: hkm:framework:robotics-autonomous-perception-control, scope: 田间自动化依赖不确定环境中的感知定位控制和人机协同}]
+    boundary_notes: 精度指标不等于农艺收益；应评估设备伤害、数据所有权、互操作、维修能力、劳动替代和数字鸿沟。
+
+  - <<: *core_defaults
+    id: hkm:framework:food-systems-supply-chains-rural-development
+    code: K15.11
+    primary_type: framework
+    labels: {zh: 食品系统、供应链与乡村发展, en: Food Systems, Supply Chains and Rural Development}
+    definition: 把投入、生产、加工、物流、零售、消费、废弃、金融和政策连接为完整系统，评价粮食安全、生计、韧性、公平与环境结果。
+    core_questions: [价值风险权力与损耗如何沿供应链分布, 哪些干预能同时改善可负担营养生产者生计和生态韧性]
+    primary_domain: hkm:domain:agriculture-food-bioproduction
+    related_subdomains: [hkm:subdomain:food-systems-rural-development]
+    roles: [synthesis, decision, boundary]
+    aims: [optimize-allocate, evaluate-norm, decide-negotiate]
+    epistemic_modes: [empirical, comparative, normative, synthetic]
+    learning_priority: S
+    prerequisites: [hkm:framework:crop-physiology-agronomy-management, hkm:framework:soil-agroecology-land-stewardship, hkm:framework:animal-science-livestock-welfare-production, hkm:framework:veterinary-epidemiology-one-health-biosecurity, hkm:framework:food-science-processing-safety-quality, hkm:framework:agricultural-engineering-sensing-automation-digital]
+    connections: [{type: complements, target: hkm:framework:operations-flow-bottlenecks-quality, scope: 通用运营模型与食品易腐性、生物风险、季节性和农村制度共同决定供应链设计}]
+    boundary_notes: 总产量增长不自动减少饥饿或改善生计；必须显式分析获得权、性别与土地权、市场集中、浪费和外部成本。
 
   # D20 生活实践模板
   - <<: *core_defaults
