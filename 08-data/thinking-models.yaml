@@ -1,0 +1,706 @@
+schema_version: 0.1.0
+model_version: 0.4.0
+description: 可迁移的核心思维模型；每个模型包含机制、案例、反例、边界、误用和类型化关系。
+
+defaults: &thinking_defaults
+  primary_type: model
+  status: active
+  version: 0.4.0
+
+thinking_models:
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:first-principles-decomposition
+    code: TM01
+    labels: {zh: 第一性原理与基本约束分解, en: "First-Principles Decomposition"}
+    definition: 暂停沿用既有方案，把问题分解为不可再忽略的事实、定义、守恒、边界与可证伪约束，再从这些约束重新组合方案。
+    core_idea: 先问什么必须为真，再问现有做法为何如此。
+    source_domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mathematics-statistics-formal-systems, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:ontology-identity-modality, hkm:framework:formal-objects-axioms-types-categories, hkm:framework:engineering-constraints-trade-space]
+    applicable_problems: [澄清含混问题与隐含假设, 在成熟方案成本过高时重构设计, 区分物理限制与制度惯例]
+    typical_cases: [从能量密度材料安全和制造约束重新评估电池方案, 把服务流程拆成需求等待能力与接口]
+    counterexamples: [礼仪正当性和审美评价不能由物理事实唯一推出, 已有安全规范不可仅因追求原创而忽略]
+    boundary_notes: 基本事实的选择仍受模型和测量影响；社会规范、历史路径与执行能力不是可以随意删掉的噪声。
+    common_misuses: [把个人直觉冒充第一原理, 为了新颖重复已经解决的工程和伦理错误]
+    related_models: [{type: complements, target: hkm:thinking-model:constraint-bottleneck-theory, scope: 分解识别基本约束，瓶颈模型识别当前最限制结果的约束}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:causal-mechanistic-reasoning
+    code: TM02
+    labels: {zh: 因果与机制推理, en: "Causal and Mechanistic Reasoning"}
+    definition: 区分相关、共同原因、中介、调节与反向因果，用干预、时间顺序和机制链构造并比较反事实解释。
+    core_idea: 不只问什么一起变化，还要问改变什么会通过何种路径改变结果。
+    source_domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:health-medicine-wellbeing]
+    mechanism_core_nodes: [hkm:framework:scientific-explanation-theory-change, hkm:framework:statistical-inference-measurement, hkm:method:economic-causal-evaluation-forecasting, hkm:method:public-health-epidemiology-prevention]
+    applicable_problems: [评价政策或治疗是否有效, 诊断失败与根因, 设计能区分竞争解释的测试]
+    typical_cases: [用对照和自然实验估计教育项目影响, 以故障时间线和机制证据区分直接原因与促成条件]
+    counterexamples: [纯预测任务可能不需要完整因果识别, 无法操纵的历史个案只能形成受限机制解释]
+    boundary_notes: 因果图依赖边界和未测混杂假设；机制可行性、统计识别与外部效度必须分别论证。
+    common_misuses: [把时间先后当因果充分条件, 控制中介或碰撞变量制造偏差, 用故事替代反事实证据]
+    related_models: [{type: depends-on, target: hkm:thinking-model:probabilistic-reasoning, scope: 因果判断需要表达数据噪声、效应异质性和识别不确定性}]
+    learning_priority: S
+    epistemic_modes: [causal, empirical, formal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:probabilistic-reasoning
+    code: TM03
+    labels: {zh: 概率思维与分布判断, en: "Probabilistic and Distributional Reasoning"}
+    definition: 用事件空间、条件概率、分布、期望、方差、相关结构与尾部风险表示不确定结果，而不是只给单点预测。
+    core_idea: 用一组可能结果及其权重思考，而不是把未知伪装成确定。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:mind-brain-behavior, hkm:domain:security-conflict-resilience]
+    mechanism_core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:statistical-inference-measurement, hkm:framework:reasoning-judgment-decision, hkm:framework:risk-safety-science-governance]
+    applicable_problems: [预测带噪结果, 比较风险收益, 规划容量库存与缓冲]
+    typical_cases: [用概率分布而非平均值管理洪水风险, 比较治疗收益与不良反应的联合分布]
+    counterexamples: [逻辑矛盾不能靠赋予低概率解决, 明确违反安全边界的行为不因期望收益高而自动可接受]
+    boundary_notes: 概率来自模型、频率或主观信念时含义不同；未知未知、结构变化和相关尾部会使精确数字产生虚假安全感。
+    common_misuses: [忽略基准率和条件事件, 用期望值掩盖不可承受尾部, 把零历史频率当零概率]
+    related_models: [{type: enables, target: hkm:thinking-model:bayesian-updating, scope: 条件概率与分布是贝叶斯更新的形式基础}]
+    learning_priority: S
+    epistemic_modes: [formal, empirical, causal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:bayesian-updating
+    code: TM04
+    labels: {zh: 贝叶斯更新与证据权重, en: "Bayesian Updating and Weight of Evidence"}
+    definition: 由先验可能性、证据在竞争假设下的似然和新信息逐步更新信念，并把结论表达为可继续修正的后验判断。
+    core_idea: 新证据的价值取决于它在不同假设下有多出乎意料。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:health-medicine-wellbeing, hkm:domain:security-conflict-resilience]
+    mechanism_core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:statistical-inference-measurement, hkm:method:clinical-reasoning-diagnosis-evidence, hkm:method:intelligence-security-analysis]
+    applicable_problems: [鉴别诊断与故障诊断, 根据连续证据修正预测, 比较竞争解释]
+    typical_cases: [结合基线患病率和检验似然比更新诊断概率, 根据新指标修正安全威胁判断]
+    counterexamples: [价值选择不能由后验概率唯一决定, 当假设空间遗漏真实机制时更新仍会自洽地错误]
+    boundary_notes: 先验应可说明且接受敏感性分析；证据依赖、选择性报告和模型遗漏会破坏朴素更新。
+    common_misuses: [只看检验准确率不看基准率, 把主观先验隐藏成客观数字, 重复计入相关证据]
+    related_models: [{type: complements, target: hkm:thinking-model:base-rates-reference-classes, scope: 参考类为先验提供经验校准，贝叶斯更新处理个案证据}]
+    learning_priority: S
+    epistemic_modes: [formal, empirical, causal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:systems-thinking
+    code: TM05
+    labels: {zh: 系统思维与边界建模, en: "Systems Thinking and Boundary Modeling"}
+    definition: 把对象视为由要素、关系、边界、输入输出、存量流量、反馈、延迟和多层环境组成的整体，解释局部行为如何形成全局结果。
+    core_idea: 结果来自关系结构与动态，而不只是单个部件的属性。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:earth-space-environment, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:coupled-human-earth-sustainability, hkm:framework:systems-architecture-interfaces]
+    applicable_problems: [处理多主体多反馈问题, 识别政策副作用和转移, 设计复杂产品与服务]
+    typical_cases: [用库存流量和延迟解释住房供给反应, 用接口依赖定位复杂工程故障传播]
+    counterexamples: [简单局部任务不需要完整系统图, 过宽边界会使模型无法测量和行动]
+    boundary_notes: 系统图是有目的的选择，不是现实本身；必须说明边界、尺度、主体权力与可验证变量。
+    common_misuses: [画复杂箭头代替因果证据, 把一切相连当作不可行动, 忽略主体意图与规范]
+    related_models: [{type: enables, target: hkm:thinking-model:feedback-loop-reasoning, scope: 系统边界和状态变量为反馈回路分析提供载体}]
+    learning_priority: S
+    epistemic_modes: [causal, synthetic, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:feedback-loop-reasoning
+    code: TM06
+    labels: {zh: 反馈回路与控制思维, en: "Feedback Loops and Control Reasoning"}
+    definition: 识别增强与平衡回路、传感、目标、误差、控制动作、延迟和饱和，判断系统为何稳定、振荡、失控或适应。
+    core_idea: 输出会返回并改变后续输入，延迟决定控制是否有效。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:life-evolution, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:cellular-organization-homeostasis, hkm:framework:sensing-feedback-control-automation]
+    applicable_problems: [设计监测与调节, 解释增长失控或目标漂移, 调整行为和组织绩效系统]
+    typical_cases: [恒温器以误差反馈调节温度, 绩效指标改变行为后反过来污染指标]
+    counterexamples: [一次性不可逆事件没有足够反馈机会, 观察到周期不证明存在单一闭环机制]
+    boundary_notes: 回路符号不说明强度、时间常数和因果识别；错误传感、过度控制和长延迟会制造新风险。
+    common_misuses: [把所有循环相关当反馈, 忽略延迟和饱和, 只调参数不改错误目标]
+    related_models: [{type: depends-on, target: hkm:thinking-model:systems-thinking, scope: 反馈必须嵌入明确的系统边界、状态和输入输出}]
+    learning_priority: S
+    epistemic_modes: [causal, formal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:second-order-effects
+    code: TM07
+    labels: {zh: 二阶效应与后果链, en: "Second-Order Effects and Consequence Chains"}
+    definition: 不停在直接效果，继续追踪行为适应、价格变化、资源转移、反馈、外部性和长期制度改变等后续后果。
+    core_idea: 问然后会怎样，以及谁会根据第一步改变行为。
+    source_domains: [hkm:domain:earth-space-environment, hkm:domain:economy-finance-organizations, hkm:domain:politics-governance-law]
+    mechanism_core_nodes: [hkm:framework:coupled-human-earth-sustainability, hkm:framework:externalities-public-goods-collective-action, hkm:framework:incentives-strategy-mechanism-design, hkm:framework:governance-regulation-institutional-design]
+    applicable_problems: [政策设计, 技术部署, 组织激励和市场策略]
+    typical_cases: [道路扩容先降拥堵后诱发更多出行, 自动化降低单位成本后扩大总资源消耗]
+    counterexamples: [紧急止血首先需要直接行动而非无限后果推演, 微小可逆实验可先行动再更新]
+    boundary_notes: 后果链越长不确定性越大；应标注证据、时间尺度、受影响者和可监测触发点。
+    common_misuses: [用想象中的远期风险阻止一切行动, 只列负面副作用而忽略替代方案的后果]
+    related_models: [{type: complements, target: hkm:thinking-model:scenario-sensitivity-analysis, scope: 后果链提出分支，情景与敏感性分析检验关键假设}]
+    learning_priority: S
+    epistemic_modes: [causal, synthetic, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:marginal-analysis
+    code: TM08
+    labels: {zh: 边际分析, en: "Marginal Analysis"}
+    definition: 比较在当前状态和约束下增加或减少一单位行动带来的增量收益、成本、风险与机会，而非只比较总量。
+    core_idea: 决策通常发生在下一单位，不发生在已经投入的总量。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:optimization-operations-games, hkm:framework:marginal-choice-equilibrium-welfare, hkm:framework:engineering-constraints-trade-space]
+    applicable_problems: [资源增减与停止决策, 定价和容量配置, 比较继续投资或转向]
+    typical_cases: [在瓶颈处增加一班人力而非平均扩员, 比较多做一次检测的新增信息与伤害]
+    counterexamples: [存在阈值和固定成本时局部边际近似会失败, 权利底线不能以小幅净收益交换]
+    boundary_notes: 边际量随基线、规模和互动改变；沉没成本、非线性与分配结果需另行检查。
+    common_misuses: [用平均成本代替边际成本, 忽略不可分割和阈值, 把可量化收益当全部价值]
+    related_models: [{type: complements, target: hkm:thinking-model:opportunity-cost, scope: 边际比较需要把下一单位资源的最佳替代纳入成本}]
+    learning_priority: S
+    epistemic_modes: [formal, empirical, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:opportunity-cost
+    code: TM09
+    labels: {zh: 机会成本, en: "Opportunity Cost"}
+    definition: 把选择某方案所放弃的最佳可行替代视为真实成本，显式比较时间、注意、资本、能力与不可逆承诺的替代用途。
+    core_idea: 成本不是花了多少，而是因此不能选择什么。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:everyday-life-practical-agency, hkm:domain:education-learning-development]
+    mechanism_core_nodes: [hkm:concept:scarcity-opportunity-cost-tradeoffs, hkm:skill:time-attention-habits-self-management, hkm:practice:lifelong-self-directed-learning]
+    applicable_problems: [项目优先级, 学习与职业选择, 预算和时间分配]
+    typical_cases: [比较攻读课程与同等时间真实项目的能力收益, 把占用关键设备的替代产出计入方案成本]
+    counterexamples: [无竞争用途的闲置资源机会成本可能很低, 基本权利不能只按市场替代价值评价]
+    boundary_notes: 替代必须真实可行且在同一时间尺度；不应把无法实现的理想方案当机会成本。
+    common_misuses: [把所有放弃选项相加, 忽略切换和信息成本, 用机会成本否定休息关系与公共价值]
+    related_models: [{type: depends-on, target: hkm:thinking-model:tradeoff-frontier, scope: 机会成本是沿可行前沿移动时不同目标间的交换率}]
+    learning_priority: S
+    epistemic_modes: [formal, empirical, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:incentives-mechanism-design
+    code: TM10
+    labels: {zh: 激励与机制设计, en: "Incentives and Mechanism Design"}
+    definition: 预测主体会如何对规则、信息、奖励、惩罚、规范和他人行为作策略响应，并反向设计更接近共同目标的规则。
+    core_idea: 评价规则要看它诱导的行为和均衡，而不只看制定者意图。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:politics-governance-law, hkm:domain:mind-brain-behavior]
+    mechanism_core_nodes: [hkm:framework:incentives-strategy-mechanism-design, hkm:framework:information-asymmetry-signals, hkm:framework:reasoning-judgment-decision, hkm:framework:governance-regulation-institutional-design]
+    applicable_problems: [制度与平台规则, 绩效评价, 合约与公共政策]
+    typical_cases: [按处理量付费可能诱导过度服务, 拥堵定价改变出行时间与交通方式]
+    counterexamples: [身份责任和内在动机可能主导行为, 无执行能力的激励设计不会自动生效]
+    boundary_notes: 人不只是稳定自利优化者；权力、合法性、社会规范和分配公平会改变可接受机制。
+    common_misuses: [把所有行为归因金钱激励, 忽视指标博弈和内在动机挤出, 只设计奖励不设计申诉]
+    related_models: [{type: complements, target: hkm:thinking-model:strategic-interaction-game-theory, scope: 激励改变收益结构，博弈分析预测多主体相互响应}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:strategic-interaction-game-theory
+    code: TM11
+    labels: {zh: 策略互动与博弈论, en: "Strategic Interaction and Game Theory"}
+    definition: 在参与者、行动、信息、收益、时序和规则明确时，分析各方选择如何相互依赖以及合作、竞争、承诺和协调的可能结果。
+    core_idea: 我的最佳行动取决于他人如何响应，而他人也在推测我。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:security-conflict-resilience]
+    mechanism_core_nodes: [hkm:framework:optimization-operations-games, hkm:framework:incentives-strategy-mechanism-design, hkm:framework:conflict-analysis-peacebuilding]
+    applicable_problems: [谈判和竞争, 公共品合作, 安全困境与承诺]
+    typical_cases: [重复互动使声誉支持合作, 兼容标准避免平台协调失败]
+    counterexamples: [未知参与者和收益会使均衡预测脆弱, 单方物理约束问题不需要策略模型]
+    boundary_notes: 均衡不等于唯一预测、稳定结果或道德认可；有限理性、沟通、规范和权力必须建模。
+    common_misuses: [假定所有人拥有同样信息和计算能力, 把零和竞争套在可扩展价值问题上, 事后编收益解释任何结果]
+    related_models: [{type: complements, target: hkm:thinking-model:cooperation-collective-action, scope: 博弈揭示合作困境，集体行动模型加入制度规范和组织能力}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:evolutionary-selection-thinking
+    code: TM12
+    labels: {zh: 变异、选择与进化思维, en: "Variation, Selection and Evolutionary Thinking"}
+    definition: 追踪复制或延续单位的变异、差异保留、选择环境、漂变与适应，解释复杂特征如何在无中央设计下累积。
+    core_idea: 能被复制的差异在选择环境中改变群体组成。
+    source_domains: [hkm:domain:life-evolution, hkm:domain:mind-brain-behavior, hkm:domain:economy-finance-organizations, hkm:domain:agriculture-food-bioproduction]
+    mechanism_core_nodes: [hkm:framework:evolution-selection-drift-speciation, hkm:framework:learning-memory-reinforcement-consolidation, hkm:framework:markets-competition-platforms, hkm:framework:breeding-agricultural-biotechnology-genetic-resources]
+    applicable_problems: [解释适应与多样性, 设计实验和迭代, 分析制度技术传播]
+    typical_cases: [抗菌药压力选择耐药变体, 产品变体经用户采用和组织学习被保留]
+    counterexamples: [有意工程设计不能完全还原为盲选择, 短期流行不等于长期适应性提高]
+    boundary_notes: 适应是相对环境和时间尺度的结果，不等于进步或道德优越；漂变、约束和历史偶然同样重要。
+    common_misuses: [把任何存在事物称为最优, 用生物类比正当化社会不平等, 忽略复制机制]
+    related_models: [{type: complements, target: hkm:thinking-model:path-dependence-lock-in, scope: 选择发生在历史形成的变异集和制度路径内}]
+    learning_priority: S
+    epistemic_modes: [causal, historical, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:entropy-information-order
+    code: TM13
+    labels: {zh: 熵、信息与有序性, en: "Entropy, Information and Order"}
+    definition: 区分热力学熵、信息熵与组织失序等不同概念，用可达微观状态、不确定性、耗散和维护成本理解秩序的产生与丧失。
+    core_idea: 有序结构需要边界、能量或信息流维持，但不同熵概念不能随意互换。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:matter-energy-universe, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:information-coding-cryptographic-structure, hkm:framework:energy-entropy-free-energy, hkm:framework:biochemical-information-metabolism, hkm:framework:algorithms-computability-complexity]
+    applicable_problems: [理解压缩与不确定性, 解释维护和退化, 分析不可逆过程]
+    typical_cases: [编码用熵界定平均压缩极限, 生命通过能量耗散维持局部结构]
+    counterexamples: [组织混乱没有天然可测的热力学熵, 信息更多不等于知识质量更高]
+    boundary_notes: 必须说明使用哪一种熵、状态空间与概率分布；隐喻不能替代领域方程和测量。
+    common_misuses: [把熵等同坏或混乱, 用热力学定律直接预测社会衰退, 混淆数据量信息和意义]
+    related_models: [{type: complements, target: hkm:thinking-model:systems-thinking, scope: 系统边界决定熵与信息流如何定义和解释}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, synthetic]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:compounding-accumulation
+    code: TM14
+    labels: {zh: 复利、累积与再投资, en: "Compounding, Accumulation and Reinvestment"}
+    definition: 当当前存量产生的增量被保留并进入下一周期时，追踪指数式累积、费用侵蚀、回撤、饱和与时间跨度的共同作用。
+    core_idea: 增长作用于不断变化的基数，时间与留存率会放大微小差异。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:education-learning-development]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:time-value-risk-decision-under-uncertainty, hkm:practice:lifelong-self-directed-learning]
+    applicable_problems: [长期储蓄与债务, 能力和知识积累, 用户或资本增长]
+    typical_cases: [低费率差异经多年显著改变投资终值, 连续练习使先备知识提高后续学习效率]
+    counterexamples: [容量和市场饱和使指数增长停止, 灾难性损失和遗忘会打断累积]
+    boundary_notes: 复合率不是常数承诺；波动顺序、费用、税收、流动性和结构断点必须纳入。
+    common_misuses: [无限外推短期增长率, 忽略负复利与回撤, 用复利口号包装高风险收益承诺]
+    related_models: [{type: depends-on, target: hkm:thinking-model:growth-scale-saturation, scope: 复利描述累积机制，增长尺度模型说明何时进入饱和或衰退}]
+    learning_priority: A
+    epistemic_modes: [formal, empirical, causal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:regression-to-mean
+    code: TM15
+    labels: {zh: 均值回归与极端值校准, en: "Regression to the Mean"}
+    definition: 当观测由稳定成分与随机波动共同产生时，极端观测的后续值通常更接近总体或个体长期均值，即使没有干预。
+    core_idea: 极端结果往往包含不可持续的随机成分。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:mind-brain-behavior, hkm:domain:health-medicine-wellbeing]
+    mechanism_core_nodes: [hkm:framework:statistical-inference-measurement, hkm:framework:individual-differences-personality-measurement, hkm:method:clinical-reasoning-diagnosis-evidence]
+    applicable_problems: [评价干预前后变化, 解读极端绩效, 预测重复测量]
+    typical_cases: [球队异常连胜后表现回落不一定由士气变化, 症状最严重时求医后自然波动可能被误认治疗效果]
+    counterexamples: [真实结构变化可使均值本身移动, 强趋势或非平稳过程不应假定回归固定均值]
+    boundary_notes: 需要明确参考分布、可靠性和选择规则；均值回归不意味着所有事物终将平均或价格必然反转。
+    common_misuses: [把任何反转称均值回归, 忽略处理效应和趋势, 以群体均值否定个体持续变化]
+    related_models: [{type: complements, target: hkm:thinking-model:base-rates-reference-classes, scope: 参考类提供回归目标和极端程度的校准背景}]
+    learning_priority: A
+    epistemic_modes: [formal, empirical, causal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:scale-effects
+    code: TM16
+    labels: {zh: 规模效应与尺度转换, en: "Scale Effects and Scale Transitions"}
+    definition: 分析随规模扩大或缩小而变化的单位成本、几何关系、协调负担、方差、市场势力和新行为，不把局部规律线性外推。
+    core_idea: 规模改变约束、比例和组织方式，更多不只是同样事物的放大。
+    source_domains: [hkm:domain:matter-energy-universe, hkm:domain:society-human-groups, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:scale-coarse-graining-emergence, hkm:framework:organizations-institutions-fields, hkm:framework:operations-flow-bottlenecks-quality, hkm:framework:operating-distributed-cloud-systems, hkm:framework:systems-architecture-interfaces]
+    applicable_problems: [扩大生产或服务, 分布式系统设计, 把试点推广到人群]
+    typical_cases: [固定成本摊薄形成规模经济, 分布式服务扩张后协调和一致性成为主要成本]
+    counterexamples: [手工定制和拥挤服务可能规模不经济, 小样本成功不能证明大规模实施有效]
+    boundary_notes: 需区分物理、统计、网络、组织和市场尺度；优势可能被复杂性、脆弱性和权力集中抵消。
+    common_misuses: [假定单位成本永远下降, 把平台规模当社会价值, 忽略局部异质性与治理]
+    related_models: [{type: complements, target: hkm:thinking-model:network-effects, scope: 规模效应来自产量或组织结构，网络效应来自参与者相互连接}]
+    learning_priority: A
+    epistemic_modes: [formal, empirical, synthetic]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:network-effects
+    code: TM17
+    labels: {zh: 网络效应与连接价值, en: "Network Effects and Connectivity Value"}
+    definition: 当产品、协议或共同体对某参与者的价值随其他参与者、互补品或连接结构变化时，分析采用、临界规模、兼容与竞争。
+    core_idea: 价值部分来自谁已在网络中以及他们如何连接。
+    source_domains: [hkm:domain:life-evolution, hkm:domain:society-human-groups, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:ecology-populations-networks-cycles, hkm:framework:groups-networks-collective-action, hkm:framework:markets-competition-platforms, hkm:framework:computer-networks-internet-protocols]
+    applicable_problems: [平台与标准策略, 传播和采用, 生态与供应网络韧性]
+    typical_cases: [通信工具因可联系用户增多而增值, 兼容标准使互补产品共同扩大网络]
+    counterexamples: [拥堵、骚扰和信息过载会产生负网络效应, 单机工具价值可与用户数无关]
+    boundary_notes: 总用户数不是网络结构和活跃连接的充分代理；多边市场、互操作、切换成本和治理需分别建模。
+    common_misuses: [把普通规模经济称网络效应, 只看增长不看留存与同质连接, 用网络效应合理化垄断]
+    related_models: [{type: depends-on, target: hkm:thinking-model:critical-threshold-tipping, scope: 采用网络常需跨过足以自我维持的临界规模}]
+    learning_priority: A
+    epistemic_modes: [causal, formal, synthetic]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:power-laws-long-tails
+    code: TM18
+    labels: {zh: 幂律、厚尾与长尾, en: "Power Laws, Heavy Tails and Long Tails"}
+    definition: 识别少数极大事件或节点贡献大部分总量的非均匀分布，比较生成机制、尾部估计和对平均值及风险管理的影响。
+    core_idea: 在厚尾系统中，极端值不是可忽略异常，而可能主导总结果。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:earth-space-environment, hkm:domain:society-human-groups, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:probability-stochastic-processes, hkm:framework:statistical-inference-measurement, hkm:framework:coupled-human-earth-sustainability, hkm:framework:groups-networks-collective-action, hkm:framework:computer-networks-internet-protocols]
+    applicable_problems: [尾部风险和容量, 网络中心性, 内容产品和城市规模分布]
+    typical_cases: [少数高连接节点主导网络传播, 少数灾害年份主导长期损失]
+    counterexamples: [受严格上下界和独立小扰动支配的量可能近似正态, 视觉直线不证明幂律机制]
+    boundary_notes: 幂律、对数正态和其他厚尾分布在有限样本中难区分；必须报告阈值、估计方法和不确定性。
+    common_misuses: [把任何二八分布都叫幂律, 用平均值代表尾部系统, 从拟合形状反推唯一机制]
+    related_models: [{type: complements, target: hkm:thinking-model:pareto-prioritization, scope: 厚尾分布可支持集中优先级，但帕累托启发式不能反证分布机制}]
+    learning_priority: A
+    epistemic_modes: [formal, empirical, causal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:emergence-multilevel-explanation
+    code: TM19
+    labels: {zh: 涌现与多层解释, en: "Emergence and Multilevel Explanation"}
+    definition: 研究局部互动如何产生具有新规律的宏观模式，并连接微观机制、中观组织与宏观约束，避免把层级简单互相还原。
+    core_idea: 整体模式由部件互动产生，又会反向约束部件可见行为。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:life-evolution, hkm:domain:society-human-groups]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:ecology-populations-networks-cycles, hkm:framework:social-theory-mixed-method-inference]
+    applicable_problems: [解释群体与市场模式, 连接细胞网络与表型, 分析去中心化系统]
+    typical_cases: [鸟群由局部规则形成协调运动, 语言规范由重复互动形成并约束个体表达]
+    counterexamples: [给宏观结果贴涌现标签不等于解释机制, 中央规则直接规定的模式不必诉诸自组织]
+    boundary_notes: 涌现需要可说明的微观互动、尺度变换和稳定宏观变量；不能用神秘性填补证据空白。
+    common_misuses: [把复杂等同不可解释, 用整体大于部分之和停止分析, 忽略宏观制度权力]
+    related_models: [{type: depends-on, target: hkm:thinking-model:systems-thinking, scope: 涌现解释需要明确层级、互动关系与系统边界}]
+    learning_priority: A
+    epistemic_modes: [causal, synthetic, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:critical-threshold-tipping
+    code: TM20
+    labels: {zh: 临界阈值与突变, en: "Critical Thresholds and Tipping Points"}
+    definition: 识别连续输入跨过阈值后导致状态、传播、稳定性或行为发生非连续变化的机制，并寻找预警、滞后与安全距离。
+    core_idea: 小变化在接近临界边界时可能触发大而持久的状态转换。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:earth-space-environment, hkm:domain:life-evolution, hkm:domain:society-human-groups]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:atmosphere-weather-climate-system, hkm:framework:ecology-populations-networks-cycles, hkm:framework:groups-networks-collective-action]
+    applicable_problems: [预防系统失稳, 规划传播和采用, 设置安全触发阈值]
+    typical_cases: [传染过程跨过有效再生阈值后扩张, 湖泊营养负荷越界后转为浑浊稳定态]
+    counterexamples: [平滑线性响应没有独立临界点, 事后观察陡变不能证明事前可精确预测]
+    boundary_notes: 阈值位置常受噪声、异质性和路径影响；应给区间、预警指标和不可逆性而非神奇单点。
+    common_misuses: [把营销里程碑称临界点, 以不确定阈值为不行动借口, 忽略滞后和恢复路径]
+    related_models: [{type: complements, target: hkm:thinking-model:feedback-loop-reasoning, scope: 增强反馈常推动越过临界点，平衡反馈决定是否恢复}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, empirical]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:path-dependence-lock-in
+    code: TM21
+    labels: {zh: 路径依赖与锁定, en: "Path Dependence and Lock-In"}
+    definition: 追踪早期偶然、递增收益、学习、互补投资、规范和切换成本如何使当前状态依赖历史顺序并限制未来选项。
+    core_idea: 到达同一点的路径会改变之后可走的路。
+    source_domains: [hkm:domain:history-archaeology-civilization, hkm:domain:economy-finance-organizations, hkm:domain:computing-information-ai, hkm:domain:politics-governance-law]
+    mechanism_core_nodes: [hkm:framework:science-technology-medicine-environment-history, hkm:framework:governance-regulation-institutional-design, hkm:framework:institutions-property-transaction-costs, hkm:framework:markets-competition-platforms, hkm:framework:software-engineering-programming-languages-verification, hkm:framework:standards-modularity-interoperability]
+    applicable_problems: [解释标准和制度持续, 技术迁移与遗留系统, 设计转型路线]
+    typical_cases: [既有键盘标准由学习和兼容成本维持, 基础设施布局限制后续城市转型]
+    counterexamples: [低切换成本和强外部冲击可快速改道, 持续存在也可能因当前效率而非历史锁定]
+    boundary_notes: 历史解释需指出具体正反馈和切换成本；锁定不等于永远不可改变或现状必然低效。
+    common_misuses: [用历史如此停止改革, 把任何惯例称锁定, 忽略受益者权力和替代基础设施]
+    related_models: [{type: complements, target: hkm:thinking-model:reversible-irreversible-decisions, scope: 路径依赖提高早期不可逆承诺和保留退出选项的重要性}]
+    learning_priority: A
+    epistemic_modes: [historical, causal, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:selection-survivorship-bias
+    code: TM22
+    labels: {zh: 选择偏差与幸存者偏差, en: "Selection and Survivorship Bias"}
+    definition: 检查进入样本、留下记录、接受处理、被观察或存活到分析阶段的机制，判断观察群体是否系统性偏离目标总体。
+    core_idea: 你看到的数据由谁能进入并留下决定。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:history-archaeology-civilization, hkm:domain:health-medicine-wellbeing]
+    mechanism_core_nodes: [hkm:framework:statistical-inference-measurement, hkm:method:historical-reasoning-source-criticism, hkm:method:public-health-epidemiology-prevention]
+    applicable_problems: [评价成功案例, 解读调查和临床数据, 研究历史档案]
+    typical_cases: [只研究存活企业会高估某战略有效性, 医院病例不能直接代表社区患病分布]
+    counterexamples: [完整随机抽样且无失访时该偏差较小, 选择机制与结果独立时不必然偏差]
+    boundary_notes: 发现可能选择不等于知道偏差方向和大小；需要目标总体、选择流程与缺失数据证据。
+    common_misuses: [用幸存者偏差否定所有案例, 只补几个失败故事就宣称校正, 忽略测量和混杂]
+    related_models: [{type: depends-on, target: hkm:thinking-model:base-rates-reference-classes, scope: 可靠参考类需要理解样本如何被选择并保留}]
+    learning_priority: S
+    epistemic_modes: [formal, empirical, historical]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:inversion-prevention
+    code: TM23
+    labels: {zh: 逆向思考与失败预演, en: "Inversion and Failure Pre-Mortem"}
+    definition: 从如何失败、如何制造不想要的结果或哪些条件会使目标不可能出发，反向识别禁区、脆弱点和必要条件。
+    core_idea: 如果正向优化困难，先系统消除显然会导致失败的路径。
+    source_domains: [hkm:domain:engineering-technology-design, hkm:domain:security-conflict-resilience, hkm:domain:everyday-life-practical-agency]
+    mechanism_core_nodes: [hkm:framework:reliability-failure-risk, hkm:framework:risk-safety-science-governance, hkm:framework:everyday-risk-triage-escalation]
+    applicable_problems: [风险审查和项目预演, 诊断计划脆弱点, 建立底线与停止条件]
+    typical_cases: [发布前列出会导致灾难性失败的依赖, 旅行计划先准备失联证件丢失和医疗升级]
+    counterexamples: [开放式创作需要探索而非只避免失败, 仅防错不能定义积极价值和成功状态]
+    boundary_notes: 逆向思考是补充而非悲观替代；必须回到正向目标、机会和证据比较。
+    common_misuses: [无限列风险导致瘫痪, 只防个人错误不改系统条件, 把最坏想象当高概率]
+    related_models: [{type: complements, target: hkm:thinking-model:redundancy-safety-margin, scope: 失败预演识别关键脆弱点，安全余量为其提供缓冲}]
+    learning_priority: S
+    epistemic_modes: [design, causal, embodied]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:constraint-bottleneck-theory
+    code: TM24
+    labels: {zh: 约束理论与瓶颈, en: "Constraint Theory and Bottlenecks"}
+    definition: 识别限制系统目标的当前最紧约束，围绕它安排利用、保护、同步、扩容和再识别，避免在非瓶颈处优化局部效率。
+    core_idea: 系统吞吐由最限制目标的约束决定，而不是各部分平均能力。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:operations-flow-bottlenecks-quality, hkm:framework:engineering-constraints-trade-space, hkm:framework:operating-distributed-cloud-systems]
+    applicable_problems: [流程改进, 项目交付, 学习和能力建设]
+    typical_cases: [生产线提高非瓶颈利用率只会增加在制品, 软件服务应先扩容受限数据库而非所有组件]
+    counterexamples: [多瓶颈随时间切换的系统不能只盯单点, 安全和权利约束不应被当作待消除障碍]
+    boundary_notes: 瓶颈依赖目标、时间窗和变异；扩容后必须重新测量，不能把某部门永久贴成瓶颈。
+    common_misuses: [把最慢步骤自动当瓶颈, 忽略需求和质量, 以吞吐最大化牺牲韧性和人]
+    related_models: [{type: complements, target: hkm:thinking-model:marginal-analysis, scope: 在瓶颈处的边际资源通常具有更高系统价值}]
+    learning_priority: S
+    epistemic_modes: [causal, formal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:pareto-prioritization
+    code: TM25
+    labels: {zh: 帕累托式集中与优先级, en: "Pareto-Style Concentration and Prioritization"}
+    definition: 先测量结果、损失或需求是否高度集中，再把有限注意放在少数高贡献类别，同时保留对尾部、公平和系统依赖的检查。
+    core_idea: 当贡献不均匀时，先处理少数关键来源可能获得大部分改进。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:statistical-inference-measurement, hkm:framework:operations-flow-bottlenecks-quality, hkm:skill:engineering-troubleshooting-root-cause]
+    applicable_problems: [缺陷和投诉优先级, 学习重点, 风险和成本集中分析]
+    typical_cases: [少数故障模式造成大部分停机, 少数概念缺口阻塞多门后续学习]
+    counterexamples: [均匀分布时集中策略收益有限, 低频灾难和少数群体权利不能因占比小忽略]
+    boundary_notes: 二八不是自然常数；必须用数据确认集中度，并检查高贡献项是否可行动及其外溢。
+    common_misuses: [不测量就宣称二八, 永久忽略长尾维护, 把人数少当价值低]
+    related_models: [{type: complements, target: hkm:thinking-model:constraint-bottleneck-theory, scope: 帕累托识别集中贡献，瓶颈判断其是否真正限制全局目标}]
+    learning_priority: A
+    epistemic_modes: [empirical, formal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:optionality-real-options
+    code: TM26
+    labels: {zh: 可选性与实物期权, en: "Optionality and Real Options"}
+    definition: 评价在不确定环境中以有限下行成本保留未来选择、延迟不可逆承诺、分阶段投资和依据新信息扩张或退出的价值。
+    core_idea: 在不确定性高时，保留选择权本身具有价值。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design, hkm:domain:everyday-life-practical-agency]
+    mechanism_core_nodes: [hkm:framework:time-value-risk-decision-under-uncertainty, hkm:method:design-synthesis-prototyping, hkm:framework:everyday-risk-triage-escalation]
+    applicable_problems: [分阶段项目与试点, 职业和学习探索, 高不确定技术投资]
+    typical_cases: [先建模块化试验线再按需求扩产, 用短期项目获取职业信息而非立即锁定多年路径]
+    counterexamples: [延迟会错过关键窗口时等待有成本, 维护过多空选项会分散资源和责任]
+    boundary_notes: 可选性不是永不承诺；应量化持有成本、到期、行权能力、信息价值和对他人的影响。
+    common_misuses: [把拖延包装可选性, 只算上行不算维护成本, 承诺后仍假装可以无损退出]
+    related_models: [{type: complements, target: hkm:thinking-model:reversible-irreversible-decisions, scope: 可逆性和不可逆性决定保留选项与行动速度的相对价值}]
+    learning_priority: A
+    epistemic_modes: [formal, design, empirical]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:redundancy-safety-margin
+    code: TM27
+    labels: {zh: 冗余、缓冲与安全余量, en: "Redundancy, Buffers and Safety Margins"}
+    definition: 在容量、强度、时间、库存、信息和替代路径中保留超过正常需求的余量，以吸收误差、波动、相关失效和模型不确定性。
+    core_idea: 可靠系统不在平均条件下贴着极限运行。
+    source_domains: [hkm:domain:engineering-technology-design, hkm:domain:security-conflict-resilience, hkm:domain:economy-finance-organizations]
+    mechanism_core_nodes: [hkm:model:engineering-models-safety-margins, hkm:framework:resilience-continuity-recovery, hkm:framework:operations-flow-bottlenecks-quality]
+    applicable_problems: [安全关键设计, 供应链和容量规划, 个人财务与应急准备]
+    typical_cases: [结构承载留出不确定性安全系数, 多路径通信和备份降低单点故障]
+    counterexamples: [同源同地冗余会被共同原因同时击穿, 过量库存可能过期并隐藏流程问题]
+    boundary_notes: 冗余必须独立、可测试和可维护；余量大小应与后果、相关性和恢复时间匹配。
+    common_misuses: [把重复副本当独立备份, 以安全余量替代根因修复, 无限制堆资源]
+    related_models: [{type: enables, target: hkm:thinking-model:robustness-antifragility, scope: 冗余和缓冲是稳健与恢复能力的重要但非唯一机制}]
+    learning_priority: S
+    epistemic_modes: [design, causal, empirical]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:robustness-antifragility
+    code: TM28
+    labels: {zh: 稳健性、韧性与反脆弱, en: "Robustness, Resilience and Antifragility"}
+    definition: 区分抵抗扰动不变、受扰后恢复、以及通过受控小压力和学习改善三种能力，设计隔离、适应和更新机制。
+    core_idea: 不只预测冲击，还要设计系统对预测错误和扰动的响应形态。
+    source_domains: [hkm:domain:life-evolution, hkm:domain:engineering-technology-design, hkm:domain:security-conflict-resilience]
+    mechanism_core_nodes: [hkm:framework:cellular-organization-homeostasis, hkm:framework:reliability-failure-risk, hkm:framework:resilience-continuity-recovery]
+    applicable_problems: [高不确定系统设计, 组织与基础设施恢复, 渐进训练和实验]
+    typical_cases: [混沌测试在受控范围暴露分布式系统弱点, 恢复演练改善真实中断响应]
+    counterexamples: [致命或不可逆冲击不能用压力促进成长, 所有系统都可能存在超出适应范围的破坏]
+    boundary_notes: 反脆弱必须说明收益指标、压力范围和受益者；不能把伤害转嫁给人后称系统更强。
+    common_misuses: [浪漫化创伤和失败, 故意取消必要保护, 把幸存者适应当普遍因果]
+    related_models: [{type: depends-on, target: hkm:thinking-model:redundancy-safety-margin, scope: 稳健与适应需要缓冲、隔离和恢复资源防止学习试验越界}]
+    learning_priority: A
+    epistemic_modes: [causal, design, embodied]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:map-territory-model-limits
+    code: TM29
+    labels: {zh: 地图不等于领土与模型边界, en: "Map–Territory Distinction and Model Limits"}
+    definition: 把概念、指标、地图、数据与模型视为针对目的的压缩和选择，持续检查遗漏、尺度、测量反应与现实变化。
+    core_idea: 表征帮助行动，但永远省略现实的一部分。
+    source_domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:earth-space-environment, hkm:domain:computing-information-ai]
+    mechanism_core_nodes: [hkm:framework:knowledge-justification-truth, hkm:framework:geospatial-observation-mapping-inference, hkm:framework:machine-learning-data-science-generalization]
+    applicable_problems: [解读指标与仪表盘, 使用预测模型, 分类和地图决策]
+    typical_cases: [地图投影保留部分空间关系并扭曲其他关系, 风险评分压缩历史数据但不能替代个案证据]
+    counterexamples: [承认模型有限不等于所有模型同样差, 精确形式系统内部可有严格证明]
+    boundary_notes: 需要比较模型目的、预测和决策后果；不能以现实复杂为借口逃避测量和反证。
+    common_misuses: [用地图非领土否定数据, 把模型输出当事实本身, 忽略模型改变被测行为]
+    related_models: [{type: complements, target: hkm:thinking-model:scenario-sensitivity-analysis, scope: 模型边界通过情景、参数和结构敏感性被显式检验}]
+    learning_priority: S
+    epistemic_modes: [interpretive, empirical, formal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:base-rates-reference-classes
+    code: TM30
+    labels: {zh: 基准率与参考类预测, en: "Base Rates and Reference-Class Forecasting"}
+    definition: 在分析个案细节前寻找相似项目或事件的结果分布，用外部视角校准成功率、工期、成本和风险，再按个案差异更新。
+    core_idea: 先知道类似事情通常怎样，再判断本次为何不同。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:statistical-inference-measurement, hkm:method:economic-causal-evaluation-forecasting, hkm:practice:engineering-project-configuration-change]
+    applicable_problems: [项目工期与成本预测, 诊断和风险判断, 新企业和技术成功概率]
+    typical_cases: [用同类基础设施项目分布校准内部计划, 以年龄和症状人群基线校准检验解释]
+    counterexamples: [真正无可比先例事件参考类很弱, 结构断点会使历史分布失效]
+    boundary_notes: 参考类选择本身是模型判断；应比较多个层级参考类并说明相似性、样本选择和变化机制。
+    common_misuses: [挑选有利参考类, 只用总体均值忽略相关子群, 用基准率拒绝强个案证据]
+    related_models: [{type: enables, target: hkm:thinking-model:bayesian-updating, scope: 基准率提供先验，个案证据决定更新幅度}]
+    learning_priority: S
+    epistemic_modes: [empirical, comparative, formal]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:comparative-advantage-specialization
+    code: TM31
+    labels: {zh: 比较优势、专业化与交换, en: "Comparative Advantage, Specialization and Exchange"}
+    definition: 即使一方在所有任务上绝对更强，也按相对机会成本安排专业化、协作和交换，同时审查协调依赖、学习与分配。
+    core_idea: 分工取决于相对替代成本，不只取决于谁绝对更快。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:society-human-groups, hkm:domain:everyday-life-practical-agency]
+    mechanism_core_nodes: [hkm:framework:organizations-institutions-fields, hkm:concept:scarcity-opportunity-cost-tradeoffs, hkm:framework:organization-authority-governance, hkm:skill:career-workplace-collaboration-negotiation]
+    applicable_problems: [团队分工, 贸易与供应链, 个人任务委托]
+    typical_cases: [高技能成员把相对不擅长任务交给伙伴提高总产出, 地区按机会成本差异交换产品]
+    counterexamples: [战略依赖和外部性可能使静态专业化不安全, 学习目标可能要求暂时承担低效率任务]
+    boundary_notes: 比较优势不决定公平分配、劳动权利或国家安全；能力会通过投资和制度内生变化。
+    common_misuses: [把现有贫困分工当自然优势, 忽略交易协调和失业成本, 用总收益掩盖输家]
+    related_models: [{type: depends-on, target: hkm:thinking-model:opportunity-cost, scope: 比较优势由不同主体之间的相对机会成本定义}]
+    learning_priority: B
+    epistemic_modes: [formal, empirical, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:principal-agent-information-asymmetry
+    code: TM32
+    labels: {zh: 委托代理与信息不对称, en: "Principal–Agent and Information Asymmetry"}
+    definition: 当委托方与执行方目标不同且行动或信息不可完全观察时，分析逆向选择、道德风险、监督、信号、契约与信任安排。
+    core_idea: 决策权、信息和后果承担分离会产生系统性偏差。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:politics-governance-law, hkm:domain:health-medicine-wellbeing]
+    mechanism_core_nodes: [hkm:framework:governance-regulation-institutional-design, hkm:framework:information-asymmetry-signals, hkm:framework:organization-authority-governance, hkm:framework:health-systems-policy-economics-quality-equity]
+    applicable_problems: [公司治理与外包, 专业服务和监管, 平台与算法代理]
+    typical_cases: [按短期销量奖励代理人可能损害长期客户价值, 患者依赖专业人员但需要知情同意和质量问责]
+    counterexamples: [目标高度一致且行动透明时代理问题较弱, 复杂工作中过度监控会破坏信任和专业判断]
+    boundary_notes: 不是所有关系都应转化为契约；身份、伦理、关系信任和公共责任同样重要。
+    common_misuses: [假定代理人必然恶意, 用监控替代目标澄清, 忽略委托方自身信息和权力问题]
+    related_models: [{type: complements, target: hkm:thinking-model:incentives-mechanism-design, scope: 委托代理诊断信息与目标错位，机制设计选择治理安排}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:cooperation-collective-action
+    code: TM33
+    labels: {zh: 集体行动与公地治理, en: "Collective Action and Commons Governance"}
+    definition: 分析行动成本收益落在他人、共享资源难排他、搭便车和协调信任等问题，并比较规则、规范、产权、互惠与公共供给。
+    core_idea: 个体合理行动可能累积成集体不可接受结果。
+    source_domains: [hkm:domain:economy-finance-organizations, hkm:domain:politics-governance-law, hkm:domain:earth-space-environment]
+    mechanism_core_nodes: [hkm:framework:externalities-public-goods-collective-action, hkm:framework:coupled-human-earth-sustainability, hkm:framework:governance-regulation-institutional-design]
+    applicable_problems: [环境治理, 共享基础设施, 团队合作和公共卫生]
+    typical_cases: [排放成本外部化导致污染过量, 社区规则和监测维持共享灌溉系统]
+    counterexamples: [私人物品且权利清晰时集体行动框架可能过度, 中央强制不保证合法有效合作]
+    boundary_notes: 公共品类型、群体规模、重复互动、权力和国家能力会改变可行治理；不存在单一万能产权方案。
+    common_misuses: [把合作失败归因个人道德, 用公地悲剧支持任意私有化, 忽略历史不平等]
+    related_models: [{type: complements, target: hkm:thinking-model:strategic-interaction-game-theory, scope: 博弈结构刻画个体激励，集体行动加入制度和共同体条件}]
+    learning_priority: S
+    epistemic_modes: [causal, normative, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:experiment-iteration-learning
+    code: TM34
+    labels: {zh: 实验、迭代与可学习行动, en: "Experimentation, Iteration and Learning"}
+    definition: 把不确定行动设计为具有假设、对照或基线、可观测结果、停止条件和更新规则的小步试验，通过反馈逐步改进。
+    core_idea: 在可承受范围内行动，以获得能改变下一步的信息。
+    source_domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:engineering-technology-design, hkm:domain:education-learning-development]
+    mechanism_core_nodes: [hkm:framework:metascience-reproducibility-incentives, hkm:method:design-synthesis-prototyping, hkm:practice:lifelong-self-directed-learning]
+    applicable_problems: [产品与服务设计, 学习策略, 组织和政策试点]
+    typical_cases: [原型测试关键用户假设再扩大投资, 以检索练习表现调整个人学习计划]
+    counterexamples: [高风险不可逆操作不适合随意试错, 样本极少且反馈延迟会使快速迭代误导]
+    boundary_notes: 试验需伦理、同意、统计和停止边界；局部优化结果在扩大规模前须重新验证。
+    common_misuses: [没有假设和指标的忙碌迭代, 只保留成功试验, 把用户暴露风险称实验文化]
+    related_models: [{type: complements, target: hkm:thinking-model:optionality-real-options, scope: 小步实验用有限成本购买信息并保留后续扩张或退出选择}]
+    learning_priority: S
+    epistemic_modes: [empirical, causal, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:scenario-sensitivity-analysis
+    code: TM35
+    labels: {zh: 情景、敏感性与稳健决策, en: "Scenario and Sensitivity Analysis"}
+    definition: 系统改变关键参数、外部条件和结构假设，比较方案在多个一致情景中的表现，识别结果最敏感的驱动和触发点。
+    core_idea: 不追求单一精确未来，而寻找在哪些未来下决定仍可接受。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:security-conflict-resilience]
+    mechanism_core_nodes: [hkm:framework:numerical-computation-approximation-error, hkm:method:economic-causal-evaluation-forecasting, hkm:framework:risk-safety-science-governance]
+    applicable_problems: [长期规划, 模型风险, 政策和投资比较]
+    typical_cases: [比较能源方案在价格需求与气候情景下的成本, 检查项目价值对工期和采用率假设的敏感性]
+    counterexamples: [短期稳定重复任务可能只需统计预测, 随意拼凑故事不构成一致情景]
+    boundary_notes: 情景不是概率预测；应说明变量联动、范围来源、不可想象风险和更新触发条件。
+    common_misuses: [只选支持偏好方案的情景, 把敏感性分析当确定性证明, 忽略结构假设]
+    related_models: [{type: complements, target: hkm:thinking-model:probabilistic-reasoning, scope: 概率刻画已建模不确定性，情景覆盖难以可靠赋概率的结构变化}]
+    learning_priority: S
+    epistemic_modes: [formal, comparative, design]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:reversible-irreversible-decisions
+    code: TM36
+    labels: {zh: 可逆与不可逆决策, en: "Reversible and Irreversible Decisions"}
+    definition: 按退出成本、锁定、伤害可恢复性、信息时效和延迟代价区分决策，对可逆选择提高速度，对不可逆选择提高证据和审查门槛。
+    core_idea: 决策速度应与错误能否低成本纠正相匹配。
+    source_domains: [hkm:domain:engineering-technology-design, hkm:domain:health-medicine-wellbeing, hkm:domain:everyday-life-practical-agency]
+    mechanism_core_nodes: [hkm:framework:engineering-constraints-trade-space, hkm:method:clinical-reasoning-diagnosis-evidence, hkm:framework:everyday-risk-triage-escalation]
+    applicable_problems: [发布与部署门槛, 医疗和安全升级, 职业与资本承诺]
+    typical_cases: [可回滚界面试验可快速上线监测, 不可逆手术需更严格适应证和知情同意]
+    counterexamples: [许多小可逆动作累积后会形成锁定, 延迟处理时间敏感风险本身可能不可逆]
+    boundary_notes: 可逆性是程度而非二元标签，必须包含对他人的外部性、数据残留和制度承诺。
+    common_misuses: [低估回滚成本, 把反复改动造成的损害忽略, 用谨慎拖延紧急行动]
+    related_models: [{type: complements, target: hkm:thinking-model:optionality-real-options, scope: 可逆性决定试验速度，可选性评估保留未来行动路径的价值}]
+    learning_priority: S
+    epistemic_modes: [design, causal, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:tradeoff-frontier
+    code: TM37
+    labels: {zh: 权衡与可行前沿, en: "Trade-Offs and Feasible Frontiers"}
+    definition: 在多目标和约束下区分支配方案与非支配前沿，显式呈现改善一个目标必须牺牲什么、由谁承担及能否通过创新移动边界。
+    core_idea: 先淘汰明显更差方案，再在真实前沿上讨论价值取舍。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:economy-finance-organizations, hkm:domain:engineering-technology-design]
+    mechanism_core_nodes: [hkm:framework:optimization-operations-games, hkm:framework:marginal-choice-equilibrium-welfare, hkm:framework:engineering-constraints-trade-space]
+    applicable_problems: [多目标设计, 公共资源配置, 成本质量速度选择]
+    typical_cases: [比较电池能量密度安全寿命与成本前沿, 在医疗预算中呈现覆盖广度与单位收益取舍]
+    counterexamples: [伪二选一可通过重构方案同时改善, 权利底线可能排除前沿上的某些选项]
+    boundary_notes: 前沿依赖指标、尺度和可行集；价值权重与分配不能被数学优化悄悄决定。
+    common_misuses: [把任何冲突称不可避免权衡, 只算总收益不看承担者, 固定当前技术前沿]
+    related_models: [{type: complements, target: hkm:thinking-model:first-principles-decomposition, scope: 第一性原理可区分真实约束与惯例，从而发现移动前沿的创新}]
+    learning_priority: S
+    epistemic_modes: [formal, design, normative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:modularity-loose-coupling
+    code: TM38
+    labels: {zh: 模块化、接口与松耦合, en: "Modularity, Interfaces and Loose Coupling"}
+    definition: 通过高内聚模块、明确接口、信息隐藏、替换边界和故障隔离管理复杂性，使局部变化不必重构整个系统。
+    core_idea: 把强互动放在模块内部，把变化和故障限制在稳定接口之后。
+    source_domains: [hkm:domain:computing-information-ai, hkm:domain:engineering-technology-design, hkm:domain:economy-finance-organizations]
+    mechanism_core_nodes: [hkm:framework:software-engineering-programming-languages-verification, hkm:framework:systems-architecture-interfaces, hkm:framework:organization-authority-governance]
+    applicable_problems: [复杂产品架构, 组织协作, 供应链与制度设计]
+    typical_cases: [服务接口允许组件独立升级, 组织边界与技术架构对齐减少跨团队协调]
+    counterexamples: [高度耦合物理过程无法任意切块, 过度模块化会增加接口开销并损害整体优化]
+    boundary_notes: 接口本身需要治理、版本和端到端验证；模块独立不等于责任可以被切碎。
+    common_misuses: [用组织图替代真实依赖分析, 过早冻结错误接口, 忽略跨模块安全与用户体验]
+    related_models: [{type: complements, target: hkm:thinking-model:redundancy-safety-margin, scope: 模块隔离限制故障传播，冗余为关键模块提供替代能力}]
+    learning_priority: A
+    epistemic_modes: [design, causal, synthetic]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:growth-scale-saturation
+    code: TM39
+    labels: {zh: 增长、衰退与饱和, en: "Growth, Decline and Saturation"}
+    definition: 比较线性、指数、逻辑斯蒂、扩散、衰减和更新过程，识别驱动增长的存量、承载限制、替代、老化与结构断点。
+    core_idea: 增长率和增长机制会随规模、资源和反馈改变。
+    source_domains: [hkm:domain:mathematics-statistics-formal-systems, hkm:domain:life-evolution, hkm:domain:economy-finance-organizations]
+    mechanism_core_nodes: [hkm:framework:dynamical-systems-control-complexity, hkm:framework:ecology-populations-networks-cycles, hkm:framework:growth-productivity-innovation-distribution]
+    applicable_problems: [需求和采用预测, 人口与生态变化, 组织和技术生命周期]
+    typical_cases: [新产品先扩散加速后接近市场饱和, 种群在资源限制下偏离指数增长]
+    counterexamples: [结构创新可移动承载边界, 短序列无法可靠区分多种增长曲线]
+    boundary_notes: 不应从几期数据无限外推；需要说明增长单位、基数、留存、替代、边界和分配。
+    common_misuses: [把增长当永久默认, 混淆总量增长与人均改善, 忽略衰退和维护]
+    related_models: [{type: complements, target: hkm:thinking-model:critical-threshold-tipping, scope: 增长接近承载或反馈边界时可能发生状态转移}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, historical]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:perspectival-reflexive-interpretation
+    code: TM40
+    labels: {zh: 视角转换、语境化与反思性解释, en: "Perspectival, Contextual and Reflexive Interpretation"}
+    definition: 在不同语言、传统、角色和权力位置之间重建对象的内部意义与外部条件，并反思解释者自身类别和利益如何影响理解。
+    core_idea: 先问从谁的位置、用什么语言和历史类别看见了什么，又遗漏了什么。
+    source_domains: [hkm:domain:metaknowledge-philosophy-inquiry, hkm:domain:society-human-groups, hkm:domain:language-communication-media, hkm:domain:religion-meaning-worldviews]
+    mechanism_core_nodes: [hkm:method:comparative-philosophy-contextual-translation, hkm:method:ethnography-cultural-comparison, hkm:method:translation-interpreting-multilingual-mediation, hkm:method:comparative-religion-reflexive-study]
+    applicable_problems: [跨文化解释与谈判, 理解争议文本和生活世界, 审查分类与研究者偏差]
+    typical_cases: [比较同一公共概念在不同语言制度中的含义, 区分宗教共同体内部理由与外部历史社会解释]
+    counterexamples: [形式证明不因观察位置改变有效性, 承认多视角不表示事实主张都同样可靠]
+    boundary_notes: 反思性不能滑向无标准相对主义；仍需文本、行为、历史与参与者证据，并保护受限制知识。
+    common_misuses: [代替他人声称内部视角, 把文化差异本质化, 用多元否定伤害与权利判断]
+    related_models: [{type: complements, target: hkm:thinking-model:map-territory-model-limits, scope: 模型边界指出表征遗漏，视角转换检查遗漏如何随位置与语言系统变化}]
+    learning_priority: S
+    epistemic_modes: [interpretive, historical, comparative]
+
+  - <<: *thinking_defaults
+    id: hkm:thinking-model:divergent-convergent-creative-iteration
+    code: TM41
+    labels: {zh: 发散、收敛与创造性迭代, en: "Divergent, Convergent and Creative Iteration"}
+    definition: 先扩展问题框架、类比、材料和候选方案，再依据目标、证据、边界和反馈逐步选择、组合与修订，避免过早锁定首个答案。
+    core_idea: 把生成可能性与评价选择分开，再通过作品和原型反复连接。
+    source_domains: [hkm:domain:engineering-technology-design, hkm:domain:education-learning-development, hkm:domain:arts-literature-creation, hkm:domain:everyday-life-practical-agency]
+    mechanism_core_nodes: [hkm:method:design-synthesis-prototyping, hkm:framework:curriculum-pedagogy-instructional-design, hkm:practice:creative-writing-storytelling, hkm:skill:craft-making-low-risk-repair]
+    applicable_problems: [开放式设计与创作, 生成替代政策或研究假设, 从反馈中修订作品和方案]
+    typical_cases: [先生成多种服务旅程原型再以用户证据收敛, 创意写作通过多稿实验声音结构和伦理选择]
+    counterexamples: [紧急标准操作不适合无限发散, 已有严格证明目标的问题仍需遵守形式约束]
+    boundary_notes: 创造力不取消安全、同意、版权和事实责任；收敛标准应在试验前说明并接受修正。
+    common_misuses: [头脑风暴数量代替质量, 过早批评压制探索, 永不收敛和交付]
+    related_models: [{type: complements, target: hkm:thinking-model:experiment-iteration-learning, scope: 发散收敛组织候选空间，实验迭代产生选择和修订所需证据}]
+    learning_priority: A
+    epistemic_modes: [design, interpretive, embodied]

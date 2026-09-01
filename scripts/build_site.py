@@ -87,16 +87,69 @@ def compact_core(node: dict) -> dict:
     }
 
 
+def compact_thinking_model(node: dict) -> dict:
+    return {
+        key: node[key]
+        for key in (
+            "id",
+            "code",
+            "primary_type",
+            "labels",
+            "definition",
+            "core_idea",
+            "source_domains",
+            "mechanism_core_nodes",
+            "applicable_problems",
+            "typical_cases",
+            "counterexamples",
+            "boundary_notes",
+            "common_misuses",
+            "related_models",
+            "learning_priority",
+            "epistemic_modes",
+            "status",
+            "version",
+        )
+    }
+
+
+def compact_universal_model(node: dict) -> dict:
+    return {
+        key: node[key]
+        for key in (
+            "id",
+            "code",
+            "primary_type",
+            "labels",
+            "definition",
+            "core_structure",
+            "state_variables",
+            "dynamics",
+            "manifestations",
+            "failure_modes",
+            "boundary_notes",
+            "related_models",
+            "learning_priority",
+            "epistemic_modes",
+            "status",
+            "version",
+        )
+    }
+
+
 def build_payload() -> dict:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
     bridge_data = load_yaml("08-data/bridges.yaml")
     core_data = load_yaml("08-data/core-nodes.yaml")
+    thinking_data = load_yaml("08-data/thinking-models.yaml")
+    universal_data = load_yaml("08-data/universal-models.yaml")
     relation_files = [
         "08-data/relationships.yaml",
         "08-data/hierarchy-relationships.generated.yaml",
         "08-data/bridge-relationships.generated.yaml",
         "08-data/core-relationships.generated.yaml",
+        "08-data/model-relationships.generated.yaml",
     ]
     relations = [
         relation
@@ -108,6 +161,12 @@ def build_payload() -> dict:
     subdomains = [compact_scope(node) for node in subdomain_data["subdomains"]]
     bridges = [compact_bridge(node) for node in bridge_data["bridge_views"]]
     core_nodes = [compact_core(node) for node in core_data["core_nodes"]]
+    thinking_models = [
+        compact_thinking_model(node) for node in thinking_data["thinking_models"]
+    ]
+    universal_models = [
+        compact_universal_model(node) for node in universal_data["universal_models"]
+    ]
     domain_ids = {domain["id"] for domain in domains}
     domain_relations = [
         relation
@@ -117,12 +176,14 @@ def build_payload() -> dict:
     return {
         "meta": {
             "id": "human-knowledge-model",
-            "version": core_data["model_version"],
+            "version": thinking_data["model_version"],
             "generatedFrom": [
                 "08-data/domains.yaml",
                 "08-data/subdomains.yaml",
                 "08-data/bridges.yaml",
                 "08-data/core-nodes.yaml",
+                "08-data/thinking-models.yaml",
+                "08-data/universal-models.yaml",
             ],
             "counts": {
                 "superdomains": len(superdomains),
@@ -130,6 +191,8 @@ def build_payload() -> dict:
                 "subdomains": len(subdomains),
                 "bridges": len(bridges),
                 "coreNodes": len(core_nodes),
+                "thinkingModels": len(thinking_models),
+                "universalModels": len(universal_models),
                 "relations": len(relations),
             },
         },
@@ -139,6 +202,8 @@ def build_payload() -> dict:
         "subdomains": subdomains,
         "bridges": bridges,
         "coreNodes": core_nodes,
+        "thinkingModels": thinking_models,
+        "universalModels": universal_models,
         "domainRelations": domain_relations,
     }
 
@@ -165,6 +230,8 @@ def main() -> None:
         f"{payload['meta']['counts']['subdomains']} subdomains, "
         f"{payload['meta']['counts']['bridges']} bridge views, "
         f"{payload['meta']['counts']['coreNodes']} core nodes, "
+        f"{payload['meta']['counts']['thinkingModels']} thinking models, "
+        f"{payload['meta']['counts']['universalModels']} universal models, "
         f"{payload['meta']['counts']['relations']} relations"
     )
 

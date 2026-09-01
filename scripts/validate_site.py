@@ -37,6 +37,7 @@ def main() -> int:
         "map",
         "bridges",
         "skeletons",
+        "models",
         "method",
         "knowledge-network",
         "detail-dialog",
@@ -58,6 +59,8 @@ def main() -> int:
         "subdomains": len(payload["subdomains"]),
         "bridges": len(payload["bridges"]),
         "coreNodes": len(payload["coreNodes"]),
+        "thinkingModels": len(payload["thinkingModels"]),
+        "universalModels": len(payload["universalModels"]),
     }
     for key, expected in expected_counts.items():
         if counts.get(key) != expected:
@@ -66,6 +69,8 @@ def main() -> int:
         errors.append("site payload must expose the complete frozen H2/H3 map")
     if counts["bridges"] < 10 or counts["coreNodes"] < 40:
         errors.append("site payload is missing bridge views or template skeletons")
+    if counts["thinkingModels"] < 30 or counts["universalModels"] < 15:
+        errors.append("site payload is missing the cross-disciplinary model layers")
 
     ids = {
         node["id"]
@@ -75,6 +80,8 @@ def main() -> int:
             payload["subdomains"],
             payload["bridges"],
             payload["coreNodes"],
+            payload["thinkingModels"],
+            payload["universalModels"],
         )
         for node in collection
     }
@@ -86,6 +93,8 @@ def main() -> int:
             payload["subdomains"],
             payload["bridges"],
             payload["coreNodes"],
+            payload["thinkingModels"],
+            payload["universalModels"],
         )
     )
     if len(ids) != expected_total:
@@ -100,6 +109,8 @@ def main() -> int:
         "SITE VALIDATION OK: "
         f"{counts['domains']} domains, {counts['subdomains']} subdomains, "
         f"{counts['bridges']} bridge views, {counts['coreNodes']} core nodes, "
+        f"{counts['thinkingModels']} thinking models, "
+        f"{counts['universalModels']} universal models, "
         "project-relative assets and required interaction surfaces present"
     )
     return 0

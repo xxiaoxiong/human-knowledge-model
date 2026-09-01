@@ -11,11 +11,14 @@ import yaml
 from generate_views import (
     generate_bridge_relations,
     generate_bridge_views,
+    generate_cross_model_relations,
     generate_core_relations,
     generate_core_skeletons,
     generate_crosswalk,
     generate_hierarchy_relations,
     generate_map,
+    generate_thinking_model_view,
+    generate_universal_model_view,
 )
 
 
@@ -40,22 +43,33 @@ def main() -> int:
     crosswalk_data = load_yaml("08-data/crosswalks.yaml")
     bridge_data = load_yaml("08-data/bridges.yaml")
     core_data = load_yaml("08-data/core-nodes.yaml")
+    thinking_data = load_yaml("08-data/thinking-models.yaml")
+    universal_data = load_yaml("08-data/universal-models.yaml")
     relation_data = load_yaml("08-data/relationships.yaml")
     hierarchy_data = load_yaml("08-data/hierarchy-relationships.generated.yaml")
     bridge_relation_data = load_yaml("08-data/bridge-relationships.generated.yaml")
     core_relation_data = load_yaml("08-data/core-relationships.generated.yaml")
+    model_relation_data = load_yaml("08-data/model-relationships.generated.yaml")
     errors: list[str] = []
 
     subdomains = subdomain_data["subdomains"]
     bridge_views = bridge_data["bridge_views"]
     core_nodes = core_data["core_nodes"]
+    thinking_models = thinking_data["thinking_models"]
+    universal_models = universal_data["universal_models"]
     scope_nodes = [
         domain_data["root"],
         *domain_data["superdomains"],
         *domain_data["domains"],
         *subdomains,
     ]
-    nodes = [*scope_nodes, *bridge_views, *core_nodes]
+    nodes = [
+        *scope_nodes,
+        *bridge_views,
+        *core_nodes,
+        *thinking_models,
+        *universal_models,
+    ]
     node_ids = [node["id"] for node in nodes]
     node_id_set = set(node_ids)
 
@@ -169,6 +183,7 @@ def main() -> int:
     allowed_node_types = {
         node_type for group in schema["node_types"].values() for node_type in group
     }
+    required_node = set(schema["required_node_fields"])
     required_core = set(schema["required_core_node_fields"])
     allowed_roles = set(schema["facets"]["skeleton_roles"])
     allowed_aims = set(schema["facets"]["aims"])
@@ -325,6 +340,182 @@ def main() -> int:
                 f"{sorted(missing_h3_scope)}"
             )
 
+    required_thinking = required_node | set(
+        schema["required_thinking_model_fields"]
+    )
+    required_universal = required_node | set(
+        schema["required_universal_model_fields"]
+    )
+    all_model_nodes = [*thinking_models, *universal_models]
+    all_model_ids = {model["id"] for model in all_model_nodes}
+    core_by_id = {node["id"]: node for node in core_nodes}
+    domain_ids = set(domain_code_by_id)
+    domain_parent = {
+        domain["id"]: domain["parent"] for domain in domain_data["domains"]
+    }
+    seen_model_labels: dict[tuple[str, str], str] = {}
+    seen_model_definitions: dict[str, str] = {}
+    for node in core_nodes:
+        for locale in ("zh", "en"):
+            seen_model_labels[(locale, normalize_identity_text(node["labels"][locale]))] = (
+                node["code"]
+            )
+        seen_model_definitions[normalize_identity_text(node["definition"])] = node[
+            "code"
+        ]
+
+    def validate_model_identity(model: dict, required: set[str]) -> None:
+        missing = required - model.keys()
+        if missing:
+            errors.append(f"{model.get('id')}: missing model fields {sorted(missing)}")
+            return
+        if set(model["labels"]) != {"zh", "en"}:
+            errors.append(f"{model['code']}: labels must contain exactly zh and en")
+        for locale in ("zh", "en"):
+            if locale not in model["labels"]:
+                continue
+            key = (locale, normalize_identity_text(model["labels"][locale]))
+            if key in seen_model_labels:
+                errors.append(
+                    f"duplicate normalized {locale} model label: "
+                    f"{seen_model_labels[key]} and {model['code']}"
+                )
+            seen_model_labels[key] = model["code"]
+        definition_key = normalize_identity_text(model["definition"])
+        if definition_key in seen_model_definitions:
+            errors.append(
+                "duplicate normalized model definition: "
+                f"{seen_model_definitions[definition_key]} and {model['code']}"
+            )
+        seen_model_definitions[definition_key] = model["code"]
+        if model["primary_type"] not in allowed_node_types:
+            errors.append(
+                f"{model['code']}: invalid model primary type {model['primary_type']}"
+            )
+        if model["learning_priority"] not in allowed_priorities:
+            errors.append(
+                f"{model['code']}: invalid learning priority {model['learning_priority']}"
+            )
+        invalid_modes = set(model["epistemic_modes"]) - allowed_modes
+        if invalid_modes:
+            errors.append(
+                f"{model['code']}: invalid epistemic modes {sorted(invalid_modes)}"
+            )
+        if not model["boundary_notes"]:
+            errors.append(f"{model['code']}: model boundary must not be empty")
+        for relation in model["related_models"]:
+            if relation.get("type") not in allowed_relations:
+                errors.append(
+                    f"{model['code']}: invalid model relation {relation.get('type')}"
+                )
+            if relation.get("target") not in all_model_ids:
+                errors.append(
+                    f"{model['code']}: unknown related model {relation.get('target')}"
+                )
+            if not relation.get("scope"):
+                errors.append(f"{model['code']}: model relation missing scope")
+
+    expected_thinking_codes = {
+        f"TM{number:02d}" for number in range(1, len(thinking_models) + 1)
+    }
+    actual_thinking_codes = {model["code"] for model in thinking_models}
+    if actual_thinking_codes != expected_thinking_codes:
+        errors.append("thinking model codes must be contiguous from TM01")
+    thinking_covered_domains: set[str] = set()
+    for model in thinking_models:
+        validate_model_identity(model, required_thinking)
+        thinking_covered_domains.update(model["source_domains"])
+        if len(set(model["source_domains"])) < 2:
+            errors.append(f"{model['code']}: expected at least two source H2 domains")
+        unknown_domains = set(model["source_domains"]) - domain_ids
+        if unknown_domains:
+            errors.append(
+                f"{model['code']}: unknown source domains {sorted(unknown_domains)}"
+            )
+        if len(set(model["mechanism_core_nodes"])) < 2:
+            errors.append(f"{model['code']}: expected at least two mechanism anchors")
+        unknown_anchors = set(model["mechanism_core_nodes"]) - set(core_by_id)
+        if unknown_anchors:
+            errors.append(
+                f"{model['code']}: unknown mechanism anchors {sorted(unknown_anchors)}"
+            )
+        anchored_domains = {
+            core_by_id[anchor]["primary_domain"]
+            for anchor in model["mechanism_core_nodes"]
+            if anchor in core_by_id
+        }
+        unanchored_sources = set(model["source_domains"]) - anchored_domains
+        if unanchored_sources:
+            errors.append(
+                f"{model['code']}: source domains without mechanism anchors "
+                f"{sorted(unanchored_sources)}"
+            )
+        if len(model["applicable_problems"]) < 2:
+            errors.append(f"{model['code']}: expected multiple applicable problems")
+        if not model["typical_cases"] or not model["counterexamples"]:
+            errors.append(f"{model['code']}: expected cases and counterexamples")
+        if len(model["common_misuses"]) < 2:
+            errors.append(f"{model['code']}: expected multiple common misuses")
+        if not model["related_models"]:
+            errors.append(f"{model['code']}: expected at least one model relation")
+    if thinking_covered_domains != domain_ids:
+        errors.append(
+            "thinking models must collectively touch all H2 domains; missing "
+            f"{sorted(domain_ids - thinking_covered_domains)}"
+        )
+
+    expected_universal_codes = {
+        f"UM{number:02d}" for number in range(1, len(universal_models) + 1)
+    }
+    actual_universal_codes = {model["code"] for model in universal_models}
+    if actual_universal_codes != expected_universal_codes:
+        errors.append("universal model codes must be contiguous from UM01")
+    universal_covered_domains: set[str] = set()
+    for model in universal_models:
+        validate_model_identity(model, required_universal)
+        manifestation_domains = {
+            item["domain"] for item in model["manifestations"]
+        }
+        universal_covered_domains.update(manifestation_domains)
+        if len(manifestation_domains) < 4:
+            errors.append(f"{model['code']}: expected manifestations in four H2 domains")
+        unknown_domains = manifestation_domains - domain_ids
+        if unknown_domains:
+            errors.append(
+                f"{model['code']}: unknown manifestation domains {sorted(unknown_domains)}"
+            )
+        superdomains = {
+            domain_parent[domain_id]
+            for domain_id in manifestation_domains
+            if domain_id in domain_parent
+        }
+        if len(superdomains) < 3:
+            errors.append(f"{model['code']}: expected manifestations across three H1s")
+        for manifestation in model["manifestations"]:
+            if not manifestation.get("expression"):
+                errors.append(f"{model['code']}: manifestation missing expression")
+            if not manifestation.get("core_nodes"):
+                errors.append(f"{model['code']}: manifestation missing core anchors")
+            for core_id in manifestation.get("core_nodes", []):
+                if core_id not in core_by_id:
+                    errors.append(f"{model['code']}: unknown core anchor {core_id}")
+                elif core_by_id[core_id]["primary_domain"] != manifestation["domain"]:
+                    errors.append(
+                        f"{model['code']}: core anchor {core_id} is outside "
+                        f"manifestation domain {manifestation['domain']}"
+                    )
+        if len(model["state_variables"]) < 3 or len(model["dynamics"]) < 3:
+            errors.append(f"{model['code']}: expected explicit state and dynamics")
+        if len(model["failure_modes"]) < 2:
+            errors.append(f"{model['code']}: expected multiple failure modes")
+        if not model["related_models"]:
+            errors.append(f"{model['code']}: expected at least one model relation")
+    if universal_covered_domains != domain_ids:
+        errors.append(
+            "universal models must collectively manifest in all H2 domains; missing "
+            f"{sorted(domain_ids - universal_covered_domains)}"
+        )
+
     prereq_state: dict[str, int] = {}
 
     def visit_prerequisite(node_id: str) -> None:
@@ -393,6 +584,7 @@ def main() -> int:
         *hierarchy_data["relationships"],
         *bridge_relation_data["relationships"],
         *core_relation_data["relationships"],
+        *model_relation_data["relationships"],
     ]
     for relation in all_relations:
         relation_ids.append(relation["id"])
@@ -491,6 +683,23 @@ def main() -> int:
     )
     if core_relation_data != expected_core_relations:
         errors.append("core-relationships.generated.yaml is stale; run generate_views.py")
+    thinking_path = ROOT / "03-thinking-models/thinking-models.generated.md"
+    expected_thinking = generate_thinking_model_view(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    if thinking_path.read_text(encoding="utf-8") != expected_thinking:
+        errors.append("thinking-models.generated.md is stale; run generate_views.py")
+    universal_path = ROOT / "04-universal-models/universal-models.generated.md"
+    expected_universal = generate_universal_model_view(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    if universal_path.read_text(encoding="utf-8") != expected_universal:
+        errors.append("universal-models.generated.md is stale; run generate_views.py")
+    expected_model_relations = generate_cross_model_relations(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    if model_relation_data != expected_model_relations:
+        errors.append("model-relationships.generated.yaml is stale; run generate_views.py")
 
     if errors:
         print("VALIDATION FAILED")
@@ -502,6 +711,8 @@ def main() -> int:
         "VALIDATION OK: "
         f"{len(scope_nodes)} scope nodes, {len(bridge_views)} bridge views, "
         f"{len(core_nodes)} core nodes across {len(published_domains)} domains, "
+        f"{len(thinking_models)} thinking models, "
+        f"{len(universal_models)} universal models, "
         f"{len(all_relations)} relations, "
         f"20 H2 domains, {len(subdomains)} H3 subdomains, "
         f"{crosswalk_rows} external crosswalk rows, generated views current, "

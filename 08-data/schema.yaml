@@ -194,6 +194,32 @@ required_core_node_fields:
   - connections
   - boundary_notes
 
+required_thinking_model_fields:
+  - code
+  - core_idea
+  - source_domains
+  - mechanism_core_nodes
+  - applicable_problems
+  - typical_cases
+  - counterexamples
+  - boundary_notes
+  - common_misuses
+  - related_models
+  - learning_priority
+  - epistemic_modes
+
+required_universal_model_fields:
+  - code
+  - core_structure
+  - state_variables
+  - dynamics
+  - manifestations
+  - failure_modes
+  - boundary_notes
+  - related_models
+  - learning_priority
+  - epistemic_modes
+
 required_relation_fields:
   - id
   - source

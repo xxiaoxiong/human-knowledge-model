@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则、一级知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk。阶段 3 已冻结全部 20 个领域的 257 个核心骨架节点和 1,271 条生成关系；思维模型库、问题映射与通用求解框架将在此基础上展开。
+当前版本已完成总体架构、Ontology、分类原则、一级知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk。阶段 3 已冻结全部 20 个领域的 257 个核心骨架节点；阶段 4 已冻结 41 个 Thinking Models、22 个 Universal Models 和 530 条模型关系。当前总图谱包含 2,323 条关系，问题映射与通用求解框架将在此基础上展开。
 
 ## 一眼看懂整个模型
 
@@ -156,7 +156,9 @@ human-knowledge-model/
 │  ├─ h3-structure-pressure-test.md
 │  ├─ phase-2b-audit.md
 │  ├─ core-skeleton-design.md
-│  └─ phase-3-progress-audit.md
+│  ├─ phase-3-progress-audit.md
+│  ├─ cross-disciplinary-model-design.md
+│  └─ phase-4-audit.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -167,16 +169,23 @@ human-knowledge-model/
 │  └─ external-crosswalk.generated.md
 ├─ 02-domain-skeletons/
 │  └─ template-domain-skeletons.generated.md
+├─ 03-thinking-models/
+│  └─ thinking-models.generated.md
+├─ 04-universal-models/
+│  └─ universal-models.generated.md
 ├─ 08-data/
 │  ├─ schema.yaml
 │  ├─ domains.yaml
 │  ├─ subdomains.yaml
 │  ├─ bridges.yaml
 │  ├─ core-nodes.yaml
+│  ├─ thinking-models.yaml
+│  ├─ universal-models.yaml
 │  ├─ relationships.yaml
 │  ├─ hierarchy-relationships.generated.yaml
 │  ├─ bridge-relationships.generated.yaml
 │  ├─ core-relationships.generated.yaml
+│  ├─ model-relationships.generated.yaml
 │  └─ crosswalks.yaml
 ├─ site/
 │  ├─ index.html
@@ -207,7 +216,7 @@ python scripts/validate_site.py
 | 2a. 一级地图 | **已完成 v0.1** | H1 超级领域、20 个 H2 一级领域、跨域种子关系 |
 | 2b. 二/三级地图 | **已完成 v0.2.0** | 248 个 H3、10 个桥接视图、80 条外部 crosswalk、冻结审计 |
 | 3. 领域骨架 | **已完成 v0.3.0** | 20 个领域共 257 个节点、1,271 条骨架关系；H3 全覆盖、前置无环、冻结审计 |
-| 4. 跨学科模型 | 待展开 | Thinking Models、Universal Models |
+| 4. 跨学科模型 | **已完成 v0.4.0** | 41 个 Thinking Models、22 个 Universal Models、530 条模型关系；全域覆盖、边界与反例审计 |
 | 5. 问题映射 | 待展开 | Problem → Knowledge Mapping |
 | 6. 学习体系 | 待展开 | 核心知识、优先级、前置关系、路线 |
 | 7. 求解框架 | 待展开 | 多维思考与通用问题求解框架 |
@@ -221,4 +230,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型）

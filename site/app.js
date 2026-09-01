@@ -6,6 +6,7 @@ const state = {
   lang: localStorage.getItem("hkm-language") || "zh",
   activeFilter: "all",
   activeSkeleton: "D03",
+  activeModelLayer: "thinking",
   networkNodes: [],
   hoveredDomain: null,
 };
@@ -16,6 +17,7 @@ const copy = {
     navMap: "知识地图",
     navBridges: "跨域桥梁",
     navSkeletons: "核心骨架",
+    navModels: "思维模型",
     navMethod: "如何使用",
     eyebrow: "一张描述人类如何认识世界的开放图谱",
     heroLine1: "知识不是一棵静止的树，",
@@ -37,6 +39,11 @@ const copy = {
     skeletonEyebrow: "10–30 个结构节点 / 领域",
     skeletonTitle: "先掌握骨架，再进入细节",
     skeletonIntro: "骨架不是词表。每个节点都有类型、问题、前置、适用边界和学习优先级；20 个领域现已全部覆盖。",
+    modelsEyebrow: "Thinking × Universal",
+    modelsTitle: "把跨学科结构变成可调用的思维工具",
+    modelsIntro: "Thinking Models 帮你思考，Universal Models 描述跨领域重复出现的世界结构；每个模型都有证据锚点、反例与使用边界。",
+    thinkingLayer: "Thinking Models · 思维操作",
+    universalLayer: "Universal Models · 世界结构",
     methodEyebrow: "从知道到行动",
     methodTitle: "怎样使用这张知识图谱",
     methodLead: "不从“我该学哪门课”开始，而从“我面对什么问题、需要做到什么”开始。模型帮助你定位对象、补齐前置、组合证据并检查边界。",
@@ -65,6 +72,7 @@ const copy = {
     coreUnit: "个骨架节点",
     bridgeUnit: "个跨域视图",
     relationUnit: "条关系",
+    modelUnit: "个跨学科模型",
     coreQuestion: "核心问题",
     boundary: "边界与限制",
     subdomains: "H3 子领域",
@@ -84,12 +92,28 @@ const copy = {
     detailSubdomain: "H3 子领域",
     detailBridge: "跨域桥接视图",
     detailCore: "核心骨架节点",
+    detailThinking: "思维模型",
+    detailUniversal: "通用世界模型",
+    coreIdea: "核心思想",
+    sourceDomains: "来源领域",
+    mechanismAnchors: "机制锚点",
+    applicableProblems: "适用问题",
+    typicalCases: "典型案例",
+    counterexamples: "反例",
+    commonMisuses: "常见误用",
+    modelRelations: "模型关系",
+    coreStructure: "核心结构",
+    stateVariables: "状态变量",
+    dynamics: "动力学",
+    manifestations: "跨域表现",
+    failureModes: "失效模式",
   },
   en: {
     brandTagline: "A map of how humanity knows",
     navMap: "Knowledge map",
     navBridges: "Bridge views",
     navSkeletons: "Core skeletons",
+    navModels: "Thinking models",
     navMethod: "How to use",
     eyebrow: "An open graph of how humanity understands the world",
     heroLine1: "Knowledge is not a static tree,",
@@ -111,6 +135,11 @@ const copy = {
     skeletonEyebrow: "10–30 structural nodes per domain",
     skeletonTitle: "Learn the skeleton before the details",
     skeletonIntro: "A skeleton is not a glossary. Every node has a type, question, prerequisite, boundary and learning priority; all twenty domains are now covered.",
+    modelsEyebrow: "Thinking × Universal",
+    modelsTitle: "Turn cross-disciplinary structures into callable tools",
+    modelsIntro: "Thinking Models guide reasoning; Universal Models describe structures repeated across domains. Every model includes evidence anchors, counterexamples and boundaries.",
+    thinkingLayer: "Thinking Models · Cognitive tools",
+    universalLayer: "Universal Models · World structures",
     methodEyebrow: "From knowing to acting",
     methodTitle: "How to use this knowledge graph",
     methodLead: "Start not with “which course should I take?” but with “what problem am I facing and what must I achieve?” The model helps locate objects, restore prerequisites, combine evidence and test boundaries.",
@@ -139,6 +168,7 @@ const copy = {
     coreUnit: "core nodes",
     bridgeUnit: "bridge views",
     relationUnit: "relations",
+    modelUnit: "cross-domain models",
     coreQuestion: "Core questions",
     boundary: "Boundaries and limits",
     subdomains: "H3 subdomains",
@@ -158,6 +188,21 @@ const copy = {
     detailSubdomain: "H3 subdomain",
     detailBridge: "Bridge view",
     detailCore: "Core skeleton node",
+    detailThinking: "Thinking model",
+    detailUniversal: "Universal model",
+    coreIdea: "Core idea",
+    sourceDomains: "Source domains",
+    mechanismAnchors: "Mechanism anchors",
+    applicableProblems: "Applicable problems",
+    typicalCases: "Typical cases",
+    counterexamples: "Counterexamples",
+    commonMisuses: "Common misuses",
+    modelRelations: "Model relations",
+    coreStructure: "Core structure",
+    stateVariables: "State variables",
+    dynamics: "Dynamics",
+    manifestations: "Cross-domain manifestations",
+    failureModes: "Failure modes",
   },
 };
 
@@ -181,6 +226,9 @@ function indexes() {
     subdomainById: new Map(model.subdomains.map((item) => [item.id, item])),
     bridgeById: new Map(model.bridges.map((item) => [item.id, item])),
     coreById: new Map(model.coreNodes.map((item) => [item.id, item])),
+    thinkingById: new Map(model.thinkingModels.map((item) => [item.id, item])),
+    universalById: new Map(model.universalModels.map((item) => [item.id, item])),
+    modelById: new Map([...model.thinkingModels, ...model.universalModels].map((item) => [item.id, item])),
   };
 }
 
@@ -224,6 +272,7 @@ function renderHero() {
     [counts.subdomains, t("h3Unit")],
     [counts.bridges, t("bridgeUnit")],
     [counts.coreNodes, t("coreUnit")],
+    [counts.thinkingModels + counts.universalModels, t("modelUnit")],
     [counts.relations, t("relationUnit")],
   ];
   $("#stat-ribbon").innerHTML = stats
@@ -359,6 +408,49 @@ function renderSkeletons() {
   bindOpenButtons($("#skeleton-panel"));
 }
 
+function renderModels() {
+  const { domainById } = indexes();
+  const layers = [
+    { id: "thinking", label: t("thinkingLayer"), models: state.model.thinkingModels },
+    { id: "universal", label: t("universalLayer"), models: state.model.universalModels },
+  ];
+  const tabs = $("#model-layer-tabs");
+  tabs.innerHTML = layers
+    .map(
+      (layer) => `<button type="button" role="tab" class="model-layer-tab" data-model-layer="${layer.id}" aria-selected="${state.activeModelLayer === layer.id}"><span>${escapeHTML(layer.label)}</span><strong>${layer.models.length}</strong></button>`,
+    )
+    .join("");
+  $$('[data-model-layer]', tabs).forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeModelLayer = button.dataset.modelLayer;
+      renderModels();
+    });
+  });
+
+  const active = layers.find((layer) => layer.id === state.activeModelLayer) || layers[0];
+  $("#model-grid").innerHTML = active.models
+    .slice()
+    .sort((a, b) => a.code.localeCompare(b.code))
+    .map((model) => {
+      const domainIds = active.id === "thinking"
+        ? model.source_domains
+        : model.manifestations.map((item) => item.domain);
+      const domains = [...new Set(domainIds)]
+        .map((id) => domainById.get(id))
+        .filter(Boolean)
+        .map((domain) => domain.code);
+      const summary = model.core_idea || model.core_structure;
+      return `<button type="button" class="model-card ${active.id}" data-open-kind="${active.id}" data-open-id="${escapeHTML(model.id)}">
+        <span class="model-card-top"><span>${escapeHTML(model.code)}</span><span class="priority-badge">${escapeHTML(model.learning_priority)}</span></span>
+        <strong>${escapeHTML(label(model))}</strong>
+        <p>${escapeHTML(summary)}</p>
+        <span class="domain-dots">${domains.map((code) => `<span class="domain-dot">${escapeHTML(code)}</span>`).join("")}</span>
+      </button>`;
+    })
+    .join("");
+  bindOpenButtons($("#model-grid"));
+}
+
 function bindOpenButtons(context = document) {
   $$('[data-open-kind]', context).forEach((button) => {
     button.addEventListener("click", () => openDetail(button.dataset.openKind, button.dataset.openId));
@@ -474,6 +566,59 @@ function openDetail(kind, id, updateHash = true) {
         .join("")}</div>`,
     );
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "thinking") {
+    node = idx.thinkingById.get(id);
+    if (!node) return;
+    color = "#de6f52";
+    kicker = `${t("detailThinking")} · ${node.code}`;
+    const domains = node.source_domains.map((domainId) => idx.domainById.get(domainId)).filter(Boolean);
+    const anchors = node.mechanism_core_nodes.map((coreId) => idx.coreById.get(coreId)).filter(Boolean);
+    const relatedModels = node.related_models.map((relation) => ({ ...relation, item: idx.modelById.get(relation.target) })).filter((entry) => entry.item);
+    html = detailHeader(node);
+    html += detailBlock(t("coreIdea"), `<p>${escapeHTML(node.core_idea)}</p>`);
+    html += detailBlock(
+      t("sourceDomains"),
+      `<div class="detail-list">${domains.map((item) => `<button type="button" data-open-kind="domain" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong></button>`).join("")}</div>`,
+    );
+    html += detailBlock(
+      t("mechanismAnchors"),
+      `<div class="detail-list">${anchors.map((item) => `<button type="button" data-open-kind="core" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("applicableProblems"), questionList(node.applicable_problems));
+    html += detailBlock(t("typicalCases"), questionList(node.typical_cases));
+    html += detailBlock(t("counterexamples"), questionList(node.counterexamples));
+    html += detailBlock(t("commonMisuses"), questionList(node.common_misuses));
+    html += detailBlock(
+      t("modelRelations"),
+      `<div class="detail-list">${relatedModels.map((entry) => `<button type="button" data-open-kind="${entry.item.code.startsWith("TM") ? "thinking" : "universal"}" data-open-id="${escapeHTML(entry.item.id)}"><strong>${escapeHTML(entry.type)} → ${escapeHTML(entry.item.code)} · ${escapeHTML(label(entry.item))}</strong><small>${escapeHTML(entry.scope)}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("learningPriority"), tagCloud([node.learning_priority, ...node.epistemic_modes]));
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "universal") {
+    node = idx.universalById.get(id);
+    if (!node) return;
+    color = "#2d7770";
+    kicker = `${t("detailUniversal")} · ${node.code}`;
+    const relatedModels = node.related_models.map((relation) => ({ ...relation, item: idx.modelById.get(relation.target) })).filter((entry) => entry.item);
+    html = detailHeader(node);
+    html += detailBlock(t("coreStructure"), `<p>${escapeHTML(node.core_structure)}</p>`);
+    html += detailBlock(t("stateVariables"), tagCloud(node.state_variables));
+    html += detailBlock(t("dynamics"), tagCloud(node.dynamics));
+    html += detailBlock(
+      t("manifestations"),
+      `<div class="manifestation-list">${node.manifestations.map((manifestation) => {
+        const domain = idx.domainById.get(manifestation.domain);
+        const anchors = manifestation.core_nodes.map((coreId) => idx.coreById.get(coreId)).filter(Boolean);
+        return `<article class="manifestation-item"><button type="button" data-open-kind="domain" data-open-id="${escapeHTML(domain.id)}"><strong>${escapeHTML(domain.code)} · ${escapeHTML(label(domain))}</strong></button><p>${escapeHTML(manifestation.expression)}</p><div class="tag-cloud">${anchors.map((anchor) => `<button type="button" class="tag" data-open-kind="core" data-open-id="${escapeHTML(anchor.id)}">${escapeHTML(anchor.code)} · ${escapeHTML(label(anchor))}</button>`).join("")}</div></article>`;
+      }).join("")}</div>`,
+    );
+    html += detailBlock(t("failureModes"), questionList(node.failure_modes));
+    html += detailBlock(
+      t("modelRelations"),
+      `<div class="detail-list">${relatedModels.map((entry) => `<button type="button" data-open-kind="${entry.item.code.startsWith("TM") ? "thinking" : "universal"}" data-open-id="${escapeHTML(entry.item.id)}"><strong>${escapeHTML(entry.type)} → ${escapeHTML(entry.item.code)} · ${escapeHTML(label(entry.item))}</strong><small>${escapeHTML(entry.scope)}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("learningPriority"), tagCloud([node.learning_priority, ...node.epistemic_modes]));
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   }
 
   $("#detail-kicker").textContent = kicker;
@@ -512,6 +657,8 @@ function buildSearchIndex() {
     ...state.model.subdomains.map((item) => ({ kind: "subdomain", item, type: t("detailSubdomain") })),
     ...state.model.bridges.map((item) => ({ kind: "bridge", item, type: t("detailBridge") })),
     ...state.model.coreNodes.map((item) => ({ kind: "core", item, type: t("detailCore") })),
+    ...state.model.thinkingModels.map((item) => ({ kind: "thinking", item, type: t("detailThinking") })),
+    ...state.model.universalModels.map((item) => ({ kind: "universal", item, type: t("detailUniversal") })),
   ].map((entry) => ({
     ...entry,
     haystack: [
@@ -524,6 +671,16 @@ function buildSearchIndex() {
       ...(entry.item.scope_includes || []),
       ...(entry.item.unifying_mechanisms || []),
       ...(entry.item.roles || []),
+      entry.item.core_idea,
+      entry.item.core_structure,
+      ...(entry.item.applicable_problems || []),
+      ...(entry.item.typical_cases || []),
+      ...(entry.item.counterexamples || []),
+      ...(entry.item.common_misuses || []),
+      ...(entry.item.state_variables || []),
+      ...(entry.item.dynamics || []),
+      ...(entry.item.failure_modes || []),
+      ...(entry.item.manifestations || []).map((item) => item.expression),
     ]
       .join(" ")
       .toLocaleLowerCase(),
@@ -725,6 +882,7 @@ function renderAllDynamic() {
   renderDomainGroups();
   renderBridges();
   renderSkeletons();
+  renderModels();
   drawNetwork();
 }
 

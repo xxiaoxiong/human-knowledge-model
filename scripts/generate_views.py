@@ -493,12 +493,265 @@ def generate_core_relations(
     }
 
 
+def generate_thinking_model_view(
+    domain_data: dict, core_data: dict, thinking_data: dict, universal_data: dict
+) -> str:
+    domains = {item["id"]: item for item in domain_data["domains"]}
+    core_nodes = {item["id"]: item for item in core_data["core_nodes"]}
+    all_models = {
+        item["id"]: item
+        for item in [
+            *thinking_data["thinking_models"],
+            *universal_data["universal_models"],
+        ]
+    }
+    models = sorted(thinking_data["thinking_models"], key=lambda item: item["code"])
+    lines = [
+        "# Thinking Models：核心思维模型库",
+        "",
+        "> 本文件由 `08-data/thinking-models.yaml` 生成；请修改数据源后运行 `python scripts/generate_views.py`。",
+        "",
+        f"共 {len(models)} 个思维模型。它们是可迁移的认知操作，不是脱离领域证据的口号。",
+        "",
+        "| 代码 | 模型 | 来源 H2 | 优先级 |",
+        "|---|---|---:|---:|",
+    ]
+    for model in models:
+        source_labels = "、".join(domains[item]["code"] for item in model["source_domains"])
+        lines.append(
+            f"| {model['code']} | {text_cell(model['labels']['zh'])}<br>{text_cell(model['labels']['en'])} | "
+            f"{source_labels} | {model['learning_priority']} |"
+        )
+    for model in models:
+        source_labels = "、".join(
+            f"{domains[item]['code']} {domains[item]['labels']['zh']}"
+            for item in model["source_domains"]
+        )
+        mechanisms = "；".join(
+            f"{core_nodes[item]['code']} {core_nodes[item]['labels']['zh']}"
+            for item in model["mechanism_core_nodes"]
+        )
+        related = "；".join(
+            f"`{item['type']}` → {all_models[item['target']]['code']} "
+            f"{all_models[item['target']]['labels']['zh']}（{item['scope']}）"
+            for item in model["related_models"]
+        )
+        lines.extend(
+            [
+                "",
+                f"## {model['code']} {model['labels']['zh']} / {model['labels']['en']}",
+                "",
+                model["definition"],
+                "",
+                f"**核心思想：** {model['core_idea']}",
+                "",
+                f"**来源领域：** {source_labels}",
+                "",
+                f"**机制锚点：** {mechanisms}",
+                "",
+                f"**适用问题：** {'；'.join(model['applicable_problems'])}",
+                "",
+                f"**典型案例：** {'；'.join(model['typical_cases'])}",
+                "",
+                f"**反例：** {'；'.join(model['counterexamples'])}",
+                "",
+                f"**使用边界：** {model['boundary_notes']}",
+                "",
+                f"**常见误用：** {'；'.join(model['common_misuses'])}",
+                "",
+                f"**模型关系：** {related}",
+            ]
+        )
+    return "\n".join(lines) + "\n"
+
+
+def generate_universal_model_view(
+    domain_data: dict, core_data: dict, thinking_data: dict, universal_data: dict
+) -> str:
+    domains = {item["id"]: item for item in domain_data["domains"]}
+    core_nodes = {item["id"]: item for item in core_data["core_nodes"]}
+    all_models = {
+        item["id"]: item
+        for item in [
+            *thinking_data["thinking_models"],
+            *universal_data["universal_models"],
+        ]
+    }
+    models = sorted(universal_data["universal_models"], key=lambda item: item["code"])
+    lines = [
+        "# Universal Models：通用世界模型",
+        "",
+        "> 本文件由 `08-data/universal-models.yaml` 生成；请修改数据源后运行 `python scripts/generate_views.py`。",
+        "",
+        f"共 {len(models)} 个通用模型。每个模型都在至少四个 H2、三个 H1 中给出领域锚点。",
+        "",
+        "| 代码 | 通用结构 | 跨域表现 | 优先级 |",
+        "|---|---|---:|---:|",
+    ]
+    for model in models:
+        lines.append(
+            f"| {model['code']} | {text_cell(model['labels']['zh'])}<br>{text_cell(model['labels']['en'])} | "
+            f"{len(model['manifestations'])} | {model['learning_priority']} |"
+        )
+    for model in models:
+        related = "；".join(
+            f"`{item['type']}` → {all_models[item['target']]['code']} "
+            f"{all_models[item['target']]['labels']['zh']}（{item['scope']}）"
+            for item in model["related_models"]
+        )
+        lines.extend(
+            [
+                "",
+                f"## {model['code']} {model['labels']['zh']} / {model['labels']['en']}",
+                "",
+                model["definition"],
+                "",
+                f"**核心结构：** {model['core_structure']}",
+                "",
+                f"**状态变量：** {'、'.join(model['state_variables'])}",
+                "",
+                f"**典型动力学：** {'、'.join(model['dynamics'])}",
+                "",
+                "| H2 | 领域表现 | 核心锚点 |",
+                "|---|---|---|",
+            ]
+        )
+        for manifestation in model["manifestations"]:
+            domain = domains[manifestation["domain"]]
+            anchors = "；".join(
+                f"{core_nodes[item]['code']} {core_nodes[item]['labels']['zh']}"
+                for item in manifestation["core_nodes"]
+            )
+            lines.append(
+                f"| {domain['code']} {domain['labels']['zh']} | "
+                f"{text_cell(manifestation['expression'])} | {anchors} |"
+            )
+        lines.extend(
+            [
+                "",
+                f"**失效模式：** {'；'.join(model['failure_modes'])}",
+                "",
+                f"**使用边界：** {model['boundary_notes']}",
+                "",
+                f"**模型关系：** {related}",
+            ]
+        )
+    return "\n".join(lines) + "\n"
+
+
+def generate_cross_model_relations(
+    domain_data: dict, core_data: dict, thinking_data: dict, universal_data: dict
+) -> dict:
+    domains = {item["id"]: item for item in domain_data["domains"]}
+    core_nodes = {item["id"]: item for item in core_data["core_nodes"]}
+    relationships: list[dict] = []
+    seen_ids: set[str] = set()
+
+    def add(relation: dict) -> None:
+        if relation["id"] not in seen_ids:
+            relationships.append(relation)
+            seen_ids.add(relation["id"])
+
+    for model in sorted(thinking_data["thinking_models"], key=lambda item: item["code"]):
+        prefix = model["code"].lower()
+        for domain_id in model["source_domains"]:
+            domain = domains[domain_id]
+            add(
+                {
+                    "id": f"hkm:relation:{prefix}-source-{domain['code'].lower()}",
+                    "source": model["id"],
+                    "type": "in-domain",
+                    "target": domain_id,
+                    "scope": "思维模型的历史或方法来源；不表示排他所有权",
+                    "confidence": "high",
+                    "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                }
+            )
+        for core_id in model["mechanism_core_nodes"]:
+            core = core_nodes[core_id]
+            add(
+                {
+                    "id": f"hkm:relation:{prefix}-derived-{core['code'].lower().replace('.', '-')}",
+                    "source": model["id"],
+                    "type": "derived-from",
+                    "target": core_id,
+                    "scope": "思维模型的领域机制锚点；不把领域理论压缩为启发式",
+                    "confidence": "high",
+                    "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                }
+            )
+        for index, relation in enumerate(model["related_models"], start=1):
+            add(
+                {
+                    "id": f"hkm:relation:{prefix}-model-link-{index:02d}",
+                    "source": model["id"],
+                    "type": relation["type"],
+                    "target": relation["target"],
+                    "scope": relation["scope"],
+                    "confidence": relation.get("confidence", "medium"),
+                    "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                }
+            )
+
+    for model in sorted(universal_data["universal_models"], key=lambda item: item["code"]):
+        prefix = model["code"].lower()
+        for manifestation in model["manifestations"]:
+            domain = domains[manifestation["domain"]]
+            add(
+                {
+                    "id": f"hkm:relation:{prefix}-applies-{domain['code'].lower()}",
+                    "source": model["id"],
+                    "type": "applies-to",
+                    "target": manifestation["domain"],
+                    "scope": manifestation["expression"],
+                    "confidence": "high",
+                    "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                }
+            )
+            for core_id in manifestation["core_nodes"]:
+                core = core_nodes[core_id]
+                add(
+                    {
+                        "id": f"hkm:relation:{prefix}-explains-{core['code'].lower().replace('.', '-')}",
+                        "source": model["id"],
+                        "type": "explains",
+                        "target": core_id,
+                        "scope": manifestation["expression"],
+                        "confidence": "medium",
+                        "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                    }
+                )
+        for index, relation in enumerate(model["related_models"], start=1):
+            add(
+                {
+                    "id": f"hkm:relation:{prefix}-model-link-{index:02d}",
+                    "source": model["id"],
+                    "type": relation["type"],
+                    "target": relation["target"],
+                    "scope": relation["scope"],
+                    "confidence": relation.get("confidence", "medium"),
+                    "provenance": ["hkm:source:editorial-synthesis-v0-4"],
+                }
+            )
+    return {
+        "schema_version": "0.1.0",
+        "model_version": thinking_data["model_version"],
+        "generated_from": [
+            "08-data/thinking-models.yaml",
+            "08-data/universal-models.yaml",
+        ],
+        "relationships": relationships,
+    }
+
+
 def main() -> None:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
     crosswalk_data = load_yaml("08-data/crosswalks.yaml")
     bridge_data = load_yaml("08-data/bridges.yaml")
     core_data = load_yaml("08-data/core-nodes.yaml")
+    thinking_data = load_yaml("08-data/thinking-models.yaml")
+    universal_data = load_yaml("08-data/universal-models.yaml")
     map_text = generate_map(domain_data, subdomain_data)
     (ROOT / "01-knowledge-map/level-2-3-map.generated.md").write_text(
         map_text, encoding="utf-8", newline="\n"
@@ -545,13 +798,40 @@ def main() -> None:
     (ROOT / "08-data/core-relationships.generated.yaml").write_text(
         core_yaml, encoding="utf-8", newline="\n"
     )
+    thinking_text = generate_thinking_model_view(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    thinking_path = ROOT / "03-thinking-models/thinking-models.generated.md"
+    thinking_path.parent.mkdir(parents=True, exist_ok=True)
+    thinking_path.write_text(thinking_text, encoding="utf-8", newline="\n")
+    universal_text = generate_universal_model_view(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    universal_path = ROOT / "04-universal-models/universal-models.generated.md"
+    universal_path.parent.mkdir(parents=True, exist_ok=True)
+    universal_path.write_text(universal_text, encoding="utf-8", newline="\n")
+    model_relations = generate_cross_model_relations(
+        domain_data, core_data, thinking_data, universal_data
+    )
+    model_yaml = yaml.safe_dump(
+        model_relations,
+        allow_unicode=True,
+        sort_keys=False,
+        width=120,
+    )
+    (ROOT / "08-data/model-relationships.generated.yaml").write_text(
+        model_yaml, encoding="utf-8", newline="\n"
+    )
     print(
         f"Generated H1-H3 map, {len(hierarchy['relationships'])} hierarchy relations, "
         f"{sum(len(s['categories']) for s in crosswalk_data['systems'])} crosswalk rows, "
         f"{len(bridge_data['bridge_views'])} bridge views, and "
         f"{len(bridge_relations['relationships'])} bridge relations; "
         f"{len(core_data['core_nodes'])} core nodes and "
-        f"{len(core_relations['relationships'])} core relations."
+        f"{len(core_relations['relationships'])} core relations; "
+        f"{len(thinking_data['thinking_models'])} thinking models, "
+        f"{len(universal_data['universal_models'])} universal models, and "
+        f"{len(model_relations['relationships'])} cross-model relations."
     )
 
 

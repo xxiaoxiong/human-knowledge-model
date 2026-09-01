@@ -1,0 +1,435 @@
+schema_version: 0.1.0
+model_version: 0.4.0
+description: 在多个 H1/H2 中重复出现的通用结构与动力学；每个表现均锚定领域核心节点。
+
+defaults: &universal_defaults
+  primary_type: model
+  status: active
+  version: 0.4.0
+
+universal_models:
+  - <<: *universal_defaults
+    id: hkm:universal-model:stocks-flows-conservation
+    code: UM01
+    labels: {zh: 存量、流量与守恒, en: "Stocks, Flows and Conservation"}
+    definition: 用边界内的积累量、流入、流出、转化和守恒或核算恒等式描述系统状态随时间的变化。
+    core_structure: 存量的变化等于净流量；转化改变形态但必须说明来源、去向和边界。
+    state_variables: [存量, 流入率, 流出率, 边界, 时间尺度]
+    dynamics: [累积, 耗散, 转移, 平衡, 延迟]
+    manifestations:
+      - {domain: hkm:domain:matter-energy-universe, expression: 质量能量和电荷通过边界与相互作用核算, core_nodes: [hkm:law-principle:conservation-laws-balances]}
+      - {domain: hkm:domain:life-evolution, expression: 代谢网络追踪物质能量与信息载体的转化, core_nodes: [hkm:framework:biochemical-information-metabolism]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 会计资产负债现金流与库存形成可对账状态, core_nodes: [hkm:framework:accounting-stocks-flows-control]}
+      - {domain: hkm:domain:earth-space-environment, expression: 流域储水降水蒸散径流和取水构成水量平衡, core_nodes: [hkm:framework:water-cycle-cryosphere-catchments]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 工程控制以状态估计和输入输出平衡管理过程, core_nodes: [hkm:framework:sensing-feedback-control-automation]}
+    failure_modes: [漏掉边界外流量, 把流量当存量, 用货币核算代替物理守恒]
+    boundary_notes: 并非所有关注量严格守恒；知识、信任和价值等社会变量需要操作定义，不能照搬物理守恒。
+    related_models: [{type: complements, target: hkm:universal-model:growth-decay-saturation, scope: 存量流量给出状态方程，增长衰减模型描述其典型轨迹}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, synthetic]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:feedback-regulation-control
+    code: UM02
+    labels: {zh: 反馈、调节与控制, en: "Feedback, Regulation and Control"}
+    definition: 输出经测量返回系统并改变后续输入，形成增强或平衡回路；目标、误差、控制动作、增益和延迟决定稳定性。
+    core_structure: 状态—观测—比较—行动—新状态形成闭环。
+    state_variables: [目标值, 观测值, 误差, 控制输入, 增益, 延迟]
+    dynamics: [稳定, 振荡, 超调, 失控, 适应]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 动力系统与控制理论刻画稳定性和可控性, core_nodes: [hkm:framework:dynamical-systems-control-complexity]}
+      - {domain: hkm:domain:life-evolution, expression: 细胞和机体以感知调节维持稳态, core_nodes: [hkm:framework:cellular-organization-homeostasis]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 传感器控制器与执行器调节工程过程, core_nodes: [hkm:framework:sensing-feedback-control-automation]}
+      - {domain: hkm:domain:mind-brain-behavior, expression: 行为通过结果反馈和预测误差被强化或修正, core_nodes: [hkm:framework:learning-memory-reinforcement-consolidation]}
+    failure_modes: [传感偏差, 延迟过长, 增益过高, 目标错误, 指标被操纵]
+    boundary_notes: 社会反馈含有会解释规则的主体，不能只按机械控制处理；控制目标还需要规范正当性。
+    related_models: [{type: derived-from, target: hkm:thinking-model:feedback-loop-reasoning, scope: 思维工具用于识别和设计该通用结构}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, design]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:networks-propagation-connectivity
+    code: UM03
+    labels: {zh: 网络、连接与传播, en: "Networks, Connectivity and Propagation"}
+    definition: 用节点、边、方向、权重、聚类、中心性和传播规则描述关系结构如何影响信息、物质、风险与行为扩散。
+    core_structure: 局部连接结构和传播规则共同决定全局可达性与级联。
+    state_variables: [节点状态, 边权, 路径, 聚类, 中心性, 传播率]
+    dynamics: [扩散, 级联, 同步, 分隔, 拥堵]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 食物网与生态互动网络传递能量和扰动, core_nodes: [hkm:framework:ecology-populations-networks-cycles]}
+      - {domain: hkm:domain:society-human-groups, expression: 社会关系网络塑造规范资源和信息扩散, core_nodes: [hkm:framework:groups-networks-collective-action]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 平台与市场连接参与者并形成网络效应, core_nodes: [hkm:framework:markets-competition-platforms]}
+      - {domain: hkm:domain:computing-information-ai, expression: 协议和路由在计算机网络中传输数据, core_nodes: [hkm:framework:computer-networks-internet-protocols]}
+    failure_modes: [把节点数当有效连接, 忽略方向和权重, 假定独立传播, 遗漏结构变化]
+    boundary_notes: 网络图不解释关系为何存在；传播还依赖内容、主体解释、容量和制度。
+    related_models: [{type: complements, target: hkm:thinking-model:network-effects, scope: 通用网络结构与网络价值启发式共同解释连接和采用}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, synthetic]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:variation-selection-adaptation
+    code: UM04
+    labels: {zh: 变异、选择与适应, en: "Variation, Selection and Adaptation"}
+    definition: 可复制或可延续单位产生差异，在环境和评价机制下差异保留率不同，使群体组成、策略或设计随时间改变。
+    core_structure: 变异生成—差异评价—保留复制—环境再作用。
+    state_variables: [变体分布, 复制率, 选择压力, 遗传或记忆, 环境]
+    dynamics: [适应, 漂变, 分化, 淘汰, 共演化]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 遗传变异经自然选择和漂变改变种群, core_nodes: [hkm:framework:evolution-selection-drift-speciation]}
+      - {domain: hkm:domain:mind-brain-behavior, expression: 行为变体经强化与记忆被保留, core_nodes: [hkm:framework:learning-memory-reinforcement-consolidation]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 企业能力和产品经竞争实验与组织学习变化, core_nodes: [hkm:framework:strategy-capabilities-innovation]}
+      - {domain: hkm:domain:computing-information-ai, expression: 搜索学习和进化算法生成并评价候选方案, core_nodes: [hkm:framework:ai-knowledge-reasoning-planning]}
+      - {domain: hkm:domain:agriculture-food-bioproduction, expression: 育种在遗传变异中选择并检验适应性性状, core_nodes: [hkm:framework:breeding-agricultural-biotechnology-genetic-resources]}
+    failure_modes: [忽略漂变与约束, 没有复制机制却强套选择, 把存活等同最优]
+    boundary_notes: 社会与技术中的有意设计、权力和规范不能完全还原为生物选择；适应始终相对具体环境。
+    related_models: [{type: complements, target: hkm:thinking-model:evolutionary-selection-thinking, scope: 思维工具把该结构用于跨域解释并检查类比边界}]
+    learning_priority: S
+    epistemic_modes: [causal, historical, comparative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:competition-cooperation-coordination
+    code: UM05
+    labels: {zh: 竞争、合作与协调, en: "Competition, Cooperation and Coordination"}
+    definition: 多主体围绕资源、目标和规则形成竞争、互惠、联盟、分工或公共品合作，其结果取决于互动结构、信息和执行。
+    core_structure: 主体—资源—收益—规则—预期构成相互依赖行动系统。
+    state_variables: [主体集合, 资源, 收益, 信息, 规则, 信任]
+    dynamics: [竞争, 协调, 互惠, 搭便车, 联盟]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 生物在生态位中竞争资源并形成共生合作, core_nodes: [hkm:framework:ecology-populations-networks-cycles]}
+      - {domain: hkm:domain:society-human-groups, expression: 群体规范网络与身份支持合作或冲突, core_nodes: [hkm:framework:groups-networks-collective-action]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 市场竞争和组织合作配置生产活动, core_nodes: [hkm:framework:markets-competition-platforms]}
+      - {domain: hkm:domain:security-conflict-resilience, expression: 冲突调解与和平建设改变敌对互动和制度安排, core_nodes: [hkm:framework:conflict-analysis-peacebuilding]}
+    failure_modes: [把非零和问题当零和, 忽略权力和强制, 假定一次互动, 将合作浪漫化]
+    boundary_notes: 生物竞争类比不能正当化社会暴力或不平等；合作质量需检查自愿、分配与退出权。
+    related_models: [{type: complements, target: hkm:thinking-model:cooperation-collective-action, scope: 思维模型提供公共品与治理分析工具}]
+    learning_priority: S
+    epistemic_modes: [causal, comparative, normative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:information-signals-representation
+    code: UM06
+    labels: {zh: 信息、信号与表征, en: "Information, Signals and Representation"}
+    definition: 状态差异经编码、信道和解码被保存、传输与解释；噪声、压缩、激励和共同语境决定信息能否支持行动。
+    core_structure: 来源状态—编码—信道—接收—解码—行动。
+    state_variables: [符号或信号, 信道容量, 噪声, 编码规则, 接收者模型]
+    dynamics: [传输, 压缩, 失真, 更新, 欺骗]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 信息论刻画编码压缩和可靠传输上限, core_nodes: [hkm:framework:information-coding-cryptographic-structure]}
+      - {domain: hkm:domain:life-evolution, expression: 遗传和细胞信号编码调控生物过程, core_nodes: [hkm:framework:heredity-genome-regulation-variation]}
+      - {domain: hkm:domain:language-communication-media, expression: 语言符号和语境组织意义与交流, core_nodes: [hkm:framework:linguistic-structure-grammar-meaning]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 市场信号与筛选应对信息不对称, core_nodes: [hkm:framework:information-asymmetry-signals]}
+      - {domain: hkm:domain:arts-literature-creation, expression: 艺术形式和媒介把感知经验编码为可解释作品, core_nodes: [hkm:framework:visual-arts-form-material-practice]}
+    failure_modes: [混淆数据信息意义, 忽略接收者语境, 把信号当真实状态, 重复计数相关证据]
+    boundary_notes: 数学信息量不自动等于语义、真理或价值；人类信号受策略和权力影响。
+    related_models: [{type: complements, target: hkm:thinking-model:map-territory-model-limits, scope: 表征携带信息也必然选择和遗漏现实}]
+    learning_priority: S
+    epistemic_modes: [formal, interpretive, causal]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:constraints-bottlenecks-feasibility
+    code: UM07
+    labels: {zh: 约束、瓶颈与可行性, en: "Constraints, Bottlenecks and Feasibility"}
+    definition: 系统可达状态受物理、资源、能力、规则和接口约束；其中最紧约束在给定目标与时间窗内限制吞吐或选择空间。
+    core_structure: 可行集由多重约束交集形成，活动约束决定局部边界。
+    state_variables: [资源上限, 能力, 需求, 约束裕量, 吞吐]
+    dynamics: [饱和, 排队, 转移瓶颈, 扩容, 绕行]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 优化问题在约束可行域中寻找解, core_nodes: [hkm:framework:optimization-operations-games]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 运营瓶颈限制流程吞吐并积累库存, core_nodes: [hkm:framework:operations-flow-bottlenecks-quality]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 需求物理和安全约束界定设计权衡空间, core_nodes: [hkm:framework:engineering-constraints-trade-space]}
+      - {domain: hkm:domain:computing-information-ai, expression: 计算复杂度和硬件容量限制可执行算法, core_nodes: [hkm:framework:algorithms-computability-complexity]}
+    failure_modes: [目标不清导致错瓶颈, 局部优化转移负担, 把权利边界当效率障碍]
+    boundary_notes: 约束会随目标、尺度和技术改变；不是所有约束都应消除，安全和伦理约束具有规范地位。
+    related_models: [{type: derived-from, target: hkm:thinking-model:constraint-bottleneck-theory, scope: 思维模型提供识别和管理活动约束的操作步骤}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, design]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:resource-allocation-tradeoffs
+    code: UM08
+    labels: {zh: 资源配置、权衡与机会成本, en: "Resource Allocation, Trade-Offs and Opportunity Cost"}
+    definition: 有限资源在相互竞争的目标、主体和时间之间分配，选择通过机会成本、边际收益和分配规则产生结果。
+    core_structure: 资源预算—可行选项—目标函数—分配规则—承担者。
+    state_variables: [资源, 需求, 边际价值, 机会成本, 分配权重]
+    dynamics: [配置, 替代, 积累, 竞争, 再分配]
+    manifestations:
+      - {domain: hkm:domain:economy-finance-organizations, expression: 价格预算与制度在用途间配置稀缺资源, core_nodes: [hkm:concept:scarcity-opportunity-cost-tradeoffs]}
+      - {domain: hkm:domain:health-medicine-wellbeing, expression: 卫生系统在服务覆盖质量成本与公平间取舍, core_nodes: [hkm:framework:health-systems-policy-economics-quality-equity]}
+      - {domain: hkm:domain:education-learning-development, expression: 学习者和系统配置时间教师与注意力, core_nodes: [hkm:framework:education-leadership-policy-systems]}
+      - {domain: hkm:domain:everyday-life-practical-agency, expression: 个人在时间注意财务和照护责任间分配能力, core_nodes: [hkm:skill:time-attention-habits-self-management]}
+    failure_modes: [只优化总量不看分配, 遗漏不可货币化价值, 使用虚假替代, 沉没成本]
+    boundary_notes: 优化不能决定价值权重和权利底线；配置过程本身也需合法、公平和可申诉。
+    related_models: [{type: complements, target: hkm:thinking-model:tradeoff-frontier, scope: 思维模型帮助识别非支配方案并显式讨论价值权重}]
+    learning_priority: S
+    epistemic_modes: [formal, normative, design]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:energy-work-efficiency
+    code: UM09
+    labels: {zh: 能量、功与效率, en: "Energy, Work and Efficiency"}
+    definition: 系统通过能量输入完成转化和维持结构，效率描述有用输出相对投入，但总影响还受规模、品质、损失和反弹影响。
+    core_structure: 能量来源—转化装置—有用功—损失—废热与环境。
+    state_variables: [能量输入, 有用输出, 损失, 功率, 品质, 时间]
+    dynamics: [转化, 耗散, 储存, 传输, 反弹]
+    manifestations:
+      - {domain: hkm:domain:matter-energy-universe, expression: 热力学和动力学约束能量转化与可用功, core_nodes: [hkm:framework:energy-entropy-free-energy]}
+      - {domain: hkm:domain:life-evolution, expression: 代谢把化学能转为维持生长和行动, core_nodes: [hkm:framework:biochemical-information-metabolism]}
+      - {domain: hkm:domain:earth-space-environment, expression: 地球系统能量收支驱动气候和环流, core_nodes: [hkm:framework:atmosphere-weather-climate-system]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 工程系统在功率效率散热和可靠性间权衡, core_nodes: [hkm:framework:engineering-constraints-trade-space]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 能源投入价格与技术效率影响生产率和产业结构, core_nodes: [hkm:framework:growth-productivity-innovation-distribution]}
+    failure_modes: [混淆能量与功率, 只看设备效率不看系统边界, 忽略能量品质和反弹]
+    boundary_notes: 社会中的精力是隐喻而非焦耳量；效率提升不自动降低总资源使用或改善公平。
+    related_models: [{type: complements, target: hkm:universal-model:entropy-dissipation-maintenance, scope: 能量转化不可避免伴随耗散，维持秩序需要持续输入}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, empirical]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:entropy-dissipation-maintenance
+    code: UM10
+    labels: {zh: 熵、耗散与维护, en: "Entropy, Dissipation and Maintenance"}
+    definition: 有序结构和功能通过开放边界中的能量、物质或信息流维持；缺少维护时误差、磨损和无序倾向累积。
+    core_structure: 开放系统输入资源并排出耗散，以修复偏差和维持结构。
+    state_variables: [结构完整度, 耗散率, 维护投入, 缺陷积累, 边界通量]
+    dynamics: [磨损, 退化, 修复, 更新, 崩解]
+    manifestations:
+      - {domain: hkm:domain:matter-energy-universe, expression: 热过程产生熵并限制可逆转化, core_nodes: [hkm:framework:energy-entropy-free-energy]}
+      - {domain: hkm:domain:life-evolution, expression: 生物通过代谢修复维持远离平衡状态, core_nodes: [hkm:framework:cellular-organization-homeostasis]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 设备与基础设施需预防维护和更换退化部件, core_nodes: [hkm:practice:operations-maintenance-repair]}
+      - {domain: hkm:domain:everyday-life-practical-agency, expression: 住所工具和个人系统需要周期检查与恢复, core_nodes: [hkm:skill:household-systems-maintenance-repair]}
+    failure_modes: [把社会无序等同热力学熵, 忽略维护劳动, 推断所有系统必然同速衰退]
+    boundary_notes: 只有明确状态空间和概率时才可量化熵；组织和文化维护需要独立社会机制解释。
+    related_models: [{type: complements, target: hkm:thinking-model:entropy-information-order, scope: 思维模型区分物理熵、信息熵和维护隐喻}]
+    learning_priority: A
+    epistemic_modes: [causal, formal, synthetic]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:growth-decay-saturation
+    code: UM11
+    labels: {zh: 增长、衰减与饱和, en: "Growth, Decay and Saturation"}
+    definition: 状态量可按线性、指数、逻辑斯蒂、扩散或衰减轨迹变化，驱动、承载限制与替代决定阶段转换。
+    core_structure: 增长或衰减率依赖当前状态、资源和反馈。
+    state_variables: [规模, 增长率, 承载量, 留存率, 替代率]
+    dynamics: [指数增长, 饱和, 衰减, 更新, S形扩散]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 微分方程和动力系统表达连续变化轨迹, core_nodes: [hkm:framework:analysis-calculus-differential-equations]}
+      - {domain: hkm:domain:life-evolution, expression: 种群增长受资源承载和密度反馈限制, core_nodes: [hkm:framework:ecology-populations-networks-cycles]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 资本技术和生产率累积同时受制度与分配约束, core_nodes: [hkm:framework:growth-productivity-innovation-distribution]}
+      - {domain: hkm:domain:language-communication-media, expression: 媒介内容和创新经社会网络扩散后趋于饱和, core_nodes: [hkm:framework:media-platform-public-sphere-attention]}
+    failure_modes: [无限外推增长率, 忽略基数和留存, 把饱和误判永久停滞]
+    boundary_notes: 曲线相似不证明机制相同；结构变化、测量边界和分配结果必须另行分析。
+    related_models: [{type: complements, target: hkm:thinking-model:growth-scale-saturation, scope: 思维模型提供曲线选择和外推边界检查}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, historical]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:cycles-oscillation-delays
+    code: UM12
+    labels: {zh: 周期、振荡与延迟, en: "Cycles, Oscillation and Delays"}
+    definition: 状态在恢复力、增强反馈、外部周期、资源再生和响应延迟作用下反复变化，可能形成稳定周期、准周期或不规则波动。
+    core_structure: 状态偏离—滞后响应—过冲—反向调整。
+    state_variables: [相位, 周期, 振幅, 恢复力, 延迟]
+    dynamics: [振荡, 共振, 季节性, 过冲, 阻尼]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 动力系统刻画极限环稳定性与混沌, core_nodes: [hkm:framework:dynamical-systems-control-complexity]}
+      - {domain: hkm:domain:earth-space-environment, expression: 气候海洋与水文包含多尺度周期和延迟, core_nodes: [hkm:framework:ocean-coastal-circulation-change]}
+      - {domain: hkm:domain:life-evolution, expression: 捕食资源和季节驱动种群周期, core_nodes: [hkm:framework:ecology-populations-networks-cycles]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 信贷库存投资和预期可能形成宏观波动, core_nodes: [hkm:model:money-credit-inflation-macrodynamics]}
+    failure_modes: [从少数周期预测固定重复, 混淆外部季节性与内生振荡, 忽略结构断点]
+    boundary_notes: 周期长度和相位常不稳定；观察重复不等于存在单一时钟或可精确择时。
+    related_models: [{type: complements, target: hkm:universal-model:feedback-regulation-control, scope: 延迟和反馈符号决定系统是否收敛、过冲或振荡}]
+    learning_priority: A
+    epistemic_modes: [formal, causal, historical]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:nonlinear-thresholds-regime-change
+    code: UM13
+    labels: {zh: 非线性、阈值与状态转换, en: "Nonlinearity, Thresholds and Regime Change"}
+    definition: 输入与输出并非固定比例，交互、饱和和正反馈可在临界区放大小变化并使系统跃迁到另一稳定状态。
+    core_structure: 非线性响应面包含临界边界、吸引域和可能的滞后。
+    state_variables: [控制参数, 状态变量, 阈值, 吸引域, 恢复边界]
+    dynamics: [突变, 滞后, 临界减速, 级联, 状态锁定]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 非线性动力系统研究分岔和稳定态, core_nodes: [hkm:framework:dynamical-systems-control-complexity]}
+      - {domain: hkm:domain:earth-space-environment, expression: 气候生态系统可能跨过反馈驱动的临界边界, core_nodes: [hkm:framework:coupled-human-earth-sustainability]}
+      - {domain: hkm:domain:life-evolution, expression: 基因调控与生态互动产生开关和多稳态, core_nodes: [hkm:framework:systems-synthetic-biology-network-design]}
+      - {domain: hkm:domain:security-conflict-resilience, expression: 风险积累和级联可能越过关键服务失效阈值, core_nodes: [hkm:framework:critical-infrastructure-civil-protection]}
+    failure_modes: [事后命名临界点, 伪精确阈值, 忽略噪声和空间异质性]
+    boundary_notes: 临界点通常只能给风险区间；不确定性高时应结合安全余量、监测和可逆行动。
+    related_models: [{type: complements, target: hkm:thinking-model:critical-threshold-tipping, scope: 思维工具把非线性结构转化为预警和决策问题}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, empirical]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:emergence-multiscale-organization
+    code: UM14
+    labels: {zh: 涌现、多尺度与组织, en: "Emergence, Multiscale Structure and Organization"}
+    definition: 局部规则和互动在更高尺度形成稳定模式、功能或制度，而宏观结构又改变局部行为的约束和机会。
+    core_structure: 微观互动—聚合模式—宏观变量—向下约束。
+    state_variables: [局部状态, 互动规则, 聚合量, 尺度, 宏观约束]
+    dynamics: [自组织, 相变, 分工, 制度化, 向下约束]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 复杂系统以局部规则产生宏观模式, core_nodes: [hkm:framework:dynamical-systems-control-complexity]}
+      - {domain: hkm:domain:life-evolution, expression: 细胞组织和生态群落形成高层功能, core_nodes: [hkm:framework:systems-synthetic-biology-network-design]}
+      - {domain: hkm:domain:mind-brain-behavior, expression: 神经回路互动支持知觉行动和认知功能, core_nodes: [hkm:framework:neural-coding-circuits-plasticity]}
+      - {domain: hkm:domain:society-human-groups, expression: 互动网络形成规范组织与集体行为, core_nodes: [hkm:framework:groups-networks-collective-action]}
+    failure_modes: [用涌现替代机制, 任意选择尺度, 忽略权力和有意设计]
+    boundary_notes: 需要定义可测宏观变量和跨尺度映射；高层解释具有自主性但不能脱离底层证据。
+    related_models: [{type: derived-from, target: hkm:thinking-model:emergence-multilevel-explanation, scope: 思维模型提供跨层解释和反还原审查}]
+    learning_priority: A
+    epistemic_modes: [causal, synthetic, comparative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:hierarchy-modularity-interfaces
+    code: UM15
+    labels: {zh: 层级、模块化与接口, en: "Hierarchy, Modularity and Interfaces"}
+    definition: 复杂系统通过部分—整体层级、高内聚模块和相对稳定接口压缩协调需求，同时保留局部替换、专业化与故障隔离。
+    core_structure: 模块内部强依赖，模块之间通过有限接口协同，多个模块嵌套成层级。
+    state_variables: [模块, 接口, 耦合强度, 层级, 依赖]
+    dynamics: [组合, 替换, 分化, 集成, 级联隔离]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 细胞组织器官与调控模块形成生命层级, core_nodes: [hkm:framework:comparative-anatomy-physiology-homeostasis]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 组织单元与权责接口协调专业化活动, core_nodes: [hkm:framework:organization-authority-governance]}
+      - {domain: hkm:domain:computing-information-ai, expression: 软件模块和协议接口支持独立演化与组合, core_nodes: [hkm:framework:software-engineering-programming-languages-verification]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 系统架构分配功能并管理跨子系统接口, core_nodes: [hkm:framework:systems-architecture-interfaces]}
+    failure_modes: [模块边界错位, 接口泄漏, 过度层级, 局部优化]
+    boundary_notes: 高耦合过程无法任意模块化；接口稳定性、端到端责任和跨层反馈仍需治理。
+    related_models: [{type: complements, target: hkm:thinking-model:modularity-loose-coupling, scope: 思维模型提供架构设计和边界选择操作}]
+    learning_priority: S
+    epistemic_modes: [design, causal, synthetic]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:replication-transmission-memory
+    code: UM16
+    labels: {zh: 复制、传播与记忆, en: "Replication, Transmission and Memory"}
+    definition: 模式通过复制、教学、编码、制度或物质载体跨时间延续，保真度、变异、选择和检索决定其稳定与演化。
+    core_structure: 生成模式—编码载体—传输或复制—存储—检索重建。
+    state_variables: [模式, 载体, 保真度, 变异率, 存储时长, 检索概率]
+    dynamics: [复制, 遗忘, 突变, 扩散, 再巩固]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 遗传信息经复制变异和调控跨代传递, core_nodes: [hkm:framework:heredity-genome-regulation-variation]}
+      - {domain: hkm:domain:mind-brain-behavior, expression: 记忆编码巩固检索并在再巩固中改变, core_nodes: [hkm:framework:learning-memory-reinforcement-consolidation]}
+      - {domain: hkm:domain:history-archaeology-civilization, expression: 档案物质文化与记忆实践保存并重构过去, core_nodes: [hkm:framework:memory-heritage-public-history]}
+      - {domain: hkm:domain:computing-information-ai, expression: 数据编码存储复制备份和检索支持数字记忆, core_nodes: [hkm:framework:data-databases-information-retrieval]}
+      - {domain: hkm:domain:religion-meaning-worldviews, expression: 经文诠释和接受传统跨代保存并重构宗教记忆, core_nodes: [hkm:method:scripture-hermeneutics-reception]}
+    failure_modes: [假定复制完全, 忽略载体和检索重构, 把传播量当真实性]
+    boundary_notes: 生物遗传、个人记忆和文化传播的机制不同；模因类比不能替代具体制度与权力分析。
+    related_models: [{type: complements, target: hkm:universal-model:variation-selection-adaptation, scope: 复制保留模式，变异和选择改变模式分布}]
+    learning_priority: A
+    epistemic_modes: [causal, historical, synthetic]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:risk-uncertainty-optionality
+    code: UM17
+    labels: {zh: 风险、不确定性与可选性, en: "Risk, Uncertainty and Optionality"}
+    definition: 结果分布、模型未知、不可逆后果和未来学习共同决定行动价值；缓冲、分散、试验、保险和退出选项改变暴露形态。
+    core_structure: 可能结果—概率或未知—暴露—后果—响应选项。
+    state_variables: [暴露, 结果分布, 尾部损失, 可逆性, 信息价值, 选项]
+    dynamics: [更新, 分散, 对冲, 升级, 退出]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 概率分布和随机过程表示已建模不确定性, core_nodes: [hkm:framework:probability-stochastic-processes]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 金融和投资在时间价值风险与流动性间选择, core_nodes: [hkm:framework:time-value-risk-decision-under-uncertainty]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 可靠性和安全分析控制失效概率与后果, core_nodes: [hkm:framework:reliability-failure-risk]}
+      - {domain: hkm:domain:security-conflict-resilience, expression: 风险治理连接危险暴露脆弱性和可接受性, core_nodes: [hkm:framework:risk-safety-science-governance]}
+    failure_modes: [只看平均结果, 把未知赋零概率, 忽略相关尾部, 假定随时可退出]
+    boundary_notes: 可量化风险与深度不确定性不同；权利和不可逆伤害不能只用期望值处理。
+    related_models: [{type: complements, target: hkm:thinking-model:optionality-real-options, scope: 思维模型把未来信息和可逆选择转化为决策价值}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, normative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:optimization-search-learning
+    code: UM18
+    labels: {zh: 优化、搜索与学习, en: "Optimization, Search and Learning"}
+    definition: 在状态或方案空间中生成候选、依据目标和约束评价、选择行动并利用反馈更新策略，平衡探索与利用。
+    core_structure: 方案空间—评价规则—搜索策略—反馈—更新。
+    state_variables: [候选方案, 目标, 约束, 评价, 搜索预算, 知识状态]
+    dynamics: [探索, 利用, 收敛, 局部最优, 在线学习]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 优化理论寻找满足约束的目标最优解, core_nodes: [hkm:framework:optimization-operations-games]}
+      - {domain: hkm:domain:life-evolution, expression: 选择过程在变异空间中积累适应, core_nodes: [hkm:framework:evolution-selection-drift-speciation]}
+      - {domain: hkm:domain:mind-brain-behavior, expression: 决策和强化学习在探索与利用间更新策略, core_nodes: [hkm:framework:reasoning-judgment-decision]}
+      - {domain: hkm:domain:computing-information-ai, expression: 搜索规划和机器学习从数据与反馈改进性能, core_nodes: [hkm:framework:ai-knowledge-reasoning-planning]}
+    failure_modes: [目标错设, 局部最优, 代理指标博弈, 训练分布外失效]
+    boundary_notes: 优化只在定义的目标和可行集内有效；价值选择、公平和安全不能由算法自动决定。
+    related_models: [{type: complements, target: hkm:thinking-model:experiment-iteration-learning, scope: 实验产生信息并更新搜索策略，优化决定下一候选}]
+    learning_priority: S
+    epistemic_modes: [formal, causal, design]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:path-dependence-lock-in
+    code: UM19
+    labels: {zh: 路径依赖、递增收益与锁定, en: "Path Dependence, Increasing Returns and Lock-In"}
+    definition: 早期顺序和偶然通过学习、协调、互补资产、规范与切换成本被放大，使后续状态和可行转型依赖历史路径。
+    core_structure: 初始差异—正反馈—互补投资—切换成本—锁定。
+    state_variables: [采用份额, 学习积累, 互补资产, 切换成本, 制度承诺]
+    dynamics: [递增收益, 锁定, 分岔, 迁移, 解锁]
+    manifestations:
+      - {domain: hkm:domain:history-archaeology-civilization, expression: 制度和技术在历史事件与延续中形成路径, core_nodes: [hkm:framework:science-technology-medicine-environment-history]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 平台标准和产业能力由采用与互补投资锁定, core_nodes: [hkm:framework:markets-competition-platforms]}
+      - {domain: hkm:domain:computing-information-ai, expression: 遗留系统数据格式和协议形成迁移成本, core_nodes: [hkm:framework:software-engineering-programming-languages-verification]}
+      - {domain: hkm:domain:politics-governance-law, expression: 法律制度与行政能力受先前妥协和组织惯性影响, core_nodes: [hkm:framework:governance-regulation-institutional-design]}
+      - {domain: hkm:domain:everyday-life-practical-agency, expression: 习惯环境与累积承诺改变个人行为的切换成本, core_nodes: [hkm:skill:time-attention-habits-self-management]}
+    failure_modes: [把持续存在自动归因历史, 宿命化锁定, 忽略当前收益与权力]
+    boundary_notes: 路径依赖必须指出具体反馈和反事实；强冲击、桥接标准和补偿政策可改变路径。
+    related_models: [{type: derived-from, target: hkm:thinking-model:path-dependence-lock-in, scope: 思维模型提供历史顺序和切换成本的诊断框架}]
+    learning_priority: A
+    epistemic_modes: [historical, causal, comparative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:resilience-redundancy-recovery
+    code: UM20
+    labels: {zh: 韧性、冗余与恢复, en: "Resilience, Redundancy and Recovery"}
+    definition: 系统以缓冲、替代路径、模块隔离、适应和恢复能力吸收扰动并维持关键功能，同时从失效中学习和重构。
+    core_structure: 关键功能—扰动—吸收—替代—恢复—学习。
+    state_variables: [服务水平, 缓冲, 备用能力, 恢复时间, 适应能力]
+    dynamics: [吸收, 降级, 切换, 恢复, 转型]
+    manifestations:
+      - {domain: hkm:domain:life-evolution, expression: 生物稳态修复和适应维持功能, core_nodes: [hkm:framework:comparative-anatomy-physiology-homeostasis]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 供应链以库存多源与替代流程应对中断, core_nodes: [hkm:framework:operations-flow-bottlenecks-quality]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 可靠性故障隔离和维护支持安全恢复, core_nodes: [hkm:framework:reliability-failure-risk]}
+      - {domain: hkm:domain:security-conflict-resilience, expression: 连续性计划和关键设施恢复维持最低服务, core_nodes: [hkm:framework:resilience-continuity-recovery]}
+    failure_modes: [同源冗余, 恢复方案未演练, 把适应责任转嫁弱者, 只恢复旧脆弱状态]
+    boundary_notes: 韧性不是无伤；必须定义为谁维持什么功能，并审查恢复资源和风险分配。
+    related_models: [{type: complements, target: hkm:thinking-model:robustness-antifragility, scope: 思维模型区分抵抗恢复和通过受控压力改善}]
+    learning_priority: S
+    epistemic_modes: [causal, design, normative]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:measurement-observation-inference
+    code: UM21
+    labels: {zh: 测量、观察与推断, en: "Measurement, Observation and Inference"}
+    definition: 不可直接获得的状态通过观测过程、指标、仪器、采样和模型被推断；误差、选择、反应性和解释决定证据质量。
+    core_structure: 目标构念—操作化—观测过程—数据—推断—行动。
+    state_variables: [目标状态, 指标, 测量误差, 样本, 模型, 置信度]
+    dynamics: [采样, 校准, 更新, 偏差, 测量反应]
+    manifestations:
+      - {domain: hkm:domain:mathematics-statistics-formal-systems, expression: 统计推断从样本和测量误差估计总体, core_nodes: [hkm:framework:statistical-inference-measurement]}
+      - {domain: hkm:domain:matter-energy-universe, expression: 物理实验以仪器校准和不确定度连接理论量与观测, core_nodes: [hkm:method:physical-experiment-measurement-uncertainty]}
+      - {domain: hkm:domain:society-human-groups, expression: 社会研究以调查民族志和混合方法构造证据, core_nodes: [hkm:framework:social-theory-mixed-method-inference]}
+      - {domain: hkm:domain:education-learning-development, expression: 教育评价以任务评分和效度论证推断学习, core_nodes: [hkm:method:assessment-measurement-evaluation]}
+      - {domain: hkm:domain:metaknowledge-philosophy-inquiry, expression: 认识论审查证据如何支持可错且可辩护的判断, core_nodes: [hkm:framework:knowledge-justification-truth]}
+    failure_modes: [指标替代构念, 测量改变行为, 样本选择, 伪精度]
+    boundary_notes: 更多数据不能修复错误构念和偏差过程；高风险决策须使用多源证据并报告不确定性。
+    related_models: [{type: complements, target: hkm:thinking-model:map-territory-model-limits, scope: 测量是现实的目的性表征而非直接复制}]
+    learning_priority: S
+    epistemic_modes: [empirical, formal, interpretive]
+
+  - <<: *universal_defaults
+    id: hkm:universal-model:agency-incentives-governance
+    code: UM22
+    labels: {zh: 主体、激励与治理, en: "Agency, Incentives and Governance"}
+    definition: 具有目标、信息和有限能力的主体在规则、权力、规范与问责中行动，并通过反应改变制度和其他主体的选择环境。
+    core_structure: 主体—目标—信息—行动集—规则—后果—问责。
+    state_variables: [主体, 偏好与价值, 信息, 权力, 规则, 执行能力]
+    dynamics: [策略响应, 协商, 委托, 规避, 制度变迁]
+    manifestations:
+      - {domain: hkm:domain:mind-brain-behavior, expression: 个体以有限认知情绪和社会规范作判断, core_nodes: [hkm:framework:reasoning-judgment-decision]}
+      - {domain: hkm:domain:society-human-groups, expression: 组织网络和文化塑造集体行动与身份, core_nodes: [hkm:framework:groups-networks-collective-action]}
+      - {domain: hkm:domain:economy-finance-organizations, expression: 激励信息和契约组织市场与企业行为, core_nodes: [hkm:framework:incentives-strategy-mechanism-design]}
+      - {domain: hkm:domain:politics-governance-law, expression: 法律权威监管和多层制度约束公共行动, core_nodes: [hkm:framework:governance-regulation-institutional-design]}
+      - {domain: hkm:domain:engineering-technology-design, expression: 工程需求在利益相关者目标权力与责任中形成, core_nodes: [hkm:framework:needs-requirements-stakeholders]}
+    failure_modes: [假定完全理性, 忽略权力与合法性, 只调奖励不改信息和能力, 制度目的与行为脱节]
+    boundary_notes: 主体模型不是生物或物理系统的通用解释；人具有权利、身份和反思能力，不能只作为可操纵变量。
+    related_models: [{type: complements, target: hkm:thinking-model:incentives-mechanism-design, scope: 思维模型把主体反应转化为规则设计和治理检验}]
+    learning_priority: S
+    epistemic_modes: [causal, interpretive, normative]

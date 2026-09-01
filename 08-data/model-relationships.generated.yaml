@@ -1,0 +1,4246 @@
+schema_version: 0.1.0
+model_version: 0.4.0
+generated_from:
+- 08-data/thinking-models.yaml
+- 08-data/universal-models.yaml
+relationships:
+- id: hkm:relation:tm01-source-d01
+  source: hkm:thinking-model:first-principles-decomposition
+  type: in-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-source-d02
+  source: hkm:thinking-model:first-principles-decomposition
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-source-d13
+  source: hkm:thinking-model:first-principles-decomposition
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-derived-k01-02
+  source: hkm:thinking-model:first-principles-decomposition
+  type: derived-from
+  target: hkm:framework:ontology-identity-modality
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-derived-k02-01
+  source: hkm:thinking-model:first-principles-decomposition
+  type: derived-from
+  target: hkm:framework:formal-objects-axioms-types-categories
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-derived-k13-02
+  source: hkm:thinking-model:first-principles-decomposition
+  type: derived-from
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm01-model-link-01
+  source: hkm:thinking-model:first-principles-decomposition
+  type: complements
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: 分解识别基本约束，瓶颈模型识别当前最限制结果的约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-source-d01
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: in-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-source-d02
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-source-d10
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-source-d14
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-derived-k01-06
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: derived-from
+  target: hkm:framework:scientific-explanation-theory-change
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-derived-k02-08
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-derived-k10-16
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: derived-from
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-derived-k14-07
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: derived-from
+  target: hkm:method:public-health-epidemiology-prevention
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm02-model-link-01
+  source: hkm:thinking-model:causal-mechanistic-reasoning
+  type: depends-on
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 因果判断需要表达数据噪声、效应异质性和识别不确定性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-source-d02
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-source-d06
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: in-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-source-d17
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-derived-k02-07
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: derived-from
+  target: hkm:framework:probability-stochastic-processes
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-derived-k02-08
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-derived-k06-05
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: derived-from
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-derived-k17-01
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: derived-from
+  target: hkm:framework:risk-safety-science-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm03-model-link-01
+  source: hkm:thinking-model:probabilistic-reasoning
+  type: enables
+  target: hkm:thinking-model:bayesian-updating
+  scope: 条件概率与分布是贝叶斯更新的形式基础
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-source-d02
+  source: hkm:thinking-model:bayesian-updating
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-source-d14
+  source: hkm:thinking-model:bayesian-updating
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-source-d17
+  source: hkm:thinking-model:bayesian-updating
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-derived-k02-07
+  source: hkm:thinking-model:bayesian-updating
+  type: derived-from
+  target: hkm:framework:probability-stochastic-processes
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-derived-k02-08
+  source: hkm:thinking-model:bayesian-updating
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-derived-k14-02
+  source: hkm:thinking-model:bayesian-updating
+  type: derived-from
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-derived-k17-04
+  source: hkm:thinking-model:bayesian-updating
+  type: derived-from
+  target: hkm:method:intelligence-security-analysis
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm04-model-link-01
+  source: hkm:thinking-model:bayesian-updating
+  type: complements
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 参考类为先验提供经验校准，贝叶斯更新处理个案证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-source-d02
+  source: hkm:thinking-model:systems-thinking
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-source-d04
+  source: hkm:thinking-model:systems-thinking
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-source-d13
+  source: hkm:thinking-model:systems-thinking
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-derived-k02-10
+  source: hkm:thinking-model:systems-thinking
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-derived-k04-11
+  source: hkm:thinking-model:systems-thinking
+  type: derived-from
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-derived-k13-03
+  source: hkm:thinking-model:systems-thinking
+  type: derived-from
+  target: hkm:framework:systems-architecture-interfaces
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm05-model-link-01
+  source: hkm:thinking-model:systems-thinking
+  type: enables
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: 系统边界和状态变量为反馈回路分析提供载体
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-source-d02
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-source-d05
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-source-d13
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-derived-k02-10
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-derived-k05-03
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: derived-from
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-derived-k13-09
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: derived-from
+  target: hkm:framework:sensing-feedback-control-automation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm06-model-link-01
+  source: hkm:thinking-model:feedback-loop-reasoning
+  type: depends-on
+  target: hkm:thinking-model:systems-thinking
+  scope: 反馈必须嵌入明确的系统边界、状态和输入输出
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-source-d04
+  source: hkm:thinking-model:second-order-effects
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-source-d10
+  source: hkm:thinking-model:second-order-effects
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-source-d09
+  source: hkm:thinking-model:second-order-effects
+  type: in-domain
+  target: hkm:domain:politics-governance-law
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-derived-k04-11
+  source: hkm:thinking-model:second-order-effects
+  type: derived-from
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-derived-k10-07
+  source: hkm:thinking-model:second-order-effects
+  type: derived-from
+  target: hkm:framework:externalities-public-goods-collective-action
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-derived-k10-03
+  source: hkm:thinking-model:second-order-effects
+  type: derived-from
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-derived-k09-10
+  source: hkm:thinking-model:second-order-effects
+  type: derived-from
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm07-model-link-01
+  source: hkm:thinking-model:second-order-effects
+  type: complements
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 后果链提出分支，情景与敏感性分析检验关键假设
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-source-d02
+  source: hkm:thinking-model:marginal-analysis
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-source-d10
+  source: hkm:thinking-model:marginal-analysis
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-source-d13
+  source: hkm:thinking-model:marginal-analysis
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-derived-k02-09
+  source: hkm:thinking-model:marginal-analysis
+  type: derived-from
+  target: hkm:framework:optimization-operations-games
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-derived-k10-02
+  source: hkm:thinking-model:marginal-analysis
+  type: derived-from
+  target: hkm:framework:marginal-choice-equilibrium-welfare
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-derived-k13-02
+  source: hkm:thinking-model:marginal-analysis
+  type: derived-from
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm08-model-link-01
+  source: hkm:thinking-model:marginal-analysis
+  type: complements
+  target: hkm:thinking-model:opportunity-cost
+  scope: 边际比较需要把下一单位资源的最佳替代纳入成本
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-source-d10
+  source: hkm:thinking-model:opportunity-cost
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-source-d20
+  source: hkm:thinking-model:opportunity-cost
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-source-d16
+  source: hkm:thinking-model:opportunity-cost
+  type: in-domain
+  target: hkm:domain:education-learning-development
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-derived-k10-01
+  source: hkm:thinking-model:opportunity-cost
+  type: derived-from
+  target: hkm:concept:scarcity-opportunity-cost-tradeoffs
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-derived-k20-16
+  source: hkm:thinking-model:opportunity-cost
+  type: derived-from
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-derived-k16-12
+  source: hkm:thinking-model:opportunity-cost
+  type: derived-from
+  target: hkm:practice:lifelong-self-directed-learning
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm09-model-link-01
+  source: hkm:thinking-model:opportunity-cost
+  type: depends-on
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 机会成本是沿可行前沿移动时不同目标间的交换率
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-source-d10
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-source-d09
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: in-domain
+  target: hkm:domain:politics-governance-law
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-source-d06
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: in-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-derived-k10-03
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: derived-from
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-derived-k10-04
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: derived-from
+  target: hkm:framework:information-asymmetry-signals
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-derived-k06-05
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: derived-from
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-derived-k09-10
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: derived-from
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm10-model-link-01
+  source: hkm:thinking-model:incentives-mechanism-design
+  type: complements
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 激励改变收益结构，博弈分析预测多主体相互响应
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-source-d02
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-source-d10
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-source-d17
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-derived-k02-09
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: derived-from
+  target: hkm:framework:optimization-operations-games
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-derived-k10-03
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: derived-from
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-derived-k17-02
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: derived-from
+  target: hkm:framework:conflict-analysis-peacebuilding
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm11-model-link-01
+  source: hkm:thinking-model:strategic-interaction-game-theory
+  type: complements
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 博弈揭示合作困境，集体行动模型加入制度规范和组织能力
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-source-d05
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-source-d06
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: in-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-source-d10
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-source-d15
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: in-domain
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-derived-k05-08
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: derived-from
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-derived-k06-04
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: derived-from
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-derived-k10-06
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: derived-from
+  target: hkm:framework:markets-competition-platforms
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-derived-k15-08
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: derived-from
+  target: hkm:framework:breeding-agricultural-biotechnology-genetic-resources
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm12-model-link-01
+  source: hkm:thinking-model:evolutionary-selection-thinking
+  type: complements
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 选择发生在历史形成的变异集和制度路径内
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-source-d02
+  source: hkm:thinking-model:entropy-information-order
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-source-d03
+  source: hkm:thinking-model:entropy-information-order
+  type: in-domain
+  target: hkm:domain:matter-energy-universe
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-source-d12
+  source: hkm:thinking-model:entropy-information-order
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-derived-k02-11
+  source: hkm:thinking-model:entropy-information-order
+  type: derived-from
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-derived-k03-06
+  source: hkm:thinking-model:entropy-information-order
+  type: derived-from
+  target: hkm:framework:energy-entropy-free-energy
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-derived-k05-02
+  source: hkm:thinking-model:entropy-information-order
+  type: derived-from
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-derived-k12-01
+  source: hkm:thinking-model:entropy-information-order
+  type: derived-from
+  target: hkm:framework:algorithms-computability-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm13-model-link-01
+  source: hkm:thinking-model:entropy-information-order
+  type: complements
+  target: hkm:thinking-model:systems-thinking
+  scope: 系统边界决定熵与信息流如何定义和解释
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-source-d02
+  source: hkm:thinking-model:compounding-accumulation
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-source-d10
+  source: hkm:thinking-model:compounding-accumulation
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-source-d16
+  source: hkm:thinking-model:compounding-accumulation
+  type: in-domain
+  target: hkm:domain:education-learning-development
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-derived-k02-10
+  source: hkm:thinking-model:compounding-accumulation
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-derived-k10-10
+  source: hkm:thinking-model:compounding-accumulation
+  type: derived-from
+  target: hkm:framework:time-value-risk-decision-under-uncertainty
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-derived-k16-12
+  source: hkm:thinking-model:compounding-accumulation
+  type: derived-from
+  target: hkm:practice:lifelong-self-directed-learning
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm14-model-link-01
+  source: hkm:thinking-model:compounding-accumulation
+  type: depends-on
+  target: hkm:thinking-model:growth-scale-saturation
+  scope: 复利描述累积机制，增长尺度模型说明何时进入饱和或衰退
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-source-d02
+  source: hkm:thinking-model:regression-to-mean
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-source-d06
+  source: hkm:thinking-model:regression-to-mean
+  type: in-domain
+  target: hkm:domain:mind-brain-behavior
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-source-d14
+  source: hkm:thinking-model:regression-to-mean
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-derived-k02-08
+  source: hkm:thinking-model:regression-to-mean
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-derived-k06-09
+  source: hkm:thinking-model:regression-to-mean
+  type: derived-from
+  target: hkm:framework:individual-differences-personality-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-derived-k14-02
+  source: hkm:thinking-model:regression-to-mean
+  type: derived-from
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm15-model-link-01
+  source: hkm:thinking-model:regression-to-mean
+  type: complements
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 参考类提供回归目标和极端程度的校准背景
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-source-d03
+  source: hkm:thinking-model:scale-effects
+  type: in-domain
+  target: hkm:domain:matter-energy-universe
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-source-d07
+  source: hkm:thinking-model:scale-effects
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-source-d10
+  source: hkm:thinking-model:scale-effects
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-source-d12
+  source: hkm:thinking-model:scale-effects
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-derived-k03-07
+  source: hkm:thinking-model:scale-effects
+  type: derived-from
+  target: hkm:framework:scale-coarse-graining-emergence
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-derived-k07-08
+  source: hkm:thinking-model:scale-effects
+  type: derived-from
+  target: hkm:framework:organizations-institutions-fields
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-derived-k10-14
+  source: hkm:thinking-model:scale-effects
+  type: derived-from
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-derived-k12-03
+  source: hkm:thinking-model:scale-effects
+  type: derived-from
+  target: hkm:framework:operating-distributed-cloud-systems
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-derived-k13-03
+  source: hkm:thinking-model:scale-effects
+  type: derived-from
+  target: hkm:framework:systems-architecture-interfaces
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm16-model-link-01
+  source: hkm:thinking-model:scale-effects
+  type: complements
+  target: hkm:thinking-model:network-effects
+  scope: 规模效应来自产量或组织结构，网络效应来自参与者相互连接
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-source-d05
+  source: hkm:thinking-model:network-effects
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-source-d07
+  source: hkm:thinking-model:network-effects
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-source-d10
+  source: hkm:thinking-model:network-effects
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-source-d12
+  source: hkm:thinking-model:network-effects
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-derived-k05-10
+  source: hkm:thinking-model:network-effects
+  type: derived-from
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-derived-k07-05
+  source: hkm:thinking-model:network-effects
+  type: derived-from
+  target: hkm:framework:groups-networks-collective-action
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-derived-k10-06
+  source: hkm:thinking-model:network-effects
+  type: derived-from
+  target: hkm:framework:markets-competition-platforms
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-derived-k12-04
+  source: hkm:thinking-model:network-effects
+  type: derived-from
+  target: hkm:framework:computer-networks-internet-protocols
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm17-model-link-01
+  source: hkm:thinking-model:network-effects
+  type: depends-on
+  target: hkm:thinking-model:critical-threshold-tipping
+  scope: 采用网络常需跨过足以自我维持的临界规模
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-source-d02
+  source: hkm:thinking-model:power-laws-long-tails
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-source-d04
+  source: hkm:thinking-model:power-laws-long-tails
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-source-d07
+  source: hkm:thinking-model:power-laws-long-tails
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-source-d12
+  source: hkm:thinking-model:power-laws-long-tails
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-derived-k02-07
+  source: hkm:thinking-model:power-laws-long-tails
+  type: derived-from
+  target: hkm:framework:probability-stochastic-processes
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-derived-k02-08
+  source: hkm:thinking-model:power-laws-long-tails
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-derived-k04-11
+  source: hkm:thinking-model:power-laws-long-tails
+  type: derived-from
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-derived-k07-05
+  source: hkm:thinking-model:power-laws-long-tails
+  type: derived-from
+  target: hkm:framework:groups-networks-collective-action
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-derived-k12-04
+  source: hkm:thinking-model:power-laws-long-tails
+  type: derived-from
+  target: hkm:framework:computer-networks-internet-protocols
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm18-model-link-01
+  source: hkm:thinking-model:power-laws-long-tails
+  type: complements
+  target: hkm:thinking-model:pareto-prioritization
+  scope: 厚尾分布可支持集中优先级，但帕累托启发式不能反证分布机制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-source-d02
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-source-d05
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-source-d07
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-derived-k02-10
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-derived-k05-10
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: derived-from
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-derived-k07-01
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: derived-from
+  target: hkm:framework:social-theory-mixed-method-inference
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm19-model-link-01
+  source: hkm:thinking-model:emergence-multilevel-explanation
+  type: depends-on
+  target: hkm:thinking-model:systems-thinking
+  scope: 涌现解释需要明确层级、互动关系与系统边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-source-d02
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-source-d04
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-source-d05
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-source-d07
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-derived-k02-10
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-derived-k04-04
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: derived-from
+  target: hkm:framework:atmosphere-weather-climate-system
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-derived-k05-10
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: derived-from
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-derived-k07-05
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: derived-from
+  target: hkm:framework:groups-networks-collective-action
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm20-model-link-01
+  source: hkm:thinking-model:critical-threshold-tipping
+  type: complements
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: 增强反馈常推动越过临界点，平衡反馈决定是否恢复
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-source-d08
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: in-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-source-d10
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-source-d12
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-source-d09
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: in-domain
+  target: hkm:domain:politics-governance-law
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k08-11
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:science-technology-medicine-environment-history
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k09-10
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k10-05
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:institutions-property-transaction-costs
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k10-06
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:markets-competition-platforms
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k12-06
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:software-engineering-programming-languages-verification
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-derived-k13-13
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:framework:standards-modularity-interoperability
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm21-model-link-01
+  source: hkm:thinking-model:path-dependence-lock-in
+  type: complements
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 路径依赖提高早期不可逆承诺和保留退出选项的重要性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-source-d02
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-source-d08
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: in-domain
+  target: hkm:domain:history-archaeology-civilization
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-source-d14
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-derived-k02-08
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-derived-k08-01
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: derived-from
+  target: hkm:method:historical-reasoning-source-criticism
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-derived-k14-07
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: derived-from
+  target: hkm:method:public-health-epidemiology-prevention
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm22-model-link-01
+  source: hkm:thinking-model:selection-survivorship-bias
+  type: depends-on
+  target: hkm:thinking-model:base-rates-reference-classes
+  scope: 可靠参考类需要理解样本如何被选择并保留
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-source-d13
+  source: hkm:thinking-model:inversion-prevention
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-source-d17
+  source: hkm:thinking-model:inversion-prevention
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-source-d20
+  source: hkm:thinking-model:inversion-prevention
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-derived-k13-08
+  source: hkm:thinking-model:inversion-prevention
+  type: derived-from
+  target: hkm:framework:reliability-failure-risk
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-derived-k17-01
+  source: hkm:thinking-model:inversion-prevention
+  type: derived-from
+  target: hkm:framework:risk-safety-science-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-derived-k20-01
+  source: hkm:thinking-model:inversion-prevention
+  type: derived-from
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm23-model-link-01
+  source: hkm:thinking-model:inversion-prevention
+  type: complements
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: 失败预演识别关键脆弱点，安全余量为其提供缓冲
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-source-d10
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-source-d13
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-source-d12
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-derived-k10-14
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: derived-from
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-derived-k13-02
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: derived-from
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-derived-k12-03
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: derived-from
+  target: hkm:framework:operating-distributed-cloud-systems
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm24-model-link-01
+  source: hkm:thinking-model:constraint-bottleneck-theory
+  type: complements
+  target: hkm:thinking-model:marginal-analysis
+  scope: 在瓶颈处的边际资源通常具有更高系统价值
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-source-d02
+  source: hkm:thinking-model:pareto-prioritization
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-source-d10
+  source: hkm:thinking-model:pareto-prioritization
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-source-d13
+  source: hkm:thinking-model:pareto-prioritization
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-derived-k02-08
+  source: hkm:thinking-model:pareto-prioritization
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-derived-k10-14
+  source: hkm:thinking-model:pareto-prioritization
+  type: derived-from
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-derived-k13-16
+  source: hkm:thinking-model:pareto-prioritization
+  type: derived-from
+  target: hkm:skill:engineering-troubleshooting-root-cause
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm25-model-link-01
+  source: hkm:thinking-model:pareto-prioritization
+  type: complements
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: 帕累托识别集中贡献，瓶颈判断其是否真正限制全局目标
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-source-d10
+  source: hkm:thinking-model:optionality-real-options
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-source-d13
+  source: hkm:thinking-model:optionality-real-options
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-source-d20
+  source: hkm:thinking-model:optionality-real-options
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-derived-k10-10
+  source: hkm:thinking-model:optionality-real-options
+  type: derived-from
+  target: hkm:framework:time-value-risk-decision-under-uncertainty
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-derived-k13-05
+  source: hkm:thinking-model:optionality-real-options
+  type: derived-from
+  target: hkm:method:design-synthesis-prototyping
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-derived-k20-01
+  source: hkm:thinking-model:optionality-real-options
+  type: derived-from
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm26-model-link-01
+  source: hkm:thinking-model:optionality-real-options
+  type: complements
+  target: hkm:thinking-model:reversible-irreversible-decisions
+  scope: 可逆性和不可逆性决定保留选项与行动速度的相对价值
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-source-d13
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-source-d17
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-source-d10
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-derived-k13-04
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: derived-from
+  target: hkm:model:engineering-models-safety-margins
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-derived-k17-11
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: derived-from
+  target: hkm:framework:resilience-continuity-recovery
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-derived-k10-14
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: derived-from
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm27-model-link-01
+  source: hkm:thinking-model:redundancy-safety-margin
+  type: enables
+  target: hkm:thinking-model:robustness-antifragility
+  scope: 冗余和缓冲是稳健与恢复能力的重要但非唯一机制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-source-d05
+  source: hkm:thinking-model:robustness-antifragility
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-source-d13
+  source: hkm:thinking-model:robustness-antifragility
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-source-d17
+  source: hkm:thinking-model:robustness-antifragility
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-derived-k05-03
+  source: hkm:thinking-model:robustness-antifragility
+  type: derived-from
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-derived-k13-08
+  source: hkm:thinking-model:robustness-antifragility
+  type: derived-from
+  target: hkm:framework:reliability-failure-risk
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-derived-k17-11
+  source: hkm:thinking-model:robustness-antifragility
+  type: derived-from
+  target: hkm:framework:resilience-continuity-recovery
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm28-model-link-01
+  source: hkm:thinking-model:robustness-antifragility
+  type: depends-on
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: 稳健与适应需要缓冲、隔离和恢复资源防止学习试验越界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-source-d01
+  source: hkm:thinking-model:map-territory-model-limits
+  type: in-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-source-d04
+  source: hkm:thinking-model:map-territory-model-limits
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-source-d12
+  source: hkm:thinking-model:map-territory-model-limits
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-derived-k01-01
+  source: hkm:thinking-model:map-territory-model-limits
+  type: derived-from
+  target: hkm:framework:knowledge-justification-truth
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-derived-k04-09
+  source: hkm:thinking-model:map-territory-model-limits
+  type: derived-from
+  target: hkm:framework:geospatial-observation-mapping-inference
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-derived-k12-11
+  source: hkm:thinking-model:map-territory-model-limits
+  type: derived-from
+  target: hkm:framework:machine-learning-data-science-generalization
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm29-model-link-01
+  source: hkm:thinking-model:map-territory-model-limits
+  type: complements
+  target: hkm:thinking-model:scenario-sensitivity-analysis
+  scope: 模型边界通过情景、参数和结构敏感性被显式检验
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-source-d02
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-source-d10
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-source-d13
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-derived-k02-08
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: derived-from
+  target: hkm:framework:statistical-inference-measurement
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-derived-k10-16
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: derived-from
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-derived-k13-14
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: derived-from
+  target: hkm:practice:engineering-project-configuration-change
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm30-model-link-01
+  source: hkm:thinking-model:base-rates-reference-classes
+  type: enables
+  target: hkm:thinking-model:bayesian-updating
+  scope: 基准率提供先验，个案证据决定更新幅度
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-source-d10
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-source-d07
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-source-d20
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-derived-k07-08
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: derived-from
+  target: hkm:framework:organizations-institutions-fields
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-derived-k10-01
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: derived-from
+  target: hkm:concept:scarcity-opportunity-cost-tradeoffs
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-derived-k10-13
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: derived-from
+  target: hkm:framework:organization-authority-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-derived-k20-11
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: derived-from
+  target: hkm:skill:career-workplace-collaboration-negotiation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm31-model-link-01
+  source: hkm:thinking-model:comparative-advantage-specialization
+  type: depends-on
+  target: hkm:thinking-model:opportunity-cost
+  scope: 比较优势由不同主体之间的相对机会成本定义
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-source-d10
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-source-d09
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: in-domain
+  target: hkm:domain:politics-governance-law
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-source-d14
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-derived-k09-10
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: derived-from
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-derived-k10-04
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: derived-from
+  target: hkm:framework:information-asymmetry-signals
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-derived-k10-13
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: derived-from
+  target: hkm:framework:organization-authority-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-derived-k14-12
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: derived-from
+  target: hkm:framework:health-systems-policy-economics-quality-equity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm32-model-link-01
+  source: hkm:thinking-model:principal-agent-information-asymmetry
+  type: complements
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 委托代理诊断信息与目标错位，机制设计选择治理安排
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-source-d10
+  source: hkm:thinking-model:cooperation-collective-action
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-source-d09
+  source: hkm:thinking-model:cooperation-collective-action
+  type: in-domain
+  target: hkm:domain:politics-governance-law
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-source-d04
+  source: hkm:thinking-model:cooperation-collective-action
+  type: in-domain
+  target: hkm:domain:earth-space-environment
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-derived-k10-07
+  source: hkm:thinking-model:cooperation-collective-action
+  type: derived-from
+  target: hkm:framework:externalities-public-goods-collective-action
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-derived-k04-11
+  source: hkm:thinking-model:cooperation-collective-action
+  type: derived-from
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-derived-k09-10
+  source: hkm:thinking-model:cooperation-collective-action
+  type: derived-from
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm33-model-link-01
+  source: hkm:thinking-model:cooperation-collective-action
+  type: complements
+  target: hkm:thinking-model:strategic-interaction-game-theory
+  scope: 博弈结构刻画个体激励，集体行动加入制度和共同体条件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-source-d01
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: in-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-source-d13
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-source-d16
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: in-domain
+  target: hkm:domain:education-learning-development
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-derived-k01-10
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: derived-from
+  target: hkm:framework:metascience-reproducibility-incentives
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-derived-k13-05
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: derived-from
+  target: hkm:method:design-synthesis-prototyping
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-derived-k16-12
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: derived-from
+  target: hkm:practice:lifelong-self-directed-learning
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm34-model-link-01
+  source: hkm:thinking-model:experiment-iteration-learning
+  type: complements
+  target: hkm:thinking-model:optionality-real-options
+  scope: 小步实验用有限成本购买信息并保留后续扩张或退出选择
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-source-d02
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-source-d10
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-source-d17
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: in-domain
+  target: hkm:domain:security-conflict-resilience
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-derived-k02-12
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: derived-from
+  target: hkm:framework:numerical-computation-approximation-error
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-derived-k10-16
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: derived-from
+  target: hkm:method:economic-causal-evaluation-forecasting
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-derived-k17-01
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: derived-from
+  target: hkm:framework:risk-safety-science-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm35-model-link-01
+  source: hkm:thinking-model:scenario-sensitivity-analysis
+  type: complements
+  target: hkm:thinking-model:probabilistic-reasoning
+  scope: 概率刻画已建模不确定性，情景覆盖难以可靠赋概率的结构变化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-source-d13
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-source-d14
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: in-domain
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-source-d20
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-derived-k13-02
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: derived-from
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-derived-k14-02
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: derived-from
+  target: hkm:method:clinical-reasoning-diagnosis-evidence
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-derived-k20-01
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: derived-from
+  target: hkm:framework:everyday-risk-triage-escalation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm36-model-link-01
+  source: hkm:thinking-model:reversible-irreversible-decisions
+  type: complements
+  target: hkm:thinking-model:optionality-real-options
+  scope: 可逆性决定试验速度，可选性评估保留未来行动路径的价值
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-source-d02
+  source: hkm:thinking-model:tradeoff-frontier
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-source-d10
+  source: hkm:thinking-model:tradeoff-frontier
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-source-d13
+  source: hkm:thinking-model:tradeoff-frontier
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-derived-k02-09
+  source: hkm:thinking-model:tradeoff-frontier
+  type: derived-from
+  target: hkm:framework:optimization-operations-games
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-derived-k10-02
+  source: hkm:thinking-model:tradeoff-frontier
+  type: derived-from
+  target: hkm:framework:marginal-choice-equilibrium-welfare
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-derived-k13-02
+  source: hkm:thinking-model:tradeoff-frontier
+  type: derived-from
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm37-model-link-01
+  source: hkm:thinking-model:tradeoff-frontier
+  type: complements
+  target: hkm:thinking-model:first-principles-decomposition
+  scope: 第一性原理可区分真实约束与惯例，从而发现移动前沿的创新
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-source-d12
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: in-domain
+  target: hkm:domain:computing-information-ai
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-source-d13
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-source-d10
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-derived-k12-06
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: derived-from
+  target: hkm:framework:software-engineering-programming-languages-verification
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-derived-k13-03
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: derived-from
+  target: hkm:framework:systems-architecture-interfaces
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-derived-k10-13
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: derived-from
+  target: hkm:framework:organization-authority-governance
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm38-model-link-01
+  source: hkm:thinking-model:modularity-loose-coupling
+  type: complements
+  target: hkm:thinking-model:redundancy-safety-margin
+  scope: 模块隔离限制故障传播，冗余为关键模块提供替代能力
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-source-d02
+  source: hkm:thinking-model:growth-scale-saturation
+  type: in-domain
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-source-d05
+  source: hkm:thinking-model:growth-scale-saturation
+  type: in-domain
+  target: hkm:domain:life-evolution
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-source-d10
+  source: hkm:thinking-model:growth-scale-saturation
+  type: in-domain
+  target: hkm:domain:economy-finance-organizations
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-derived-k02-10
+  source: hkm:thinking-model:growth-scale-saturation
+  type: derived-from
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-derived-k05-10
+  source: hkm:thinking-model:growth-scale-saturation
+  type: derived-from
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-derived-k10-09
+  source: hkm:thinking-model:growth-scale-saturation
+  type: derived-from
+  target: hkm:framework:growth-productivity-innovation-distribution
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm39-model-link-01
+  source: hkm:thinking-model:growth-scale-saturation
+  type: complements
+  target: hkm:thinking-model:critical-threshold-tipping
+  scope: 增长接近承载或反馈边界时可能发生状态转移
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-source-d01
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: in-domain
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-source-d07
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: in-domain
+  target: hkm:domain:society-human-groups
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-source-d11
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: in-domain
+  target: hkm:domain:language-communication-media
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-source-d19
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: in-domain
+  target: hkm:domain:religion-meaning-worldviews
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-derived-k01-09
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: derived-from
+  target: hkm:method:comparative-philosophy-contextual-translation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-derived-k07-02
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: derived-from
+  target: hkm:method:ethnography-cultural-comparison
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-derived-k11-08
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: derived-from
+  target: hkm:method:translation-interpreting-multilingual-mediation
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-derived-k19-01
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: derived-from
+  target: hkm:method:comparative-religion-reflexive-study
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm40-model-link-01
+  source: hkm:thinking-model:perspectival-reflexive-interpretation
+  type: complements
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 模型边界指出表征遗漏，视角转换检查遗漏如何随位置与语言系统变化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-source-d13
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: in-domain
+  target: hkm:domain:engineering-technology-design
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-source-d16
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: in-domain
+  target: hkm:domain:education-learning-development
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-source-d18
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: in-domain
+  target: hkm:domain:arts-literature-creation
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-source-d20
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: in-domain
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 思维模型的历史或方法来源；不表示排他所有权
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-derived-k13-05
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: derived-from
+  target: hkm:method:design-synthesis-prototyping
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-derived-k16-02
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: derived-from
+  target: hkm:framework:curriculum-pedagogy-instructional-design
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-derived-k18-10
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: derived-from
+  target: hkm:practice:creative-writing-storytelling
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-derived-k20-14
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: derived-from
+  target: hkm:skill:craft-making-low-risk-repair
+  scope: 思维模型的领域机制锚点；不把领域理论压缩为启发式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:tm41-model-link-01
+  source: hkm:thinking-model:divergent-convergent-creative-iteration
+  type: complements
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 发散收敛组织候选空间，实验迭代产生选择和修订所需证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-applies-d03
+  source: hkm:universal-model:stocks-flows-conservation
+  type: applies-to
+  target: hkm:domain:matter-energy-universe
+  scope: 质量能量和电荷通过边界与相互作用核算
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-explains-k03-02
+  source: hkm:universal-model:stocks-flows-conservation
+  type: explains
+  target: hkm:law-principle:conservation-laws-balances
+  scope: 质量能量和电荷通过边界与相互作用核算
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-applies-d05
+  source: hkm:universal-model:stocks-flows-conservation
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 代谢网络追踪物质能量与信息载体的转化
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-explains-k05-02
+  source: hkm:universal-model:stocks-flows-conservation
+  type: explains
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 代谢网络追踪物质能量与信息载体的转化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-applies-d10
+  source: hkm:universal-model:stocks-flows-conservation
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 会计资产负债现金流与库存形成可对账状态
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-explains-k10-12
+  source: hkm:universal-model:stocks-flows-conservation
+  type: explains
+  target: hkm:framework:accounting-stocks-flows-control
+  scope: 会计资产负债现金流与库存形成可对账状态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-applies-d04
+  source: hkm:universal-model:stocks-flows-conservation
+  type: applies-to
+  target: hkm:domain:earth-space-environment
+  scope: 流域储水降水蒸散径流和取水构成水量平衡
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-explains-k04-06
+  source: hkm:universal-model:stocks-flows-conservation
+  type: explains
+  target: hkm:framework:water-cycle-cryosphere-catchments
+  scope: 流域储水降水蒸散径流和取水构成水量平衡
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-applies-d13
+  source: hkm:universal-model:stocks-flows-conservation
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 工程控制以状态估计和输入输出平衡管理过程
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-explains-k13-09
+  source: hkm:universal-model:stocks-flows-conservation
+  type: explains
+  target: hkm:framework:sensing-feedback-control-automation
+  scope: 工程控制以状态估计和输入输出平衡管理过程
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um01-model-link-01
+  source: hkm:universal-model:stocks-flows-conservation
+  type: complements
+  target: hkm:universal-model:growth-decay-saturation
+  scope: 存量流量给出状态方程，增长衰减模型描述其典型轨迹
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-applies-d02
+  source: hkm:universal-model:feedback-regulation-control
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 动力系统与控制理论刻画稳定性和可控性
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-explains-k02-10
+  source: hkm:universal-model:feedback-regulation-control
+  type: explains
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 动力系统与控制理论刻画稳定性和可控性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-applies-d05
+  source: hkm:universal-model:feedback-regulation-control
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 细胞和机体以感知调节维持稳态
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-explains-k05-03
+  source: hkm:universal-model:feedback-regulation-control
+  type: explains
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 细胞和机体以感知调节维持稳态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-applies-d13
+  source: hkm:universal-model:feedback-regulation-control
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 传感器控制器与执行器调节工程过程
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-explains-k13-09
+  source: hkm:universal-model:feedback-regulation-control
+  type: explains
+  target: hkm:framework:sensing-feedback-control-automation
+  scope: 传感器控制器与执行器调节工程过程
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-applies-d06
+  source: hkm:universal-model:feedback-regulation-control
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 行为通过结果反馈和预测误差被强化或修正
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-explains-k06-04
+  source: hkm:universal-model:feedback-regulation-control
+  type: explains
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 行为通过结果反馈和预测误差被强化或修正
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um02-model-link-01
+  source: hkm:universal-model:feedback-regulation-control
+  type: derived-from
+  target: hkm:thinking-model:feedback-loop-reasoning
+  scope: 思维工具用于识别和设计该通用结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-applies-d05
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 食物网与生态互动网络传递能量和扰动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-explains-k05-10
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: explains
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 食物网与生态互动网络传递能量和扰动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-applies-d07
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: applies-to
+  target: hkm:domain:society-human-groups
+  scope: 社会关系网络塑造规范资源和信息扩散
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-explains-k07-05
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: explains
+  target: hkm:framework:groups-networks-collective-action
+  scope: 社会关系网络塑造规范资源和信息扩散
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-applies-d10
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 平台与市场连接参与者并形成网络效应
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-explains-k10-06
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: explains
+  target: hkm:framework:markets-competition-platforms
+  scope: 平台与市场连接参与者并形成网络效应
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-applies-d12
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 协议和路由在计算机网络中传输数据
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-explains-k12-04
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: explains
+  target: hkm:framework:computer-networks-internet-protocols
+  scope: 协议和路由在计算机网络中传输数据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um03-model-link-01
+  source: hkm:universal-model:networks-propagation-connectivity
+  type: complements
+  target: hkm:thinking-model:network-effects
+  scope: 通用网络结构与网络价值启发式共同解释连接和采用
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-applies-d05
+  source: hkm:universal-model:variation-selection-adaptation
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 遗传变异经自然选择和漂变改变种群
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-explains-k05-08
+  source: hkm:universal-model:variation-selection-adaptation
+  type: explains
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 遗传变异经自然选择和漂变改变种群
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-applies-d06
+  source: hkm:universal-model:variation-selection-adaptation
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 行为变体经强化与记忆被保留
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-explains-k06-04
+  source: hkm:universal-model:variation-selection-adaptation
+  type: explains
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 行为变体经强化与记忆被保留
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-applies-d10
+  source: hkm:universal-model:variation-selection-adaptation
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 企业能力和产品经竞争实验与组织学习变化
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-explains-k10-15
+  source: hkm:universal-model:variation-selection-adaptation
+  type: explains
+  target: hkm:framework:strategy-capabilities-innovation
+  scope: 企业能力和产品经竞争实验与组织学习变化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-applies-d12
+  source: hkm:universal-model:variation-selection-adaptation
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 搜索学习和进化算法生成并评价候选方案
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-explains-k12-10
+  source: hkm:universal-model:variation-selection-adaptation
+  type: explains
+  target: hkm:framework:ai-knowledge-reasoning-planning
+  scope: 搜索学习和进化算法生成并评价候选方案
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-applies-d15
+  source: hkm:universal-model:variation-selection-adaptation
+  type: applies-to
+  target: hkm:domain:agriculture-food-bioproduction
+  scope: 育种在遗传变异中选择并检验适应性性状
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-explains-k15-08
+  source: hkm:universal-model:variation-selection-adaptation
+  type: explains
+  target: hkm:framework:breeding-agricultural-biotechnology-genetic-resources
+  scope: 育种在遗传变异中选择并检验适应性性状
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um04-model-link-01
+  source: hkm:universal-model:variation-selection-adaptation
+  type: complements
+  target: hkm:thinking-model:evolutionary-selection-thinking
+  scope: 思维工具把该结构用于跨域解释并检查类比边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-applies-d05
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 生物在生态位中竞争资源并形成共生合作
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-explains-k05-10
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: explains
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 生物在生态位中竞争资源并形成共生合作
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-applies-d07
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: applies-to
+  target: hkm:domain:society-human-groups
+  scope: 群体规范网络与身份支持合作或冲突
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-explains-k07-05
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: explains
+  target: hkm:framework:groups-networks-collective-action
+  scope: 群体规范网络与身份支持合作或冲突
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-applies-d10
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 市场竞争和组织合作配置生产活动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-explains-k10-06
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: explains
+  target: hkm:framework:markets-competition-platforms
+  scope: 市场竞争和组织合作配置生产活动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-applies-d17
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: applies-to
+  target: hkm:domain:security-conflict-resilience
+  scope: 冲突调解与和平建设改变敌对互动和制度安排
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-explains-k17-02
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: explains
+  target: hkm:framework:conflict-analysis-peacebuilding
+  scope: 冲突调解与和平建设改变敌对互动和制度安排
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um05-model-link-01
+  source: hkm:universal-model:competition-cooperation-coordination
+  type: complements
+  target: hkm:thinking-model:cooperation-collective-action
+  scope: 思维模型提供公共品与治理分析工具
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-applies-d02
+  source: hkm:universal-model:information-signals-representation
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 信息论刻画编码压缩和可靠传输上限
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-explains-k02-11
+  source: hkm:universal-model:information-signals-representation
+  type: explains
+  target: hkm:framework:information-coding-cryptographic-structure
+  scope: 信息论刻画编码压缩和可靠传输上限
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-applies-d05
+  source: hkm:universal-model:information-signals-representation
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 遗传和细胞信号编码调控生物过程
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-explains-k05-04
+  source: hkm:universal-model:information-signals-representation
+  type: explains
+  target: hkm:framework:heredity-genome-regulation-variation
+  scope: 遗传和细胞信号编码调控生物过程
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-applies-d11
+  source: hkm:universal-model:information-signals-representation
+  type: applies-to
+  target: hkm:domain:language-communication-media
+  scope: 语言符号和语境组织意义与交流
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-explains-k11-01
+  source: hkm:universal-model:information-signals-representation
+  type: explains
+  target: hkm:framework:linguistic-structure-grammar-meaning
+  scope: 语言符号和语境组织意义与交流
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-applies-d10
+  source: hkm:universal-model:information-signals-representation
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 市场信号与筛选应对信息不对称
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-explains-k10-04
+  source: hkm:universal-model:information-signals-representation
+  type: explains
+  target: hkm:framework:information-asymmetry-signals
+  scope: 市场信号与筛选应对信息不对称
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-applies-d18
+  source: hkm:universal-model:information-signals-representation
+  type: applies-to
+  target: hkm:domain:arts-literature-creation
+  scope: 艺术形式和媒介把感知经验编码为可解释作品
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-explains-k18-02
+  source: hkm:universal-model:information-signals-representation
+  type: explains
+  target: hkm:framework:visual-arts-form-material-practice
+  scope: 艺术形式和媒介把感知经验编码为可解释作品
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um06-model-link-01
+  source: hkm:universal-model:information-signals-representation
+  type: complements
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 表征携带信息也必然选择和遗漏现实
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-applies-d02
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 优化问题在约束可行域中寻找解
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-explains-k02-09
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: explains
+  target: hkm:framework:optimization-operations-games
+  scope: 优化问题在约束可行域中寻找解
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-applies-d10
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 运营瓶颈限制流程吞吐并积累库存
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-explains-k10-14
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: explains
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 运营瓶颈限制流程吞吐并积累库存
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-applies-d13
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 需求物理和安全约束界定设计权衡空间
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-explains-k13-02
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: explains
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 需求物理和安全约束界定设计权衡空间
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-applies-d12
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 计算复杂度和硬件容量限制可执行算法
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-explains-k12-01
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: explains
+  target: hkm:framework:algorithms-computability-complexity
+  scope: 计算复杂度和硬件容量限制可执行算法
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um07-model-link-01
+  source: hkm:universal-model:constraints-bottlenecks-feasibility
+  type: derived-from
+  target: hkm:thinking-model:constraint-bottleneck-theory
+  scope: 思维模型提供识别和管理活动约束的操作步骤
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-applies-d10
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 价格预算与制度在用途间配置稀缺资源
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-explains-k10-01
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: explains
+  target: hkm:concept:scarcity-opportunity-cost-tradeoffs
+  scope: 价格预算与制度在用途间配置稀缺资源
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-applies-d14
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: applies-to
+  target: hkm:domain:health-medicine-wellbeing
+  scope: 卫生系统在服务覆盖质量成本与公平间取舍
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-explains-k14-12
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: explains
+  target: hkm:framework:health-systems-policy-economics-quality-equity
+  scope: 卫生系统在服务覆盖质量成本与公平间取舍
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-applies-d16
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: applies-to
+  target: hkm:domain:education-learning-development
+  scope: 学习者和系统配置时间教师与注意力
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-explains-k16-10
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: explains
+  target: hkm:framework:education-leadership-policy-systems
+  scope: 学习者和系统配置时间教师与注意力
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-applies-d20
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: applies-to
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 个人在时间注意财务和照护责任间分配能力
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-explains-k20-16
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: explains
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 个人在时间注意财务和照护责任间分配能力
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um08-model-link-01
+  source: hkm:universal-model:resource-allocation-tradeoffs
+  type: complements
+  target: hkm:thinking-model:tradeoff-frontier
+  scope: 思维模型帮助识别非支配方案并显式讨论价值权重
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-applies-d03
+  source: hkm:universal-model:energy-work-efficiency
+  type: applies-to
+  target: hkm:domain:matter-energy-universe
+  scope: 热力学和动力学约束能量转化与可用功
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-explains-k03-06
+  source: hkm:universal-model:energy-work-efficiency
+  type: explains
+  target: hkm:framework:energy-entropy-free-energy
+  scope: 热力学和动力学约束能量转化与可用功
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-applies-d05
+  source: hkm:universal-model:energy-work-efficiency
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 代谢把化学能转为维持生长和行动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-explains-k05-02
+  source: hkm:universal-model:energy-work-efficiency
+  type: explains
+  target: hkm:framework:biochemical-information-metabolism
+  scope: 代谢把化学能转为维持生长和行动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-applies-d04
+  source: hkm:universal-model:energy-work-efficiency
+  type: applies-to
+  target: hkm:domain:earth-space-environment
+  scope: 地球系统能量收支驱动气候和环流
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-explains-k04-04
+  source: hkm:universal-model:energy-work-efficiency
+  type: explains
+  target: hkm:framework:atmosphere-weather-climate-system
+  scope: 地球系统能量收支驱动气候和环流
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-applies-d13
+  source: hkm:universal-model:energy-work-efficiency
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 工程系统在功率效率散热和可靠性间权衡
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-explains-k13-02
+  source: hkm:universal-model:energy-work-efficiency
+  type: explains
+  target: hkm:framework:engineering-constraints-trade-space
+  scope: 工程系统在功率效率散热和可靠性间权衡
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-applies-d10
+  source: hkm:universal-model:energy-work-efficiency
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 能源投入价格与技术效率影响生产率和产业结构
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-explains-k10-09
+  source: hkm:universal-model:energy-work-efficiency
+  type: explains
+  target: hkm:framework:growth-productivity-innovation-distribution
+  scope: 能源投入价格与技术效率影响生产率和产业结构
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um09-model-link-01
+  source: hkm:universal-model:energy-work-efficiency
+  type: complements
+  target: hkm:universal-model:entropy-dissipation-maintenance
+  scope: 能量转化不可避免伴随耗散，维持秩序需要持续输入
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-applies-d03
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: applies-to
+  target: hkm:domain:matter-energy-universe
+  scope: 热过程产生熵并限制可逆转化
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-explains-k03-06
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: explains
+  target: hkm:framework:energy-entropy-free-energy
+  scope: 热过程产生熵并限制可逆转化
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-applies-d05
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 生物通过代谢修复维持远离平衡状态
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-explains-k05-03
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: explains
+  target: hkm:framework:cellular-organization-homeostasis
+  scope: 生物通过代谢修复维持远离平衡状态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-applies-d13
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 设备与基础设施需预防维护和更换退化部件
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-explains-k13-11
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: explains
+  target: hkm:practice:operations-maintenance-repair
+  scope: 设备与基础设施需预防维护和更换退化部件
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-applies-d20
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: applies-to
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 住所工具和个人系统需要周期检查与恢复
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-explains-k20-04
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: explains
+  target: hkm:skill:household-systems-maintenance-repair
+  scope: 住所工具和个人系统需要周期检查与恢复
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um10-model-link-01
+  source: hkm:universal-model:entropy-dissipation-maintenance
+  type: complements
+  target: hkm:thinking-model:entropy-information-order
+  scope: 思维模型区分物理熵、信息熵和维护隐喻
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-applies-d02
+  source: hkm:universal-model:growth-decay-saturation
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 微分方程和动力系统表达连续变化轨迹
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-explains-k02-06
+  source: hkm:universal-model:growth-decay-saturation
+  type: explains
+  target: hkm:framework:analysis-calculus-differential-equations
+  scope: 微分方程和动力系统表达连续变化轨迹
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-applies-d05
+  source: hkm:universal-model:growth-decay-saturation
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 种群增长受资源承载和密度反馈限制
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-explains-k05-10
+  source: hkm:universal-model:growth-decay-saturation
+  type: explains
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 种群增长受资源承载和密度反馈限制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-applies-d10
+  source: hkm:universal-model:growth-decay-saturation
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 资本技术和生产率累积同时受制度与分配约束
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-explains-k10-09
+  source: hkm:universal-model:growth-decay-saturation
+  type: explains
+  target: hkm:framework:growth-productivity-innovation-distribution
+  scope: 资本技术和生产率累积同时受制度与分配约束
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-applies-d11
+  source: hkm:universal-model:growth-decay-saturation
+  type: applies-to
+  target: hkm:domain:language-communication-media
+  scope: 媒介内容和创新经社会网络扩散后趋于饱和
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-explains-k11-07
+  source: hkm:universal-model:growth-decay-saturation
+  type: explains
+  target: hkm:framework:media-platform-public-sphere-attention
+  scope: 媒介内容和创新经社会网络扩散后趋于饱和
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um11-model-link-01
+  source: hkm:universal-model:growth-decay-saturation
+  type: complements
+  target: hkm:thinking-model:growth-scale-saturation
+  scope: 思维模型提供曲线选择和外推边界检查
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-applies-d02
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 动力系统刻画极限环稳定性与混沌
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-explains-k02-10
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: explains
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 动力系统刻画极限环稳定性与混沌
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-applies-d04
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: applies-to
+  target: hkm:domain:earth-space-environment
+  scope: 气候海洋与水文包含多尺度周期和延迟
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-explains-k04-05
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: explains
+  target: hkm:framework:ocean-coastal-circulation-change
+  scope: 气候海洋与水文包含多尺度周期和延迟
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-applies-d05
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 捕食资源和季节驱动种群周期
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-explains-k05-10
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: explains
+  target: hkm:framework:ecology-populations-networks-cycles
+  scope: 捕食资源和季节驱动种群周期
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-applies-d10
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 信贷库存投资和预期可能形成宏观波动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-explains-k10-08
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: explains
+  target: hkm:model:money-credit-inflation-macrodynamics
+  scope: 信贷库存投资和预期可能形成宏观波动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um12-model-link-01
+  source: hkm:universal-model:cycles-oscillation-delays
+  type: complements
+  target: hkm:universal-model:feedback-regulation-control
+  scope: 延迟和反馈符号决定系统是否收敛、过冲或振荡
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-applies-d02
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 非线性动力系统研究分岔和稳定态
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-explains-k02-10
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: explains
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 非线性动力系统研究分岔和稳定态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-applies-d04
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: applies-to
+  target: hkm:domain:earth-space-environment
+  scope: 气候生态系统可能跨过反馈驱动的临界边界
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-explains-k04-11
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: explains
+  target: hkm:framework:coupled-human-earth-sustainability
+  scope: 气候生态系统可能跨过反馈驱动的临界边界
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-applies-d05
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 基因调控与生态互动产生开关和多稳态
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-explains-k05-12
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: explains
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 基因调控与生态互动产生开关和多稳态
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-applies-d17
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: applies-to
+  target: hkm:domain:security-conflict-resilience
+  scope: 风险积累和级联可能越过关键服务失效阈值
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-explains-k17-08
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: explains
+  target: hkm:framework:critical-infrastructure-civil-protection
+  scope: 风险积累和级联可能越过关键服务失效阈值
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um13-model-link-01
+  source: hkm:universal-model:nonlinear-thresholds-regime-change
+  type: complements
+  target: hkm:thinking-model:critical-threshold-tipping
+  scope: 思维工具把非线性结构转化为预警和决策问题
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-applies-d02
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 复杂系统以局部规则产生宏观模式
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-explains-k02-10
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: explains
+  target: hkm:framework:dynamical-systems-control-complexity
+  scope: 复杂系统以局部规则产生宏观模式
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-applies-d05
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 细胞组织和生态群落形成高层功能
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-explains-k05-12
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: explains
+  target: hkm:framework:systems-synthetic-biology-network-design
+  scope: 细胞组织和生态群落形成高层功能
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-applies-d06
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 神经回路互动支持知觉行动和认知功能
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-explains-k06-01
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: explains
+  target: hkm:framework:neural-coding-circuits-plasticity
+  scope: 神经回路互动支持知觉行动和认知功能
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-applies-d07
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: applies-to
+  target: hkm:domain:society-human-groups
+  scope: 互动网络形成规范组织与集体行为
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-explains-k07-05
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: explains
+  target: hkm:framework:groups-networks-collective-action
+  scope: 互动网络形成规范组织与集体行为
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um14-model-link-01
+  source: hkm:universal-model:emergence-multiscale-organization
+  type: derived-from
+  target: hkm:thinking-model:emergence-multilevel-explanation
+  scope: 思维模型提供跨层解释和反还原审查
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-applies-d05
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 细胞组织器官与调控模块形成生命层级
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-explains-k05-06
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: explains
+  target: hkm:framework:comparative-anatomy-physiology-homeostasis
+  scope: 细胞组织器官与调控模块形成生命层级
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-applies-d10
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 组织单元与权责接口协调专业化活动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-explains-k10-13
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: explains
+  target: hkm:framework:organization-authority-governance
+  scope: 组织单元与权责接口协调专业化活动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-applies-d12
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 软件模块和协议接口支持独立演化与组合
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-explains-k12-06
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: explains
+  target: hkm:framework:software-engineering-programming-languages-verification
+  scope: 软件模块和协议接口支持独立演化与组合
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-applies-d13
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 系统架构分配功能并管理跨子系统接口
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-explains-k13-03
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: explains
+  target: hkm:framework:systems-architecture-interfaces
+  scope: 系统架构分配功能并管理跨子系统接口
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um15-model-link-01
+  source: hkm:universal-model:hierarchy-modularity-interfaces
+  type: complements
+  target: hkm:thinking-model:modularity-loose-coupling
+  scope: 思维模型提供架构设计和边界选择操作
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-applies-d05
+  source: hkm:universal-model:replication-transmission-memory
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 遗传信息经复制变异和调控跨代传递
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-explains-k05-04
+  source: hkm:universal-model:replication-transmission-memory
+  type: explains
+  target: hkm:framework:heredity-genome-regulation-variation
+  scope: 遗传信息经复制变异和调控跨代传递
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-applies-d06
+  source: hkm:universal-model:replication-transmission-memory
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 记忆编码巩固检索并在再巩固中改变
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-explains-k06-04
+  source: hkm:universal-model:replication-transmission-memory
+  type: explains
+  target: hkm:framework:learning-memory-reinforcement-consolidation
+  scope: 记忆编码巩固检索并在再巩固中改变
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-applies-d08
+  source: hkm:universal-model:replication-transmission-memory
+  type: applies-to
+  target: hkm:domain:history-archaeology-civilization
+  scope: 档案物质文化与记忆实践保存并重构过去
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-explains-k08-12
+  source: hkm:universal-model:replication-transmission-memory
+  type: explains
+  target: hkm:framework:memory-heritage-public-history
+  scope: 档案物质文化与记忆实践保存并重构过去
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-applies-d12
+  source: hkm:universal-model:replication-transmission-memory
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 数据编码存储复制备份和检索支持数字记忆
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-explains-k12-05
+  source: hkm:universal-model:replication-transmission-memory
+  type: explains
+  target: hkm:framework:data-databases-information-retrieval
+  scope: 数据编码存储复制备份和检索支持数字记忆
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-applies-d19
+  source: hkm:universal-model:replication-transmission-memory
+  type: applies-to
+  target: hkm:domain:religion-meaning-worldviews
+  scope: 经文诠释和接受传统跨代保存并重构宗教记忆
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-explains-k19-03
+  source: hkm:universal-model:replication-transmission-memory
+  type: explains
+  target: hkm:method:scripture-hermeneutics-reception
+  scope: 经文诠释和接受传统跨代保存并重构宗教记忆
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um16-model-link-01
+  source: hkm:universal-model:replication-transmission-memory
+  type: complements
+  target: hkm:universal-model:variation-selection-adaptation
+  scope: 复制保留模式，变异和选择改变模式分布
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-applies-d02
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 概率分布和随机过程表示已建模不确定性
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-explains-k02-07
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: explains
+  target: hkm:framework:probability-stochastic-processes
+  scope: 概率分布和随机过程表示已建模不确定性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-applies-d10
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 金融和投资在时间价值风险与流动性间选择
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-explains-k10-10
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: explains
+  target: hkm:framework:time-value-risk-decision-under-uncertainty
+  scope: 金融和投资在时间价值风险与流动性间选择
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-applies-d13
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 可靠性和安全分析控制失效概率与后果
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-explains-k13-08
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: explains
+  target: hkm:framework:reliability-failure-risk
+  scope: 可靠性和安全分析控制失效概率与后果
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-applies-d17
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: applies-to
+  target: hkm:domain:security-conflict-resilience
+  scope: 风险治理连接危险暴露脆弱性和可接受性
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-explains-k17-01
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: explains
+  target: hkm:framework:risk-safety-science-governance
+  scope: 风险治理连接危险暴露脆弱性和可接受性
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um17-model-link-01
+  source: hkm:universal-model:risk-uncertainty-optionality
+  type: complements
+  target: hkm:thinking-model:optionality-real-options
+  scope: 思维模型把未来信息和可逆选择转化为决策价值
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-applies-d02
+  source: hkm:universal-model:optimization-search-learning
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 优化理论寻找满足约束的目标最优解
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-explains-k02-09
+  source: hkm:universal-model:optimization-search-learning
+  type: explains
+  target: hkm:framework:optimization-operations-games
+  scope: 优化理论寻找满足约束的目标最优解
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-applies-d05
+  source: hkm:universal-model:optimization-search-learning
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 选择过程在变异空间中积累适应
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-explains-k05-08
+  source: hkm:universal-model:optimization-search-learning
+  type: explains
+  target: hkm:framework:evolution-selection-drift-speciation
+  scope: 选择过程在变异空间中积累适应
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-applies-d06
+  source: hkm:universal-model:optimization-search-learning
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 决策和强化学习在探索与利用间更新策略
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-explains-k06-05
+  source: hkm:universal-model:optimization-search-learning
+  type: explains
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 决策和强化学习在探索与利用间更新策略
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-applies-d12
+  source: hkm:universal-model:optimization-search-learning
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 搜索规划和机器学习从数据与反馈改进性能
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-explains-k12-10
+  source: hkm:universal-model:optimization-search-learning
+  type: explains
+  target: hkm:framework:ai-knowledge-reasoning-planning
+  scope: 搜索规划和机器学习从数据与反馈改进性能
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um18-model-link-01
+  source: hkm:universal-model:optimization-search-learning
+  type: complements
+  target: hkm:thinking-model:experiment-iteration-learning
+  scope: 实验产生信息并更新搜索策略，优化决定下一候选
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-applies-d08
+  source: hkm:universal-model:path-dependence-lock-in
+  type: applies-to
+  target: hkm:domain:history-archaeology-civilization
+  scope: 制度和技术在历史事件与延续中形成路径
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-explains-k08-11
+  source: hkm:universal-model:path-dependence-lock-in
+  type: explains
+  target: hkm:framework:science-technology-medicine-environment-history
+  scope: 制度和技术在历史事件与延续中形成路径
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-applies-d10
+  source: hkm:universal-model:path-dependence-lock-in
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 平台标准和产业能力由采用与互补投资锁定
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-explains-k10-06
+  source: hkm:universal-model:path-dependence-lock-in
+  type: explains
+  target: hkm:framework:markets-competition-platforms
+  scope: 平台标准和产业能力由采用与互补投资锁定
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-applies-d12
+  source: hkm:universal-model:path-dependence-lock-in
+  type: applies-to
+  target: hkm:domain:computing-information-ai
+  scope: 遗留系统数据格式和协议形成迁移成本
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-explains-k12-06
+  source: hkm:universal-model:path-dependence-lock-in
+  type: explains
+  target: hkm:framework:software-engineering-programming-languages-verification
+  scope: 遗留系统数据格式和协议形成迁移成本
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-applies-d09
+  source: hkm:universal-model:path-dependence-lock-in
+  type: applies-to
+  target: hkm:domain:politics-governance-law
+  scope: 法律制度与行政能力受先前妥协和组织惯性影响
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-explains-k09-10
+  source: hkm:universal-model:path-dependence-lock-in
+  type: explains
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 法律制度与行政能力受先前妥协和组织惯性影响
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-applies-d20
+  source: hkm:universal-model:path-dependence-lock-in
+  type: applies-to
+  target: hkm:domain:everyday-life-practical-agency
+  scope: 习惯环境与累积承诺改变个人行为的切换成本
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-explains-k20-16
+  source: hkm:universal-model:path-dependence-lock-in
+  type: explains
+  target: hkm:skill:time-attention-habits-self-management
+  scope: 习惯环境与累积承诺改变个人行为的切换成本
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um19-model-link-01
+  source: hkm:universal-model:path-dependence-lock-in
+  type: derived-from
+  target: hkm:thinking-model:path-dependence-lock-in
+  scope: 思维模型提供历史顺序和切换成本的诊断框架
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-applies-d05
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: applies-to
+  target: hkm:domain:life-evolution
+  scope: 生物稳态修复和适应维持功能
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-explains-k05-06
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: explains
+  target: hkm:framework:comparative-anatomy-physiology-homeostasis
+  scope: 生物稳态修复和适应维持功能
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-applies-d10
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 供应链以库存多源与替代流程应对中断
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-explains-k10-14
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: explains
+  target: hkm:framework:operations-flow-bottlenecks-quality
+  scope: 供应链以库存多源与替代流程应对中断
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-applies-d13
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 可靠性故障隔离和维护支持安全恢复
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-explains-k13-08
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: explains
+  target: hkm:framework:reliability-failure-risk
+  scope: 可靠性故障隔离和维护支持安全恢复
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-applies-d17
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: applies-to
+  target: hkm:domain:security-conflict-resilience
+  scope: 连续性计划和关键设施恢复维持最低服务
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-explains-k17-11
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: explains
+  target: hkm:framework:resilience-continuity-recovery
+  scope: 连续性计划和关键设施恢复维持最低服务
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um20-model-link-01
+  source: hkm:universal-model:resilience-redundancy-recovery
+  type: complements
+  target: hkm:thinking-model:robustness-antifragility
+  scope: 思维模型区分抵抗恢复和通过受控压力改善
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-applies-d02
+  source: hkm:universal-model:measurement-observation-inference
+  type: applies-to
+  target: hkm:domain:mathematics-statistics-formal-systems
+  scope: 统计推断从样本和测量误差估计总体
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-explains-k02-08
+  source: hkm:universal-model:measurement-observation-inference
+  type: explains
+  target: hkm:framework:statistical-inference-measurement
+  scope: 统计推断从样本和测量误差估计总体
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-applies-d03
+  source: hkm:universal-model:measurement-observation-inference
+  type: applies-to
+  target: hkm:domain:matter-energy-universe
+  scope: 物理实验以仪器校准和不确定度连接理论量与观测
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-explains-k03-15
+  source: hkm:universal-model:measurement-observation-inference
+  type: explains
+  target: hkm:method:physical-experiment-measurement-uncertainty
+  scope: 物理实验以仪器校准和不确定度连接理论量与观测
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-applies-d07
+  source: hkm:universal-model:measurement-observation-inference
+  type: applies-to
+  target: hkm:domain:society-human-groups
+  scope: 社会研究以调查民族志和混合方法构造证据
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-explains-k07-01
+  source: hkm:universal-model:measurement-observation-inference
+  type: explains
+  target: hkm:framework:social-theory-mixed-method-inference
+  scope: 社会研究以调查民族志和混合方法构造证据
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-applies-d16
+  source: hkm:universal-model:measurement-observation-inference
+  type: applies-to
+  target: hkm:domain:education-learning-development
+  scope: 教育评价以任务评分和效度论证推断学习
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-explains-k16-03
+  source: hkm:universal-model:measurement-observation-inference
+  type: explains
+  target: hkm:method:assessment-measurement-evaluation
+  scope: 教育评价以任务评分和效度论证推断学习
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-applies-d01
+  source: hkm:universal-model:measurement-observation-inference
+  type: applies-to
+  target: hkm:domain:metaknowledge-philosophy-inquiry
+  scope: 认识论审查证据如何支持可错且可辩护的判断
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-explains-k01-01
+  source: hkm:universal-model:measurement-observation-inference
+  type: explains
+  target: hkm:framework:knowledge-justification-truth
+  scope: 认识论审查证据如何支持可错且可辩护的判断
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um21-model-link-01
+  source: hkm:universal-model:measurement-observation-inference
+  type: complements
+  target: hkm:thinking-model:map-territory-model-limits
+  scope: 测量是现实的目的性表征而非直接复制
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-applies-d06
+  source: hkm:universal-model:agency-incentives-governance
+  type: applies-to
+  target: hkm:domain:mind-brain-behavior
+  scope: 个体以有限认知情绪和社会规范作判断
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-explains-k06-05
+  source: hkm:universal-model:agency-incentives-governance
+  type: explains
+  target: hkm:framework:reasoning-judgment-decision
+  scope: 个体以有限认知情绪和社会规范作判断
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-applies-d07
+  source: hkm:universal-model:agency-incentives-governance
+  type: applies-to
+  target: hkm:domain:society-human-groups
+  scope: 组织网络和文化塑造集体行动与身份
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-explains-k07-05
+  source: hkm:universal-model:agency-incentives-governance
+  type: explains
+  target: hkm:framework:groups-networks-collective-action
+  scope: 组织网络和文化塑造集体行动与身份
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-applies-d10
+  source: hkm:universal-model:agency-incentives-governance
+  type: applies-to
+  target: hkm:domain:economy-finance-organizations
+  scope: 激励信息和契约组织市场与企业行为
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-explains-k10-03
+  source: hkm:universal-model:agency-incentives-governance
+  type: explains
+  target: hkm:framework:incentives-strategy-mechanism-design
+  scope: 激励信息和契约组织市场与企业行为
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-applies-d09
+  source: hkm:universal-model:agency-incentives-governance
+  type: applies-to
+  target: hkm:domain:politics-governance-law
+  scope: 法律权威监管和多层制度约束公共行动
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-explains-k09-10
+  source: hkm:universal-model:agency-incentives-governance
+  type: explains
+  target: hkm:framework:governance-regulation-institutional-design
+  scope: 法律权威监管和多层制度约束公共行动
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-applies-d13
+  source: hkm:universal-model:agency-incentives-governance
+  type: applies-to
+  target: hkm:domain:engineering-technology-design
+  scope: 工程需求在利益相关者目标权力与责任中形成
+  confidence: high
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-explains-k13-01
+  source: hkm:universal-model:agency-incentives-governance
+  type: explains
+  target: hkm:framework:needs-requirements-stakeholders
+  scope: 工程需求在利益相关者目标权力与责任中形成
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
+- id: hkm:relation:um22-model-link-01
+  source: hkm:universal-model:agency-incentives-governance
+  type: complements
+  target: hkm:thinking-model:incentives-mechanism-design
+  scope: 思维模型把主体反应转化为规则设计和治理检验
+  confidence: medium
+  provenance:
+  - hkm:source:editorial-synthesis-v0-4
