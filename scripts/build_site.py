@@ -235,6 +235,117 @@ def compact_framework(node: dict) -> dict:
     }
 
 
+def unique(values: list[str]) -> list[str]:
+    return list(dict.fromkeys(values))
+
+
+def build_topic_guides(
+    domains: list[dict],
+    subdomains: list[dict],
+    bridges: list[dict],
+    core_nodes: list[dict],
+    problem_templates: list[dict],
+    learning_units: list[dict],
+) -> list[dict]:
+    """Materialize a substantive guide for every H2 and H3 detail page."""
+    domain_by_code = {node["code"]: node for node in domains}
+    subdomains_by_parent: dict[str, list[dict]] = {}
+    for node in subdomains:
+        subdomains_by_parent.setdefault(node["parent"], []).append(node)
+    for nodes in subdomains_by_parent.values():
+        nodes.sort(key=lambda item: item["code"])
+
+    priority_order = {"S": 0, "A": 1, "B": 2}
+    guides: list[dict] = []
+    for kind, nodes in (("domain", domains), ("subdomain", subdomains)):
+        for node in nodes:
+            if kind == "domain":
+                anchors = [
+                    item for item in core_nodes if item["primary_domain"] == node["id"]
+                ]
+                related_topics = [
+                    domain_by_code[code]["id"]
+                    for code in node.get("bridge_domains", [])
+                    if code in domain_by_code and code != node["code"]
+                ]
+                bridge_views = [
+                    item["id"]
+                    for item in bridges
+                    if node["code"] in item.get("member_domains", [])
+                ]
+                parent_id = node["parent"]
+            else:
+                anchors = [
+                    item
+                    for item in core_nodes
+                    if node["id"] in item.get("related_subdomains", [])
+                ]
+                siblings = subdomains_by_parent[node["parent"]]
+                position = siblings.index(node)
+                nearby = siblings[max(0, position - 2) : position] + siblings[
+                    position + 1 : position + 3
+                ]
+                bridge_nodes = [
+                    item for item in bridges if node["id"] in item.get("members", [])
+                ]
+                bridge_peers = [
+                    member
+                    for bridge in bridge_nodes
+                    for member in bridge.get("members", [])
+                    if member != node["id"]
+                ]
+                related_topics = unique(
+                    bridge_peers + [item["id"] for item in nearby]
+                )
+                bridge_views = [item["id"] for item in bridge_nodes]
+                parent_id = node["parent"]
+
+            anchors.sort(
+                key=lambda item: (
+                    priority_order.get(item.get("learning_priority", "B"), 9),
+                    item["code"],
+                )
+            )
+            reference_ids = {node["id"], parent_id, *(item["id"] for item in anchors)}
+            problem_ids = [
+                item["id"]
+                for item in problem_templates
+                if any(
+                    reference_ids.intersection(values)
+                    for values in item.get("knowledge_calls", {}).values()
+                    if isinstance(values, list)
+                )
+            ]
+            problem_id_set = set(problem_ids)
+            learning_ids = [
+                item["id"]
+                for item in learning_units
+                if reference_ids.intersection(item.get("focus_assets", []))
+                or problem_id_set.intersection(item.get("practice_problems", []))
+            ]
+            guides.append(
+                {
+                    "node_id": node["id"],
+                    "kind": kind,
+                    "parent_id": parent_id,
+                    "inquiry_modes": unique(
+                        node.get("epistemic_modes", [])
+                        + [
+                            mode
+                            for anchor in anchors
+                            for mode in anchor.get("epistemic_modes", [])
+                        ]
+                    ),
+                    "anchor_core_nodes": [item["id"] for item in anchors],
+                    "related_topics": unique(related_topics),
+                    "bridge_views": unique(bridge_views),
+                    "problem_templates": unique(problem_ids),
+                    "learning_units": unique(learning_ids),
+                }
+            )
+    return guides
+
+
 def build_payload() -> dict:
     domain_data = load_yaml("08-data/domains.yaml")
     subdomain_data = load_yaml("08-data/subdomains.yaml")
@@ -282,6 +393,14 @@ def build_payload() -> dict:
     ]
     learning_priorities = priority_data["entries"]
     frameworks = [compact_framework(node) for node in framework_data["frameworks"]]
+    topic_guides = build_topic_guides(
+        domains,
+        subdomains,
+        bridges,
+        core_nodes,
+        problem_templates,
+        learning_units,
+    )
     domain_ids = {domain["id"] for domain in domains}
     domain_relations = [
         relation
@@ -318,6 +437,7 @@ def build_payload() -> dict:
                 "learningUnits": len(learning_units),
                 "frameworks": len(frameworks),
                 "relations": len(relations),
+                "topicGuides": len(topic_guides),
             },
             "audit": {
                 "status": audit_data["status"],
@@ -338,6 +458,7 @@ def build_payload() -> dict:
         "learningPath": learning_path,
         "learningUnits": learning_units,
         "frameworks": frameworks,
+        "topicGuides": topic_guides,
         "relations": relations,
         "domainRelations": domain_relations,
     }
@@ -371,6 +492,7 @@ def main() -> None:
         f"{payload['meta']['counts']['learningCandidates']} learning candidates, "
         f"{payload['meta']['counts']['learningUnits']} learning units, "
         f"{payload['meta']['counts']['frameworks']} operating frameworks, "
+        f"{payload['meta']['counts']['topicGuides']} expanded topic guides, "
         f"{payload['meta']['counts']['relations']} relations"
     )
 

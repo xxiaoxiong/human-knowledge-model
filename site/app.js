@@ -42,6 +42,49 @@ const RELATION_LABELS = {
   uses: { zh: "调用", en: "Uses" },
 };
 
+const MODE_GUIDES = {
+  empirical: {
+    zh: ["实证观察", "通过观察、实验、测量和数据比较检验关于世界的主张。"],
+    en: ["Empirical inquiry", "Tests claims through observation, experiments, measurement and comparison of data."],
+  },
+  formal: {
+    zh: ["形式推演", "使用定义、公理、逻辑、数学结构或计算模型澄清关系与可推出的结论。"],
+    en: ["Formal reasoning", "Uses definitions, axioms, logic, mathematical structures or computational models to derive implications."],
+  },
+  causal: {
+    zh: ["因果解释", "比较机制、干预和替代解释，判断哪些因素会造成变化以及在何种条件下成立。"],
+    en: ["Causal explanation", "Compares mechanisms, interventions and alternatives to determine what produces change and under which conditions."],
+  },
+  historical: {
+    zh: ["历史追踪", "利用时间序列、史料和路径依赖重建形成过程，区分起源、转折与延续。"],
+    en: ["Historical tracing", "Uses timelines, sources and path dependence to reconstruct origins, turning points and continuities."],
+  },
+  interpretive: {
+    zh: ["解释理解", "结合文本、语境、语言和行动者视角理解意义，而不把意义简化为单一变量。"],
+    en: ["Interpretive understanding", "Reads texts, contexts, language and actor perspectives without reducing meaning to a single variable."],
+  },
+  normative: {
+    zh: ["规范判断", "显式比较价值、权利、责任与可辩护标准，区分事实判断和应当如何。"],
+    en: ["Normative judgment", "Makes values, rights, duties and defensible standards explicit while separating facts from what ought to be."],
+  },
+  comparative: {
+    zh: ["比较研究", "跨案例、制度、文化或尺度寻找共同模式、关键差异和适用边界。"],
+    en: ["Comparative inquiry", "Compares cases, institutions, cultures or scales to find recurring patterns, decisive differences and limits."],
+  },
+  synthetic: {
+    zh: ["综合建模", "把来自不同层级与学科的证据组织成一致图景，并保留冲突和未知。"],
+    en: ["Synthesis", "Combines evidence across levels and disciplines into a coherent account while preserving conflicts and unknowns."],
+  },
+  design: {
+    zh: ["设计与试验", "在约束中提出方案，通过原型、迭代、评价和失败反馈改进干预。"],
+    en: ["Design and testing", "Develops options under constraints and improves interventions through prototypes, iteration, evaluation and failure feedback."],
+  },
+  embodied: {
+    zh: ["具身实践", "通过身体感知、动作训练、情境参与和反复练习形成难以仅靠文字获得的能力。"],
+    en: ["Embodied practice", "Builds capability through perception, movement, situated participation and repeated practice."],
+  },
+};
+
 const copy = {
   zh: {
     brandTagline: "人类知识模型",
@@ -217,6 +260,22 @@ const copy = {
     status: "状态",
     version: "版本",
     score: "综合得分",
+    topicGuide: "主题拓展导览",
+    topicGuideEyebrow: "从概念、证据到应用",
+    keyQuestions: "关键问题",
+    coreConcepts: "核心概念",
+    inquiryApproaches: "研究方法与证据",
+    knowledgeAnchors: "知识骨架锚点",
+    relatedTopics: "相邻主题",
+    crossDomainViews: "跨域连接",
+    realWorldUses: "现实问题与应用",
+    suggestedLearning: "继续学习",
+    studyRoute: "建议理解路径",
+    routeScope: "建立主题边界",
+    routeAnchors: "掌握关键结构",
+    routeApply: "迁移到真实问题",
+    parentDomain: "所属领域",
+    guideCoverage: "完整主题档案",
   },
   en: {
     brandTagline: "A map of how humanity knows",
@@ -392,6 +451,22 @@ const copy = {
     status: "Status",
     version: "Version",
     score: "Composite score",
+    topicGuide: "Expanded topic guide",
+    topicGuideEyebrow: "From concepts and evidence to use",
+    keyQuestions: "Key questions",
+    coreConcepts: "Core concepts",
+    inquiryApproaches: "Methods and evidence",
+    knowledgeAnchors: "Knowledge anchors",
+    relatedTopics: "Adjacent topics",
+    crossDomainViews: "Cross-domain connections",
+    realWorldUses: "Real-world problems and uses",
+    suggestedLearning: "Continue learning",
+    studyRoute: "Suggested path",
+    routeScope: "Establish the boundary",
+    routeAnchors: "Learn the key structures",
+    routeApply: "Transfer into real problems",
+    parentDomain: "Parent domain",
+    guideCoverage: "Complete topic guide",
   },
 };
 
@@ -460,6 +535,7 @@ function indexes() {
     frameworkById: new Map(model.frameworks.map((item) => [item.id, item])),
     frameworkByCode: new Map(model.frameworks.map((item) => [item.code, item])),
     modelById: new Map([...model.thinkingModels, ...model.universalModels].map((item) => [item.id, item])),
+    topicGuideById: new Map((model.topicGuides || []).map((item) => [item.node_id, item])),
   };
 }
 
@@ -998,6 +1074,93 @@ function renderTopicProfile(node) {
     </section>`;
 }
 
+function conceptLabel(value) {
+  return String(value).replaceAll("-", " ");
+}
+
+function renderGuideLinks(items, idx, limit = 4) {
+  const visible = items.filter(Boolean).slice(0, limit);
+  if (!visible.length) return "";
+  return `<div class="topic-guide-links">${visible.map((item) => {
+    const kind = idx.kindById.get(item.id);
+    const meta = [kind ? kindLabel(kind) : "", item.learning_priority || ""].filter(Boolean).join(" · ");
+    return `<button type="button" data-open-kind="${escapeHTML(kind)}" data-open-id="${escapeHTML(item.id)}">
+      <span>${escapeHTML(meta)}</span>
+      <strong>${escapeHTML(nodeDisplayLabel(item))}</strong>
+      <p>${escapeHTML(definition(item))}</p>
+    </button>`;
+  }).join("")}</div>`;
+}
+
+function renderScopeGuide(kind, node, idx) {
+  const guide = idx.topicGuideById.get(node.id);
+  if (!guide) return "";
+  const parent = kind === "subdomain" ? idx.domainById.get(guide.parent_id) : null;
+  const anchors = guide.anchor_core_nodes.map((id) => idx.coreById.get(id)).filter(Boolean);
+  const related = guide.related_topics.map((id) => idx.nodeById.get(id)).filter(Boolean);
+  const bridges = guide.bridge_views.map((id) => idx.bridgeById.get(id)).filter(Boolean);
+  const crossDomains = kind === "subdomain"
+    ? (node.bridge_domains || []).map((code) => idx.domainByCode.get(code)).filter(Boolean)
+    : [];
+  const problems = guide.problem_templates.map((id) => idx.problemById.get(id)).filter(Boolean);
+  const learningUnits = guide.learning_units.map((id) => idx.learningById.get(id)).filter(Boolean);
+  const lead = state.lang === "zh"
+    ? kind === "domain"
+      ? `围绕“${node.core_questions.join("；")}”，本导览把 ${node.scope_includes.length} 组核心概念、${anchors.length} 个知识骨架和 ${problems.length} 类现实问题连接成一条可探索的理解路径。`
+      : `作为“${label(parent)}”中的细分主题，本导览通过 ${anchors.length} 个知识骨架连接概念、证据与 ${problems.length} 类现实问题，并给出相邻主题和后续学习入口。`
+    : kind === "domain"
+      ? `This guide connects ${node.scope_includes.length} concept groups, ${anchors.length} knowledge anchors and ${problems.length} real-world problem types around the domain's key questions.`
+      : `Within ${label(parent)}, this guide connects concepts and evidence through ${anchors.length} knowledge anchors and ${problems.length} real-world problem types, with adjacent topics and next steps.`;
+  const modeCards = guide.inquiry_modes.map((mode) => {
+    const content = MODE_GUIDES[mode]?.[state.lang] || [conceptLabel(mode), mode];
+    return `<article><span>${escapeHTML(mode)}</span><strong>${escapeHTML(content[0])}</strong><p>${escapeHTML(content[1])}</p></article>`;
+  }).join("");
+  const anchorCards = anchors.slice(0, 6).map((anchor) => `<button type="button" data-open-kind="core" data-open-id="${escapeHTML(anchor.id)}">
+      <span>${escapeHTML(anchor.learning_priority)} · ${escapeHTML(anchor.primary_type)}</span>
+      <strong>${escapeHTML(nodeDisplayLabel(anchor))}</strong>
+      <p>${escapeHTML(definition(anchor))}</p>
+      <small>${escapeHTML(anchor.core_questions?.[0] || "")}</small>
+    </button>`).join("");
+  const connectionSections = [
+    parent ? `<section><h4>${escapeHTML(t("parentDomain"))}</h4>${renderGuideLinks([parent], idx, 1)}</section>` : "",
+    related.length ? `<section><h4>${escapeHTML(t("relatedTopics"))}</h4>${renderGuideLinks(related, idx, 6)}</section>` : "",
+    bridges.length || crossDomains.length ? `<section><h4>${escapeHTML(t("crossDomainViews"))}</h4>${renderGuideLinks([...bridges, ...crossDomains], idx, 6)}</section>` : "",
+    problems.length ? `<section><h4>${escapeHTML(t("realWorldUses"))}</h4>${renderGuideLinks(problems, idx, 4)}</section>` : "",
+    learningUnits.length ? `<section><h4>${escapeHTML(t("suggestedLearning"))}</h4>${renderGuideLinks(learningUnits, idx, 3)}</section>` : "",
+  ].filter(Boolean).join("");
+  const conceptNames = node.scope_includes.slice(0, 5).map(conceptLabel);
+  const anchorNames = anchors.slice(0, 3).map((item) => label(item));
+  const problemNames = problems.slice(0, 3).map((item) => label(item));
+  const routeCopy = state.lang === "zh"
+    ? [
+        `从 ${conceptNames.join("、")} 入手，同时用边界说明排除相邻但不同的问题。`,
+        `优先掌握 ${anchorNames.join("、")}，并能回答每个骨架节点提出的检验问题。`,
+        `把理解迁移到 ${problemNames.join("、")} 等现实问题，再用学习单元形成作品或行动证据。`,
+      ]
+    : [
+        `Begin with ${conceptNames.join(", ")} and use the boundary note to exclude nearby but distinct questions.`,
+        `Prioritize ${anchorNames.join(", ")} and answer the diagnostic question attached to each anchor.`,
+        `Transfer the ideas into ${problemNames.join(", ")} and use a learning unit to produce evidence of understanding.`,
+      ];
+  return `<section class="topic-guide" aria-label="${escapeHTML(t("topicGuide"))}">
+      <header class="topic-guide-header">
+        <span>${escapeHTML(t("topicGuideEyebrow"))}</span>
+        <div><h3>${escapeHTML(t("topicGuide"))}</h3><strong>${escapeHTML(t("guideCoverage"))} · ${escapeHTML(node.code)}</strong></div>
+        <p>${escapeHTML(lead)}</p>
+      </header>
+      <div class="topic-guide-foundations">
+        <article><span>01</span><h4>${escapeHTML(t("keyQuestions"))}</h4>${questionList(node.core_questions)}</article>
+        <article><span>02</span><h4>${escapeHTML(t("coreConcepts"))}</h4>${tagCloud(node.scope_includes.map(conceptLabel))}</article>
+      </div>
+      <section class="topic-guide-section"><h4>${escapeHTML(t("inquiryApproaches"))}</h4><div class="inquiry-mode-grid">${modeCards}</div></section>
+      <section class="topic-guide-section"><h4>${escapeHTML(t("knowledgeAnchors"))}</h4><div class="knowledge-anchor-grid">${anchorCards}</div></section>
+      <section class="topic-guide-section topic-guide-connections">${connectionSections}</section>
+      <section class="topic-guide-section"><h4>${escapeHTML(t("studyRoute"))}</h4><ol class="study-route">
+        ${[t("routeScope"), t("routeAnchors"), t("routeApply")].map((title, index) => `<li><span>0${index + 1}</span><div><strong>${escapeHTML(title)}</strong><p>${escapeHTML(routeCopy[index])}</p></div></li>`).join("")}
+      </ol></section>
+    </section>`;
+}
+
 function renderReferenceList(items, kind) {
   return `<div class="detail-list">${items.map((item) => `<button type="button" data-open-kind="${escapeHTML(kind)}" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(nodeDisplayLabel(item))}</strong><small>${escapeHTML(definition(item))}</small></button>`).join("")}</div>`;
 }
@@ -1170,7 +1333,7 @@ function openDetail(kind, id, options = {}) {
     const subdomains = state.model.subdomains.filter((item) => item.parent === node.id);
     const coreNodes = state.model.coreNodes.filter((item) => item.primary_domain === node.id);
     html = detailHeader(node);
-    html += detailBlock(t("coreQuestion"), questionList(node.core_questions));
+    html += renderScopeGuide("domain", node, idx);
     html += detailBlock(
       t("subdomains"),
       `<div class="detail-list">${subdomains
@@ -1198,7 +1361,7 @@ function openDetail(kind, id, options = {}) {
     color = idx.superdomainById.get(parent.parent).color;
     kicker = `${t("detailSubdomain")} · ${node.code} · ${parent.code}`;
     html = detailHeader(node);
-    html += detailBlock(t("coreQuestion"), questionList(node.core_questions));
+    html += renderScopeGuide("subdomain", node, idx);
     html += detailBlock(t("bridgeDomains"), tagCloud(node.bridge_domains || []));
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   } else if (kind === "bridge") {
