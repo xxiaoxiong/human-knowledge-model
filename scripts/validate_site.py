@@ -44,6 +44,8 @@ def main() -> int:
         "method",
         "knowledge-network",
         "detail-dialog",
+        "detail-back",
+        "detail-breadcrumbs",
     ):
         if f'id="{required_id}"' not in html:
             errors.append(f"missing required site element: #{required_id}")
@@ -53,6 +55,33 @@ def main() -> int:
         errors.append("finished site must not contain model-authored SVG")
     if re.search(r'(?:src|href)="/(?!/)', html):
         errors.append("root-relative asset URL would break GitHub project Pages")
+
+    app_source = (SITE / "app.js").read_text(encoding="utf-8")
+    for required_contract in (
+        "detailHistory",
+        "navigateDetailBack",
+        "renderDetailNavigation",
+        "renderTopicProfile",
+        "renderRelationshipNavigator",
+    ):
+        if required_contract not in app_source:
+            errors.append(f"site app is missing detail-navigation contract: {required_contract}")
+    for detail_kind in (
+        "root",
+        "superdomain",
+        "domain",
+        "subdomain",
+        "bridge",
+        "core",
+        "thinking",
+        "universal",
+        "problem",
+        "learningPath",
+        "learning",
+        "framework",
+    ):
+        if f'kind === "{detail_kind}"' not in app_source:
+            errors.append(f"site app cannot render rich details for node kind: {detail_kind}")
 
     payload = json.loads((SITE / "data/model.json").read_text(encoding="utf-8"))
     counts = payload["meta"]["counts"]
@@ -96,11 +125,14 @@ def main() -> int:
         errors.append("site payload must expose both operating frameworks")
     if counts.get("relations") != 3056:
         errors.append("site payload must expose all 3,056 frozen graph relations")
+    if len(payload.get("relations", [])) != counts.get("relations"):
+        errors.append("site payload must materialize every frozen graph relation for detail navigation")
     ranks = [entry["rank"] for entry in payload["learningPriorities"]]
     if sorted(ranks) != list(range(1, 321)):
         errors.append("site payload learning ranks must be unique and contiguous from 1 to 320")
 
     node_collections = (
+        [payload["root"]],
         payload["superdomains"],
         payload["domains"],
         payload["subdomains"],
@@ -121,6 +153,17 @@ def main() -> int:
     expected_total = sum(len(collection) for collection in node_collections)
     if len(ids) != expected_total:
         errors.append("site payload contains duplicate node IDs")
+    relation_endpoints = {
+        endpoint
+        for relation in payload.get("relations", [])
+        for endpoint in (relation.get("source"), relation.get("target"))
+    }
+    unknown_endpoints = sorted(endpoint for endpoint in relation_endpoints if endpoint not in ids)
+    if unknown_endpoints:
+        errors.append(f"site relation navigator has unknown endpoints: {unknown_endpoints[:5]}")
+    unconnected_nodes = sorted(node_id for node_id in ids if node_id not in relation_endpoints)
+    if unconnected_nodes:
+        errors.append(f"site detail nodes lack graph context: {unconnected_nodes[:5]}")
     for collection in node_collections:
         for node in collection:
             labels = node.get("labels", {})
@@ -130,6 +173,8 @@ def main() -> int:
                 errors.append(
                     f"site payload node lacks exact non-empty zh/en labels: {node.get('id')}"
                 )
+            if not isinstance(node.get("definition"), str) or not node["definition"].strip():
+                errors.append(f"site detail node lacks a substantive definition: {node.get('id')}")
 
     if errors:
         print("SITE VALIDATION FAILED")

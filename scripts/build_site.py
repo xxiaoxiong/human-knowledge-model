@@ -338,6 +338,7 @@ def build_payload() -> dict:
         "learningPath": learning_path,
         "learningUnits": learning_units,
         "frameworks": frameworks,
+        "relations": relations,
         "domainRelations": domain_relations,
     }
 

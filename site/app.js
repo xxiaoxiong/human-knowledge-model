@@ -12,6 +12,34 @@ const state = {
   activeFramework: "FM01",
   networkNodes: [],
   hoveredDomain: null,
+  detailHistory: [],
+};
+
+const RELATION_LABELS = {
+  "applies-to": { zh: "适用于", en: "Applies to" },
+  bridges: { zh: "跨域桥接", en: "Bridges" },
+  challenges: { zh: "挑战", en: "Challenges" },
+  complements: { zh: "互补", en: "Complements" },
+  constrains: { zh: "约束", en: "Constrains" },
+  "depends-on": { zh: "依赖", en: "Depends on" },
+  "derived-from": { zh: "源自", en: "Derived from" },
+  enables: { zh: "使能", en: "Enables" },
+  explains: { zh: "解释", en: "Explains" },
+  implements: { zh: "实现", en: "Implements" },
+  "in-domain": { zh: "位于领域", en: "In domain" },
+  "in-scope": { zh: "位于范围", en: "In scope" },
+  influences: { zh: "影响", en: "Influences" },
+  "member-of": { zh: "属于视图", en: "Member of" },
+  "narrower-than": { zh: "细分于", en: "Narrower than" },
+  operationalizes: { zh: "操作化", en: "Operationalizes" },
+  "prerequisite-of": { zh: "是前置", en: "Prerequisite of" },
+  "primary-domain": { zh: "主领域", en: "Primary domain" },
+  produces: { zh: "产出", en: "Produces" },
+  refines: { zh: "细化", en: "Refines" },
+  supports: { zh: "支持", en: "Supports" },
+  "transfer-to": { zh: "迁移至", en: "Transfers to" },
+  transforms: { zh: "转化", en: "Transforms" },
+  uses: { zh: "调用", en: "Uses" },
 };
 
 const copy = {
@@ -156,6 +184,39 @@ const copy = {
     operatingOutputs: "完整输出",
     componentOutput: "退出产物",
     openFramework: "打开完整调用说明",
+    backDetail: "返回上一步",
+    backToGraph: "返回知识图谱",
+    closeDetail: "关闭详情",
+    detailPath: "详情路径",
+    knowledgeGraph: "人类知识",
+    topicProfile: "主题档案",
+    graphPosition: "图谱位置",
+    scopeIncludes: "主题范围",
+    epistemicModes: "认识方式",
+    relationshipNavigator: "关系导航",
+    outgoingRelations: "本节点指向",
+    incomingRelations: "指向本节点",
+    learningAndUse: "学习与应用",
+    nodeType: "节点类型",
+    graphRelations: "图谱关系",
+    problemCoverage: "调用问题",
+    roadmapCoverage: "学习单元",
+    frameworkCoverage: "操作框架",
+    learningRank: "学习排名",
+    relatedCoreNodes: "相关骨架",
+    relatedSubdomains: "相关子领域",
+    relationScope: "关系说明",
+    detailRoot: "知识根节点",
+    detailSuperdomain: "H1 超级领域",
+    detailLearningPath: "学习路径",
+    domains: "H2 领域",
+    stageUnits: "路线阶段",
+    tierCycles: "分层循环",
+    branchRoutes: "分支路线",
+    routeRules: "路线规则",
+    status: "状态",
+    version: "版本",
+    score: "综合得分",
   },
   en: {
     brandTagline: "A map of how humanity knows",
@@ -298,6 +359,39 @@ const copy = {
     operatingOutputs: "Complete outputs",
     componentOutput: "Exit artifact",
     openFramework: "Open the full operating guide",
+    backDetail: "Back",
+    backToGraph: "Back to knowledge graph",
+    closeDetail: "Close details",
+    detailPath: "Detail path",
+    knowledgeGraph: "Human Knowledge",
+    topicProfile: "Topic profile",
+    graphPosition: "Graph position",
+    scopeIncludes: "Topic scope",
+    epistemicModes: "Ways of knowing",
+    relationshipNavigator: "Relationship navigator",
+    outgoingRelations: "From this node",
+    incomingRelations: "To this node",
+    learningAndUse: "Learning and use",
+    nodeType: "Node type",
+    graphRelations: "Graph relations",
+    problemCoverage: "Problem calls",
+    roadmapCoverage: "Learning units",
+    frameworkCoverage: "Frameworks",
+    learningRank: "Learning rank",
+    relatedCoreNodes: "Related skeletons",
+    relatedSubdomains: "Related subdomains",
+    relationScope: "Relation note",
+    detailRoot: "Knowledge root",
+    detailSuperdomain: "H1 superdomain",
+    detailLearningPath: "Learning path",
+    domains: "H2 domains",
+    stageUnits: "Roadmap stages",
+    tierCycles: "Tier cycles",
+    branchRoutes: "Branch routes",
+    routeRules: "Route rules",
+    status: "Status",
+    version: "Version",
+    score: "Composite score",
   },
 };
 
@@ -327,7 +421,31 @@ function problemFamilyLabel(family) {
 
 function indexes() {
   const model = state.model;
+  const typedCollections = [
+    ["root", [model.root]],
+    ["superdomain", model.superdomains],
+    ["domain", model.domains],
+    ["subdomain", model.subdomains],
+    ["bridge", model.bridges],
+    ["core", model.coreNodes],
+    ["thinking", model.thinkingModels],
+    ["universal", model.universalModels],
+    ["problem", model.problemTemplates],
+    ["learningPath", [model.learningPath]],
+    ["learning", model.learningUnits],
+    ["framework", model.frameworks],
+  ];
+  const nodeById = new Map();
+  const kindById = new Map();
+  typedCollections.forEach(([kind, items]) => {
+    items.filter(Boolean).forEach((item) => {
+      nodeById.set(item.id, item);
+      kindById.set(item.id, kind);
+    });
+  });
   return {
+    nodeById,
+    kindById,
     superdomainById: new Map(model.superdomains.map((item, index) => [item.id, { ...item, color: COLORS[index] }])),
     domainById: new Map(model.domains.map((item) => [item.id, item])),
     domainByCode: new Map(model.domains.map((item) => [item.code, item])),
@@ -354,6 +472,10 @@ function applyTranslations() {
     node.placeholder = t(node.dataset.i18nPlaceholder);
   });
   $("#language-toggle").textContent = state.lang === "zh" ? "EN" : "中";
+  $("#detail-back-label").textContent = t("backDetail");
+  $("#detail-back").setAttribute("aria-label", t("backDetail"));
+  $("#detail-breadcrumbs").setAttribute("aria-label", t("detailPath"));
+  $(".dialog-close").setAttribute("aria-label", t("closeDetail"));
 }
 
 function renderHero() {
@@ -735,15 +857,311 @@ function tagCloud(items = []) {
   return `<div class="tag-cloud">${items.map((item) => `<span class="tag">${escapeHTML(item)}</span>`).join("")}</div>`;
 }
 
-function openDetail(kind, id, updateHash = true) {
+function kindLabel(kind) {
+  const keys = {
+    root: "detailRoot",
+    superdomain: "detailSuperdomain",
+    domain: "detailDomain",
+    subdomain: "detailSubdomain",
+    bridge: "detailBridge",
+    core: "detailCore",
+    thinking: "detailThinking",
+    universal: "detailUniversal",
+    problem: "detailProblem",
+    learningPath: "detailLearningPath",
+    learning: "detailLearning",
+    framework: "detailFramework",
+  };
+  return t(keys[kind] || "nodeType");
+}
+
+function relationLabel(type) {
+  return RELATION_LABELS[type]?.[state.lang] || type;
+}
+
+function nodeDisplayLabel(node) {
+  return node.code ? `${node.code} · ${label(node)}` : label(node);
+}
+
+function problemCallsNode(problem, nodeId) {
+  return Object.values(problem.knowledge_calls || {}).some(
+    (values) => Array.isArray(values) && values.includes(nodeId),
+  );
+}
+
+function frameworkCallsNode(framework, nodeId) {
+  if ((framework.applies_to_problem_templates || []).includes(nodeId)) return true;
+  return (framework.components || []).some((component) =>
+    [component.domains, component.thinking_models, component.universal_models]
+      .filter(Array.isArray)
+      .some((values) => values.includes(nodeId)),
+  );
+}
+
+function referencesForNode(node, idx) {
+  return {
+    priority: idx.priorityById.get(node.id),
+    problems: state.model.problemTemplates.filter(
+      (problem) => problem.id !== node.id && problemCallsNode(problem, node.id),
+    ),
+    learningUnits: state.model.learningUnits.filter(
+      (unit) =>
+        unit.id !== node.id &&
+        [...(unit.focus_assets || []), ...(unit.practice_problems || [])].includes(node.id),
+    ),
+    frameworks: state.model.frameworks.filter(
+      (framework) => framework.id !== node.id && frameworkCallsNode(framework, node.id),
+    ),
+  };
+}
+
+function topicFacts(kind, node, idx, relationCount, references) {
+  const facts = [
+    { label: t("nodeType"), value: kindLabel(kind), note: node.primary_type || node.level || node.framework_kind || "" },
+    { label: t("graphRelations"), value: relationCount, note: state.lang === "zh" ? "可追踪的入边与出边" : "traceable incoming and outgoing edges" },
+  ];
+  if (references.priority) {
+    facts.push({
+      label: t("learningRank"),
+      value: `#${references.priority.rank}`,
+      note: `${references.priority.tier} · ${t("score")} ${Number(references.priority.raw_score).toFixed(1)}`,
+    });
+  }
+  if (references.problems.length) {
+    facts.push({ label: t("problemCoverage"), value: references.problems.length, note: references.problems.map((item) => item.code).join(" · ") });
+  }
+  if (references.learningUnits.length) {
+    facts.push({ label: t("roadmapCoverage"), value: references.learningUnits.length, note: references.learningUnits.map((item) => item.code).join(" · ") });
+  }
+  if (references.frameworks.length) {
+    facts.push({ label: t("frameworkCoverage"), value: references.frameworks.length, note: references.frameworks.map((item) => item.code).join(" · ") });
+  }
+
+  if (kind === "root") {
+    facts.push({ label: t("detailSuperdomain"), value: state.model.superdomains.length, note: "H1" });
+  } else if (kind === "superdomain") {
+    const domains = state.model.domains.filter((item) => item.parent === node.id);
+    facts.push({ label: t("domains"), value: domains.length, note: domains.map((item) => item.code).join(" · ") });
+  } else if (kind === "domain") {
+    const subdomains = state.model.subdomains.filter((item) => item.parent === node.id);
+    const coreNodes = state.model.coreNodes.filter((item) => item.primary_domain === node.id);
+    facts.push({ label: t("subdomains"), value: subdomains.length, note: `${coreNodes.length} ${t("coreUnit")}` });
+  } else if (kind === "subdomain") {
+    const coreNodes = state.model.coreNodes.filter((item) => (item.related_subdomains || []).includes(node.id));
+    const bridges = state.model.bridges.filter((item) => (item.members || []).includes(node.id));
+    facts.push({ label: t("relatedCoreNodes"), value: coreNodes.length, note: `${bridges.length} ${t("bridgeUnit")}` });
+  } else if (kind === "bridge") {
+    facts.push({ label: t("members"), value: node.members.length, note: `${node.member_domains.length} ${t("domainsUnit")}` });
+  } else if (kind === "core") {
+    facts.push({ label: t("relatedSubdomains"), value: node.related_subdomains.length, note: `${node.connections.length} ${t("connections")}` });
+  } else if (kind === "thinking") {
+    facts.push({ label: t("sourceDomains"), value: node.source_domains.length, note: `${node.mechanism_core_nodes.length} ${t("mechanismAnchors")}` });
+  } else if (kind === "universal") {
+    facts.push({ label: t("manifestations"), value: node.manifestations.length, note: `${node.state_variables.length} ${t("stateVariables")}` });
+  } else if (kind === "problem") {
+    const calls = Object.values(node.knowledge_calls).reduce((total, values) => total + values.length, 0);
+    facts.push({ label: t("knowledgeCalls"), value: calls, note: `${node.workflow.length} ${t("workflow")}` });
+  } else if (kind === "learningPath") {
+    facts.push({ label: t("stageUnits"), value: node.stage_units.length, note: `${node.tier_cycles.length} ${t("tierCycles")}` });
+  } else if (kind === "learning") {
+    facts.push({ label: t("focusAssets"), value: node.focus_assets.length, note: `${node.practice_problems.length} ${t("practiceProblems")}` });
+  } else if (kind === "framework") {
+    facts.push({ label: t("frameworkComponents"), value: node.components.length, note: `${node.applies_to_problem_templates.length} ${t("problemUnit")}` });
+  }
+  return facts;
+}
+
+function renderTopicProfile(node) {
+  const idx = indexes();
+  const kind = idx.kindById.get(node.id) || "core";
+  const relationships = (state.model.relations || []).filter(
+    (relation) => relation.source === node.id || relation.target === node.id,
+  );
+  const references = referencesForNode(node, idx);
+  const facts = topicFacts(kind, node, idx, relationships.length, references);
+  const descriptors = [];
+  if (node.scope_includes?.length) {
+    descriptors.push(`<section><h3>${escapeHTML(t("scopeIncludes"))}</h3>${tagCloud(node.scope_includes)}</section>`);
+  }
+  if (node.epistemic_modes?.length) {
+    descriptors.push(`<section><h3>${escapeHTML(t("epistemicModes"))}</h3>${tagCloud(node.epistemic_modes)}</section>`);
+  }
+  const metadata = [
+    node.status ? `${t("status")}: ${node.status}` : "",
+    node.version ? `${t("version")}: ${node.version}` : "",
+  ].filter(Boolean);
+  if (metadata.length) descriptors.push(`<section><h3>${escapeHTML(t("graphPosition"))}</h3>${tagCloud(metadata)}</section>`);
+  return `<section class="topic-profile" aria-label="${escapeHTML(t("topicProfile"))}">
+      <div class="topic-profile-heading"><span>${escapeHTML(t("topicProfile"))}</span><strong>${escapeHTML(node.code || "")}</strong></div>
+      <div class="topic-profile-grid">${facts.map((fact) => `<article><span>${escapeHTML(fact.label)}</span><strong>${escapeHTML(fact.value)}</strong>${fact.note ? `<small>${escapeHTML(fact.note)}</small>` : ""}</article>`).join("")}</div>
+      ${descriptors.length ? `<div class="topic-descriptors">${descriptors.join("")}</div>` : ""}
+    </section>`;
+}
+
+function renderReferenceList(items, kind) {
+  return `<div class="detail-list">${items.map((item) => `<button type="button" data-open-kind="${escapeHTML(kind)}" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(nodeDisplayLabel(item))}</strong><small>${escapeHTML(definition(item))}</small></button>`).join("")}</div>`;
+}
+
+function renderLearningAndUse(node, idx) {
+  const references = referencesForNode(node, idx);
+  const sections = [];
+  if (references.priority) {
+    const priority = references.priority;
+    sections.push(`<article class="learning-context-card"><span>${escapeHTML(t("learningRank"))}</span><strong>#${priority.rank} · ${escapeHTML(priority.tier)}</strong><p>${escapeHTML(t("score"))} ${Number(priority.raw_score).toFixed(1)} · ${priority.problem_count} ${escapeHTML(t("problemUnit"))}</p>${questionList(priority.selection_reasons || [])}</article>`);
+  }
+  if (references.problems.length) {
+    sections.push(`<section><h4>${escapeHTML(t("problemCoverage"))}</h4>${renderReferenceList(references.problems, "problem")}</section>`);
+  }
+  if (references.learningUnits.length) {
+    sections.push(`<section><h4>${escapeHTML(t("roadmapCoverage"))}</h4>${renderReferenceList(references.learningUnits, "learning")}</section>`);
+  }
+  if (references.frameworks.length) {
+    sections.push(`<section><h4>${escapeHTML(t("frameworkCoverage"))}</h4>${renderReferenceList(references.frameworks, "framework")}</section>`);
+  }
+  return sections.length ? detailBlock(t("learningAndUse"), `<div class="learning-context">${sections.join("")}</div>`) : "";
+}
+
+function renderRelationshipNavigator(node, idx) {
+  const grouped = new Map();
+  (state.model.relations || []).forEach((relation) => {
+    if (relation.source !== node.id && relation.target !== node.id) return;
+    const direction = relation.source === node.id ? "outgoing" : "incoming";
+    const neighborId = direction === "outgoing" ? relation.target : relation.source;
+    const key = `${direction}:${relation.type}`;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push({ relation, neighborId });
+  });
+  const groups = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  if (!groups.length) return "";
+  return detailBlock(
+    t("relationshipNavigator"),
+    `<div class="relation-groups">${groups.map(([key, entries], groupIndex) => {
+      const [direction, type] = key.split(":");
+      const directionLabel = direction === "outgoing" ? t("outgoingRelations") : t("incomingRelations");
+      return `<details class="relation-group"${groupIndex < 2 ? " open" : ""}>
+        <summary><span>${escapeHTML(directionLabel)} · ${escapeHTML(relationLabel(type))}</span><strong>${entries.length}</strong></summary>
+        <div class="relation-list">${entries.map(({ relation, neighborId }) => {
+          const neighbor = idx.nodeById.get(neighborId);
+          const neighborKind = idx.kindById.get(neighborId);
+          const title = neighbor ? nodeDisplayLabel(neighbor) : neighborId;
+          const note = relation.scope || `${directionLabel} · ${relationLabel(type)}`;
+          if (!neighbor || !neighborKind) return `<article><strong>${escapeHTML(title)}</strong><small>${escapeHTML(note)}</small></article>`;
+          return `<button type="button" data-open-kind="${escapeHTML(neighborKind)}" data-open-id="${escapeHTML(neighbor.id)}"><strong>${escapeHTML(title)}</strong><small>${escapeHTML(note)}</small><em>${escapeHTML(relation.confidence || "")}</em></button>`;
+        }).join("")}</div>
+      </details>`;
+    }).join("")}</div>`,
+    "relationship-block",
+  );
+}
+
+function breadcrumbEntries(kind, node, idx) {
+  const entries = [];
+  const root = state.model.root;
+  if (kind !== "root") entries.push({ kind: "root", node: root });
+  if (kind === "superdomain") {
+    // Root is already included.
+  } else if (kind === "domain") {
+    entries.push({ kind: "superdomain", node: idx.superdomainById.get(node.parent) });
+  } else if (kind === "subdomain") {
+    const domain = idx.domainById.get(node.parent);
+    entries.push({ kind: "superdomain", node: idx.superdomainById.get(domain.parent) });
+    entries.push({ kind: "domain", node: domain });
+  } else if (kind === "core") {
+    const domain = idx.domainById.get(node.primary_domain);
+    entries.push({ kind: "superdomain", node: idx.superdomainById.get(domain.parent) });
+    entries.push({ kind: "domain", node: domain });
+  } else if (kind === "learning") {
+    entries.push({ kind: "learningPath", node: state.model.learningPath });
+  } else if (!["root", "superdomain"].includes(kind)) {
+    entries.push({ label: kindLabel(kind) });
+  }
+  entries.push({ kind, node, current: true });
+  return entries.filter((entry) => entry.node || entry.label);
+}
+
+function renderDetailNavigation(kind, node, idx) {
+  const entries = breadcrumbEntries(kind, node, idx);
+  $("#detail-breadcrumbs").innerHTML = entries.map((entry, index) => {
+    const separator = index ? `<span class="breadcrumb-separator" aria-hidden="true">›</span>` : "";
+    if (entry.current || !entry.node) {
+      const text = entry.label || nodeDisplayLabel(entry.node);
+      return `${separator}<span class="breadcrumb-current"${entry.current ? ' aria-current="page"' : ""}>${escapeHTML(text)}</span>`;
+    }
+    return `${separator}<button type="button" data-breadcrumb-kind="${escapeHTML(entry.kind)}" data-breadcrumb-id="${escapeHTML(entry.node.id)}">${escapeHTML(nodeDisplayLabel(entry.node))}</button>`;
+  }).join("");
+  $$('[data-breadcrumb-kind]', $("#detail-breadcrumbs")).forEach((button) => {
+    button.addEventListener("click", () => openDetail(button.dataset.breadcrumbKind, button.dataset.breadcrumbId));
+  });
+  const backButton = $("#detail-back");
+  const hasHistory = state.detailHistory.length > 1;
+  $("#detail-back-label").textContent = hasHistory ? t("backDetail") : t("backToGraph");
+  backButton.setAttribute("aria-label", hasHistory ? t("backDetail") : t("backToGraph"));
+}
+
+function updateDetailHistory(kind, nodeId, mode, dialogWasOpen) {
+  const entry = { kind, id: nodeId };
+  if (mode === "preserve") return;
+  if (mode === "reset" || !dialogWasOpen) {
+    state.detailHistory = [entry];
+    return;
+  }
+  const current = state.detailHistory[state.detailHistory.length - 1];
+  if (mode === "replace") {
+    if (current) state.detailHistory[state.detailHistory.length - 1] = entry;
+    else state.detailHistory = [entry];
+  } else if (!current || current.kind !== kind || current.id !== nodeId) {
+    state.detailHistory.push(entry);
+  }
+}
+
+function navigateDetailBack() {
+  const dialog = $("#detail-dialog");
+  if (state.detailHistory.length <= 1) {
+    dialog.close();
+    return;
+  }
+  state.detailHistory.pop();
+  const previous = state.detailHistory[state.detailHistory.length - 1];
+  openDetail(previous.kind, previous.id, { historyMode: "preserve" });
+}
+
+function openDetail(kind, id, options = {}) {
+  if (typeof options === "boolean") options = { updateHash: options };
+  const updateHash = options.updateHash ?? true;
+  const historyMode = options.historyMode || "push";
   const idx = indexes();
   const dialog = $("#detail-dialog");
+  const dialogWasOpen = dialog.open;
   let node;
   let html = "";
   let kicker = "";
   let color = "var(--coral)";
 
-  if (kind === "domain") {
+  if (kind === "root") {
+    node = state.model.root;
+    if (!node || (id && id !== node.id && id !== node.code)) return;
+    kicker = node.code ? `${t("detailRoot")} · ${node.code}` : t("detailRoot");
+    html = detailHeader(node);
+    html += detailBlock(t("coreQuestion"), questionList(node.core_questions));
+    html += detailBlock(
+      t("detailSuperdomain"),
+      `<div class="detail-list">${state.model.superdomains.map((item) => `<button type="button" data-open-kind="superdomain" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(definition(item))}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "superdomain") {
+    node = idx.superdomainById.get(id);
+    if (!node) return;
+    color = node.color;
+    kicker = `${t("detailSuperdomain")} · ${node.code}`;
+    const domains = state.model.domains.filter((item) => item.parent === node.id);
+    html = detailHeader(node);
+    html += detailBlock(t("coreQuestion"), questionList(node.core_questions));
+    html += detailBlock(
+      t("domains"),
+      `<div class="detail-list">${domains.map((item) => `<button type="button" data-open-kind="domain" data-open-id="${escapeHTML(item.id)}"><strong>${escapeHTML(item.code)} · ${escapeHTML(label(item))}</strong><small>${escapeHTML(definition(item))}</small></button>`).join("")}</div>`,
+    );
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "domain") {
     node = idx.domainById.get(id) || idx.domainByCode.get(id);
     if (!node) return;
     const superdomain = idx.superdomainById.get(node.parent);
@@ -925,6 +1343,24 @@ function openDetail(kind, id, updateHash = true) {
     html += detailBlock(t("escalationConditions"), questionList(node.escalation_conditions), "escalation-block");
     html += detailBlock(t("examplePrompts"), questionList(node.example_prompts));
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
+  } else if (kind === "learningPath") {
+    node = state.model.learningPath;
+    if (!node || (id && id !== node.id && id !== node.code)) return;
+    color = "#5579a7";
+    kicker = `${t("detailLearningPath")} · ${node.code}`;
+    const units = node.stage_units.map((item) => idx.learningById.get(item)).filter(Boolean);
+    html = detailHeader(node);
+    html += detailBlock(t("stageUnits"), renderReferenceList(units, "learning"));
+    html += detailBlock(
+      t("tierCycles"),
+      `<div class="tier-cycle-list">${node.tier_cycles.map((cycle) => `<article><span>${escapeHTML(cycle.tier)}</span><strong>${escapeHTML(cycle.objective)}</strong><p>${escapeHTML(cycle.selection_rule)}</p><small>${escapeHTML(cycle.cadence)} · ${escapeHTML(cycle.evidence)}</small></article>`).join("")}</div>`,
+    );
+    html += detailBlock(
+      t("branchRoutes"),
+      `<div class="branch-route-list">${node.branch_routes.map((route) => `<article><strong>${escapeHTML(label(route))}</strong><p>${escapeHTML(route.focus_domains.join(" · "))}</p><small>${escapeHTML(route.anchor_problems.join(" · "))}</small></article>`).join("")}</div>`,
+    );
+    html += detailBlock(t("routeRules"), questionList(node.route_rules));
+    html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   } else if (kind === "learning") {
     node = idx.learningById.get(id);
     if (!node) return;
@@ -981,23 +1417,30 @@ function openDetail(kind, id, updateHash = true) {
     html += detailBlock(t("boundary"), `<p class="boundary-note">${escapeHTML(node.boundary_notes)}</p>`);
   }
 
+  if (!node) return;
+  html += renderLearningAndUse(node, idx);
+  html += renderRelationshipNavigator(node, idx);
+  updateDetailHistory(kind, node.id, historyMode, dialogWasOpen);
   $("#detail-kicker").textContent = kicker;
   $("#detail-content").innerHTML = html;
   $("#detail-content").style.setProperty("--detail-color", color);
   bindOpenButtons($("#detail-content"));
+  renderDetailNavigation(kind, node, idx);
   if (!dialog.open) dialog.showModal();
   document.body.classList.add("dialog-open");
   if (updateHash) history.replaceState(null, "", `#detail=${kind}:${encodeURIComponent(node.id)}`);
 }
 
 function detailHeader(node) {
-  return `<header><h2 class="detail-title" id="detail-title">${escapeHTML(label(node))}</h2><p class="detail-en">${escapeHTML(node.labels?.en || "")}</p><p class="detail-definition">${escapeHTML(definition(node))}</p></header>`;
+  return `<header><h2 class="detail-title" id="detail-title">${escapeHTML(label(node))}</h2><p class="detail-en">${escapeHTML(node.labels?.en || "")}</p><p class="detail-definition">${escapeHTML(definition(node))}</p></header>${renderTopicProfile(node)}`;
 }
 
 function setupDialog() {
   const dialog = $("#detail-dialog");
+  $("#detail-back").addEventListener("click", navigateDetailBack);
   dialog.addEventListener("close", () => {
     document.body.classList.remove("dialog-open");
+    state.detailHistory = [];
     if (location.hash.startsWith("#detail=")) history.replaceState(null, "", `${location.pathname}${location.search}`);
   });
   dialog.addEventListener("click", (event) => {
@@ -1013,6 +1456,8 @@ function setupDialog() {
 
 function buildSearchIndex() {
   return [
+    { kind: "root", item: state.model.root, type: t("detailRoot") },
+    ...state.model.superdomains.map((item) => ({ kind: "superdomain", item, type: t("detailSuperdomain") })),
     ...state.model.domains.map((item) => ({ kind: "domain", item, type: t("detailDomain") })),
     ...state.model.subdomains.map((item) => ({ kind: "subdomain", item, type: t("detailSubdomain") })),
     ...state.model.bridges.map((item) => ({ kind: "bridge", item, type: t("detailBridge") })),
@@ -1020,6 +1465,7 @@ function buildSearchIndex() {
     ...state.model.thinkingModels.map((item) => ({ kind: "thinking", item, type: t("detailThinking") })),
     ...state.model.universalModels.map((item) => ({ kind: "universal", item, type: t("detailUniversal") })),
     ...state.model.problemTemplates.map((item) => ({ kind: "problem", item, type: t("detailProblem") })),
+    { kind: "learningPath", item: state.model.learningPath, type: t("detailLearningPath") },
     ...state.model.learningUnits.map((item) => ({ kind: "learning", item, type: t("detailLearning") })),
     ...state.model.frameworks.map((item) => ({ kind: "framework", item, type: t("detailFramework") })),
   ].map((entry) => ({
@@ -1105,11 +1551,16 @@ function setupSearch() {
 
 function setupLanguage() {
   $("#language-toggle").addEventListener("click", () => {
+    const activeDetail = state.detailHistory[state.detailHistory.length - 1];
+    const detailWasOpen = $("#detail-dialog").open;
     state.lang = state.lang === "zh" ? "en" : "zh";
     localStorage.setItem("hkm-language", state.lang);
     applyTranslations();
     renderAllDynamic();
     if (window.refreshSearch) window.refreshSearch();
+    if (detailWasOpen && activeDetail) {
+      openDetail(activeDetail.kind, activeDetail.id, { updateHash: false, historyMode: "preserve" });
+    }
   });
 }
 
@@ -1274,7 +1725,7 @@ function openHashDetail() {
   if (separator < 0) return;
   const kind = payload.slice(0, separator);
   const id = decodeURIComponent(payload.slice(separator + 1));
-  openDetail(kind, id, false);
+  openDetail(kind, id, { updateHash: false, historyMode: "reset" });
 }
 
 async function init() {

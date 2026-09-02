@@ -264,7 +264,16 @@
 
     <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
       <form method="dialog" class="dialog-bar">
-        <span id="detail-kicker"></span>
+        <div class="dialog-navigation">
+          <span id="detail-kicker"></span>
+          <div class="dialog-navigation-row">
+            <button id="detail-back" class="dialog-back" type="button">
+              <span aria-hidden="true">←</span>
+              <span id="detail-back-label">返回上一步</span>
+            </button>
+            <nav id="detail-breadcrumbs" class="detail-breadcrumbs" aria-label="详情路径"></nav>
+          </div>
+        </div>
         <button class="dialog-close" aria-label="关闭详情">×</button>
       </form>
       <div id="detail-content"></div>
