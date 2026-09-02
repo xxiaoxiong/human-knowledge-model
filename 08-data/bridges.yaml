@@ -6,7 +6,7 @@ bridge_views:
   - id: hkm:bridge-view:geography
     code: B01
     primary_type: bridge-view
-    labels: {zh: 地理与空间系统, en: Geography and Spatial Systems}
+    labels: {zh: "地理与空间系统", en: "Geography and Spatial Systems"}
     definition: 以位置、空间关系、区域差异和人地互动为共同轴，连接自然地理、人文地理、空间技术、治理和生活移动。
     core_questions:
       - 现象为何分布于此处而非彼处，尺度与空间关系如何改变解释？
@@ -30,7 +30,7 @@ bridge_views:
   - id: hkm:bridge-view:cognitive-science
     code: B02
     primary_type: bridge-view
-    labels: {zh: 认知科学, en: Cognitive Science}
+    labels: {zh: "认知科学", en: "Cognitive Science"}
     definition: 连接心智哲学、神经与行为、语言、人工智能和学习科学，以多层机制解释感知、表征、推理、行动与学习。
     core_questions:
       - 心智功能如何由脑、身体、环境、社会和表征系统共同实现？
@@ -59,7 +59,7 @@ bridge_views:
   - id: hkm:bridge-view:complex-systems
     code: B03
     primary_type: bridge-view
-    labels: {zh: 复杂系统, en: Complex Systems}
+    labels: {zh: "复杂系统", en: "Complex Systems"}
     definition: 研究大量相互作用单元如何通过非线性、反馈、网络、适应和多尺度动力学产生宏观结构与涌现行为。
     core_questions:
       - 局部互动如何产生全局模式、相变、稳定性或崩溃？
@@ -87,7 +87,7 @@ bridge_views:
   - id: hkm:bridge-view:climate-sustainability
     code: B04
     primary_type: bridge-view
-    labels: {zh: 气候与可持续性, en: Climate and Sustainability}
+    labels: {zh: "气候与可持续性", en: "Climate and Sustainability"}
     definition: 连接地球系统、生态、能源、生产、制度、经济、公平和韧性，以理解并治理跨代际环境变化。
     core_questions:
       - 气候与生态风险如何由自然过程和人类活动共同形成并跨尺度传播？
@@ -120,7 +120,7 @@ bridge_views:
   - id: hkm:bridge-view:public-health-one-health
     code: B05
     primary_type: bridge-view
-    labels: {zh: 公共卫生与同一健康, en: Public Health and One Health}
+    labels: {zh: "公共卫生与同一健康", en: "Public Health and One Health"}
     definition: 连接人、动物、环境、行为、社区和制度层面的健康决定因素，强调预防、人群证据、照护系统与健康公平。
     core_questions:
       - 健康风险如何在人、动物、环境和社会网络之间产生与传播？
@@ -152,7 +152,7 @@ bridge_views:
   - id: hkm:bridge-view:materials-science
     code: B06
     primary_type: bridge-view
-    labels: {zh: 材料科学, en: Materials Science}
+    labels: {zh: "材料科学", en: "Materials Science"}
     definition: 以成分—结构—加工—性质—性能关系连接物理、化学、地球材料、生物材料和工程全生命周期。
     core_questions:
       - 微观成分与结构如何决定材料性质和宏观性能？
@@ -180,7 +180,7 @@ bridge_views:
   - id: hkm:bridge-view:information-science
     code: B07
     primary_type: bridge-view
-    labels: {zh: 信息科学与知识组织, en: Information Science and Knowledge Organization}
+    labels: {zh: "信息科学与知识组织", en: "Information Science and Knowledge Organization"}
     definition: 连接信息的形式度量、知识组织、记录保存、检索、可信传播、隐私治理与个人信息素养。
     core_questions:
       - 信息如何被表示、组织、保存、发现、验证和安全使用？
@@ -204,7 +204,7 @@ bridge_views:
   - id: hkm:bridge-view:data-causal-science
     code: B08
     primary_type: bridge-view
-    labels: {zh: 数据、测量与因果科学, en: Data, Measurement and Causal Science}
+    labels: {zh: "数据、测量与因果科学", en: "Data, Measurement and Causal Science"}
     definition: 连接测量、统计、计算、研究设计、领域机制与决策，形成从问题到数据、推断、复现和行动的完整链。
     core_questions:
       - 概念如何被可靠测量，数据生成过程如何限制推断？
@@ -233,7 +233,7 @@ bridge_views:
   - id: hkm:bridge-view:urban-systems
     code: B09
     primary_type: bridge-view
-    labels: {zh: 城市与聚居系统, en: Urban and Settlement Systems}
+    labels: {zh: "城市与聚居系统", en: "Urban and Settlement Systems"}
     definition: 把城市与乡村聚居视为由人口、土地、基础设施、制度、经济、历史、风险和日常生活共同构成的复杂系统。
     core_questions:
       - 聚居空间如何形成、运行、分化并随技术和人口变化？
@@ -263,7 +263,7 @@ bridge_views:
   - id: hkm:bridge-view:science-technology-society
     code: B10
     primary_type: bridge-view
-    labels: {zh: 科学、技术与社会, en: Science, Technology and Society}
+    labels: {zh: "科学、技术与社会跨域视图", en: "Cross-domain Science, Technology and Society"}
     definition: 研究知识和技术如何在历史、组织、权力、媒体、市场与世界观中产生、获得权威、扩散并改变社会。
     core_questions:
       - 科学事实和技术系统如何由实践、制度与价值共同塑造而又受现实约束？

@@ -56,6 +56,14 @@ def main() -> int:
 
     payload = json.loads((SITE / "data/model.json").read_text(encoding="utf-8"))
     counts = payload["meta"]["counts"]
+    if payload["meta"].get("version") != "0.8.0":
+        errors.append("site payload must expose the frozen v0.8.0 model")
+    if payload["meta"].get("audit") != {
+        "status": "pass",
+        "weakComponents": 1,
+        "blockingIssues": 0,
+    }:
+        errors.append("site payload must expose a passing single-component global audit")
     expected_counts = {
         "superdomains": len(payload["superdomains"]),
         "domains": len(payload["domains"]),
@@ -86,6 +94,8 @@ def main() -> int:
         errors.append("site payload must expose all eight learning roadmap units")
     if counts["frameworks"] != 2:
         errors.append("site payload must expose both operating frameworks")
+    if counts.get("relations") != 3056:
+        errors.append("site payload must expose all 3,056 frozen graph relations")
     ranks = [entry["rank"] for entry in payload["learningPriorities"]]
     if sorted(ranks) != list(range(1, 321)):
         errors.append("site payload learning ranks must be unique and contiguous from 1 to 320")
@@ -111,6 +121,15 @@ def main() -> int:
     expected_total = sum(len(collection) for collection in node_collections)
     if len(ids) != expected_total:
         errors.append("site payload contains duplicate node IDs")
+    for collection in node_collections:
+        for node in collection:
+            labels = node.get("labels", {})
+            if set(labels) != {"zh", "en"} or not all(
+                isinstance(value, str) and value.strip() for value in labels.values()
+            ):
+                errors.append(
+                    f"site payload node lacks exact non-empty zh/en labels: {node.get('id')}"
+                )
 
     if errors:
         print("SITE VALIDATION FAILED")

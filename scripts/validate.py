@@ -8,6 +8,7 @@ from pathlib import Path
 
 import yaml
 
+from audit_graph import build_audit, generate_audit_markdown
 from generate_frameworks import generate_framework_relations, generate_framework_view
 from generate_learning import (
     calculate_learning_priorities,
@@ -67,6 +68,7 @@ def main() -> int:
     problem_relation_data = load_yaml("08-data/problem-relationships.generated.yaml")
     learning_relation_data = load_yaml("08-data/learning-relationships.generated.yaml")
     framework_relation_data = load_yaml("08-data/framework-relationships.generated.yaml")
+    global_audit_data = load_yaml("08-data/global-audit.generated.yaml")
     errors: list[str] = []
 
     subdomains = subdomain_data["subdomains"]
@@ -1317,6 +1319,18 @@ def main() -> int:
     expected_framework_relations = generate_framework_relations(framework_data)
     if framework_relation_data != expected_framework_relations:
         errors.append("framework-relationships.generated.yaml is stale; run generate_views.py")
+    expected_global_audit = build_audit()
+    if global_audit_data != expected_global_audit:
+        errors.append("global-audit.generated.yaml is stale; run generate_views.py")
+    global_audit_path = ROOT / "00-meta/phase-8-global-audit.generated.md"
+    expected_global_audit_text = generate_audit_markdown(expected_global_audit)
+    if global_audit_path.read_text(encoding="utf-8") != expected_global_audit_text:
+        errors.append("phase-8-global-audit.generated.md is stale; run generate_views.py")
+    if expected_global_audit["status"] != "pass":
+        errors.extend(
+            f"global audit: {issue}"
+            for issue in expected_global_audit["integrity"]["blocking_issues"]
+        )
 
     if errors:
         print("VALIDATION FAILED")
@@ -1336,7 +1350,7 @@ def main() -> int:
         f"{len(all_relations)} relations, "
         f"20 H2 domains, {len(subdomains)} H3 subdomains, "
         f"{crosswalk_rows} external crosswalk rows, generated views current, "
-        "Markdown links intact"
+        "global audit pass, Markdown links intact"
     )
     return 0
 

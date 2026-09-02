@@ -1771,6 +1771,17 @@ kbd {
   color: #f3f0e8;
 }
 
+.footer-audit {
+  display: inline-flex;
+  margin: 0.35rem 0 0;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 99rem;
+  color: #aabcb7;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
 .footer-layout {
   display: flex;
   justify-content: space-between;

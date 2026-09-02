@@ -6,7 +6,7 @@
 
 本项目不是百科全书，也不是把所有学科排成一棵树。它把人类知识建模为一个**有主导航、可多重归属的类型化知识图谱**：树负责让人找到入口，图负责保留真实关系，多维坐标负责按对象、问题、方法、尺度和用途重新切片。
 
-当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；v0.6.0 的 320 项个人核心知识排名与八单元学习路线；以及 v0.7.0 的多维思考与通用问题求解框架。当前总图谱包含 3,056 条关系。
+当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；v0.6.0 的 320 项个人核心知识排名与八单元学习路线；v0.7.0 的多维思考与通用问题求解框架；以及 v0.8.0 的全局结构审计。当前总图谱包含 635 个正式节点和 3,056 条关系。
 
 ## 一眼看懂整个模型
 
@@ -171,6 +171,14 @@ flowchart TD
 
 只有范围节点使用 H0–H4；不要因为内容更“具体”就把方法、工具或应用误当成固定的 H6/H7。具体规范见[分类原则](00-meta/classification-principles.md)。
 
+## 全局审计与演化边界
+
+v0.8.0 对全部 635 个正式节点和 3,056 条关系执行了独立审计：没有孤立节点、悬空引用、自环、重复有向关系、同层歧义标签或重复定义；整张图是一个弱连通分量。全部 248 个 H3 都被领域骨架覆盖，20 个 H2 都进入模型、问题、Top 50 和两套操作框架，41 个 Thinking Models 与 22 个 Universal Models 均被问题模板调用。
+
+审计同时修复了 283 个未正确引用的 YAML 双语标签，并把“必须且只能包含非空 `zh` / `en`”加入验证门。保留 79 组 H3 范围与骨架节点同名：前者是分类范围，后者是可调用内容身份，ID 和定义不同，不属于重复建点。
+
+这不等于知识已经穷尽。Crosswalk 证明外部领域存在入口，不证明所有 H4 和具体知识都已展开；语义近义、地方知识、隐性实践和新兴领域仍需要持续编辑审查。完整指标、逐领域矩阵与拆分/合并决定见[Phase 8 全局结构审计](00-meta/phase-8-global-audit.generated.md)。
+
 ## 项目结构与状态
 
 ```text
@@ -193,7 +201,8 @@ human-knowledge-model/
 │  ├─ phase-5-audit.md
 │  ├─ learning-priority-design.md
 │  ├─ phase-6-audit.md
-│  └─ phase-7-audit.md
+│  ├─ phase-7-audit.md
+│  └─ phase-8-global-audit.generated.md
 ├─ 01-knowledge-map/
 │  ├─ human-knowledge-map.md
 │  ├─ level-1-domains.md
@@ -236,6 +245,7 @@ human-knowledge-model/
 │  ├─ problem-relationships.generated.yaml
 │  ├─ learning-relationships.generated.yaml
 │  ├─ framework-relationships.generated.yaml
+│  ├─ global-audit.generated.yaml
 │  └─ crosswalks.yaml
 ├─ site/
 │  ├─ index.html
@@ -244,9 +254,11 @@ human-knowledge-model/
 │  └─ og.png
 └─ scripts/
    ├─ build_site.py
+   ├─ audit_graph.py
    ├─ generate_learning.py
    ├─ generate_frameworks.py
    ├─ generate_views.py
+   ├─ normalize_inline_labels.py
    ├─ validate.py
    └─ validate_site.py
 ```
@@ -272,7 +284,7 @@ python scripts/validate_site.py
 | 5. 问题映射 | **已完成 v0.5.0** | 20 个问题原型、463 条调用关系；全域/全模型覆盖、证据门槛、工作流与升级边界 |
 | 6. 学习体系 | **已完成 v0.6.0** | 320 项候选与 Top 50/100/300；8 个学习单元、3 个层级循环、4 条分支路线、109 条学习关系 |
 | 7. 求解框架 | **已完成 v0.7.0** | 2 个操作框架、20 个透镜/阶段、161 条调用关系；20 个 H2 与 20 个问题原型覆盖 |
-| 8. 全局审计 | 待展开 | 遗漏、重复、错层、断边与重构报告 |
+| 8. 全局审计 | **已完成 v0.8.0** | 635 节点 / 3,056 关系；单一弱连通分量、0 阻断项；双语标签重构、覆盖矩阵与拆分/合并决定 |
 
 ## 设计底线
 
@@ -282,4 +294,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计）

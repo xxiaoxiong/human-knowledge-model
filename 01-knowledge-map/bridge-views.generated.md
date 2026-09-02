@@ -13,9 +13,9 @@
 | B05 | 公共卫生与同一健康<br>Public Health and One Health | 9 | 16 | exposure / transmission / prevention / population-risk / social-determinants / surveillance / care-system / health-equity |
 | B06 | 材料科学<br>Materials Science | 4 | 12 | composition / structure / processing / properties / performance / degradation / lifecycle |
 | B07 | 信息科学与知识组织<br>Information Science and Knowledge Organization | 5 | 8 | representation / metadata / classification / retrieval / provenance / preservation / access / trust |
-| B08 | 数据、测量与因果科学<br>Data | 8 | 13 | operationalization / sampling / data-generating-process / identification / estimation / validation / reproducibility / decision |
+| B08 | 数据、测量与因果科学<br>Data, Measurement and Causal Science | 8 | 13 | operationalization / sampling / data-generating-process / identification / estimation / validation / reproducibility / decision |
 | B09 | 城市与聚居系统<br>Urban and Settlement Systems | 8 | 14 | land-use / agglomeration / accessibility / infrastructure / governance / housing / segregation / urban-metabolism |
-| B10 | 科学、技术与社会<br>Science | 9 | 12 | knowledge-production / expertise / standardization / innovation / diffusion / power / public-legitimacy / sociotechnical-change |
+| B10 | 科学、技术与社会跨域视图<br>Cross-domain Science, Technology and Society | 9 | 12 | knowledge-production / expertise / standardization / innovation / diffusion / power / public-legitimacy / sociotechnical-change |
 
 ## B01 地理与空间系统 / Geography and Spatial Systems
 
@@ -229,7 +229,7 @@
 
 **共同机制：** representation / metadata / classification / retrieval / provenance / preservation / access / trust
 
-## B08 数据、测量与因果科学 / Data
+## B08 数据、测量与因果科学 / Data, Measurement and Causal Science
 
 连接测量、统计、计算、研究设计、领域机制与决策，形成从问题到数据、推断、复现和行动的完整链。
 
@@ -292,7 +292,7 @@
 
 **共同机制：** land-use / agglomeration / accessibility / infrastructure / governance / housing / segregation / urban-metabolism
 
-## B10 科学、技术与社会 / Science
+## B10 科学、技术与社会跨域视图 / Cross-domain Science, Technology and Society
 
 研究知识和技术如何在历史、组织、权力、媒体、市场与世界观中产生、获得权威、扩散并改变社会。
 

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import yaml
 
+from audit_graph import build_audit, generate_audit_markdown
 from generate_frameworks import generate_framework_relations, generate_framework_view
 from generate_learning import (
     calculate_learning_priorities,
@@ -1085,6 +1086,19 @@ def main() -> None:
     (ROOT / "08-data/framework-relationships.generated.yaml").write_text(
         framework_relation_yaml, encoding="utf-8", newline="\n"
     )
+    global_audit = build_audit()
+    (ROOT / "08-data/global-audit.generated.yaml").write_text(
+        yaml.safe_dump(global_audit, allow_unicode=True, sort_keys=False, width=120),
+        encoding="utf-8",
+        newline="\n",
+    )
+    (ROOT / "00-meta/phase-8-global-audit.generated.md").write_text(
+        generate_audit_markdown(global_audit), encoding="utf-8", newline="\n"
+    )
+    if global_audit["status"] != "pass":
+        raise RuntimeError(
+            "Global audit failed: " + "; ".join(global_audit["integrity"]["blocking_issues"])
+        )
     print(
         f"Generated H1-H3 map, {len(hierarchy['relationships'])} hierarchy relations, "
         f"{sum(len(s['categories']) for s in crosswalk_data['systems'])} crosswalk rows, "
@@ -1102,7 +1116,8 @@ def main() -> None:
         f"{len(learning_relations['relationships'])} learning relations; "
         f"{len(framework_data['frameworks'])} frameworks with "
         f"{sum(len(item['components']) for item in framework_data['frameworks'])} components and "
-        f"{len(framework_relations['relationships'])} framework relations."
+        f"{len(framework_relations['relationships'])} framework relations; "
+        f"global audit {global_audit['status']} across {global_audit['inventory']['nodes']} nodes."
     )
 
 

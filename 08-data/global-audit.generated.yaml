@@ -1,0 +1,808 @@
+schema_version: 0.1.0
+audit_version: 0.8.0
+status: pass
+inventory:
+  nodes: 635
+  relations: 3056
+  node_groups:
+    bridge-view: 10
+    core-node: 257
+    domain: 20
+    learning-path: 1
+    learning-unit: 8
+    operating-framework: 2
+    problem-template: 20
+    root: 1
+    subdomain: 248
+    superdomain: 5
+    thinking-model: 41
+    universal-model: 22
+  relation_types:
+    applies-to: 145
+    bridges: 74
+    challenges: 3
+    complements: 120
+    constrains: 41
+    depends-on: 30
+    derived-from: 147
+    enables: 104
+    explains: 107
+    implements: 1
+    in-domain: 132
+    in-scope: 350
+    influences: 25
+    member-of: 133
+    narrower-than: 273
+    operationalizes: 2
+    prerequisite-of: 423
+    primary-domain: 257
+    produces: 3
+    refines: 3
+    supports: 13
+    transfer-to: 3
+    transforms: 3
+    uses: 664
+integrity:
+  blocking_issues: []
+  duplicate_node_ids: 0
+  duplicate_relation_ids: 0
+  unknown_endpoint_relations: []
+  self_loop_relations: []
+  duplicate_relation_triples: []
+  isolated_nodes: []
+  weak_component_count: 1
+  largest_component_nodes: 635
+  duplicate_labels:
+  - &id001
+    key: accidentshumanfactorsandsafetyculture
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:accident-human-factors-safety-culture
+    - hkm:framework:accident-human-factors-safety-culture
+  - &id002
+    key: aiknowledgereasoningandplanning
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:ai-knowledge-reasoning-planning
+    - hkm:framework:ai-knowledge-reasoning-planning
+  - &id003
+    key: algorithmscomputabilityandcomplexity
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:algorithms-computability-complexity
+    - hkm:framework:algorithms-computability-complexity
+  - &id004
+    key: biosecurityandhealthsecurity
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:biosecurity-health-security
+    - hkm:framework:biosecurity-health-security
+  - &id005
+    key: communicationethicsinformationrightsandgovernance
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:communication-ethics-governance
+    - hkm:framework:communication-ethics-information-rights-governance
+  - &id006
+    key: comparativeandinternationaleducation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:comparative-international-education
+    - hkm:framework:comparative-international-education
+  - &id007
+    key: constitutionaladministrativeandpubliclaw
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:constitutional-administrative-public-law
+    - hkm:framework:constitutional-administrative-public-law
+  - &id008
+    key: criticalinfrastructureandcivilprotection
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:critical-infrastructure-civil-protection
+    - hkm:framework:critical-infrastructure-civil-protection
+  - &id009
+    key: curriculumpedagogyandinstructionaldesign
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:curriculum-pedagogy-instruction
+    - hkm:framework:curriculum-pedagogy-instructional-design
+  - &id010
+    key: cyberandinformationsecuritystrategy
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:cyber-information-security-strategy
+    - hkm:framework:cyber-information-security-strategy
+  - &id011
+    key: datadatabasesandinformationretrieval
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:data-databases-information-retrieval
+    - hkm:framework:data-databases-information-retrieval
+  - &id012
+    key: disasterandemergencymanagement
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:disaster-emergency-management
+    - hkm:framework:disaster-emergency-management
+  - &id013
+    key: economiclaborandbusinesshistory
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:economic-labor-business-history
+    - hkm:framework:economic-labor-business-history
+  - &id014
+    key: familykinshipandthelifecourse
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:family-kinship-life-course
+    - hkm:framework:family-kinship-life-course
+  - &id015
+    key: foodsystemssupplychainsandruraldevelopment
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:food-systems-rural-development
+    - hkm:framework:food-systems-supply-chains-rural-development
+  - &id016
+    key: governanceregulationandinstitutionaldesign
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:governance-regulation-institutions
+    - hkm:framework:governance-regulation-institutional-design
+  - &id017
+    key: graphicsvisualizationandmultimediacomputing
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:graphics-visualization-multimedia
+    - hkm:framework:graphics-visualization-multimedia-computing
+  - &id018
+    key: historyofsciencetechnologymedicineandenvironment
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:science-technology-medicine-environment-history
+    - hkm:framework:science-technology-medicine-environment-history
+  - &id019
+    key: inequalitystratificationandsocialmobility
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:inequality-stratification
+    - hkm:framework:inequality-stratification-mobility
+  - &id020
+    key: interpersonalgroupandorganizationalcommunication
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:interpersonal-organizational-communication
+    - hkm:framework:interpersonal-group-organizational-communication
+  - &id021
+    key: journalismverificationandpublicinformation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:journalism-public-information
+    - hkm:framework:journalism-verification-public-information
+  - &id022
+    key: jurisprudencelegalsystemsandlegalreasoning
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:jurisprudence-legal-reasoning
+    - hkm:framework:jurisprudence-legal-reasoning-systems
+  - &id023
+    key: languagediversitychangeanddocumentation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:language-diversity-change-documentation
+    - hkm:framework:language-diversity-change-documentation
+  - &id024
+    key: libraryarchiveandinformationorganization
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:library-archive-information-organization
+    - hkm:framework:library-archive-information-organization
+  - &id025
+    key: memoryheritageandpublichistory
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:memory-heritage-public-history
+    - hkm:framework:memory-heritage-public-history
+  - &id026
+    key: mentalhealthpsychiatryandclinicalpsychology
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:mental-health-psychiatry-clinical-psychology
+    - hkm:framework:mental-health-psychiatry-clinical-psychology
+  - &id027
+    key: mobilitytravelandspatialnavigation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:mobility-travel-navigation
+    - hkm:skill:mobility-travel-spatial-navigation
+  - &id028
+    key: mysticismspiritualityandcontemplativepractice
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:mysticism-spirituality-contemplative-practice
+    - hkm:framework:mysticism-spirituality-contemplative-practice
+  - &id029
+    key: occupationalenvironmentalandemergencyhealth
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:occupational-environmental-emergency-health
+    - hkm:framework:occupational-environmental-emergency-health
+  - &id030
+    key: operatingdistributedandcloudsystems
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:operating-distributed-cloud-systems
+    - hkm:framework:operating-distributed-cloud-systems
+  - &id031
+    key: personalhealthselfcareandcarenavigation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:personal-health-self-care-navigation
+    - hkm:skill:personal-health-self-care-navigation
+  - &id032
+    key: photographydigitalandnewmediaart
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:photography-digital-new-media-art
+    - hkm:framework:photography-digital-new-media-art
+  - &id033
+    key: politicalbehaviorelectionsandpublicopinion
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:political-behavior-elections-opinion
+    - hkm:framework:political-behavior-elections-public-opinion
+  - &id034
+    key: politicallegalanddiplomatichistory
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:political-legal-diplomatic-history
+    - hkm:framework:political-legal-diplomatic-history
+  - &id035
+    key: pragmaticssociolinguisticsandconversation
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:pragmatics-sociolinguistics-conversation
+    - hkm:framework:pragmatics-sociolinguistics-conversation
+  - &id036
+    key: probabilityandstochasticprocesses
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:probability-stochastic-processes
+    - hkm:framework:probability-stochastic-processes
+  - &id037
+    key: publichealthepidemiologyandprevention
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:public-health-epidemiology-prevention
+    - hkm:method:public-health-epidemiology-prevention
+  - &id038
+    key: resiliencecontinuityandrecovery
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:resilience-continuity-recovery
+    - hkm:framework:resilience-continuity-recovery
+  - &id039
+    key: rightscitizenshipandsocialjustice
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:rights-citizenship-social-justice
+    - hkm:framework:rights-citizenship-social-justice
+  - &id040
+    key: ritualworshipandmaterialreligion
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:ritual-worship-material-religion
+    - hkm:framework:ritual-worship-material-religion
+  - &id041
+    key: socialculturalandintellectualhistory
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:social-cultural-intellectual-history
+    - hkm:framework:social-cultural-intellectual-history
+  - &id042
+    key: timeattentionhabitsandselfmanagement
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:time-attention-habits-self-management
+    - hkm:skill:time-attention-habits-self-management
+  - &id043
+    key: visualscienceandriskcommunication
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:visual-scientific-risk-communication
+    - hkm:framework:visual-science-risk-communication
+  - &id044
+    key: vocationalworkplaceandprofessionallearning
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:vocational-workplace-professional-learning
+    - hkm:framework:vocational-workplace-professional-learning
+  - &id045
+    key: worldviewsexistentialquestionsandmeaning
+    locale_or_field: en
+    nodes:
+    - hkm:subdomain:worldviews-existential-meaning
+    - hkm:framework:worldviews-existential-meaning
+  - &id046
+    key: ai安全治理与社会影响
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:ai-safety-governance-society
+    - hkm:framework:ai-safety-governance-society
+  - &id047
+    key: 不平等分层与社会流动
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:inequality-stratification
+    - hkm:framework:inequality-stratification-mobility
+  - &id048
+    key: 个人健康自护与就医导航
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:personal-health-self-care-navigation
+    - hkm:skill:personal-health-self-care-navigation
+  - &id049
+    key: 事故人因与安全文化
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:accident-human-factors-safety-culture
+    - hkm:framework:accident-human-factors-safety-culture
+  - &id050
+    key: 人工智能知识推理与规划
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:ai-knowledge-reasoning-planning
+    - hkm:framework:ai-knowledge-reasoning-planning
+  - &id051
+    key: 人际群体与组织传播
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:interpersonal-organizational-communication
+    - hkm:framework:interpersonal-group-organizational-communication
+  - &id052
+    key: 传播伦理信息权利与治理
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:communication-ethics-governance
+    - hkm:framework:communication-ethics-information-rights-governance
+  - &id053
+    key: 公共卫生流行病学与预防
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:public-health-epidemiology-prevention
+    - hkm:method:public-health-epidemiology-prevention
+  - &id054
+    key: 出行旅行与空间导航
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:mobility-travel-navigation
+    - hkm:skill:mobility-travel-spatial-navigation
+  - &id055
+    key: 图书馆档案与信息组织
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:library-archive-information-organization
+    - hkm:framework:library-archive-information-organization
+  - &id056
+    key: 图形可视化与多媒体计算
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:graphics-visualization-multimedia
+    - hkm:framework:graphics-visualization-multimedia-computing
+  - &id057
+    key: 家庭亲属与生命历程
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:family-kinship-life-course
+    - hkm:framework:family-kinship-life-course
+  - &id058
+    key: 摄影数字与新媒体艺术
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:photography-digital-new-media-art
+    - hkm:framework:photography-digital-new-media-art
+  - &id059
+    key: 政治法律与外交史
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:political-legal-diplomatic-history
+    - hkm:framework:political-legal-diplomatic-history
+  - &id060
+    key: 政治行为选举与公共意见
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:political-behavior-elections-opinion
+    - hkm:framework:political-behavior-elections-public-opinion
+  - &id061
+    key: 数据数据库与信息检索
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:data-databases-information-retrieval
+    - hkm:framework:data-databases-information-retrieval
+  - &id062
+    key: 时间注意习惯与自我管理
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:time-attention-habits-self-management
+    - hkm:skill:time-attention-habits-self-management
+  - &id063
+    key: 权利公民身份与社会正义
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:rights-citizenship-social-justice
+    - hkm:framework:rights-citizenship-social-justice
+  - &id064
+    key: 概率与随机过程
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:probability-stochastic-processes
+    - hkm:framework:probability-stochastic-processes
+  - &id065
+    key: 治理监管与制度设计
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:governance-regulation-institutions
+    - hkm:framework:governance-regulation-institutional-design
+  - &id066
+    key: 灾害与应急管理
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:disaster-emergency-management
+    - hkm:framework:disaster-emergency-management
+  - &id067
+    key: 生物安全与卫生安全
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:biosecurity-health-security
+    - hkm:framework:biosecurity-health-security
+  - &id068
+    key: 社会文化与思想史
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:social-cultural-intellectual-history
+    - hkm:framework:social-cultural-intellectual-history
+  - &id069
+    key: 科学技术医学与环境史
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:science-technology-medicine-environment-history
+    - hkm:framework:science-technology-medicine-environment-history
+  - &id070
+    key: 算法可计算性与复杂度
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:algorithms-computability-complexity
+    - hkm:framework:algorithms-computability-complexity
+  - &id071
+    key: 经济劳动与商业史
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:economic-labor-business-history
+    - hkm:framework:economic-labor-business-history
+  - &id072
+    key: 网络与信息安全战略
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:cyber-information-security-strategy
+    - hkm:framework:cyber-information-security-strategy
+  - &id073
+    key: 网络安全隐私与可信计算
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:cybersecurity-privacy
+    - hkm:framework:cybersecurity-privacy-trust
+  - &id074
+    key: 职业工作场所与专业学习
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:vocational-workplace-professional-learning
+    - hkm:framework:vocational-workplace-professional-learning
+  - &id075
+    key: 视觉科学与风险传播
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:visual-scientific-risk-communication
+    - hkm:framework:visual-science-risk-communication
+  - &id076
+    key: 记忆遗产与公共历史
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:memory-heritage-public-history
+    - hkm:framework:memory-heritage-public-history
+  - &id077
+    key: 语言多样性演变与记录
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:language-diversity-change-documentation
+    - hkm:framework:language-diversity-change-documentation
+  - &id078
+    key: 课程教学法与教学设计
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:curriculum-pedagogy-instruction
+    - hkm:framework:curriculum-pedagogy-instructional-design
+  - &id079
+    key: 韧性连续性与恢复
+    locale_or_field: zh
+    nodes:
+    - hkm:subdomain:resilience-continuity-recovery
+    - hkm:framework:resilience-continuity-recovery
+  blocking_duplicate_labels: []
+  scope_content_label_collisions:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  - *id010
+  - *id011
+  - *id012
+  - *id013
+  - *id014
+  - *id015
+  - *id016
+  - *id017
+  - *id018
+  - *id019
+  - *id020
+  - *id021
+  - *id022
+  - *id023
+  - *id024
+  - *id025
+  - *id026
+  - *id027
+  - *id028
+  - *id029
+  - *id030
+  - *id031
+  - *id032
+  - *id033
+  - *id034
+  - *id035
+  - *id036
+  - *id037
+  - *id038
+  - *id039
+  - *id040
+  - *id041
+  - *id042
+  - *id043
+  - *id044
+  - *id045
+  - *id046
+  - *id047
+  - *id048
+  - *id049
+  - *id050
+  - *id051
+  - *id052
+  - *id053
+  - *id054
+  - *id055
+  - *id056
+  - *id057
+  - *id058
+  - *id059
+  - *id060
+  - *id061
+  - *id062
+  - *id063
+  - *id064
+  - *id065
+  - *id066
+  - *id067
+  - *id068
+  - *id069
+  - *id070
+  - *id071
+  - *id072
+  - *id073
+  - *id074
+  - *id075
+  - *id076
+  - *id077
+  - *id078
+  - *id079
+  duplicate_definitions: []
+  malformed_labels: []
+coverage:
+  domain_metrics:
+  - code: D01
+    label: 元知识、哲学与探究
+    h3: 11
+    core_nodes: 12
+    bridge_views: 5
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D02
+    label: 数学、统计与形式系统
+    h3: 12
+    core_nodes: 12
+    bridge_views: 3
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D03
+    label: 物质、能量与宇宙
+    h3: 13
+    core_nodes: 15
+    bridge_views: 4
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D04
+    label: 地球、空间与环境
+    h3: 11
+    core_nodes: 11
+    bridge_views: 5
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D05
+    label: 生命与进化
+    h3: 12
+    core_nodes: 12
+    bridge_views: 5
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D06
+    label: 心智、脑与行为
+    h3: 12
+    core_nodes: 12
+    bridge_views: 2
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 2
+    operating_frameworks: 2
+  - code: D07
+    label: 社会、人类与群体
+    h3: 12
+    core_nodes: 12
+    bridge_views: 6
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D08
+    label: 历史、考古与文明
+    h3: 12
+    core_nodes: 12
+    bridge_views: 3
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D09
+    label: 政治、治理与法律
+    h3: 12
+    core_nodes: 12
+    bridge_views: 5
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D10
+    label: 经济、金融与组织
+    h3: 14
+    core_nodes: 16
+    bridge_views: 7
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 3
+    operating_frameworks: 2
+  - code: D11
+    label: 语言、传播与媒体
+    h3: 11
+    core_nodes: 11
+    bridge_views: 3
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D12
+    label: 计算、信息与人工智能
+    h3: 13
+    core_nodes: 13
+    bridge_views: 5
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D13
+    label: 工程、技术与设计
+    h3: 14
+    core_nodes: 16
+    bridge_views: 6
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 3
+    operating_frameworks: 2
+  - code: D14
+    label: 健康、医学与福祉
+    h3: 14
+    core_nodes: 14
+    bridge_views: 2
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D15
+    label: 农业、食物与生物生产
+    h3: 11
+    core_nodes: 11
+    bridge_views: 2
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D16
+    label: 教育、学习与发展
+    h3: 13
+    core_nodes: 13
+    bridge_views: 2
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 2
+    operating_frameworks: 2
+  - code: D17
+    label: 安全、冲突与韧性
+    h3: 12
+    core_nodes: 12
+    bridge_views: 4
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 2
+    operating_frameworks: 2
+  - code: D18
+    label: 艺术、文学与创造
+    h3: 13
+    core_nodes: 13
+    bridge_views: 0
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D19
+    label: 宗教、意义与世界观
+    h3: 12
+    core_nodes: 12
+    bridge_views: 1
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 1
+    operating_frameworks: 2
+  - code: D20
+    label: 日常生活、实践技能与自我管理
+    h3: 14
+    core_nodes: 16
+    bridge_views: 4
+    model_coverage: true
+    problem_coverage: true
+    top50_core_entries: 3
+    operating_frameworks: 2
+  h3_covered_by_core: 248
+  h3_total: 248
+  thinking_called_by_problems: 41
+  thinking_total: 41
+  universal_called_by_problems: 22
+  universal_total: 22
+  problem_templates: 20
+  learning_top50_covered: 50
+  operating_frameworks: 2
+limitations:
+- 精确去重不能发现语义近义、粒度差异或翻译导致的潜在重复，仍需编辑审查。
+- Crosswalk 证明外部分类存在入口，不证明所有 H4 主题和具体知识已经展开。
+- 关系数量衡量可导航性，不衡量证据质量、因果强度或文化重要性。
+- 当前版本冻结结构和调用接口，不宣称穷尽未来新领域、地方知识或隐性实践。

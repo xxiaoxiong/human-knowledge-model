@@ -246,6 +246,7 @@ def build_payload() -> dict:
     priority_data = load_yaml("08-data/learning-priorities.generated.yaml")
     roadmap_data = load_yaml("08-data/learning-roadmap.yaml")
     framework_data = load_yaml("08-data/frameworks.yaml")
+    audit_data = load_yaml("08-data/global-audit.generated.yaml")
     relation_files = [
         "08-data/relationships.yaml",
         "08-data/hierarchy-relationships.generated.yaml",
@@ -290,7 +291,7 @@ def build_payload() -> dict:
     return {
         "meta": {
             "id": "human-knowledge-model",
-            "version": framework_data["model_version"],
+            "version": audit_data["audit_version"],
             "generatedFrom": [
                 "08-data/domains.yaml",
                 "08-data/subdomains.yaml",
@@ -302,6 +303,7 @@ def build_payload() -> dict:
                 "08-data/learning-priorities.generated.yaml",
                 "08-data/learning-roadmap.yaml",
                 "08-data/frameworks.yaml",
+                "08-data/global-audit.generated.yaml",
             ],
             "counts": {
                 "superdomains": len(superdomains),
@@ -316,6 +318,11 @@ def build_payload() -> dict:
                 "learningUnits": len(learning_units),
                 "frameworks": len(frameworks),
                 "relations": len(relations),
+            },
+            "audit": {
+                "status": audit_data["status"],
+                "weakComponents": audit_data["integrity"]["weak_component_count"],
+                "blockingIssues": len(audit_data["integrity"]["blocking_issues"]),
             },
         },
         "root": compact_scope(domain_data["root"]),
