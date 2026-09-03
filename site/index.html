@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Human Knowledge Model：连接知识领域、核心骨架、跨学科模型与现实问题工作流的开放知识图谱。"
+      content="Human Knowledge Model：从一个现实问题出发，逐层拆解边界、调用学科与思维模型，并形成可行动的问题简报。"
     />
     <meta name="theme-color" content="#f1eee6" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Human Knowledge Model" />
-    <meta property="og:description" content="A map for knowing and acting — explore domains, bridge views and core knowledge skeletons." />
+    <meta property="og:description" content="Start with a real problem. Map its boundaries, disciplines, relationships, models and next actions." />
     <meta property="og:url" content="https://xxiaoxiong.github.io/human-knowledge-model/" />
-    <meta property="og:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og.png" />
+    <meta property="og:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v2.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Human Knowledge Model" />
-    <meta name="twitter:description" content="A map for knowing and acting." />
-    <meta name="twitter:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og.png" />
+    <meta name="twitter:description" content="Turn a real problem into a map for knowing and acting." />
+    <meta name="twitter:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v2.png" />
     <title>Human Knowledge Model · 人类知识模型</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js" defer></script>
@@ -33,14 +33,12 @@
         </span>
       </a>
       <nav class="main-nav" aria-label="主导航">
+        <a href="#problem-workbench" data-i18n="navWorkbench">问题工作台</a>
         <a href="#map" data-i18n="navMap">知识地图</a>
         <a href="#bridges" data-i18n="navBridges">跨域桥梁</a>
-        <a href="#skeletons" data-i18n="navSkeletons">核心骨架</a>
         <a href="#models" data-i18n="navModels">思维模型</a>
-        <a href="#problems" data-i18n="navProblems">问题映射</a>
         <a href="#learning" data-i18n="navLearning">学习路线</a>
         <a href="#frameworks" data-i18n="navFrameworks">求解框架</a>
-        <a href="#method" data-i18n="navMethod">如何使用</a>
       </nav>
       <div class="header-actions">
         <button class="quiet-button" id="language-toggle" type="button" aria-label="Switch language">EN</button>
@@ -53,17 +51,17 @@
     <main id="main">
       <section class="hero section-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="eyebrow">一张描述人类如何认识世界的开放图谱</p>
+          <p class="eyebrow" data-i18n="eyebrow">从一个真实问题开始</p>
           <h1 id="hero-title">
-            <span data-i18n="heroLine1">知识不是一棵静止的树，</span>
-            <em data-i18n="heroLine2">而是一张可以行动的网络。</em>
+            <span data-i18n="heroLine1">把复杂问题，</span>
+            <em data-i18n="heroLine2">拆成可行动的知识地图。</em>
           </h1>
           <p class="hero-lead" data-i18n="heroLead">
-            从现实对象、核心问题、证据和方法出发，连接领域、模型、实践与学习路径。树给你入口，图保留真实关系。
+            输入你真正面对的问题。系统会帮助你澄清目标与边界，找到相关学科，解释它们为什么相关，并组合多元思维模型形成下一步行动。
           </p>
           <div class="hero-actions">
-            <a class="primary-button" href="#map" data-i18n="exploreMap">探索知识地图</a>
-            <a class="text-link" href="#method" data-i18n="howItWorks">理解模型如何工作 <span aria-hidden="true">→</span></a>
+            <a class="primary-button" href="#problem-workbench" data-i18n="startProblem">开始拆解问题</a>
+            <a class="text-link" href="#map" data-i18n="exploreMap">浏览知识地图 →</a>
           </div>
         </div>
         <div class="hero-atlas" aria-label="人类知识的五个超级领域">
@@ -76,11 +74,73 @@
         <div class="stat-ribbon" id="stat-ribbon" aria-label="模型统计"></div>
       </section>
 
+      <section class="workbench-section" id="problem-workbench" aria-labelledby="workbench-title">
+        <div class="section-shell">
+          <div class="section-heading split-heading workbench-heading">
+            <div>
+              <p class="eyebrow" data-i18n="workbenchEyebrow">Problem-first workspace</p>
+              <h2 id="workbench-title" data-i18n="workbenchTitle">从你的问题，生成一条完整思考路径</h2>
+            </div>
+            <p data-i18n="workbenchIntro">
+              这不是给出一个仓促答案，而是把问题变成可检查的结构：目标、边界、证据、学科、关系、模型与行动。
+            </p>
+          </div>
+
+          <ol class="journey-ribbon" aria-label="问题拆解流程">
+            <li><span>01</span><strong data-i18n="journeyDefine">说清问题</strong></li>
+            <li><span>02</span><strong data-i18n="journeyScope">分解边界</strong></li>
+            <li><span>03</span><strong data-i18n="journeyMap">映射知识</strong></li>
+            <li><span>04</span><strong data-i18n="journeyThink">组合模型</strong></li>
+            <li><span>05</span><strong data-i18n="journeyAct">形成行动</strong></li>
+          </ol>
+
+          <div class="problem-intake-card">
+            <div class="intake-copy">
+              <span class="intake-number">01</span>
+              <div>
+                <h3 data-i18n="intakeTitle">你现在真正想解决什么？</h3>
+                <p data-i18n="intakeHint">尽量包含对象、目标和约束。例如：我是否应该用半年时间转行人工智能，同时控制收入中断的风险？</p>
+              </div>
+            </div>
+            <label class="sr-only" for="problem-input" data-i18n="problemInputLabel">输入一个现实问题</label>
+            <textarea
+              id="problem-input"
+              rows="4"
+              maxlength="500"
+              data-i18n-placeholder="problemInputPlaceholder"
+              placeholder="写下一个你正在面对的真实问题……"
+            ></textarea>
+            <div class="problem-example-row">
+              <span data-i18n="tryExample">试试示例</span>
+              <div id="problem-examples" class="problem-examples"></div>
+            </div>
+            <div class="intake-actions">
+              <span id="problem-input-meta" class="input-meta" aria-live="polite"></span>
+              <button id="problem-analyze" class="workbench-primary" type="button" data-i18n="analyzeProblem">匹配思考路径</button>
+            </div>
+          </div>
+
+          <div id="problem-suggestions" class="problem-suggestions" aria-live="polite" hidden>
+            <header class="suggestion-heading">
+              <div>
+                <span class="intake-number">02</span>
+                <h3 data-i18n="suggestionTitle">先选择最接近的问题原型</h3>
+              </div>
+              <p data-i18n="suggestionHint">原型决定分析起点，不会替代你的具体情境；你可以随时更换。</p>
+            </header>
+            <div id="problem-suggestion-list" class="problem-suggestion-list"></div>
+            <button id="browse-all-problems" class="workbench-secondary" type="button" data-i18n="browseAllProblems">浏览全部 20 个问题原型</button>
+          </div>
+
+          <article id="problem-route" class="problem-route" aria-live="polite" hidden></article>
+        </div>
+      </section>
+
       <section class="search-band" aria-labelledby="search-title">
         <div class="section-shell search-layout">
           <div>
-            <p class="eyebrow" data-i18n="findEyebrow">从问题或概念进入</p>
-            <h2 id="search-title" data-i18n="findTitle">在整张图中寻找知识入口</h2>
+            <p class="eyebrow" data-i18n="findEyebrow">知识资料库</p>
+            <h2 id="search-title" data-i18n="findTitle">按概念搜索整张知识图谱</h2>
           </div>
           <div class="search-box">
             <label class="sr-only" for="global-search" data-i18n="searchLabel">搜索知识模型</label>

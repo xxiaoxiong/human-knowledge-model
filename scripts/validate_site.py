@@ -18,7 +18,7 @@ def main() -> int:
         SITE / "index.html",
         SITE / "styles.css",
         SITE / "app.js",
-        SITE / "og.png",
+        SITE / "og-v2.png",
         SITE / "data/model.json",
         SITE / ".nojekyll",
     ]
@@ -42,6 +42,13 @@ def main() -> int:
         "learning",
         "frameworks",
         "method",
+        "problem-workbench",
+        "problem-input",
+        "problem-analyze",
+        "problem-examples",
+        "problem-suggestions",
+        "problem-suggestion-list",
+        "problem-route",
         "knowledge-network",
         "detail-dialog",
         "detail-back",
@@ -65,6 +72,14 @@ def main() -> int:
         "renderScopeGuide",
         "renderRelationshipNavigator",
         "MODE_GUIDES",
+        "PROBLEM_KEYWORDS",
+        "recommendProblems",
+        "renderProblemSuggestions",
+        "renderProblemRoute",
+        "renderKnowledgeCallGroup",
+        "renderModelPairs",
+        "buildProblemBrief",
+        "downloadProblemBrief",
     ):
         if required_contract not in app_source:
             errors.append(f"site app is missing detail-navigation contract: {required_contract}")
@@ -77,6 +92,13 @@ def main() -> int:
         "inquiry-mode-grid",
         "knowledge-anchor-grid",
         "study-route",
+        "journey-ribbon",
+        "problem-intake-card",
+        "problem-suggestion-card",
+        "knowledge-call-card",
+        "model-pair-card",
+        "evidence-checklist",
+        "problem-brief-card",
     ):
         if f".{class_name}" not in styles_source:
             errors.append(f"site styles are missing expanded-guide surface: .{class_name}")
@@ -211,6 +233,54 @@ def main() -> int:
         "design",
         "embodied",
     }
+    relation_pairs = {
+        (relation.get("source"), relation.get("target"))
+        for relation in payload.get("relations", [])
+    }
+    required_scope_dimensions = {
+        "objects",
+        "actors",
+        "timescales",
+        "scales",
+        "values_at_stake",
+        "constraints",
+    }
+    knowledge_collections = {
+        "domains": {node["id"] for node in payload["domains"]},
+        "core_nodes": {node["id"] for node in payload["coreNodes"]},
+        "thinking_models": {node["id"] for node in payload["thinkingModels"]},
+        "universal_models": {node["id"] for node in payload["universalModels"]},
+    }
+    for problem in payload["problemTemplates"]:
+        problem_id = problem["id"]
+        if set(problem.get("scoping_dimensions", {})) != required_scope_dimensions:
+            errors.append(f"problem workbench lacks six-dimensional scope: {problem_id}")
+        if any(not values for values in problem.get("scoping_dimensions", {}).values()):
+            errors.append(f"problem workbench contains an empty scope dimension: {problem_id}")
+        if len(problem.get("success_criteria", [])) < 3:
+            errors.append(f"problem workbench lacks success criteria: {problem_id}")
+        if len(problem.get("evidence_requirements", [])) < 3:
+            errors.append(f"problem workbench lacks evidence gates: {problem_id}")
+        if len(problem.get("workflow", [])) < 5:
+            errors.append(f"problem workbench lacks a five-stage action path: {problem_id}")
+        for step in problem.get("workflow", []):
+            if not all(step.get(field) for field in ("stage", "action", "output", "gate")):
+                errors.append(f"problem workflow step lacks action, output or gate: {problem_id}")
+        calls = problem.get("knowledge_calls", {})
+        for field, allowed_ids in knowledge_collections.items():
+            call_ids = calls.get(field, [])
+            if not call_ids:
+                errors.append(f"problem workbench has an empty knowledge layer {field}: {problem_id}")
+            unknown_calls = sorted(set(call_ids) - allowed_ids)
+            if unknown_calls:
+                errors.append(f"problem workbench has unknown {field}: {problem_id} -> {unknown_calls[:3]}")
+            missing_relations = [
+                target for target in call_ids if (problem_id, target) not in relation_pairs
+            ]
+            if missing_relations:
+                errors.append(
+                    f"problem knowledge calls lack relation explanations: {problem_id} -> {missing_relations[:3]}"
+                )
     for node in scope_nodes:
         guide = guide_by_node.get(node["id"])
         if not guide:

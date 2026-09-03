@@ -10,9 +10,51 @@ const state = {
   activeProblemFamily: "all",
   activeLearningTier: 50,
   activeFramework: "FM01",
+  currentProblemQuery: localStorage.getItem("hkm-problem-draft") || "",
+  selectedProblemId: localStorage.getItem("hkm-selected-problem") || "",
+  workbenchSuggestionsOpen: false,
+  learningVisible: 24,
   networkNodes: [],
   hoveredDomain: null,
   detailHistory: [],
+};
+
+const PROBLEM_KEYWORDS = {
+  PT01: ["现状", "测量", "指标", "数据", "评估状态", "describe", "measure", "metric", "current state"],
+  PT02: ["为什么", "原因", "诊断", "故障", "失败", "根因", "复发", "explain", "diagnose", "cause", "failure"],
+  PT03: ["预测", "趋势", "预警", "未来", "销量", "需求", "forecast", "predict", "warning", "future", "trend"],
+  PT04: ["选择", "决定", "是否应该", "要不要", "机会", "不确定", "取舍", "decision", "choose", "whether", "uncertain"],
+  PT05: ["分配", "资源", "预算", "排期", "效率", "瓶颈", "优化流程", "allocate", "resource", "budget", "bottleneck"],
+  PT06: ["设计", "产品", "服务", "系统", "用户体验", "架构", "原型", "design", "product", "service", "prototype"],
+  PT07: ["效果", "有效吗", "影响评估", "项目评估", "干预", "实验", "impact", "evaluate", "intervention", "program"],
+  PT08: ["政策设计", "治理", "监管", "规则", "制度", "公共政策", "governance", "policy", "regulation", "institution"],
+  PT09: ["冲突", "谈判", "协商", "协调", "共识", "利益相关者", "negotiate", "conflict", "coordinate", "consensus"],
+  PT10: ["风险", "危机", "灾害", "恢复", "应急", "韧性", "安全事件", "risk", "crisis", "recovery", "emergency"],
+  PT11: ["战略", "组织变革", "转型", "竞争", "组织能力", "执行战略", "strategy", "organization", "change", "transformation"],
+  PT12: ["公司", "企业", "投资", "股票", "估值", "商业模式", "财务", "company", "invest", "stock", "valuation", "business"],
+  PT13: ["新技术", "技术路线", "技术成功", "产业化", "成熟度", "人工智能技术", "technology", "technical", "adoption", "innovation"],
+  PT14: ["社会政策", "政策影响", "福利", "教育政策", "住房政策", "公共服务", "social policy", "welfare", "public policy"],
+  PT15: ["健康", "医疗", "症状", "治疗", "药物", "就医", "疾病", "health", "medical", "treatment", "symptom"],
+  PT16: ["环境", "气候", "可持续", "减排", "能源转型", "生态", "environment", "climate", "sustainability", "transition"],
+  PT17: ["学习", "教学", "技能", "课程", "训练", "考试", "教育", "learn", "teach", "skill", "education"],
+  PT18: ["人生", "职业", "转行", "工作机会", "生活规划", "长期方向", "个人选择", "收入", "career", "life", "job", "personal", "move into", "moving into", "income"],
+  PT19: ["历史", "文化", "意义", "解释文本", "身份争议", "价值争议", "history", "culture", "meaning", "interpret"],
+  PT20: ["创作", "创新", "表达", "写作", "艺术", "创意", "作品", "create", "creative", "art", "write"],
+};
+
+const WORKBENCH_EXAMPLES = {
+  zh: [
+    "我是否应该用半年时间转行人工智能，同时控制收入中断的风险？",
+    "判断一家 AI 创业公司是否值得长期投资。",
+    "怎样设计一个真正适合老年人使用的线上预约服务？",
+    "团队项目连续延期，应该怎样诊断原因并防止复发？",
+  ],
+  en: [
+    "Should I spend six months moving into AI while limiting income risk?",
+    "Is an AI startup worth a long-term investment?",
+    "How should we design an online booking service that older adults can actually use?",
+    "Why does our team keep missing deadlines, and how can we prevent recurrence?",
+  ],
 };
 
 const RELATION_LABELS = {
@@ -88,6 +130,7 @@ const MODE_GUIDES = {
 const copy = {
   zh: {
     brandTagline: "人类知识模型",
+    navWorkbench: "问题工作台",
     navMap: "知识地图",
     navBridges: "跨域桥梁",
     navSkeletons: "核心骨架",
@@ -96,14 +139,32 @@ const copy = {
     navLearning: "学习路线",
     navFrameworks: "求解框架",
     navMethod: "如何使用",
-    eyebrow: "一张描述人类如何认识世界的开放图谱",
-    heroLine1: "知识不是一棵静止的树，",
-    heroLine2: "而是一张可以行动的网络。",
-    heroLead: "从现实对象、核心问题、证据和方法出发，连接领域、模型、实践与学习路径。树给你入口，图保留真实关系。",
-    exploreMap: "探索知识地图",
+    eyebrow: "从一个真实问题开始",
+    heroLine1: "把复杂问题，",
+    heroLine2: "拆成可行动的知识地图。",
+    heroLead: "输入你真正面对的问题。系统会帮助你澄清目标与边界，找到相关学科，解释它们为什么相关，并组合多元思维模型形成下一步行动。",
+    startProblem: "开始拆解问题",
+    exploreMap: "浏览知识地图 →",
     howItWorks: "理解模型如何工作 →",
-    findEyebrow: "从问题或概念进入",
-    findTitle: "在整张图中寻找知识入口",
+    workbenchEyebrow: "Problem-first workspace",
+    workbenchTitle: "从你的问题，生成一条完整思考路径",
+    workbenchIntro: "这不是给出一个仓促答案，而是把问题变成可检查的结构：目标、边界、证据、学科、关系、模型与行动。",
+    journeyDefine: "说清问题",
+    journeyScope: "分解边界",
+    journeyMap: "映射知识",
+    journeyThink: "组合模型",
+    journeyAct: "形成行动",
+    intakeTitle: "你现在真正想解决什么？",
+    intakeHint: "尽量包含对象、目标和约束。例如：我是否应该用半年时间转行人工智能，同时控制收入中断的风险？",
+    problemInputLabel: "输入一个现实问题",
+    problemInputPlaceholder: "写下一个你正在面对的真实问题……",
+    tryExample: "试试示例",
+    analyzeProblem: "匹配思考路径",
+    suggestionTitle: "先选择最接近的问题原型",
+    suggestionHint: "原型决定分析起点，不会替代你的具体情境；你可以随时更换。",
+    browseAllProblems: "浏览全部 20 个问题原型",
+    findEyebrow: "知识资料库",
+    findTitle: "按概念搜索整张知识图谱",
     searchLabel: "搜索知识模型",
     searchPlaceholder: "搜索：因果、气候、组织、学习……",
     mapEyebrow: "H1 → H2 → H3",
@@ -276,9 +337,63 @@ const copy = {
     routeApply: "迁移到真实问题",
     parentDomain: "所属领域",
     guideCoverage: "完整主题档案",
+    inputCount: "已输入 {count}/500 字",
+    inputEmpty: "请先写下一个具体问题，或选择示例。",
+    matchDescription: "与你的问题结构接近",
+    matchSignals: "匹配线索",
+    choosePath: "用这个原型开始",
+    routeEyebrow: "你的问题路径",
+    routeBasedOn: "基于 {code} · {family}",
+    changeArchetype: "更换原型",
+    resetWorkbench: "重新开始",
+    openFullProfile: "查看完整原型档案",
+    yourQuestion: "你的问题",
+    archetypeInterpretation: "原型如何理解它",
+    sectionScope: "分解问题边界",
+    scopeIntro: "先把含混问题拆成六个必须明确的维度，避免过早跳到答案。",
+    sectionKnowledge: "建立知识调用栈",
+    knowledgeIntro: "每个节点都回答一种必要问题；点击可继续查看证据、边界和图谱关系。",
+    domainCall: "相关学科与领域",
+    coreCall: "领域内的关键骨架",
+    thinkingCall: "思维操作",
+    universalCall: "跨域世界结构",
+    whyRelevant: "为什么相关",
+    sectionModels: "用多元模型交叉检查",
+    modelsIntro: "思维模型决定你怎样看，通用模型提醒你世界可能以什么结构运行。两者配对，减少单一视角盲区。",
+    thinkingMove: "思维动作",
+    worldPattern: "世界结构",
+    pairPrompt: "组合追问",
+    sectionEvidence: "明确证据门槛",
+    evidenceIntro: "在形成结论前，至少要找到这些证据；缺失项就是当前不确定性的来源。",
+    sectionAction: "把分析推进成行动",
+    workflowIntro: "按顺序推进，每一步都要产生可检查的产物并通过质量门。",
+    action: "行动",
+    deliverable: "产物",
+    qualityGate: "质量门",
+    sectionBrief: "可复制的问题简报",
+    briefIntro: "带走这份最小可执行结构，继续研究、讨论或交给协作者。",
+    copyBrief: "复制简报",
+    downloadBrief: "下载 Markdown",
+    copiedBrief: "已复制",
+    copyFailed: "复制失败，请下载文件。",
+    successCriteria: "成功标准",
+    firstMove: "第一步",
+    knowledgeMix: "知识组合",
+    modelLenses: "模型透镜",
+    uncertaintyNote: "原型提供的是分析起点，不是自动结论。请用你的真实数据、约束与专业意见校正。",
+    scopeObjects: "对象",
+    scopeActors: "相关主体",
+    scopeTimescales: "时间尺度",
+    scopeScales: "分析层级",
+    scopeValues: "价值与权益",
+    scopeConstraints: "约束",
+    showMoreLearning: "再显示 {count} 项",
+    showLessLearning: "收起列表",
+    useInWorkbench: "在问题工作台中使用这个原型",
   },
   en: {
     brandTagline: "A map of how humanity knows",
+    navWorkbench: "Problem workspace",
     navMap: "Knowledge map",
     navBridges: "Bridge views",
     navSkeletons: "Core skeletons",
@@ -287,14 +402,32 @@ const copy = {
     navLearning: "Learning path",
     navFrameworks: "Frameworks",
     navMethod: "How to use",
-    eyebrow: "An open graph of how humanity understands the world",
-    heroLine1: "Knowledge is not a static tree,",
-    heroLine2: "but a network for action.",
-    heroLead: "Connect domains, models, practices and learning paths through real-world objects, questions, evidence and methods. The tree gives entry points; the graph preserves reality.",
-    exploreMap: "Explore the knowledge map",
+    eyebrow: "Start with one real problem",
+    heroLine1: "Turn a complex problem",
+    heroLine2: "into an actionable knowledge map.",
+    heroLead: "Describe the problem you actually face. The workspace clarifies goals and boundaries, finds relevant disciplines, explains their relationships and combines multiple thinking models into next actions.",
+    startProblem: "Start breaking it down",
+    exploreMap: "Browse the knowledge map →",
     howItWorks: "See how the model works →",
-    findEyebrow: "Enter through a question or concept",
-    findTitle: "Find an entry point across the whole graph",
+    workbenchEyebrow: "Problem-first workspace",
+    workbenchTitle: "Generate a complete reasoning path from your problem",
+    workbenchIntro: "This does not rush to an answer. It turns the problem into an inspectable structure: goals, scope, evidence, disciplines, relationships, models and action.",
+    journeyDefine: "State it",
+    journeyScope: "Set scope",
+    journeyMap: "Map knowledge",
+    journeyThink: "Combine models",
+    journeyAct: "Take action",
+    intakeTitle: "What are you actually trying to solve?",
+    intakeHint: "Include the object, desired outcome and constraints when possible. For example: should I spend six months moving into AI while limiting income risk?",
+    problemInputLabel: "Enter a real-world problem",
+    problemInputPlaceholder: "Write down a real problem you are facing…",
+    tryExample: "Try an example",
+    analyzeProblem: "Match a reasoning path",
+    suggestionTitle: "Choose the closest problem archetype",
+    suggestionHint: "The archetype sets a starting point; it does not replace your context, and you can change it at any time.",
+    browseAllProblems: "Browse all 20 problem archetypes",
+    findEyebrow: "Knowledge library",
+    findTitle: "Search the full graph by concept",
     searchLabel: "Search the knowledge model",
     searchPlaceholder: "Search: causality, climate, organizations, learning…",
     mapEyebrow: "H1 → H2 → H3",
@@ -467,12 +600,69 @@ const copy = {
     routeApply: "Transfer into real problems",
     parentDomain: "Parent domain",
     guideCoverage: "Complete topic guide",
+    inputCount: "{count}/500 characters",
+    inputEmpty: "Describe a concrete problem first, or choose an example.",
+    matchDescription: "Structurally close to your problem",
+    matchSignals: "Matching signals",
+    choosePath: "Start with this archetype",
+    routeEyebrow: "Your problem path",
+    routeBasedOn: "Based on {code} · {family}",
+    changeArchetype: "Change archetype",
+    resetWorkbench: "Start over",
+    openFullProfile: "Open the full archetype profile",
+    yourQuestion: "Your question",
+    archetypeInterpretation: "How the archetype reads it",
+    sectionScope: "Decompose the problem boundary",
+    scopeIntro: "Break an ambiguous problem into six dimensions before jumping to an answer.",
+    sectionKnowledge: "Build the knowledge call stack",
+    knowledgeIntro: "Each node answers a necessary question. Open it to inspect evidence, limits and graph relationships.",
+    domainCall: "Relevant disciplines and domains",
+    coreCall: "Key domain skeletons",
+    thinkingCall: "Thinking operations",
+    universalCall: "Cross-domain world structures",
+    whyRelevant: "Why it matters",
+    sectionModels: "Cross-check with multiple models",
+    modelsIntro: "Thinking models shape how you look; universal models suggest how the world may be structured. Pairing them reduces single-lens blind spots.",
+    thinkingMove: "Thinking move",
+    worldPattern: "World pattern",
+    pairPrompt: "Combined prompt",
+    sectionEvidence: "Set the evidence threshold",
+    evidenceIntro: "Find at least this evidence before forming a conclusion. Missing items are sources of present uncertainty.",
+    sectionAction: "Move from analysis to action",
+    workflowIntro: "Advance in order. Every step produces an inspectable deliverable and must pass a quality gate.",
+    action: "Action",
+    deliverable: "Deliverable",
+    qualityGate: "Quality gate",
+    sectionBrief: "Portable problem brief",
+    briefIntro: "Take this minimum executable structure into research, discussion or collaboration.",
+    copyBrief: "Copy brief",
+    downloadBrief: "Download Markdown",
+    copiedBrief: "Copied",
+    copyFailed: "Copy failed. Download the file instead.",
+    successCriteria: "Success criteria",
+    firstMove: "First move",
+    knowledgeMix: "Knowledge mix",
+    modelLenses: "Model lenses",
+    uncertaintyNote: "An archetype is an analytical starting point, not an automatic conclusion. Calibrate it with real data, constraints and professional advice.",
+    scopeObjects: "Objects",
+    scopeActors: "Actors",
+    scopeTimescales: "Timescales",
+    scopeScales: "Levels of analysis",
+    scopeValues: "Values and rights",
+    scopeConstraints: "Constraints",
+    showMoreLearning: "Show {count} more",
+    showLessLearning: "Collapse list",
+    useInWorkbench: "Use this archetype in the problem workspace",
   },
 };
 
 const $ = (selector, context = document) => context.querySelector(selector);
 const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
 const t = (key) => copy[state.lang][key] || copy.zh[key] || key;
+const tf = (key, variables = {}) => Object.entries(variables).reduce(
+  (text, [name, value]) => text.replaceAll(`{${name}}`, value),
+  t(key),
+);
 const escapeHTML = (value = "") =>
   String(value).replace(
     /[&<>'"]/g,
@@ -492,6 +682,340 @@ function problemFamilyLabel(family) {
     "learning-meaning": { zh: "学习与意义", en: "Learning & meaning" },
   };
   return labels[family]?.[state.lang] || family;
+}
+
+function normalizeProblemText(value = "") {
+  return String(value).toLocaleLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function problemSearchText(problem) {
+  return normalizeProblemText([
+    problem.labels?.zh,
+    problem.labels?.en,
+    problem.definition,
+    problem.primary_aim,
+    ...(problem.secondary_aims || []),
+    ...(problem.trigger_questions || []),
+    ...(problem.example_prompts || []),
+  ].join(" "));
+}
+
+function recommendProblems(query, limit = 3) {
+  const normalized = normalizeProblemText(query);
+  const genericSignals = new Set(["为什么", "是否应该", "要不要", "未来", "选择", "why", "whether", "should", "future", "choose"]);
+  return state.model.problemTemplates
+    .map((problem) => {
+      const haystack = problemSearchText(problem);
+      const keywords = PROBLEM_KEYWORDS[problem.code] || [];
+      const signals = keywords.filter((keyword) => normalized.includes(normalizeProblemText(keyword)));
+      const phrases = normalized.split(/[\s，。,.?？;；:：、!！]+/).filter((item) => (
+        /[a-z]/i.test(item) ? item.length >= 4 : item.length >= 2
+      ));
+      const directMatches = phrases.filter((phrase) => haystack.includes(phrase));
+      const keywordScore = signals.reduce(
+        (score, signal) => score + (genericSignals.has(signal) ? 2 : 5 + Math.min(signal.length, 5)),
+        0,
+      );
+      const directScore = directMatches.reduce((score, phrase) => score + Math.min(phrase.length, 8), 0);
+      return {
+        problem,
+        score: keywordScore + directScore,
+        signals: [...new Set([...signals, ...directMatches])].slice(0, 4),
+      };
+    })
+    .sort((a, b) => b.score - a.score || a.problem.code.localeCompare(b.problem.code))
+    .slice(0, limit);
+}
+
+function updateProblemInputMeta(message = "") {
+  const input = $("#problem-input");
+  $("#problem-input-meta").textContent = message || tf("inputCount", { count: input.value.length });
+}
+
+function renderProblemExamples() {
+  const container = $("#problem-examples");
+  container.innerHTML = WORKBENCH_EXAMPLES[state.lang]
+    .map((example, index) => `<button type="button" data-problem-example="${index}">${escapeHTML(example)}</button>`)
+    .join("");
+  $$('[data-problem-example]', container).forEach((button) => {
+    button.addEventListener("click", () => {
+      const query = WORKBENCH_EXAMPLES[state.lang][Number(button.dataset.problemExample)];
+      state.currentProblemQuery = query;
+      state.selectedProblemId = "";
+      $("#problem-input").value = query;
+      localStorage.setItem("hkm-problem-draft", query);
+      localStorage.removeItem("hkm-selected-problem");
+      updateProblemInputMeta();
+      showProblemSuggestions(query);
+    });
+  });
+}
+
+function suggestionReason(result) {
+  if (result.signals.length) return result.signals.join(" · ");
+  return problemFamilyLabel(result.problem.problem_family);
+}
+
+function renderProblemSuggestions(results, highlightBest = true) {
+  const panel = $("#problem-suggestions");
+  const container = $("#problem-suggestion-list");
+  panel.hidden = false;
+  container.innerHTML = results.map((result, index) => {
+    const problem = result.problem;
+    return `<article class="problem-suggestion-card ${highlightBest && index === 0 ? "recommended" : ""}">
+      <div class="suggestion-card-top">
+        <span>${escapeHTML(problem.code)} · ${escapeHTML(problemFamilyLabel(problem.problem_family))}</span>
+        <small>${highlightBest && index === 0 ? escapeHTML(t("matchDescription")) : String(index + 1).padStart(2, "0")}</small>
+      </div>
+      <h4>${escapeHTML(label(problem))}</h4>
+      <p>${escapeHTML(definition(problem))}</p>
+      <div class="match-signals"><span>${escapeHTML(t("matchSignals"))}</span><strong>${escapeHTML(suggestionReason(result))}</strong></div>
+      <button type="button" class="choose-problem" data-select-problem="${escapeHTML(problem.id)}">${escapeHTML(t("choosePath"))}<span aria-hidden="true">→</span></button>
+    </article>`;
+  }).join("");
+  $$('[data-select-problem]', container).forEach((button) => {
+    button.addEventListener("click", () => selectProblemPath(button.dataset.selectProblem));
+  });
+}
+
+function showProblemSuggestions(query, showAll = false) {
+  const trimmed = query.trim();
+  if (!trimmed && !showAll) {
+    updateProblemInputMeta(t("inputEmpty"));
+    $("#problem-input").focus();
+    return;
+  }
+  state.currentProblemQuery = trimmed;
+  state.workbenchSuggestionsOpen = true;
+  localStorage.setItem("hkm-problem-draft", trimmed);
+  const results = showAll
+    ? state.model.problemTemplates.map((problem) => ({ problem, score: 0, signals: [] }))
+    : recommendProblems(trimmed);
+  renderProblemSuggestions(results, !showAll);
+  $("#problem-suggestions").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function problemRelation(problemId, targetId) {
+  return state.model.relations.find((relation) => relation.source === problemId && relation.target === targetId);
+}
+
+function callReason(problem, node, kind) {
+  const relation = problemRelation(problem.id, node.id);
+  const role = {
+    domain: node.core_questions?.[0] || definition(node),
+    core: definition(node),
+    thinking: node.core_idea || definition(node),
+    universal: node.core_structure || definition(node),
+  }[kind] || definition(node);
+  return `${relation?.scope ? `${relation.scope}：` : ""}${role}`;
+}
+
+function renderKnowledgeCallGroup(problem, title, ids, kind, map) {
+  const nodes = ids.map((id) => map.get(id)).filter(Boolean);
+  return `<section class="knowledge-call-group">
+    <header><span>${escapeHTML(title)}</span><strong>${nodes.length}</strong></header>
+    <div class="knowledge-call-list">${nodes.map((node) => `<button type="button" class="knowledge-call-card" data-open-kind="${kind}" data-open-id="${escapeHTML(node.id)}">
+      <span>${escapeHTML(node.code)}</span>
+      <strong>${escapeHTML(label(node))}</strong>
+      <small><b>${escapeHTML(t("whyRelevant"))}</b>${escapeHTML(callReason(problem, node, kind))}</small>
+    </button>`).join("")}</div>
+  </section>`;
+}
+
+function scopeLabel(key) {
+  return t({
+    objects: "scopeObjects",
+    actors: "scopeActors",
+    timescales: "scopeTimescales",
+    scales: "scopeScales",
+    values_at_stake: "scopeValues",
+    constraints: "scopeConstraints",
+  }[key]);
+}
+
+function renderScope(problem) {
+  return Object.entries(problem.scoping_dimensions).map(([key, values], index) => `<section class="scope-card">
+    <span>0${index + 1}</span>
+    <h4>${escapeHTML(scopeLabel(key))}</h4>
+    <div>${values.map((value) => `<small>${escapeHTML(value)}</small>`).join("")}</div>
+  </section>`).join("");
+}
+
+function renderModelPairs(problem, idx) {
+  const thinking = problem.knowledge_calls.thinking_models.map((id) => idx.thinkingById.get(id)).filter(Boolean);
+  const universal = problem.knowledge_calls.universal_models.map((id) => idx.universalById.get(id)).filter(Boolean);
+  return thinking.slice(0, 3).map((thinkingModel, index) => {
+    const universalModel = universal[index % universal.length];
+    const prompt = state.lang === "zh"
+      ? `用“${label(thinkingModel)}”检查推理过程，再用“${label(universalModel)}”检查系统结构：两种视角在哪个关键假设上可能得出不同结论？`
+      : `Use “${label(thinkingModel)}” to inspect the reasoning process, then “${label(universalModel)}” to inspect system structure. On which key assumption might they diverge?`;
+    return `<article class="model-pair-card">
+      <div class="model-pair-nodes">
+        <button type="button" data-open-kind="thinking" data-open-id="${escapeHTML(thinkingModel.id)}"><small>${escapeHTML(t("thinkingMove"))}</small><strong>${escapeHTML(thinkingModel.code)} · ${escapeHTML(label(thinkingModel))}</strong></button>
+        <span aria-hidden="true">×</span>
+        <button type="button" data-open-kind="universal" data-open-id="${escapeHTML(universalModel.id)}"><small>${escapeHTML(t("worldPattern"))}</small><strong>${escapeHTML(universalModel.code)} · ${escapeHTML(label(universalModel))}</strong></button>
+      </div>
+      <p><strong>${escapeHTML(t("pairPrompt"))}</strong>${escapeHTML(prompt)}</p>
+    </article>`;
+  }).join("");
+}
+
+function listMarkup(items) {
+  return `<ul>${items.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+}
+
+function buildProblemBrief(problem, query) {
+  const idx = indexes();
+  const names = (ids, map) => ids.map((id) => map.get(id)).filter(Boolean).map((node) => `${node.code} ${label(node)}`);
+  const scope = Object.entries(problem.scoping_dimensions)
+    .map(([key, values]) => `- **${scopeLabel(key)}**：${values.join("、")}`)
+    .join("\n");
+  const workflow = problem.workflow
+    .map((step) => `${step.stage}. ${step.action}\n   - ${t("deliverable")}：${step.output}\n   - ${t("qualityGate")}：${step.gate}`)
+    .join("\n");
+  return `# ${t("sectionBrief")}\n\n## ${t("yourQuestion")}\n${query}\n\n## ${problem.code} · ${label(problem)}\n${definition(problem)}\n\n## ${t("successCriteria")}\n${problem.success_criteria.map((item) => `- ${item}`).join("\n")}\n\n## ${t("sectionScope")}\n${scope}\n\n## ${t("knowledgeMix")}\n- ${t("domainCall")}：${names(problem.knowledge_calls.domains, idx.domainById).join("；")}\n- ${t("coreCall")}：${names(problem.knowledge_calls.core_nodes, idx.coreById).join("；")}\n- ${t("thinkingCall")}：${names(problem.knowledge_calls.thinking_models, idx.thinkingById).join("；")}\n- ${t("universalCall")}：${names(problem.knowledge_calls.universal_models, idx.universalById).join("；")}\n\n## ${t("sectionEvidence")}\n${problem.evidence_requirements.map((item) => `- ${item}`).join("\n")}\n\n## ${t("sectionAction")}\n${workflow}\n\n> ${t("uncertaintyNote")}\n`;
+}
+
+async function copyProblemBrief(problem, query, button) {
+  const brief = buildProblemBrief(problem, query);
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(brief);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = brief;
+      document.body.append(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+    button.textContent = t("copiedBrief");
+    window.setTimeout(() => { button.textContent = t("copyBrief"); }, 1600);
+  } catch (error) {
+    button.textContent = t("copyFailed");
+  }
+}
+
+function downloadProblemBrief(problem, query) {
+  const blob = new Blob([buildProblemBrief(problem, query)], { type: "text/markdown;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `HKM-${problem.code}-problem-brief.md`;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function renderProblemRoute(problem) {
+  const idx = indexes();
+  const query = state.currentProblemQuery || label(problem);
+  const route = $("#problem-route");
+  route.hidden = false;
+  route.innerHTML = `<header class="route-hero">
+    <div><p class="eyebrow">${escapeHTML(t("routeEyebrow"))}</p><h3>${escapeHTML(query)}</h3><span>${escapeHTML(tf("routeBasedOn", { code: problem.code, family: problemFamilyLabel(problem.problem_family) }))}</span></div>
+    <div class="route-actions"><button type="button" id="route-change">${escapeHTML(t("changeArchetype"))}</button><button type="button" id="problem-reset">${escapeHTML(t("resetWorkbench"))}</button></div>
+  </header>
+  <div class="route-framing">
+    <section><small>${escapeHTML(t("yourQuestion"))}</small><p>${escapeHTML(query)}</p></section>
+    <section><small>${escapeHTML(t("archetypeInterpretation"))}</small><p>${escapeHTML(definition(problem))}</p><button type="button" data-open-kind="problem" data-open-id="${escapeHTML(problem.id)}">${escapeHTML(t("openFullProfile"))} →</button></section>
+  </div>
+  <section class="route-section">
+    <header class="route-section-heading"><span>01</span><div><h3>${escapeHTML(t("sectionScope"))}</h3><p>${escapeHTML(t("scopeIntro"))}</p></div></header>
+    <div class="workbench-scope-grid">${renderScope(problem)}</div>
+    <div class="success-strip"><strong>${escapeHTML(t("successCriteria"))}</strong>${listMarkup(problem.success_criteria)}</div>
+  </section>
+  <section class="route-section">
+    <header class="route-section-heading"><span>02</span><div><h3>${escapeHTML(t("sectionKnowledge"))}</h3><p>${escapeHTML(t("knowledgeIntro"))}</p></div></header>
+    <div class="knowledge-stack">
+      ${renderKnowledgeCallGroup(problem, t("domainCall"), problem.knowledge_calls.domains, "domain", idx.domainById)}
+      ${renderKnowledgeCallGroup(problem, t("coreCall"), problem.knowledge_calls.core_nodes, "core", idx.coreById)}
+      ${renderKnowledgeCallGroup(problem, t("thinkingCall"), problem.knowledge_calls.thinking_models, "thinking", idx.thinkingById)}
+      ${renderKnowledgeCallGroup(problem, t("universalCall"), problem.knowledge_calls.universal_models, "universal", idx.universalById)}
+    </div>
+  </section>
+  <section class="route-section">
+    <header class="route-section-heading"><span>03</span><div><h3>${escapeHTML(t("sectionModels"))}</h3><p>${escapeHTML(t("modelsIntro"))}</p></div></header>
+    <div class="model-pair-grid">${renderModelPairs(problem, idx)}</div>
+  </section>
+  <section class="route-section evidence-action-grid">
+    <div><header class="route-section-heading compact"><span>04</span><div><h3>${escapeHTML(t("sectionEvidence"))}</h3><p>${escapeHTML(t("evidenceIntro"))}</p></div></header><div class="evidence-checklist">${problem.evidence_requirements.map((item, index) => `<label><input type="checkbox" /><span><small>0${index + 1}</small>${escapeHTML(item)}</span></label>`).join("")}</div></div>
+    <div><header class="route-section-heading compact"><span>05</span><div><h3>${escapeHTML(t("sectionAction"))}</h3><p>${escapeHTML(t("workflowIntro"))}</p></div></header><ol class="route-workflow">${problem.workflow.map((step) => `<li><span>${escapeHTML(step.stage)}</span><div><strong>${escapeHTML(step.action)}</strong><p><b>${escapeHTML(t("deliverable"))}</b>${escapeHTML(step.output)}</p><p><b>${escapeHTML(t("qualityGate"))}</b>${escapeHTML(step.gate)}</p></div></li>`).join("")}</ol></div>
+  </section>
+  <section class="problem-brief-card">
+    <div><p class="eyebrow">${escapeHTML(t("sectionBrief"))}</p><h3>${escapeHTML(problem.outputs.join(" · "))}</h3><p>${escapeHTML(t("briefIntro"))}</p></div>
+    <div class="brief-preview"><span>${escapeHTML(t("firstMove"))}</span><strong>${escapeHTML(problem.workflow[0].action)}</strong><small>${escapeHTML(problem.workflow[0].output)}</small></div>
+    <div class="brief-actions"><button type="button" id="problem-copy">${escapeHTML(t("copyBrief"))}</button><button type="button" id="problem-download">${escapeHTML(t("downloadBrief"))}</button></div>
+    <p class="uncertainty-note">${escapeHTML(t("uncertaintyNote"))}</p>
+  </section>`;
+  bindOpenButtons(route);
+  $("#route-change").addEventListener("click", () => showProblemSuggestions(query));
+  $("#problem-reset").addEventListener("click", resetProblemWorkbench);
+  $("#problem-copy").addEventListener("click", (event) => copyProblemBrief(problem, query, event.currentTarget));
+  $("#problem-download").addEventListener("click", () => downloadProblemBrief(problem, query));
+  $("#problem-workbench").dataset.state = "complete";
+}
+
+function selectProblemPath(problemId) {
+  const problem = indexes().problemById.get(problemId);
+  if (!problem) return;
+  state.selectedProblemId = problem.id;
+  state.workbenchSuggestionsOpen = false;
+  localStorage.setItem("hkm-selected-problem", problem.id);
+  $("#problem-suggestions").hidden = true;
+  renderProblemRoute(problem);
+  $("#problem-route").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function resetProblemWorkbench() {
+  state.currentProblemQuery = "";
+  state.selectedProblemId = "";
+  state.workbenchSuggestionsOpen = false;
+  localStorage.removeItem("hkm-problem-draft");
+  localStorage.removeItem("hkm-selected-problem");
+  $("#problem-input").value = "";
+  $("#problem-suggestions").hidden = true;
+  $("#problem-route").hidden = true;
+  $("#problem-workbench").dataset.state = "intake";
+  updateProblemInputMeta();
+  $("#problem-input").focus();
+}
+
+function renderProblemWorkbench() {
+  const input = $("#problem-input");
+  input.value = state.currentProblemQuery;
+  renderProblemExamples();
+  updateProblemInputMeta();
+  const problem = indexes().problemById.get(state.selectedProblemId);
+  if (problem) {
+    renderProblemRoute(problem);
+  } else {
+    $("#problem-route").hidden = true;
+    $("#problem-workbench").dataset.state = state.workbenchSuggestionsOpen ? "matching" : "intake";
+  }
+  if (state.workbenchSuggestionsOpen) {
+    renderProblemSuggestions(recommendProblems(state.currentProblemQuery));
+  } else {
+    $("#problem-suggestions").hidden = true;
+  }
+}
+
+function setupProblemWorkbench() {
+  const input = $("#problem-input");
+  input.addEventListener("input", () => {
+    state.currentProblemQuery = input.value;
+    state.selectedProblemId = "";
+    localStorage.setItem("hkm-problem-draft", input.value);
+    localStorage.removeItem("hkm-selected-problem");
+    $("#problem-route").hidden = true;
+    updateProblemInputMeta();
+  });
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) showProblemSuggestions(input.value);
+  });
+  $("#problem-analyze").addEventListener("click", () => showProblemSuggestions(input.value));
+  $("#browse-all-problems").addEventListener("click", () => showProblemSuggestions(input.value, true));
 }
 
 function indexes() {
@@ -835,6 +1359,7 @@ function renderLearning() {
   $$('[data-learning-tier]', tabs).forEach((button) => {
     button.addEventListener("click", () => {
       state.activeLearningTier = Number(button.dataset.learningTier);
+      state.learningVisible = 24;
       renderLearning();
     });
   });
@@ -850,7 +1375,8 @@ function renderLearning() {
     .map((assetType) => `<div><strong>${typeCounts[assetType] || 0}</strong><span>${escapeHTML(learningAssetTypeLabel(assetType))}</span></div>`)
     .join("");
 
-  $("#learning-ranking").innerHTML = entries
+  const visibleEntries = entries.slice(0, state.learningVisible);
+  $("#learning-ranking").innerHTML = visibleEntries
     .map((entry) => {
       const kind = learningAssetKind(entry.asset_type);
       return `<button type="button" class="learning-rank-row" data-open-kind="${kind}" data-open-id="${escapeHTML(entry.node_id)}">
@@ -859,8 +1385,21 @@ function renderLearning() {
         <span class="learning-score">${Number(entry.raw_score).toFixed(1)}</span>
       </button>`;
     })
-    .join("");
+    .join("") + (entries.length > visibleEntries.length
+      ? `<button type="button" class="learning-more" data-learning-more="expand">${escapeHTML(tf("showMoreLearning", { count: Math.min(24, entries.length - visibleEntries.length) }))} ↓</button>`
+      : entries.length > 24
+        ? `<button type="button" class="learning-more" data-learning-more="collapse">${escapeHTML(t("showLessLearning"))} ↑</button>`
+        : "");
   bindOpenButtons($("#learning-ranking"));
+  $("[data-learning-more]", $("#learning-ranking"))?.addEventListener("click", (event) => {
+    state.learningVisible = event.currentTarget.dataset.learningMore === "expand"
+      ? Math.min(entries.length, state.learningVisible + 24)
+      : 24;
+    renderLearning();
+    if (event.currentTarget.dataset.learningMore === "collapse") {
+      $("#learning-tier-summary").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 
   $("#roadmap-grid").innerHTML = state.model.learningUnits
     .slice()
@@ -1484,6 +2023,7 @@ function openDetail(kind, id, options = {}) {
       ? { stage: "阶段", action: "动作", output: "产物", gate: "检查门" }
       : { stage: "Stage", action: "Action", output: "Output", gate: "Gate" };
     html = detailHeader(node);
+    html += `<button type="button" class="detail-workbench-cta" data-use-problem="${escapeHTML(node.id)}">${escapeHTML(t("useInWorkbench"))}<span aria-hidden="true">→</span></button>`;
     html += detailBlock(t("problemFamily"), tagCloud([problemFamilyLabel(node.problem_family), node.learning_priority]));
     html += detailBlock(t("primaryAim"), tagCloud([node.primary_aim, ...node.secondary_aims]));
     html += detailBlock(t("coreQuestion"), questionList(node.trigger_questions));
@@ -1588,6 +2128,17 @@ function openDetail(kind, id, options = {}) {
   $("#detail-content").innerHTML = html;
   $("#detail-content").style.setProperty("--detail-color", color);
   bindOpenButtons($("#detail-content"));
+  $("[data-use-problem]", $("#detail-content"))?.addEventListener("click", (event) => {
+    const selected = idx.problemById.get(event.currentTarget.dataset.useProblem);
+    if (!selected) return;
+    if (!state.currentProblemQuery.trim()) {
+      state.currentProblemQuery = selected.example_prompts[0] || label(selected);
+      $("#problem-input").value = state.currentProblemQuery;
+      localStorage.setItem("hkm-problem-draft", state.currentProblemQuery);
+    }
+    dialog.close();
+    selectProblemPath(selected.id);
+  });
   renderDetailNavigation(kind, node, idx);
   if (!dialog.open) dialog.showModal();
   document.body.classList.add("dialog-open");
@@ -1870,6 +2421,7 @@ function drawNetwork() {
 
 function renderAllDynamic() {
   renderHero();
+  renderProblemWorkbench();
   renderFilters();
   renderDomainGroups();
   renderBridges();
@@ -1899,6 +2451,7 @@ async function init() {
     const response = await fetch("./data/model.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.model = await response.json();
+    setupProblemWorkbench();
     applyTranslations();
     renderAllDynamic();
     setupSearch();
