@@ -15,23 +15,39 @@
 | 模式 | 在哪里使用 | 适合什么 | 是否调用模型 |
 |---|---|---|---|
 | 图谱快速匹配 | [GitHub Pages](https://xxiaoxiong.github.io/human-knowledge-model/) 或本地 | 从任意问题找到最相关的问题原型、学科、模型与工作流 | 否 |
-| AI 深度拆解 | 本地 Companion 页面 | 对话式澄清、递归分解、比较候选满意解并生成行动门 | 是 |
+| Agent 深度拆解 | 本地 Python 服务 | 对话式澄清、递归分解、比较候选满意解并生成行动门 | 是 |
 
 直接打开在线网站，输入问题后点“匹配思考路径”，不需要安装任何东西。问题最好同时写明对象、目标和约束，例如：“团队项目反复延期，成员互相甩锅，预算不能增加，怎样定位根因并设计四周内可执行的改善方案？”
 
-如果要让自己的模型驱动深度拆解，在仓库根目录运行：
+如果要让自己的模型驱动深度拆解，先在仓库根目录创建只供服务端读取的 `.env`：
 
 ```powershell
-python -m pip install -r requirements.txt
-pnpm install
-pnpm start
+Copy-Item .env.example .env
 ```
 
-然后打开 `http://127.0.0.1:4317`，点“配置模型”，选择连接方式，再点“AI 深度拆解”。分析完成后可以继续在同一个输入框追问；图谱节点均可点开，结果可复制或下载为 Markdown。
+填写四个必需项（不要提交 `.env`）：
 
-默认的“本机 Codex 登录”会复用已有 Codex 登录。如果尚未登录，可先运行 `npx @openai/codex@0.153.4 login`；也可以直接在界面中选择 OpenAI API Key、自定义 Responses 兼容服务或 Ollama。本项目接入的是官方 `@openai/codex-sdk`（它封装官方 `@openai/codex` CLI），不是 `codex-cli-bin`。自定义服务必须实现 Responses API，传统 Chat Completions 端点不能直接使用。
+```dotenv
+HKM_MODEL_PROVIDER_NAME=你的服务名称
+HKM_MODEL_BASE_URL=https://你的服务地址/v1
+HKM_MODEL_API_KEY=你的密钥
+HKM_MODEL_ID=你的模型ID
+```
 
-公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。深度模式只由绑定 `127.0.0.1` 的本地 Companion 提供；API Key 不写入 localStorage、文件或日志。完整说明见[Harness 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
+然后创建 Python 虚拟环境、安装依赖、构建并启动：
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts/build_site.py
+.\.venv\Scripts\python.exe -m harness.server
+```
+
+打开 `http://127.0.0.1:4317`，输入问题后点“开始深度拆解”。分析完成后可以继续追问；图谱节点可点开，结果可复制或下载为 Markdown。模型配置只在服务启动时从环境注入，页面没有配置入口，也不能在请求中改写 provider、Base URL、模型或 Key。修改 `.env` 后必须重启服务才会生效。
+
+本项目的应用代码使用官方 Python 包 `openai-codex`；它会调用由精确依赖 `openai-codex-cli-bin` 提供的配套 Codex runtime。项目不会自行启动或维护一套 Node Harness。自定义服务必须实现 OpenAI Responses API；只有 Chat Completions 的端点不能直接使用。
+
+公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。深度模式只由绑定 `127.0.0.1` 的本地 Python 服务提供；API Key 只存在于被 `.gitignore` 排除的 `.env`、服务进程和受控子进程环境，不进入浏览器、localStorage、日志或发布产物。完整说明见[Python Agent 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
 
 ### 一次深度分析会发生什么
 
@@ -228,8 +244,12 @@ human-knowledge-model/
 │  ├─ harness-architecture.md
 │  └─ harness-security.md
 ├─ harness/
-│  ├─ server.mjs
-│  ├─ lib/                 # 检索、Schema、Provider、Codex SDK 与落图校验
+│  ├─ server.py            # 回环 HTTP 服务与 API
+│  ├─ agent.py             # 官方 Python Codex SDK 与受控线程
+│  ├─ graph.py             # 检索、确定性分析与落图校验
+│  ├─ prompt.py            # 提示契约
+│  ├─ analysis_schema.py   # 结构化输出 Schema
+│  ├─ settings.py          # 启动时读取并校验 .env
 │  ├─ tests/
 │  └─ workspace/AGENTS.md
 ├─ 00-meta/
@@ -318,10 +338,12 @@ python scripts/generate_views.py
 python scripts/validate.py
 python scripts/build_site.py
 python scripts/validate_site.py
-node --test harness/tests/*.test.mjs
+python -m unittest discover -s harness/tests -p "test_*.py"
+node --check site/app.js
+node --check site/harness.js
 ```
 
-如果 Windows PowerShell 的执行策略拦截 `pnpm.ps1`，把命令中的 `pnpm` 写成 `pnpm.cmd` 即可。
+也可以在已安装 pnpm 的环境里运行 `pnpm check` 执行同一组检查。
 
 推送到 `main` 后，GitHub Actions 会重复同一组校验并把 `dist-site/` 发布到 GitHub Pages。网站使用仓库相对路径，可直接挂载在项目 Website 地址下。
 
@@ -336,7 +358,8 @@ node --test harness/tests/*.test.mjs
 | 6. 学习体系 | **已完成 v0.6.0** | 320 项候选与 Top 50/100/300；8 个学习单元、3 个层级循环、4 条分支路线、109 条学习关系 |
 | 7. 求解框架 | **已完成 v0.7.0** | 2 个操作框架、20 个透镜/阶段、161 条调用关系；20 个 H2 与 20 个问题原型覆盖 |
 | 8. 全局审计 | **已完成 v0.8.0** | 635 节点 / 3,056 关系；单一弱连通分量、0 阻断项；双语标签重构、覆盖矩阵与拆分/合并决定 |
-| 9. 对话式 Harness | **已完成 v0.9.0** | 官方 Codex SDK、本地模型配置、图谱检索与落图校验、递归问题树、候选满意解和流式双语界面 |
+| 9. 对话式 Agent | **已完成 v0.9.0** | 图谱检索与落图校验、递归问题树、候选满意解和流式双语界面 |
+| 10. Python Problem Studio | **已完成 v0.10.0** | `.env` 启动注入、官方 Python Codex SDK、受控 Responses provider、渐进式决策简报与移动端工作台 |
 
 ## 设计底线
 
@@ -346,4 +369,4 @@ node --test harness/tests/*.test.mjs
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计） / `0.9.0`（对话式 Codex Harness）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计） / `0.9.0`（对话式 Agent） / `0.10.0`（Python Problem Studio）

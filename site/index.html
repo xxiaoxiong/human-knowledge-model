@@ -75,9 +75,9 @@
         <div class="stat-ribbon" id="stat-ribbon" aria-label="模型统计"></div>
       </section>
 
-      <section class="workbench-section" id="problem-workbench" aria-labelledby="workbench-title">
+      <section class="workbench-section studio-section" id="problem-workbench" aria-labelledby="workbench-title">
         <div class="section-shell">
-          <div class="section-heading split-heading workbench-heading">
+          <header class="studio-heading">
             <div>
               <p class="eyebrow" data-i18n="workbenchEyebrow">Problem-first workspace</p>
               <h2 id="workbench-title" data-i18n="workbenchTitle">从你的问题，生成一条完整思考路径</h2>
@@ -85,97 +85,127 @@
             <p data-i18n="workbenchIntro">
               这不是给出一个仓促答案，而是把问题变成可检查的结构：目标、边界、证据、学科、关系、模型与行动。
             </p>
-          </div>
+          </header>
 
-          <ol class="journey-ribbon" aria-label="问题拆解流程">
-            <li><span>01</span><strong data-i18n="journeyDefine">说清问题</strong></li>
-            <li><span>02</span><strong data-i18n="journeyScope">分解边界</strong></li>
-            <li><span>03</span><strong data-i18n="journeyMap">映射知识</strong></li>
-            <li><span>04</span><strong data-i18n="journeyThink">组合模型</strong></li>
-            <li><span>05</span><strong data-i18n="journeyAct">形成行动</strong></li>
-          </ol>
-
-          <div class="harness-toolbar" aria-label="AI Harness 状态">
-            <div id="harness-status" class="harness-status">
-              <span id="harness-status-dot" class="harness-status-dot checking" aria-hidden="true"></span>
-              <div>
-                <strong>Codex Harness</strong>
-                <small id="harness-status-text" aria-live="polite">正在检查本地 Companion…</small>
-              </div>
-            </div>
-            <div class="harness-toolbar-actions">
-              <span class="privacy-badge" data-harness-i18n="privacyBadge">密钥仅驻留本次本地会话</span>
-              <button id="harness-configure" class="workbench-secondary compact-button" type="button" data-harness-i18n="configure">配置模型</button>
-              <button id="harness-reset" class="workbench-secondary compact-button" type="button" data-harness-i18n="newConversation">新对话</button>
-            </div>
-          </div>
-
-          <div class="problem-intake-card">
-            <div class="intake-copy">
-              <span class="intake-number">01</span>
-              <div>
-                <h3 data-i18n="intakeTitle">你现在真正想解决什么？</h3>
-                <p data-i18n="intakeHint">尽量包含对象、目标和约束。例如：我是否应该用半年时间转行人工智能，同时控制收入中断的风险？</p>
-              </div>
-            </div>
-            <label class="sr-only" for="problem-input" data-i18n="problemInputLabel">输入一个现实问题</label>
-            <textarea
-              id="problem-input"
-              rows="4"
-              maxlength="2000"
-              data-i18n-placeholder="problemInputPlaceholder"
-              placeholder="写下一个你正在面对的真实问题……"
-            ></textarea>
-            <div class="problem-example-row">
-              <span data-i18n="tryExample">试试示例</span>
-              <div id="problem-examples" class="problem-examples"></div>
-            </div>
-            <div class="intake-actions">
-              <span id="problem-input-meta" class="input-meta" aria-live="polite"></span>
-              <div class="intake-button-group">
-                <button id="problem-analyze" class="workbench-secondary" type="button" data-i18n="analyzeProblem">匹配思考路径</button>
-                <button id="harness-stop" class="workbench-secondary" type="button" hidden data-harness-i18n="stop">停止</button>
-                <button id="harness-send" class="workbench-primary" type="button">
-                  <span aria-hidden="true">✦</span>
-                  <span data-harness-i18n="deepAnalyze">AI 深度拆解</span>
-                </button>
-              </div>
-            </div>
-            <p class="input-shortcuts"><kbd>Ctrl/⌘ + Enter</kbd> <span data-harness-i18n="quickShortcut">匹配路径</span> · <kbd>Ctrl/⌘ + Shift + Enter</kbd> <span data-harness-i18n="deepShortcut">AI 深度拆解</span></p>
-          </div>
-
-          <section id="harness-thread" class="harness-thread" aria-labelledby="harness-thread-title">
-            <header class="harness-thread-header">
-              <div>
-                <span class="intake-number">AI</span>
+          <div class="problem-studio">
+            <aside class="studio-rail" aria-label="问题求解阶段">
+              <div class="studio-rail-intro">
+                <span class="studio-monogram" aria-hidden="true">HKM</span>
                 <div>
-                  <h3 id="harness-thread-title" data-harness-i18n="conversationTitle">系统求解对话</h3>
-                  <p data-harness-i18n="conversationHint">Harness 会先检索图谱，再递归分解问题、组合跨学科模型并比较候选满意解。</p>
+                  <small data-harness-i18n="studioKicker">Decision studio</small>
+                  <strong data-harness-i18n="studioMotto">先画地图，再做判断</strong>
                 </div>
               </div>
-              <span id="harness-turn-label" class="turn-label" data-harness-i18n="notStarted">尚未开始</span>
-            </header>
-            <div id="harness-messages" class="harness-messages" aria-live="polite">
-              <article class="harness-message assistant">
-                <span class="message-avatar" aria-hidden="true">HKM</span>
-                <div>
-                  <strong data-harness-i18n="welcomeTitle">先扩大问题空间，再寻找优解</strong>
-                  <p data-harness-i18n="welcomeBody">输入任意现实问题。我会显式区分目标、边界、主体、约束、事实、假设与未知，并把每个关键子问题挂接到真实知识节点。</p>
-                </div>
-              </article>
-            </div>
-            <div id="harness-progress" class="harness-progress" hidden>
-              <ol>
-                <li data-harness-stage="retrieve"><span>01</span><strong data-harness-i18n="stageRetrieve">检索图谱</strong></li>
-                <li data-harness-stage="decompose"><span>02</span><strong data-harness-i18n="stageDecompose">分解问题</strong></li>
-                <li data-harness-stage="reason"><span>03</span><strong data-harness-i18n="stageReason">比较机制</strong></li>
-                <li data-harness-stage="ground"><span>04</span><strong data-harness-i18n="stageGround">校验落图</strong></li>
+              <ol class="journey-ribbon" aria-label="问题拆解流程">
+                <li><span>01</span><strong data-i18n="journeyDefine">说清问题</strong></li>
+                <li><span>02</span><strong data-i18n="journeyScope">分解边界</strong></li>
+                <li><span>03</span><strong data-i18n="journeyMap">映射知识</strong></li>
+                <li><span>04</span><strong data-i18n="journeyThink">组合模型</strong></li>
+                <li><span>05</span><strong data-i18n="journeyAct">形成行动</strong></li>
               </ol>
-              <p id="harness-progress-text"></p>
+              <div id="harness-status" class="harness-status runtime-card">
+                <span id="harness-status-dot" class="harness-status-dot checking" aria-hidden="true"></span>
+                <div>
+                  <strong id="harness-agent-name">Codex Python Agent</strong>
+                  <small id="harness-status-text" aria-live="polite">正在检查 Agent 服务…</small>
+                </div>
+                <span class="runtime-lock" data-harness-i18n="envOnly">ENV ONLY</span>
+              </div>
+              <button id="harness-reset" class="studio-reset" type="button">
+                <span aria-hidden="true">↻</span>
+                <span data-harness-i18n="newConversation">新对话</span>
+              </button>
+            </aside>
+
+            <div class="studio-workspace">
+              <section class="problem-intake-card" aria-labelledby="intake-title">
+                <div class="intake-copy">
+                  <div>
+                    <span class="intake-overline" data-harness-i18n="yourQuestion">YOUR QUESTION</span>
+                    <h3 id="intake-title" data-i18n="intakeTitle">你现在真正想解决什么？</h3>
+                    <p data-i18n="intakeHint">尽量包含对象、目标和约束。例如：我是否应该用半年时间转行人工智能，同时控制收入中断的风险？</p>
+                  </div>
+                  <span class="intake-number">01</span>
+                </div>
+                <label class="sr-only" for="problem-input" data-i18n="problemInputLabel">输入一个现实问题</label>
+                <textarea
+                  id="problem-input"
+                  rows="5"
+                  maxlength="2000"
+                  data-i18n-placeholder="problemInputPlaceholder"
+                  placeholder="写下一个你正在面对的真实问题……"
+                ></textarea>
+                <div class="problem-example-row">
+                  <span data-i18n="tryExample">试试示例</span>
+                  <div id="problem-examples" class="problem-examples"></div>
+                </div>
+                <div class="intake-actions">
+                  <span id="problem-input-meta" class="input-meta" aria-live="polite"></span>
+                  <div class="intake-button-group">
+                    <button id="problem-analyze" class="workbench-secondary" type="button">
+                      <span data-i18n="analyzeProblem">匹配思考路径</span>
+                    </button>
+                    <button id="harness-stop" class="workbench-secondary" type="button" hidden data-harness-i18n="stop">停止</button>
+                    <button id="harness-send" class="workbench-primary" type="button">
+                      <span data-harness-i18n="deepAnalyze">开始深度拆解</span>
+                      <span aria-hidden="true">↗</span>
+                    </button>
+                  </div>
+                </div>
+                <p class="input-shortcuts"><kbd>Ctrl/⌘ + Enter</kbd> <span data-harness-i18n="quickShortcut">匹配路径</span> · <kbd>Ctrl/⌘ + Shift + Enter</kbd> <span data-harness-i18n="deepShortcut">深度拆解</span></p>
+              </section>
+
+              <section id="harness-thread" class="harness-thread" aria-labelledby="harness-thread-title">
+                <header class="harness-thread-header">
+                  <div>
+                    <span class="thread-pulse" aria-hidden="true"></span>
+                    <div>
+                      <h3 id="harness-thread-title" data-harness-i18n="conversationTitle">系统求解对话</h3>
+                      <p data-harness-i18n="conversationHint">Agent 会先检索图谱，再递归分解问题并比较候选满意解。</p>
+                    </div>
+                  </div>
+                  <span id="harness-turn-label" class="turn-label" data-harness-i18n="notStarted">尚未开始</span>
+                </header>
+                <div id="harness-messages" class="harness-messages" aria-live="polite">
+                  <article class="harness-message assistant">
+                    <span class="message-avatar" aria-hidden="true">HKM</span>
+                    <div>
+                      <strong data-harness-i18n="welcomeTitle">把问题写具体一点，会得到更好的地图</strong>
+                      <p data-harness-i18n="welcomeBody">说明你想改变什么、受什么限制、谁会受到影响。Agent 会把事实、假设与未知分开，并把关键子问题挂接到真实知识节点。</p>
+                    </div>
+                  </article>
+                </div>
+                <div id="harness-progress" class="harness-progress" hidden>
+                  <ol>
+                    <li data-harness-stage="retrieve"><span>01</span><strong data-harness-i18n="stageRetrieve">检索图谱</strong></li>
+                    <li data-harness-stage="decompose"><span>02</span><strong data-harness-i18n="stageDecompose">分解边界</strong></li>
+                    <li data-harness-stage="reason"><span>03</span><strong data-harness-i18n="stageReason">比较机制</strong></li>
+                    <li data-harness-stage="ground"><span>04</span><strong data-harness-i18n="stageGround">校验落图</strong></li>
+                  </ol>
+                  <p id="harness-progress-text"></p>
+                </div>
+              </section>
             </div>
-            <div id="harness-retrieval" class="harness-retrieval" hidden></div>
-            <article id="harness-result" class="harness-result" hidden></article>
-          </section>
+
+            <aside class="studio-context-panel" aria-labelledby="context-title">
+              <header>
+                <div>
+                  <small data-harness-i18n="liveContext">LIVE CONTEXT</small>
+                  <h3 id="context-title" data-harness-i18n="contextTitle">本轮调用的知识</h3>
+                </div>
+                <span class="context-count" id="harness-context-count">0</span>
+              </header>
+              <div id="harness-retrieval" class="harness-retrieval">
+                <div class="context-empty">
+                  <div class="context-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+                  <strong data-harness-i18n="contextEmptyTitle">知识会在这里汇合</strong>
+                  <p data-harness-i18n="contextEmptyBody">提交问题后，你会看到命中的问题原型、领域骨架、思维模型和已校验关系。</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <article id="harness-result" class="harness-result" hidden></article>
 
           <div id="problem-suggestions" class="problem-suggestions" aria-live="polite" hidden>
             <header class="suggestion-heading">
@@ -370,7 +400,7 @@
         <div>
           <strong>Human Knowledge Model</strong>
           <p data-i18n="footerText">一个可扩展、可审计、机器可读的人类知识图谱。</p>
-          <p class="footer-audit" data-i18n="auditPass">Graph v0.8.0 · Harness v0.9.0</p>
+          <p class="footer-audit">Graph v0.8.0 · Python Agent v0.10.0</p>
         </div>
         <div class="footer-links">
           <a href="https://github.com/xxiaoxiong/human-knowledge-model" rel="noreferrer">GitHub</a>
@@ -394,69 +424,6 @@
         <button class="dialog-close" aria-label="关闭详情">×</button>
       </form>
       <div id="detail-content"></div>
-    </dialog>
-
-    <dialog id="harness-config-dialog" class="harness-config-dialog" aria-labelledby="harness-config-title">
-      <form id="harness-config-form">
-        <header>
-          <div>
-            <p class="eyebrow">Local-first AI</p>
-            <h2 id="harness-config-title" data-harness-i18n="configTitle">连接你的模型</h2>
-          </div>
-          <button id="harness-config-close" class="dialog-close" type="button" aria-label="关闭">×</button>
-        </header>
-        <div class="config-dialog-grid">
-          <section class="config-fields">
-            <label>
-              <span data-harness-i18n="providerMode">连接方式</span>
-              <select id="harness-provider-kind">
-                <option value="session" data-harness-i18n="providerSession">本机 Codex 登录（推荐）</option>
-                <option value="openai">OpenAI API Key</option>
-                <option value="custom" data-harness-i18n="providerCustom">Responses 兼容服务</option>
-                <option value="ollama">Ollama / Local</option>
-              </select>
-            </label>
-            <label id="harness-provider-name-row" hidden>
-              <span data-harness-i18n="providerName">服务名称</span>
-              <input id="harness-provider-name" type="text" maxlength="80" placeholder="My Responses Provider" />
-            </label>
-            <label id="harness-base-url-row" hidden>
-              <span>Base URL</span>
-              <input id="harness-base-url" type="url" maxlength="500" placeholder="https://api.example.com/v1" />
-            </label>
-            <label id="harness-model-row">
-              <span data-harness-i18n="modelId">模型 ID</span>
-              <input id="harness-model" type="text" maxlength="160" data-harness-i18n-placeholder="modelPlaceholder" placeholder="留空使用 Codex 当前默认模型" />
-            </label>
-            <label id="harness-api-key-row" hidden>
-              <span>API Key</span>
-              <input id="harness-api-key" type="password" maxlength="1000" autocomplete="off" placeholder="sk-…" />
-            </label>
-            <label>
-              <span data-harness-i18n="reasoningEffort">推理强度</span>
-              <select id="harness-reasoning">
-                <option value="low">Low</option>
-                <option value="medium" selected>Medium</option>
-                <option value="high">High</option>
-                <option value="xhigh">XHigh</option>
-              </select>
-            </label>
-            <p class="config-security-note" data-harness-i18n="securityNote">API Key 不会写入 localStorage、文件或日志，只随本次请求进入受控的 Codex 子进程环境。</p>
-            <button class="workbench-primary" type="submit" data-harness-i18n="saveConfig">保存本次配置</button>
-          </section>
-          <aside class="local-setup-card">
-            <span class="setup-number">LOCAL</span>
-            <h3 data-harness-i18n="localTitle">为什么需要本地 Companion？</h3>
-            <p data-harness-i18n="localBody">GitHub Pages 只发布静态图谱。模型密钥与 Agent 执行不应放在公开浏览器代码中，因此深度模式由只监听本机的服务承载。</p>
-            <ol>
-              <li><code>python -m pip install -r requirements.txt</code></li>
-              <li><code>pnpm install</code></li>
-              <li><code>pnpm start</code> → <code>http://127.0.0.1:4317</code></li>
-            </ol>
-            <p class="setup-footnote" data-harness-i18n="protocolNote">自定义服务必须兼容 OpenAI Responses API；传统 Chat Completions 接口不能直接驱动当前 Codex Harness。</p>
-          </aside>
-        </div>
-      </form>
     </dialog>
 
     <div id="loading-state" class="loading-state" role="status">

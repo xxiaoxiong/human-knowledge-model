@@ -30,22 +30,16 @@ jobs:
       - name: Install model tooling
         run: python -m pip install -r requirements.txt
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v6
-        with:
-          version: 11.19.0
-
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: pnpm
 
-      - name: Install Harness dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Test Codex Harness
-        run: pnpm run lint:js && pnpm test
+      - name: Test Python Agent and browser code
+        run: |
+          node --check site/app.js
+          node --check site/harness.js
+          python -m unittest discover -s harness/tests -p "test_*.py"
 
       - name: Generate model views
         run: python scripts/generate_views.py
