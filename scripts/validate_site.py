@@ -18,7 +18,8 @@ def main() -> int:
         SITE / "index.html",
         SITE / "styles.css",
         SITE / "app.js",
-        SITE / "og-v2.png",
+        SITE / "harness.js",
+        SITE / "og-v3.png",
         SITE / "data/model.json",
         SITE / ".nojekyll",
     ]
@@ -49,6 +50,15 @@ def main() -> int:
         "problem-suggestions",
         "problem-suggestion-list",
         "problem-route",
+        "harness-status",
+        "harness-configure",
+        "harness-reset",
+        "harness-send",
+        "harness-stop",
+        "harness-thread",
+        "harness-retrieval",
+        "harness-result",
+        "harness-config-dialog",
         "knowledge-network",
         "detail-dialog",
         "detail-back",
@@ -83,6 +93,21 @@ def main() -> int:
     ):
         if required_contract not in app_source:
             errors.append(f"site app is missing detail-navigation contract: {required_contract}")
+    harness_source = (SITE / "harness.js").read_text(encoding="utf-8")
+    for required_contract in (
+        "checkHealth",
+        "consumeStream",
+        "renderRetrieval",
+        "renderResult",
+        "markdownAnalysis",
+        "resetConversation",
+        "hkm-provider-kind",
+        "hkm-provider-model",
+    ):
+        if required_contract not in harness_source:
+            errors.append(f"site Harness is missing interaction contract: {required_contract}")
+    if "hkm-provider-api-key" in harness_source or "localStorage.setItem(\"hkm-provider-api-key\"" in harness_source:
+        errors.append("site Harness must never persist an API key")
     for scope_kind in ("domain", "subdomain"):
         if f'renderScopeGuide("{scope_kind}", node, idx)' not in app_source:
             errors.append(f"site app does not attach expanded guides to every {scope_kind} detail")
@@ -99,6 +124,12 @@ def main() -> int:
         "model-pair-card",
         "evidence-checklist",
         "problem-brief-card",
+        "harness-toolbar",
+        "harness-thread",
+        "harness-progress",
+        "harness-knowledge-stack",
+        "solution-card",
+        "analysis-relations",
     ):
         if f".{class_name}" not in styles_source:
             errors.append(f"site styles are missing expanded-guide surface: .{class_name}")

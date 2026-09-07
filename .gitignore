@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 dist-site/
 .DS_Store
+node_modules/
+.env
+.hkm-runtime/

@@ -1207,6 +1207,9 @@ def main() -> int:
 
     markdown_link_pattern = re.compile(r"\]\(([^)]+)\)")
     for markdown_file in ROOT.rglob("*.md"):
+        relative_parts = markdown_file.relative_to(ROOT).parts
+        if any(part in {".git", "dist-site", "node_modules"} for part in relative_parts):
+            continue
         text = markdown_file.read_text(encoding="utf-8")
         for target in markdown_link_pattern.findall(text):
             clean_target = target.strip("<>").split("#", 1)[0]

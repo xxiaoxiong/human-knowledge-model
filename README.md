@@ -8,6 +8,44 @@
 
 当前版本已完成总体架构、Ontology、分类原则和知识地图，并冻结 v0.2.0 的 248 个 H3 子领域、10 个跨域桥接视图及 80 条外部分类 crosswalk；v0.3.0 的 257 个领域骨架节点；v0.4.0 的 41 个 Thinking Models 与 22 个 Universal Models；v0.5.0 的 20 个 Problem → Knowledge 问题原型；v0.6.0 的 320 项个人核心知识排名与八单元学习路线；v0.7.0 的多维思考与通用问题求解框架；以及 v0.8.0 的全局结构审计。当前总图谱包含 635 个正式节点和 3,056 条关系。
 
+## 先这样使用
+
+项目有两个互补模式：
+
+| 模式 | 在哪里使用 | 适合什么 | 是否调用模型 |
+|---|---|---|---|
+| 图谱快速匹配 | [GitHub Pages](https://xxiaoxiong.github.io/human-knowledge-model/) 或本地 | 从任意问题找到最相关的问题原型、学科、模型与工作流 | 否 |
+| AI 深度拆解 | 本地 Companion 页面 | 对话式澄清、递归分解、比较候选满意解并生成行动门 | 是 |
+
+直接打开在线网站，输入问题后点“匹配思考路径”，不需要安装任何东西。问题最好同时写明对象、目标和约束，例如：“团队项目反复延期，成员互相甩锅，预算不能增加，怎样定位根因并设计四周内可执行的改善方案？”
+
+如果要让自己的模型驱动深度拆解，在仓库根目录运行：
+
+```powershell
+python -m pip install -r requirements.txt
+pnpm install
+pnpm start
+```
+
+然后打开 `http://127.0.0.1:4317`，点“配置模型”，选择连接方式，再点“AI 深度拆解”。分析完成后可以继续在同一个输入框追问；图谱节点均可点开，结果可复制或下载为 Markdown。
+
+默认的“本机 Codex 登录”会复用已有 Codex 登录。如果尚未登录，可先运行 `npx @openai/codex@0.153.4 login`；也可以直接在界面中选择 OpenAI API Key、自定义 Responses 兼容服务或 Ollama。本项目接入的是官方 `@openai/codex-sdk`（它封装官方 `@openai/codex` CLI），不是 `codex-cli-bin`。自定义服务必须实现 Responses API，传统 Chat Completions 端点不能直接使用。
+
+公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。深度模式只由绑定 `127.0.0.1` 的本地 Companion 提供；API Key 不写入 localStorage、文件或日志。完整说明见[Harness 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
+
+### 一次深度分析会发生什么
+
+```mermaid
+flowchart LR
+    P["你的现实问题"] --> R["从完整 HKM 检索真实节点"]
+    R --> C["受控 Codex 线程递归拆解"]
+    C --> G["按节点 ID 与真实边校验"]
+    G --> S["比较多个候选满意解"]
+    S --> A["证据计划、行动门与后续追问"]
+```
+
+“候选满意解”表示在当前目标、约束和证据下可接受、可试验的方案组合，不声称穷尽所有答案。新证据出现后应继续追问并更新判断。
+
 ## 一眼看懂整个模型
 
 ```mermaid
@@ -185,6 +223,15 @@ v0.8.0 对全部 635 个正式节点和 3,056 条关系执行了独立审计：�
 human-knowledge-model/
 ├─ .github/workflows/pages.yml
 ├─ README.md
+├─ package.json / pnpm-lock.yaml
+├─ docs/
+│  ├─ harness-architecture.md
+│  └─ harness-security.md
+├─ harness/
+│  ├─ server.mjs
+│  ├─ lib/                 # 检索、Schema、Provider、Codex SDK 与落图校验
+│  ├─ tests/
+│  └─ workspace/AGENTS.md
 ├─ 00-meta/
 │  ├─ knowledge-model-design.md
 │  ├─ ontology.md
@@ -251,7 +298,8 @@ human-knowledge-model/
 │  ├─ index.html
 │  ├─ styles.css
 │  ├─ app.js
-│  └─ og.png
+│  ├─ harness.js
+│  └─ og-v3.png
 └─ scripts/
    ├─ build_site.py
    ├─ audit_graph.py
@@ -270,7 +318,10 @@ python scripts/generate_views.py
 python scripts/validate.py
 python scripts/build_site.py
 python scripts/validate_site.py
+node --test harness/tests/*.test.mjs
 ```
+
+如果 Windows PowerShell 的执行策略拦截 `pnpm.ps1`，把命令中的 `pnpm` 写成 `pnpm.cmd` 即可。
 
 推送到 `main` 后，GitHub Actions 会重复同一组校验并把 `dist-site/` 发布到 GitHub Pages。网站使用仓库相对路径，可直接挂载在项目 Website 地址下。
 
@@ -285,6 +336,7 @@ python scripts/validate_site.py
 | 6. 学习体系 | **已完成 v0.6.0** | 320 项候选与 Top 50/100/300；8 个学习单元、3 个层级循环、4 条分支路线、109 条学习关系 |
 | 7. 求解框架 | **已完成 v0.7.0** | 2 个操作框架、20 个透镜/阶段、161 条调用关系；20 个 H2 与 20 个问题原型覆盖 |
 | 8. 全局审计 | **已完成 v0.8.0** | 635 节点 / 3,056 关系；单一弱连通分量、0 阻断项；双语标签重构、覆盖矩阵与拆分/合并决定 |
+| 9. 对话式 Harness | **已完成 v0.9.0** | 官方 Codex SDK、本地模型配置、图谱检索与落图校验、递归问题树、候选满意解和流式双语界面 |
 
 ## 设计底线
 
@@ -294,4 +346,4 @@ python scripts/validate_site.py
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计） / `0.9.0`（对话式 Codex Harness）

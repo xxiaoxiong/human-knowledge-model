@@ -213,7 +213,7 @@ const copy = {
     principle3: "迁移 > 学科边界",
     principle4: "显式边界 > 假装完备",
     footerText: "一个可扩展、可审计、机器可读的人类知识图谱。",
-    auditPass: "v0.8.0 · 全局审计通过",
+    auditPass: "Graph v0.8.0 · Harness v0.9.0",
     backTop: "回到顶部 ↑",
     loading: "正在展开知识图谱…",
     all: "全部",
@@ -337,7 +337,7 @@ const copy = {
     routeApply: "迁移到真实问题",
     parentDomain: "所属领域",
     guideCoverage: "完整主题档案",
-    inputCount: "已输入 {count}/500 字",
+    inputCount: "已输入 {count}/2000 字",
     inputEmpty: "请先写下一个具体问题，或选择示例。",
     matchDescription: "与你的问题结构接近",
     matchSignals: "匹配线索",
@@ -476,7 +476,7 @@ const copy = {
     principle3: "Transfer > disciplines",
     principle4: "Explicit limits > false completeness",
     footerText: "An extensible, auditable and machine-readable graph of human knowledge.",
-    auditPass: "v0.8.0 · Global audit passed",
+    auditPass: "Graph v0.8.0 · Harness v0.9.0",
     backTop: "Back to top ↑",
     loading: "Unfolding the knowledge graph…",
     all: "All",
@@ -600,7 +600,7 @@ const copy = {
     routeApply: "Transfer into real problems",
     parentDomain: "Parent domain",
     guideCoverage: "Complete topic guide",
-    inputCount: "{count}/500 characters",
+    inputCount: "{count}/2000 characters",
     inputEmpty: "Describe a concrete problem first, or choose an example.",
     matchDescription: "Structurally close to your problem",
     matchSignals: "Matching signals",
@@ -1012,7 +1012,7 @@ function setupProblemWorkbench() {
     updateProblemInputMeta();
   });
   input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) showProblemSuggestions(input.value);
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey) && !event.shiftKey) showProblemSuggestions(input.value);
   });
   $("#problem-analyze").addEventListener("click", () => showProblemSuggestions(input.value));
   $("#browse-all-problems").addEventListener("click", () => showProblemSuggestions(input.value, true));
@@ -2275,6 +2275,7 @@ function setupLanguage() {
     if (detailWasOpen && activeDetail) {
       openDetail(activeDetail.kind, activeDetail.id, { updateHash: false, historyMode: "preserve" });
     }
+    window.dispatchEvent(new CustomEvent("hkm:language-change", { detail: { lang: state.lang } }));
   });
 }
 
@@ -2451,6 +2452,22 @@ async function init() {
     const response = await fetch("./data/model.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.model = await response.json();
+    window.HKM = {
+      get lang() { return state.lang; },
+      get model() { return state.model; },
+      getNode(id) { return indexes().nodeById.get(id) || null; },
+      openNode(id) {
+        const idx = indexes();
+        const kind = idx.kindById.get(id);
+        if (kind) openDetail(kind, id);
+      },
+      quickMatch(query) {
+        const input = $("#problem-input");
+        input.value = query;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+        showProblemSuggestions(query);
+      },
+    };
     setupProblemWorkbench();
     applyTranslations();
     renderAllDynamic();
@@ -2458,6 +2475,7 @@ async function init() {
     setupNetwork();
     openHashDetail();
     window.addEventListener("hashchange", openHashDetail);
+    window.dispatchEvent(new CustomEvent("hkm:model-ready"));
     requestAnimationFrame(() => $("#loading-state").classList.add("done"));
   } catch (error) {
     $("#loading-state").innerHTML = `<p class="error-state">Unable to load the knowledge graph.<br>${escapeHTML(error.message)}</p>`;

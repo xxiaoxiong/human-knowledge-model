@@ -12,14 +12,15 @@
     <meta property="og:title" content="Human Knowledge Model" />
     <meta property="og:description" content="Start with a real problem. Map its boundaries, disciplines, relationships, models and next actions." />
     <meta property="og:url" content="https://xxiaoxiong.github.io/human-knowledge-model/" />
-    <meta property="og:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v2.png" />
+    <meta property="og:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v3.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Human Knowledge Model" />
     <meta name="twitter:description" content="Turn a real problem into a map for knowing and acting." />
-    <meta name="twitter:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v2.png" />
+    <meta name="twitter:image" content="https://xxiaoxiong.github.io/human-knowledge-model/og-v3.png" />
     <title>Human Knowledge Model · 人类知识模型</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js" defer></script>
+    <script src="./harness.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -94,6 +95,21 @@
             <li><span>05</span><strong data-i18n="journeyAct">形成行动</strong></li>
           </ol>
 
+          <div class="harness-toolbar" aria-label="AI Harness 状态">
+            <div id="harness-status" class="harness-status">
+              <span id="harness-status-dot" class="harness-status-dot checking" aria-hidden="true"></span>
+              <div>
+                <strong>Codex Harness</strong>
+                <small id="harness-status-text" aria-live="polite">正在检查本地 Companion…</small>
+              </div>
+            </div>
+            <div class="harness-toolbar-actions">
+              <span class="privacy-badge" data-harness-i18n="privacyBadge">密钥仅驻留本次本地会话</span>
+              <button id="harness-configure" class="workbench-secondary compact-button" type="button" data-harness-i18n="configure">配置模型</button>
+              <button id="harness-reset" class="workbench-secondary compact-button" type="button" data-harness-i18n="newConversation">新对话</button>
+            </div>
+          </div>
+
           <div class="problem-intake-card">
             <div class="intake-copy">
               <span class="intake-number">01</span>
@@ -106,7 +122,7 @@
             <textarea
               id="problem-input"
               rows="4"
-              maxlength="500"
+              maxlength="2000"
               data-i18n-placeholder="problemInputPlaceholder"
               placeholder="写下一个你正在面对的真实问题……"
             ></textarea>
@@ -116,9 +132,50 @@
             </div>
             <div class="intake-actions">
               <span id="problem-input-meta" class="input-meta" aria-live="polite"></span>
-              <button id="problem-analyze" class="workbench-primary" type="button" data-i18n="analyzeProblem">匹配思考路径</button>
+              <div class="intake-button-group">
+                <button id="problem-analyze" class="workbench-secondary" type="button" data-i18n="analyzeProblem">匹配思考路径</button>
+                <button id="harness-stop" class="workbench-secondary" type="button" hidden data-harness-i18n="stop">停止</button>
+                <button id="harness-send" class="workbench-primary" type="button">
+                  <span aria-hidden="true">✦</span>
+                  <span data-harness-i18n="deepAnalyze">AI 深度拆解</span>
+                </button>
+              </div>
             </div>
+            <p class="input-shortcuts"><kbd>Ctrl/⌘ + Enter</kbd> <span data-harness-i18n="quickShortcut">匹配路径</span> · <kbd>Ctrl/⌘ + Shift + Enter</kbd> <span data-harness-i18n="deepShortcut">AI 深度拆解</span></p>
           </div>
+
+          <section id="harness-thread" class="harness-thread" aria-labelledby="harness-thread-title">
+            <header class="harness-thread-header">
+              <div>
+                <span class="intake-number">AI</span>
+                <div>
+                  <h3 id="harness-thread-title" data-harness-i18n="conversationTitle">系统求解对话</h3>
+                  <p data-harness-i18n="conversationHint">Harness 会先检索图谱，再递归分解问题、组合跨学科模型并比较候选满意解。</p>
+                </div>
+              </div>
+              <span id="harness-turn-label" class="turn-label" data-harness-i18n="notStarted">尚未开始</span>
+            </header>
+            <div id="harness-messages" class="harness-messages" aria-live="polite">
+              <article class="harness-message assistant">
+                <span class="message-avatar" aria-hidden="true">HKM</span>
+                <div>
+                  <strong data-harness-i18n="welcomeTitle">先扩大问题空间，再寻找优解</strong>
+                  <p data-harness-i18n="welcomeBody">输入任意现实问题。我会显式区分目标、边界、主体、约束、事实、假设与未知，并把每个关键子问题挂接到真实知识节点。</p>
+                </div>
+              </article>
+            </div>
+            <div id="harness-progress" class="harness-progress" hidden>
+              <ol>
+                <li data-harness-stage="retrieve"><span>01</span><strong data-harness-i18n="stageRetrieve">检索图谱</strong></li>
+                <li data-harness-stage="decompose"><span>02</span><strong data-harness-i18n="stageDecompose">分解问题</strong></li>
+                <li data-harness-stage="reason"><span>03</span><strong data-harness-i18n="stageReason">比较机制</strong></li>
+                <li data-harness-stage="ground"><span>04</span><strong data-harness-i18n="stageGround">校验落图</strong></li>
+              </ol>
+              <p id="harness-progress-text"></p>
+            </div>
+            <div id="harness-retrieval" class="harness-retrieval" hidden></div>
+            <article id="harness-result" class="harness-result" hidden></article>
+          </section>
 
           <div id="problem-suggestions" class="problem-suggestions" aria-live="polite" hidden>
             <header class="suggestion-heading">
@@ -313,7 +370,7 @@
         <div>
           <strong>Human Knowledge Model</strong>
           <p data-i18n="footerText">一个可扩展、可审计、机器可读的人类知识图谱。</p>
-          <p class="footer-audit" data-i18n="auditPass">v0.8.0 · 全局审计通过</p>
+          <p class="footer-audit" data-i18n="auditPass">Graph v0.8.0 · Harness v0.9.0</p>
         </div>
         <div class="footer-links">
           <a href="https://github.com/xxiaoxiong/human-knowledge-model" rel="noreferrer">GitHub</a>
@@ -337,6 +394,69 @@
         <button class="dialog-close" aria-label="关闭详情">×</button>
       </form>
       <div id="detail-content"></div>
+    </dialog>
+
+    <dialog id="harness-config-dialog" class="harness-config-dialog" aria-labelledby="harness-config-title">
+      <form id="harness-config-form">
+        <header>
+          <div>
+            <p class="eyebrow">Local-first AI</p>
+            <h2 id="harness-config-title" data-harness-i18n="configTitle">连接你的模型</h2>
+          </div>
+          <button id="harness-config-close" class="dialog-close" type="button" aria-label="关闭">×</button>
+        </header>
+        <div class="config-dialog-grid">
+          <section class="config-fields">
+            <label>
+              <span data-harness-i18n="providerMode">连接方式</span>
+              <select id="harness-provider-kind">
+                <option value="session" data-harness-i18n="providerSession">本机 Codex 登录（推荐）</option>
+                <option value="openai">OpenAI API Key</option>
+                <option value="custom" data-harness-i18n="providerCustom">Responses 兼容服务</option>
+                <option value="ollama">Ollama / Local</option>
+              </select>
+            </label>
+            <label id="harness-provider-name-row" hidden>
+              <span data-harness-i18n="providerName">服务名称</span>
+              <input id="harness-provider-name" type="text" maxlength="80" placeholder="My Responses Provider" />
+            </label>
+            <label id="harness-base-url-row" hidden>
+              <span>Base URL</span>
+              <input id="harness-base-url" type="url" maxlength="500" placeholder="https://api.example.com/v1" />
+            </label>
+            <label id="harness-model-row">
+              <span data-harness-i18n="modelId">模型 ID</span>
+              <input id="harness-model" type="text" maxlength="160" data-harness-i18n-placeholder="modelPlaceholder" placeholder="留空使用 Codex 当前默认模型" />
+            </label>
+            <label id="harness-api-key-row" hidden>
+              <span>API Key</span>
+              <input id="harness-api-key" type="password" maxlength="1000" autocomplete="off" placeholder="sk-…" />
+            </label>
+            <label>
+              <span data-harness-i18n="reasoningEffort">推理强度</span>
+              <select id="harness-reasoning">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="xhigh">XHigh</option>
+              </select>
+            </label>
+            <p class="config-security-note" data-harness-i18n="securityNote">API Key 不会写入 localStorage、文件或日志，只随本次请求进入受控的 Codex 子进程环境。</p>
+            <button class="workbench-primary" type="submit" data-harness-i18n="saveConfig">保存本次配置</button>
+          </section>
+          <aside class="local-setup-card">
+            <span class="setup-number">LOCAL</span>
+            <h3 data-harness-i18n="localTitle">为什么需要本地 Companion？</h3>
+            <p data-harness-i18n="localBody">GitHub Pages 只发布静态图谱。模型密钥与 Agent 执行不应放在公开浏览器代码中，因此深度模式由只监听本机的服务承载。</p>
+            <ol>
+              <li><code>python -m pip install -r requirements.txt</code></li>
+              <li><code>pnpm install</code></li>
+              <li><code>pnpm start</code> → <code>http://127.0.0.1:4317</code></li>
+            </ol>
+            <p class="setup-footnote" data-harness-i18n="protocolNote">自定义服务必须兼容 OpenAI Responses API；传统 Chat Completions 接口不能直接驱动当前 Codex Harness。</p>
+          </aside>
+        </div>
+      </form>
     </dialog>
 
     <div id="loading-state" class="loading-state" role="status">
