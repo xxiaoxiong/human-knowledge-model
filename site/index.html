@@ -115,6 +115,10 @@
                 <span aria-hidden="true">↻</span>
                 <span data-harness-i18n="newConversation">新对话</span>
               </button>
+              <button id="harness-auth-open" class="studio-auth" type="button" hidden>
+                <span aria-hidden="true">◈</span>
+                <span data-harness-i18n="unlockAgent">解锁在线 Agent</span>
+              </button>
             </aside>
 
             <div class="studio-workspace">
@@ -400,7 +404,7 @@
         <div>
           <strong>Human Knowledge Model</strong>
           <p data-i18n="footerText">一个可扩展、可审计、机器可读的人类知识图谱。</p>
-          <p class="footer-audit">Graph v0.8.0 · Python Agent v0.10.0</p>
+          <p class="footer-audit">Graph v0.8.0 · Hosted Python Agent v0.11.0</p>
         </div>
         <div class="footer-links">
           <a href="https://github.com/xxiaoxiong/human-knowledge-model" rel="noreferrer">GitHub</a>
@@ -424,6 +428,29 @@
         <button class="dialog-close" aria-label="关闭详情">×</button>
       </form>
       <div id="detail-content"></div>
+    </dialog>
+
+    <dialog id="harness-auth-dialog" class="agent-auth-dialog" aria-labelledby="harness-auth-title">
+      <form id="harness-auth-form" class="agent-auth-card">
+        <button id="harness-auth-close" class="agent-auth-close" type="button" aria-label="关闭">×</button>
+        <span class="agent-auth-mark" aria-hidden="true">HKM</span>
+        <p class="eyebrow" data-harness-i18n="protectedAgent">Protected Agent</p>
+        <h2 id="harness-auth-title" data-harness-i18n="accessTitle">解锁在线深度拆解</h2>
+        <p data-harness-i18n="accessBody">模型密钥只保存在服务端。请输入独立的站点访问口令，它不是模型 API Key。</p>
+        <label for="harness-access-token" data-harness-i18n="accessLabel">站点访问口令</label>
+        <input
+          id="harness-access-token"
+          name="access-token"
+          type="password"
+          autocomplete="current-password"
+          required
+          data-harness-i18n-placeholder="accessPlaceholder"
+          placeholder="输入访问口令"
+        >
+        <p id="harness-auth-error" class="agent-auth-error" role="alert" hidden></p>
+        <button id="harness-auth-submit" class="workbench-primary" type="submit" data-harness-i18n="accessSubmit">进入 Problem Studio</button>
+        <small data-harness-i18n="accessPrivacy">口令只用于换取 HttpOnly 会话 Cookie，不会保存到浏览器存储。</small>
+      </form>
     </dialog>
 
     <div id="loading-state" class="loading-state" role="status">

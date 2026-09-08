@@ -52,6 +52,10 @@ def main() -> int:
         "problem-route",
         "harness-status",
         "harness-agent-name",
+        "harness-auth-open",
+        "harness-auth-dialog",
+        "harness-auth-form",
+        "harness-access-token",
         "harness-reset",
         "harness-send",
         "harness-stop",
@@ -102,6 +106,10 @@ def main() -> int:
         "markdownAnalysis",
         "resetConversation",
         "serviceNeeded",
+        "submitAccessToken",
+        "toggleAgentAccess",
+        "./api/auth/login",
+        "./api/auth/logout",
         "./api/session/stop",
     ):
         if required_contract not in harness_source:
@@ -112,6 +120,7 @@ def main() -> int:
         "harness-api-key",
         "hkm-provider-kind",
         "hkm-provider-model",
+        "HKM_MODEL_API_KEY",
         "localStorage.setItem",
     )
     for marker in forbidden_browser_config:
@@ -144,6 +153,9 @@ def main() -> int:
         "analysis-relations",
         "analysis-metrics",
         "analysis-deep-dive",
+        "studio-auth",
+        "agent-auth-dialog",
+        "agent-auth-card",
     ):
         if f".{class_name}" not in styles_source:
             errors.append(f"site styles are missing expanded-guide surface: .{class_name}")

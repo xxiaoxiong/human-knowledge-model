@@ -25,7 +25,7 @@ def _toml_string(value: str) -> str:
 def codex_config(settings: Settings) -> CodexConfig:
     """Create a provider configuration without placing the credential in CLI args."""
 
-    runtime_home = ROOT / ".hkm-runtime" / "codex-home"
+    runtime_home = settings.runtime_dir / "codex-home"
     runtime_home.mkdir(parents=True, exist_ok=True)
     workspace = ROOT / "harness" / "workspace"
     safe_shell_environment = [

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: human-knowledge-model
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: HKM_DEPLOYMENT_MODE
+        value: hosted
+      - key: HKM_HOST
+        value: 0.0.0.0
+      - key: HKM_RUNTIME_DIR
+        value: /tmp/hkm-runtime
+      - key: HKM_MODEL_PROVIDER_NAME
+        value: Agnes AI
+      - key: HKM_MODEL_BASE_URL
+        value: https://apihub.agnes-ai.com/v1
+      - key: HKM_MODEL_API_KEY
+        sync: false
+      - key: HKM_MODEL_ID
+        value: agnes-2.5-flash
+      - key: HKM_ACCESS_TOKEN
+        sync: false

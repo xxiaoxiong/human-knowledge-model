@@ -1,6 +1,6 @@
 {
   "name": "human-knowledge-model",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "type": "module",
   "description": "Human Knowledge Model website and env-configured Python Codex problem studio.",

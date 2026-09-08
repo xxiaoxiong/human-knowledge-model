@@ -89,6 +89,19 @@
       studioKicker: "Decision studio",
       studioMotto: "先画地图，再做判断",
       envOnly: "ENV ONLY",
+      locked: "在线 Agent 已保护 · 请先解锁",
+      unlockAgent: "解锁在线 Agent",
+      lockAgent: "锁定 Agent",
+      protectedAgent: "Protected Agent",
+      accessTitle: "解锁在线深度拆解",
+      accessBody: "模型密钥只保存在服务端。请输入独立的站点访问口令，它不是模型 API Key。",
+      accessLabel: "站点访问口令",
+      accessPlaceholder: "输入访问口令",
+      accessSubmit: "进入 Problem Studio",
+      accessPrivacy: "口令只用于换取 HttpOnly 会话 Cookie，不会保存到浏览器存储。",
+      invalidAccess: "口令不正确，请重试。",
+      accessGranted: "已解锁，现在可以开始在线深度拆解。",
+      accessRequired: "请先解锁在线 Agent。",
       yourQuestion: "YOUR QUESTION",
       liveContext: "LIVE CONTEXT",
       contextTitle: "本轮调用的知识",
@@ -177,6 +190,19 @@
       studioKicker: "Decision studio",
       studioMotto: "Map first. Judge second.",
       envOnly: "ENV ONLY",
+      locked: "Online agent protected · unlock to continue",
+      unlockAgent: "Unlock online agent",
+      lockAgent: "Lock agent",
+      protectedAgent: "Protected Agent",
+      accessTitle: "Unlock online deep analysis",
+      accessBody: "Model credentials stay on the server. Enter the separate site access token; it is not the model API key.",
+      accessLabel: "Site access token",
+      accessPlaceholder: "Enter access token",
+      accessSubmit: "Enter Problem Studio",
+      accessPrivacy: "The token only establishes an HttpOnly session cookie and is never stored in browser storage.",
+      invalidAccess: "That access token is not valid. Try again.",
+      accessGranted: "Unlocked. Online deep analysis is ready.",
+      accessRequired: "Unlock the online agent first.",
       yourQuestion: "YOUR QUESTION",
       liveContext: "LIVE CONTEXT",
       contextTitle: "Knowledge in this turn",
@@ -200,6 +226,8 @@
     const node = ui.nodeIndex.get(id) || window.HKM?.getNode(id);
     return node?.labels?.[language()] || node?.labels?.zh || node?.labels?.en || id;
   };
+  const authRequired = () => Boolean(ui.health?.auth?.required);
+  const agentUnlocked = () => Boolean(ui.health?.ok) && (!authRequired() || ui.health.auth.authenticated);
 
   function translateStatic() {
     $$('[data-harness-i18n]').forEach((node) => { node.textContent = t(node.dataset.harnessI18n); });
@@ -211,13 +239,19 @@
     const dot = $("#harness-status-dot");
     const text = $("#harness-status-text");
     const name = $("#harness-agent-name");
+    const authButton = $("#harness-auth-open");
     if (!dot || !text || !name) return;
     dot.className = "harness-status-dot";
     if (ui.health?.ok) {
-      dot.classList.add(ui.health.mode === "mock" ? "mock" : "ready");
-      text.textContent = t(ui.health.mode === "mock" ? "mock" : "ready");
       const agent = ui.health.agent || {};
       name.textContent = ui.health.mode === "mock" ? "HKM Demo Agent" : `${agent.provider || "Codex"} · ${agent.model || "model"}`;
+      if (authRequired() && !ui.health.auth.authenticated) {
+        dot.classList.add("locked");
+        text.textContent = t("locked");
+      } else {
+        dot.classList.add(ui.health.mode === "mock" ? "mock" : "ready");
+        text.textContent = t(ui.health.mode === "mock" ? "mock" : "ready");
+      }
     } else if (ui.health === null) {
       dot.classList.add("checking");
       text.textContent = t("checking");
@@ -227,6 +261,13 @@
       text.textContent = t("offline");
       name.textContent = language() === "zh" ? "静态知识图谱" : "Static knowledge graph";
     }
+    if (authButton) {
+      authButton.hidden = !authRequired();
+      const label = $("[data-harness-i18n]", authButton);
+      if (label) label.textContent = t(ui.health?.auth?.authenticated ? "lockAgent" : "unlockAgent");
+    }
+    const sendButton = $("#harness-send");
+    if (sendButton && authRequired()) sendButton.disabled = !agentUnlocked() || Boolean(ui.controller);
   }
 
   async function checkHealth() {
@@ -240,7 +281,63 @@
     } finally {
       window.clearTimeout(timeout);
       renderHealth();
+      if (authRequired() && !ui.health.auth.authenticated) openAuthDialog();
     }
+  }
+
+  function openAuthDialog() {
+    const dialog = $("#harness-auth-dialog");
+    if (!dialog?.open) dialog?.showModal();
+    window.setTimeout(() => $("#harness-access-token")?.focus(), 0);
+  }
+
+  function closeAuthDialog() {
+    $("#harness-auth-error").hidden = true;
+    $("#harness-auth-dialog")?.close();
+  }
+
+  async function submitAccessToken(event) {
+    event.preventDefault();
+    const input = $("#harness-access-token");
+    const errorNode = $("#harness-auth-error");
+    const submit = $("#harness-auth-submit");
+    errorNode.hidden = true;
+    submit.disabled = true;
+    try {
+      const response = await fetch("./api/auth/login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ accessToken: input.value }),
+      });
+      if (!response.ok) throw new Error("invalid_access_token");
+      input.value = "";
+      ui.health.auth.authenticated = true;
+      closeAuthDialog();
+      renderHealth();
+      appendMessage("assistant", t("accessTitle"), t("accessGranted"));
+    } catch {
+      errorNode.textContent = t("invalidAccess");
+      errorNode.hidden = false;
+      input.select();
+    } finally {
+      submit.disabled = false;
+    }
+  }
+
+  async function toggleAgentAccess() {
+    if (!ui.health?.auth?.authenticated) {
+      openAuthDialog();
+      return;
+    }
+    await fetch("./api/auth/logout", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: "{}",
+    }).catch(() => {});
+    ui.health.auth.authenticated = false;
+    ui.sessionId = null;
+    renderHealth();
+    openAuthDialog();
   }
 
   function appendMessage(role, title, body, actions = "") {
@@ -253,7 +350,7 @@
   }
 
   function setBusy(busy) {
-    $("#harness-send").disabled = busy;
+    $("#harness-send").disabled = busy || (authRequired() && !agentUnlocked());
     $("#harness-stop").hidden = !busy;
     $("#problem-analyze").disabled = busy;
     $("#harness-reset").disabled = busy;
@@ -410,6 +507,11 @@
       $('[data-quick-match]', $("#harness-messages").lastElementChild)?.addEventListener("click", () => window.HKM?.quickMatch(query));
       return;
     }
+    if (!agentUnlocked()) {
+      appendMessage("assistant", t("errorTitle"), t("accessRequired"));
+      openAuthDialog();
+      return;
+    }
     ui.turn += 1;
     ui.controller = new AbortController();
     ui.conversation.push({ role: "user", content: query });
@@ -430,6 +532,11 @@
       });
       if (!response.ok) {
         const error = await response.json().catch(() => ({}));
+        if (response.status === 401 && error.code === "auth_required") {
+          ui.health.auth.authenticated = false;
+          renderHealth();
+          openAuthDialog();
+        }
         throw new Error(error.error || `HTTP ${response.status}`);
       }
       await consumeStream(response);
@@ -495,6 +602,9 @@
     $("#harness-send").addEventListener("click", analyze);
     $("#harness-stop").addEventListener("click", stopAnalysis);
     $("#harness-reset").addEventListener("click", resetConversation);
+    $("#harness-auth-open").addEventListener("click", toggleAgentAccess);
+    $("#harness-auth-form").addEventListener("submit", submitAccessToken);
+    $("#harness-auth-close").addEventListener("click", closeAuthDialog);
     $("#problem-input").addEventListener("keydown", (event) => {
       if (event.key === "Enter" && (event.ctrlKey || event.metaKey) && event.shiftKey) {
         event.preventDefault();

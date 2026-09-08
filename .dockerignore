@@ -1,0 +1,11 @@
+.git
+.github
+.env
+.venv
+.hkm-runtime
+dist-site
+node_modules
+__pycache__
+*.pyc
+*.pyo
+.DS_Store

@@ -15,7 +15,7 @@
 | 模式 | 在哪里使用 | 适合什么 | 是否调用模型 |
 |---|---|---|---|
 | 图谱快速匹配 | [GitHub Pages](https://xxiaoxiong.github.io/human-knowledge-model/) 或本地 | 从任意问题找到最相关的问题原型、学科、模型与工作流 | 否 |
-| Agent 深度拆解 | 本地 Python 服务 | 对话式澄清、递归分解、比较候选满意解并生成行动门 | 是 |
+| Agent 深度拆解 | 受保护的在线容器或本地 Python 服务 | 对话式澄清、递归分解、比较候选满意解并生成行动门 | 是 |
 
 直接打开在线网站，输入问题后点“匹配思考路径”，不需要安装任何东西。问题最好同时写明对象、目标和约束，例如：“团队项目反复延期，成员互相甩锅，预算不能增加，怎样定位根因并设计四周内可执行的改善方案？”
 
@@ -47,7 +47,16 @@ python -m venv .venv
 
 本项目的应用代码使用官方 Python 包 `openai-codex`；它会调用由精确依赖 `openai-codex-cli-bin` 提供的配套 Codex runtime。项目不会自行启动或维护一套 Node Harness。自定义服务必须实现 OpenAI Responses API；只有 Chat Completions 的端点不能直接使用。
 
-公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。深度模式只由绑定 `127.0.0.1` 的本地 Python 服务提供；API Key 只存在于被 `.gitignore` 排除的 `.env`、服务进程和受控子进程环境，不进入浏览器、localStorage、日志或发布产物。完整说明见[Python Agent 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
+公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。在线深度模式由 `Dockerfile` 中的同源 Python 服务提供；模型 API Key 只通过托管平台的加密环境变量注入，网站访问口令只用来换取签名 HttpOnly Cookie。两种密钥都不进入浏览器存储、日志、Git 或 Pages 产物。完整说明见[Python Agent 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
+
+### 在线部署
+
+仓库根目录提供可移植的 `Dockerfile` 和 Render Blueprint `render.yaml`。创建 Blueprint 时，Render 会要求手动填入两个不入库的秘密值：
+
+- `HKM_MODEL_API_KEY`：模型服务的 API Key，只供 Codex 子进程调用 provider。
+- `HKM_ACCESS_TOKEN`：独立的至少 32 字符站点口令，不得与模型 Key 复用。
+
+Base URL、model ID 和 provider 标签由 Blueprint 在服务启动时注入。容器使用托管平台的 `PORT` 和 HTTPS 域名，首页、鉴权、图谱与 Agent API 始终同源，无需把 provider 配置交给前端。
 
 ### 一次深度分析会发生什么
 
@@ -238,18 +247,20 @@ v0.8.0 对全部 635 个正式节点和 3,056 条关系执行了独立审计：�
 ```text
 human-knowledge-model/
 ├─ .github/workflows/pages.yml
+├─ Dockerfile / .dockerignore  # 在线 Python Agent 容器
+├─ render.yaml                 # 托管配置；秘密值需在平台注入
 ├─ README.md
 ├─ package.json / pnpm-lock.yaml
 ├─ docs/
 │  ├─ harness-architecture.md
 │  └─ harness-security.md
 ├─ harness/
-│  ├─ server.py            # 回环 HTTP 服务与 API
+│  ├─ server.py            # 同源 HTTP 服务、鉴权与 API
 │  ├─ agent.py             # 官方 Python Codex SDK 与受控线程
 │  ├─ graph.py             # 检索、确定性分析与落图校验
 │  ├─ prompt.py            # 提示契约
 │  ├─ analysis_schema.py   # 结构化输出 Schema
-│  ├─ settings.py          # 启动时读取并校验 .env
+│  ├─ settings.py          # 启动时读取并校验本地/托管环境
 │  ├─ tests/
 │  └─ workspace/AGENTS.md
 ├─ 00-meta/
@@ -360,6 +371,7 @@ node --check site/harness.js
 | 8. 全局审计 | **已完成 v0.8.0** | 635 节点 / 3,056 关系；单一弱连通分量、0 阻断项；双语标签重构、覆盖矩阵与拆分/合并决定 |
 | 9. 对话式 Agent | **已完成 v0.9.0** | 图谱检索与落图校验、递归问题树、候选满意解和流式双语界面 |
 | 10. Python Problem Studio | **已完成 v0.10.0** | `.env` 启动注入、官方 Python Codex SDK、受控 Responses provider、渐进式决策简报与移动端工作台 |
+| 11. Hosted Agent | **已完成 v0.11.0** | 同源 Docker 服务、托管环境注入、HTTPS Origin/Host 校验、签名 HttpOnly 会话与在线解锁界面 |
 
 ## 设计底线
 
@@ -369,4 +381,4 @@ node --check site/harness.js
 显式边界 > 假装完备               可持续演化 > 一次性目录
 ```
 
-版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计） / `0.9.0`（对话式 Agent） / `0.10.0`（Python Problem Studio）
+版本：`0.2.0`（冻结范围地图） / `0.3.0`（冻结领域骨架） / `0.4.0`（冻结跨学科模型） / `0.5.0`（冻结问题映射） / `0.6.0`（冻结学习体系） / `0.7.0`（冻结认知操作框架） / `0.8.0`（全局结构审计） / `0.9.0`（对话式 Agent） / `0.10.0`（Python Problem Studio） / `0.11.0`（Hosted Agent）

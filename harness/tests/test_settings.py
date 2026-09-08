@@ -43,6 +43,45 @@ class SettingsTests(unittest.TestCase):
         with self.assertRaisesRegex(ConfigurationError, "HKM_HOST"):
             Settings.from_mapping({**values, "HKM_MODEL_BASE_URL": "https://example.com/v1", "HKM_HOST": "0.0.0.0"})
 
+    def test_hosted_mode_requires_https_origin_and_separate_access_token(self) -> None:
+        values = {
+            "HKM_DEPLOYMENT_MODE": "hosted",
+            "HKM_HOST": "0.0.0.0",
+            "PORT": "10000",
+            "HKM_MODEL_BASE_URL": "https://example.com/v1",
+            "HKM_MODEL_API_KEY": "provider-secret",
+            "HKM_MODEL_ID": "model",
+            "HKM_PUBLIC_ORIGIN": "https://hkm.example.com",
+        }
+        with self.assertRaisesRegex(ConfigurationError, "HKM_ACCESS_TOKEN"):
+            Settings.from_mapping(values)
+        with self.assertRaisesRegex(ConfigurationError, "HKM_PUBLIC_ORIGIN"):
+            Settings.from_mapping(
+                {
+                    **values,
+                    "HKM_PUBLIC_ORIGIN": "http://hkm.example.com",
+                    "HKM_ACCESS_TOKEN": "a" * 32,
+                }
+            )
+        settings = Settings.from_mapping({**values, "HKM_ACCESS_TOKEN": "a" * 32})
+        self.assertTrue(settings.hosted)
+        self.assertEqual(settings.port, 10000)
+        self.assertEqual(settings.host, "0.0.0.0")
+
+    def test_render_hostname_supplies_hosted_public_origin(self) -> None:
+        settings = Settings.from_mapping(
+            {
+                "HKM_DEPLOYMENT_MODE": "hosted",
+                "HKM_HOST": "0.0.0.0",
+                "HKM_MODEL_BASE_URL": "https://example.com/v1",
+                "HKM_MODEL_API_KEY": "provider-secret",
+                "HKM_MODEL_ID": "model",
+                "HKM_ACCESS_TOKEN": "b" * 32,
+                "RENDER_EXTERNAL_HOSTNAME": "hkm.onrender.com",
+            }
+        )
+        self.assertEqual(settings.public_origin, "https://hkm.onrender.com")
+
     def test_secret_only_enters_runtime_environment(self) -> None:
         settings = self.live_settings()
         config = codex_config(settings)

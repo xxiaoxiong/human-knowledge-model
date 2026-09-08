@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import hashlib
+import hmac
 import json
 import mimetypes
 import threading
@@ -10,6 +13,7 @@ import time
 import uuid
 from dataclasses import dataclass, field
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.cookies import SimpleCookie
 from pathlib import Path
 from typing import Any, Callable
 from urllib.parse import unquote, urlsplit
@@ -32,6 +36,8 @@ STATIC_ROOT = ROOT / "dist-site"
 MAX_BODY_BYTES = 1_000_000
 MAX_ACTIVE_RUNS = 2
 SESSION_TTL_SECONDS = 2 * 60 * 60
+AUTH_COOKIE = "hkm_session"
+AUTH_SESSION_SECONDS = 12 * 60 * 60
 FORBIDDEN_BROWSER_CONFIG = {
     "provider",
     "apiKey",
@@ -200,23 +206,69 @@ class AgentService:
             self.agent.close()
 
 
-def _allowed_host(value: str) -> bool:
+def _normalized_host(value: str) -> str:
     host = (value or "").strip().lower()
     if host.startswith("["):
-        return host.startswith("[::1]")
-    return host.split(":", 1)[0] in {"127.0.0.1", "localhost"}
+        return host[1 : host.find("]")] if "]" in host else ""
+    return host.split(":", 1)[0]
+
+
+def _allowed_host(value: str, settings: Settings) -> bool:
+    host = _normalized_host(value)
+    if host in {"127.0.0.1", "::1", "localhost"}:
+        return True
+    if not settings.hosted:
+        return False
+    return host == (urlsplit(settings.public_origin).hostname or "").lower()
+
+
+def _allowed_origin(value: str, settings: Settings) -> bool:
+    if not settings.hosted:
+        return True
+    return (value or "").strip().rstrip("/") == settings.public_origin
+
+
+def _session_cookie_value(settings: Settings, issued_at: int | None = None) -> str:
+    issued = str(issued_at or int(time.time()))
+    signature = hmac.new(
+        settings.access_token.encode("utf-8"),
+        f"hkm-session:{issued}".encode("utf-8"),
+        hashlib.sha256,
+    ).digest()
+    encoded = base64.urlsafe_b64encode(signature).decode("ascii").rstrip("=")
+    return f"{issued}.{encoded}"
+
+
+def _authenticated(cookie_header: str, settings: Settings) -> bool:
+    if not settings.hosted:
+        return True
+    try:
+        cookie = SimpleCookie()
+        cookie.load(cookie_header or "")
+        value = cookie[AUTH_COOKIE].value
+        issued_text, supplied_signature = value.split(".", 1)
+        issued_at = int(issued_text)
+    except (KeyError, ValueError):
+        return False
+    age = int(time.time()) - issued_at
+    if age < -60 or age > AUTH_SESSION_SECONDS:
+        return False
+    expected_signature = _session_cookie_value(settings, issued_at).split(".", 1)[1]
+    return hmac.compare_digest(supplied_signature, expected_signature)
 
 
 def _safe_error(error: BaseException, settings: Settings) -> str:
     message = str(error or "分析失败。")[:1000]
     if settings.api_key:
         message = message.replace(settings.api_key, "[redacted]")
+    if settings.access_token:
+        message = message.replace(settings.access_token, "[redacted]")
     return message
 
 
 def _handler(service: AgentService):
     class Handler(BaseHTTPRequestHandler):
-        server_version = "HKMProblemStudio/0.10"
+        server_version = "HKMProblemStudio/0.11"
 
         def log_message(self, format: str, *args: Any) -> None:
             # Keep access logs credential-free. Request bodies are never logged.
@@ -225,13 +277,24 @@ def _handler(service: AgentService):
         def _security_headers(self) -> None:
             self.send_header("X-Content-Type-Options", "nosniff")
             self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+            self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+            if service.settings.hosted:
+                self.send_header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
 
-        def _json(self, status: int, value: dict[str, Any]) -> None:
+        def _json(
+            self,
+            status: int,
+            value: dict[str, Any],
+            *,
+            headers: dict[str, str] | None = None,
+        ) -> None:
             body = json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
             self.send_response(status)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
             self.send_header("Cache-Control", "no-store")
+            for name, header_value in (headers or {}).items():
+                self.send_header(name, header_value)
             self._security_headers()
             self.end_headers()
             self.wfile.write(body)
@@ -250,16 +313,41 @@ def _handler(service: AgentService):
             return payload
 
         def _request_allowed(self) -> bool:
-            if _allowed_host(self.headers.get("Host", "")):
+            if _allowed_host(self.headers.get("Host", ""), service.settings):
                 return True
-            self._json(421, {"error": "该服务只接受本机同源请求。"})
+            self._json(421, {"error": "请求 Host 不在服务启动时的允许列表中。"})
             return False
+
+        def _origin_allowed(self) -> bool:
+            if _allowed_origin(self.headers.get("Origin", ""), service.settings):
+                return True
+            self._json(403, {"error": "该写入请求不是来自已配置的站点源。"})
+            return False
+
+        def _is_authenticated(self) -> bool:
+            return _authenticated(self.headers.get("Cookie", ""), service.settings)
+
+        def _require_authenticated(self) -> bool:
+            if self._is_authenticated():
+                return True
+            self._json(401, {"error": "请先使用站点访问口令解锁 Agent。", "code": "auth_required"})
+            return False
+
+        def _login_cookie(self) -> str:
+            return (
+                f"{AUTH_COOKIE}={_session_cookie_value(service.settings)}; "
+                f"Path=/; Max-Age={AUTH_SESSION_SECONDS}; HttpOnly; Secure; SameSite=Strict"
+            )
+
+        def _expired_login_cookie(self) -> str:
+            return f"{AUTH_COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Strict"
 
         def do_GET(self) -> None:
             if not self._request_allowed():
                 return
             path = urlsplit(self.path).path
             if path == "/api/health":
+                authenticated = self._is_authenticated()
                 self._json(
                     200,
                     {
@@ -270,12 +358,17 @@ def _handler(service: AgentService):
                         "runtime": "openai-codex",
                         "agent": service.settings.public_summary(),
                         "security": {
-                            "bind": "loopback",
+                            "bind": "public-https" if service.settings.hosted else "loopback",
                             "config": "environment-only",
                             "browserSecrets": False,
+                            "accessControl": "signed-http-only-cookie" if service.settings.hosted else "loopback",
                             "sandbox": "read-only",
                             "approvals": "deny-all",
                             "threadPersistence": "ephemeral",
+                        },
+                        "auth": {
+                            "required": service.settings.hosted,
+                            "authenticated": authenticated,
                         },
                     },
                 )
@@ -320,11 +413,33 @@ def _handler(service: AgentService):
             self.wfile.write(body)
 
         def do_POST(self) -> None:
-            if not self._request_allowed():
+            if not self._request_allowed() or not self._origin_allowed():
                 return
             path = urlsplit(self.path).path
             try:
                 body = self._read_json()
+                if path == "/api/auth/login":
+                    supplied = str(body.get("accessToken") or "")[:1024]
+                    if not service.settings.hosted or not hmac.compare_digest(
+                        supplied, service.settings.access_token
+                    ):
+                        self._json(401, {"error": "访问口令不正确。", "code": "invalid_access_token"})
+                        return
+                    self._json(
+                        200,
+                        {"ok": True},
+                        headers={"Set-Cookie": self._login_cookie()},
+                    )
+                    return
+                if path == "/api/auth/logout":
+                    self._json(
+                        200,
+                        {"ok": True},
+                        headers={"Set-Cookie": self._expired_login_cookie()},
+                    )
+                    return
+                if path.startswith("/api/") and not self._require_authenticated():
+                    return
                 if path == "/api/session/reset":
                     service.reset(str(body.get("sessionId") or ""))
                     self._json(200, {"ok": True})
