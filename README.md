@@ -45,7 +45,7 @@ python -m venv .venv
 
 打开 `http://127.0.0.1:4317`，输入问题后点“开始深度拆解”。分析完成后可以继续追问；图谱节点可点开，结果可复制或下载为 Markdown。模型配置只在服务启动时从环境注入，页面没有配置入口，也不能在请求中改写 provider、Base URL、模型或 Key。修改 `.env` 后必须重启服务才会生效。
 
-本项目的应用代码使用官方 Python 包 `openai-codex`；它会调用由精确依赖 `openai-codex-cli-bin` 提供的配套 Codex runtime。项目不会自行启动或维护一套 Node Harness。自定义服务必须实现 OpenAI Responses API；只有 Chat Completions 的端点不能直接使用。
+本项目的应用代码优先使用官方 Python 包 `openai-codex`；它会调用由精确依赖 `openai-codex-cli-bin` 提供的配套 Codex runtime。项目不会自行启动或维护一套 Node Harness。自定义服务必须实现 OpenAI Responses API；如果服务接受 Responses API、但只支持字符串形式的 `input`，运行时会在首次格式错误后自动切换到同样受约束的服务端兼容请求。只有 Chat Completions 的端点不能直接使用。
 
 公开 Pages 始终是纯静态网站，不接收密钥，也不在云端代跑 Agent。在线深度模式由 `Dockerfile` 中的同源 Python 服务提供；模型 API Key 只通过托管平台的加密环境变量注入，网站访问口令只用来换取签名 HttpOnly Cookie。两种密钥都不进入浏览器存储、日志、Git 或 Pages 产物。完整说明见[Python Agent 架构](docs/harness-architecture.md)和[安全边界](docs/harness-security.md)。
 
@@ -53,7 +53,7 @@ python -m venv .venv
 
 仓库根目录提供可移植的 `Dockerfile` 和 Render Blueprint `render.yaml`。创建 Blueprint 时，Render 会要求手动填入两个不入库的秘密值：
 
-- `HKM_MODEL_API_KEY`：模型服务的 API Key，只供 Codex 子进程调用 provider。
+- `HKM_MODEL_API_KEY`：模型服务的 API Key，只供服务端 Codex runtime 或 Responses 兼容请求调用 provider。
 - `HKM_ACCESS_TOKEN`：独立的至少 32 字符站点口令，不得与模型 Key 复用。
 
 Base URL、model ID 和 provider 标签由 Blueprint 在服务启动时注入。容器使用托管平台的 `PORT` 和 HTTPS 域名，首页、鉴权、图谱与 Agent API 始终同源，无需把 provider 配置交给前端。

@@ -15,7 +15,7 @@ Python Agent 把任意自然语言问题连接到现有 Human Knowledge Model，
 1. 在线模式先用独立站点口令换取 12 小时签名 HttpOnly、Secure、SameSite Cookie；口令不写入浏览器存储。
 2. 浏览器只把问题、会话 ID 和有限对话上下文发给 `/api/analyze`；provider、Base URL、模型和 Key 出现在请求中会被拒绝。
 3. `retrieve_graph_context` 先匹配最多三个问题原型，再沿真实调用关系选出领域、领域骨架、Thinking Models、Universal Models 与相关边。
-4. 服务把问题和紧凑检索子图交给官方 Python `openai-codex` SDK。同一会话复用 SDK thread；模型选择与推理强度只取自启动配置。
+4. 服务把问题和紧凑检索子图交给官方 Python `openai-codex` SDK。同一会话复用 SDK thread；模型选择与推理强度只取自启动配置。若 Responses provider 明确以 400 拒绝 SDK 的结构化 `input`，服务会记住该能力差异，并改用字符串 `input` 的服务端 Responses 请求；输出仍使用同一 JSON Schema，浏览器仍看不到模型密钥。
 5. 模型必须返回 `hkm-analysis/1.0` 的结构化 JSON：问题范围、递归问题树、知识调用、关系、至少三个不同机制的候选方案、证据计划、行动门和边界提醒。
 6. `ground_analysis` 删除不存在或未检索到的节点，关系必须与源图谱的真实有向边一致；若模型漏项，确定性模板会补齐可用结果。
 7. 服务通过 NDJSON 流回传检索、分解、推理、校验和最终结果，界面逐步展示进度。
@@ -26,7 +26,7 @@ Python Agent 把任意自然语言问题连接到现有 Human Knowledge Model，
 |---|---|---|
 | `HKM_MODEL_PROVIDER_NAME` | 是 | 页面显示的非敏感服务标签 |
 | `HKM_MODEL_BASE_URL` | 是 | HTTPS Responses API 根地址 |
-| `HKM_MODEL_API_KEY` | 是 | 仅注入受控 Codex 子进程的认证密钥 |
+| `HKM_MODEL_API_KEY` | 是 | 仅供服务端 Codex runtime 或 Responses 兼容请求使用的认证密钥 |
 | `HKM_MODEL_ID` | 是 | 启动后固定使用的模型 ID |
 | `HKM_MODEL_REASONING_EFFORT` | 否 | 模型支持时设置推理强度 |
 | `HKM_HOST` / `HKM_PORT` | 否 | 回环监听地址与端口，默认 `127.0.0.1:4317` |
@@ -36,7 +36,7 @@ Python Agent 把任意自然语言问题连接到现有 Human Knowledge Model，
 | `PORT` | 托管时 | 托管平台分配的服务端口 |
 | `HKM_RUNTIME_DIR` | 否 | Codex runtime 的可写临时目录 |
 
-自定义 Codex provider 使用 `wire_api = "responses"`。这是 Codex 当前支持的 provider 协议；Chat Completions-only 服务需要先增加 Responses 兼容层。配置由 `python-dotenv` 在启动时读取一次；修改 `.env` 必须重启。
+自定义 Codex provider 使用 `wire_api = "responses"`。这是 Codex 当前支持的 provider 协议；仅实现字符串 `input` 的 Responses provider 由内置兼容路径处理，Chat Completions-only 服务仍需先增加 Responses 兼容层。配置由 `python-dotenv` 在启动时读取一次；修改 `.env` 必须重启。
 
 ## 代码入口
 

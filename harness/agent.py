@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import threading
+import urllib.error
+import urllib.request
 from typing import Any, Callable
 
 from openai_codex import ApprovalMode, Codex, CodexConfig, Sandbox
@@ -106,6 +108,31 @@ def parse_analysis(value: Any) -> dict[str, Any]:
     return parsed
 
 
+def _extract_response_text(payload: dict[str, Any]) -> str:
+    direct = payload.get("output_text")
+    if isinstance(direct, str) and direct.strip():
+        return direct
+    chunks: list[str] = []
+    for item in payload.get("output") or []:
+        if not isinstance(item, dict) or item.get("type") != "message":
+            continue
+        for content in item.get("content") or []:
+            if isinstance(content, dict) and content.get("type") == "output_text":
+                text = content.get("text")
+                if isinstance(text, str):
+                    chunks.append(text)
+    return "\n".join(chunks).strip()
+
+
+def _is_input_format_error(error: Exception) -> bool:
+    text = str(error).lower()
+    return (
+        "400" in text
+        and "input" in text
+        and ("invalid" in text or "validation" in text or "deserialize" in text)
+    )
+
+
 class CodexAgent:
     """Long-lived SDK client with ephemeral, in-memory conversation threads."""
 
@@ -115,6 +142,7 @@ class CodexAgent:
         self.settings = settings
         self._client: Codex | None = None
         self._client_lock = threading.Lock()
+        self._responses_string_input = False
 
     def _get_client(self) -> Codex:
         with self._client_lock:
@@ -136,6 +164,29 @@ class CodexAgent:
         )
 
     def run_turn(
+        self,
+        thread,
+        prompt: str,
+        *,
+        on_progress: ProgressCallback | None = None,
+        on_turn: Callable[[Any], None] | None = None,
+    ) -> tuple[dict[str, Any], dict[str, Any] | None]:
+        if self._responses_string_input:
+            return self._run_direct_response(prompt, on_progress=on_progress)
+        try:
+            return self._run_codex_turn(
+                thread,
+                prompt,
+                on_progress=on_progress,
+                on_turn=on_turn,
+            )
+        except RuntimeError as error:
+            if not _is_input_format_error(error):
+                raise
+            self._responses_string_input = True
+            return self._run_direct_response(prompt, on_progress=on_progress)
+
+    def _run_codex_turn(
         self,
         thread,
         prompt: str,
@@ -182,6 +233,57 @@ class CodexAgent:
         if not final_response:
             raise RuntimeError("模型没有返回结构化分析结果。")
         return parse_analysis(final_response), usage
+
+    def _run_direct_response(
+        self,
+        prompt: str,
+        *,
+        on_progress: ProgressCallback | None = None,
+    ) -> tuple[dict[str, Any], dict[str, Any] | None]:
+        """Fallback for Responses providers that only accept a string input."""
+
+        if on_progress:
+            on_progress("reason", "模型提供方正在以 Responses 兼容模式生成分析")
+        request_payload = {
+            "model": self.settings.model_id,
+            "input": f"{BASE_INSTRUCTIONS}\n\n{DEVELOPER_INSTRUCTIONS}\n\n{prompt}",
+            "stream": False,
+            "max_output_tokens": 12000,
+            "text": {
+                "format": {
+                    "type": "json_schema",
+                    "name": "hkm_analysis",
+                    "strict": True,
+                    "schema": ANALYSIS_SCHEMA,
+                }
+            },
+        }
+        request = urllib.request.Request(
+            f"{self.settings.base_url}/responses",
+            data=json.dumps(request_payload, ensure_ascii=False).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {self.settings.api_key}",
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "User-Agent": "hkm-problem-studio/0.11",
+            },
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=180) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            body = error.read().decode("utf-8", errors="replace")[:2000]
+            raise RuntimeError(f"Responses compatibility request failed ({error.code}): {body}") from error
+        except (urllib.error.URLError, TimeoutError) as error:
+            raise RuntimeError(f"Responses compatibility request failed: {error}") from error
+        if not isinstance(payload, dict):
+            raise RuntimeError("Responses compatibility result is not a JSON object.")
+        output_text = _extract_response_text(payload)
+        if not output_text:
+            raise RuntimeError("Responses compatibility result did not contain output text.")
+        usage = payload.get("usage") if isinstance(payload.get("usage"), dict) else None
+        return parse_analysis(output_text), usage
 
     def close(self) -> None:
         with self._client_lock:
